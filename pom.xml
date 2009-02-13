@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.discursive.cjcook</groupId>
+  <artifactId>book</artifactId>
+  <version>0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Common Java Cookbook</name>
+  <description>A Common Cookbook for Java</description>
+  <url>http://www.discursive.com/books/cjcook</url>
+  <organization>
+    <name>Discursive</name>
+    <url>http://www.discursive.com</url>
+  </organization>
+  <properties>
+    <book.title>Common Java Cookbook</book.title>
+    <book.subtitle>A Common Cookbook for Java</book.subtitle>
+    <organization.address>626 Grove St., Suite 201, Evanston, IL 60202</organization.address>
+    <organization.slogan>Discursive</organization.slogan>
+    <organization.logo>../images/discursive-logo.png</organization.logo>
+    <copyright.year>2009</copyright.year>
+  </properties>
+  <developers>
+    <developer>
+      <id>tobrien</id>
+      <name>Tim O'Brien</name>
+      <email>tobrien@discursive.com</email>
+      <organization>Discursive</organization>
+      <organizationUrl>http://www.discursive.com</organizationUrl>
+      <roles>
+        <role>Author</role>
+      </roles>
+    </developer>
+  </developers>
+  <modules>
+    <module>content</module>
+  </modules>
+  
+  <profiles>
+    <profile>
+      <id>publish</id>
+      <distributionManagement>
+        <site>
+          <id>discursive-site</id>
+          <name>Discursive Site</name>
+          <url>scp://deployer@mars.discursive.com/var/www/html/www.discursive.com/books/cjcook/parent</url>
+        </site>
+      </distributionManagement>
+      <properties>
+      </properties>
+    </profile>
+    <profile>
+      <id>stage</id>
+      <distributionManagement>
+        <site>
+          <id>discursive-site</id>
+          <name>Discursive Site</name>
+          <url>scp://deployer@mars.discursive.com/var/www/html/www.discursive.com/books/cjcook-stage/parent</url>
+        </site>
+      </distributionManagement>
+    </profile>
+  </profiles>
+</project>
