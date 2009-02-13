@@ -1,0 +1,186 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>9.11.3.&nbsp;Discussion</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-9-SECT-11.html" title="9.11.&nbsp;Using a Complex Scripting Engine">
+      <link rel="prev" href="jakartackbk-CHP-9-SECT-11.2.html" title="9.11.2.&nbsp;Solution">
+      <link rel="next" href="jakartackbk-CHP-9-SECT-11.4.html" title="9.11.4.&nbsp;See Also">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-9-SECT-11.2.html">9.11.2.&nbsp;Solution</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-9-SECT-11.4.html">9.11.4.&nbsp;See Also</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-9-SECT-11.3"></a>9.11.3.&nbsp;Discussion
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>In the template for this recipe, three objects are retrieved from an
+                  <code class="literal">Enrollment</code> object: a <code class="literal">course</code>
+                  property, a <code class="literal">student</code> property, and a
+                  <code class="literal">List</code> of <code class="literal">Exam</code> objects. Three
+                  variables&#8212;<code class="literal">course</code>,
+                  <code class="literal">student</code>, and <code class="literal">exam</code>&#8212;are
+                  created with the <code class="literal">&lt;#assign&gt;</code> directive,
+                  <code class="literal">&lt;#assign</code> 
+                                 <code class="literal">variable = expression
+                     &gt;</code>. Properties are referenced as they were referenced in
+                  JEXL and Velocity; <code class="literal">${enrollment.student}</code> is used
+                  to access the <code class="literal">student</code> property on the
+                  <code class="literal">enrollment</code>. A student's final
+                  course grade is calculated in a macro by calling
+                  <code class="literal">&lt;@final</code> 
+                                 <code class="literal">exams=exams/&gt;</code>.
+                  This macro assigns a global template variable,
+                  <code class="literal">final</code>, which is formatted to one decimal place
+                  with the expression <code class="literal">${final; m1M1}</code>.
+               </p>
+               <p>At first glance, a FreeMarker template looks very similar to a
+                  Velocity template, but there are several interesting features not
+                  available in Velocity:
+               </p>
+               <div class="variablelist">
+                  <dl>
+                     <dt><span class="term">Formatting dates and numbers</span></dt>
+                     <dd>
+                        <p>Our date object was formatted with the expression
+                           <code class="literal">${exam.date?date?string.short}</code>.
+                           <code class="literal">?date</code> instructs the engine to take only the day,
+                           month, and year portion of the date, and
+                           <code class="literal">?string.short</code> tells FreeMarker to use the
+                           locale's short-date format (12/31/04). You can also
+                           specify your own date format using the same syntax you would use in
+                           <code class="literal">SimpleDateFormat</code>. The expression
+                           <code class="literal">${exam.date?string("MM-dd-yyyy hh:mm:ss")}</code> would
+                           output a string similar to "12-31-2004
+                           04:23:22."
+                        </p>
+                     </dd>
+                     <dt><span class="term">Comparing dates and numbers</span></dt>
+                     <dd>
+                        <p>FreeMarker can compare dates and numbers, both integer and floating
+                           point.
+                        </p>
+                     </dd>
+                     <dt><span class="term">Macros with named parameters</span></dt>
+                     <dd>
+                        <p>Macros can be invoked with named parameters. For example, the
+                           <code class="literal">@letter</code> macro can be invoked with named
+                           parameters: <code class="literal">&lt;@letter</code>
+                                                   <code class="literal">team="Boston</code> 
+                                                   <code class="literal">Celtics</code>"
+                           <code class="literal">score="34"&gt;&lt;/@letter&gt;</code>.
+                        </p>
+                     </dd>
+                  </dl>
+               </div>
+               <p>Here are some other interesting FreeMarker features not available in
+                  Velocity:
+               </p>
+               <div class="itemizedlist">
+                  <ul type="disc">
+                     <li>
+                        <p>Namespaces for variables and macros</p>
+                     </li>
+                     <li>
+                        <p>"Built-in" functions for basic
+                           types
+                        </p>
+                     </li>
+                     <li>
+                        <p>Access to XML document objects</p>
+                     </li>
+                     <li>
+                        <p>Improved looping</p>
+                     </li>
+                     <li>
+                        <p>Local macro variables</p>
+                     </li>
+                     <li>
+                        <p>Built-in XML and HTML escaping</p>
+                     </li>
+                  </ul>
+               </div>
+               <div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+                  <h3 class="title"><a name="jakartackbk-CHP-9-NOTE-67"></a>Tip
+                  </h3>
+                  <p>Velocity has a very large user base, and it is the right tool for a
+                     simple job. FreeMarker has some very useful features
+                     "out of the box," while Velocity
+                     requires developers to install supporting utilities or write these
+                     "extensions" from scratch. Some
+                     developers will prefer a templating language that is simple by
+                     design, and others need a tool that is substantially more complex.
+                     There is a case to be made for simplicity. If you working on a large
+                     team, where you have content authors who need to create and maintain
+                     your templates, you may want to use a technology like Velocity that
+                     embraces simplicity. Open source communities benefit from healthy
+                     cross-pollination of ideas and competition, and FreeMarker was
+                     developed as an alternative to Jakarta Velocity; they even have a
+                     feature comparison page (<code class="systemitem">http://www.freemarker.org/fmVsVel.html</code>).
+                  </p>
+               </div>
+            </div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-9-SECT-11.2.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-9-SECT-11.4.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">9.11.2.&nbsp;Solution&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;9.11.4.&nbsp;See Also</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

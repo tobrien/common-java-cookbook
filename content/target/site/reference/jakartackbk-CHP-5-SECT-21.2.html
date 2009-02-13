@@ -1,0 +1,117 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>5.21.2.&nbsp;Solution</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-5-SECT-21.html" title="5.21.&nbsp;Retrieving Map Values Without Casting">
+      <link rel="prev" href="jakartackbk-CHP-5-SECT-21.html" title="5.21.&nbsp;Retrieving Map Values Without Casting">
+      <link rel="next" href="jakartackbk-CHP-5-SECT-21.3.html" title="5.21.3.&nbsp;Discussion">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-5-SECT-21.html">5.21.&nbsp;Retrieving Map Values Without Casting</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-5-SECT-21.3.html">5.21.3.&nbsp;Discussion</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-5-SECT-21.2"></a>5.21.2.&nbsp;Solution
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>Use <code class="literal">MapUtils.getDoubleValue()</code>
+                                 <a class="indexterm" name="jakartackbk-CHP-5-ITERM-2682"></a>
+                                 <a class="indexterm" name="jakartackbk-CHP-5-ITERM-2683"></a> to retrieve a <code class="literal">Double</code>
+                  object from a <code class="literal">Map</code> as a <code class="literal">double</code>
+                  primitive. The following example demonstrates
+                  <code class="literal">getDoubleValue( )</code>:
+               </p><a name="I_5_tt255"></a><pre class="programlisting">import java.util.*;
+import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.collections.MapUtils;
+
+Object[] mapArray = new Object[][] {
+    { "A", new Double( 2.0 ) },
+    { "B", new Double( 0.223242 ) },
+    { "C", new Double( 2828e4 ) },
+    { "D", "GARBAGE"} };
+
+Map numberMap = ArrayUtils.toMap( mapArray );
+
+double a = MapUtils.getDoubleValue( numberMap, "A" );
+double b = MapUtils.getDoubleValue( numberMap, "B" );
+double c = MapUtils.getDoubleValue( numberMap, "C" );
+double d = MapUtils.getDoubleValue( numberMap, "D", new Double( Double.NaN ) );
+
+System.out.println( "A = " + a );
+System.out.println( "B = " + b );
+System.out.println( "C = " + c );
+System.out.println( "D = " + d );</pre><p>This simple utility retrieves four doubles from
+                  <code class="literal">numberMap</code>; the fourth call to
+                  <code class="literal">getDoubleValue( )</code> supplies a default
+                  <code class="literal">double</code> to be returned if the
+                  value's type cannot be converted to a
+                  <code class="literal">double</code>. This example produces the following
+                  output:
+               </p><a name="I_5_tt256"></a><pre class="programlisting">A = 2.0
+B = 0.223242
+C = 28280.0
+D = NaN</pre></div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-5-SECT-21.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-5-SECT-21.3.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">5.21.&nbsp;Retrieving Map Values Without Casting&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;5.21.3.&nbsp;Discussion</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

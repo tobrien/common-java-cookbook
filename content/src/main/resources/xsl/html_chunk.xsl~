@@ -297,7 +297,7 @@
                                 <td width="20%" align="center">
                                     <span style="color:white;font-size:90%;">
                                         <a href="http://www.sonatype.com/"
-                                           title="Sonatype: Build Success for your Enterprise">Sponsored by Sonatype
+                                           title="${organization.name}: ${organization.slogan}">Sponsored by ${organization.name}
                                         </a>
                                     </span>
                                 </td>
@@ -314,16 +314,14 @@
             </div>
             <br/>
             <center>
-              Copyright 2008. Sonatype, Inc. All Rights Reserved.
+              Copyright ${copyright.year}. ${organization.name}. All Rights Reserved.
             </center>
 <script type="text/javascript">
   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-1693297-1");
-pageTracker._initData();
-pageTracker._setDomainName(".sonatype.com");
+var pageTracker = _gat._getTracker("${google.analytics.id}");
 pageTracker._trackPageview();
 </script>
 

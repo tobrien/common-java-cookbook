@@ -1,0 +1,112 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>7.7.3.&nbsp;Discussion</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-7-SECT-7.html" title="7.7.&nbsp;Configuring Applications with XML">
+      <link rel="prev" href="jakartackbk-CHP-7-SECT-7.2.html" title="7.7.2.&nbsp;Solution">
+      <link rel="next" href="jakartackbk-CHP-7-SECT-7.4.html" title="7.7.4.&nbsp;See Also">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-7-SECT-7.2.html">7.7.2.&nbsp;Solution</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-7-SECT-7.4.html">7.7.4.&nbsp;See Also</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-7-SECT-7.3"></a>7.7.3.&nbsp;Discussion
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>Passing a <code class="literal">String</code> to the constructor of
+                  <code class="literal">DOMConfiguration</code> loads an XML document from the
+                  classpath as a resource. If you need to load XML configuration from a
+                  file, pass a <code class="literal">File</code> object to the
+                  <code class="literal">DOMConfiguration</code> constructor. Configuration
+                  parameters are retrieved using methods from the
+                  <code class="literal">Configuration</code> interface, and parameters are
+                  referenced using a syntax that resembles XPath. Subelements are
+                  referenced by appending a period and the subelement name to the name
+                  of an element; in this example, <code class="literal">name.first</code>
+                  references the subelement <code class="literal">first</code> of the element
+                  <code class="literal">name</code>. Attributes are referenced by prefixing an
+                  attribute name with an @ and surrounding the reference with brackets;
+                  in this example, <code class="literal">start-critera.criteria(0)[@type]</code>
+                  references the <code class="literal">type</code> attribute of the
+                  <code class="literal">criteria</code> element. Specific elements in a list of
+                  elements are referenced by surrounding the index with parentheses;
+                  <code class="literal">start-criteria.criteria(0)</code> references the first
+                  <code class="literal">criteria</code> element.
+               </p>
+               <p>
+                                 <code class="literal">DOMConfiguration</code> will only work if the Xerces XML
+                  parser is available in your classpath. If Xerces is not available,
+                  you may use another implementation of
+                  <code class="literal">XMLConfiguration</code>,
+                  <code class="literal">DOM4JConfiguration</code>, which is written to parse an
+                  XML document using DOM4J. To use the
+                  <code class="literal">DOM4JConfiguration</code>, make sure that DOM4J is in
+                  your classpath, and interchange <code class="literal">DOM4JConfiguration</code>
+                  with <code class="literal">DOMConfiguration</code> from the previous example.
+               </p>
+            </div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-7-SECT-7.2.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-7-SECT-7.4.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">7.7.2.&nbsp;Solution&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;7.7.4.&nbsp;See Also</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

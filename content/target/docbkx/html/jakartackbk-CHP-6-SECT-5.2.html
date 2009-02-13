@@ -1,0 +1,197 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>6.5.2.&nbsp;Solution</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-6-SECT-5.html" title="6.5.&nbsp;Variable Substitution and XML Parsing">
+      <link rel="prev" href="jakartackbk-CHP-6-SECT-5.html" title="6.5.&nbsp;Variable Substitution and XML Parsing">
+      <link rel="next" href="jakartackbk-CHP-6-SECT-5.3.html" title="6.5.3.&nbsp;Discussion">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-6-SECT-5.html">6.5.&nbsp;Variable Substitution and XML Parsing</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-6-SECT-5.3.html">6.5.3.&nbsp;Discussion</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-6-SECT-5.2"></a>6.5.2.&nbsp;Solution
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>Use Commons Digester's
+                  <code class="literal">MultiVariableExpander</code>
+                                 <a class="indexterm" name="jakartackbk-CHP-6-ITERM-2736"></a>
+                  and the
+                  <code class="literal">VariableSubstitutor</code>
+                                 <a class="indexterm" name="jakartackbk-CHP-6-ITERM-2737"></a>
+                  to expand variable references in an XML document during a parse.
+               </p>
+               <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+                  <h3 class="title"><a name="jakartackbk-CHP-6-NOTE-59"></a>Warning
+                  </h3>
+                  <p>This recipe explores a feature of Commons Digester&#8212;variable
+                     substitution&#8212;which is available only with a prerelease version
+                     of Digester, 1.6-dev. To follow the example in this recipe, you must
+                     download a nightly snapshot distribution from <code class="systemitem">http://cvs.apache.org/builds/jakarta-commons/nightly/</code>.
+                     Use nightly distributions of Commons components at your own risk;
+                     these distributions may contain unresolved bugs.
+                  </p>
+               </div>
+               <p>The following XML document contains four variable
+                  references&#8212;<code class="filename">${email.to}</code>,
+                  <code class="filename">${order.id}</code>, <code class="filename">tobrien</code>,
+                  and <code class="filename">${product.name}&#8212;</code>all of which need to
+                  be replaced with values before the XML is parsed by the
+                  <code class="literal">Digester</code>:
+               </p><a name="I_6_tt277"></a><pre class="programlisting">&lt;?xml version="1.0"?&gt;
+
+&lt;email to="${email.to}" from="ceo@xyzblah.com"&gt;
+  &lt;subject&gt;Purchase Confirmation: ${order.id}&lt;/subject&gt;
+  &lt;priority&gt;High&lt;/priority&gt;
+  &lt;message&gt;
+    Dear tobrien, we appreciate your business. As CEO
+    of Big Software Company, Inc., I would like to
+    personally thank you for helping us become filthy rich.
+    Your purchase of ${product.name} helped me purchase an 
+    even larger boat for myself.  Thanks again.
+  &lt;/message&gt;
+&lt;/email&gt;</pre><p>This document represents a purchase confirmation message, and your
+                  system needs to unmarshall the above message to the following class,
+                  <code class="literal">Email</code>:
+               </p><a name="I_6_tt278"></a><pre class="programlisting">public class Email {
+    private String to;
+    private String from;
+    private String subject;
+    private String priority;
+
+    // accessors omitted for brevity.
+}</pre><p>The following XML rule set is similar to the rule set defined in
+                  <a href="jakartackbk-CHP-6-SECT-2.html" title="6.2.&nbsp;Turning XML Documents into Objects">Recipe 6.2</a>. When the parser hits an
+                  <code class="literal">email</code> element, an instance of
+                  <code class="literal">Email</code> is created and properties are populated:
+               </p><a name="I_6_tt279"></a><pre class="programlisting">&lt;?xml version="1.0"?&gt;
+
+&lt;digester-rules&gt;
+  &lt;pattern value="email"&gt;
+    &lt;object-create-rule classname="com.discursive.jccook.xml.bean.Email"/&gt;
+    &lt;set-next-rule methodname="add" paramtype="java.lang.Object"/&gt;
+    &lt;set-properties-rule/&gt;
+    &lt;bean-property-setter-rule pattern="subject"/&gt;
+    &lt;bean-property-setter-rule pattern="priority"/&gt;
+    &lt;bean-property-setter-rule pattern="message"/&gt;
+  &lt;/pattern&gt;
+&lt;/digester-rules&gt;</pre><p>This difference between this recipe and <a href="jakartackbk-CHP-6-SECT-2.html" title="6.2.&nbsp;Turning XML Documents into Objects">Recipe 6.2</a> is that our XML document contains variables to
+                  be replaced at parse time. The following code creates a
+                  <code class="literal">Map</code> that contains variables referenced in the XML
+                  document being parsed. This code creates the variable
+                  <code class="literal">Map</code>, reads the XML rule set from
+                  <code class="filename">email-rules.xml</code>, and parses the XML document
+                  <code class="filename">email.xml</code>:
+               </p><a name="I_6_tt280"></a><pre class="programlisting">import org.apache.commons.digester.Digester;
+import org.apache.commons.digester.Substitutor;
+import org.apache.commons.digester.substitution.MultiVariableExpander;
+import org.apache.commons.digester.substitution.VariableSubstitutor;
+import org.apache.commons.digester.xmlrules.DigesterLoader;
+
+// Read the Digester XML rule set and create Digester
+URL rules = getClass( ).getResource("./email-rules.xml");
+Digester digester = DigesterLoader.createDigester(rules);
+
+// Create object to push onto Digester Stack
+List emails = new ArrayList( );
+digester.push( emails );
+
+<strong class="userinput"><code>// Create Map of variables</code></strong>
+               <strong class="userinput"><code>Map vars = new HashMap( );</code></strong>
+               <strong class="userinput"><code>vars.put("email.to", "ldavid@hbo.com");</code></strong>
+               <strong class="userinput"><code>vars.put("user.name", "Tim");</code></strong>
+               <strong class="userinput"><code>vars.put("order.id", "1RR2E223WVVS" );</code></strong>
+               <strong class="userinput"><code>vars.put("product.name", "Foundation" );</code></strong>
+               <strong class="userinput"><code>        </code></strong>
+               <strong class="userinput"><code>// Create an expander with the Map that matches ${var}</code></strong>
+               <strong class="userinput"><code>MultiVariableExpander expander = new MultiVariableExpander( );</code></strong>
+               <strong class="userinput"><code>expander.addSource("$", vars);</code></strong>
+
+               <strong class="userinput"><code>// Create a substitutor with the expander</code></strong>
+               <strong class="userinput"><code>Substitutor substitutor = new VariableSubstitutor(expander);</code></strong>
+               <strong class="userinput"><code>digester.setSubstitutor(substitutor);</code></strong>
+        
+// Parse XML document
+InputStream input = getClass( ).getResourceAsStream("./email.xml");
+digester.parse( input );
+
+// Retrieve Email object
+Email email = (Email) emails.get(0);
+System.out.println( "Email Subject: " + email.getSubject( ) );
+System.out.println( "Email To: " + email.getTo( ) );</pre><p>Variable substitution is performed by a
+                  <code class="literal">VariableSubstitutor</code> that has been configured with
+                  a <code class="literal">MultiVariableExpander</code>. The
+                  <code class="literal">MultiVariableExpander</code> retrieves variables from a
+                  <code class="literal">Map</code>, and, in this example, the <code class="literal">addSource(
+                     )</code> method is called with a <code class="literal">$</code> marker. This
+                  means that variables are referenced by surrounding a variable name
+                  with <code class="literal">${</code> and <code class="literal">}--${variable}</code>. The
+                  previous example produces the following output, which demonstrates
+                  the substitution of variables:
+               </p><a name="I_6_tt281"></a><pre class="programlisting">Email Subject: Purchase Confirmation: 1RR2E223WVVS
+Email To: ldavid@hbo.com</pre></div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-6-SECT-5.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-6-SECT-5.3.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">6.5.&nbsp;Variable Substitution and XML Parsing&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;6.5.3.&nbsp;Discussion</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

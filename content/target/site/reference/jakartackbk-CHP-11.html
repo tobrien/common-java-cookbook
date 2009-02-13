@@ -1,0 +1,283 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;11.&nbsp;HTTP and WebDAV</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="prev" href="jakartackbk-CHP-10-SECT-17.4.html" title="10.17.4.&nbsp;See Also">
+      <link rel="next" href="jakartackbk-CHP-11-SECT-1.html" title="11.1.&nbsp;Obtaining Jakarta HttpClient">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-10-SECT-17.4.html">10.17.4.&nbsp;See Also</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-11-SECT-1.html">11.1.&nbsp;Obtaining Jakarta HttpClient</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="chapter" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title"><a name="jakartackbk-CHP-11"></a>Chapter&nbsp;11.&nbsp;HTTP and WebDAV
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="toc">
+                  <dl>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11.html#ch11-2-fm2xml">11.1. Introduction</a></span></dt>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-1.html">11.1. Obtaining Jakarta HttpClient</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-1.html#jakartackbk-CHP-11-SECT-1.1">11.1.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-1.2.html">11.1.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-1.3.html">11.1.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-1.4.html">11.1.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-2.html">11.2. Getting Jakarta HttpClient Source Code</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-2.html#jakartackbk-CHP-11-SECT-2.1">11.2.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-2.2.html">11.2.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-2.3.html">11.2.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-2.4.html">11.2.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-3.html">11.3. Performing an HTTP GET</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-3.html#jakartackbk-CHP-11-SECT-3.1">11.3.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-3.2.html">11.3.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-3.3.html">11.3.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-3.4.html">11.3.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-4.html">11.4. Sending Parameters in a Query String</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-4.html#jakartackbk-CHP-11-SECT-4.1">11.4.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-4.2.html">11.4.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-4.3.html">11.4.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-4.4.html">11.4.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-5.html">11.5. Retrieving Content with a Conditional GET</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-5.html#jakartackbk-CHP-11-SECT-5.1">11.5.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-5.2.html">11.5.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-5.3.html">11.5.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-5.4.html">11.5.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-6.html">11.6. Debugging HTTP Communications</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-6.html#jakartackbk-CHP-11-SECT-6.1">11.6.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-6.2.html">11.6.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-6.3.html">11.6.3. Discussion</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-7.html">11.7. Making an HTTP POST Request</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-7.html#jakartackbk-CHP-11-SECT-7.1">11.7.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-7.2.html">11.7.2. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-7.3.html">11.7.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-7.4.html">11.7.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-8.html">11.8. Sending POST Data from a File</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-8.html#jakartackbk-CHP-11-SECT-8.1">11.8.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-8.2.html">11.8.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-8.3.html">11.8.3. Discussion</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-9.html">11.9. Uploading Files with a Multipart POST</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-9.html#jakartackbk-CHP-11-SECT-9.1">11.9.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-9.2.html">11.9.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-9.3.html">11.9.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-9.4.html">11.9.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-10.html">11.10. Basic Authentication</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-10.html#jakartackbk-CHP-11-SECT-10.1">11.10.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-10.2.html">11.10.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-10.3.html">11.10.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-10.4.html">11.10.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-11.html">11.11. NTLM Authentication</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-11.html#jakartackbk-CHP-11-SECT-11.1">11.11.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-11.2.html">11.11.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-11.3.html">11.11.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-11.4.html">11.11.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-12.html">11.12. Working with Cookies</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-12.html#jakartackbk-CHP-11-SECT-12.1">11.12.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-12.2.html">11.12.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-12.3.html">11.12.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-12.4.html">11.12.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-13.html">11.13. Handling Redirects</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-13.html#jakartackbk-CHP-11-SECT-13.1">11.13.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-13.2.html">11.13.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-13.3.html">11.13.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-13.4.html">11.13.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-14.html">11.14. SSL</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-14.html#jakartackbk-CHP-11-SECT-14.1">11.14.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-14.2.html">11.14.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-14.3.html">11.14.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-14.4.html">11.14.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-15.html">11.15. Accepting a Self-Signed Certificate</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-15.html#jakartackbk-CHP-11-SECT-15.1">11.15.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-15.2.html">11.15.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-15.3.html">11.15.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-15.4.html">11.15.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-16.html">11.16. Obtaining Jakarta Slide</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-16.html#jakartackbk-CHP-11-SECT-16.1">11.16.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-16.2.html">11.16.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-16.3.html">11.16.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-16.4.html">11.16.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-17.html">11.17. Connecting to WebDAV Resources</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-17.html#jakartackbk-CHP-11-SECT-17.1">11.17.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-17.2.html">11.17.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-17.3.html">11.17.3. Discussion</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-18.html">11.18. Modifying a WebDAV Resource</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-18.html#jakartackbk-CHP-11-SECT-18.1">11.18.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-18.2.html">11.18.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-18.3.html">11.18.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-18.4.html">11.18.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+               <div class="sect1" lang="en">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h2 class="title" style="clear: both"><a name="ch11-2-fm2xml"></a>11.1.&nbsp;Introduction
+                           </h2>
+                           <div class="section-icon"></div>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The <a class="indexterm" name="jakartackbk-CHP-11-ITERM-3195"></a>Hypertext Transfer
+                     <a class="indexterm" name="jakartackbk-CHP-11-ITERM-3196"></a>Protocol (HTTP) is ubiquitous; this
+                     protocol is at the core of important technologies such as the
+                     <a class="indexterm" name="jakartackbk-CHP-11-ITERM-3197"></a>World
+                     Wide Web (WWW), the <a class="indexterm" name="jakartackbk-CHP-11-ITERM-3198"></a>Simple Object Access
+                     Protocol (SOAP), <a class="indexterm" name="jakartackbk-CHP-11-ITERM-3199"></a>XML databases, content management
+                     systems, WebDAV, and, most importantly, iTunes. Much of the
+                     world's business is accomplished over HTTP in some
+                     form or another, and if this protocol were to suddenly vanish, a
+                     sizable portion of the world economy would vanish with it. Given this
+                     ubiquity, it is likely that you've had occasion to
+                     write a Java program that needed to fetch a web page or interact with
+                     a servlet or CGI script. While the J2SE contains some rudimentary
+                     tools to communicate via HTTP, the feature set of
+                     <code class="literal">URLConnection</code> is somewhat limited. This chapter
+                     introduces Jakarta HttpClient, a set of utilities that simplifies the
+                     task of retrieving and sending information over HTTP.
+                  </p>
+                  <p>Jakarta HttpClient grew up in the Jakarta Commons, and until April
+                     2004 it was a Commons project. It has only recently graduated to a
+                     full Jakarta project, and it is still visible as a part of the
+                     Jakarta Commons subproject. This chapter refers to HttpClient as
+                     Jakarta HttpClient, but you should be aware that most of the
+                     documentation and support still refer to the project as Jakarta
+                     Commons HttpClient until the project has successfully
+                     <a class="indexterm" name="jakartackbk-CHP-11-ITERM-3200"></a>migrated out of
+                     the Jakarta Commons.
+                  </p>
+               </div>
+            </div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-10-SECT-17.4.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-11-SECT-1.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">10.17.4.&nbsp;See Also&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;11.1.&nbsp;Obtaining Jakarta HttpClient</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

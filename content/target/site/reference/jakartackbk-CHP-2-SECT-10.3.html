@@ -1,0 +1,135 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>2.10.3.&nbsp;Discussion</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-2-SECT-10.html" title="2.10.&nbsp;Wrapping Words">
+      <link rel="prev" href="jakartackbk-CHP-2-SECT-10.2.html" title="2.10.2.&nbsp;Solution">
+      <link rel="next" href="jakartackbk-CHP-2-SECT-11.html" title="2.11.&nbsp;Testing the Contents of a String">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-2-SECT-10.2.html">2.10.2.&nbsp;Solution</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-2-SECT-11.html">2.11.&nbsp;Testing the Contents of a String</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-2-SECT-10.3"></a>2.10.3.&nbsp;Discussion
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>When <code class="literal">WordUtils</code> wraps a string, it takes a
+                  user-supplied line termination sequence like <code class="literal">\n</code> or
+                  <code class="literal">\r\n</code> and inserts this line termination sequence
+                  after a specified number of characters, without splitting a word. In
+                  the next example, if the user is using a hand-held device, the number
+                  of columns in the display is 40, and a new line is represented by the
+                  sequence <code class="literal">\r\n</code>. On a workstation, the number of
+                  available columns is 80, and a new line is a single
+                  <code class="literal">\n</code> character. The platform is available as the
+                  System property <code class="literal">application.platform</code>:
+               </p><a name="I_2_tt87"></a><pre class="programlisting">String message = "Four score and seven years ago, our fathers " +
+                 "brought forth upon this continent a new nation: " +
+                 "conceived in liberty, and dedicated to the proposition " +
+                 "that all men are created equal. ";
+
+// Define variables to hold two parameters to word wrapping 
+int cols; 
+String lineSeparator = "";
+
+// Retrieve the platform property from System 
+String platform = System.getProperty("application.platform");
+if( platform.equals( "Handheld" ) ) {
+    cols = 40;
+    lineSeparator = "\r\n";
+} else if( platform.equals( "Workstation" ) {
+    cols = 80;
+    lineSeparator = "\n";
+}
+
+// Wrap the text.
+String wrappedString = 
+    WordUtils.wrapText( message, cols, lineSeparator, true );</pre><p>Depending on the platform, the <code class="literal">wrappedString</code>
+                  variable now holds the initial paragraph of the Gettysburg Address
+                  wrapped to fit either a 40-column handheld device or an application
+                  running on a workstation with an 80-column display.
+               </p>
+               <p>To wrap text for presentation on the Web, use the line termination
+                  sequence <code class="literal">&lt;br/&gt;</code> to add an HMTL line break.
+                  The following example wraps text with <code class="literal">&lt;br/&gt;</code>,
+                  and introduces an option to prevent <code class="literal">WordUtils</code> from
+                  wrapping larger words:
+               </p><a name="I_2_tt88"></a><pre class="programlisting">String message = "Four score and seven years ago, our fathers " +
+                 "brought forth upon this continent a new nation: conceived " +
+                 "in liberty, and dedicated to the proposition that all men " +
+                 "are created equal. <strong class="userinput"><code>http://www.oreilly.com/Gettysburg</code></strong> ";
+
+// Wrap the text.
+String wrappedString = WordUtils.wrap( message, 40, "&lt;br/&gt;", false );</pre><p>In this example, the Gettysburg Address is formatted to fit into 40
+                  columns in an HTML document. The final parameter to the
+                  <code class="literal">WordUtils.wrap( )</code> method tells the wrapping
+                  algorithm not to bother wrapping large words, such as the long URL at
+                  the end of the text. Wrapping a long word would prevent people from
+                  being able to copy this URL correctly.
+               </p>
+            </div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-2-SECT-10.2.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-2-SECT-11.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">2.10.2.&nbsp;Solution&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;2.11.&nbsp;Testing the Contents of a String</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

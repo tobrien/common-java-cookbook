@@ -1,0 +1,1790 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Jakarta Commons Cookbook</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <meta name="description" content="This collection provides expert tips for using the utilities of the Java-based Jakarta Commons open source project. You don't have to be an expert, the book's solution-based format contains code examples for a wide variety of web, XML, network, testing, and application projects. If you want to learn how to use Jakarta Commons utilities to create powerful Java applications and tools, the Jakarta Commons Cookbook is for you.">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="next" href="jakartackbk-PREFACE-1.html" title="Copyright">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left">&nbsp;</td>
+                     <td width="20%" align="center">&nbsp;</td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-PREFACE-1.html">Copyright</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="book" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h1 class="title"><a name="I__tt2"></a>Jakarta Commons Cookbook
+                        </h1>
+                     </div>
+                     <div>
+                        <div class="authorgroup">
+                           <h2>Authors</h2>
+                           <p></p><span class="author"><span class="firstname">Timothy M.</span> <span class="surname">O'Brien</span> 
+                                          ()
+                                          </span></div>
+                     </div>
+                     <div>
+                        <div class="abstract">
+                           <p class="title"><b>Abstract</b></p>
+                           <p>This collection provides expert tips for using the utilities
+                              of the Java-based Jakarta Commons open source project. You
+                              don't have to be an expert, the book's solution-based format
+                              contains code examples for a wide variety of web, XML,
+                              network, testing, and application projects. If you want to
+                              learn how to use Jakarta Commons utilities to create
+                              powerful Java applications and tools, the <span class="emphasis"><em>Jakarta
+                                    Commons Cookbook</em></span> is for you. 
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <hr>
+               </div>
+               <div class="toc">
+                  <dl>
+                     <dt><span class="preface"><a href="jakartackbk-PREFACE-1.html">Copyright</a></span></dt>
+                     <dt><span class="preface"><a href="jakartackbk-PREFACE-2.html">Preface</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect1"><a href="jakartackbk-PREFACE-2.html#jakartackbk-PREFACE-2-SECT-1">1. What's Inside</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-PREFACE-2-SECT-2.html">2. Conventions Used in This Book</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-PREFACE-2-SECT-3.html">3. What You'll Need</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-PREFACE-2-SECT-4.html">4. The Jakarta Commons Community</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-PREFACE-2-SECT-5.html">5. The Apache Software License</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-PREFACE-2-SECT-7.html">6. We'd Like to Hear from You</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-PREFACE-2-SECT-8.html">7. Acknowledgments (1st Edition)</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="chapter"><a href="jakartackbk-CHP-1.html">1. Supplements to the Java 2 Platform</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1.html#ch01-2-fm2xml">1.1. Introduction</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-1.html">1.1. Obtaining Commons Lang</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-1.html#jakartackbk-CHP-1-SECT-1.1">1.1.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-1.2.html">1.1.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-1.3.html">1.1.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-1.4.html">1.1.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-2.html">1.2. Joining the Commons-User Mailing List</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-2.html#jakartackbk-CHP-1-SECT-2.1">1.2.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-2.2.html">1.2.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-2.3.html">1.2.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-2.4.html">1.2.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-3.html">1.3. Getting the Commons Lang Source Code</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-3.html#jakartackbk-CHP-1-SECT-3.1">1.3.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-3.2.html">1.3.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-3.3.html">1.3.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-3.4.html">1.3.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-4.html">1.4. Automating the Generation of toString( ) Content</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-4.html#jakartackbk-CHP-1-SECT-4.1">1.4.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-4.2.html">1.4.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-4.3.html">1.4.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-5.html">1.5. Customizing Generated toString( ) Content</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-5.html#jakartackbk-CHP-1-SECT-5.1">1.5.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-5.2.html">1.5.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-5.3.html">1.5.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-6.html">1.6. Automating hashCode( ) and equals( )</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-6.html#jakartackbk-CHP-1-SECT-6.1">1.6.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-6.2.html">1.6.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-6.3.html">1.6.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-7.html">1.7. Automating compareTo( )</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-7.html#jakartackbk-CHP-1-SECT-7.1">1.7.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-7.2.html">1.7.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-7.3.html">1.7.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-7.4.html">1.7.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-8.html">1.8. Printing an Array</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-8.html#jakartackbk-CHP-1-SECT-8.1">1.8.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-8.2.html">1.8.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-8.3.html">1.8.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-9.html">1.9. Cloning and Reversing Arrays</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-9.html#jakartackbk-CHP-1-SECT-9.1">1.9.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-9.2.html">1.9.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-9.3.html">1.9.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-10.html">1.10. Transforming Between Object Arraysand Primitive Arrays</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-10.html#jakartackbk-CHP-1-SECT-10.1">1.10.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-10.2.html">1.10.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-10.3.html">1.10.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-10.4.html">1.10.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-11.html">1.11. Finding Items in an Array</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-11.html#jakartackbk-CHP-1-SECT-11.1">1.11.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-11.2.html">1.11.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-11.3.html">1.11.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-11.4.html">1.11.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-12.html">1.12. Creating a Map from a Multidimensional Array</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-12.html#jakartackbk-CHP-1-SECT-12.1">1.12.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-12.2.html">1.12.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-12.3.html">1.12.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-12.4.html">1.12.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-13.html">1.13. Formatting Dates</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-13.html#jakartackbk-CHP-1-SECT-13.1">1.13.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-13.2.html">1.13.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-13.3.html">1.13.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-13.4.html">1.13.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-14.html">1.14. Rounding Date Objects</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-14.html#jakartackbk-CHP-1-SECT-14.1">1.14.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-14.2.html">1.14.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-14.3.html">1.14.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-14.4.html">1.14.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-15.html">1.15. Truncating Date Objects</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-15.html#jakartackbk-CHP-1-SECT-15.1">1.15.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-15.2.html">1.15.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-15.3.html">1.15.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-15.4.html">1.15.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-16.html">1.16. Creating an Enum</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-16.html#jakartackbk-CHP-1-SECT-16.1">1.16.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-16.2.html">1.16.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-16.3.html">1.16.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-16.4.html">1.16.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-17.html">1.17. Generating Unique Numeric Identifiers</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-17.html#jakartackbk-CHP-1-SECT-17.1">1.17.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-17.2.html">1.17.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-17.3.html">1.17.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-17.4.html">1.17.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-18.html">1.18. Validation of Method Parameters</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-18.html#jakartackbk-CHP-1-SECT-18.1">1.18.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-18.2.html">1.18.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-18.3.html">1.18.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-18.4.html">1.18.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-1-SECT-19.html">1.19. Measuring Time</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-19.html#jakartackbk-CHP-1-SECT-19.1">1.19.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-19.2.html">1.19.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-1-SECT-19.3.html">1.19.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><span class="chapter"><a href="jakartackbk-CHP-2.html">2. Manipulating Text</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2.html#ch02-2-fm2xml">2.1. Introduction</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-1.html">2.1. Setting Up StringUtils and WordUtils</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-1.html#jakartackbk-CHP-2-SECT-1.1">2.1.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-1.2.html">2.1.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-1.3.html">2.1.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-1.4.html">2.1.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-2.html">2.2. Checking for an Empty String</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-2.html#jakartackbk-CHP-2-SECT-2.1">2.2.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-2.2.html">2.2.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-2.3.html">2.2.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-3.html">2.3. Abbreviating Strings</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-3.html#jakartackbk-CHP-2-SECT-3.1">2.3.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-3.2.html">2.3.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-3.3.html">2.3.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-4.html">2.4. Splitting a String</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-4.html#jakartackbk-CHP-2-SECT-4.1">2.4.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-4.2.html">2.4.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-4.3.html">2.4.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-4.4.html">2.4.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-5.html">2.5. Finding Nested Strings</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-5.html#jakartackbk-CHP-2-SECT-5.1">2.5.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-5.2.html">2.5.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-5.3.html">2.5.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-6.html">2.6. Stripping and Trimming a String</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-6.html#jakartackbk-CHP-2-SECT-6.1">2.6.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-6.2.html">2.6.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-6.3.html">2.6.3. Discussion</a></span></dt>
+                                 <dd>
+                                    <dl>
+                                       <dt><span class="sect3"><a href="jakartackbk-CHP-2-SECT-6.3.html#jakartackbk-CHP-2-SECT-6.3.1">2.6.3.1. Stripping a string</a></span></dt>
+                                       <dt><span class="sect3"><a href="jakartackbk-CHP-2-SECT-6.3.html#jakartackbk-CHP-2-SECT-6.3.2">2.6.3.2. Trimming to null</a></span></dt>
+                                    </dl>
+                                 </dd>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-7.html">2.7. Chomping a String</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-7.html#jakartackbk-CHP-2-SECT-7.1">2.7.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-7.2.html">2.7.2. Solution</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-8.html">2.8. Creating an Emphasized Header</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-8.html#jakartackbk-CHP-2-SECT-8.1">2.8.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-8.2.html">2.8.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-8.3.html">2.8.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-9.html">2.9. Reversing a String</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-9.html#jakartackbk-CHP-2-SECT-9.1">2.9.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-9.2.html">2.9.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-9.3.html">2.9.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-10.html">2.10. Wrapping Words</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-10.html#jakartackbk-CHP-2-SECT-10.1">2.10.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-10.2.html">2.10.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-10.3.html">2.10.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-11.html">2.11. Testing the Contents of a String</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-11.html#jakartackbk-CHP-2-SECT-11.1">2.11.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-11.2.html">2.11.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-11.3.html">2.11.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-12.html">2.12. Measuring the Frequency of a String</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-12.html#jakartackbk-CHP-2-SECT-12.1">2.12.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-12.2.html">2.12.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-12.3.html">2.12.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-12.4.html">2.12.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-13.html">2.13. Parsing Formatted Strings</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-13.html#jakartackbk-CHP-2-SECT-13.1">2.13.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-13.2.html">2.13.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-13.3.html">2.13.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-14.html">2.14. Calculating String Difference</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-14.html#jakartackbk-CHP-2-SECT-14.1">2.14.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-14.2.html">2.14.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-14.3.html">2.14.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-14.4.html">2.14.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-15.html">2.15. Using Commons Codec</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-15.html#jakartackbk-CHP-2-SECT-15.1">2.15.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-15.2.html">2.15.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-15.3.html">2.15.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-15.4.html">2.15.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-16.html">2.16. Getting the Commons Codec Source Code</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-16.html#jakartackbk-CHP-2-SECT-16.1">2.16.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-16.2.html">2.16.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-16.3.html">2.16.3. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-2-SECT-17.html">2.17. Calculating Soundex</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-17.html#jakartackbk-CHP-2-SECT-17.1">2.17.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-17.2.html">2.17.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-17.3.html">2.17.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-2-SECT-17.4.html">2.17.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><span class="chapter"><a href="jakartackbk-CHP-3.html">3. JavaBeans</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3.html#ch03-2-fm2xml">3.1. Introduction</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-1.html">3.1. Representing Beans Graphically</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-1.html#jakartackbk-CHP-3-SECT-1.1">3.1.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-1.2.html">3.1.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-1.3.html">3.1.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-1.4.html">3.1.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-2.html">3.2. Obtaining Commons BeanUtils</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-2.html#jakartackbk-CHP-3-SECT-2.1">3.2.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-2.2.html">3.2.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-2.3.html">3.2.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-2.4.html">3.2.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-3.html">3.3. Getting the Commons BeanUtils Source Code</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-3.html#jakartackbk-CHP-3-SECT-3.1">3.3.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-3.2.html">3.3.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-3.3.html">3.3.3. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-4.html">3.4. Accessing Simple Bean Properties</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-4.html#jakartackbk-CHP-3-SECT-4.1">3.4.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-4.2.html">3.4.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-4.3.html">3.4.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-4.4.html">3.4.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-5.html">3.5. Accessing Nested Bean Properties</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-5.html#jakartackbk-CHP-3-SECT-5.1">3.5.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-5.2.html">3.5.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-5.3.html">3.5.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-6.html">3.6. Accessing Indexed Bean Properties</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-6.html#jakartackbk-CHP-3-SECT-6.1">3.6.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-6.2.html">3.6.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-6.3.html">3.6.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-7.html">3.7. Accessing Mapped Bean Properties</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-7.html#jakartackbk-CHP-3-SECT-7.1">3.7.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-7.2.html">3.7.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-7.3.html">3.7.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-8.html">3.8. Accessing a Simple, Nested, Indexed, and Mapped Bean Property</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-8.html#jakartackbk-CHP-3-SECT-8.1">3.8.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-8.2.html">3.8.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-8.3.html">3.8.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-8.4.html">3.8.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-9.html">3.9. Determining the Type of a Bean Property</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-9.html#jakartackbk-CHP-3-SECT-9.1">3.9.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-9.2.html">3.9.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-9.3.html">3.9.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-10.html">3.10. Comparing Beans</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-10.html#jakartackbk-CHP-3-SECT-10.1">3.10.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-10.2.html">3.10.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-10.3.html">3.10.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-10.4.html">3.10.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-11.html">3.11. Copying Bean Properties</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-11.html#jakartackbk-CHP-3-SECT-11.1">3.11.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-11.2.html">3.11.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-11.3.html">3.11.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-11.4.html">3.11.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-12.html">3.12. Cloning a Bean</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-12.html#jakartackbk-CHP-3-SECT-12.1">3.12.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-12.2.html">3.12.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-12.3.html">3.12.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-13.html">3.13. Setting a Bean Property</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-13.html#jakartackbk-CHP-3-SECT-13.1">3.13.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-13.2.html">3.13.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-13.3.html">3.13.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-14.html">3.14. Testing Property Access</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-14.html#jakartackbk-CHP-3-SECT-14.1">3.14.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-14.2.html">3.14.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-14.3.html">3.14.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-15.html">3.15. Validating Beans with Predicates</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-15.html#jakartackbk-CHP-3-SECT-15.1">3.15.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-15.2.html">3.15.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-15.3.html">3.15.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-15.4.html">3.15.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-16.html">3.16. Creating a Map of Bean Properties</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-16.html#jakartackbk-CHP-3-SECT-16.1">3.16.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-16.2.html">3.16.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-16.3.html">3.16.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-16.4.html">3.16.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-17.html">3.17. Wrapping a Bean with a Map</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-17.html#jakartackbk-CHP-3-SECT-17.1">3.17.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-17.2.html">3.17.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-17.3.html">3.17.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-17.4.html">3.17.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-18.html">3.18. Creating a Dynamic Bean</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-18.html#jakartackbk-CHP-3-SECT-18.1">3.18.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-18.2.html">3.18.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-18.3.html">3.18.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-18.4.html">3.18.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-19.html">3.19. Getting and Setting Properties as Strings</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-19.html#jakartackbk-CHP-3-SECT-19.1">3.19.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-19.2.html">3.19.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-19.3.html">3.19.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-19.4.html">3.19.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><span class="chapter"><a href="jakartackbk-CHP-4.html">4. Functors</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4.html#ch04-2-fm2xml">4.1. Introduction</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4-SECT-1.html">4.1. Obtaining Commons Collections</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-1.html#jakartackbk-CHP-4-SECT-1.1">4.1.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-1.2.html">4.1.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-1.3.html">4.1.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-1.4.html">4.1.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4-SECT-2.html">4.2. Getting the Commons Collections Source Code</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-2.html#jakartackbk-CHP-4-SECT-2.1">4.2.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-2.2.html">4.2.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-2.3.html">4.2.3. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4-SECT-3.html">4.3. Reversing a Comparator</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-3.html#jakartackbk-CHP-4-SECT-3.1">4.3.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-3.2.html">4.3.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-3.3.html">4.3.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-3.4.html">4.3.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4-SECT-4.html">4.4. Chaining Comparators</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-4.html#jakartackbk-CHP-4-SECT-4.1">4.4.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-4.2.html">4.4.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-4.3.html">4.4.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-4.4.html">4.4.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4-SECT-5.html">4.5. Comparing Nulls</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-5.html#jakartackbk-CHP-4-SECT-5.1">4.5.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-5.2.html">4.5.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-5.3.html">4.5.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-5.4.html">4.5.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4-SECT-6.html">4.6. Fixed-Order Comparison</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-6.html#jakartackbk-CHP-4-SECT-6.1">4.6.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-6.2.html">4.6.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-6.3.html">4.6.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-6.4.html">4.6.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4-SECT-7.html">4.7. Using Simple Predicates</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-7.html#jakartackbk-CHP-4-SECT-7.1">4.7.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-7.2.html">4.7.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-7.3.html">4.7.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-7.4.html">4.7.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4-SECT-8.html">4.8. Writing a Custom Predicate</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-8.html#jakartackbk-CHP-4-SECT-8.1">4.8.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-8.2.html">4.8.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-8.3.html">4.8.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-8.4.html">4.8.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4-SECT-9.html">4.9. Creating Composite Predicates</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-9.html#jakartackbk-CHP-4-SECT-9.1">4.9.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-9.2.html">4.9.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-9.3.html">4.9.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4-SECT-10.html">4.10. Transforming Objects</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-10.html#jakartackbk-CHP-4-SECT-10.1">4.10.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-10.2.html">4.10.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-10.3.html">4.10.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-10.4.html">4.10.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4-SECT-11.html">4.11. Creating a Chain of Transformations</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-11.html#jakartackbk-CHP-4-SECT-11.1">4.11.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-11.2.html">4.11.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-11.3.html">4.11.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-11.4.html">4.11.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4-SECT-12.html">4.12. Applying Conditional Transformations</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-12.html#jakartackbk-CHP-4-SECT-12.1">4.12.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-12.2.html">4.12.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-12.3.html">4.12.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-12.4.html">4.12.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4-SECT-13.html">4.13. Writing a Closure</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-13.html#jakartackbk-CHP-4-SECT-13.1">4.13.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-13.2.html">4.13.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-13.3.html">4.13.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-13.4.html">4.13.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4-SECT-14.html">4.14. Chaining Closures</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-14.html#jakartackbk-CHP-4-SECT-14.1">4.14.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-14.2.html">4.14.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-14.3.html">4.14.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-14.4.html">4.14.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4-SECT-15.html">4.15. Modeling Conditional Statements with Closures</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-15.html#jakartackbk-CHP-4-SECT-15.1">4.15.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-15.2.html">4.15.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-15.3.html">4.15.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-4-SECT-16.html">4.16. Modeling Loops with Closures</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-16.html#jakartackbk-CHP-4-SECT-16.1">4.16.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-16.2.html">4.16.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-4-SECT-16.3.html">4.16.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><span class="chapter"><a href="jakartackbk-CHP-5.html">5. Collections</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5.html#ch05-2-fm2xml">5.1. Introduction</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-1.html">5.1. Obtaining Commons Collections</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-1.html#jakartackbk-CHP-5-SECT-1.1">5.1.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-1.2.html">5.1.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-1.3.html">5.1.3. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-2.html">5.2. Using a Looping Iterator</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-2.html#jakartackbk-CHP-5-SECT-2.1">5.2.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-2.2.html">5.2.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-2.3.html">5.2.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-2.4.html">5.2.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-3.html">5.3. Iterating Over an ArrayList</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-3.html#jakartackbk-CHP-5-SECT-3.1">5.3.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-3.2.html">5.3.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-3.3.html">5.3.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-3.4.html">5.3.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-4.html">5.4. Filtering a Collection with a Predicate</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-4.html#jakartackbk-CHP-5-SECT-4.1">5.4.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-4.2.html">5.4.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-4.3.html">5.4.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-4.4.html">5.4.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-5.html">5.5. Iterating Through Distinct Elements</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-5.html#jakartackbk-CHP-5-SECT-5.1">5.5.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-5.2.html">5.5.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-5.3.html">5.5.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-5.4.html">5.5.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-6.html">5.6. Using a Bag</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-6.html#jakartackbk-CHP-5-SECT-6.1">5.6.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-6.2.html">5.6.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-6.3.html">5.6.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-6.4.html">5.6.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-7.html">5.7. Using a Buffer</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-7.html#jakartackbk-CHP-5-SECT-7.1">5.7.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-7.2.html">5.7.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-7.3.html">5.7.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-7.4.html">5.7.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-8.html">5.8. Creating a Priority Queue</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-8.html#jakartackbk-CHP-5-SECT-8.1">5.8.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-8.2.html">5.8.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-8.3.html">5.8.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-8.4.html">5.8.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-9.html">5.9. Using a Blocking Buffer</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-9.html#jakartackbk-CHP-5-SECT-9.1">5.9.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-9.2.html">5.9.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-9.3.html">5.9.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-9.4.html">5.9.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-10.html">5.10. Storing Multiple Values in a Map</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-10.html#jakartackbk-CHP-5-SECT-10.1">5.10.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-10.2.html">5.10.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-10.3.html">5.10.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-11.html">5.11. Retrieving a Key by a Value</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-11.html#jakartackbk-CHP-5-SECT-11.1">5.11.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-11.2.html">5.11.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-11.3.html">5.11.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-11.4.html">5.11.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-12.html">5.12. Using a Case-Insensitive Map</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-12.html#jakartackbk-CHP-5-SECT-12.1">5.12.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-12.2.html">5.12.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-12.3.html">5.12.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-12.4.html">5.12.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-13.html">5.13. Creating Typed Collections and Maps</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-13.html#jakartackbk-CHP-5-SECT-13.1">5.13.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-13.2.html">5.13.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-13.3.html">5.13.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-13.4.html">5.13.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-14.html">5.14. Constraining Map Values</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-14.html#jakartackbk-CHP-5-SECT-14.1">5.14.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-14.2.html">5.14.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-14.3.html">5.14.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-15.html">5.15. Constraining List Contents</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-15.html#jakartackbk-CHP-5-SECT-15.1">5.15.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-15.2.html">5.15.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-15.3.html">5.15.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-15.4.html">5.15.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-16.html">5.16. Transforming Collections</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-16.html#jakartackbk-CHP-5-SECT-16.1">5.16.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-16.2.html">5.16.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-16.3.html">5.16.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-16.4.html">5.16.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-17.html">5.17. Creating a Least Recently Used Cache</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-17.html#jakartackbk-CHP-5-SECT-17.1">5.17.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-17.2.html">5.17.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-17.3.html">5.17.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-17.4.html">5.17.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-18.html">5.18. Using a Lazy Map</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-18.html#jakartackbk-CHP-5-SECT-18.1">5.18.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-18.2.html">5.18.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-18.3.html">5.18.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-18.4.html">5.18.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-19.html">5.19. Counting Objects in a Collection</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-19.html#jakartackbk-CHP-5-SECT-19.1">5.19.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-19.2.html">5.19.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-19.3.html">5.19.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-19.4.html">5.19.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-20.html">5.20. Performing Set Operations</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-20.html#jakartackbk-CHP-5-SECT-20.1">5.20.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-20.2.html">5.20.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-20.3.html">5.20.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-5-SECT-21.html">5.21. Retrieving Map Values Without Casting</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-21.html#jakartackbk-CHP-5-SECT-21.1">5.21.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-21.2.html">5.21.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-5-SECT-21.3.html">5.21.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><span class="chapter"><a href="jakartackbk-CHP-6.html">6. XML</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-6.html#ch06-2-fm2xml">6.1. Introduction</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-6-SECT-1.html">6.1. Obtaining Jakarta Commons Digester</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-1.html#jakartackbk-CHP-6-SECT-1.1">6.1.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-1.2.html">6.1.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-1.3.html">6.1.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-1.4.html">6.1.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-6-SECT-2.html">6.2. Turning XML Documents into Objects</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-2.html#jakartackbk-CHP-6-SECT-2.1">6.2.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-2.2.html">6.2.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-2.3.html">6.2.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-2.4.html">6.2.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-6-SECT-3.html">6.3. Namespace-Aware Parsing</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-3.html#jakartackbk-CHP-6-SECT-3.1">6.3.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-3.2.html">6.3.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-3.3.html">6.3.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-3.4.html">6.3.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-6-SECT-4.html">6.4. Creating a Simple XML Command Language</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-4.html#jakartackbk-CHP-6-SECT-4.1">6.4.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-4.2.html">6.4.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-4.3.html">6.4.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-4.4.html">6.4.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-6-SECT-5.html">6.5. Variable Substitution and XML Parsing</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-5.html#jakartackbk-CHP-6-SECT-5.1">6.5.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-5.2.html">6.5.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-5.3.html">6.5.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-5.4.html">6.5.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-6-SECT-6.html">6.6. Obtaining Jakarta Commons Betwixt</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-6.html#jakartackbk-CHP-6-SECT-6.1">6.6.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-6.2.html">6.6.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-6.3.html">6.6.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-6.4.html">6.6.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-6-SECT-7.html">6.7. Turning Beans into XML Documents</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-7.html#jakartackbk-CHP-6-SECT-7.1">6.7.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-7.2.html">6.7.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-7.3.html">6.7.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-7.4.html">6.7.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-6-SECT-8.html">6.8. Customizing XML Generated from an Object</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-8.html#jakartackbk-CHP-6-SECT-8.1">6.8.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-8.2.html">6.8.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-8.3.html">6.8.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-8.4.html">6.8.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-6-SECT-9.html">6.9. Turning XML Documents into Beans</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-9.html#jakartackbk-CHP-6-SECT-9.1">6.9.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-9.2.html">6.9.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-9.3.html">6.9.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-6-SECT-9.4.html">6.9.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><span class="chapter"><a href="jakartackbk-CHP-7.html">7. Application Infrastructure</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-7.html#ch07-2-fm2xml">7.1. Introduction</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-7-SECT-1.html">7.1. Obtaining Commons CLI</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-1.html#jakartackbk-CHP-7-SECT-1.1">7.1.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-1.2.html">7.1.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-1.3.html">7.1.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-1.4.html">7.1.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-7-SECT-2.html">7.2. Parsing a Simple Command Line</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-2.html#jakartackbk-CHP-7-SECT-2.1">7.2.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-2.2.html">7.2.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-2.3.html">7.2.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-2.4.html">7.2.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-7-SECT-3.html">7.3. Parsing a Complex Command Line</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-3.html#jakartackbk-CHP-7-SECT-3.1">7.3.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-3.2.html">7.3.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-3.3.html">7.3.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-3.4.html">7.3.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-7-SECT-4.html">7.4. Printing Usage Information</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-4.html#jakartackbk-CHP-7-SECT-4.1">7.4.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-4.2.html">7.4.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-4.3.html">7.4.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-7-SECT-5.html">7.5. Obtaining Commons Configuration</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-5.html#jakartackbk-CHP-7-SECT-5.1">7.5.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-5.2.html">7.5.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-5.3.html">7.5.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-5.4.html">7.5.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-7-SECT-6.html">7.6. Configuring Applications with Properties Files</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-6.html#jakartackbk-CHP-7-SECT-6.1">7.6.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-6.2.html">7.6.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-6.3.html">7.6.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-6.4.html">7.6.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-7-SECT-7.html">7.7. Configuring Applications with XML</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-7.html#jakartackbk-CHP-7-SECT-7.1">7.7.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-7.2.html">7.7.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-7.3.html">7.7.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-7.4.html">7.7.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-7-SECT-8.html">7.8. Using Composite Configuration</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-8.html#jakartackbk-CHP-7-SECT-8.1">7.8.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-8.2.html">7.8.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-8.3.html">7.8.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-8.4.html">7.8.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-7-SECT-9.html">7.9. Obtaining Commons Logging</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-9.html#jakartackbk-CHP-7-SECT-9.1">7.9.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-9.2.html">7.9.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-9.3.html">7.9.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-9.4.html">7.9.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-7-SECT-10.html">7.10. Using an Abstract Logging Interface</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-10.html#jakartackbk-CHP-7-SECT-10.1">7.10.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-10.2.html">7.10.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-10.3.html">7.10.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-10.4.html">7.10.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-7-SECT-11.html">7.11. Specifying a Logging Implementation</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-11.html#jakartackbk-CHP-7-SECT-11.1">7.11.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-11.2.html">7.11.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-11.3.html">7.11.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-11.4.html">7.11.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-7-SECT-12.html">7.12. Obtaining Apache Log4J</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-12.html#jakartackbk-CHP-7-SECT-12.1">7.12.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-12.2.html">7.12.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-12.3.html">7.12.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-12.4.html">7.12.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-7-SECT-13.html">7.13. Configuring Log4J with a Properties File</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-13.html#jakartackbk-CHP-7-SECT-13.1">7.13.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-13.2.html">7.13.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-13.3.html">7.13.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-13.4.html">7.13.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-7-SECT-14.html">7.14. Configuring Log4J with XML</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-14.html#jakartackbk-CHP-7-SECT-14.1">7.14.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-14.2.html">7.14.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-7-SECT-14.3.html">7.14.3. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><span class="chapter"><a href="jakartackbk-CHP-8.html">8. Math</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-8.html#ch08-2-fm2xml">8.1. Introduction</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-8-SECT-1.html">8.1. Using Fractions</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-1.html#jakartackbk-CHP-8-SECT-1.1">8.1.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-1.2.html">8.1.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-1.3.html">8.1.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-1.4.html">8.1.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-8-SECT-2.html">8.2. Finding the Maximum and Minimum in an Array</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-2.html#jakartackbk-CHP-8-SECT-2.1">8.2.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-2.2.html">8.2.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-2.3.html">8.2.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-8-SECT-3.html">8.3. Using Number Ranges</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-3.html#jakartackbk-CHP-8-SECT-3.1">8.3.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-3.2.html">8.3.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-3.3.html">8.3.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-3.4.html">8.3.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-8-SECT-4.html">8.4. Generating Random Variables</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-4.html#jakartackbk-CHP-8-SECT-4.1">8.4.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-4.2.html">8.4.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-4.3.html">8.4.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-8-SECT-5.html">8.5. Obtaining Commons Math</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-5.html#jakartackbk-CHP-8-SECT-5.1">8.5.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-5.2.html">8.5.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-5.3.html">8.5.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-5.4.html">8.5.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-8-SECT-6.html">8.6. Calculating Simple Univariate Statistics</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-6.html#jakartackbk-CHP-8-SECT-6.1">8.6.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-6.2.html">8.6.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-6.3.html">8.6.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-6.4.html">8.6.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-8-SECT-7.html">8.7. Solving a System of Linear Equations</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-7.html#jakartackbk-CHP-8-SECT-7.1">8.7.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-7.2.html">8.7.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-7.3.html">8.7.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-7.4.html">8.7.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-8-SECT-8.html">8.8. Arithmetic with Complex Numbers</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-8.html#jakartackbk-CHP-8-SECT-8.1">8.8.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-8.2.html">8.8.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-8.3.html">8.8.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-8.4.html">8.8.4. See also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-8-SECT-9.html">8.9. Establishing Relationships Between Variables</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-9.html#jakartackbk-CHP-8-SECT-9.1">8.9.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-9.2.html">8.9.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-9.3.html">8.9.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-9.4.html">8.9.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-8-SECT-10.html">8.10. Estimating the Amount of Time Left in a Process</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-10.html#jakartackbk-CHP-8-SECT-10.1">8.10.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-10.2.html">8.10.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-10.3.html">8.10.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-8-SECT-10.4.html">8.10.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><span class="chapter"><a href="jakartackbk-CHP-9.html">9. Templating</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-9.html#ch09-2-fm2xml">9.1. Introduction</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9.html#ch09-3-fm2xml">9.1.1. Common Templating Problems in Applications</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9.html#ch09-4-fm2xml">9.1.2. Templating in Web Applications</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-9-SECT-1.html">9.1. Obtaining Commons JEXL</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-1.html#jakartackbk-CHP-9-SECT-1.1">9.1.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-1.2.html">9.1.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-1.3.html">9.1.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-1.4.html">9.1.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-9-SECT-2.html">9.2. Using an Expression Language</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-2.html#jakartackbk-CHP-9-SECT-2.1">9.2.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-2.2.html">9.2.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-2.3.html">9.2.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-2.4.html">9.2.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-9-SECT-3.html">9.3. Invoking Methods in an Expression</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-3.html#jakartackbk-CHP-9-SECT-3.1">9.3.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-3.2.html">9.3.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-3.3.html">9.3.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-3.4.html">9.3.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-9-SECT-4.html">9.4. Externalizing Logic with an Expression Language</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-4.html#jakartackbk-CHP-9-SECT-4.1">9.4.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-4.2.html">9.4.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-4.3.html">9.4.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-4.4.html">9.4.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-9-SECT-5.html">9.5. Obtaining Jakarta Velocity</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-5.html#jakartackbk-CHP-9-SECT-5.1">9.5.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-5.2.html">9.5.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-5.3.html">9.5.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-5.4.html">9.5.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-9-SECT-6.html">9.6. Using a Simple Templating Language</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-6.html#jakartackbk-CHP-9-SECT-6.1">9.6.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-6.2.html">9.6.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-6.3.html">9.6.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-6.4.html">9.6.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-9-SECT-7.html">9.7. Writing Templates with Conditionals and Loops</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-7.html#jakartackbk-CHP-9-SECT-7.1">9.7.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-7.2.html">9.7.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-7.3.html">9.7.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-7.4.html">9.7.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-9-SECT-8.html">9.8. Using Macros in a Templating Engine</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-8.html#jakartackbk-CHP-9-SECT-8.1">9.8.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-8.2.html">9.8.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-8.3.html">9.8.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-8.4.html">9.8.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-9-SECT-9.html">9.9. Invoking Methods in a Template</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-9.html#jakartackbk-CHP-9-SECT-9.1">9.9.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-9.2.html">9.9.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-9.3.html">9.9.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-9.4.html">9.9.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-9-SECT-10.html">9.10. Obtaining FreeMarker</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-10.html#jakartackbk-CHP-9-SECT-10.1">9.10.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-10.2.html">9.10.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-10.3.html">9.10.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-10.4.html">9.10.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-9-SECT-11.html">9.11. Using a Complex Scripting Engine</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-11.html#jakartackbk-CHP-9-SECT-11.1">9.11.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-11.2.html">9.11.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-11.3.html">9.11.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-11.4.html">9.11.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-9-SECT-12.html">9.12. Accessing XML Documents from a Templating Engine</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-12.html#jakartackbk-CHP-9-SECT-12.1">9.12.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-12.2.html">9.12.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-12.3.html">9.12.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-12.4.html">9.12.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-9-SECT-13.html">9.13. Using Velocity in a Web Application</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-13.html#jakartackbk-CHP-9-SECT-13.1">9.13.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-13.2.html">9.13.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-13.3.html">9.13.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-13.4.html">9.13.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-9-SECT-14.html">9.14. Using FreeMarker in a Web Application</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-14.html#jakartackbk-CHP-9-SECT-14.1">9.14.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-14.2.html">9.14.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-14.3.html">9.14.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-14.4.html">9.14.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-9-SECT-15.html">9.15. Writing Templates in Eclipse</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-15.html#jakartackbk-CHP-9-SECT-15.1">9.15.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-15.2.html">9.15.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-9-SECT-15.3.html">9.15.3. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><span class="chapter"><a href="jakartackbk-CHP-10.html">10. I/O and Networking</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10.html#ch10-2-fm2xml">10.1. Introduction</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-1.html">10.1. Obtaining Commons IO</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-1.html#jakartackbk-CHP-10-SECT-1.1">10.1.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-1.2.html">10.1.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-1.3.html">10.1.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-1.4.html">10.1.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-2.html">10.2. Copying Streams, byte[ ], Readers, and Writers</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-2.html#jakartackbk-CHP-10-SECT-2.1">10.2.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-2.2.html">10.2.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-2.3.html">10.2.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-3.html">10.3. Closing Streams, Readers, and Writers</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-3.html#jakartackbk-CHP-10-SECT-3.1">10.3.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-3.2.html">10.3.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-3.3.html">10.3.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-3.4.html">10.3.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-4.html">10.4. Printing a Human-Readable File Size</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-4.html#jakartackbk-CHP-10-SECT-4.1">10.4.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-4.2.html">10.4.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-4.3.html">10.4.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-5.html">10.5. Copying Files, Strings, and URLs</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-5.html#jakartackbk-CHP-10-SECT-5.1">10.5.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-5.2.html">10.5.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-5.3.html">10.5.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-6.html">10.6. Deleting Directories Recursively</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-6.html#jakartackbk-CHP-10-SECT-6.1">10.6.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-6.2.html">10.6.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-6.3.html">10.6.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-7.html">10.7. Obtaining the Size of a Directory</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-7.html#jakartackbk-CHP-10-SECT-7.1">10.7.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-7.2.html">10.7.2. Solution</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-8.html">10.8. Touching a File</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-8.html#jakartackbk-CHP-10-SECT-8.1">10.8.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-8.2.html">10.8.2. Solution</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-9.html">10.9. Filtering Files</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-9.html#jakartackbk-CHP-10-SECT-9.1">10.9.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-9.2.html">10.9.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-9.3.html">10.9.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-10.html">10.10. Measuring Stream Traffic</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-10.html#jakartackbk-CHP-10-SECT-10.1">10.10.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-10.2.html">10.10.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-10.3.html">10.10.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-11.html">10.11. Splitting an OutputStream</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-11.html#jakartackbk-CHP-10-SECT-11.1">10.11.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-11.2.html">10.11.2. Solution</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-12.html">10.12. Obtaining Jakarta ORO</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-12.html#jakartackbk-CHP-10-SECT-12.1">10.12.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-12.2.html">10.12.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-12.3.html">10.12.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-12.4.html">10.12.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-13.html">10.13. Using Globs and Perl5 Regular Expressions to List Files</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-13.html#jakartackbk-CHP-10-SECT-13.1">10.13.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-13.2.html">10.13.2. Solution</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-14.html">10.14. Obtaining Commons Net</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-14.html#jakartackbk-CHP-10-SECT-14.1">10.14.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-14.2.html">10.14.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-14.3.html">10.14.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-14.4.html">10.14.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-15.html">10.15. Writing an FTP Client</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-15.html#jakartackbk-CHP-10-SECT-15.1">10.15.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-15.2.html">10.15.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-15.3.html">10.15.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-15.4.html">10.15.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-16.html">10.16. Sending Mail with SMTP</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-16.html#jakartackbk-CHP-10-SECT-16.1">10.16.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-16.2.html">10.16.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-16.3.html">10.16.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-16.4.html">10.16.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-10-SECT-17.html">10.17. Checking a POP3 Mailbox</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-17.html#jakartackbk-CHP-10-SECT-17.1">10.17.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-17.2.html">10.17.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-17.3.html">10.17.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-10-SECT-17.4.html">10.17.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><span class="chapter"><a href="jakartackbk-CHP-11.html">11. HTTP and WebDAV</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11.html#ch11-2-fm2xml">11.1. Introduction</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-1.html">11.1. Obtaining Jakarta HttpClient</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-1.html#jakartackbk-CHP-11-SECT-1.1">11.1.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-1.2.html">11.1.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-1.3.html">11.1.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-1.4.html">11.1.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-2.html">11.2. Getting Jakarta HttpClient Source Code</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-2.html#jakartackbk-CHP-11-SECT-2.1">11.2.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-2.2.html">11.2.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-2.3.html">11.2.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-2.4.html">11.2.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-3.html">11.3. Performing an HTTP GET</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-3.html#jakartackbk-CHP-11-SECT-3.1">11.3.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-3.2.html">11.3.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-3.3.html">11.3.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-3.4.html">11.3.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-4.html">11.4. Sending Parameters in a Query String</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-4.html#jakartackbk-CHP-11-SECT-4.1">11.4.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-4.2.html">11.4.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-4.3.html">11.4.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-4.4.html">11.4.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-5.html">11.5. Retrieving Content with a Conditional GET</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-5.html#jakartackbk-CHP-11-SECT-5.1">11.5.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-5.2.html">11.5.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-5.3.html">11.5.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-5.4.html">11.5.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-6.html">11.6. Debugging HTTP Communications</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-6.html#jakartackbk-CHP-11-SECT-6.1">11.6.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-6.2.html">11.6.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-6.3.html">11.6.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-7.html">11.7. Making an HTTP POST Request</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-7.html#jakartackbk-CHP-11-SECT-7.1">11.7.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-7.2.html">11.7.2. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-7.3.html">11.7.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-7.4.html">11.7.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-8.html">11.8. Sending POST Data from a File</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-8.html#jakartackbk-CHP-11-SECT-8.1">11.8.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-8.2.html">11.8.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-8.3.html">11.8.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-9.html">11.9. Uploading Files with a Multipart POST</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-9.html#jakartackbk-CHP-11-SECT-9.1">11.9.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-9.2.html">11.9.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-9.3.html">11.9.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-9.4.html">11.9.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-10.html">11.10. Basic Authentication</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-10.html#jakartackbk-CHP-11-SECT-10.1">11.10.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-10.2.html">11.10.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-10.3.html">11.10.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-10.4.html">11.10.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-11.html">11.11. NTLM Authentication</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-11.html#jakartackbk-CHP-11-SECT-11.1">11.11.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-11.2.html">11.11.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-11.3.html">11.11.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-11.4.html">11.11.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-12.html">11.12. Working with Cookies</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-12.html#jakartackbk-CHP-11-SECT-12.1">11.12.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-12.2.html">11.12.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-12.3.html">11.12.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-12.4.html">11.12.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-13.html">11.13. Handling Redirects</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-13.html#jakartackbk-CHP-11-SECT-13.1">11.13.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-13.2.html">11.13.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-13.3.html">11.13.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-13.4.html">11.13.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-14.html">11.14. SSL</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-14.html#jakartackbk-CHP-11-SECT-14.1">11.14.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-14.2.html">11.14.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-14.3.html">11.14.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-14.4.html">11.14.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-15.html">11.15. Accepting a Self-Signed Certificate</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-15.html#jakartackbk-CHP-11-SECT-15.1">11.15.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-15.2.html">11.15.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-15.3.html">11.15.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-15.4.html">11.15.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-16.html">11.16. Obtaining Jakarta Slide</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-16.html#jakartackbk-CHP-11-SECT-16.1">11.16.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-16.2.html">11.16.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-16.3.html">11.16.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-16.4.html">11.16.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-17.html">11.17. Connecting to WebDAV Resources</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-17.html#jakartackbk-CHP-11-SECT-17.1">11.17.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-17.2.html">11.17.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-17.3.html">11.17.3. Discussion</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-11-SECT-18.html">11.18. Modifying a WebDAV Resource</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-18.html#jakartackbk-CHP-11-SECT-18.1">11.18.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-18.2.html">11.18.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-18.3.html">11.18.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-11-SECT-18.4.html">11.18.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><span class="chapter"><a href="jakartackbk-CHP-12.html">12. Searching and Filtering</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-12.html#ch12-2-fm2xml">12.1. Introduction</a></span></dt>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-12-SECT-1.html">12.1. Obtaining Commons JXPath</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-1.html#jakartackbk-CHP-12-SECT-1.1">12.1.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-1.2.html">12.1.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-1.3.html">12.1.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-1.4.html">12.1.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-12-SECT-2.html">12.2. Querying an Object Graph with XPath</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-2.html#jakartackbk-CHP-12-SECT-2.1">12.2.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-2.2.html">12.2.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-2.3.html">12.2.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-2.4.html">12.2.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-12-SECT-3.html">12.3. Search a Collection of Simple Objects</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-3.html#jakartackbk-CHP-12-SECT-3.1">12.3.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-3.2.html">12.3.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-3.3.html">12.3.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-3.4.html">12.3.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-12-SECT-4.html">12.4. Applying XPath Queries to Complex Object Graphs</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-4.html#jakartackbk-CHP-12-SECT-4.1">12.4.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-4.2.html">12.4.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-4.3.html">12.4.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-4.4.html">12.4.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-12-SECT-5.html">12.5. Obtaining Jakarta Lucene</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-5.html#jakartackbk-CHP-12-SECT-5.1">12.5.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-5.2.html">12.5.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-5.3.html">12.5.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-5.4.html">12.5.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-12-SECT-6.html">12.6. Creating an Index of XML Documents</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-6.html#jakartackbk-CHP-12-SECT-6.1">12.6.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-6.2.html">12.6.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-6.3.html">12.6.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-6.4.html">12.6.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-12-SECT-7.html">12.7. Searching for a Specific Term in a Document Index</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-7.html#jakartackbk-CHP-12-SECT-7.1">12.7.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-7.2.html">12.7.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-7.3.html">12.7.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-7.4.html">12.7.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                           <dt><span class="sect1"><a href="jakartackbk-CHP-12-SECT-8.html">12.8. Finding the Frequency of Terms in an Index</a></span></dt>
+                           <dd>
+                              <dl>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-8.html#jakartackbk-CHP-12-SECT-8.1">12.8.1. Problem</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-8.2.html">12.8.2. Solution</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-8.3.html">12.8.3. Discussion</a></span></dt>
+                                 <dt><span class="sect2"><a href="jakartackbk-CHP-12-SECT-8.4.html">12.8.4. See Also</a></span></dt>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+               <div class="ListofTitles"><a href="./figure-toc.html">List of Figures</a></div>
+               <div class="ListofTitles"><a href="./example-toc.html">List of Examples</a></div>
+            </div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left">&nbsp;</td>
+                     <td width="20%" align="center">&nbsp;</td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-PREFACE-1.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;Copyright</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

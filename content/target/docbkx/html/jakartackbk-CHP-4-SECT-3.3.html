@@ -1,0 +1,181 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>4.3.3.&nbsp;Discussion</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-4-SECT-3.html" title="4.3.&nbsp;Reversing a Comparator">
+      <link rel="prev" href="jakartackbk-CHP-4-SECT-3.2.html" title="4.3.2.&nbsp;Solution">
+      <link rel="next" href="jakartackbk-CHP-4-SECT-3.4.html" title="4.3.4.&nbsp;See Also">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-4-SECT-3.2.html">4.3.2.&nbsp;Solution</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-4-SECT-3.4.html">4.3.4.&nbsp;See Also</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-4-SECT-3.3"></a>4.3.3.&nbsp;Discussion
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>
+                                 <a href="jakartackbk-CHP-4-SECT-3.3.html#jakartackbk-CHP-4-EX-1" title="Example&nbsp;4-1.&nbsp;A Comparator that compares Book objects by name and author">Example 4-1</a> is an implementation of a
+                  <code class="literal">Comparator</code> that is reversed using the
+                  <code class="literal">ReverseComparator</code>. This
+                  <code class="literal">BookComparator</code> compares two
+                  <code class="literal">Book</code> objects by the <code class="literal">name</code> and
+                  <code class="literal">author</code> bean properties. Sorting a list of books
+                  using this <code class="literal">Comparator</code> results in a list sorted
+                  alphabetically by book name and author name; if two books have the
+                  same name, they are sorted by author name.
+               </p>
+               <div class="example"><a name="jakartackbk-CHP-4-EX-1"></a><p class="title"><b>Example&nbsp;4-1.&nbsp;A Comparator that compares Book objects by name and author</b></p>
+                  <div class="example-contents"><pre class="programlisting">package com.discursive.jccook.collections.compare;
+
+import java.util.*;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections.comparators.ReverseComparator;
+
+public class BookComparator implements Comparator {
+    
+    public int compare(Object o1, Object o2) {
+         int comparison = -1;
+
+        if( o1 instanceof Book &amp;&amp; o2 instanceof Book ) {
+            Book b1 = (Book) o1;
+            Book b2 = (Book) o2;
+        
+             String b1Name = b1.getName( );
+             String b2Name = b2.getName( );
+
+             String b1Author = b1.getAuthor( );
+             String b2Author = b2.getAuthor( );
+
+            if( StringUtils.isNotEmpty( b1Name ) &amp;&amp;
+                StringUtils.isNotEmpty( b2Name ) ) {
+                comparison = b1Name.compareTo( b2Name );
+            }
+
+            if( comparison == 0 &amp;&amp;
+                StringUtils.isNotEmpty( b1Author ) &amp;&amp;
+                StringUtils.isNotEmpty( b2Author ) ) {
+                comparison = b1Author.compareTo( b2Author );
+            }   
+        }
+        return comparison;
+    }
+}</pre></div>
+               </div><br class="example-break"><p>
+                                 <a href="jakartackbk-CHP-4-SECT-3.3.html#jakartackbk-CHP-4-EX-2" title="Example&nbsp;4-2.&nbsp;Using ReverseComparator to sort Book objects">Example 4-2</a> sorts an array of
+                  <code class="literal">Book</code> objects in reverse order.
+               </p>
+               <div class="example"><a name="jakartackbk-CHP-4-EX-2"></a><p class="title"><b>Example&nbsp;4-2.&nbsp;Using ReverseComparator to sort Book objects</b></p>
+                  <div class="example-contents"><pre class="programlisting">package com.discursive.jccook.collections.compare;
+
+import java.util.*;
+import org.apache.commons.collections.comparators.ReverseComparator;
+
+public class ReverseExample {
+
+    public static void main(String[] args) throws Exception {
+        ReverseExample example = new ReverseExample( );
+        example.start( );
+    }
+    
+    public void start( ) throws Exception {
+
+<strong class="userinput"><code>        // Create a Reversed BookComparator</code></strong>
+                  <strong class="userinput"><code>        Comparator bookCompare = new BookComparator( );</code></strong>
+                  <strong class="userinput"><code>        Comparator reverseComparator = new ReverseComparator( bookComparator );</code></strong>
+
+        // Create a List of Book objects
+        List books = new ArrayList( );
+
+        Book book1 = new Book( );
+        book1.setName( "TitleA" );
+        book1.setAuthor( "John" );
+        books.add( book1 );
+
+        Book book2 = new Book( );
+        book2.setName( "TitleB" );
+        book2.setAuthor( "Donald" );
+        books.add( book2 )
+
+        Book book3 = new Book( );
+        book3.setName( "TitleA" );
+        book3.setAuthor( "Doug" );
+        books.add( book3 );
+
+<strong class="userinput"><code>        // Sort the List of Book objects with the Reversed BookComparator</code></strong>
+                  <strong class="userinput"><code>        Collections.sort( books, reverseComparator );</code></strong>
+
+    }    
+}</pre></div>
+               </div><br class="example-break"><p>After <code class="literal">Collections.sort( )</code>, the
+                  <code class="literal">books</code> array is sorted in reverse alphabetical
+                  order by book name and author name: "TitleB by
+                  Donald" followed by "TitleA by
+                  John" followed by "TitleA by
+                  Doug."
+               </p>
+            </div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-4-SECT-3.2.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-4-SECT-3.4.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">4.3.2.&nbsp;Solution&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;4.3.4.&nbsp;See Also</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

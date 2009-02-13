@@ -1,0 +1,196 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>1.4.3.&nbsp;Discussion</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-1-SECT-4.html" title="1.4.&nbsp;Automating the Generation of toString( ) Content">
+      <link rel="prev" href="jakartackbk-CHP-1-SECT-4.2.html" title="1.4.2.&nbsp;Solution">
+      <link rel="next" href="jakartackbk-CHP-1-SECT-5.html" title="1.5.&nbsp;Customizing Generated toString( ) Content">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-1-SECT-4.2.html">1.4.2.&nbsp;Solution</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-1-SECT-5.html">1.5.&nbsp;Customizing Generated toString( ) Content</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-1-SECT-4.3"></a>1.4.3.&nbsp;Discussion
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>Assume that you have an object named
+                  <code class="literal">PoliticalCandidate</code>&#8212;a bean that represents
+                  some information about a presidential candidate. This bean has a set
+                  of properties: <code class="literal">firstName</code>,
+                  <code class="literal">lastName</code>, <code class="literal">dateOfBirth</code>,
+                  <code class="literal">moneyRaised</code>, and <code class="literal">homeState</code>.
+                  <a href="jakartackbk-CHP-1-SECT-4.3.html#jakartackbk-CHP-1-EX-1" title="Example&nbsp;1-1.&nbsp;The PoliticalCandidate class using ReflectionToStringBuilder">Example 1-1</a> shows the
+                  <code class="literal">PoliticalCandidate</code> class using a
+                  <code class="literal">ReflectionToStringBuilder</code>; the getter and setter
+                  methods have been omitted for brevity.
+               </p>
+               <div class="example"><a name="jakartackbk-CHP-1-EX-1"></a><p class="title"><b>Example&nbsp;1-1.&nbsp;The PoliticalCandidate class using ReflectionToStringBuilder</b></p>
+                  <div class="example-contents"><pre class="programlisting">import java.math.*;
+import java.util.*;
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+
+public class PoliticalCandidate {
+
+    private String lastName;
+    private String firstName;
+    private Date dateOfBirth;
+    private BigDecimal moneyRaised;
+    private State homeState;
+
+    // get/set methods are omitted for brevity...
+
+    public void toString( ) {
+        ReflectionToStringBuilder.toString( this );
+    }
+}</pre></div>
+               </div><br class="example-break"><p>The process of keeping the contents of a <code class="literal">toString()</code> method synchronized with a changing object model becomes
+                  a chore (usually a forgotten one). Commons Lang includes a fairly
+                  simple utility designed to automate this chore using reflection. The
+                  <code class="literal">ToStringBuilder</code>
+                                 <a class="indexterm" name="jakartackbk-CHP-1-ITERM-1753"></a>
+                                 <a class="indexterm" name="jakartackbk-CHP-1-ITERM-1754"></a>
+                  class and its extension,
+                  <code class="literal">ReflectionToStringBuilder</code>
+                                 <a class="indexterm" name="jakartackbk-CHP-1-ITERM-1755"></a>
+                                 <a class="indexterm" name="jakartackbk-CHP-1-ITERM-1756"></a>,
+                  can condense a large <code class="literal">toString( )</code> method body into
+                  one line of code. Most importantly, the
+                  <code class="literal">ReflectionToStringBuilder</code> reflects any future
+                  changes that are made to the object model. The following code
+                  demonstrates the output of a string
+                  <a class="indexterm" name="jakartackbk-CHP-1-ITERM-1757"></a>built via reflection:
+               </p><a name="I_1_tt6"></a><pre class="programlisting">// Create a State
+State va = new State( "VA", "Virginia");
+
+// Create a Birth Date
+Calendar calendar = new GregorianCalendar( );
+calendar.set( Calendar.YEAR, 1743 );
+calendar.set( Calendar.MONTH, Calendar.APRIL );
+calendar.set( Calendar.DAY_OF_MONTH, 13 );
+Date dob = calendar.getTime( );
+
+BigDecimal moneyRaised = new BigDecimal( 293829292.93 );        
+
+// Create a Political Candidate
+PoliticalCandidate candidate = 
+    new PoliticalCandidate( "Jefferson", "Thomas", dob, moneyRaised, va );
+        
+System.out.println( candidate );</pre><p>Assume that the <code class="literal">State</code> object is another bean using
+                  the same <code class="literal">ReflectionToStringBuilder</code>. The code above
+                  sets the properties of a bean and produces the following output:
+               </p><a name="I_1_tt7"></a><pre class="programlisting">com.discursive.jccook.lang.builders.PoliticalCandidate@187aeca
+    [lastName=Jefferson,\firstName=Thomas,
+     dateOfBirth=Sat Apr 13 22:38:42 CST 1743,
+     moneyRaised=\293829292.930000007152557373046875,
+     state=\com.discursive.jccook.lang.builders.State@87816d
+         [abbreviation=VA,name=Virginia]]</pre><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+                  <h3 class="title"><a name="jakartackbk-CHP-1-NOTE-43"></a>Tip
+                  </h3>
+                  <p>As in other cases in this book, I've applied a
+                     minimal amount of formatting to the output so that it fits on the
+                     printed page. Your results will be the same in terms of content but
+                     will be all on one long line.
+                  </p>
+               </div>
+               <p>This is not the most readable piece of information in the world, but
+                  it <span class="emphasis"><em>was</em></span> automatically generated. Keeping a
+                  <code class="literal">toString( )</code> method up-to-date in an object model
+                  that contains one hundred entities is next to impossible under the
+                  constraints of a deadline and a budget. If your objects have
+                  meaningful <code class="literal">toString( )</code> methods, it will be much
+                  easier to diagnose problems in your application. If you use the
+                  <code class="literal">ReflectionToStringBuilder</code>, you are assured that
+                  the message printed out will be accurate; the alternative is to have
+                  a message that may or may not <a class="indexterm" name="jakartackbk-CHP-1-ITERM-1758"></a> 
+                                 <a class="indexterm" name="jakartackbk-CHP-1-ITERM-1759"></a> 
+                                 <a class="indexterm" name="jakartackbk-CHP-1-ITERM-1760"></a> 
+                                 <a class="indexterm" name="jakartackbk-CHP-1-ITERM-1761"></a>be relevant&#8212;trusting
+                  developers to keep <code class="literal">toString( )</code> methods updated
+                  manually.
+               </p>
+               <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+                  <h3 class="title"><a name="jakartackbk-CHP-1-NOTE-44"></a>Warning
+                  </h3>
+                  <p>This utility uses the class <code class="literal">AccessibleObject</code> in
+                     the J2SE reflection package to bypass access modifiers and access
+                     private member variables of an object directly. If your system is
+                     running under a restrictive <code class="literal">SecurityManager</code>, you
+                     may need to alter your configuration to allow Commons Lang to bypass
+                     these security restrictions. Only use this reflection builder if you
+                     are certain that your code will run in an environment without a
+                     restrictive security policy. I use this utility in a system that runs
+                     on a few servers in a known location, but if I were writing a
+                     reusable library, a reflection builder would not be feasible; if
+                     someone were to use my library in an environment with a different
+                     security policy, calling a <code class="literal">toString( )</code> may cause
+                     problems. The relevant permission is the
+                     <code class="literal">suppressAccessChecks</code> permission target of the
+                     <code class="literal">java.lang.reflect.ReflectPermission</code> class.
+                  </p>
+               </div>
+            </div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-1-SECT-4.2.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-1-SECT-5.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">1.4.2.&nbsp;Solution&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;1.5.&nbsp;Customizing Generated toString( ) Content</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

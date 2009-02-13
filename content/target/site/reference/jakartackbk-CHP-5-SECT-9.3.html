@@ -1,0 +1,182 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>5.9.3.&nbsp;Discussion</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-5-SECT-9.html" title="5.9.&nbsp;Using a Blocking Buffer">
+      <link rel="prev" href="jakartackbk-CHP-5-SECT-9.2.html" title="5.9.2.&nbsp;Solution">
+      <link rel="next" href="jakartackbk-CHP-5-SECT-9.4.html" title="5.9.4.&nbsp;See Also">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-5-SECT-9.2.html">5.9.2.&nbsp;Solution</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-5-SECT-9.4.html">5.9.4.&nbsp;See Also</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-5-SECT-9.3"></a>5.9.3.&nbsp;Discussion
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>A <code class="literal">BlockingBuffer</code> is used in a system that needs to
+                  act on a piece a data as soon as it is available, and this data
+                  structure comes in handy when there are a series of worker threads
+                  listening to buffers between components in a pipeline.
+                  <code class="literal">BlockingBuffer</code> allows you to build cascading
+                  pipelines, which automatically notify the next stage of available
+                  data. Think of this pattern as a stepped waterfall; water
+                  automatically flows down the steps, and each step is a
+                  <code class="literal">Buffer</code>. (See <a href="jakartackbk-CHP-5-SECT-9.3.html#jakartackbk-CHP-5-FIG-2" title="Figure&nbsp;5-2.&nbsp;Using a BlockingBuffer to create a pipeline">Figure 5-2</a>.)
+               </p>
+               <div class="figure"><a name="jakartackbk-CHP-5-FIG-2"></a><div class="figure-contents">
+                     <div class="mediaobject"><a name="I_5_tt226"></a><img src="figs/web/jccb_0502.png" alt="Using a BlockingBuffer to create a pipeline"></div>
+                  </div>
+                  <p class="title"><b>Figure&nbsp;5-2.&nbsp;Using a BlockingBuffer to create a pipeline</b></p>
+               </div><br class="figure-break"><p>Assume that you need to write a workflow application for a news
+                  publisher; the workflow consists of a pipeline: news stories are
+                  published as XML files, which are passed to a search indexer and then
+                  processed with an XSLT stylesheet. A news story is simply passed as a
+                  <code class="literal">String</code> containing an XML document. The following
+                  example creates a pipeline consisting of two
+                  <code class="literal">BlockingBuffer</code> instances terminated by an
+                  <code class="literal">UnboundedFifoBuffer</code>:
+               </p><a name="I_5_tt227"></a><pre class="programlisting">import java.util.*;
+import org.apache.commons.collections.Buffer;
+import org.apache.commons.collections.buffers.BlockingBuffer;
+import org.apache.commons.collections.buffers.UnboundedFifoBuffer;
+
+<span class="bold"><strong>// Create a Blocking Buffer for each stage, last stage not a blocking buffer</strong></span>
+Buffer published = BlockingBuffer.decorate( new UnboundedFifoBuffer( ) );
+Buffer indexed = BlockingBuffer.decorate( new UnboundedFifoBuffer( ) );
+Buffer transformed = new UnboundedFifoBuffer( );
+
+<span class="bold"><strong>// Create a Thread that will watch the published Buffer and index a news story</strong></span>
+Indexer indexer = new Indexer(published, indexed);
+Thread indexerThread = new Thread( indexer );
+indexerThread.start( );
+
+<span class="bold"><strong>// Create a Thread that will watch the indexed Buffer and style a news story</strong></span>
+Styler styler = new Styler(index, transformed);
+Thread stylerThread = new Thread( styler );
+stylerThread.start( );
+
+String newsStory = getNewsStory( );
+
+published.add( newsStory );</pre><p>The previous example creates three buffers to hold the results of the
+                  stages of a pipeline&#8212;<code class="literal">published</code>,
+                  <code class="literal">indexed</code>, and <code class="literal">transformed</code>. Three
+                  <code class="literal">Runnable</code> objects are created to perform the task
+                  of processing each news story; the <code class="literal">Indexer</code> object
+                  listens to the <code class="literal">published</code> buffer and places its
+                  results in the <code class="literal">indexed</code> buffer, and the
+                  <code class="literal">Styler</code> object listens to the
+                  <code class="literal">indexed</code> buffer and places its results in the
+                  <a class="indexterm" name="jakartackbk-CHP-5-ITERM-2527"></a>
+                                 <a class="indexterm" name="jakartackbk-CHP-5-ITERM-2528"></a>
+                                 <code class="literal">transformed</code>
+                  buffer. The <code class="literal">Indexer</code> object implements
+                  <code class="literal">Runnable</code> and is constructed with two
+                  <code class="literal">Buffer</code> objects, <code class="literal">inbound</code> and
+                  <code class="literal">outbound</code>. The <code class="literal">Indexer</code>, as shown
+                  in <a href="jakartackbk-CHP-5-SECT-9.3.html#jakartackbk-CHP-5-EX-9" title="Example&nbsp;5-9.&nbsp;An Indexer stage in a pipeline">Example 5-9</a>, continuously calls <code class="literal">remove(
+                     )</code> on a <code class="literal">BlockingBuffer</code> and waits until a
+                  story is available to process.
+               </p>
+               <div class="example"><a name="jakartackbk-CHP-5-EX-9"></a><p class="title"><b>Example&nbsp;5-9.&nbsp;An Indexer stage in a pipeline</b></p>
+                  <div class="example-contents"><pre class="programlisting">public class Indexer implements Runnnable {
+    private Buffer inbound;
+    private Buffer outbound;
+
+    public Indexer(Buffer inbound, Buffer outbound) {
+        this.inbound = inbound;
+        this.outbound = outbound;
+    }
+
+    public void run( ) {
+        while(true) {
+            String story = (String) inbound.remove( );
+                String processedStory = processStory( story );
+            outbound.add( processedStory );
+        }
+    }
+
+    public String processedStory(String story) {
+        // Run story through a search indexer
+        return story;
+    }
+}</pre></div>
+               </div><br class="example-break"><p>The <code class="literal">Styler</code> is omitted because it follows the exact
+                  same pattern. Every stage in this pipeline is a
+                  <code class="literal">Runnable</code> implementation running in a thread and
+                  listening to an inbound buffer by calling (and blocking) on
+                  <code class="literal">inbound.remove( )</code>. Using this mechanism allows
+                  your system to process information in parallel by running separate
+                  stages in separate threads, and there is no need for a controller to
+                  coordinate the actions of a complex system. A pipeline can be
+                  extended by simply adding another stage with an additional
+                  <code class="literal">BlockingBuffer</code>. This pattern is useful in a system
+                  that models a very complex workflow; instead of attempting to capture
+                  a complex symphony of coordination, break the system into autonomous
+                  stages that only know about inputs and outputs.
+               </p>
+            </div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-5-SECT-9.2.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-5-SECT-9.4.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">5.9.2.&nbsp;Solution&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;5.9.4.&nbsp;See Also</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

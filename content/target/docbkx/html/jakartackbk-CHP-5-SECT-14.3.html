@@ -1,0 +1,210 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>5.14.3.&nbsp;Discussion</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-5-SECT-14.html" title="5.14.&nbsp;Constraining Map Values">
+      <link rel="prev" href="jakartackbk-CHP-5-SECT-14.2.html" title="5.14.2.&nbsp;Solution">
+      <link rel="next" href="jakartackbk-CHP-5-SECT-15.html" title="5.15.&nbsp;Constraining List Contents">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-5-SECT-14.2.html">5.14.2.&nbsp;Solution</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-5-SECT-15.html">5.15.&nbsp;Constraining List Contents</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-5-SECT-14.3"></a>5.14.3.&nbsp;Discussion
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>A <code class="literal">PredicatedMap</code> can work with any
+                  <code class="literal">Predicate</code> no matter how simple or complex. Passing
+                  in a <code class="literal">null</code> value for either the key or value
+                  <code class="literal">Predicate</code> instructs the
+                  <code class="literal">PredicatedMap</code> not to validate keys or values. In
+                  the following example, a <code class="literal">PredicatedMap</code> decorates a
+                  <code class="literal">HashMap</code> to ensure that a <code class="literal">Map</code>
+                  contains valid <code class="literal">Team</code> values:
+               </p><a name="I_5_tt238"></a><pre class="programlisting">import org.apache.commons.collections.functors.AndPredicate;
+import org.apache.commons.collections.map.PredicatedMap;
+
+<span class="bold"><strong>// Create the Predicates</strong></span>
+ValidTeamPredicate validTeam = new ValidTeamPredicate( );
+ValidCoachPredicate validCoach = new ValidCoachPredicate( );
+
+<span class="bold"><strong>// Tie two Predicates together into an AndPredicate</strong></span>
+AndPredicate valuePredicate = new AndPredicate( validTeam, validCoach );
+        
+<span class="bold"><strong>// Decorate a HashMap with a predicate on the value</strong></span>
+Map teamMap = PredicatedMap.decorate( new HashMap( ), null, valuePredicate);
+        
+<span class="bold"><strong>// Manufacture some teams</strong></span>
+Team redSox = new Team( "Red Sox", new Coach( "Patrick", "Moloney") );
+Team yankees= new Team( "Yankees", new Coach( "David", "McGarry") );
+Team dodgers = new Team( "Dodgers", new Coach( "Nick", "Taylor") );
+Team twins = new Team( null, new Coach( "Patrick", "Moloney") );
+Team braves = new Team( "Braves", null );
+        
+<span class="bold"><strong>// The following put calls should work fine</strong></span>
+teamMap.put( "RedSox", redSox );
+teamMap.put( "Yankees", yankees );
+teamMap.put( "Dodgers", dodgers );
+        
+<span class="bold"><strong>// This put should fail because the team name is null</strong></span>
+try {
+    teamMap.put( "Twins", twins);
+} catch( IllegalArgumentException iae ) {
+    System.out.println( "Twins put failed, as expected" );
+}
+
+<span class="bold"><strong>// This put should fail because the coach is null</strong></span>
+try {
+    teamMap.put( "Braves", braves);
+} catch( IllegalArgumentException iae ) {
+    System.out.println( "Braves put failed, as expected" );
+}</pre><p>An application can assume that every team in
+                  <code class="literal">teamMap</code> has met the following requirements:
+               </p>
+               <div class="itemizedlist">
+                  <ul type="disc">
+                     <li>
+                        <p>Every <code class="literal">Team</code> object must have a
+                           non-<code class="literal">null</code> 
+                                                <code class="literal">name</code> property.
+                        </p>
+                     </li>
+                     <li>
+                        <p>Every <code class="literal">Team</code> object must have a
+                           non-<code class="literal">null</code> 
+                                                <code class="literal">coach</code> property, and
+                           this <code class="literal">Coach</code> object must have a first and last name.
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+               <p>The previous example uses two <code class="literal">Predicate</code> objects to
+                  validate both the team and the coach. These two custom predicates
+                  (<code class="literal">ValidTeamPredicate</code> and
+                  <code class="literal">ValidCoachPredicate)</code> are defined in Examples <a href="jakartackbk-CHP-5-SECT-14.3.html#jakartackbk-CHP-5-EX-15" title="Example&nbsp;5-15.&nbsp;A Predicate to validate a Team's name property">Example 5-15</a> and <a href="jakartackbk-CHP-5-SECT-14.3.html#jakartackbk-CHP-5-EX-16" title="Example&nbsp;5-16.&nbsp;Predicate to validate a Team's coach property">Example 5-16</a>. These
+                  <code class="literal">Predicate</code> objects are passed to the
+                  <code class="literal">PredicatedMap.decorate( )</code> method to decorate a
+                  <code class="literal">Map</code> with these conditions. The first
+                  <code class="literal">Predicate</code>, <code class="literal">ValidTeamPredicate</code>,
+                  validates a <code class="literal">Team</code> object to see if it has a
+                  non-<code class="literal">null</code> 
+                                 <code class="literal">name</code> property.
+               </p>
+               <div class="example"><a name="jakartackbk-CHP-5-EX-15"></a><p class="title"><b>Example&nbsp;5-15.&nbsp;A Predicate to validate
+                         a Team's name property</b></p>
+                  <div class="example-contents"><a class="indexterm" name="jakartackbk-CHP-5-ITERM-2605"></a><a class="indexterm" name="jakartackbk-CHP-5-ITERM-2606"></a><pre class="programlisting">import org.apache.commons.collections.Predicate;
+
+public class ValidTeamPredicate implements Predicate {
+
+    public boolean evaluate(Object object) {
+        Team team = (Team) object;
+        return team.getName( ) != null;        
+    }
+
+}</pre></div>
+               </div><br class="example-break"><div class="example"><a name="jakartackbk-CHP-5-EX-16"></a><p class="title"><b>Example&nbsp;5-16.&nbsp;Predicate to validate a Team's coach property</b></p>
+                  <div class="example-contents"><pre class="programlisting">import org.apache.commons.collections.Predicate;
+
+public class ValidCoachPredicate implements Predicate {
+
+    public boolean evaluate(Object object) {
+        boolean validCoach = false;
+        Team team = (Team) object;
+        if( team.getCoach( ) != null &amp;&amp; 
+            team.getCoach( ).getFirstName( ) != null &amp;&amp;
+            team.getCoach( ).getLastName( ) != null ) {
+            validCoach = true;
+        }
+        return validCoach;
+    }
+
+}</pre></div>
+               </div><br class="example-break"><p>The second <code class="literal">Predicate</code>,
+                  <code class="literal">ValidCoachPredicate</code>, validates a
+                  <code class="literal">Team</code> object, checking to see if the
+                  <code class="literal">coach</code> property is non-<code class="literal">null</code>, and
+                  that the coach has a first and last name.
+               </p>
+               <p>In <a href="jakartackbk-CHP-5-SECT-14.3.html#jakartackbk-CHP-5-EX-16" title="Example&nbsp;5-16.&nbsp;Predicate to validate a Team's coach property">Example 5-16</a>, a <code class="literal">Predicate</code> is
+                  created by combining the <code class="literal">ValidTeamPredicate</code> and
+                  <code class="literal">ValidCoachPredicate</code> in an
+                  <code class="literal">AndPredicate</code>. A <code class="literal">HashMap</code> is then
+                  decorated with <code class="literal">PredicatedMap.decorate( )</code>, passing
+                  the <code class="literal">AndPredicate</code> in as the predicate to validate
+                  <code class="literal">Map</code> values. A few <code class="literal">Team</code> objects
+                  are created, all of which are valid with the exception of the Twins
+                  and the Braves, and, as expected, <a class="indexterm" name="jakartackbk-CHP-5-ITERM-2607"></a> 
+                                 <a class="indexterm" name="jakartackbk-CHP-5-ITERM-2608"></a> 
+                                 <a class="indexterm" name="jakartackbk-CHP-5-ITERM-2609"></a> 
+                                 <a class="indexterm" name="jakartackbk-CHP-5-ITERM-2610"></a> 
+                                 <a class="indexterm" name="jakartackbk-CHP-5-ITERM-2611"></a> 
+                                 <a class="indexterm" name="jakartackbk-CHP-5-ITERM-2612"></a>the Twins and Braves cause
+                  <code class="literal">put( )</code> to throw an
+                  <code class="literal">IllegalArgumentException</code>.
+               </p>
+            </div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-5-SECT-14.2.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-5-SECT-15.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">5.14.2.&nbsp;Solution&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;5.15.&nbsp;Constraining List Contents</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

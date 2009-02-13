@@ -1,0 +1,100 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>4.8.2.&nbsp;Solution</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-4-SECT-8.html" title="4.8.&nbsp;Writing a Custom Predicate">
+      <link rel="prev" href="jakartackbk-CHP-4-SECT-8.html" title="4.8.&nbsp;Writing a Custom Predicate">
+      <link rel="next" href="jakartackbk-CHP-4-SECT-8.3.html" title="4.8.3.&nbsp;Discussion">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-4-SECT-8.html">4.8.&nbsp;Writing a Custom Predicate</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-4-SECT-8.3.html">4.8.3.&nbsp;Discussion</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-4-SECT-8.2"></a>4.8.2.&nbsp;Solution
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>Implement the <code class="literal">Predicate</code> interface and capture your
+                  logic in an <code class="literal">evaluate(
+                     )</code>
+                                 <a class="indexterm" name="jakartackbk-CHP-4-ITERM-2345"></a>
+                                 <a class="indexterm" name="jakartackbk-CHP-4-ITERM-2346"></a> method. <a href="jakartackbk-CHP-4-SECT-8.2.html#jakartackbk-CHP-4-EX-5" title="Example&nbsp;4-5.&nbsp;A simple Predicate implementation">Example 4-5</a> is a
+                  simple <code class="literal">Predicate</code> implementation that always
+                  returns <code class="literal">true</code>; it is intended as a basic example of
+                  how to implement the <code class="literal">Predicate</code> interface.
+               </p>
+               <div class="example"><a name="jakartackbk-CHP-4-EX-5"></a><p class="title"><b>Example&nbsp;4-5.&nbsp;A simple Predicate implementation</b></p>
+                  <div class="example-contents"><pre class="programlisting">import org.apache.commons.collections.Predicate;
+
+public class SimplePredicate implements Predicate {
+    public boolean evaluate(Object object) {
+        // do something.
+        boolean result = true;
+        return result;
+    }
+}</pre></div>
+               </div><br class="example-break"></div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-4-SECT-8.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-4-SECT-8.3.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">4.8.&nbsp;Writing a Custom Predicate&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;4.8.3.&nbsp;Discussion</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

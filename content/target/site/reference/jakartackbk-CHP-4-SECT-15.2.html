@@ -1,0 +1,145 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>4.15.2.&nbsp;Solution</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-4-SECT-15.html" title="4.15.&nbsp;Modeling Conditional Statements with Closures">
+      <link rel="prev" href="jakartackbk-CHP-4-SECT-15.html" title="4.15.&nbsp;Modeling Conditional Statements with Closures">
+      <link rel="next" href="jakartackbk-CHP-4-SECT-15.3.html" title="4.15.3.&nbsp;Discussion">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-4-SECT-15.html">4.15.&nbsp;Modeling Conditional Statements with Closures</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-4-SECT-15.3.html">4.15.3.&nbsp;Discussion</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-4-SECT-15.2"></a>4.15.2.&nbsp;Solution
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>Use an <code class="literal">IfClosure</code>, supplying a
+                  <code class="literal">Predicate</code> and two <code class="literal">Closure</code>
+                  objects. If the <code class="literal">Predicate</code> evaluates to
+                  <code class="literal">true</code>, the first <code class="literal">Closure</code> is
+                  executed; if the <code class="literal">Predicate</code> evaluates to
+                  <code class="literal">false</code>, the second <code class="literal">Closure</code> is
+                  executed. The following closure deals with a financial decision; a
+                  <code class="literal">Predicate</code>, <code class="literal">isWinning</code>, evaluates
+                  a <code class="literal">Stock</code> object. If the purchase price is less than
+                  the current price, the stock is a winner, causing the
+                  <code class="literal">buy</code> 
+                                 <code class="literal">Closure</code> to be executed. If
+                  the purchase price is higher than the current price, the stock is a
+                  loser and it is sold by passing it to the <code class="literal">sell</code>
+                                 <code class="literal">Closure</code>:
+               </p><a name="I_4_tt193"></a><pre class="programlisting">Closure sell = new Closure( ) {
+    public void execute(Object input) {
+        Stock stock = (Stock) input;
+        stock.sell( stock.getShares( ) );
+        System.out.println( "\tSold all shares" );
+    }
+}
+
+Closure buy = new Closure( ) {
+    public void execute(Object input) {
+        Stock stock = (Stock) input;
+        int buyShares = stock.getShares( ) * 0.10;
+        stock.buy( buyShares );
+        System.out.println( "\tBought " + buyShares );
+    }
+}
+
+Predicate isWinning = new Predicate( ) {
+    public boolean evaluate(Object object) {
+        Stock stock = (Stock) object;
+        if( stock.getPurchasePrice( ) &lt; stock.getCurrentPrice( ) ) {
+            System.out.println( stock.getSymbol( ) + " is a winner";
+            return true;
+        } else {
+            System.out.println( stock.getSymbol( ) + " is a loser";
+            return false;
+        }
+    }
+}
+
+Closure stockAction = new IfClosure( isWinning, buy, sell );
+
+Stock yahoo = new Stock("YHOO");
+yahoo.setPurchasePrice( 10.0 );
+yahoo.setCurrentPrice( 20.0 );
+yahoo.setShares( 100 ); 
+
+Stock tibco = new Stock("TIB");
+tibco.setPurchasePrice( 50.0 );
+tibco.setCurrentPrice( 30.0 );
+tibco.setShares( 50 );
+
+// Execute the IfClosure, take action on stocks based on performance
+stockAction.execute( yahoo );
+stockAction.execute( tibco );</pre><p>The example evaluates two stocks, a winner and a loser. The following
+                  output is generated:
+               </p><a name="I_4_tt194"></a><pre class="programlisting">YHOO is a winner
+    Bought 10 shares
+TIB is a loser
+    Sold All Shares</pre></div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-4-SECT-15.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-4-SECT-15.3.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">4.15.&nbsp;Modeling Conditional Statements with Closures&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;4.15.3.&nbsp;Discussion</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

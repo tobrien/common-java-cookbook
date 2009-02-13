@@ -1,0 +1,159 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>7.4.2.&nbsp;Solution</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-7-SECT-4.html" title="7.4.&nbsp;Printing Usage Information">
+      <link rel="prev" href="jakartackbk-CHP-7-SECT-4.html" title="7.4.&nbsp;Printing Usage Information">
+      <link rel="next" href="jakartackbk-CHP-7-SECT-4.3.html" title="7.4.3.&nbsp;Discussion">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-7-SECT-4.html">7.4.&nbsp;Printing Usage Information</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-7-SECT-4.3.html">7.4.3.&nbsp;Discussion</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-7-SECT-4.2"></a>7.4.2.&nbsp;Solution
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>Pass an <code class="literal">Options</code> object to a
+                  <code class="literal">HelpFormatter</code>
+                                 <a class="indexterm" name="jakartackbk-CHP-7-ITERM-2796"></a>
+                                 <a class="indexterm" name="jakartackbk-CHP-7-ITERM-2797"></a>
+                  and print a usage message. <a href="jakartackbk-CHP-7-SECT-4.2.html#jakartackbk-CHP-7-EX-1" title="Example&nbsp;7-1.&nbsp;Printing usage information with HelpFormatter">Example 7-1</a> creates the
+                  same <code class="literal">Options</code> object from <a href="jakartackbk-CHP-7-SECT-3.html" title="7.3.&nbsp;Parsing a Complex Command Line">Recipe 7.3</a>. If the help option is specified, or if there
+                  is a problem parsing the program arguments, the <code class="literal">printUsage()</code>
+                                 <a class="indexterm" name="jakartackbk-CHP-7-ITERM-2798"></a>
+                                 <a class="indexterm" name="jakartackbk-CHP-7-ITERM-2799"></a> method is called to print usage information
+                  to <code class="literal">System.out</code>.
+               </p>
+               <div class="example"><a name="jakartackbk-CHP-7-EX-1"></a><p class="title"><b>Example&nbsp;7-1.&nbsp;Printing usage information with HelpFormatter</b></p>
+                  <div class="example-contents"><pre class="programlisting">
+                  <strong class="userinput"><code>import org.apache.commons.cli.CommandLineParser;</code></strong>
+                  <strong class="userinput"><code>import org.apache.commons.cli.BasicParser;</code></strong>
+                  <strong class="userinput"><code>import org.apache.commons.cli.Options;</code></strong>
+                  <strong class="userinput"><code>import org.apache.commons.cli.OptionBuilder;</code></strong>
+                  <strong class="userinput"><code>import org.apache.commons.cli.OptionGroup;</code></strong>
+                  <strong class="userinput"><code>import org.apache.commons.cli.CommandLine;</code></strong>
+                  <strong class="userinput"><code>import org.apache.commons.cli.HelpFormatter;</code></strong>
+
+                  <strong class="userinput"><code>public class SomeApp {</code></strong>
+                  <strong class="userinput"><code>    private static final String USAGE = "[-h] [-v] [-f &lt;file&gt; | -m &lt;email&gt;]";</code></strong>
+                  <strong class="userinput"><code>    private static final String HEADER =</code></strong>
+                  <strong class="userinput"><code>        "SomeApp - A fancy and expensive program, Copyright 2010 Blah.";</code></strong>
+                  <strong class="userinput"><code>    private static final String FOOTER =</code></strong>
+                  <strong class="userinput"><code>        "For more instructions, see our website at: http://www.blah123.org";</code></strong>
+
+                  <strong class="userinput"><code>    public</code></strong> 
+                  <strong class="userinput"><code>static</code></strong> 
+                  <strong class="userinput"><code>void</code></strong> main(String[] args) <strong class="userinput"><code>throws</code></strong> Exception {
+
+        // Create a Parser
+        CommandLineParser parser = <strong class="userinput"><code>new</code></strong> BasicParser( );
+        Options options = <strong class="userinput"><code>new</code></strong> Options( );
+        options.addOption("h", "help", <strong class="userinput"><code>false</code></strong>, "Print this usage 
+                                                                      information");
+        options.addOption("v", "verbose", <strong class="userinput"><code>false</code></strong>, "Print out VERBOSE 
+                                                                         information" );
+
+        OptionGroup optionGroup = new OptionGroup( ); 
+        optionGroup.addOption( OptionBuilder.hasArg(true).withArgName("file")
+                                            .withLongOpt("file").create('f') );
+        optionGroup.addOption( OptionBuilder.hasArg(true).withArgName("email")
+                                            .withLongOpt("email").create('m') );
+        options.addOptionGroup( optionGroup );
+           // Parse the program arguments
+        try {
+            CommandLine commandLine = parser.parse( options, args );
+
+            <strong class="userinput"><code>if</code></strong>( commandLine.hasOption('h') ) {
+                printUsage( options );
+                System.exit(0);
+            }
+    
+               // ... do important stuff ...
+        } catch( Exception e ) {
+            System.out.println( "You provided bad program arguments!" );
+            printUsage( options );
+            System.exit(1);
+        }
+    }
+
+<strong class="userinput"><code>    private</code></strong> static <strong class="userinput"><code>void</code></strong> printUsage(Options options) {
+        HelpFormatter helpFormatter = <strong class="userinput"><code>new</code></strong> HelpFormatter( );
+        helpFormatter.setWidth( 80 );
+        helpFormatter.printHelp( USAGE, HEADER, options, FOOTER );
+    }
+}</pre></div>
+               </div><br class="example-break"><p>When this application is executed and the parser encounters an
+                  unexpected program argument, the following output is produced:
+               </p><a name="I_7_tt300"></a><pre class="programlisting">You provided bad program arguments!
+usage: [-h] [-v] [-f &lt;file&gt; | -m &lt;email&gt;]
+SomeApp - A fancy and expensive program, Copyright 2010 Blah.
+ -f,--file &lt;file&gt;
+ -h,--help            Print this usage information
+ -m,--email &lt;email&gt;
+ -v,--verbose         Print out VERBOSE information
+For more instructions, see our website at: http://www.blah123.org</pre></div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-7-SECT-4.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-7-SECT-4.3.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">7.4.&nbsp;Printing Usage Information&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;7.4.3.&nbsp;Discussion</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

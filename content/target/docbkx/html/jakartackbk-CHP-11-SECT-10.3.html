@@ -1,0 +1,170 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>11.10.3.&nbsp;Discussion</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-11-SECT-10.html" title="11.10.&nbsp;Basic Authentication">
+      <link rel="prev" href="jakartackbk-CHP-11-SECT-10.2.html" title="11.10.2.&nbsp;Solution">
+      <link rel="next" href="jakartackbk-CHP-11-SECT-10.4.html" title="11.10.4.&nbsp;See Also">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-11-SECT-10.2.html">11.10.2.&nbsp;Solution</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-11-SECT-10.4.html">11.10.4.&nbsp;See Also</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-11-SECT-10.3"></a>11.10.3.&nbsp;Discussion
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>The previous example added a
+                  <code class="literal">UsernamePasswordCredentials</code> object to the
+                  <code class="literal">HttpState</code> with a <code class="literal">null</code>
+                  authentication realm and a <code class="literal">null</code> host; this makes
+                  the supplied <code class="literal">UsernamePasswordCredentials</code> object
+                  the default instance to use for all authentication realms and hosts.
+                  The requests and responses created by this example demonstrate the
+                  inner-workings of <code class="literal">HttpClient</code>, which sent the
+                  following request when the <code class="literal">GetMethod</code> was executed:
+               </p><a name="I_11_tt456"></a><pre class="programlisting">GET /jccook/auth/ HTTP/1.1
+User-Agent: Jakarta Commons-HttpClient/3.0final
+Host: www.discursive.com</pre><p>The server then responds with a <code class="literal">401</code> response code,
+                  telling the client that authorization is required. The
+                  <code class="filename">WWW-Authenticate</code>
+                                 <a class="indexterm" name="jakartackbk-CHP-11-ITERM-3286"></a>
+                                 <a class="indexterm" name="jakartackbk-CHP-11-ITERM-3287"></a>
+                  header specifies that the server is expecting Basic authentication,
+                  and the authentication realm is <code class="filename">jccook realm</code>:
+               </p><a name="I_11_tt457"></a><pre class="programlisting">HTTP/1.1 401 Authorization Required
+Date: Fri, 14 May 2004 20:40:59 GMT
+Server: Apache/2.0.48 (Fedora)
+WWW-Authenticate: Basic realm="jccook realm"
+Content-Length: 487
+Content-Type: text/html; charset=iso-8859-1
+DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"&gt;
+&lt;html&gt;&lt;head&gt;
+title&gt;401 Authorization Required&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+.... error message ....</pre><p>The server did not return the information needed, and another request
+                  needs to be made, sending the credentials in an
+                  <code class="filename">Authorization</code> request header. Since the initial
+                  request was made with <code class="filename">HTTP/1.1</code>, the connection
+                  is not closed after the response, and a second request will be sent
+                  over the same connection. This second request is the same as the
+                  first request except for an <code class="filename">Authorization</code>
+                  header. <code class="literal">HttpClient</code> looked at the associated
+                  <code class="literal">HttpState</code> object and located the appropriate
+                  <code class="literal">Credentials</code> object to use to create the
+                  <code class="filename">Authorization</code> header:
+               </p><a name="I_11_tt458"></a><pre class="programlisting">GET /jccook/auth/ HTTP/1.1
+User-Agent: Jakarta Commons-HttpClient/3.0final
+Host: www.discursive.com
+Authorization: Basic dGVzdHVzZXI6Y3JhenlwYXNz</pre><p>Finally, the server replies with a <code class="literal">200</code> response
+                  code and the content of the requested resource:
+               </p><a name="I_11_tt459"></a><pre class="programlisting">HTTP/1.1 200 OK
+Date: Fri, 14 May 2004 20:40:59 GMT
+Server: Apache/2.0.48 (Fedora)
+Last-Modified: Wed, 05 May 2004 02:51:59 GMT
+ETag: "a06d2-76-829811c0"
+Accept-Ranges: bytes
+Content-Length: 118
+Content-Type: text/html; charset=UTF-8
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;title&gt;Secure JCCook Example&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  &lt;h1&gt;Hello Secure World!&lt;/h1&gt;
+ &lt;/body&gt;
+&lt;/html&gt;</pre><p>
+                                 <code class="literal">HttpClient</code> waits for the server to send back a
+                  <code class="filename">401</code> response code before sending the appropriate
+                  credentials. If you are accessing a resource, which is known to be
+                  protected by authentication, you can configure the
+                  <code class="literal">HttpState</code> object to send credentials preemptively,
+                  obviating the need for the client to react to a
+                  <code class="filename">401</code> response code. In other words, the
+                  <code class="filename">Authorization</code> header is supplied in the initial
+                  request. To configure <code class="literal">HttpClient</code> to send
+                  credentials preemptively, retrieve an
+                  <code class="literal">HttpClientParams</code> object from
+                  <code class="literal">HttpClient</code> via the <code class="literal">getParams( )</code>
+                  method, and call <code class="literal">setAuthenticationPreemptive(true)</code>
+                  as follows:
+               </p><a name="I_11_tt460"></a><pre class="programlisting">HttpClientParams params = client.getParams( );
+
+params.setAuthenticationPreemptive( <strong class="userinput"><code>true</code></strong> );</pre><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+                  <h3 class="title"><a name="jakartackbk-CHP-11-NOTE-73"></a>Warning
+                  </h3>
+                  <p>Basic authentication involves sending an unencrypted password in the
+                     request. The value of the <code class="filename">Authorization</code> header
+                     in the request is simply <code class="literal">testuser:crazypass</code> sent
+                     through a <code class="literal">Base64</code> encoding utility. If you are
+                     working on a system that uses Basic authentication, make sure that
+                     any system that performs authentication does so over
+                     <code class="filename">SSL</code>; otherwise, your password will fall into the
+                     wrong hands.
+                  </p>
+               </div>
+            </div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-11-SECT-10.2.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-11-SECT-10.4.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">11.10.2.&nbsp;Solution&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;11.10.4.&nbsp;See Also</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

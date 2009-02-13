@@ -1,0 +1,113 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>9.3.2.&nbsp;Solution</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-9-SECT-3.html" title="9.3.&nbsp;Invoking Methods in an Expression">
+      <link rel="prev" href="jakartackbk-CHP-9-SECT-3.html" title="9.3.&nbsp;Invoking Methods in an Expression">
+      <link rel="next" href="jakartackbk-CHP-9-SECT-3.3.html" title="9.3.3.&nbsp;Discussion">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-9-SECT-3.html">9.3.&nbsp;Invoking Methods in an Expression</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-9-SECT-3.3.html">9.3.3.&nbsp;Discussion</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-9-SECT-3.2"></a>9.3.2.&nbsp;Solution
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>Commons JEXL can evaluate any method that is made available to the
+                  interpreter. The following expression invokes the <code class="literal">language()</code> method on an <code class="literal">Opera</code> bean. The
+                  <code class="literal">acts</code> property of <code class="literal">Opera</code> is a
+                  <code class="literal">List</code>, and this expression invokes the
+                  <code class="literal">size( )</code> method on this <code class="literal">List</code> to
+                  obtain the number of acts in the <code class="literal">Opera</code>:
+               </p><a name="I_9_tt357"></a><pre class="programlisting">${opera.name} was composed by ${opera.composer} in ${opera.year}.
+This opera has ${opera.acts.size( )}, and it is performed in ${opera.
+language( )}</pre><p>The following code creates and populates an expression and a context,
+                  merging the two to create a message:
+               </p><a name="I_9_tt358"></a><pre class="programlisting">import org.apache.commons.jexl.Expression;
+import org.apache.commons.jexl.ExpressionFactory;
+import org.apache.commons.jexl.JexlContext;
+import org.apache.commons.jexl.JexlHelper;
+
+Opera opera = new Opera( );
+opera.setName("The Magic Flute");
+opera.setComposer("Mozart");
+opera.setYear(1791);
+opera.acts( new ArrayList(2) );
+
+String expr = 
+    "${opera.name} was composed by ${opera.composer} in ${opera.year}.";
+    "This opera has ${opera.acts.size( )} acts, and it is performed in " +
+    "${opera.language( )}";
+
+<strong class="userinput"><code>Expression e = ExpressionFactory.createExpression( expr );</code></strong>
+               <strong class="userinput"><code>JexlContext jc = JexlHelper.createContext( );</code></strong>
+               <strong class="userinput"><code>jc.getVars( ).put("opera", opera);</code></strong>
+               <strong class="userinput"><code>String message = (String) e.evaluate(jc);</code></strong>
+
+System.out.println( message );</pre><p>The following message is printed to the console:</p><a name="I_9_tt359"></a><pre class="programlisting">The Magic Flute was composed by Mozart in 1791.  This opera has
+2 acts, and it is performed in German.</pre></div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-9-SECT-3.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-9-SECT-3.3.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">9.3.&nbsp;Invoking Methods in an Expression&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;9.3.3.&nbsp;Discussion</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

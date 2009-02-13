@@ -1,0 +1,148 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>10.17.2.&nbsp;Solution</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-10-SECT-17.html" title="10.17.&nbsp;Checking a POP3 Mailbox">
+      <link rel="prev" href="jakartackbk-CHP-10-SECT-17.html" title="10.17.&nbsp;Checking a POP3 Mailbox">
+      <link rel="next" href="jakartackbk-CHP-10-SECT-17.3.html" title="10.17.3.&nbsp;Discussion">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-10-SECT-17.html">10.17.&nbsp;Checking a POP3 Mailbox</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-10-SECT-17.3.html">10.17.3.&nbsp;Discussion</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-10-SECT-17.2"></a>10.17.2.&nbsp;Solution
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>Use Commons Net <code class="literal">POP3Client</code> to check a POP3 mailbox
+                  for incoming mail. The following example connects to the
+                  <a class="indexterm" name="jakartackbk-CHP-10-ITERM-3190"></a>POP3
+                  server <code class="filename">www.discursive.com</code>, logs in as
+                  <code class="literal">tobrien@discursive.com</code>, and prints each message in
+                  the mailbox:
+               </p><a name="I_10_tt431"></a><pre class="programlisting">import org.apache.commons.io.CopyUtils;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.net.pop3.POP3Client;
+import org.apache.commons.net.pop3.POP3MessageInfo;
+
+POP3Client client = new POP3Client( );
+client.connect("www.discursive.com");
+client.login("tobrien@discursive.com", "secretpassword");
+        
+POP3MessageInfo[] messages = client.listMessages( );
+for (int i = 0; i &lt; messages.length; i++) {
+    int messageNum = messages[i].number;
+    System.out.println( "************* Message number: " + messageNum );
+    Reader reader = client.retrieveMessage( messageNum );
+    System.out.println( "Message:\n" + IOUtils.toString( reader ) );
+    IOUtils.closeQuietly( reader );
+}
+        
+client.logout( );
+client.disconnect( );</pre><p>This example calls <code class="literal">client.listMessage()</code>
+                                 <a class="indexterm" name="jakartackbk-CHP-10-ITERM-3191"></a>
+                                 <a class="indexterm" name="jakartackbk-CHP-10-ITERM-3192"></a> to get an array of
+                  <code class="literal">POP3MessageInfo</code> objects. Each message is retrieved
+                  using the message number contained in each
+                  <code class="literal">POP3MessageInfo</code>. To retrieve the contents of an
+                  individual message, the message number is passed to
+                  <code class="literal">retrieveMessage()</code>
+                                 <a class="indexterm" name="jakartackbk-CHP-10-ITERM-3193"></a>
+                                 <a class="indexterm" name="jakartackbk-CHP-10-ITERM-3194"></a>, which returns a <code class="literal">Reader</code>
+                  from which the message body is read. The previous example prints the
+                  contents of a POP3 mailbox, as shown below:
+               </p><a name="I_10_tt432"></a><pre class="programlisting">************* Message number: 1
+Message:
+Return-Path: &lt;jerk@spamheaven.net&gt;
+X-Original-To: tobrien@discursive.com
+Delivered-To: tobrien@discursive.com
+Received: from jerk-net.co.jp (unknown [219.71.255.123])
+    by pericles.symbiont.net (Postfix) with SMTP id 6FA54543FE
+    for &lt;tobrien@discursive.com&gt;; Tue, 22 Jun 2004 02:19:13 -0400 (EDT)
+Received: from 228.4.65.206 by smtp.cito.nl;
+    Tue, 22 Jun 2004 06:09:26 +0000
+Message-ID: &lt;9b8001c4581f$2524e2e9$d8470c90@jerk-net.co.jp&gt;
+From: "Spammer" &lt;jerk@spamheaven.net&gt;
+To: tobrien@discursive.com
+Subject: Hey, I heard you need a mortgage
+Date: Tue, 22 Jun 2004 02:09:21 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+    charset="iso-8859-1"
+Content-Transfer-Encoding: 8bit
+
+Hello,
+
+I heard that you must be a sucker, so I thought I would send you some 
+unsolicited email about a mortgage.  Only 3%, and you can even wire 
+the money directly to my friend from Nigeria.  Did I mention that if 
+you decide to take this mortgage I'll send you the secret for making 
+millions by sending useless spam.
+
+---
+Mr. Jerk Spammer
+"I ruin email for everyone!"</pre></div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-10-SECT-17.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-10-SECT-17.3.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">10.17.&nbsp;Checking a POP3 Mailbox&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;10.17.3.&nbsp;Discussion</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

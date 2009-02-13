@@ -1,0 +1,146 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>2.14.3.&nbsp;Discussion</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-2-SECT-14.html" title="2.14.&nbsp;Calculating String Difference">
+      <link rel="prev" href="jakartackbk-CHP-2-SECT-14.2.html" title="2.14.2.&nbsp;Solution">
+      <link rel="next" href="jakartackbk-CHP-2-SECT-14.4.html" title="2.14.4.&nbsp;See Also">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-2-SECT-14.2.html">2.14.2.&nbsp;Solution</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-2-SECT-14.4.html">2.14.4.&nbsp;See Also</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-2-SECT-14.3"></a>2.14.3.&nbsp;Discussion
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>
+                                 <code class="literal">StringUtils.difference()</code>
+                                 <a class="indexterm" name="jakartackbk-CHP-2-ITERM-2083"></a>
+                                 <a class="indexterm" name="jakartackbk-CHP-2-ITERM-2084"></a> returns the difference between two strings,
+                  returning the portion of the second string, which starts to differ
+                  from the first. <code class="literal">StringUtils.indexOfDifference()</code>
+                                 <a class="indexterm" name="jakartackbk-CHP-2-ITERM-2085"></a>
+                                 <a class="indexterm" name="jakartackbk-CHP-2-ITERM-2086"></a>
+                                 <a class="indexterm" name="jakartackbk-CHP-2-ITERM-2087"></a>
+                  returns the index at which the second string starts to diverge from
+                  the first. The difference between
+                  "ABC" and
+                  "ABE" is
+                  "E," and the index of the
+                  difference is 2. Here's a more complex example:
+               </p><a name="I_2_tt105"></a><pre class="programlisting">String a = "Strategy";
+String b = "Strategic";
+
+String difference = StringUtils.difference( a, b );
+int differenceIndex = StringUtils.indexOfDifference( a, b );
+
+System.out.println( "difference(Strategy, Strategic) = " +
+                    difference );
+System.out.println( "index(Strategy, Strategic) = " +
+                    differenceIndex );
+
+a = "The Secretary of the UN is Kofi Annan."
+b = "The Secretary of State is Colin Powell."
+
+difference = StringUtils.difference( a, b );
+differenceIndex = StringUtils.indexOfDifference( a, b );
+
+System.out.println( "difference(..., ...) = " +
+                    difference );
+System.out.println( "index(..., ...) = " +
+                    differenceIndex );</pre><p>This produces the following output, showing the differences between
+                  two strings:
+               </p><a name="I_2_tt106"></a><pre class="programlisting">difference(Strategy, Strategic) = ic
+index(Strategy, Strategic) = 7
+difference(...,...) = State is Colin Powell.
+index(...,...) = 17</pre><p>The Levenshtein distance is calculated as the number of insertions,
+                  deletions, and replacements it takes to get from one string to
+                  another. The distance between
+                  "Boat" and
+                  "Coat" is a one letter replacement,
+                  and the distance between "Remember"
+                  and "Alamo" is 8&#8212;five letter
+                  replacements and three deletions. Levenshtein distance is also known
+                  as the <code class="filename">edit distance</code>, which is the number of
+                  changes one needs to make to a string to get from string A to string
+                  B. The following example demonstrates the
+                  <code class="literal">getLevenshteinDistance( )</code> method:
+               </p><a name="I_2_tt107"></a><pre class="programlisting">int distance1 = 
+    StringUtils.getLevenshteinDistance( "Boat", "Coat" );
+int distance2 = 
+    StringUtils.getLevenshteinDistance( "Remember", "Alamo" );
+int distance3 = 
+    StringUtils.getLevenshteinDistance( "Steve", "Stereo" );
+
+System.out.println( "distance(Boat, Coat): " + distance1 );
+System.out.println( "distance(Remember, Alamo): " + distance2 );
+System.out.println( "distance(Steve, Stereo): " + distance3 );</pre><p>This produces the following output, showing the Levenshtein (or edit)
+                  distance between various strings:
+               </p><a name="I_2_tt108"></a><pre class="programlisting">distance(Boat, Coat): 1
+distance(Remember, Alamo): 8
+distance(Steve, Stereo): 3</pre></div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-2-SECT-14.2.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-2-SECT-14.4.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">2.14.2.&nbsp;Solution&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;2.14.4.&nbsp;See Also</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

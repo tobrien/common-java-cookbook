@@ -45,7 +45,7 @@
         <site>
           <id>discursive-site</id>
           <name>Discursive Site</name>
-          <url>scp://deployer@mars.discursive.com/var/www/html/www.discursive.com/books/cjcook/parent</url>
+          <url>scp://tobrien@mars.discursive.com/var/www/html/www.discursive.com/books/cjcook/parent</url>
         </site>
       </distributionManagement>
       <properties>
@@ -57,7 +57,7 @@
         <site>
           <id>discursive-site</id>
           <name>Discursive Site</name>
-          <url>scp://deployer@mars.discursive.com/var/www/html/www.discursive.com/books/cjcook-stage/parent</url>
+          <url>scp://tobrien@mars.discursive.com/var/www/html/www.discursive.com/books/cjcook-stage/parent</url>
         </site>
       </distributionManagement>
     </profile>

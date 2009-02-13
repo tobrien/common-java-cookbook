@@ -1,0 +1,137 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>9.6.2.&nbsp;Solution</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-9-SECT-6.html" title="9.6.&nbsp;Using a Simple Templating Language">
+      <link rel="prev" href="jakartackbk-CHP-9-SECT-6.html" title="9.6.&nbsp;Using a Simple Templating Language">
+      <link rel="next" href="jakartackbk-CHP-9-SECT-6.3.html" title="9.6.3.&nbsp;Discussion">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-9-SECT-6.html">9.6.&nbsp;Using a Simple Templating Language</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-9-SECT-6.3.html">9.6.3.&nbsp;Discussion</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-9-SECT-6.2"></a>9.6.2.&nbsp;Solution
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>Use Jakarta Velocity and store your template in the filesystem.
+                  Jakarta Velocity is a straightforward templating engine with a
+                  lightweight syntax similar to the expression language introduced in
+                  <a href="jakartackbk-CHP-9-SECT-2.html" title="9.2.&nbsp;Using an Expression Language">Recipe 9.2</a>. The following Velocity template
+                  is used to create an email:
+               </p><a name="I_9_tt364"></a><pre class="programlisting">#set( $customer = $subscription.customer )
+#set( $magazine = $subscription.magazine )
+
+$customer.firstName,
+
+Your subscription to ${magazine.title} on
+$subscription.endDate.  If you are interested in renewing your subscription,
+please click on the following URL, and enter your password:
+
+${magazine.baseUrl}/renew?cust=${customer.id}</pre><p>This template references a <code class="literal">Subscription</code> bean bound
+                  to the name <code class="literal">subscription</code>. This
+                  <code class="literal">Subscription</code> object has a
+                  <code class="literal">customer</code> property and a
+                  <code class="literal">magazine</code> property, and both of these properties
+                  are assigned to a local template variable using the
+                  <code class="literal">#set</code> directive. To render a Velocity template, the
+                  engine is initialized using <code class="literal">Velocity.init(
+                     )</code>
+                                 <a class="indexterm" name="jakartackbk-CHP-9-ITERM-2974"></a>
+                                 <a class="indexterm" name="jakartackbk-CHP-9-ITERM-2975"></a>, a <code class="literal">VelocityContext</code> is
+                  created and populated, and the template is read with a
+                  <code class="literal">FileReader</code>
+                                 <a class="indexterm" name="jakartackbk-CHP-9-ITERM-2976"></a>.
+                  The following code renders this template:
+               </p><a name="I_9_tt365"></a><pre class="programlisting">import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.Velocity;
+
+// Initialize Velocity
+Velocity.init( );
+
+// Create a context and put our subscription object into the context
+VelocityContext context = new VelocityContext( );
+context.put("subscription", testSubscription( ));
+
+// Create a Reader to read our velocity template.
+Reader reader = new FileReader( new File("renew.vm") );
+
+// Evaluate our template and write the result to a StringWriter
+StringWriter writer = new StringWriter( );
+Velocity.evaluate(context, writer, "test", reader);
+
+System.out.println( writer.toString( ) );</pre><p>The template is loaded from the filesystem in a file named
+                  <code class="filename">renew.vm</code>, and the following output is printed to
+                  the console:
+               </p><a name="I_9_tt366"></a><pre class="programlisting">
+               <em class="replaceable"><code>Tim</code></em>,
+
+Your subscription to <em class="replaceable"><code>Science World </code></em>expires on <em class="replaceable"><code>July 20, 2003</code></em>.  If 
+you are interested in renewing your subscription, please click on the following 
+URL, and enter in your password.
+
+http://www.scienceworld.com/renew?cust=22324</pre></div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-9-SECT-6.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-9-SECT-6.3.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">9.6.&nbsp;Using a Simple Templating Language&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;9.6.3.&nbsp;Discussion</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

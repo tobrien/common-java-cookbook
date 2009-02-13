@@ -1,0 +1,527 @@
+<?xml version="1.0"?>
+<!DOCTYPE preface PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<preface id="jakartackbk-PREFACE-2">
+      <title>Preface</title>
+      <para>In this book, you'll find information about a set of
+libraries developed within the Jakarta Commons (also referred to as
+"Commons"). Commons (<systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons</systemitem>) is a set
+of small, popular components from the Apache Software
+Foundation's Jakarta project. Ranging from the
+elementary to the complex, many would consider some of these
+libraries indispensable to any Java© project. These
+components are so widespread, they may already be on your classpath.
+If you develop an application using Jakarta Struts, Apache Tomcat, or
+Hibernate, you have Commons BeanUtils and Commons Logging in your
+classpath. If you just installed Red Hat Enterprise Linux with the
+default configuration, you've got Commons libraries
+somewhere in <filename moreinfo="none">/usr</filename>. If you downloaded
+Sun's J2EE 1.4 SDK, you will have also downloaded
+Commons Logging and Commons Launcher. While Jakarta Commons may be
+everywhere, many are still unaware of the capabilities these
+components provide.</para>
+      <para>This book uses Jakarta Commons to focus on tactical implementation
+details, answering such questions as: How do we parse XML? How do we
+serialize beans? Is there an easier way to work with Collections? How
+do we work with HTTP and keep track of cookies? The tactical is often
+sacrificed for the strategic. Consider a complex J2EE system with a
+solid, well-conceived architecture. The strategic (or high-level)
+design appears reasonable from 40,000 feet, but as soon as you drill
+into the details, you notice that every Servlet or JSP contains pages
+upon pages of unmaintainable and unnecessary code because the
+developers were not aware of some valuable time-saver like BeanUtils,
+Collections, or the Digester. Or, worse, the developer may have spent
+a week reimplementing most of the capabilities of Commons BeanUtils
+even though BeanUtils was already in the classpath. Knowing what
+Jakarta Commons has to offer often helps to inform decisions made at
+the lowest level.</para>
+      <para>Few application developers would consider writing a custom XML
+parser, but developers will frequently write custom components that
+duplicate freely available libraries. Take, as an example, a set of
+static utility methods that seems to pop up in almost every complex
+project. A common process such as reading a file to a
+<literal moreinfo="none">String</literal> may be refactored into a
+<literal moreinfo="none">CommonFileUtils</literal> class, or turning a DOM
+<literal moreinfo="none">Document</literal> into a set of beans may be accomplished
+with a set of classes in some custom code. Jakarta Commons provides
+solutions to both of these problems and many more, and reading this
+book may help you to avoid unnecessary wheel reinvention.</para>
+      <para>Many people know of these components in a general sense, but few have
+the months or weeks necessary to sit down and read the relevant
+tutorials, FAQs, blogs, and archived mailing lists associated with
+each component. The amount of work involved in keeping up-to-date
+with an array of open source communities is not trivial. This is why
+I've tried to compact much of this information into
+easily accessible recipes. These recipes were written to provide the
+information you need to start using Commons in a few minutes, but the
+Discussion and See Also sections give you an opportunity to dig
+deeper into the motivation behind each Commons component if you need
+more information.</para>
+      <para>The tools introduced herein save you serious time and provide you
+with a set of alternatives you may not currently be aware of. I wish
+I had read a book like this five years ago; it would have accelerated
+my learning and helped me to avoid some costly design decisions. Use
+this text as you will; if you are only interested in Commons
+Collections, you should be able to quickly familiarize yourself with
+Collections by browsing <link linkend="jakartackbk-CHP-5">Chapter 5</link>. On the other hand, if
+you are looking for a survey of some of the major projects in Jakarta
+Commons, read this book from start to finish. Part structured
+reference, part prose, the cookbook format lets you customize your
+reading experience, and I hope this book is as interesting to read as
+it was to write.</para>
+      <sect1 id="jakartackbk-PREFACE-2-SECT-1" role="">
+         <title>What's Inside</title>
+         <para>This book covers components from Jakarta Commons, a few projects from
+Jakarta, and one project outside of the Apache Software Foundation.
+This book covers the following components:</para>
+         <itemizedlist>
+            <listitem>
+               <para>Jakarta Commons BeanUtils</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Commons Betwixt</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Commons CLI</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Commons Codec</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Commons Collections</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Commons Configuration</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Commons Digester</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Commons HttpClient</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Commons ID</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Commons IO</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Commons JEXL</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Commons JXPath</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Commons Lang</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Commons Logging</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Commons Math</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Commons Net</para>
+            </listitem>
+            <listitem>
+               <para>Apache Log4J</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Velocity</para>
+            </listitem>
+            <listitem>
+               <para>FreeMarker</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Lucene</para>
+            </listitem>
+            <listitem>
+               <para>Jakarta Slide</para>
+            </listitem>
+         </itemizedlist>
+         <para>All of these projects are covered in detail in the following
+chapters. Here's what's in each
+chapter:</para>
+         <variablelist>
+            <varlistentry>
+               <term>
+                  <link linkend="jakartackbk-CHP-1">Chapter 1</link>, <citetitle>Supplements to the Java 2 Platform</citetitle>
+               </term>
+               <listitem>
+                  <para>This chapter introduces Commons Lang. Automation of
+<literal moreinfo="none">toString( )</literal>, working with arrays, formatting and
+rounding dates, working with enumerations, generating identifiers,
+and measuring time are some of the topics discussed in this chapter.
+This chapter also covers the generation of unique identifiers with
+Commons ID.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <link linkend="jakartackbk-CHP-2">Chapter 2</link>, <citetitle>Manipulating Text</citetitle>
+               </term>
+               <listitem>
+                  <para>While Java does not have the extensive text manipulation capabilities
+of a scripting language like Perl, Commons Lang's
+<literal moreinfo="none">StringUtils</literal> has a number of utility methods that
+can be used to manipulate text. This chapter deals with
+<literal moreinfo="none">StringUtils</literal>, <literal moreinfo="none">WordUtils</literal>, and
+Commons Codec.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <link linkend="jakartackbk-CHP-3">Chapter 3</link>, <citetitle>JavaBeans</citetitle>
+               </term>
+               <listitem>
+                  <para>Beans appear throughout Java; from Jakarta Struts to Hibernate, beans
+are a unit of information in an object model. This chapter introduces
+Commons BeanUtils, one of the most widely used components from
+Jakarta Commons.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <link linkend="jakartackbk-CHP-4">Chapter 4</link>, <citetitle>Functors</citetitle>
+               </term>
+               <listitem>
+                  <para>Functors are a fundamental way of thinking about programming as a set
+of functional objects. Commons Collections introduced predicates,
+transformers, and closures, and functors, which can be used to model
+control structures and loops. This chapter demonstrates how one would
+apply functors to any program.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <link linkend="jakartackbk-CHP-5">Chapter 5</link>, <citetitle>Collections</citetitle>
+               </term>
+               <listitem>
+                  <para>Iterators, filtering with predicates, buffers, queues, bidirectional
+maps, type-safe collections, constraining collections, lazy maps, and
+set operations are a few of the topics introduced in this chapter.
+This chapter deals with Commons Collections, new collection types
+introduced, and the application of functors to various collections.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <link linkend="jakartackbk-CHP-6">Chapter 6</link>, <citetitle>XML</citetitle>
+               </term>
+               <listitem>
+                  <para>If you are constantly parsing or creating XML documents, this chapter
+introduces some alternatives to the standard parser APIs (SAX, DOM,
+and JDOM). This chapter introduces Commons Digester, Commons Betwixt,
+and Commons JXPath.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <link linkend="jakartackbk-CHP-7">Chapter 7</link>, <citetitle>Application Infrastructure</citetitle>
+               </term>
+               <listitem>
+                  <para>Commons Configuration is introduced as a way to parse properties
+files and XML configuration files. Other recipes in this chapter show
+how Commons CLI can be used to parse a complex set of required and
+optional command-line options. This chapter also details the
+configuration and use of Commons Logging and Apache Log4J.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <link linkend="jakartackbk-CHP-8">Chapter 8</link>, <citetitle>Math</citetitle>
+               </term>
+               <listitem>
+                  <para>This chapter focuses on simple mathematical capabilities in both
+Commons Lang and Commons Math. This chapter introduces classes to
+work with fractions, complex numbers, matrices, and simple univariate
+statistics.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <link linkend="jakartackbk-CHP-9">Chapter 9</link>, <citetitle>Templating</citetitle>
+               </term>
+               <listitem>
+                  <para>This chapter deals with simple expression languages such as Commons
+JEXL to more complex templating engines such as Jakarta Velocity and
+FreeMarker. This chapter also demonstrates the integration of both
+Velocity and FreeMarker with a J2EE servlet container such as Jakarta
+Tomcat.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <link linkend="jakartackbk-CHP-10">Chapter 10</link>, <citetitle>I/O and Networking</citetitle>
+               </term>
+               <listitem>
+                  <para>This chapter introduces Commons IO, which contains a number of
+utilities for working with streams and files, and Commons Net, which
+contains simple clients for the FTP, POP, and SMTP protocols.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <link linkend="jakartackbk-CHP-11">Chapter 11</link>, <citetitle>HTTP and WebDAV</citetitle>
+               </term>
+               <listitem>
+                  <para>If you need to communicate with anything over HTTP, read this
+chapter, which deals with Jakarta HttpClient and the WebDAV client
+library from Jakarta Slide.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <link linkend="jakartackbk-CHP-12">Chapter 12</link>, <citetitle>Searching and Filtering</citetitle>
+               </term>
+               <listitem>
+                  <para>Commons JXPath can be used to apply XPath expressions to collections
+and object graphs. Jakarta Lucene is a fully functional search engine
+that can index any structured document. This chapter demonstrates the
+use of Lucene with Commons Digester.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para>Limited time and resources forced me to make some decisions about
+which projects to include in this text. Projects like Velocity,
+FreeMarker, and Log4J, while not Commons components, were included
+because they fit the mold of a small, easily reusable component.
+Other Commons components were not included in this book because they
+were still being developed at the time of writing, or because a short
+recipe would have been impossible without a detailed 30-page
+introduction. Commons DbUtils, DBCP, Discovery, Jelly, Launcher,
+Modeler, Pool, Primitives, Chain, and promising sandbox components
+could fill another entire volume. Some projects, such as Jakarta
+HiveMind, started as components in the Commons Sandbox only to be
+promoted directly to subproject status of the Jakarta project.
+Classification of projects and components in Jakarta can also be
+somewhat arbitrary; Jakarta ORO and Jakarta RegExp would both seem to
+be prime candidates for the Jakarta Commons, but they are both
+subprojects of Jakarta. Other projects, such as Jakarta Commons
+HttpClient, have recently been promoted to be subprojects of Jakarta,
+leaving the Commons entirely. Think of this book as focusing on
+Jakarta Commons with some other projects thrown in to liven up the
+discussion. I apologize in advance if I left your favorite project
+out.</para>
+         <para>Writing a book about a series of frequently released components is
+reminiscent of a game called whack-a-mole. Just when you finish
+updating a chapter for a new release, another component has a
+release. On average, one commons component is released every one or
+two weeks; therefore, a few of the versions in this book may be
+obsolete as soon as this book hits the shelves. In general, Jakarta
+Commons makes a concerted effort to preserve backward compatibility
+and keep a stable public interface. Lessons learned on Commons
+BeanUtils 1.6 should remain applicable to Commons BeanUtils 1.7. If
+you find that a more recent version of a component has been released,
+you should download that more recent version and check the
+Discursive site for updates related to this book.</para>
+      </sect1>
+      <sect1 id="jakartackbk-PREFACE-2-SECT-2" role="">
+         <title>Conventions Used in This Book</title>
+         <para>I'll use a number of conventions you should know
+about in this book. For example, menu items are separated with
+an<symbol role="unicode" remap="8594">→</symbol> like this:
+File<symbol role="unicode" remap="8594">→</symbol>
+New<symbol role="unicode" remap="8594">→</symbol> Project. To make them
+stand out, new lines of code will be displayed highlighted when
+they're added. Example code is often presented out
+of context; instead of developing an entire class, only the relevant
+block of code is presented. Most examples will include the necessary
+import statements for Commons-relevant classes, and other
+<literal moreinfo="none">import</literal> statements will be implied. When code is
+omitted or implied, it will be represented by ellipses:</para>
+         <programlisting id="I__tt3" format="linespecific">import org.apache.commons.digester.Digester;
+...
+Digester digester = new Digester( );
+digester.doSomething( );</programlisting>
+         <para>In addition, the following typographical conventions are also used in
+this book:</para>
+         <variablelist>
+            <varlistentry>
+               <term>
+                  <emphasis>Italic</emphasis>
+               </term>
+               <listitem>
+                  <para>Indicates new terms, URLs, email addresses, filenames, file
+extensions, pathnames, directories, and Unix utilities.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <literal moreinfo="none">Constant width</literal>
+               </term>
+               <listitem>
+                  <para>Indicates commands, options, switches, variables, types, classes,
+namespaces, methods, modules, properties, parameters, values,
+objects, events, event handlers, and XML tags.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <replaceable>Constant width italic</replaceable>
+               </term>
+               <listitem>
+                  <para>Shows text that should be replaced with user-supplied values.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <userinput moreinfo="none">Constant width bold</userinput>
+               </term>
+               <listitem>
+                  <para>Highlights important text within code examples.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <tip id="jakartackbk-PREFACE-2-NOTE-39" role="ora">
+            <para>This icon signifies a tip, suggestion, or general note.</para>
+         </tip>
+         <warning id="jakartackbk-PREFACE-2-NOTE-40" role="ora">
+            <para>This icon indicates a warning or caution.</para>
+         </warning>
+      </sect1>
+      <sect1 id="jakartackbk-PREFACE-2-SECT-3" role="">
+         <title>What You'll Need</title>
+         <para>To experiment with the various libraries introduced in this book, you
+will need the J2SE 1.4 SDK, which can be obtained from <systemitem role="url" moreinfo="none">http://www.javasoft.com</systemitem>. The examples in this
+book were developed in an IDE named Eclipse, which can be downloaded
+from the Eclipse project site at <systemitem role="url" moreinfo="none">http://www.eclipse.org</systemitem>. Each chapter contains
+instructions for downloading the various Jakarta Commons components;
+to download any component from Jakarta Commons, go to the Jakarta
+Commons page at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons</systemitem> and click
+on "Binaries" under
+"Download" in the left menu.</para>
+      </sect1>
+      <sect1 id="jakartackbk-PREFACE-2-SECT-4" role="">
+         <title>The Jakarta Commons Community</title>
+         <para>The Jakarta community and the larger community of the Apache Software
+Foundation is committed to developing open source software. The
+Apache Software Foundation is a nonprofit corporation registered in
+Delaware that supports ongoing collaborative software development
+according to a set of simple ideals: transparency, meritocracy,
+consensus, and mutual respect. To learn more about the foundation,
+start at the Frequently Asked Questions page on www.apache.org
+(<systemitem role="url" moreinfo="none">http://www.apache.org/foundation/faq.html</systemitem>).
+Jakarta is a project under the Apache Software Foundation, and it is
+managed by what is known as a Project Management Committee (PMC).
+This committee manages a number of Jakarta subprojects including the
+Jakarta Commons.</para>
+         <para>The Jakarta community and Apache XML community both had tremendous
+growth spurts from 1999 to 2003, with both projects becoming dominant
+forces in open source Java. Tomcat, Struts, Xerces, Xalan, Ant,
+Cocoon, and other projects were embraced by the larger community and
+Java developed a very strong association with open source because of
+the influence of Jakarta. Toward the end of this growth spurt, the
+corporate structure of Apache required a certain level of oversight
+and accountability, which could not be achieved in an umbrella
+project like Jakarta with hundreds of committers. A decision was made
+to encourage Jakarta subprojects to move toward smaller, more focused
+PMCs. One of the first projects to leave Jakarta was Apache Ant, and
+other projects such as Maven, Struts, and Log4j followed suit. This
+new, more nimble approach to the structure of collaborative software
+development avoids the creation of a management layer between project
+participants and the PMC. Apache is making way for a new generation
+of projects that will set the standard for open source Java,
+including Geronimo, Pluto, Directory, Derby, and Axion. Be aware that
+the structure of projects and subprojects in Jakarta is somewhat
+fluid at the moment, and, as the situation evolves, certain
+components could be split off into separate Apache projects.</para>
+         <para>If you find the components in this book helpful, I encourage you to
+take some time to observe the commons-dev developer mailing list. The
+ASF is (mostly) transparent, and this means that the general public
+has a window into the collaborative development process that is used
+to create a large body of great software. I would encourage any
+developer to take an interest in a piece of software and watch the
+development process. Follow the decisions, releases, arguments,
+flame-wars, and evolution of something like Jakarta Commons and you
+can see for yourself what works and what doesn't
+work. This is also a great way to keep yourself informed of the
+changes and direction of certain projects.</para>
+         <para>I don't intend to speak for this community, and,
+honestly, no one can speak for a group as diverse as the one that has
+formed around Jakarta Commons. I wanted to write this book to help
+attract more people to the concept of Jakarta Commons and to take
+some time to encourage people to think about how they could
+contribute to that effort. If there are more people paying attention
+to the software, Commons components will have higher quality, more
+bug reports will be filed, and more people might take some time to
+submit documentation patches. If you find Jakarta Commons (or any
+other Apache software) useful, you should consider taking a little
+bit of time to help a fellow user on the user mailing list or submit
+documentation patches. If you find a typo or a bug, file a report on
+Apache's Bugzilla installation (<systemitem role="url" moreinfo="none">http://issues.apache.org/bugzilla</systemitem>) or Jira
+installation (<systemitem role="url" moreinfo="none">http://issues.apache.org/jira</systemitem>).</para>
+         <para>There is always a need for greater unit test coverage, and any time
+you find an inconsistency in code you should file a bug.
+Contributions can come in many forms — answering user
+questions, writing documentation, writing unit tests, submitting
+patches, or providing feedback. All of these contributions help
+sustain a living community. If you find yourself unable to
+participate in the community, you can make a small (possibly
+tax-deductible) donation to the Apache Software Foundation to help
+offset the cost of infrastructure and bandwidth (<systemitem role="url" moreinfo="none">http://www.apache.org/foundation/contributing.html</systemitem>).</para>
+      </sect1>
+      <sect1 id="jakartackbk-PREFACE-2-SECT-5" role="">
+         <title>The Apache Software License</title>
+         <para>Everything in this book is covered by the Apache Software License 2.0
+(except FreeMarker, which is covered by a similar BSD-style license).
+All developers who touch open source should be familiar with the
+various licenses and come to their own conclusions; most importantly,
+you should become familiar with the Apache license (and other
+BSD-style licenses) and how it differs from the GNU General Public
+License (GPL) and GNU Lesser General Public License (LGPL). Read the
+Apache Software License 2.0 at <systemitem role="url" moreinfo="none">http://www.apache.org/licenses/</systemitem>.</para>
+         <para>I am not a lawyer (IANAL), but I would urge you to learn as much as
+you can about these licenses before you start to use them. For more
+information about open source, and for a comprehensive list of
+licenses, see the Open Source Initiative (OSI) at <systemitem role="url" moreinfo="none">http://www.opensource.org</systemitem>. The Apache license
+does not place restrictions on people or organizations that wish to
+redistribute the software it covers, and, in general, the Apache
+license creates fewer licensing headaches for individuals and
+organizations that want to incorporate open source software into a
+commercial product.</para>
+      </sect1>
+      <sect1 id="jakartackbk-PREFACE-2-SECT-7" role="">
+         <title>We'd Like to Hear from You</title>
+         <para>Please address comments and questions concerning this book to the
+publisher:</para>
+         <simplelist type="vert">
+            <member>Discursive</member>
+            <member>626 Grove St., Suite 201, Evanston, IL 60202</member>
+         </simplelist>
+      </sect1>
+      <sect1 id="jakartackbk-PREFACE-2-SECT-8" role="">
+         <title>Acknowledgments (1st Edition)</title>
+         <para>This book would have been impossible to write were it not for the
+support and inspiration of a number of colleagues, friends, and
+family.</para>
+         <para>Thanks to Brett McLaughlin, my editor, who had a huge impact on the
+quality, structure, and content of the book. His feedback and advice
+over the course of the past year has been immeasurably valuable.
+Thanks also to Karen Tegtmeyer for reviewing this book.</para>
+         <para>Primary credit should first go to the Jakarta community and the
+various individuals who give hours upon hours of time to cut releases
+and maintain infrastructure. In the face of constant challenge,
+Jakarta has remained a well spring of innovation.</para>
+         <para>Thanks to Michael Podrazik, Stefan Winz, Bob Hartlaub, Gautam
+Guliani, Jarret Rackoff, Robert Sorkin, and Federico Hatoum, and
+Grassroots Technologies in New York, NY. Stefan originally introduced
+me to the Commons in the form of the Digester.</para>
+         <para>Thanks to various colleagues: Tim Beynart, Mike Smith, Felix Sheng,
+Julian Bleecker, Jim Buswell, Peter Costa, Rich Angeletti, David
+Winterfeldt, Ray Krueger, Chris Bobbitt, Tom Bergerson, Alex Wolfe,
+David Navin, Mark Snell, Bill Martens, Sultan Meghji, Daniel Summers,
+Greg Sandell, Dan Waite, and Benjamin Burton.</para>
+         <para>Mad props to Dave and Nicola, Rock, Patrick, Kat and Jay, Mike,
+Kelcey, John, Heather, Nick, Jessica, Marc, Krys, Joan, Jim, Zach,
+Sarah, and Mickey. Much respect to John Bicknell, Karen Brunssen, Kit
+Bridges and the Trinity Episcopal Church Choir. Endless thanks to
+Andrea and Klaus.</para>
+         <para>Thanks to my family, Chris, Kriste, Charlotte, Lily, Sean, Amy, Lucy,
+Kathy, Toby, Julie, Taylor, the Gilmores, Janey, all the
+O'Briens, and my parents Margaret and Michael.
+Thanks to the Paynes: Becky, James, Heather, Chris, Jeannette, Matt,
+Susette and Tom, Grandma Barbee and James Sr.</para>
+         <para>Most of all, I would like to thank my wife, Susan
+O'Brien, for being perfect. Happy Halloween.</para>
+      </sect1>
+   </preface>

@@ -1,0 +1,241 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>5.13.3.&nbsp;Discussion</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="jakartackbk-CHP-5-SECT-13.html" title="5.13.&nbsp;Creating Typed Collections and Maps">
+      <link rel="prev" href="jakartackbk-CHP-5-SECT-13.2.html" title="5.13.2.&nbsp;Solution">
+      <link rel="next" href="jakartackbk-CHP-5-SECT-13.4.html" title="5.13.4.&nbsp;See Also">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-5-SECT-13.2.html">5.13.2.&nbsp;Solution</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-5-SECT-13.4.html">5.13.4.&nbsp;See Also</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="sect2" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title"><a name="jakartackbk-CHP-5-SECT-13.3"></a>5.13.3.&nbsp;Discussion
+                        </h3>
+                        <div class="section-icon"></div>
+                     </div>
+                  </div>
+               </div>
+               <p>A <code class="literal">Map</code> frequently contains keys and values with
+                  consistent types; for instance, an application that keeps track of
+                  <code class="literal">Person</code> objects by name most likely has a
+                  <code class="literal">personMap</code> with <code class="literal">Person</code> values
+                  and <code class="literal">String</code> keys. Rarely does a
+                  <code class="literal">Map</code> hold a wide diversity of types.
+                  <code class="literal">Collection</code>s and <code class="literal">Map</code>s are not
+                  type-safe, and this lack of type safety means that unexpected objects
+                  may be cast to incompatible types, causing nasty
+                  <code class="literal">ClassCastException</code>s. It is unlikely that every
+                  time you call <code class="literal">get( )</code> and cast the resulting
+                  object, you catch <code class="literal">ClassCastException</code>; and, in most
+                  systems, it is reasonable to assume that no one has put an
+                  incompatible type into a <code class="literal">Map</code>. But, if a
+                  <code class="literal">Map</code> plays a central role in a critical
+                  application, you may want an extra layer of validation; decorate your
+                  maps with <code class="literal">TypedMap</code> to ensure that a
+                  <code class="literal">Map</code> contains consistent types. There is little
+                  penalty for decorating a <code class="literal">Map</code> as such, and if
+                  someone writes code to insert invalid input, your application should
+                  fail immediately with an <code class="literal">IllegalArgumentException</code>.
+               </p>
+               <p>If your application uses a <code class="literal">TypedMap</code>, it is easier
+                  to track down defects. If a <code class="literal">ClassCastException</code> is
+                  thrown when calling <code class="literal">get( )</code>, you then need to work
+                  backward to find out where the offending object was put into a
+                  <code class="literal">Map</code>. An alternative is to validate each object as
+                  it is added to a <code class="literal">Map</code>. If the <code class="literal">put(
+                     )</code> method throws
+                  <code class="literal">IllegalArgumentException</code>, it will be easier to
+                  identify the offending code.
+               </p>
+               <p>Java 5.0 adds the idea of generics&#8212;compile-time type safety for
+                  any number of objects including <code class="literal">Collection</code>s and
+                  <code class="literal">Map</code>s. But, if you are stuck with an older version
+                  of the JDK, you can use Commons Collections to create a
+                  <code class="literal">Collection</code> that only accepts input of a certain
+                  type. <code class="literal">TypedSet</code>, <code class="literal">TypedBag</code>,
+                  <code class="literal">TypedList</code>, <code class="literal">TypedMap</code>,
+                  <code class="literal">TypedBuffer</code>, <code class="literal">TypedSortedSet</code>,
+                  <code class="literal">TypedSortedBag</code>, <code class="literal">TypedSortedMap</code>
+                  all provide the same decoration as
+                  <code class="literal">TypedCollection</code>, but they return a specific
+                  interface; for example, <code class="literal">TypedList</code> decorates and
+                  returns a <code class="literal">List</code>, and <code class="literal">TypedSet</code>
+                  decorates and returns a <code class="literal">Set</code>. <a href="jakartackbk-CHP-5-SECT-13.3.html#jakartackbk-CHP-5-EX-13" title="Example&nbsp;5-13.&nbsp;Using TypedList to decorate a list">Example 5-13</a> demonstrates the use of the
+                  <code class="literal">TypedList</code> decorator to return a
+                  <code class="literal">List</code> instead of a <code class="literal">Collection</code>.
+               </p>
+               <div class="example"><a name="jakartackbk-CHP-5-EX-13"></a><p class="title"><b>Example&nbsp;5-13.&nbsp;Using TypedList to decorate a list</b></p>
+                  <div class="example-contents"><pre class="programlisting">package com.discursive.jccook.collections.typed;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.collections.list.TypedList;
+
+public class TypedListExample {
+    
+    private List hostNames;
+
+    public static void main(String[] args) {
+        TypedListExample example = new TypedListExample( );
+        example.start( );
+    }
+    
+    public void start( ) {
+        // Make sure that items added to this
+        hostNames = TypedList.decorate(  new ArrayList( ), String.class );
+
+        // Add two String objects
+        hostNames.add( "papp01.thestreet.com" );
+        hostNames.add( "test.slashdot.org" );
+        
+        // Try to add an Integer
+        try {        
+            hostNames.add( new Integer(43) );
+        } catch( IllegalArgumentException iae ) {
+            System.out.println( "Adding an Integer Failed as expected" );
+        }
+        
+        // Now we can safely cast without the possibility of a 
+        // ClassCastException
+        String hostName = (String) hostNames.get(0);
+        
+    }
+}</pre></div>
+               </div><br class="example-break"><p>If a <code class="literal">List</code> decorated with
+                  <code class="literal">TypedList</code> encounters an invalid object, the
+                  <code class="literal">add( )</code> method will throw an
+                  <code class="literal">IllegalArgumentException</code>.
+               </p>
+               <div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+                  <h3 class="title"><a name="jakartackbk-CHP-5-NOTE-58"></a>Tip
+                  </h3>
+                  <p>A <code class="literal">Typed&lt;X&gt;</code> decorated
+                     <code class="literal">Collection</code> will not be able to provide the
+                     compile-time type safety of Java 5.0's generics, but
+                     it will enforce a restriction on what it can accept&#8212;it is up to
+                     you to catch the runtime exception.
+                  </p>
+               </div>
+               <p>
+                                 <code class="literal">TypedMap</code> allows you to constrain both the keys and
+                  values of a map. <code class="literal">TypedMap.decorate( )</code> takes three
+                  parameters: the <code class="literal">Map</code> to decorate, the key
+                  <code class="literal">Class</code>, and the value <code class="literal">Class</code>. To
+                  create a <code class="literal">Map</code> that only constrains key types, pass
+                  in a <code class="literal">null</code> value for the value type. To create a
+                  <code class="literal">Map</code> that only validates the type of the value,
+                  pass in a <code class="literal">null</code> for the key type. <a href="jakartackbk-CHP-5-SECT-13.3.html#jakartackbk-CHP-5-EX-14" title="Example&nbsp;5-14.&nbsp;Decorating a map with TypedMap">Example 5-14</a> uses <code class="literal">TypedMap.decorate( )</code>
+                  to create a <code class="literal">Map</code> that only accepts
+                  <code class="literal">String</code> keys and <code class="literal">Number</code> values.
+               </p>
+               <div class="example"><a name="jakartackbk-CHP-5-EX-14"></a><p class="title"><b>Example&nbsp;5-14.&nbsp;Decorating a map with TypedMap</b></p>
+                  <div class="example-contents"><pre class="programlisting">package com.discursive.jccook.collections.typed;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.commons.collections.map.TypedMap;
+
+public class TypedMapExample {
+    
+    private Map variables;
+
+    public static void main(String[] args) {
+        TypedMapExample example = new TypedMapExample( );
+        example.start( );
+    }
+    
+    public void start( ) {
+        // Make sure that items added to this
+        variables = 
+            TypedMap.decorate(  new HashMap( ), String.class, Number.class );
+
+        // Add two String objects
+        variables.put( "maxThreads", new Integer(200) );
+        variables.put( "minThreads", new Integer(20) );
+        variables.put( "lightSpeed", new Double( 2.99792458e8 ) );
+        
+        // Try to add a String value
+        try {        
+            variables.put( "server", "test.oreilly.com" );
+        } catch( IllegalArgumentException iae ) {
+            System.out.println( "Adding an String value Failed as expected" );
+        }
+
+        // Try to add an Integer key
+        try {        
+            variables.put( new Integer(30), "test.oreilly.com" );
+        } catch( IllegalArgumentException iae ) {
+            System.out.println( "Adding an Integer key Failed as expected" );
+        }
+        
+        // Now we can safely cast without the possibility of a ClassCastException
+        Number reading = (Number) variables.get("lightSpeed");
+        
+    }
+}</pre></div>
+               </div><br class="example-break"></div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-5-SECT-13.2.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-5-SECT-13.4.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">5.13.2.&nbsp;Solution&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;5.13.4.&nbsp;See Also</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>

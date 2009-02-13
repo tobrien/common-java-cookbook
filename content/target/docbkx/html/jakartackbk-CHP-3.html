@@ -1,0 +1,341 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <title>Chapter&nbsp;3.&nbsp;JavaBeans</title>
+      <link rel="stylesheet" href="../css/html.css" type="text/css">
+      <meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+      <link rel="start" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="up" href="book.html" title="Jakarta Commons Cookbook">
+      <link rel="prev" href="jakartackbk-CHP-2-SECT-17.4.html" title="2.17.4.&nbsp;See Also">
+      <link rel="next" href="jakartackbk-CHP-3-SECT-1.html" title="3.1.&nbsp;Representing Beans Graphically">
+   </head>
+   <body>
+      <div id="frame">
+         <div id="forbg">
+            <div id="user-header">
+               <div id="logo"><a href="http://www.discursive.com" title="$"><img src="../images/discursive-logo.png" border="0"></a></div>
+               <div id="right-header">
+                  <h2>Common Java Cookbook</h2>
+                  <h4>Edition: 0.1-SNAPSHOT</h4>
+               </div>
+               <div style="clear:both;"></div>
+               <div id="left-sidebar"></div>
+            </div>
+            <div class="navheader">
+               <table width="100%" summary="Navigation header">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-2-SECT-17.4.html">2.17.4.&nbsp;See Also</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">
+                           												TOC
+                                                                       </a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-3-SECT-1.html">3.1.&nbsp;Representing Beans Graphically</a></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="chapter" lang="en">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h2 class="title"><a name="jakartackbk-CHP-3"></a>Chapter&nbsp;3.&nbsp;JavaBeans
+                        </h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="toc">
+                  <dl>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3.html#ch03-2-fm2xml">3.1. Introduction</a></span></dt>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-1.html">3.1. Representing Beans Graphically</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-1.html#jakartackbk-CHP-3-SECT-1.1">3.1.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-1.2.html">3.1.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-1.3.html">3.1.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-1.4.html">3.1.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-2.html">3.2. Obtaining Commons BeanUtils</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-2.html#jakartackbk-CHP-3-SECT-2.1">3.2.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-2.2.html">3.2.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-2.3.html">3.2.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-2.4.html">3.2.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-3.html">3.3. Getting the Commons BeanUtils Source Code</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-3.html#jakartackbk-CHP-3-SECT-3.1">3.3.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-3.2.html">3.3.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-3.3.html">3.3.3. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-4.html">3.4. Accessing Simple Bean Properties</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-4.html#jakartackbk-CHP-3-SECT-4.1">3.4.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-4.2.html">3.4.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-4.3.html">3.4.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-4.4.html">3.4.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-5.html">3.5. Accessing Nested Bean Properties</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-5.html#jakartackbk-CHP-3-SECT-5.1">3.5.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-5.2.html">3.5.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-5.3.html">3.5.3. Discussion</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-6.html">3.6. Accessing Indexed Bean Properties</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-6.html#jakartackbk-CHP-3-SECT-6.1">3.6.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-6.2.html">3.6.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-6.3.html">3.6.3. Discussion</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-7.html">3.7. Accessing Mapped Bean Properties</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-7.html#jakartackbk-CHP-3-SECT-7.1">3.7.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-7.2.html">3.7.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-7.3.html">3.7.3. Discussion</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-8.html">3.8. Accessing a Simple, Nested, Indexed, and Mapped Bean Property</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-8.html#jakartackbk-CHP-3-SECT-8.1">3.8.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-8.2.html">3.8.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-8.3.html">3.8.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-8.4.html">3.8.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-9.html">3.9. Determining the Type of a Bean Property</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-9.html#jakartackbk-CHP-3-SECT-9.1">3.9.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-9.2.html">3.9.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-9.3.html">3.9.3. Discussion</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-10.html">3.10. Comparing Beans</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-10.html#jakartackbk-CHP-3-SECT-10.1">3.10.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-10.2.html">3.10.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-10.3.html">3.10.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-10.4.html">3.10.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-11.html">3.11. Copying Bean Properties</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-11.html#jakartackbk-CHP-3-SECT-11.1">3.11.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-11.2.html">3.11.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-11.3.html">3.11.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-11.4.html">3.11.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-12.html">3.12. Cloning a Bean</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-12.html#jakartackbk-CHP-3-SECT-12.1">3.12.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-12.2.html">3.12.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-12.3.html">3.12.3. Discussion</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-13.html">3.13. Setting a Bean Property</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-13.html#jakartackbk-CHP-3-SECT-13.1">3.13.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-13.2.html">3.13.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-13.3.html">3.13.3. Discussion</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-14.html">3.14. Testing Property Access</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-14.html#jakartackbk-CHP-3-SECT-14.1">3.14.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-14.2.html">3.14.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-14.3.html">3.14.3. Discussion</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-15.html">3.15. Validating Beans with Predicates</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-15.html#jakartackbk-CHP-3-SECT-15.1">3.15.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-15.2.html">3.15.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-15.3.html">3.15.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-15.4.html">3.15.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-16.html">3.16. Creating a Map of Bean Properties</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-16.html#jakartackbk-CHP-3-SECT-16.1">3.16.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-16.2.html">3.16.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-16.3.html">3.16.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-16.4.html">3.16.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-17.html">3.17. Wrapping a Bean with a Map</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-17.html#jakartackbk-CHP-3-SECT-17.1">3.17.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-17.2.html">3.17.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-17.3.html">3.17.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-17.4.html">3.17.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-18.html">3.18. Creating a Dynamic Bean</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-18.html#jakartackbk-CHP-3-SECT-18.1">3.18.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-18.2.html">3.18.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-18.3.html">3.18.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-18.4.html">3.18.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                     <dt><span class="sect1"><a href="jakartackbk-CHP-3-SECT-19.html">3.19. Getting and Setting Properties as Strings</a></span></dt>
+                     <dd>
+                        <dl>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-19.html#jakartackbk-CHP-3-SECT-19.1">3.19.1. Problem</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-19.2.html">3.19.2. Solution</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-19.3.html">3.19.3. Discussion</a></span></dt>
+                           <dt><span class="sect2"><a href="jakartackbk-CHP-3-SECT-19.4.html">3.19.4. See Also</a></span></dt>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+               <div class="sect1" lang="en">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h2 class="title" style="clear: both"><a name="ch03-2-fm2xml"></a>3.1.&nbsp;Introduction
+                           </h2>
+                           <div class="section-icon"></div>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Beans are everywhere, popping up in web-application frameworks,
+                     enterprise applications, Swing Graphical User Interface (GUIs),
+                     templating engines, and object-relational mapping (ORM) tools. Most
+                     systems have some sort of object model; for example, an electronic
+                     commerce application would have an object model involving an
+                     <code class="literal">Invoice</code>, which relates to a
+                     <code class="literal">Customer</code>; or a sports news web site would have
+                     related <code class="literal">Athlete</code>, <code class="literal">Sport</code>, and
+                     <code class="literal">Team</code> objects. Frequently, objects in these object
+                     models are beans&#8212;simple objects with properties, encapsulating
+                     access to these properties via public getter and setter methods.
+                  </p>
+                  <p>In 1997, Sun Microsystems published Version 1.01 of the
+                     <a class="indexterm" name="jakartackbk-CHP-3-ITERM-2103"></a>JavaBeans&copy;
+                     specification. Initially, Sun offered beans as visual components for
+                     graphical user interfaces; JavaBeans were to be the equivalent of
+                     Microsoft's ActiveX controls&#8212;a framework and
+                     set of interfaces for creating reusable and pluggable GUI components.
+                     Used as components, which exposed states through a series of accessor
+                     and mutator (<code class="literal">getX( )</code> and <code class="literal">setX()</code>) methods, a developer would develop a GUI Java
+                     application by creating a visual layout using an IDE like Visual Cafe
+                     or JBuilder. If you've ever developed with Microsoft
+                     tools, you'll know exactly what this
+                     means&#8212;Java was going to unseat Visual Basic, and GUI
+                     development was going to be easier than easy. According to the
+                     JavaBeans Specification Version 1.01 from 1997:
+                  </p>
+                  <div class="blockquote">
+                     <blockquote class="blockquote">
+                        <p>A Java Bean is a reusable software component that can be manipulated
+                           visually in a builder tool.
+                        </p>
+                     </blockquote>
+                  </div>
+                  <p>Don't be misled; 1997 was ages ago, and the concept
+                     of the bean has evolved. In the last seven years, Java has become a
+                     dominant technology for server-side applications; impressive Swing
+                     applications do exist, but Java has not been an attractive platform
+                     for desktop application development due to reasons technical,
+                     economic, and judicial.
+                  </p>
+                  <p>Don't be confused by the 1997 JavaBeans
+                     specification, either; it is still relevant, but, when used in the
+                     context of this book, the term <code class="filename">bean</code> is any
+                     object with a no-argument constructor, which encapsulates access to
+                     private member variables via getter and setter methods. <a href="jakartackbk-CHP-3.html#jakartackbk-CHP-3-EX-1" title="Example&nbsp;3-1.&nbsp;Sample bean">Example 3-1</a> defines a bean,
+                     <code class="literal">SimpleBean</code>
+                                 <a class="indexterm" name="jakartackbk-CHP-3-ITERM-2104"></a>,
+                     which contains two bean properties&#8212;<code class="literal">name1</code> and
+                     <code class="literal">name2</code>.
+                  </p>
+                  <div class="example"><a name="jakartackbk-CHP-3-EX-1"></a><p class="title"><b>Example&nbsp;3-1.&nbsp;Sample bean</b></p>
+                     <div class="example-contents"><pre class="programlisting">package org.test.bean;
+
+public class SimpleBean {
+    private String name1;
+    private String name2;
+
+    public SimpleBean( ) {}
+
+    public String getName1( ) { return name1; }
+    public void setName1(String name1) { this.name1 = name1; }
+
+    public String getName2( ) { return name2; }
+    public void setName2(String name2) { this.name2 = name2; }
+}</pre></div>
+                  </div><br class="example-break"><p>The presence of the public methods <code class="literal">getName1( )</code> and
+                     <code class="literal">getName2( )</code> make the bean properties
+                     <code class="literal">name1</code> and <code class="literal">name2</code> readable, and
+                     the public methods <code class="literal">setName1( )</code> and
+                     <code class="literal">setName2( )</code> make these properties writable. A bean
+                     should also have a public no-argument constructor; other constructors
+                     are not prohibited, but, since many tools need to dynamically create
+                     and populate beans, a no-argument constructor is required.
+                  </p>
+                  <p>The original JavaBeans specification is available at <code class="systemitem">http://java.sun.com/products/javabeans/docs/spec.html</code>.
+                     The JavaBeans specification still exists and features have been added
+                     to the Java 1.4 release to support reading and writing JavaBeans to
+                     Extensible Markup Language (XML) documents. More information about
+                     more modern additions to the JavaBeans specification can be found at
+                     <code class="systemitem">http://java.sun.com/j2se/1.4.2/docs/guide/beans/changes14.html</code>.
+                  </p>
+               </div>
+            </div>
+            <div class="navfooter">
+               <hr>
+               <table width="100%" summary="Navigation footer">
+                  <tr>
+                     <td width="40%" align="left"><a accesskey="p" href="jakartackbk-CHP-2-SECT-17.4.html">Prev</a>&nbsp;
+                     </td>
+                     <td width="20%" align="center"><a accesskey="h" href="book.html">Home</a></td>
+                     <td width="40%" align="right">&nbsp;<a accesskey="n" href="jakartackbk-CHP-3-SECT-1.html">Next</a></td>
+                  </tr>
+                  <tr>
+                     <td width="40%" align="left" valign="top">2.17.4.&nbsp;See Also&nbsp;</td>
+                     <td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.sonatype.com/" title="Discursive: Discursive">Sponsored by Discursive
+                                                                      </a></span></td>
+                     <td width="40%" align="right" valign="top">&nbsp;3.1.&nbsp;Representing Beans Graphically</td>
+                  </tr>
+               </table>
+            </div><br><center>
+                             Copyright 2009. Discursive. All Rights Reserved.
+                           
+            </center><script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1693297-1");
+pageTracker._initData();
+pageTracker._setDomainName(".sonatype.com");
+pageTracker._trackPageview();
+</script><script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script><script type="text/javascript">
+  _lf_cid = "LF_5208d25a";
+_lf_remora();
+</script></div>
+      </div>
+   </body>
+</html>
