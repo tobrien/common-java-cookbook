@@ -313,7 +313,7 @@ and keep a stable public interface. Lessons learned on Commons
 BeanUtils 1.6 should remain applicable to Commons BeanUtils 1.7. If
 you find that a more recent version of a component has been released,
 you should download that more recent version and check the
-Discursive site for updates related to this book.</para>
+O'Reilly site for updates related to this book.</para>
       </sect1>
       <sect1 id="jakartackbk-PREFACE-2-SECT-2" role="">
          <title>Conventions Used in This Book</title>
@@ -479,6 +479,30 @@ redistribute the software it covers, and, in general, the Apache
 license creates fewer licensing headaches for individuals and
 organizations that want to incorporate open source software into a
 commercial product.</para>
+      </sect1>
+      <sect1 id="jakartackbk-PREFACE-2-SECT-6" role="">
+         <title>Using Code Examples</title>
+         <para>This book is here to help you get your job done. In general, you may
+use the code in this book in your programs and documentation. You do
+not need to contact us for permission unless you're
+reproducing a significant portion of the code. For example, writing a
+program that uses several chunks of code from this book does not
+require permission. Selling or distributing a CD-ROM of examples from
+O'Reilly books <emphasis>does</emphasis> require
+permission. Answering a question by citing this book and quoting
+example code does not require permission. Incorporating a significant
+amount of example code from this book into your
+product's documentation <emphasis>does</emphasis>
+require permission.</para>
+         <para>We appreciate, but do not require, attribution. An attribution
+usually includes the title, author, publisher, and ISBN. For example:
+"<emphasis>Jakarta Commons Cookbook</emphasis>, by
+Timothy M. O'Brien. Copyright 2005
+O'Reilly Media, Inc.,
+0-596-00706-X."</para>
+         <para>If you feel your use of code examples falls outside fair use or the
+permission given above, feel free to contact us at
+<email>permissions@oreilly.com</email>.</para>
       </sect1>
       <sect1 id="jakartackbk-PREFACE-2-SECT-7" role="">
          <title>We'd Like to Hear from You</title>

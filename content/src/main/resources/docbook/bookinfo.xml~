@@ -14,7 +14,7 @@
          </author>
       </authorgroup>
       <publisher>
-         <publishername>${organization.name}</publishername>
+         <publishername>O'Reilly</publishername>
       </publisher>
       <abstract role="description-short">
          <para>This collection provides expert tips for using the utilities
