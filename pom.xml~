@@ -19,7 +19,7 @@
     <book.subtitle>A Common Cookbook for Java</book.subtitle>
     <organization.address>626 Grove St., Suite 201, Evanston, IL 60202</organization.address>
     <organization.slogan>Discursive</organization.slogan>
-    <organization.logo></organization.logo>
+    <organization.logo>../images/discursive-logo.png</organization.logo>
     <copyright.year>2009</copyright.year>
   </properties>
   <developers>
