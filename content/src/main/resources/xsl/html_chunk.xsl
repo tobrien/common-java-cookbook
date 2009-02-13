@@ -325,13 +325,6 @@ var pageTracker = _gat._getTracker("${google.analytics.id}");
 pageTracker._trackPageview();
 </script>
 
-
-<script src="http://loopfuse.net/webrecorder/js/listen.js" type="text/javascript"></script>
-<script type="text/javascript">
-  _lf_cid = "LF_5208d25a";
-_lf_remora();
-</script>
-
         </xsl:if>
     </xsl:template>
     
