@@ -1,0 +1,2525 @@
+<?xml version="1.0"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<chapter id="templating" label="9">
+      <title>Templating</title>
+      <sect1 id="ch09-2-fm2xml">
+         <title>Introduction</title>
+         <para>Systems designed without clear separation between presentation and
+application logic quickly become chores to maintain. Trivial
+look-and-feel updates in such applications take days or weeks, and
+trying to extend such a coupled architecture can introduce
+unmanageable risks and code that is impossible to unit test. To
+minimize the possibility of creating such disasters, avoid coupling
+presentation and application logic through the use of a good
+templating engine. Maintain clear separation between presentation and
+application logic from the beginning—be orthogonal.
+Don't print out HTML, XML, or SQL from Java code,
+use a templating engine.</para>
+         <para>The simplest example of templating is Java's
+<literal moreinfo="none">MessageFormat</literal>. A simple message, such as
+<literal moreinfo="none">Hello {0}, I speak {1}</literal>, can be parameterized using
+the <literal moreinfo="none">MessageFormat</literal> class. A more complex templating
+example is found in applications that use Jakarta Velocity or
+FreeMarker to avoid mixing Java with HTML or textual output.
+Throughout this spectrum of complexity, the concept of templating
+remains the same; a template with references to variables is merged
+with a context containing these variables. There are many ways to
+decouple the rigors of logic from the prettiness of presentation, and
+after reading this chapter, you will have a range of options for
+different situations.</para>
+         <para>This chapter touches upon Jakarta Velocity, Jakarta Commons JEXL, and
+a technology outside of the Apache Software Foundation named
+FreeMarker. Templating engines are frequently used in web
+application, and this chapter ends with instructions for integrating
+these engines into a J2EE web application. Separating HTML or textual
+content into a separate file allows you to give graphic designers and
+business users a larger role in customizing and creating content for
+the enduser. With a templating engine, you
+can dramatically reduce the time and effort it takes to
+make simple changes. But, by far, the largest benefit of a templating
+engine is that it allows programmers to do more programming and
+graphic designers to do more designing by reducing needless coupling
+of presentation markup and compiled application logic.</para>
+         <sect2 id="ch09-3-fm2xml">
+            <title>Common Templating Problems in Applications</title>
+            <para>Server-side Java has won a fair amount of attention over the past
+five years, but developers seldom consider using templating engines
+when writing a standalone Java application. Consider the following
+code, which prints a formatted report for a bank customer:</para>
+            <programlisting id="I_9_tt350" format="linespecific">System.out.println( "******************************" );
+System.out.println( "******* BANK STATEMENT *******" );
+System.out.println( "******************************" );
+Account[] accounts = AccountUtil.getAccounts("1232");
+double total = 0.0;
+for( int i = 0; i &lt; accounts.length; i++ ) {
+    System.out.println( "Account: " + 
+        accounts[i].getBalance( ) );
+    total += accounts[i].getBalance( ); 
+}
+System.out.println( "Total: " + total );
+System.out.println( "******************************" );</programlisting>
+            <para>In this example, textual content is mixed with Java code, and a
+programmer must be involved in any change to the look and feel of the
+report. If this report were generated using an external template, a
+nonprogrammer could be trained to change the report, or the customers
+could customize the output of this program by modifying a template
+with straightforward syntax.</para>
+            <para>Consider another common problem: generating an XML document. There
+are seemingly thousands of ways to create an XML document: using DOM
+or JDOM to create a <literal moreinfo="none">Document</literal> object, serializing
+an object with Jakarta Commons Betwixt, and using
+Exolab's Castor are a few of these possibilities.
+Some of these techniques are explained in <link linkend="jakartackbk-CHP-6">Chapter 6</link>, but here is an example of how <emphasis role="bold">not</emphasis> to generate an XML document:</para>
+            <programlisting id="I_9_tt351" format="linespecific">System.out.println("&lt;?xml version=\"1.0\"?&gt;");
+System.out.println("&lt;Config&gt;");
+System.out.println("&lt;Property name=\"" + name + "\"\n" +
+                   "value=\"" + value + "\"/&gt;");
+System.out.println("&lt;/Config&gt;");</programlisting>
+            <para>Avoid this practice at all costs. Here are a few red flags from the
+previous two examples:</para>
+            <variablelist>
+               <varlistentry>
+                  <term>Mixed languages</term>
+                  <listitem>
+                     <para>Nesting an XML document into a Java class by way of printing out
+<literal moreinfo="none">String</literal> literals is unreadable. When you need to
+mentally decode heavily escaped XML nested in Java, you are asking
+yourself to do too much at once. You will also end up with mixed
+context, an XML element starting within a pair of parentheses, and
+ending in another. In this fugue of forward and back slashes, one
+misplaced slash produces an invalid XML document, or one overlooked
+<literal moreinfo="none">NullPointerException</literal> causes a catastrophe. You are
+asking your brain to compile two strands of code with intertwined and
+overlapping syntax. While your compiler might not complain, your
+system will be difficult to maintain. Code that is difficult to
+comprehend is even more difficult to maintain.</para>
+                  </listitem>
+               </varlistentry>
+               <varlistentry>
+                  <term>Escaped characters in compiled code</term>
+                  <listitem>
+                     <para>Escaping characters in <literal moreinfo="none">String</literal> literals quickly
+becomes an annoyance, especially if the strings to be encoded contain
+back slashes and double quotes. I accept that the
+<literal moreinfo="none">String</literal> 
+                        <filename moreinfo="none">c:\temp\blah.txt</filename>, must
+be written as <literal moreinfo="none">c:\\temp\\blah.txt</literal>, but I
+don't enjoy doing it. How confusing is a literal
+<literal moreinfo="none">\"c:\\temp\\\</literal>"? Avoid this entirely by using a
+templating engine or externalizing strings in properties files.</para>
+                  </listitem>
+               </varlistentry>
+               <varlistentry>
+                  <term>Mixing presentation with conditional or iterative logic</term>
+                  <listitem>
+                     <para>A previous example printed each account balance in a
+<literal moreinfo="none">for</literal> loop. A common trick in JSP is to create a
+<literal moreinfo="none">while</literal> loop with JSP scriptlets, surrounding the
+code to be executed with <literal moreinfo="none">&lt;% while( i &lt; 4 ) {
+%&gt;</literal> and <literal moreinfo="none">&lt;% } %&gt;</literal>. Templating
+languages such as Velocity or even JSP 2.0 with JSTL support
+conditional and iterative operations without asking you to mix
+languages.</para>
+                  </listitem>
+               </varlistentry>
+            </variablelist>
+            <para>There are other opportunities for using a template in an application.
+These include code generation, creating SQL scripts, and interacting
+with an interpreted language via generated scripts. The list
+continues, and it proves that templating isn't just
+for making web pages.</para>
+         </sect2>
+         <sect2 id="ch09-4-fm2xml">
+            <title>Templating in Web Applications</title>
+            <para>Examine the JSP
+code<indexterm id="jakartackbk-CHP-9-ITERM-2939" significance="normal">
+                  <primary>templating</primary>
+                  <secondary>Web
+applications</secondary>
+               </indexterm> 
+               <indexterm id="jakartackbk-CHP-9-ITERM-2940" significance="normal">
+                  <primary>Web
+applications, templating</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2941" significance="normal">
+                  <primary>applications</primary>
+                  <secondary>Web,
+templating</secondary>
+               </indexterm> below (the variable names have
+been changed to protect the innocent). Take this code and multiply it
+by 100 or 200 pages. Now, what happens when you want to move from
+PostgreSQL to Oracle? Do you do a global search and replace on the
+driver class name and the JDBC URL? Or, even worse, what happens when
+someone asks you to translate the entire site to Chinese in two
+weeks? It would be easier to learn Chinese in two weeks than it would
+be to internationalize this code. The offending JSP is:</para>
+            <programlisting id="I_9_tt352" format="linespecific">&lt;% ResultSet rs;
+    try {
+      Class.forName( "org.postgresql.Driver" );
+      String dbURL = "jdbc:postgresql://192.168.0.1/dbname";
+      Connection dbCon = 
+            DriverManager.getConnection( dbURL, "system", "");
+
+        PreparedStatement ps = 
+            dbCon.prepareStatement( "select * from Offer " +
+                                  "where id = ?" );
+      ps.setString( 1, request.getAttribute("id") );
+      rs = ps.executeQuery( );
+        rs.next( );
+    } catch( Exception e ) {
+        %&gt;&lt;%= Something bad happened, Call Jack (800) 232-2233 %&gt;
+&lt;% } %&gt;
+
+&lt;jsp:include page="header.html" /&gt;
+
+Hello &lt;%= rs.getString("name") %&gt;,
+
+I would like to inform you of a good offer.
+&lt;%= rs.getString("offerText") %&gt; 
+
+There are a few things I would like to tell you.
+&lt;ul&gt;
+  &lt;% Thing[] things = OfferUtil.getThings( rs.getString("id") );
+     for( int i = 0; i &lt; things.length; i++ ) { %&gt;
+     &lt;li&gt;&lt;%= things[i].getText( )%&gt;&lt;/li&gt; 
+  &lt;% } %&gt;
+&lt;/ul&gt;    
+
+&lt;jsp:include page="footer.html" /&gt;</programlisting>
+            <tip id="jakartackbk-CHP-9-NOTE-65" role="ora">
+               <para>This is real code from a real system, and it was written by a whole
+team of programmers who didn't find anything
+terribly wrong with this style. If you were raised on JSP like this,
+you might not recognize some of the problems. What is wrong with the
+previous example? Four different
+"languages" are combined in one
+file (Java, SQL, HTML, and JSP); the page starts off with JSP
+scriptlets, then the example contains Java code that prints out HTML
+and generates SQL statements. Lastly, this particular JSP page
+forgets to close the connection it created to the
+database—something that could easily create a resource leak
+under a heavy load. Make it simpler, use a templating engine (or
+upgrade to JSP 2.0) and <emphasis role="bold">never write a line of
+Java in a JSP again</emphasis>.</para>
+            </tip>
+            <para>Velocity, JEXL, and FreeMarker are remedies for the coupling issues
+demonstrated in the previous examples. Each of these tools can be
+integrated into any application in a matter of minutes. In this
+chapter, you will learn techniques for separating presentation logic
+from behavioral (or business) logic. At the end of the chapter, I
+will briefly explain how you can integrate all of these utilities
+into a J2EE web application.</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-9-SECT-1" label="9.1" role="Recipe">
+         <title>Obtaining Commons JEXL</title>
+         <sect2 id="jakartackbk-CHP-9-SECT-1.1">
+            <title>Problem</title>
+            <para>You need to use Jakarta Commons JEXL to evaluate a simple expression
+that contains references to variables and object properties.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-1.2">
+            <title>Solution</title>
+            <para>You must download the latest version of Commons JEXL, and place the
+Commons JEXL JAR in your project's classpath. Follow
+the steps outlined in <link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>,
+downloading Commons JEXL 1.0 instead of Commons Lang.</para>
+            <para>Commons JEXL depends on Commons Logging 1.0.3, which can be
+downloaded from the same location as Commons JEXL.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-1.3">
+            <title>Discussion</title>
+            <para>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2942" significance="normal">
+                  <primary>Commons JEXL</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2943" significance="normal">
+                  <primary>expressions</primary>
+                  <secondary>Commons
+JEXL</secondary>
+               </indexterm>Commons JEXL is an expression language
+interpreter influenced by the expression language features of JSP
+2.0; JEXL is an extended version of JSP 2.0 EL that does not depend
+on the Servlet API. This means that it can be integrated into any
+application that needs to use an expression language.</para>
+            <tip id="jakartackbk-CHP-9-NOTE-66" role="ora">
+               <para>JEXL is similar to EL with one major difference. The JSP 2.0 EL
+implementation project in Jakarta Commons, Commons EL, is covered by
+a Java Specification Request (JSR), which was developed under the
+Java Community Process (JCP). Because of this, EL is bound to
+implement the JSP specification—no more and no less. On the
+other hand, JEXL is free to extend and improve upon the standard.</para>
+            </tip>
+            <para>If you have a Maven project, which needs to use Commons JEXL, add a
+dependency on Commons JEXL 1.0 with the following section in
+<filename moreinfo="none">project.xml</filename>:</para>
+            <programlisting id="I_9_tt353" format="linespecific">&lt;dependencies&gt;
+  &lt;dependency&gt;
+    &lt;id&gt;commons-jexl&lt;/id&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+  &lt;/dependency&gt;
+
+  ....other dependencies...
+&lt;/dependencies&gt;</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-1.4">
+            <title>See Also</title>
+            <para>For more information about downloading Commons Logging 1.0.3, see
+<link linkend="jakartackbk-CHP-7-SECT-9">Recipe 7.9</link>.</para>
+            <para>To learn more about Commons JEXL, visit the Jakarta Commons JEXL web
+site (<systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/jexl/</systemitem>).</para>
+            <para>If you have questions about how to use Jakarta Commons JEXL, you can
+join the <systemitem role="url" moreinfo="none">commons-user@jakarta.apache.org</systemitem> mailing list.
+Refer to <link linkend="jakartackbk-CHP-1-SECT-2">Recipe 1.2</link> for instructions on
+joining the Commons User mailing list.</para>
+            <para>For more information about the Java Community Process, see the JCP
+home at <systemitem role="url" moreinfo="none">http://www.jcp.org/en/home/index</systemitem>.</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-9-SECT-2" label="9.2" role="Recipe">
+         <title>Using an Expression Language</title>
+         <sect2 id="jakartackbk-CHP-9-SECT-2.1">
+            <title>Problem</title>
+            <para>You need to parameterize text <indexterm class="startofrange" id="jakartackbk-CHP-9-ITERM-2944" significance="normal">
+                  <primary>templating</primary>
+                  <secondary>expression
+languages</secondary>
+               </indexterm> 
+               <indexterm class="startofrange" id="jakartackbk-CHP-9-ITERM-2945" significance="normal">
+                  <primary>expressions</primary>
+                  <secondary>language</secondary>
+               </indexterm>
+               <indexterm class="startofrange" id="jakartackbk-CHP-9-ITERM-2946" significance="normal">
+                  <primary>variables</primary>
+                  <secondary>expression
+language</secondary>
+               </indexterm> 
+               <indexterm class="startofrange" id="jakartackbk-CHP-9-ITERM-2947" significance="normal">
+                  <primary>beans</primary>
+                  <secondary>expression
+language</secondary>
+               </indexterm> 
+               <indexterm class="startofrange" id="jakartackbk-CHP-9-ITERM-2948" significance="normal">
+                  <primary>properties</primary>
+                  <secondary>expression
+language</secondary>
+               </indexterm>messages with variables and bean
+properties.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-2.2">
+            <title>Solution</title>
+            <para>Use Commons JEXL to evaluate an expression containing references to
+bean properties. To reference properties of an object, create an
+expression using the bean property syntax introduced in <link linkend="jakartackbk-CHP-3">Chapter 3</link>. Surround each property reference with
+curly braces and a leading <literal moreinfo="none">$</literal>, as in the following
+example:</para>
+            <programlisting id="I_9_tt354" format="linespecific">${opera.name} was composed by ${opera.composer} in ${opera.year}.</programlisting>
+            <para>Use the following code to "merge"
+an instance of the <literal moreinfo="none">Opera</literal> bean with the above
+expression:</para>
+            <programlisting id="I_9_tt355" format="linespecific">import org.apache.commons.jexl.Expression;
+import org.apache.commons.jexl.ExpressionFactory;
+import org.apache.commons.jexl.JexlContext;
+import org.apache.commons.jexl.JexlHelper;
+
+Opera opera = new Opera( );
+opera.setName("The Magic Flute");
+opera.setComposer("Mozart");
+opera.setYear(1791);
+
+String expr = 
+    "${opera.name} was composed by ${opera.composer} in " +
+    "${opera.year}.";
+
+<userinput moreinfo="none">Expression e = ExpressionFactory.createExpression( expr );</userinput>
+               <userinput moreinfo="none">JexlContext jc = JexlHelper.createContext( );</userinput>
+               <userinput moreinfo="none">jc.getVars( ).put("opera", opera);</userinput>
+               <userinput moreinfo="none">String message = (String) e.evaluate(jc);</userinput>
+
+System.out.println( message );</programlisting>
+            <para>This code puts an instance of the <literal moreinfo="none">Opera</literal> bean in a
+<literal moreinfo="none">JexlContext</literal> and evaluates the expression,
+producing the following output:</para>
+            <programlisting id="I_9_tt356" format="linespecific">The Magic Flute was composed by Mozart in 1791.</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-2.3">
+            <title>Discussion</title>
+            <para>The previous example creates and populates an instance of the
+<literal moreinfo="none">Opera</literal> bean: <literal moreinfo="none">opera</literal>. An
+<literal moreinfo="none">Expression</literal> object is then created by passing a
+<literal moreinfo="none">String</literal> containing a JEXL expression to
+<literal moreinfo="none">ExpressionFactory.createExpression( )</literal>. A
+<literal moreinfo="none">JexlContext</literal> is created with a call to
+<literal moreinfo="none">JexlHelper.createContext( )</literal>. This context contains
+a map-like structure that holds named variables, and the
+<literal moreinfo="none">Opera</literal> object is added to the
+<literal moreinfo="none">JexlContext</literal> under the name
+<literal moreinfo="none">opera</literal>. Once an <literal moreinfo="none">Expression</literal> and a
+<literal moreinfo="none">JexlContext</literal> are created and populated,
+<literal moreinfo="none">expression.evaluate( )</literal> merges the expression with
+the context, and a message is generated. A JEXL expression evaluates
+to an <literal moreinfo="none">Object</literal>, but, in this case, the expression
+evaluates to a <literal moreinfo="none">String</literal> object, and the results of
+the evaluation are cast to a <literal moreinfo="none">String</literal>.</para>
+            <para>This simple example sets the stage for a majority of recipes in this
+chapter; most templating engines involve the pattern established by
+the previous example. First, there is a template—in this case,
+a <literal moreinfo="none">String</literal> that contains expressions that are to be
+replaced by bean properties. Second, a collection of named variables
+are put into a context. Lastly, the template is merged with the
+variables in the context.</para>
+            <para>This chapter makes heavy use of expressions in templating engines,
+and this is a logical time to introduce the concept of the syntax
+used to create expressions. If you are familiar with
+<indexterm id="jakartackbk-CHP-9-ITERM-2949" significance="normal">
+                  <primary>JavaServer
+Pages</primary>
+                  <see>JSPs</see>
+               </indexterm>JavaServer Pages (JSPs) you
+may<indexterm id="jakartackbk-CHP-9-ITERM-2950" significance="normal">
+                  <primary>JSPs (JavaServer Pages)</primary>
+               </indexterm>
+know about a tag library called the <indexterm id="jakartackbk-CHP-9-ITERM-2951" significance="normal">
+                  <primary>JavaServer
+Pages Standard Tag
+Library</primary>
+                  <see>JSTL</see>
+               </indexterm>JavaServer Pages Standard
+Tag Library <indexterm id="jakartackbk-CHP-9-ITERM-2952" significance="normal">
+                  <primary>JSTL (JavaServer Page Tag
+Library)</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2953" significance="normal">
+                  <primary>tags</primary>
+                  <secondary>JSTL</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2954" significance="normal">
+                  <primary>libraries</primary>
+                  <secondary>JSTL</secondary>
+               </indexterm>(JSTL),
+which is a set of standard JSP tag libraries that make creating JSP
+pages much easier. Along with JSTL came something called EL, which is
+an expression language you can use in JSTL tags and in JSP 2.0. In
+general, JEXL can do everything that JSP EL can do, and more. <link linkend="jakartackbk-CHP-9-TABLE-1">Table 9-1</link> lists expressions that are valid in both JSP
+2.0 EL and Jakarta Commons JEXL.</para>
+            <table id="jakartackbk-CHP-9-TABLE-1" label="9-1">
+               <title>Simple Commons JEXL and JSP 2.0 EL expressions</title>
+               <tgroup cols="2">
+                  <colspec colnum="1" colname="col1"/>
+                  <colspec colnum="2" colname="col2"/>
+                  <thead>
+                     <row>
+                        <entry>
+                           <para>EL expression</para>
+                        </entry>
+                        <entry>
+                           <para>Evaluates to</para>
+                        </entry>
+                     </row>
+                  </thead>
+                  <tbody>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${true}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">true</literal>
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${1}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>The integer <literal moreinfo="none">1</literal>
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${'Hello'}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>The <literal moreinfo="none">String</literal>
+"Hello"</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${'blah' == 'blah'}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">true</literal>
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${var == true}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">true</literal> if the variable named <literal moreinfo="none">var</literal>
+is a Boolean <literal moreinfo="none">true</literal>
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${x.a &lt; 352}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">true</literal> if <literal moreinfo="none">x.getA( )</literal> is a number
+less than 352</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${ball.color ==   'Green'}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">true</literal> if <literal moreinfo="none">ball.getColor( )</literal> equals
+"Green"</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${x == 2 || y == 4}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">true</literal> if <literal moreinfo="none">x</literal> equals 2 or if
+<literal moreinfo="none">y</literal> equals 4</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${thing.color.name}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Retrieves the value of <literal moreinfo="none">thing.getColor( ).getName( )</literal>
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${thing.shapes["circle"]}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Retrieves the object stored under the key
+"circle" on the
+<literal moreinfo="none">Map</literal> 
+                              <literal moreinfo="none">shapes</literal>, which is a bean
+property of <literal moreinfo="none">thing</literal>
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${thing.someList[55]}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Retrieves the object at index 54 of a <literal moreinfo="none">List</literal>,
+<literal moreinfo="none">someList</literal>, which is a bean property of
+<literal moreinfo="none">thing</literal>
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${empty var}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Evaluates to <literal moreinfo="none">true</literal> if <literal moreinfo="none">var</literal> is
+<literal moreinfo="none">null</literal> or empty</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${!(y &lt; 4)}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">true</literal> if <literal moreinfo="none">y</literal> is not less than 4</para>
+                        </entry>
+                     </row>
+                  </tbody>
+               </tgroup>
+            </table>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-2.4">
+            <title>See Also</title>
+            <para>For more information about JSP 2.0 Expression Language, see Hans
+Bergsten's article on <systemitem role="url" moreinfo="none">onJava.com</systemitem> called "JSP 2.0:
+The New Deal, Part 1" (<systemitem role="url" moreinfo="none">http://www.onjava.com/pub/a/onjava/2003/11/05/jsp.html</systemitem>)
+or his book <emphasis>JavaServer Pages</emphasis>
+(O'Reilly).</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-9-SECT-3" label="9.3" role="Recipe">
+         <title>Invoking Methods in an Expression</title>
+         <sect2 id="jakartackbk-CHP-9-SECT-3.1">
+            <title>Problem</title>
+            <para>You are trying to print out a message that contains data returned by
+a method.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-3.2">
+            <title>Solution</title>
+            <para>Commons JEXL can evaluate any method that is made available to the
+interpreter. The following expression invokes the <literal moreinfo="none">language()</literal> method on an <literal moreinfo="none">Opera</literal> bean. The
+<literal moreinfo="none">acts</literal> property of <literal moreinfo="none">Opera</literal> is a
+<literal moreinfo="none">List</literal>, and this expression invokes the
+<literal moreinfo="none">size( )</literal> method on this <literal moreinfo="none">List</literal> to
+obtain the number of acts in the <literal moreinfo="none">Opera</literal>:</para>
+            <programlisting id="I_9_tt357" format="linespecific">${opera.name} was composed by ${opera.composer} in ${opera.year}.
+This opera has ${opera.acts.size( )}, and it is performed in ${opera.
+language( )}</programlisting>
+            <para>The following code creates and populates an expression and a context,
+merging the two to create a message:</para>
+            <programlisting id="I_9_tt358" format="linespecific">import org.apache.commons.jexl.Expression;
+import org.apache.commons.jexl.ExpressionFactory;
+import org.apache.commons.jexl.JexlContext;
+import org.apache.commons.jexl.JexlHelper;
+
+Opera opera = new Opera( );
+opera.setName("The Magic Flute");
+opera.setComposer("Mozart");
+opera.setYear(1791);
+opera.acts( new ArrayList(2) );
+
+String expr = 
+    "${opera.name} was composed by ${opera.composer} in ${opera.year}.";
+    "This opera has ${opera.acts.size( )} acts, and it is performed in " +
+    "${opera.language( )}";
+
+<userinput moreinfo="none">Expression e = ExpressionFactory.createExpression( expr );</userinput>
+               <userinput moreinfo="none">JexlContext jc = JexlHelper.createContext( );</userinput>
+               <userinput moreinfo="none">jc.getVars( ).put("opera", opera);</userinput>
+               <userinput moreinfo="none">String message = (String) e.evaluate(jc);</userinput>
+
+System.out.println( message );</programlisting>
+            <para>The following message is printed to the console:</para>
+            <programlisting id="I_9_tt359" format="linespecific">The Magic Flute was composed by Mozart in 1791.  This opera has
+2 acts, and it is performed in German.</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-3.3">
+            <title>Discussion</title>
+            <para>This code is almost the same as the previous recipe, but you will
+notice that the expression contains a direct call to the
+<literal moreinfo="none">opera.language( )</literal> method and a call to the
+<literal moreinfo="none">size( )</literal> method on the <literal moreinfo="none">acts</literal>
+property of <literal moreinfo="none">opera</literal>.</para>
+            <para>Because JEXL is not governed by the <indexterm id="jakartackbk-CHP-9-ITERM-2955" significance="normal">
+                  <primary>Java
+Community Process</primary>
+                  <see>JCP</see>
+               </indexterm>Java
+Community<indexterm id="jakartackbk-CHP-9-ITERM-2956" significance="normal">
+                  <primary>JCP (Java Community
+Process)</primary>
+               </indexterm> Process (JCP), JEXL is free to extend
+the feature set of EL. <link linkend="jakartackbk-CHP-9-TABLE-2">Table 9-2</link> presents valid
+JEXL expressions that are actually <emphasis>invalid</emphasis> JSP
+2.0 EL expressions.</para>
+            <table id="jakartackbk-CHP-9-TABLE-2" label="9-2">
+               <title>Extended capabilities of JEXL expression language</title>
+               <tgroup cols="2">
+                  <colspec colnum="1" colname="col1"/>
+                  <colspec colnum="2" colname="col2"/>
+                  <thead>
+                     <row>
+                        <entry>
+                           <para>JEXL expression</para>
+                        </entry>
+                        <entry>
+                           <para>Evaluates to</para>
+                        </entry>
+                     </row>
+                  </thead>
+                  <tbody>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${object.function( )}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Accessing any function on an object, this evaluates to the return
+value from this function.</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${"Wolfgang" +   " " + "Mozart"}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>JEXL supports string concatenation. This expression evaluates to
+"Wolfgang Mozart."</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${"Cow".size( )}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>In JEXL you can get the size of a string like this. This expression
+evaluates to 3.</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${hashMap.size( )}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>On a map, JEXL will return the number of keys.</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${arrayList.size( )}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Returns the size of a list.</para>
+                        </entry>
+                     </row>
+                  </tbody>
+               </tgroup>
+            </table>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-3.4">
+            <title>See Also</title>
+            <para>For more information about Commons JEXL's
+improvements on JSP 2.0 EL, see the Commons JEXL page (<systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/jexl/</systemitem>).</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-9-SECT-4" label="9.4" role="Recipe">
+         <title>Externalizing Logic with an Expression Language</title>
+         <sect2 id="jakartackbk-CHP-9-SECT-4.1">
+            <title>Problem</title>
+            <para>You need to capture application
+<indexterm id="jakartackbk-CHP-9-ITERM-2957" significance="normal">
+                  <primary>applications</primary>
+                  <secondary>logic</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2958" significance="normal">
+                  <primary>logic, applications</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2959" significance="normal">
+                  <primary>capturing</primary>
+                  <secondary>application
+logic</secondary>
+               </indexterm> 
+               <indexterm id="jakartackbk-CHP-9-ITERM-2960" significance="normal">
+                  <primary>external files,
+capturing application logic</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2961" significance="normal">
+                  <primary>files</primary>
+                  <secondary>capturing application
+logic</secondary>
+               </indexterm>logic in an external file.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-4.2">
+            <title>Solution</title>
+            <para>Use an external properties file to store <indexterm id="jakartackbk-CHP-9-ITERM-2962" significance="normal">
+                  <primary>storage,
+expressions</primary>
+               </indexterm>expressions used in an application.
+For this recipe, imagine yourself creating a system to sort
+<literal moreinfo="none">Ball</literal> objects based on a set of arbitrary criteria.
+Instead of hard-coding criteria in a series of Java
+<literal moreinfo="none">if</literal>-<literal moreinfo="none">else</literal> clauses, create a
+framework with loads sorting criteria from a properties file
+containing <literal moreinfo="none">boolean</literal> JEXL expressions. For instance,
+the first line in this properties file would be:</para>
+            <programlisting id="I_9_tt360" format="linespecific">Hvy-Green-Basket = ball.color == 'Green' &amp;&amp; (ball.weight &gt; 1000)</programlisting>
+            <para>This translates to "If the ball's
+color is Green and the weight is over 1000, put this ball into the
+Heavy Green basket." The name of each property is
+the name of the basket into which a <literal moreinfo="none">Ball</literal> matching
+the criteria is placed. The contents of the criteria file are:</para>
+            <programlisting id="I_9_tt361" format="linespecific">Hvy-Green-Basket = ball.color == 'Green' &amp;&amp; (ball.weight &gt; 1000)
+Sm-Yellow-bin = ball.color == 'Yellow' &amp;&amp; (ball.weight &lt; 100)
+Transparent-Bin = ball.isTransparent( )
+Lrg-Yellow-Basket = ball.color == 'Yellow' &amp;&amp;(ball.weight &gt;= 100)
+Misc-Bin = true</programlisting>
+            <para>Each criterion is applied to each <literal moreinfo="none">Ball</literal> object in
+the order it appears in the criteria file. The heavy green sorting
+criteria is applied first, and each criterion is evaluated until the
+last criterion is reached. The last criteria always evaluates to
+<literal moreinfo="none">true</literal>—similar to a
+<literal moreinfo="none">switch</literal>-<literal moreinfo="none">case</literal> control statement,
+the "Misc-bin" is the default. The
+following code reads this criteria file and evaluates each JEXL
+expression in order to sort a collection of <literal moreinfo="none">Ball</literal>
+objects:</para>
+            <programlisting id="I_9_tt362" format="linespecific">import org.apache.commons.jexl.Expression;
+import org.apache.commons.jexl.ExpressionFactory;
+import org.apache.commons.jexl.JexlContext;
+import org.apache.commons.jexl.JexlHelper;
+
+// Load in our criteria properties
+Properties criteria = new Properties( );
+criteria.load( getClass( ).getResourceAsStream("criteria.txt") );
+
+Set binNames = criteria.getKeys( );
+
+// Load our ball objects into a List
+List balls = getBalls( );
+Iterator ballsIter = balls.iterator( );
+while( ballsIter.hasNext( ) ) {
+    Ball ball = (Ball) ballsIter.next( );
+
+    // Iterate through every rule, until you find a match...
+    Iterator binIter = binName.iterator( );
+    while( ruleIter.hasNext( ) ) {
+        
+        // Get the name of the basket
+        String basket = (String) binIter.next( );
+
+        // Get the expression corresponding to this bin.
+        String expr = conditions.get( bin );
+        Expression e = ExpressionFactory.createExpression( expr );          
+
+        // Populate the context with the current Ball object
+        JexlContext jc = JexlHelper.createContext( );
+        jc.getVars( ).put("ball", ball);
+        
+        // Evaluate the Expression.
+        Boolean result = (Boolean) e.evaluate(jc);
+        
+        // If the expression evaluated to true, add this Ball to the bin.
+        if( result.booleanValue( ) == true ) {
+            sendBall( ball, basket );
+        }
+    }
+}</programlisting>
+            <para>The result of the <literal moreinfo="none">Expression</literal> evaluation is a
+<literal moreinfo="none">Boolean</literal>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2963" significance="normal">
+                  <primary>Boolean
+values</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2964" significance="normal">
+                  <primary>values</primary>
+                  <secondary>Boolean</secondary>
+               </indexterm>
+value, and, if the <literal moreinfo="none">Boolean</literal> result is
+<literal moreinfo="none">true</literal>, the matching <literal moreinfo="none">Ball</literal> is sent
+to the specified basket.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-4.3">
+            <title>Discussion</title>
+            <para>Using this technique, as the number of criteria increases, the code
+to implement this sorting algorithm remains unchanged. The behavior
+of the system can be altered by changing the criteria file; compiled
+code is left untouched. The code in this Solution section is longer
+than a series of <literal moreinfo="none">if</literal>-<literal moreinfo="none">else</literal>
+clauses to implement these criteria in code, but, as the number of
+sorting criteria increases, you will be glad you took the extra time
+to create a general solution without hard coding system behavior in
+Java code.</para>
+            <para>This was the first example that involved something more than printing
+out a pretty message for human consumption. JEXL has been used to
+create a "language" for sorting
+criteria; if a client wants to change the rules, you can now train
+someone familiar with simple logic statements to change a system to
+meet changing requirements.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-4.4">
+            <title>See Also</title>
+            <para>This recipe demonstrated a system<indexterm class="endofrange" startref="jakartackbk-CHP-9-ITERM-2944" id="jakartackbk-CHP-9-ITERM-2965" significance="normal"/> 
+               <indexterm class="endofrange" startref="jakartackbk-CHP-9-ITERM-2945" id="jakartackbk-CHP-9-ITERM-2966" significance="normal"/> 
+               <indexterm class="endofrange" startref="jakartackbk-CHP-9-ITERM-2946" id="jakartackbk-CHP-9-ITERM-2967" significance="normal"/> 
+               <indexterm class="endofrange" startref="jakartackbk-CHP-9-ITERM-2947" id="jakartackbk-CHP-9-ITERM-2968" significance="normal"/> 
+               <indexterm class="endofrange" startref="jakartackbk-CHP-9-ITERM-2948" id="jakartackbk-CHP-9-ITERM-2969" significance="normal"/> that uses a simple set of rules to
+categorize balls. For more information about a serious open source
+Rule Engine for Java named JESS, take a look at <systemitem role="url" moreinfo="none">http://herzberg.ca.sandia.gov/jess/index.shtml</systemitem>.
+If you are interested in Rule Engines, take a look at JSR 94: Java
+Rule Engine API (<systemitem role="url" moreinfo="none">http://jcp.org/en/jsr/detail?id=94</systemitem>) or Ernest
+Friedman-Hill's "Jess in
+Action" (Manning).</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-9-SECT-5" label="9.5" role="Recipe">
+         <title>Obtaining Jakarta Velocity</title>
+         <sect2 id="jakartackbk-CHP-9-SECT-5.1">
+            <title>Problem</title>
+            <para>You need to use Jakarta <indexterm class="startofrange" id="jakartackbk-CHP-9-ITERM-2970" significance="normal">
+                  <primary>templating</primary>
+                  <secondary>Jakarta
+Velocity, downloading</secondary>
+               </indexterm> 
+               <indexterm class="startofrange" id="jakartackbk-CHP-9-ITERM-2971" significance="normal">
+                  <primary>downloading</primary>
+                  <secondary>Jakarta
+Velocity</secondary>
+               </indexterm> 
+               <indexterm class="startofrange" id="jakartackbk-CHP-9-ITERM-2972" significance="normal">
+                  <primary>Jakarta Velocity,
+downloading</primary>
+               </indexterm>Velocity to
+create<indexterm id="jakartackbk-CHP-9-ITERM-2973" significance="normal">
+                  <primary>Velocity</primary>
+                  <see>Jakarta
+Velocity</see>
+               </indexterm> templates that can reference variables and
+object properties and contain limited conditional and iterative
+control structures.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-5.2">
+            <title>Solution</title>
+            <para>You must download the latest version of Jakarta Velocity, and place
+the Velocity JAR<filename moreinfo="none"> </filename>in your
+project's classpath. Follow the steps outlined in
+<link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, downloading Jakarta Velocity
+1.4 instead of Commons Lang.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-5.3">
+            <title>Discussion</title>
+            <para>After downloading the Velocity 1.4 binary release, unzip or untar the
+archive, and put both the <filename moreinfo="none">velocity-1.4.jar</filename> and
+<filename moreinfo="none">velocity-dep-1.4.jar</filename> into your
+project's classpath. If you have a Maven project
+that needs to use Jakarta Velocity, add a dependency on Jakarta
+Velocity with the following section in
+<filename moreinfo="none">project.xml</filename>:</para>
+            <programlisting id="I_9_tt363" format="linespecific">&lt;dependencies&gt;
+  &lt;dependency&gt;
+    &lt;id&gt;velocity&lt;/id&gt;
+    &lt;version&gt;1.4&lt;/version&gt;
+  &lt;/dependency&gt;
+
+  ....other dependencies...
+&lt;/dependencies&gt;</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-5.4">
+            <title>See Also</title>
+            <para>To learn more about Velocity, visit the Jakarta Velocity web site
+(<systemitem role="url" moreinfo="none">http://jakarta.apache.org/velocity/</systemitem>).</para>
+            <para>If you have questions about how to use Jakarta Velocity, you can join
+the <systemitem role="url" moreinfo="none">velocity-user@jakarta.apache.org</systemitem>
+mailing list. Refer to <link linkend="jakartackbk-CHP-1-SECT-2">Recipe 1.2</link> for instructions on joining a user mailing
+list. To join the Velocity user mailing list, see the Velocity
+section of the Jakarta mailing lists page (<systemitem role="url" moreinfo="none">http://jakarta.apache.org/site/mail2.html#Velocity</systemitem>).</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-9-SECT-6" label="9.6" role="Recipe">
+         <title>Using a Simple Templating Language</title>
+         <sect2 id="jakartackbk-CHP-9-SECT-6.1">
+            <title>Problem</title>
+            <para>You need to produce a parameterized message using a template stored
+in a file.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-6.2">
+            <title>Solution</title>
+            <para>Use Jakarta Velocity and store your template in the filesystem.
+Jakarta Velocity is a straightforward templating engine with a
+lightweight syntax similar to the expression language introduced in
+<link linkend="jakartackbk-CHP-9-SECT-2">Recipe 9.2</link>. The following Velocity template
+is used to create an email:</para>
+            <programlisting id="I_9_tt364" format="linespecific">#set( $customer = $subscription.customer )
+#set( $magazine = $subscription.magazine )
+
+$customer.firstName,
+
+Your subscription to ${magazine.title} on
+$subscription.endDate.  If you are interested in renewing your subscription,
+please click on the following URL, and enter your password:
+
+${magazine.baseUrl}/renew?cust=${customer.id}</programlisting>
+            <para>This template references a <literal moreinfo="none">Subscription</literal> bean bound
+to the name <literal moreinfo="none">subscription</literal>. This
+<literal moreinfo="none">Subscription</literal> object has a
+<literal moreinfo="none">customer</literal> property and a
+<literal moreinfo="none">magazine</literal> property, and both of these properties
+are assigned to a local template variable using the
+<literal moreinfo="none">#set</literal> directive. To render a Velocity template, the
+engine is initialized using <literal moreinfo="none">Velocity.init(
+)</literal>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2974" significance="normal">
+                  <primary>Velocity.init( )
+method</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2975" significance="normal">
+                  <primary>methods</primary>
+                  <secondary>Velocity.init(
+)</secondary>
+               </indexterm>, a <literal moreinfo="none">VelocityContext</literal> is
+created and populated, and the template is read with a
+<literal moreinfo="none">FileReader</literal>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2976" significance="normal">
+                  <primary>FileReader</primary>
+               </indexterm>.
+The following code renders this template:</para>
+            <programlisting id="I_9_tt365" format="linespecific">import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.Velocity;
+
+// Initialize Velocity
+Velocity.init( );
+
+// Create a context and put our subscription object into the context
+VelocityContext context = new VelocityContext( );
+context.put("subscription", testSubscription( ));
+
+// Create a Reader to read our velocity template.
+Reader reader = new FileReader( new File("renew.vm") );
+
+// Evaluate our template and write the result to a StringWriter
+StringWriter writer = new StringWriter( );
+Velocity.evaluate(context, writer, "test", reader);
+
+System.out.println( writer.toString( ) );</programlisting>
+            <para>The template is loaded from the filesystem in a file named
+<filename moreinfo="none">renew.vm</filename>, and the following output is printed to
+the console:</para>
+            <programlisting id="I_9_tt366" format="linespecific">
+               <replaceable>Tim</replaceable>,
+
+Your subscription to <replaceable>Science World </replaceable>expires on <replaceable>July 20, 2003</replaceable>.  If 
+you are interested in renewing your subscription, please click on the following 
+URL, and enter in your password.
+
+http://www.scienceworld.com/renew?cust=22324</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-6.3">
+            <title>Discussion</title>
+            <para>In the previous example, <literal moreinfo="none">Velocity</literal> is used as a
+singleton—a single instance of the
+<literal moreinfo="none">VelocityEngine</literal>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2977" significance="normal">
+                  <primary>VelocityEngine</primary>
+               </indexterm>
+in one Java Virtual Machine. The Velocity engine has a number of
+configuration options, but, in this example, the Velocity engine is
+configured with a default set of properties through a call to
+<literal moreinfo="none">Velocity.init( )</literal>. The template is stored on the
+filesystem, and the template is read using a
+<literal moreinfo="none">FileReader</literal>. The output of the template evaluation
+is written to a <literal moreinfo="none">StringWriter</literal>. To
+<indexterm id="jakartackbk-CHP-9-ITERM-2978" significance="normal">
+                  <primary>syntax</primary>
+                  <seealso>code</seealso>
+               </indexterm>merge a template with a
+context, <literal moreinfo="none">Velocity.evaluate( )</literal> is passed the
+following parameters: a <literal moreinfo="none">VelocityContext</literal>, a
+<literal moreinfo="none">Writer</literal> to hold the output, a name for logging
+purposes, and a Reader to read the template.</para>
+            <para>Velocity syntax
+is<indexterm id="jakartackbk-CHP-9-ITERM-2979" significance="normal">
+                  <primary>syntax</primary>
+                  <secondary>Jakarta
+Velocity</secondary>
+               </indexterm> very simple, and it is similar to
+the expression language used in JSP 2.0 EL and Commons JEXL. If you
+want to print out the value of a bean property, use
+<literal moreinfo="none">${bean.property}</literal> or <literal moreinfo="none">${bean.getProperty(
+)}</literal>; Velocity can handle both bean properties and methods.
+In addition to the basic expression syntax, Velocity also supports a
+number of directives and control loops, which are explored in
+<link linkend="jakartackbk-CHP-9-SECT-7">Recipe 9.7</link>
+            </para>
+            <para>The one directive used in the previous example is
+<literal moreinfo="none">#set</literal>, which assigns a variable for use later in
+the script; <literal moreinfo="none">#set($customer</literal> 
+               <literal moreinfo="none">=</literal>
+               <literal moreinfo="none">$subscription.customer)</literal>
+assigns the <literal moreinfo="none">customer</literal> property of the
+<literal moreinfo="none">subscription</literal> object to the variable
+<literal moreinfo="none">$customer</literal>. <link linkend="jakartackbk-CHP-9-TABLE-3">Table 9-3</link> lists some
+sample Velocity references that demonstrate referencing bean
+properties and invoking methods.</para>
+            <table id="jakartackbk-CHP-9-TABLE-3" label="9-3">
+               <title>Sample Velocity references</title>
+               <tgroup cols="2">
+                  <colspec colnum="1" colname="col1"/>
+                  <colspec colnum="2" colname="col2"/>
+                  <thead>
+                     <row>
+                        <entry>
+                           <para>Velocity reference</para>
+                        </entry>
+                        <entry>
+                           <para>Evaluates to</para>
+                        </entry>
+                     </row>
+                  </thead>
+                  <tbody>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${sub}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>The value of "sub" in the
+<literal moreinfo="none">VelocityContext</literal>.</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${sub.endDate}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>The value of <literal moreinfo="none">sub.getEndDate( )</literal>.</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${sub.setProp("Val")}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>The return type of <literal moreinfo="none">setProp( )</literal> is void, this
+reference does not evaluate to a value, but it does invoke the setter
+with one argument.</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">$!{customer.firstName}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>If <literal moreinfo="none">customer.getFirstName( )</literal> returns a
+<literal moreinfo="none">null</literal> reference, this evaluates to an empty
+<literal moreinfo="none">String</literal>. This is called a quiet reference.</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${customer.firstName}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>If <literal moreinfo="none">customer.getFirstName( )</literal> returns a
+<literal moreinfo="none">null</literal>, this evaluates to the
+<literal moreinfo="none">String</literal> "null."</para>
+                        </entry>
+                     </row>
+                  </tbody>
+               </tgroup>
+            </table>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-6.4">
+            <title>See Also</title>
+            <para>Velocity has a number of configuration options that allow you to
+configure logging, character encoding, and the behavior of
+directives. For more information about configuring Velocity, see
+"Velocity Configuration Key and
+Values" in the Velocity Developer's
+Guide (<systemitem role="url" moreinfo="none">http://jakarta.apache.org/velocity/developer-guide.html</systemitem>).</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-9-SECT-7" label="9.7" role="Recipe">
+         <title>Writing Templates with Conditionals and Loops</title>
+         <sect2 id="jakartackbk-CHP-9-SECT-7.1">
+            <title>Problem</title>
+            <para>Your template needs to iterate over a list of objects and highlight
+objects if a specific property meets a certain criteria.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-7.2">
+            <title>Solution</title>
+            <para>Use a Velocity template with the <literal moreinfo="none">#foreach</literal> and
+<literal moreinfo="none">#if</literal> directives. The following Velocity template
+uses a <literal moreinfo="none">#foreach</literal> to loop through a
+<literal moreinfo="none">List</literal> of <literal moreinfo="none">Airport</literal> beans and an
+<literal moreinfo="none">#if</literal> to check for the location of an airport
+relative to the supplied <literal moreinfo="none">$countryCode</literal>:</para>
+            <programlisting id="I_9_tt367" format="linespecific">The World's Busiest Airports
+
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Rank&lt;/td&gt;&lt;td&gt;Code&lt;/td&gt;&lt;td&gt;Name&lt;/td&gt;&lt;td&gt;Passengers&lt;/td&gt;
+    &lt;td&gt;${countryCode} Domestic&lt;/td&gt;
+  &lt;/tr&gt;
+  #foreach( $airport in $airports )
+    &lt;tr&gt;
+      &lt;td&gt;$velocityCount&lt;/td&gt;
+      &lt;td&gt;$airport.code&lt;/td&gt;
+      &lt;td&gt;$airport.name&lt;/td&gt;
+      &lt;td&gt;$airport.passengers&lt;/td&gt;
+      #if( $airport.countryCode == $countryCode )
+        &lt;td&gt;Y&lt;/td&gt;
+      #else
+        &lt;td&gt;N&lt;/td&gt;
+      #end
+    &lt;/tr&gt;
+  #end
+&lt;/table&gt;</programlisting>
+            <para>To render this template, a <literal moreinfo="none">List</literal> of
+<literal moreinfo="none">Airport</literal> objects and
+a<indexterm id="jakartackbk-CHP-9-ITERM-2980" significance="normal">
+                  <primary>countryCode string</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2981" significance="normal">
+                  <primary>strings</primary>
+                  <secondary>countryCode</secondary>
+               </indexterm>
+               <literal moreinfo="none">countryCode String</literal> is created and put into a
+<literal moreinfo="none">VelocityContext</literal>. The
+<literal moreinfo="none">$countryCode</literal> reference is used to test the
+<literal moreinfo="none">countryCode</literal> property of every Airport object in
+the <literal moreinfo="none">List</literal>; if the <literal moreinfo="none">countryCode</literal>
+property matches, a <literal moreinfo="none">Y</literal> is placed in the last
+column. The following code initializes the Velocity engine, creates a
+<literal moreinfo="none">VelocityContext</literal>, and renders the template:</para>
+            <programlisting id="I_9_tt368" format="linespecific">import org.apache.velocity.Velocity;
+import org.apache.velocity.app.VelocityContext;
+
+// Initialize Velocity with default properties
+Velocity.init( );
+
+// Create a List to hold our Airport objects
+List airports = new ArrayList( );
+airports.add( new Airport(1, "ATL", "Hartsfield Atlanta", 76876128, "US" ) );
+airports.add( new Airport(2, "ORD", "Chicago O'Hare", 66501496, "US" ) );
+airports.add( new Airport(3, "LHR", "London Heathrow", 63338649, "UK" ) );    
+airports.add( new Airport(4, "HND", "Tokyo-Haneda", 61079478, "JP" ) );
+airports.add( new Airport(5, "LAX", "Los Angeles", 56198447, "US" ) );
+airports.add( new Airport(6, "DFW", "Dallas/Fort Worth", 52826304, "US" ) );    
+
+// Create a context and put a List into the context, and a country code
+VelocityContext context = new VelocityContext( );
+context.put( "airports", airports );
+context.put( "countryCode", "US" );
+
+// Create a Reader to read our velocity template.
+Reader reader = new FileReader( new File("renew.vm") );
+
+// Evaluate our template and write the result to a StringWriter
+StringWriter writer = new StringWriter( );
+Velocity.evaluate(context, writer, "test", reader);
+
+System.out.println( writer.toString( ) );</programlisting>
+            <para>This code produces the following output after
+<indexterm id="jakartackbk-CHP-9-ITERM-2982" significance="normal">
+                  <primary>merging templates</primary>
+               </indexterm>merging
+the Velocity template with a
+<literal moreinfo="none">VelocityContext</literal>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2983" significance="normal">
+                  <primary>VelocityContext</primary>
+               </indexterm>:</para>
+            <programlisting id="I_9_tt369" format="linespecific">The World's Busiest Airports
+
+Rank  Code  Name                Passengers  US Domestic
+1     ATL   Hartsfield Atlanta  76876128            Y
+2     ORD   Chicago O'Hare      66501496            Y
+3     LHR   Heathrow            63338649            N
+4     HND   Tokyo-Haneda        61079478            N
+5     LAX   Los Angeles         56198447            Y
+6     DFW   Dallas/Fort Worth   52826304            Y</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-7.3">
+            <title>Discussion</title>
+            <para>The <literal moreinfo="none">#foreach</literal> directive can iterate over arrays,
+<literal moreinfo="none">Enumeration</literal>s, <literal moreinfo="none">List</literal>s, and
+<literal moreinfo="none">Set</literal>s; each element is exposed as a local reference
+specified in the parameter to <literal moreinfo="none">#foreach</literal>. A
+<literal moreinfo="none">#foreach</literal> block is terminated by
+<literal moreinfo="none">#end</literal>. The <literal moreinfo="none">#foreach</literal> directive
+also exposes a local reference <literal moreinfo="none">$velocityCount</literal>,
+which holds the index of the current row, and, if you need to create
+a table with alternating row colors, use the
+<literal moreinfo="none">velocityCount</literal> variable with the
+<literal moreinfo="none">#if</literal> directive:</para>
+            <programlisting id="I_9_tt370" format="linespecific">#foreach( $widgets in $theToolbox )
+  #if( $velocityCount % 2 == 0 )
+    #set( $bgColor = '#DDD' )
+  #else
+    #set( $bgColor = '#CCC' )
+  #end
+  &lt;tr color="${bgColor}"&gt;
+    &lt;td&gt;Some Data&lt;/td&gt;
+  &lt;/tr&gt;
+#end</programlisting>
+            <para>The <literal moreinfo="none">#if</literal> directive takes a
+<literal moreinfo="none">boolean</literal> expression, and renders the content
+contained in the <literal moreinfo="none">#if</literal> block if this expression
+evaluates to <literal moreinfo="none">true</literal>. Like
+<literal moreinfo="none">#foreach</literal>, an <literal moreinfo="none">#if</literal> block is also
+terminated by <literal moreinfo="none">#end</literal>. The <literal moreinfo="none">#if</literal>
+directive can also be followed by an <literal moreinfo="none">#elseif</literal> block
+or an <literal moreinfo="none">#else</literal> block, as shown in the following
+example:</para>
+            <programlisting id="I_9_tt371" format="linespecific">#if( $variable == "TEST" )
+  This is a test.
+#elseif( $variable == "SERIOUS" )
+  The condition is Serious.
+#elseif( $variable == "MAJOR" )
+  The condition is Major.
+#else
+  The condition is Nominal
+#end</programlisting>
+            <para>The <literal moreinfo="none">#foreach</literal> directive can be used to iterate over
+a <literal moreinfo="none">Set</literal> of keys from a <literal moreinfo="none">Map</literal>. To
+access each element in a <literal moreinfo="none">Map</literal>, use the bracket
+notation shown in the following example:</para>
+            <programlisting id="I_9_tt372" format="linespecific">#set( $keys = someMap.keySet( ) )
+
+#foreach( $key in $keys )
+  $key: $someMap[$key]
+#end</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-7.4">
+            <title>See Also</title>
+            <para>For information about the<indexterm class="endofrange" startref="jakartackbk-CHP-9-ITERM-2970" id="jakartackbk-CHP-9-ITERM-2984" significance="normal"/> 
+               <indexterm class="endofrange" startref="jakartackbk-CHP-9-ITERM-2971" id="jakartackbk-CHP-9-ITERM-2985" significance="normal"/> 
+               <indexterm class="endofrange" startref="jakartackbk-CHP-9-ITERM-2972" id="jakartackbk-CHP-9-ITERM-2986" significance="normal"/> relational and logical operators
+supports by Velocity, see the Velocity Template Language (VTL)
+Reference Guide (<systemitem role="url" moreinfo="none">http://jakarta.apache.org/velocity/vtl-reference-guide.html</systemitem>).</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-9-SECT-8" label="9.8" role="Recipe">
+         <title>Using Macros in a Templating Engine</title>
+         <sect2 id="jakartackbk-CHP-9-SECT-8.1">
+            <title>Problem</title>
+            <para>You need to reuse portions of<indexterm class="startofrange" id="jakartackbk-CHP-9-ITERM-2987" significance="normal">
+                  <primary>templating</primary>
+                  <secondary>macros</secondary>
+               </indexterm>
+               <indexterm class="startofrange" id="jakartackbk-CHP-9-ITERM-2988" significance="normal">
+                  <primary>macros</primary>
+                  <secondary>templating</secondary>
+               </indexterm>
+a template to standardize the display of common elements such as an
+address or a name.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-8.2">
+            <title>Solution</title>
+            <para>Use Velocity Macro definitions to reuse logic to print out
+both<indexterm id="jakartackbk-CHP-9-ITERM-2989" significance="normal">
+                  <primary>printing</primary>
+                  <secondary>Jakarta
+Velocity</secondary>
+               </indexterm> names and addresses. Velocity macros
+are like subroutines that take a set of parameters and perform common
+tasks. In the following Velocity template, two macros,
+<literal moreinfo="none">#name</literal> and <literal moreinfo="none">#address</literal>, handle the
+printing of names and addresses:</para>
+            <programlisting id="I_9_tt373" format="linespecific">#set( $volunteer = $appointment.volunteer )
+#set( $location = $appointment.location )
+#set( $org = $appointment.organization )
+
+## Define the "name" macro
+#macro( name $object )$!object.firstName $!object.lastName#end
+
+## Define the "address" macro
+#macro( address $object )
+$!object.address.street1
+$!object.address.street2
+$!object.address.city, $!object.address.state $!object.address.zipcode
+#end
+
+#name( $volunteer ),
+
+Thank you for volunteering to help serve food at the $location.name next 
+week.  This email is a reminder that you are scheduled to help out from 
+$appointment.startTime to $appointment.endTime on $appointment.date.  
+The address of the shelter is:
+
+#address( $location )    
+
+If you need directions to the shelter click the following URL:
+
+    ${org.baseUrl}directions?location=${location.id}
+
+Also, if you are unable to help out on $appointment.date, please let us know by 
+sending an email to ${org.email} or by filling out the form at this URL:
+
+    ${org.baseUrl}planschange?appointment=${appointment.id}
+
+Thanks again,
+
+#name( $org.president )
+
+#address( $org )</programlisting>
+            <para>In the following code, the template shown previously is loaded from a
+classpath resource <literal moreinfo="none">organize.vm</literal>, and an
+<literal moreinfo="none">Appointment</literal> object is placed in a
+<literal moreinfo="none">VelocityContext</literal>:</para>
+            <programlisting id="I_9_tt374" format="linespecific">import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.VelocityEngine;
+import org.apache.velocity.runtime.RuntimeConstants;
+
+// Create and initialize a VelocityEngine setting a configuration property
+VelocityEngine vEngine = new VelocityEngine( );
+vEnging.setProperty( RuntimeConstants.VM_CONTEXT_LOCALSCOPE, Boolean.TRUE );
+vEngine.init( );
+
+// Create a test Appointment
+Appointment appointment = testAppointment( );
+
+// Create a Velocity Context and give it the appointment 
+VelocityContext context = new VelocityContext( );
+context.put("appointment", appointment);
+
+// Prepare a StringWriter that will hold the contents of
+// our template merge
+StringWriter writer = new StringWriter( );
+
+// Get a stream to read in our velocity template.  The
+// organize.vm file is loaded from the classpath and is stored
+// in the same package as the current class.
+InputStream templateStream = getClass( ).getResourceAsStream("organize.vm");
+Reader reader = new InputStreamReader( templateStream );
+
+// Evaluate the template
+vEngine.evaluate(context, writer, "test", reader);
+        
+// Print out the results of the template evaluation
+System.out.println( "organize: " + writer.toString( ) );</programlisting>
+            <para>The template is merged with a <literal moreinfo="none">VelocityContext</literal>, and
+the following output is produced:</para>
+            <programlisting id="I_9_tt375" format="linespecific">
+               <replaceable>John S.</replaceable>,
+
+Thank you for volunteering to help serve food at the Boston Homeless 
+Veterans Shelter next week.  This email is a reminder that you are 
+scheduled to help out from 9:00 AM to 2:00 PM on Monday, September 
+12, 2003.  The address of the shelter is:
+
+    17 Court Street
+    Boston, MA 01260
+
+If you need directions to the shelter click the following URL:
+
+    <emphasis>http://www.organize.com/directions?location=2342</emphasis>
+
+Also, if you are unable to help out on September 12th, please let us 
+know by sending an email to <emphasis>organize@helpout.com</emphasis> 
+or by filling out the form at this URL:
+
+    <emphasis>http://www.organize.com/planschange?appointment=29932422</emphasis>
+
+Thanks again,
+
+Brishen R.
+201 N. 2<superscript>nd</superscript> Street
+Jersey City, NJ 20213</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-8.3">
+            <title>Discussion</title>
+            <para>A macro definition is started with the <literal moreinfo="none">#macro</literal>
+directive and ended with <literal moreinfo="none">#end</literal>; the same macro is
+invoked by calling <literal moreinfo="none">#&lt;macro_name&gt;( &lt;parameters&gt;
+)</literal>. Velocity macros must be defined before they are
+referenced, using the following syntax:</para>
+            <programlisting id="I_9_tt376" format="linespecific">#macro(&lt;name&gt; &lt;arguments&gt;)
+    &lt;Macro Body&gt;
+#end</programlisting>
+            <para>Macro parameters are
+<indexterm id="jakartackbk-CHP-9-ITERM-2990" significance="normal">
+                  <primary>macros</primary>
+                  <secondary>parameters</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2991" significance="normal">
+                  <primary>parameters</primary>
+                  <secondary>macros</secondary>
+               </indexterm>not
+typed as are method parameters in Java; there is no mechanism to
+check that an <literal moreinfo="none">Address</literal> object is passed to the
+<literal moreinfo="none">#address</literal> macro, throwing an exception if an
+inappropriate object is encountered. To successfully render this
+Velocity template, verify that an <literal moreinfo="none">Address</literal> is sent
+to the <literal moreinfo="none">#address</literal> macro and a
+<literal moreinfo="none">Person</literal> is sent to the <literal moreinfo="none">#name</literal>
+macro.</para>
+            <para>In the previous example, an instance of
+<literal moreinfo="none">VelocityEngine</literal> is created and the
+<literal moreinfo="none">RuntimeConstants.VM_CONTEXT_LOCALSCOPE</literal> property is
+set to <literal moreinfo="none">true</literal>. This property corresponds to the
+<literal moreinfo="none">velocimacro.context.localscope</literal>, which controls the
+scope of references created by <literal moreinfo="none">#set</literal> directives
+within macros. When this configuration property is set to
+<literal moreinfo="none">true</literal>, references created in the body of a macro
+are local to that macro.</para>
+            <para>The Velocity template in the Solution expects a single reference
+<literal moreinfo="none">$appointment</literal> to an <literal moreinfo="none">Appointment</literal>
+bean. Each <literal moreinfo="none">Appointment</literal> has a
+<literal moreinfo="none">volunteer</literal> property of type
+<literal moreinfo="none">Person</literal>, and every <literal moreinfo="none">Organization</literal>
+has a <literal moreinfo="none">president</literal> property of type
+<literal moreinfo="none">Person</literal>. These <literal moreinfo="none">Person</literal> objects,
+<literal moreinfo="none">${appointment.volunteer}</literal> and
+<literal moreinfo="none">${appointment.organization.president}</literal>, are passed
+to the #name macro that prints out the first and last name. Two
+<literal moreinfo="none">Address</literal> objects,
+<literal moreinfo="none">${appointment.location.address}</literal> and
+<literal moreinfo="none">${appointment.organization.address}</literal>, are passed to
+the <literal moreinfo="none">#address</literal> macro that prints a standard U.S.
+mailing address.</para>
+            <para>A macro can contain any directive used in Velocity; the following
+macro uses nested directives to print out a list of numbers in HTML.
+<literal moreinfo="none">#numberList</literal> allows you to specify a range with
+<literal moreinfo="none">$low</literal> and <literal moreinfo="none">$high</literal>; values in
+<literal moreinfo="none">$numbers</literal> within this range will be printed bold:</para>
+            <programlisting id="I_9_tt377" format="linespecific">#macro( numberList $numbers $low $high )
+    &lt;ul&gt;
+     #foreach( $number in $numbers )
+       #if( ($number &gt; $low) &amp;&amp; ($number &lt; $high) ) 
+           &lt;li&gt;&lt;b&gt;$number&lt;/b&gt; - In Range!&lt;/li&gt;
+       #else
+         &lt;li&gt;$number&lt;/li&gt; - Out of Range!&lt;/li&gt;
+        #end
+     #end
+   &lt;/ul&gt;
+#end</programlisting>
+            <para>The macro defined above would be called by the following Velocity
+template. Note the presence of comments, which are preceded by two
+hashes (<literal moreinfo="none">##</literal>):</para>
+            <programlisting id="I_9_tt378" format="linespecific">#set( $squares = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100] )
+
+## Print out a list of numbers highlighting numbers
+## between 25 and 75
+<userinput moreinfo="none">#numberList( $squares, 25, 75 )</userinput>
+            </programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-8.4">
+            <title>See Also</title>
+            <para>If your system has a large number of Velocity templates, you can
+create a set of files to hold common macros, which will be made
+available to every Velocity template using the
+<literal moreinfo="none">velocimacro.library</literal> property. For more
+information, see the Velocity User Guide (<systemitem role="url" moreinfo="none">http://jakarta.apache.org/velocity/user-guide.html#Velocimacros</systemitem>).</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-9-SECT-9" label="9.9" role="Recipe">
+         <title>Invoking Methods in a Template</title>
+         <sect2 id="jakartackbk-CHP-9-SECT-9.1">
+            <title>Problem</title>
+            <para>You need to invoke methods from a Velocity template.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-9.2">
+            <title>Solution</title>
+            <para>Use Velocity to access public methods on an object in the
+<literal moreinfo="none">VelocityContext</literal>. Bind an object to the
+<literal moreinfo="none">VelocityContext</literal> and reference methods on these
+objects in a Velocity template. The following template, available on
+the classpath at <filename moreinfo="none">scripting/velocity/results.vm</filename>,
+invokes the <literal moreinfo="none">average( )</literal>, <literal moreinfo="none">min( )</literal>,
+and <literal moreinfo="none">max( )</literal> methods on a
+<literal moreinfo="none">StatUtil</literal> object bound to the reference
+<literal moreinfo="none">$stat</literal>:</para>
+            <programlisting id="I_9_tt379" format="linespecific">** Aggregate Statistics
+
+Average: $stat.average( $results.scores )%
+Lowest: $stat.min( $results.scores )%
+Highest: $stat.max( $results.scores )%
+
+** Scores:
+#foreach( $student in $results.students )
+    #score( $student 50 )
+#end
+
+More results are available here:
+http://www.test.com/detail?test={results.id}</programlisting>
+            <para>The <literal moreinfo="none">StatUtil</literal>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2992" significance="normal">
+                  <primary>StatUtil
+object</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2993" significance="normal">
+                  <primary>objects</primary>
+                  <secondary>StatUtil</secondary>
+               </indexterm>
+object, which is bound to <literal moreinfo="none">$stat</literal>, computes basic
+statistics on integer arrays. This class definition is:</para>
+            <programlisting id="I_9_tt380" format="linespecific">public class StatUtil {
+    public int average(int[] array) {
+        int sum = 0.0;
+        for( int i = 0; i &lt; array.length; i++ ) {
+            sum += array[i];
+        }
+        return( sum / array.length );
+    }
+
+    public int min(int[] array) {
+        int min = Integer.MAX_VALUE;
+        for( int i = 0; i &lt; array.length; i++) {
+            if( array[i] &lt; min) { min = array[i]; }
+        }
+        return( min );
+    }
+
+    public int max(int[] array) {
+        int max = Integer.MIN_VALUE;
+        for( int i = 0; i &lt; array.length; i++) {
+            if( array[i] &gt; max) { max = array[i]; }
+        }
+        return( max );
+    }
+}</programlisting>
+            <para>The template shown above is loaded from the classpath, and a
+<literal moreinfo="none">StatUtil</literal> object is added to the
+<literal moreinfo="none">VelocityContext</literal>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2994" significance="normal">
+                  <primary>VelocityContext</primary>
+               </indexterm>.
+The <literal moreinfo="none">VelocityEngine</literal> is configured to load templates
+from the classpath, and the template is merged with a call to
+<literal moreinfo="none">mergeTemplate( )</literal>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2995" significance="normal">
+                  <primary>mergeTemplate(
+) method</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2996" significance="normal">
+                  <primary>methods</primary>
+                  <secondary>mergeTemplate(
+)</secondary>
+               </indexterm>:</para>
+            <programlisting id="I_9_tt381" format="linespecific">import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.VelocityEngine;
+
+// The following lines of code tell the Velocity Engine 
+// where to find our shared Macros, 2. Load everything from
+// Classpath.
+VelocityEngine vEngine = new VelocityEngine( );
+vEngine.setProperty("velocimacro.library", "scripting/velocity/macros.vm");
+vEngine.setProperty("resource.loader","class");
+vEngine.setProperty("class.resource.loader.description", "Classpath Loader");
+vEngine.setProperty("class.resource.loader.class",
+       "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
+vEngine.init( );
+
+// Put the test results and the StatUtil object into the context
+VelocityContext context = new VelocityContext( );
+context.put("results", testResults( ));
+context.put("stat", new StatUtil( ));
+
+// Since we've configured our VelocityEngine to load our
+// templates from the classpath, we can call mergeTemplate and
+// let the VelocityEngine take care of reading our template.
+StringWriter writer = new StringWriter( );
+vEngine.mergeTemplate("scripting/velocity/results.vm", context, writer);
+
+// Print out the results        
+System.out.println( "results: " + writer.toString( ) );</programlisting>
+            <para>When the template is merged with a <literal moreinfo="none">VelocityContext</literal>
+containing student results and a <literal moreinfo="none">StatUtil</literal> object,
+the following output is produced:</para>
+            <programlisting id="I_9_tt382" format="linespecific">Here is the student performance on Test #3: The Geography of Upper Mongolia.
+
+** Aggregate Statistics
+
+Average:      84.3%
+
+** Scores: 
+Tim O.        40.2%    FAIL
+Susan P.      90.6%    PASS
+Steven R.     80.4%    PASS
+Kofi A.       78.0%    PASS
+Rock P.       85.1%    PASS
+
+More results are available here: 
+http://www.tests.com/detail?testId=2324223</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-9.3">
+            <title>Discussion</title>
+            <para>Note that the <literal moreinfo="none">#score</literal> macro is absent from this
+template. The <literal moreinfo="none">#score</literal> macro encapsulates
+presentation logic to translate a number grade to a printed letter
+grade. This macro is stored in a separate file made available as a
+classpath resource stored in
+<filename moreinfo="none">scripting/velocity/macros.vm</filename>:</para>
+            <programlisting id="I_9_tt383" format="linespecific">#macro( score $student $passingGrade )
+    #if( $student.score &gt;= $passingGrade )
+      Student: ${student.name} Score: ${student.score}% PASS
+    #else
+      Student: ${student.name} Score: ${student.score}% FAIL
+    #end
+#end</programlisting>
+            <para>The <literal moreinfo="none">VelocityEngine</literal> is configured to load both the
+<literal moreinfo="none">#score</literal> macro and the template from the classpath
+by setting the <literal moreinfo="none">resource.loader</literal>,
+<literal moreinfo="none">class.resource.loader.description</literal>, and
+<literal moreinfo="none">class.resource.loader.class</literal>. The
+<literal moreinfo="none">#score</literal> macro is loaded from a macro library, and
+the location of this library is specified in the
+<literal moreinfo="none">velocimacro.library</literal> configuration property.
+Velocity has built-in resource loaders to load resources from the
+filesystem, the classpath, a database, or a JAR file. The following
+configuration configures two resource loaders for a
+<literal moreinfo="none">VelocityEngine</literal>—a filesystem resource loader
+and a classpath resource loader. When a resource is loaded, the
+<literal moreinfo="none">VelocityEngine</literal> attempts to locate the resource in
+the filesystem, and, if the resource is not found, it searches the
+classpath. Using this configuration, you can create an application
+with default templates in the classpath, which can be overridden by
+customized templates on the filesystem. The file resource loader is
+also configured to cache file resources in memory, checking for a
+modification every 600 seconds:</para>
+            <programlisting id="I_9_tt384" format="linespecific">resource.loader = file, class
+
+file.resource.loader.description = Customized Templates
+file.resource.loader.class = \ org.apache.velocity.runtime.resource.loader.
+FileResourceLoader
+file.resource.loader.path = custom/templates
+file.resource.loader.cache = true
+file.resource.loader.modificationCheckInterval = 600
+
+class.resource.loader.description = Default Templates
+class.resource.loader.class = \ org.apache.velocity.runtime.resource.loader.
+ClasspathResourceLoader</programlisting>
+            <para>Instead of configuring a
+<literal moreinfo="none">VelocityEngine</literal>
+               <indexterm id="jakartackbk-CHP-9-ITERM-2997" significance="normal">
+                  <primary>VelocityEngine</primary>
+               </indexterm>
+in Java code, the name of this properties file can be passed to the
+<literal moreinfo="none">init( )</literal> method:</para>
+            <programlisting id="I_9_tt385" format="linespecific">VelocityEngine engine = new VelocityEngine( );
+engine.init( "conf/velocity.properties" );</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-9.4">
+            <title>See Also</title>
+            <para>If you need to format dates and numbers, take a look at the
+<literal moreinfo="none">VelocityTools</literal> project, which provides a few
+ready-made utilities, such as <literal moreinfo="none">DateTool</literal>,
+<literal moreinfo="none">NumberTool</literal>, and <literal moreinfo="none">MathTool</literal>
+(<systemitem role="url" moreinfo="none">http://jakarta.apache.org/velocity/tools/index.html</systemitem>).</para>
+            <para>Velocity's simplicity can be both a blessing and a
+curse. In this last example, note that the student scores were all
+stored as integer values. Velocity's numeric
+comparisons only work with integers values. Try to evaluate
+<literal moreinfo="none">${var &lt; 37.4}</literal> in a Velocity template and you
+will have inconsistent results. Velocity is simple is by design. If
+you are looking for a more complex templating engine<indexterm class="endofrange" startref="jakartackbk-CHP-9-ITERM-2987" id="jakartackbk-CHP-9-ITERM-2998" significance="normal"/> 
+               <indexterm class="endofrange" startref="jakartackbk-CHP-9-ITERM-2988" id="jakartackbk-CHP-9-ITERM-2999" significance="normal"/>, the next few
+recipes introduce another templating engine named FreeMarker.</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-9-SECT-10" label="9.10" role="Recipe">
+         <title>Obtaining FreeMarker</title>
+         <sect2 id="jakartackbk-CHP-9-SECT-10.1">
+            <title>Problem</title>
+            <para>You need to use FreeMarker to
+write<indexterm id="jakartackbk-CHP-9-ITERM-3000" significance="normal">
+                  <primary>templating</primary>
+                  <secondary>FreeMaker,
+downloading</secondary>
+               </indexterm> 
+               <indexterm id="jakartackbk-CHP-9-ITERM-3001" significance="normal">
+                  <primary>FreeMarker,
+downloading</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3002" significance="normal">
+                  <primary>downloading</primary>
+                  <secondary>FreeMarker</secondary>
+               </indexterm>
+templates that can reference variables, object properties, and DOM
+<literal moreinfo="none">Node</literal> objects.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-10.2">
+            <title>Solution</title>
+            <para>You must download the latest version of FreeMarker, and place the
+FreeMarker JAR<filename moreinfo="none"> </filename>in your
+project's classpath. Go to the FreeMarker download
+page at <systemitem role="url" moreinfo="none">http://www.freemarker.org/freemarkerdownload.html</systemitem>,
+and download the FreeMarker 2.3 distribution. After you untar and
+unzip the distribution, you will find a
+<filename moreinfo="none">freemarker.jar</filename> file in the
+<filename moreinfo="none">lib</filename> directory; place this file in your
+project's classpath.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-10.3">
+            <title>Discussion</title>
+            <para>If you have a Maven project that needs to use FreeMarker, add a
+dependency on FreeMarker with the following section in
+<filename moreinfo="none">project.xml</filename>:</para>
+            <programlisting id="I_9_tt386" format="linespecific">&lt;dependencies&gt;
+  &lt;dependency&gt;
+    &lt;id&gt;freemarker&lt;/id&gt;
+    &lt;version&gt;2.3&lt;/version&gt;
+  &lt;/dependency&gt;
+
+  ....other dependencies...
+&lt;/dependencies&gt;</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-10.4">
+            <title>See Also</title>
+            <para>To learn more about FreeMarker, visit the FreeMarker web site
+(<systemitem role="url" moreinfo="none">http://www.freemarker.org/</systemitem>).</para>
+            <para>To participate in the FreeMarker community, join the FreeMarker users
+or developers list (<systemitem role="url" moreinfo="none">http://sourceforge.net/mail/?group_id=794</systemitem>).</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-9-SECT-11" label="9.11" role="Recipe">
+         <title>Using a Complex Scripting Engine</title>
+         <sect2 id="jakartackbk-CHP-9-SECT-11.1">
+            <title>Problem</title>
+            <para>You need to find a templating engine that supports number formatting,
+date formatting, and comparison of double values. In addition, you
+are looking for a templating engine that gives you more control over
+whitespace and line breaks.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-11.2">
+            <title>Solution</title>
+            <para>Use FreeMarker, a templating engine with a large built-in feature set
+that includes support for date and number formatting and intelligent
+handling of whitespace. The following FreeMarker template creates a
+summary report for a college course:</para>
+            <programlisting id="I_9_tt387" format="linespecific">&lt;#assign student = enrollment.student &gt;
+&lt;#assign course = enrollment.course &gt;
+&lt;#assign exams = enrollment.exams &gt;
+&lt;#-- This macro assigns a variable named final --&gt;
+&lt;@final exams=exams/&gt;    
+
+${student.firstName} ${student.lastName},
+
+Here is a summary of your performance in ${course.dept} ${course.num} 
+${course.name}.  
+
+Class:         ${course.name}
+Professor:     ${course.professor}
+Section:       ${enrollment.section?string("000")}
+
+Exam, Date, Score, Weight, Grade
+-----------------------------------------------
+&lt;#list exams as exam&gt;
+  &lt;@compress single_line=true&gt;
+    &lt;#assign score = exam.score &gt;
+    ${exam.name}, 
+    ${exam.date?date?string.short}, 
+    #{exam.score; m1M1}, 
+    ${exam.weight},
+    &lt;@letter score=score/&gt;        
+  &lt;/@compress&gt;
+  
+&lt;/#list&gt;
+
+Final Grade:  ${final; m1M1} &lt;@letter score=final/&gt;        
+Your final grade has been submitted to the Registrar.  
+
+&lt;#macro final exams&gt;
+    &lt;#local num = 0&gt;
+    &lt;#local dem = 0&gt;
+    &lt;#list exams as exam&gt;
+        &lt;#local num = num + (exam.score * exam.weight)/&gt;
+        &lt;#local dem = dem + exam.weight&gt;
+    &lt;/#list&gt;
+    &lt;#assign final = num / dem&gt;
+&lt;/#macro&gt;
+
+&lt;#macro letter score&gt;
+    &lt;#if (score &gt;= 90)&gt; A
+    &lt;#elseif (score &gt;= 80)&gt; B
+    &lt;#elseif (score &gt;= 70)&gt; C
+    &lt;#elseif (score &gt;= 60)&gt; D
+    &lt;#else&gt; F
+    &lt;/#if&gt;
+&lt;/#macro&gt;</programlisting>
+            <para>To merge this template with data, populate a <literal moreinfo="none">Map</literal>
+with named attributes and pass this <literal moreinfo="none">Map</literal> to the
+<literal moreinfo="none">template.process()</literal>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3003" significance="normal">
+                  <primary>template.process( )
+method</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3004" significance="normal">
+                  <primary>methods</primary>
+                  <secondary>template.process(
+)</secondary>
+               </indexterm> method. The following code creates a
+<literal moreinfo="none">Configuration</literal> object that loads a FreeMarker
+template, <filename moreinfo="none">template.ftl</filename>, from the classpath. An
+<literal moreinfo="none">Enrollment</literal> object is added to the root
+<literal moreinfo="none">Map</literal>, and the output of the template merge is
+written to a <literal moreinfo="none">StringWriter</literal>:</para>
+            <programlisting id="I_9_tt388" format="linespecific">import freemarker.template.Configuration;
+import freemarker.cache.ClassTemplateLoader;
+import freemarker.template.ObjectWrapper;
+import freemarker.template.Template;
+
+StringWriter writer = new StringWriter( );
+
+// Create a Configuration object for FreeMarker
+Configuration cfg = Configuration.getDefaultConfiguration( );
+cfg.setTemplateLoader(new ClassTemplateLoader(getClass( )));
+cfg.setObjectWrapper(ObjectWrapper.BEANS_WRAPPER);
+
+// The root Map serves as a Context for our template engine
+Map root = new HashMap( );
+root.put("enrollment", testEnrollment( ));
+
+// A template is processed with a Map and output is sent to a Writer.
+Template template = cfg.getTemplate("template.ftl");
+template.process(root, writer);
+System.out.println("output: \n" + writer.toString( ));</programlisting>
+            <para>The template is rendered, and the following output is printed to the
+console:</para>
+            <programlisting id="I_9_tt389" format="linespecific">Stefan Winz,
+
+Here is a summary of your performance in ECON 201 Macroeconomics.  
+
+Class:         Macroeconomics
+Professor:     Dr. Stephen H. Jones
+Section:        002
+
+Exam, Date, Score, Weight, Grade
+-----------------------------------------------
+T01, 01/10/03,    93.4, 1.00, A
+T02, 01/27/03,    85.5, 1.50, B
+Mid, 02/15/03,    98.0, 2.00, A+
+T03, 03/31/03,    71.5, 1.00, C-
+T04, 04/10/03,    88.5, 1.50, B+
+Fin, 05/05/03,    95.0, 4.00, A
+
+Final Grade:     91        A-
+
+Your final grade has been submitted to the Registrar.  Have a great Summer!</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-11.3">
+            <title>Discussion</title>
+            <para>In the template for this recipe, three objects are retrieved from an
+<literal moreinfo="none">Enrollment</literal> object: a <literal moreinfo="none">course</literal>
+property, a <literal moreinfo="none">student</literal> property, and a
+<literal moreinfo="none">List</literal> of <literal moreinfo="none">Exam</literal> objects. Three
+variables—<literal moreinfo="none">course</literal>,
+<literal moreinfo="none">student</literal>, and <literal moreinfo="none">exam</literal>—are
+created with the <literal moreinfo="none">&lt;#assign&gt;</literal> directive,
+<literal moreinfo="none">&lt;#assign</literal> 
+               <literal moreinfo="none">variable = expression
+&gt;</literal>. Properties are referenced as they were referenced in
+JEXL and Velocity; <literal moreinfo="none">${enrollment.student}</literal> is used
+to access the <literal moreinfo="none">student</literal> property on the
+<literal moreinfo="none">enrollment</literal>. A student's final
+course grade is calculated in a macro by calling
+<literal moreinfo="none">&lt;@final</literal> 
+               <literal moreinfo="none">exams=exams/&gt;</literal>.
+This macro assigns a global template variable,
+<literal moreinfo="none">final</literal>, which is formatted to one decimal place
+with the expression <literal moreinfo="none">${final; m1M1}</literal>.</para>
+            <para>At first glance, a FreeMarker template looks very similar to a
+Velocity template, but there are several interesting features not
+available in Velocity:</para>
+            <variablelist>
+               <varlistentry>
+                  <term>Formatting dates and numbers</term>
+                  <listitem>
+                     <para>Our date object was formatted with the expression
+<literal moreinfo="none">${exam.date?date?string.short}</literal>.
+<literal moreinfo="none">?date</literal> instructs the engine to take only the day,
+month, and year portion of the date, and
+<literal moreinfo="none">?string.short</literal> tells FreeMarker to use the
+locale's short-date format (12/31/04). You can also
+specify your own date format using the same syntax you would use in
+<literal moreinfo="none">SimpleDateFormat</literal>. The expression
+<literal moreinfo="none">${exam.date?string("MM-dd-yyyy hh:mm:ss")}</literal> would
+output a string similar to "12-31-2004
+04:23:22."</para>
+                  </listitem>
+               </varlistentry>
+               <varlistentry>
+                  <term>Comparing dates and numbers</term>
+                  <listitem>
+                     <para>FreeMarker can compare dates and numbers, both integer and floating
+point.</para>
+                  </listitem>
+               </varlistentry>
+               <varlistentry>
+                  <term>Macros with named parameters</term>
+                  <listitem>
+                     <para>Macros can be invoked with named parameters. For example, the
+<literal moreinfo="none">@letter</literal> macro can be invoked with named
+parameters: <literal moreinfo="none">&lt;@letter</literal>
+                        <literal moreinfo="none">team="Boston</literal> 
+                        <literal moreinfo="none">Celtics</literal>"
+<literal moreinfo="none">score="34"&gt;&lt;/@letter&gt;</literal>.</para>
+                  </listitem>
+               </varlistentry>
+            </variablelist>
+            <para>Here are some other interesting FreeMarker features not available in
+Velocity:</para>
+            <itemizedlist>
+               <listitem>
+                  <para>Namespaces for variables and macros</para>
+               </listitem>
+               <listitem>
+                  <para>"Built-in" functions for basic
+types</para>
+               </listitem>
+               <listitem>
+                  <para>Access to XML document objects</para>
+               </listitem>
+               <listitem>
+                  <para>Improved looping</para>
+               </listitem>
+               <listitem>
+                  <para>Local macro variables</para>
+               </listitem>
+               <listitem>
+                  <para>Built-in XML and HTML escaping</para>
+               </listitem>
+            </itemizedlist>
+            <tip id="jakartackbk-CHP-9-NOTE-67" role="ora">
+               <para>Velocity has a very large user base, and it is the right tool for a
+simple job. FreeMarker has some very useful features
+"out of the box," while Velocity
+requires developers to install supporting utilities or write these
+"extensions" from scratch. Some
+developers will prefer a templating language that is simple by
+design, and others need a tool that is substantially more complex.
+There is a case to be made for simplicity. If you working on a large
+team, where you have content authors who need to create and maintain
+your templates, you may want to use a technology like Velocity that
+embraces simplicity. Open source communities benefit from healthy
+cross-pollination of ideas and competition, and FreeMarker was
+developed as an alternative to Jakarta Velocity; they even have a
+feature comparison page (<systemitem role="url" moreinfo="none">http://www.freemarker.org/fmVsVel.html</systemitem>).</para>
+            </tip>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-11.4">
+            <title>See Also</title>
+            <para>It is beyond the scope of this book to drill into the details of
+every FreeMarker feature listed in this recipe. If you are interested
+in learning more about FreeMarker, take a look at the online
+documentation (<systemitem role="url" moreinfo="none">http://www.freemarker.org/docs/index.html</systemitem>).</para>
+            <para>If you are using Jakarta Velocity and wish to migrate your templates
+to FreeMarker, the FreeMarker team has written a utility, code named
+"US Cavalry," which will
+automatically translate your VTL templates to FTL templates. To
+obtain "US Cavalry," see
+<systemitem role="url" moreinfo="none">http://www.freemarker.org/usCavalry.html</systemitem>.</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-9-SECT-12" label="9.12" role="Recipe">
+         <title>Accessing XML Documents from a Templating Engine</title>
+         <sect2 id="jakartackbk-CHP-9-SECT-12.1">
+            <title>Problem</title>
+            <para>You need to reference XML nodes from a template.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-12.2">
+            <title>Solution</title>
+            <para>Use FreeMarker and parse an XML document with the
+<literal moreinfo="none">NodeModel</literal> class. A <literal moreinfo="none">NodeModel</literal> is
+an object that allows access to an XML document as a hierarchy of
+named elements and attributes from a FreeMarker template.
+<literal moreinfo="none">NodeModel</literal> has a <literal moreinfo="none">public</literal>
+               <literal moreinfo="none">static</literal> method <literal moreinfo="none">parse( )</literal>, which
+parses an XML document and returns a <literal moreinfo="none">NodeModel</literal> to
+be added to your context <literal moreinfo="none">Map</literal>. The following code
+parses an XML document and passes a <literal moreinfo="none">NodeModel</literal> to a
+template:</para>
+            <programlisting id="I_9_tt390" format="linespecific">import freemarker.template.Configuration;
+import freemarker.cache.ClassTemplateLoader;
+import freemarker.template.ObjectWrapper;
+import freemarker.template.Template;
+import freemarker.ext.dom.NodeModel;
+
+// Create a File Object for our XML data
+File composers = new File("composers.xml");
+NodeModel nodeModel = NodeModel.parse( composers );
+
+Map root = new HashMap( );
+root.put("doc", nodeModel); 
+
+// A template is processed with a Map and output is sent to a Writer.
+Template template = cfg.getTemplate("composerTable.ftl");
+template.process(root, writer);
+System.out.println("output: \n" + writer.toString( ));</programlisting>
+            <para>A <literal moreinfo="none">File</literal> object refers to an XML document, and
+<literal moreinfo="none">NodeModel.parse( )</literal> is used to parse this document
+to a <literal moreinfo="none">NodeModel</literal> object, which is then placed in the
+<literal moreinfo="none">root</literal> 
+               <literal moreinfo="none">Map</literal>—the context with
+which the FreeMarker template will be merged. The XML document
+contains information about the lives of great classical composers,
+and the structure of this document is shown here:</para>
+            <programlisting id="I_9_tt391" format="linespecific">&lt;?xml version="1.0"?&gt;
+
+&lt;composers&gt;
+  &lt;composer&gt;
+    &lt;name&gt;Bach, Johann Sebastian&lt;/name&gt;
+    &lt;born date="3/21/1685"&gt;
+      &lt;location&gt;Eisenbach&lt;/location&gt;
+    &lt;/born&gt;
+    &lt;notes&gt;Bach wrote intense and complex fugues.&lt;/notes&gt;
+    &lt;link&gt;http://www.bachfaq.org/&lt;/link&gt;
+  &lt;/composer&gt;
+  &lt;composer&gt;
+    &lt;name&gt;Mozart, Wolfgang Amadeus&lt;/name&gt;
+    &lt;born date="1/27/1756"&gt;
+      &lt;location&gt;Salzburg&lt;/location&gt;
+    &lt;/born&gt;
+    &lt;notes&gt;Wrote first symphony at age 8.&lt;/notes&gt;
+    &lt;link&gt;http://www.mozartproject.org/&lt;/link&gt;
+  &lt;/composer&gt;
+  &lt;composer&gt;
+    &lt;name&gt;Hendrix, Jimi&lt;/name&gt;
+    &lt;born date="11/27/1942"&gt;
+      &lt;location&gt;Seattle&lt;/location&gt;
+    &lt;/born&gt;
+    &lt;notes&gt;Hendrix set his guitar on fire in Monterey&lt;/notes&gt;
+    &lt;link&gt;http://www.jimihendrix.com/&lt;/link&gt;
+  &lt;/composer&gt;
+&lt;/composers&gt;</programlisting>
+            <para>The <literal moreinfo="none">NodeModel</literal>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3005" significance="normal">
+                  <primary>NodeModel
+object</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3006" significance="normal">
+                  <primary>objects</primary>
+                  <secondary>NodeModel</secondary>
+               </indexterm>
+object is exposed to the template as <literal moreinfo="none">doc</literal>, and the
+<literal moreinfo="none">#list</literal> directive is used to iterate through each
+<literal moreinfo="none">composer</literal> element. A reference to a child element
+<literal moreinfo="none">link</literal> of the <literal moreinfo="none">composer</literal> element is
+<literal moreinfo="none">${composer.link}</literal>, and a reference to the date
+attribute of the born element is preceded by
+<literal moreinfo="none">@--${composer.born.@date}</literal>. The FreeMarker
+template, which references elements and attributes through a
+<literal moreinfo="none">NodeModel</literal>, is:</para>
+            <programlisting id="I_9_tt392" format="linespecific">&lt;#list doc.composers.composer as composer&gt;
+  &lt;p&gt;
+    &lt;a href="${composer.link}"&gt;${composer.name}&lt;/a&gt;&lt;br/&gt;
+    Born on ${composer.born.@date} in ${composer.born.location}&lt;br/&gt;
+    Notes: ${composer.notes}
+  &lt;/p&gt;
+&lt;/#list&gt;</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-12.3">
+            <title>Discussion</title>
+            <para>In addition to simple access to elements and attributes, FreeMarker
+also allows you to use XPath expressions if
+<indexterm id="jakartackbk-CHP-9-ITERM-3007" significance="normal">
+                  <primary>Apache Xalan</primary>
+               </indexterm>Apache Xalan is
+available on the classpath. If you have
+<indexterm id="jakartackbk-CHP-9-ITERM-3008" significance="normal">
+                  <primary>Xalan</primary>
+               </indexterm>Xalan, you can use
+XPath with the same syntax you would use if you were trying to access
+a map. Instead of <literal moreinfo="none">someMap["key"]</literal>, you would use
+<literal moreinfo="none">someElement["&lt;XPath&gt;"]</literal>. Here is a quick
+example, which uses an XPath expression to iterate through every
+composer's "born"
+element:</para>
+            <programlisting id="I_9_tt393" format="linespecific">&lt;#list doc["composers/composer/born"] as birth&gt;
+  &lt;p&gt;Born: ${birth.date}, ${birth.location}  ${birth?parent.name}&lt;/p&gt; 
+&lt;/#list&gt;</programlisting>
+            <para>FreeMarker also includes a number of built-ins for
+<literal moreinfo="none">NodeModel</literal> objects; in the previous template,
+<literal moreinfo="none">?parent</literal> returns the parent element of the element
+represented by the <literal moreinfo="none">birth</literal> node. <link linkend="jakartackbk-CHP-9-TABLE-4">Table 9-4</link> lists a number of built-ins for XML nodes;
+<literal moreinfo="none">?children</literal> returns all of the child nodes of a
+given node, and <literal moreinfo="none">?ancestors</literal> gives every node above
+this node in an XML document.</para>
+            <table id="jakartackbk-CHP-9-TABLE-4" label="9-4">
+               <title>FreeMarker built-ins for NodeModel objects</title>
+               <tgroup cols="2">
+                  <colspec colnum="1" colname="col1"/>
+                  <colspec colnum="2" colname="col2"/>
+                  <thead>
+                     <row>
+                        <entry>
+                           <para>Expression</para>
+                        </entry>
+                        <entry>
+                           <para>Evaluates to</para>
+                        </entry>
+                     </row>
+                  </thead>
+                  <tbody>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${composers?children}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>A sequence of all child nodes. This example would return 3
+<literal moreinfo="none">composer</literal> nodes.</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${composer?parent}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>If called on a <literal moreinfo="none">composer</literal> node, this would return
+the <literal moreinfo="none">composers</literal> node.</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${composer?root}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>This would return the <literal moreinfo="none">doc</literal> node, which is the
+topmost node in this document.</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${link?ancestors}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>If this corresponded to the link element for Jimi Hendrix, this would
+return a sequence of <literal moreinfo="none">[${composers.composer[3]},
+${composers}]</literal>. This returns an array of all ancestors
+starting with <literal moreinfo="none">${link?parent}</literal> and ending at
+<literal moreinfo="none">${link.root}</literal>.</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${link?node_name}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>This would return "link." This
+returns the name of the element or attribute in question.</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">${link?node_type}</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>This would return "element." It
+could return "attribute,"
+"element,"
+"text,"
+"comment,"
+"entity," and a few other types
+corresponding to <literal moreinfo="none">Node</literal> types in the DOM API.</para>
+                        </entry>
+                     </row>
+                  </tbody>
+               </tgroup>
+            </table>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-12.4">
+            <title>See Also</title>
+            <para>For more detail about referencing XML elements through
+<literal moreinfo="none">NodeModel</literal> and the use of XPath expressions in
+FreeMarker, see the "Learning by
+Example" section of Imperative XML Processing
+(<systemitem role="url" moreinfo="none">http://www.freemarker.org/docs/xgui_imperative_learn.html</systemitem>).</para>
+            <para>FreeMarker also offers syntax for declarative processing of
+XML—assigning macros to handle elements in an XML document. For
+more information about FreeMarker declarative XML processing, see the
+FreeMarker online documentation (<systemitem role="url" moreinfo="none">http://www.freemarker.org/docs/xgui_declarative_basics.html</systemitem>).</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-9-SECT-13" label="9.13" role="Recipe">
+         <title>Using Velocity in a Web Application</title>
+         <sect2 id="jakartackbk-CHP-9-SECT-13.1">
+            <title>Problem</title>
+            <para>You are sick of writing JSP and having to wait for pages to compile.
+You would like to find a way to use Velocity instead of JSP.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-13.2">
+            <title>Solution</title>
+            <para>Configure your web application to use the
+<literal moreinfo="none">VelocityViewServlet</literal> to render your Velocity
+templates. Download the latest version of the
+<literal moreinfo="none">VelocityView</literal> project from <systemitem role="url" moreinfo="none">http://jakarta.apache.org/site/binindex.cgi</systemitem>;
+it is listed under "Velocity Tools
+1.1." Put the velocity and velocity-tools jars in
+the <filename moreinfo="none">WEB-INF/lib</filename> directory, and configure your
+web application to render templates ending in
+<filename moreinfo="none">*.vm</filename> with the
+<literal moreinfo="none">VelocityViewServlet</literal>. Add the following
+<literal moreinfo="none">servlet</literal> and <literal moreinfo="none">servlet-mapping</literal>
+elements to your <filename moreinfo="none">web.xml</filename> file as follows:</para>
+            <programlisting id="I_9_tt394" format="linespecific">&lt;!-- Define Velocity template compiler --&gt;
+&lt;servlet&gt;
+  &lt;servlet-name&gt;velocity&lt;/servlet-name&gt;
+  &lt;servlet-class&gt;
+    org.apache.velocity.tools.view.servlet.VelocityViewServlet
+  &lt;/servlet-class&gt;
+  &lt;load-on-startup&gt;10&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+
+.....other servlets.....
+
+&lt;!-- Map *.vm files to Velocity --&gt;
+&lt;servlet-mapping&gt;
+  &lt;servlet-name&gt;velocity&lt;/servlet-name&gt;
+  &lt;url-pattern&gt;*.vm&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;</programlisting>
+            <para>All requests ending in <filename moreinfo="none">*.vm</filename> are processed by the
+<literal moreinfo="none">VelocityViewServlet</literal>, which locates the appropriate
+Velocity template in the document root of your web application.
+Attributes from the request, session, and application scope will be
+available as variables in the <literal moreinfo="none">VelocityContext</literal>.</para>
+            <para>To test this configuration, create a simple Velocity template in the
+document root of your web application named
+<filename moreinfo="none">index.vm</filename>, start your servlet container, and
+attempt to render the template by loading <systemitem role="url" moreinfo="none">http://&lt;server&gt;/&lt;web-app&gt;/index.vm</systemitem>
+in a browser. If everything is set up correctly, you should see the
+rendered template. If the configuration is not correct, you will see
+the source for your Velocity template.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-13.3">
+            <title>Discussion</title>
+            <para>JSP compilation is an annoyance, especially if you are constantly
+altering and debugging JSP—all that waiting around adds up over
+the course of a long project. Using Velocity can help improve
+performance; the simplicity and elegance of Velocity makes parsing
+and executing a template fast and efficient. If you are looking for a
+viable alternative to JSP, try Velocity as your view layer, and you
+might be surprised.</para>
+            <para>Velocity can be a refreshing break from JSP, and almost any web
+application framework will work with Velocity. If you are working
+with an existing web application, there is no need to stop using JSP
+in lieu of Velocity; you can use both technologies in the same web
+application. Templates ending in <filename moreinfo="none">*.jsp</filename> will be
+rendered by the existing JSP servlet, and templates ending in
+<filename moreinfo="none">*.vm</filename> will be rendered by the
+<literal moreinfo="none">VelocityViewServlet</literal>.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-13.4">
+            <title>See Also</title>
+            <para>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3009" significance="normal">
+                  <primary>VelocityTools</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3010" significance="normal">
+                  <primary>tools</primary>
+                  <secondary>VelocityTools</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3011" significance="normal">
+                  <primary>utilities</primary>
+                  <secondary>VelocityTools</secondary>
+               </indexterm>VelocityTools
+also contains a project named
+<indexterm id="jakartackbk-CHP-9-ITERM-3012" significance="normal">
+                  <primary>VelocityStruts</primary>
+               </indexterm>VelocityStruts,
+which provides tools to integrate Velocity with Jakarta Struts. The
+VelocityStruts project has tools that duplicate the functionality of
+the<indexterm id="jakartackbk-CHP-9-ITERM-3013" significance="normal">
+                  <primary>Struts JSP tag libraries</primary>
+               </indexterm>
+Struts JSP tag libraries—a <literal moreinfo="none">FormTool</literal>
+corresponds to the <literal moreinfo="none">html</literal> tag library, a
+<literal moreinfo="none">MessageTool</literal> duplicates the
+<literal moreinfo="none">bean:message</literal> tag, a <literal moreinfo="none">TilesTool</literal>
+provides access to the Struts tiles plug-in. It is possible to
+introduce Velocity into an existing Struts application by simply
+adding the <literal moreinfo="none">servlet</literal> and
+<literal moreinfo="none">serlvet-mapping</literal> to <filename moreinfo="none">web.xml</filename>,
+as shown above. Configure the <literal moreinfo="none">VelocityViewServlet</literal>,
+and configure an <literal moreinfo="none">Action</literal> to forward to a velocity
+template; configure the struts tools by following the directions on
+the VelocityStruts user guide (<systemitem role="url" moreinfo="none">http://jakarta.apache.org/velocity/tools/struts/userguide.html</systemitem>).</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-9-SECT-14" label="9.14" role="Recipe">
+         <title>Using FreeMarker in a Web Application</title>
+         <sect2 id="jakartackbk-CHP-9-SECT-14.1">
+            <title>Problem</title>
+            <para>You would like to use FreeMarker templates in a web application.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-14.2">
+            <title>Solution</title>
+            <para>FreeMarker ships with a <literal moreinfo="none">FreemarkerServlet</literal>, which
+can be configured to render your FreeMarker templates. To configure
+this servlet, add the following <literal moreinfo="none">servlet</literal> and
+<literal moreinfo="none">servlet-mapping</literal> elements to your
+<filename moreinfo="none">web.xml</filename> file:</para>
+            <programlisting id="I_9_tt395" format="linespecific">&lt;servlet&gt;
+  &lt;servlet-name&gt;freemarker&lt;/servlet-name&gt;
+  &lt;servlet-class&gt;freemarker.ext.servlet.FreemarkerServlet&lt;/servlet-class&gt;
+  &lt;init-param&gt;
+    &lt;param-name&gt;TemplatePath&lt;/param-name&gt;
+    &lt;param-value&gt;/&lt;/param-value&gt;
+  &lt;/init-param&gt;
+  &lt;init-param&gt;
+    &lt;param-name&gt;NoCache&lt;/param-name&gt;
+    &lt;param-value&gt;true&lt;/param-value&gt;
+  &lt;/init-param&gt;
+  &lt;init-param&gt;
+    &lt;param-name&gt;ContentType&lt;/param-name&gt;
+    &lt;param-value&gt;text/html&lt;/param-value&gt;
+  &lt;/init-param&gt;
+  &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+
+&lt;servlet-mapping&gt;
+  &lt;servlet-name&gt;freemarker&lt;/servlet-name&gt;
+  &lt;url-pattern&gt;*.ftl&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-14.3">
+            <title>Discussion</title>
+            <para>If your application contains custom JSP tag libraries, these tag
+libraries can be used from a FreeMarker template. To see how a JSP
+tag library can be used in FreeMarker, take a look at the following
+JSP page, which references an <literal moreinfo="none">app</literal> tag library with
+a TLD file in <filename moreinfo="none">/WEB-INF/app-taglib.tld</filename>:</para>
+            <programlisting id="I_9_tt396" format="linespecific">&lt;%@page language="java"%&gt;
+&lt;%@taglib uri="/WEB-INF/app-taglib.tld" prefix="app"%&gt;
+
+&lt;p&gt;
+ This is an HTML page with a taglib in it.
+&lt;/p&gt;
+
+&lt;app:printStuff var="test" mode="fast"/&gt;</programlisting>
+            <para>The <literal moreinfo="none">app</literal>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3014" significance="normal">
+                  <primary>app tag
+library</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3015" significance="normal">
+                  <primary>tags</primary>
+                  <secondary>app tag
+library</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3016" significance="normal">
+                  <primary>libraries</primary>
+                  <secondary>app
+tag</secondary>
+               </indexterm> tag library has a
+<literal moreinfo="none">printStuff</literal>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3017" significance="normal">
+                  <primary>printStuff
+tag</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3018" significance="normal">
+                  <primary>tags</primary>
+                  <secondary>printStuff</secondary>
+               </indexterm>
+tag, which takes the parameters <literal moreinfo="none">var</literal> and
+<literal moreinfo="none">mode</literal>. The same tag can be used in a FreeMarker
+template by assigning a reference to
+<filename moreinfo="none">JspTaglibs["/WEB-INF/app-taglib.tld"]</filename>
+in an <literal moreinfo="none">&lt;#assign&gt;</literal> directive. The tag can then
+be used with a call to <literal moreinfo="none">&lt;@app.printStuff/&gt;</literal>:</para>
+            <programlisting id="I_9_tt397" format="linespecific">&lt;#assign app=JspTaglibs["/WEB-INF/app-taglib.tld"]&gt;
+
+&lt;p&gt;
+ This is an HTML page with a taglib in it.
+&lt;/p&gt;
+
+&lt;@app.printStuff var="test" mode="fast"/&gt;</programlisting>
+            <para>That couldn't be much simpler.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-14.4">
+            <title>See Also</title>
+            <para>This is a valuable piece of
+<indexterm id="jakartackbk-CHP-9-ITERM-3019" significance="normal">
+                  <primary>templating</primary>
+                  <secondary>FreeMaker,
+downloading</secondary>
+               </indexterm> 
+               <indexterm id="jakartackbk-CHP-9-ITERM-3020" significance="normal">
+                  <primary>FreeMarker,
+downloading</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3021" significance="normal">
+                  <primary>downloading</primary>
+                  <secondary>FreeMarker</secondary>
+               </indexterm>functionality
+if you are using a framework like Struts, which depends on JSP tag
+libraries. For more details about using FreeMarker with Struts, see
+"Using FreeMarker with Servlets"
+(<systemitem role="url" moreinfo="none">http://fmpp.sourceforge.net/freemarker/pgui_misc_servlet.html</systemitem>).</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-9-SECT-15" label="9.15" role="Recipe">
+         <title>Writing Templates in Eclipse</title>
+         <sect2 id="jakartackbk-CHP-9-SECT-15.1">
+            <title>Problem</title>
+            <para>You are writing a fair amount of
+<indexterm id="jakartackbk-CHP-9-ITERM-3022" significance="normal">
+                  <primary>templating</primary>
+                  <secondary>Eclipse</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3023" significance="normal">
+                  <primary>Eclipse</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3024" significance="normal">
+                  <primary>tools</primary>
+                  <secondary>Eclipse</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-9-ITERM-3025" significance="normal">
+                  <primary>utilities</primary>
+                  <secondary>Eclipse</secondary>
+               </indexterm>Velocity
+and FreeMarker templates, and you are looking for a tool that can do
+some syntax highlighting, validation, and code completion.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-15.2">
+            <title>Solution</title>
+            <para>If you are writing Velocity templates, use the Velocity UI for
+Eclipse. To get this plug-in, point your Eclipse Update Manager at
+<systemitem role="url" moreinfo="none">http://veloedit.sourceforge.net/updates/</systemitem>.</para>
+            <para>If you are writing FreeMarker templates, use the FreeMarker Eclipse
+plug-in. To get this plug-in, point your Eclipse Update Manager at
+<systemitem role="url" moreinfo="none">http://www.freemarker.org/eclipse/update</systemitem>.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-9-SECT-15.3">
+            <title>See Also</title>
+            <para>The FreeMarker project maintains templates, plug-ins, and modes for
+Eclipse, Emacs, jEdit, KWrite, TextPad 4, and Vim. These tools are
+described on the FreeMarker site at <systemitem role="url" moreinfo="none">http://freemarker.org/editors.html</systemitem>.</para>
+            <para>The Velocity project has pointers to templates, plug-ins, and modes
+for IntelliJ IDEA, Eclipse, UltraEdit, JEdit, TextPad, and Emacs.
+These tools are described on the Velocity site at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/velocity/devtools.html</systemitem>.</para>
+            <para>For more information about Eclipse, see Steve
+Holzner's <emphasis>Eclipse</emphasis>
+(O'Reilly) and <emphasis>Eclipse Cookbook</emphasis>
+(O'Reilly).</para>
+         </sect2>
+      </sect1>
+   </chapter>

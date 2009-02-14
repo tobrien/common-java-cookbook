@@ -1,0 +1,1577 @@
+<?xml version="1.0"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<chapter id="math" label="8">
+      <title>Math</title>
+      <sect1 id="ch08-2-fm2xml">
+         <title>Introduction</title>
+         <para>In recent years, Java has lost its reputation as a language suffering
+from serious performance problems. Although the debate still rages on
+and various benchmarks show conflicting results, improvements to the
+JVM, the compiler, and a more intelligent garbage collector have
+boosted performance to levels on par with C++. Java has never been
+the traditional language-of-choice for scientific computing,
+numerical methods, or high-performance computing, but, as performance
+improves, there are fewer reasons to avoid using Java for numerical
+computing. It is no longer inconceivable to consider Java when
+implementing systems involving complex mathematics, and Jakarta
+Commons contains two projects that provide some very basic math
+capabilities: Commons Lang and Commons Math.</para>
+         <para>The first four recipes in this chapter deal with math utilities found
+in Commons Lang. This includes a class that represents fractions,
+finding the minimum and maximum values in an array, representing a
+range of numbers, and convenient ways to retrieve different random
+variables. Commons Lang was introduced in <link linkend="jakartackbk-CHP-1">Chapter 1</link>, and instructions for downloading and
+installing Commons Lang can be found in <link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>. The remainder of this chapter deals with
+Jakarta Commons Math. Recipes involving Commons Math deal with
+complex numbers, the calculation of univariate statistics, solving a
+system of linear equations, and establishing a relationship between
+two independent variables. Instructions for downloading and
+installing Commons Math can be found in <link linkend="jakartackbk-CHP-8-SECT-5">Recipe 8.5</link>.</para>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-8-SECT-1" label="8.1" role="Recipe">
+         <title>Using Fractions</title>
+         <sect2 id="jakartackbk-CHP-8-SECT-1.1">
+            <title>Problem</title>
+            <para>You need to work with fractions<indexterm id="jakartackbk-CHP-8-ITERM-2856" significance="normal">
+                  <primary>Commons
+Math</primary>
+                  <secondary>fractions</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2857" significance="normal">
+                  <primary>fractions</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2858" significance="normal">
+                  <primary>math</primary>
+                  <secondary>fractions</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2859" significance="normal">
+                  <primary>applications</primary>
+                  <secondary>math</secondary>
+                  <tertiary>fractions</tertiary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2860" significance="normal">
+                  <primary>documents</primary>
+                  <secondary>math</secondary>
+                  <tertiary>fractions</tertiary>
+               </indexterm>
+supplied by the user, such as 3 4/5 and 134/21. Your application
+needs to parse, multiply, and reduce fractions.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-1.2">
+            <title>Solution</title>
+            <para>Use Jakarta Commons Lang's
+<literal moreinfo="none">Fraction</literal> class to parse and manipulate fractions.
+The following code demonstrates the parsing of a
+<literal moreinfo="none">String</literal> containing a fraction:</para>
+            <programlisting id="I_8_tt318" format="linespecific">import org.apache.commons.lang.math.Fraction;
+
+String userInput = "23 31/37";
+Fraction fraction = Fraction.getFraction( userInput );
+double value = fraction.doubleValue( );</programlisting>
+            <para>The <literal moreinfo="none">String</literal> "23
+31/37" is converted to a <literal moreinfo="none">double</literal>
+value of <literal moreinfo="none">23.837837</literal>. A <literal moreinfo="none">Fraction</literal>
+object is created by calling the <literal moreinfo="none">Fraction.getFraction(
+)</literal> method, and <literal moreinfo="none">double</literal> value of the
+<literal moreinfo="none">Fraction</literal> object is obtained with
+<literal moreinfo="none">fraction.doubleValue( )</literal>. </para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-1.3">
+            <title>Discussion</title>
+            <para>The <literal moreinfo="none">Fraction</literal> class provides a number of operations
+that can be used to simplify the following expression to an improper
+fraction. The following code evaluates the expression in <link linkend="jakartackbk-CHP-8-FIG-1">Figure 8-1</link> using <literal moreinfo="none">Fraction</literal>:</para>
+            <programlisting id="I_8_tt319" format="linespecific">import org.apache.commons.lang.math.Fraction;
+
+Fraction numer1 = Fraction.getFraction( 3, 4 );
+Fraction numer2 = Fraction.getFraction( 51, 3509 );
+
+Fraction numerator = numer1.multiplyBy( numer2 );
+Fraction denominator = Fraction.getFraction( 41, 59 );
+
+Fraction fraction = numerator.divideBy( denominator );
+Fraction result = fraction.reduce( );
+
+System.out.println( "as Fraction: " + result.reduce( ).toString( ) );
+System.out.println( "as double: " + result.doubleValue( ) );</programlisting>
+            <figure id="jakartackbk-CHP-8-FIG-1" label="8-1" float="0">
+               <title>Expression to be evaluated with Fraction</title>
+               <mediaobject id="I_8_tt320">
+                  <imageobject role="print">
+                     <imagedata depth="93" width="163" fileref="figs/print/jccb_0801.pdf" format="PDF"/>
+                  </imageobject>
+                  <imageobject role="web">
+                     <imagedata depth="93" width="163" fileref="figs/web/jccb_0801.png" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+            <para>The previous example creates an instance of
+<literal moreinfo="none">Fraction</literal> by calling the static
+<literal moreinfo="none">getFraction(int numerator, int denominator)</literal>
+method. Fraction objects are then multiplied and divided with the
+<literal moreinfo="none">multiplyBy( )</literal> and <literal moreinfo="none">divideBy( )</literal>
+methods of <literal moreinfo="none">Fraction</literal>. And, the final call to
+<literal moreinfo="none">reduce( )</literal> reduces the <literal moreinfo="none">Fraction</literal>
+to the smallest possible denominator. This example executes and
+prints the following output to the console:</para>
+            <programlisting id="I_8_tt321" format="linespecific">Expression as Fraction: 9027/575476
+Expression as double: 0.015686145034719084</programlisting>
+            <para>An improper fraction is a fraction such that X/Y &gt; 1 (i.e.,
+"135/23" or
+"3/2"). <literal moreinfo="none">Fraction</literal>
+provides the ability to convert improper fractions to proper
+fractions as demonstrated in the following example:</para>
+            <programlisting id="I_8_tt322" format="linespecific">import org.apache.commons.lang.math.Fraction;
+
+String userInput = "101/99";
+String properString = Fraction.getFraction(userInput).toProperString( );
+// properString is now "1 2/99"</programlisting>
+            <warning id="jakartackbk-CHP-8-NOTE-61" role="ora">
+               <para>
+                  <literal moreinfo="none">Fraction</literal> does not automatically reduce contents,
+and it is important to call <literal moreinfo="none">reduce( )</literal> before
+performing any arithmetic with the <literal moreinfo="none">Fraction</literal> class
+to reduce the risk of overflow. For example,
+<literal moreinfo="none">Fraction.getFraction( 10000, 100000 ).pow( 6 )</literal>
+should equal <literal moreinfo="none">1.0E-6</literal>, but, because
+<literal moreinfo="none">Fraction</literal> simply multiplies each numerator and
+denominator without reducing the fraction, the result of this
+statement will be <literal moreinfo="none">1.0</literal>. When raised to the power of
+<literal moreinfo="none">6</literal>, the <literal moreinfo="none">Fraction</literal> object quickly
+becomes <literal moreinfo="none">Fraction.getFraction(Integer.MAX_VALUE,
+Integer.MAX_VALUE)</literal> or <literal moreinfo="none">1.0</literal>. Call
+<literal moreinfo="none">reduce( )</literal>
+                  <indexterm id="jakartackbk-CHP-8-ITERM-2861" significance="normal">
+                     <primary>reduce( )
+method</primary>
+                  </indexterm>
+                  <indexterm id="jakartackbk-CHP-8-ITERM-2862" significance="normal">
+                     <primary>methods</primary>
+                     <secondary>reduce(
+)</secondary>
+                  </indexterm> liberally or you may have occasion to curse
+this <literal moreinfo="none">Fraction</literal> class.</para>
+            </warning>
+            <para>
+               <link linkend="jakartackbk-CHP-8-TABLE-1">Table 8-1</link> lists a sampling of methods available on
+the <literal moreinfo="none">Fraction</literal> class.</para>
+            <table id="jakartackbk-CHP-8-TABLE-1" label="8-1">
+               <title>Methods on Commons Lang Fraction</title>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2863" significance="normal">
+                  <primary>Commons Lang</primary>
+                  <secondary>fractions</secondary>
+               </indexterm>
+               <tgroup cols="2">
+                  <colspec colnum="1" colname="col1"/>
+                  <colspec colnum="2" colname="col2"/>
+                  <thead>
+                     <row>
+                        <entry>
+                           <para>Method</para>
+                        </entry>
+                        <entry>
+                           <para>Description</para>
+                        </entry>
+                     </row>
+                  </thead>
+                  <tbody>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">abs( )</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Returns the absolute value of a <literal moreinfo="none">Fraction</literal>
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">add(Fraction fraction)</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Adds two <literal moreinfo="none">Fraction</literal> objects together</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">subtract(Fraction fraction)</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Subtracts the parameter from the current <literal moreinfo="none">Fraction</literal>
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">multiplyBy(Fraction fraction)</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Multiplies the parameter by the current <literal moreinfo="none">Fraction</literal>
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">divideBy(Fraction fraction)</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Divides the current <literal moreinfo="none">Fraction</literal> by the parameter</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">reduce( )</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Reduces the <literal moreinfo="none">Fraction</literal> to the smallest denominator</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">negate( )</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Returns -1 * <literal moreinfo="none">Fraction</literal>
+                           </para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">invert( )</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Swaps the numerator and denominator</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">getNumerator( )</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Returns the numerator</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">getDenominator( )</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Returns the denominator</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">getProperNumerator( )</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Returns the proper numerator</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">getProperWhole( )</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Returns the proper whole number</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para>
+                              <literal moreinfo="none">pow( )</literal>
+                           </para>
+                        </entry>
+                        <entry>
+                           <para>Raises a <literal moreinfo="none">Fraction</literal> to the specified power</para>
+                        </entry>
+                     </row>
+                  </tbody>
+               </tgroup>
+            </table>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-1.4">
+            <title>See Also</title>
+            <para>For more information about downloading Commons Lang, see <link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>.</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-8-SECT-2" label="8.2" role="Recipe">
+         <title>Finding the Maximum and Minimum in an Array</title>
+         <sect2 id="jakartackbk-CHP-8-SECT-2.1">
+            <title>Problem</title>
+            <para>You need to retrieve the maximum and minimum values from a
+<literal moreinfo="none">double[]</literal>, <literal moreinfo="none">float[]</literal>,
+<literal moreinfo="none">long[]</literal>, <literal moreinfo="none">int[]</literal>,
+<literal moreinfo="none">short[]</literal>, or <literal moreinfo="none">byte[]</literal>.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-2.2">
+            <title>Solution</title>
+            <para>Use Commons Lang <literal moreinfo="none">NumberUtils.max( )</literal> and
+<literal moreinfo="none">NumberUtils.min( )</literal> to retrieve the minimum or
+maximum values from an array of primitives. The following code
+retrieves the minimum and maximum values from a
+<literal moreinfo="none">double[]</literal>:</para>
+            <programlisting id="I_8_tt323" format="linespecific">import org.apache.commons.lang.math.NumberUtils;
+
+double[] array = {0.2, 0.4, 0.5, -3.0, 4.223, 4.226};
+
+double max = NumberUtils.max( array ); // returns 4.226
+double min = NumberUtils.min( array ); // returns -3.0</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-2.3">
+            <title>Discussion</title>
+            <para>
+               <literal moreinfo="none">NumberUtils.min( )</literal> and <literal moreinfo="none">NumberUtils.max()</literal> both accept <literal moreinfo="none">double[]</literal>,
+<literal moreinfo="none">float[]</literal>, <literal moreinfo="none">long[]</literal>,
+<literal moreinfo="none">int[]</literal>, <literal moreinfo="none">short[]</literal>, and
+<literal moreinfo="none">byte[]</literal>. If the array is empty or
+<literal moreinfo="none">null</literal>, both <literal moreinfo="none">NumberUtils.min( )</literal>
+and <literal moreinfo="none">NumberUtils.max( )</literal> will return an
+<literal moreinfo="none">IllegalArgumentException</literal>.</para>
+            <para>Jakarta Commons Math also contains a class that can find the minimum
+and maximum value in a <literal moreinfo="none">double[]</literal>. The following
+example uses the <literal moreinfo="none">Max</literal> and <literal moreinfo="none">Min</literal>
+classes from Commons Math to evaluate a <literal moreinfo="none">double[]</literal>:</para>
+            <programlisting id="I_8_tt324" format="linespecific">
+import 
+org.apache.commons.math.stat.univariate.rank.Max;
+
+import org.apache.commons.math.stat.univariate.rank.Min;
+
+double[] array = {0.2, 0.4, 0.5, -3.0, 4.223, 4.226};
+
+Max maximum = new Max( );
+
+Min minimum = new Min( );
+
+double max = maximum.evaluate( array, 0, array.length );
+
+double min = minimum.evaluate( array, 0, array.length );</programlisting>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-8-SECT-3" label="8.3" role="Recipe">
+         <title>Using Number Ranges</title>
+         <sect2 id="jakartackbk-CHP-8-SECT-3.1">
+            <title>Problem</title>
+            <para>You need to define a range<indexterm id="jakartackbk-CHP-8-ITERM-2864" significance="normal">
+                  <primary>Commons
+Math</primary>
+                  <secondary>number ranges</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2865" significance="normal">
+                  <primary>number ranges</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2866" significance="normal">
+                  <primary>math</primary>
+                  <secondary>number
+ranges</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2867" significance="normal">
+                  <primary>applications</primary>
+                  <secondary>math</secondary>
+                  <tertiary>number
+ranges</tertiary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2868" significance="normal">
+                  <primary>documents</primary>
+                  <secondary>math</secondary>
+                  <tertiary>number
+ranges</tertiary>
+               </indexterm> 
+               <indexterm id="jakartackbk-CHP-8-ITERM-2869" significance="normal">
+                  <primary>ranges,
+number</primary>
+               </indexterm> of acceptable values for a variable, and
+test to see if that variable is within those boundaries.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-3.2">
+            <title>Solution</title>
+            <para>Use an implementation of <literal moreinfo="none">Range</literal>, an interface that
+defines a simple numerical range. There are a number of different
+implementations for different types:
+<literal moreinfo="none">NumberRange</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2870" significance="normal">
+                  <primary>NumberRange</primary>
+               </indexterm>,
+<literal moreinfo="none">DoubleRange</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2871" significance="normal">
+                  <primary>DoubleRange</primary>
+               </indexterm>,
+<literal moreinfo="none">FloatRange</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2872" significance="normal">
+                  <primary>FloatRange</primary>
+               </indexterm>,
+<literal moreinfo="none">IntRange</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2873" significance="normal">
+                  <primary>IntRange</primary>
+               </indexterm>,
+and
+<literal moreinfo="none">LongRange</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2874" significance="normal">
+                  <primary>LongRange</primary>
+               </indexterm>. The following example demonstrates the
+use of <literal moreinfo="none">DoubleRange</literal> to verify that a variable is
+within a valid range. A <literal moreinfo="none">DoubleRange</literal> is created
+with minimum and maximum values, and a value is tested by
+<literal moreinfo="none">DoubleRange</literal> using a method named
+<literal moreinfo="none">containsDouble(
+)</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2875" significance="normal">
+                  <primary>containsDouble( )
+method</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2876" significance="normal">
+                  <primary>methods</primary>
+                  <secondary>containsDouble(
+)</secondary>
+               </indexterm>:</para>
+            <programlisting id="I_8_tt325" format="linespecific">import org.apache.commons.lang.math.DoubleRange;
+import org.apache.commons.lang.math.Range;
+
+<userinput moreinfo="none">Range safeSpeed = new DoubleRange( 0.0, 65.0 );</userinput>
+
+double currentSpeed = getCurrentSpeed( );
+<userinput moreinfo="none">if( !safeSpeed.containsDouble( currentSpeed ) ) {</userinput>
+    System.out.println( "Warning, current speed is unsafe." );
+}</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-3.3">
+            <title>Discussion</title>
+            <para>Additionally, one can also test to see if another
+<literal moreinfo="none">Range</literal> is contained within a
+<literal moreinfo="none">Range</literal>, or if a <literal moreinfo="none">Range</literal> overlaps
+another <literal moreinfo="none">Range</literal>. The following example demonstrates
+the use of <literal moreinfo="none">containsRange(
+)</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2877" significance="normal">
+                  <primary>containsRange( )
+method</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2878" significance="normal">
+                  <primary>methods</primary>
+                  <secondary>containsRange(
+)</secondary>
+               </indexterm> to determine if a <literal moreinfo="none">Range</literal>
+is entirely contained within another <literal moreinfo="none">Range</literal>:</para>
+            <programlisting id="I_8_tt326" format="linespecific">import org.apache.commons.lang.math.Range;
+import org.apache.commons.lang.math.IntRange;
+import org.apache.commons.lang.math.NumberUtils;
+
+double recordHigh = getRecordHigh( );
+double recordLow = getRecordLow( );
+
+IntRange recordRange = new IntRange( recordLow, recordHigh );
+
+int todayTemp = getTodaysMaxTemp( );
+IntRange daysRange = new IntRange( NumberUtils.min( todayTemp ),
+                                   NumberUtils.max( todayTemp ) );
+
+if( !recordRange.containsRange( todayTemp ) ) {
+    System.out.println( "Today is a record temperature day!" );
+}</programlisting>
+            <para>The previous code creates a <literal moreinfo="none">Range</literal>,
+<literal moreinfo="none">recordRange</literal>, from the record high and low
+temperatures. It then creates <literal moreinfo="none">daysRange</literal>, which is
+a <literal moreinfo="none">Range</literal> of the current day's high
+and low temperatures. If <literal moreinfo="none">dayRange</literal> is not entirely
+contained within the <literal moreinfo="none">recordRange</literal>, then the current
+day contains a record temperature and
+<literal moreinfo="none">recordRange.containsRange(daysRange)</literal> will return
+<literal moreinfo="none">false</literal>. <literal moreinfo="none">containsRange( )</literal> returns
+<literal moreinfo="none">true</literal> if every value in the containing range occurs
+in the contained range, and <literal moreinfo="none">overlapsRange( )</literal>
+returns <literal moreinfo="none">true</literal> if two <literal moreinfo="none">Range</literal>
+objects share any common value. <literal moreinfo="none">NumberUtils</literal> is
+used to retrieve the maximum and minimum values from the
+<literal moreinfo="none">todayTemp</literal> array.</para>
+            <para>In another example, a <literal moreinfo="none">Range</literal> object is used to
+ascertain the state of an element from a temperature measurement.
+Elemental Gold (Au) melts at 1337.33 Kelvin and boils at 3129.15
+Kelvin. The following code is used to read the temperature from a
+thermometer and print the current state of the element:</para>
+            <programlisting id="I_8_tt327" format="linespecific">import org.apache.commons.lang.math.Range;
+import org.apache.commons.lang.math.DoubleRange;
+
+double melting = 1337.33;
+double boiling = 3129.15
+
+// State ranges for element Au
+Object[] stateRanges = 
+    new Object[][]{{"solid" , new DoubleRange( 0.0, melting )},
+                    {"liquid", new DoubleRange( melting, boiling )},
+                    {"gas", new DoubleRange( boiling,Double.INFINITY) };
+
+// Read measurement from thermometer
+double temp = themometer.getReading( );
+String state = "unknown";
+
+// Test the state 
+for( int i = 0; i &lt; stateRanges.length; i++ ) {
+    DoubleRange stateRange = (DoubleRange) stateRanges[i][1];
+    if( stateRange.contains( temp ) ) {
+        state = (String) stateRanges[i][0];
+    }
+}
+
+System.out.println( "The substance is in a " + state + " state." );
+
+// If the temperature is a temperate 293 K, this line would print 
+// "The Gold is in a solid state."</programlisting>
+            <para>The ranges in this example overlap; the <literal moreinfo="none">solid</literal>
+range ends at <literal moreinfo="none">melting</literal>, and the
+<literal moreinfo="none">liquid</literal> range begins at <literal moreinfo="none">melting</literal>.
+Because each <literal moreinfo="none">Range</literal> is tested in a defined order,
+each <literal moreinfo="none">Range</literal> object in this example is lower- and
+upper-bound inclusive. If the <literal moreinfo="none">temp</literal> variable has
+the same value as <literal moreinfo="none">melting</literal>, the program will
+indicate solid state, and if the <literal moreinfo="none">temp</literal> variable has
+the same value as <literal moreinfo="none">boiling</literal>, this program will
+signify the <literal moreinfo="none">liquid</literal> state.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-3.4">
+            <title>See Also</title>
+            <para>For more information about downloading Commons Lang, see <link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>.</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-8-SECT-4" label="8.4" role="Recipe">
+         <title>Generating Random Variables</title>
+         <sect2 id="jakartackbk-CHP-8-SECT-4.1">
+            <title>Problem</title>
+            <para>J2SE 1.4 includes a
+<literal moreinfo="none">java.lang.Math</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2879" significance="normal">
+                  <primary>java.lang.Math
+class</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2880" significance="normal">
+                  <primary>classes</primary>
+                  <secondary>java.lang.Math</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2881" significance="normal">
+                  <primary>Commons
+Math</primary>
+                  <secondary>random variables</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2882" significance="normal">
+                  <primary>random variables</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2883" significance="normal">
+                  <primary>math</primary>
+                  <secondary>random
+variables</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2884" significance="normal">
+                  <primary>applications</primary>
+                  <secondary>math</secondary>
+                  <tertiary>random
+variables</tertiary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2885" significance="normal">
+                  <primary>documents</primary>
+                  <secondary>math</secondary>
+                  <tertiary>random
+variables</tertiary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2886" significance="normal">
+                  <primary>variables</primary>
+                  <secondary>random</secondary>
+               </indexterm>
+class that provides a mechanism to get a random
+<literal moreinfo="none">double</literal> value between <literal moreinfo="none">0.0</literal> and
+<literal moreinfo="none">1.0</literal>, but you need to create random
+<literal moreinfo="none">boolean</literal> values, or random <literal moreinfo="none">int</literal>
+variables between zero and a specified number.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-4.2">
+            <title>Solution</title>
+            <para>Generate random variables with Commons Lang
+<literal moreinfo="none">RandomUtils</literal>, which provides a mechanism to
+generate random <literal moreinfo="none">int</literal>, <literal moreinfo="none">long</literal>,
+<literal moreinfo="none">float</literal>, <literal moreinfo="none">double</literal>, and
+<literal moreinfo="none">boolean</literal> variables. The following code generates a
+random integer between zero and the value specified in the parameter
+to <literal moreinfo="none">nextInt( )</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2887" significance="normal">
+                  <primary>nextInt( )
+method</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2888" significance="normal">
+                  <primary>methods</primary>
+                  <secondary>nextInt(
+)</secondary>
+               </indexterm>:</para>
+            <programlisting id="I_8_tt328" format="linespecific">import org.apache.commons.lang.math.RandomUtils;
+
+// Create a random integer between 0 and 30
+int maxVal = 30;
+int randomInt = RandomUtils.nextInt( maxVal );</programlisting>
+            <para>Or, if your application needs a random
+<literal moreinfo="none">boolean</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2889" significance="normal">
+                  <primary>Boolean
+variables</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2890" significance="normal">
+                  <primary>variables</primary>
+                  <secondary>Boolean</secondary>
+               </indexterm>
+variable, create one with a call to the static method
+<literal moreinfo="none">nextBoolean( )</literal>:</para>
+            <programlisting id="I_8_tt329" format="linespecific">import org.apache.commons.lang.math.RandomUtils;
+ 
+boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-4.3">
+            <title>Discussion</title>
+            <para>A frequent argument for not using a utility like
+<literal moreinfo="none">RandomUtils</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2891" significance="normal">
+                  <primary>RandomUtils</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2892" significance="normal">
+                  <primary>tools</primary>
+                  <secondary>randomUtils</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2893" significance="normal">
+                  <primary>utilities</primary>
+                  <secondary>RandomUtils</secondary>
+               </indexterm>
+is that the same task can be achieved with only one line of code. For
+example, if you need to retrieve a random integer between 0 and 32,
+you could write the following code:</para>
+            <programlisting id="I_8_tt330" format="linespecific">int randomInt = (int) Math.floor( (Math.random( ) * (double) maxVal) );</programlisting>
+            <para>While this statement may seem straightforward, it does contain a
+conceptual complexity not present in
+<literal moreinfo="none">RandomUtils.nextInt(maxVal)</literal>.
+<literal moreinfo="none">RandomUtils.nextInt(maxVal)</literal> is a simple statement:
+"I need a random integer between 0 and
+<literal moreinfo="none">maxVal</literal>"; the statement without
+<literal moreinfo="none">RandomUtils</literal> is translated to a more complex
+statement:</para>
+            <blockquote>
+               <para>I'm going to take a random <literal moreinfo="none">double</literal>
+between 0.0 and 1.0, and multiply this number by
+<literal moreinfo="none">maxVal</literal>, which has been cast to a
+<literal moreinfo="none">double</literal>. This result should be a random
+<literal moreinfo="none">double</literal> between 0.0 and <literal moreinfo="none">maxVal</literal>,
+which I will then pass to <literal moreinfo="none">Math.floor( )</literal> and cast
+to an <literal moreinfo="none">int</literal>.</para>
+            </blockquote>
+            <para>While the previous statement does achieve the same task as
+<literal moreinfo="none">RandomUtils</literal>, it does so by rolling-up multiple
+statements into a single line of code: two casts, a call to
+<literal moreinfo="none">floor( )</literal>, a call to <literal moreinfo="none">random()</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2894" significance="normal">
+                  <primary>random( ) method</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2895" significance="normal">
+                  <primary>methods</primary>
+                  <secondary>random(
+)</secondary>
+               </indexterm>, and a multiplication. You may be able to
+instantly recognize this pattern as code that retrieves a random
+integer, but someone else may have a completely different approach.
+When you start to use some of the smaller utilities from Jakarta
+Commons systemwide, an application will tend toward greater
+readability; these small reductions in conceptual complexity quickly
+add up.</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-8-SECT-5" label="8.5" role="Recipe">
+         <title>Obtaining Commons Math</title>
+         <sect2 id="jakartackbk-CHP-8-SECT-5.1">
+            <title>Problem</title>
+            <para>You need to use Jakarta Commons Math to work with complex numbers,
+matrices, statistics, or linear equations.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-5.2">
+            <title>Solution</title>
+            <para>Download Jakarta Commons Math and put the necessary JAR files in your
+classpath. Because Commons Math has not yet been released, you will
+need to download the latest nightly snapshot of Commons Math from
+<systemitem role="url" moreinfo="none">http://cvs.apache.org/builds/jakarta-commons/nightly/commons-math/</systemitem>.
+Once you have downloaded the latest nightly build, uncompress the
+distribution, and place the
+<filename moreinfo="none">commons-math-1.0-RC1.jar</filename> file in your classpath.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-5.3">
+            <title>Discussion</title>
+            <para>Jakarta Commons Math was created to provide some more advanced
+mathematical capabilities under an Apache-style license. Commons Math
+provides classes to work with complex numbers, utilities to calculate
+statistics, a matrix implementation, special functions, continued
+fractions, root-finding, interpolation, and bivariate regression.
+Commons Math depends on Commons Collections 3.0, Commons Lang 2.0,
+and Commons Logging 1.0.3. To obtain these dependencies, see
+<link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, <link linkend="jakartackbk-CHP-5-SECT-1">Recipe 5.1</link>, and
+<link linkend="jakartackbk-CHP-7-SECT-9">Recipe 7.9</link>.</para>
+            <warning id="jakartackbk-CHP-8-NOTE-63" role="ora">
+               <para>By the time this book is published, Commons Math 1.0 may be released.
+Make sure you look at the Commons Math project page (<systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/math</systemitem>) and
+check for a release before downloading.</para>
+            </warning>
+            <para>While the previous four recipes demonstrated classes and utilities
+available in Jakarta Commons Lang, the next five recipes demonstrate
+classes and utilities from Jakarta Commons Math. Simpler math
+utilities, which have wide application, will frequently be included
+in Commons Lang, and more complex utilities will be added to Commons
+Math. As both components continue to evolve, you may notice some
+overlap between the feature-set of Commons Lang and Commons Math.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-5.4">
+            <title>See Also</title>
+            <para>Commons Math is a relatively new math library primarily motivated by
+licensing and community issues; all established math libraries were
+covered under a GPL or LGPL license. The Jakarta Commons community
+saw an opportunity to create a library, and through the hard work of
+a few dedicated developers in Commons, a very useful math library
+will soon be released. That being said, if you need a more mature
+math library, and your project can use LGPL components, look at the
+Colt Distribution from CERN (<systemitem role="url" moreinfo="none">http://hoschek.home.cern.ch/hoschek/colt/</systemitem>).</para>
+            <para>For the authoritative cookbook of mathematics, pick up a copy of
+<emphasis>Numerical Recipes in C++</emphasis> or <emphasis>Numerical
+Recipes in C</emphasis> (Cambridge University Press). These classic
+tomes contain a huge library of code and examples, but be forewarned,
+the mathematics will quickly intimidate the faint of math. More
+information about this indispensable text can be found at the
+Numerical Recipes website (<systemitem role="url" moreinfo="none">http://www.nr.com/</systemitem>). Unlike all the
+components described throughout this book, the code and examples from
+both of these books is covered under a very restrictive license
+described at <systemitem role="url" moreinfo="none">http://www.numerical-recipes.com/infotop.html#distinfo</systemitem>.</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-8-SECT-6" label="8.6" role="Recipe">
+         <title>Calculating Simple Univariate Statistics</title>
+         <sect2 id="jakartackbk-CHP-8-SECT-6.1">
+            <title>Problem</title>
+            <para>You need to calculate <indexterm id="jakartackbk-CHP-8-ITERM-2896" significance="normal">
+                  <primary>Commons
+Math</primary>
+                  <secondary>univariate statistic
+calculations</secondary>
+               </indexterm> 
+               <indexterm id="jakartackbk-CHP-8-ITERM-2897" significance="normal">
+                  <primary>univariate
+statistic calculations</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2898" significance="normal">
+                  <primary>math</primary>
+                  <secondary>univariate statistic
+calculations</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2899" significance="normal">
+                  <primary>applications</primary>
+                  <secondary>math</secondary>
+                  <tertiary>univariate
+statistic calculations</tertiary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2900" significance="normal">
+                  <primary>documents</primary>
+                  <secondary>math</secondary>
+                  <tertiary>univariate
+statistic calculations</tertiary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2901" significance="normal">
+                  <primary>calculations</primary>
+                  <secondary>univariate
+statistics</secondary>
+               </indexterm>univariate statistics such as mean,
+median, variance, minimum and maximum.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-6.2">
+            <title>Solution</title>
+            <para>Use Commons
+Math's<indexterm id="jakartackbk-CHP-8-ITERM-2902" significance="normal">
+                  <primary>StatUtils</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2903" significance="normal">
+                  <primary>tools</primary>
+                  <secondary>StatUtils</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2904" significance="normal">
+                  <primary>utilities</primary>
+                  <secondary>StatUtils</secondary>
+               </indexterm>
+               <literal moreinfo="none">StatUtils</literal> to calculate simple univariate
+statistics. The following example uses <literal moreinfo="none">StatUtils</literal>
+to calculate simple statistics for a <literal moreinfo="none">double[]</literal>:</para>
+            <programlisting id="I_8_tt331" format="linespecific">import org.apache.commons.math.stat.StatUtils;
+
+double[] values = new double[] { 2.3, 5.4, 6.2, 7.3, 23.3 };
+
+System.out.println( "min: " + StatUtils.min( values ) );
+System.out.println( "max: " + StatUtils.max( values ) );
+System.out.println( "mean: " + StatUtils.mean( values ) );
+System.out.println( "product: " + StatUtils.product( values ) );
+System.out.println( "sum: " + StatUtils.sum( values ) );
+System.out.println( "variance: " + StatUtils.variance( values ) );</programlisting>
+            <para>This code executes and prints a few simple statistics to the console,
+as follows:</para>
+            <programlisting id="I_8_tt332" format="linespecific">min: 2.3
+max: 23.3
+mean: 8.9
+product: 13097.61036
+sum: 44.5
+variance: 68.25500000000001</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-6.3">
+            <title>Discussion</title>
+            <para>
+               <literal moreinfo="none">StatUtils</literal> delegates these calculations to functors
+in the
+<literal moreinfo="none">org.apache.commons.math.stat.univariate.moment</literal>,
+<literal moreinfo="none">org.apache.commons.math.stat.univariate.rank</literal>, and
+<literal moreinfo="none">org.apache.commons.math.stat.univariate.summary</literal>
+packages. The following example uses the individual classes from
+these packages to recreate the previous example, and it adds some
+measures not available in <literal moreinfo="none">StatUtil</literal>:</para>
+            <programlisting id="I_8_tt333" format="linespecific">import org.apache.commons.math.stat.univariate.moment.*;
+import org.apache.commons.math.stat.univariate.rank.*;
+import org.apache.commons.math.stat.univariate.summary.*;
+
+// Measures from previous example
+Min min = new Min( );
+Max max = new Max( );
+Mean mean = new Mean( );
+Product product = new Product( );
+Sum sum = new Sum( );
+Variance variance = new Variance( );
+
+System.out.println( "min: " + min.evaluate( values ) );
+System.out.println( "max: " + max.evaluate( values ) );
+System.out.println( "mean: " + mean.evaluate( values ) );
+System.out.println( "product: " + product.evaluate( values ) );
+System.out.println( "sum: " + sum.evaluate( values ) );
+System.out.println( "variance: " + variance.evaluate( values ) );
+        
+// New measures
+Percentile percentile = new Percentile( );
+GeometricMean geoMean = new GeometricMean( );
+Skewness skewness = new Skewness( );
+Kurtosis kurtosis = new Kurtosis( );
+
+System.out.println( "80 percentile value: " + 
+                    percentile.evaluate( values, 80.0 ) );
+System.out.println( "geometric mean: " + geoMean.evaluate( values ) );
+System.out.println( "skewness: " + skewness.evaluate( values ) );
+System.out.println( "kurtosis: " + kurtosis.evaluate( values ) );</programlisting>
+            <para>The previous example adds percentile, geometric mean, standard
+deviation, skewness, and kurtosis to the available univariate
+statistics. The previous example produces the following output:</para>
+            <programlisting id="I_8_tt334" format="linespecific">min: 2.3
+max: 23.3
+mean: 8.9
+product: 13097.61036
+sum: 44.5
+variance: 68.25500000000001
+80 percentile value: 20.099999999999998
+geometric mean: 6.659450778469037
+standard dev: 8.261658429153314
+skewness: 1.9446683453691376
+kurtosis: 4.102348153299074</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-6.4">
+            <title>See Also</title>
+            <para>If you need a formal definition of a specific moment, rank, or
+summary, see MathWorld (<systemitem role="url" moreinfo="none">http://mathworld.wolfram.com</systemitem>), an invaluable
+mathematical reference site from Wolfram, the makers of Mathematica.</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-8-SECT-7" label="8.7" role="Recipe">
+         <title>Solving a System of Linear Equations</title>
+         <sect2 id="jakartackbk-CHP-8-SECT-7.1">
+            <title>Problem</title>
+            <para>You need to find the values of x,<indexterm id="jakartackbk-CHP-8-ITERM-2905" significance="normal">
+                  <primary>Commons
+Math</primary>
+                  <secondary>linear equations</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2906" significance="normal">
+                  <primary>linear equations</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2907" significance="normal">
+                  <primary>math</primary>
+                  <secondary>linear
+equations</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2908" significance="normal">
+                  <primary>applications</primary>
+                  <secondary>math</secondary>
+                  <tertiary>linear
+equations</tertiary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2909" significance="normal">
+                  <primary>documents</primary>
+                  <secondary>math</secondary>
+                  <tertiary>linear
+equations</tertiary>
+               </indexterm> 
+               <indexterm id="jakartackbk-CHP-8-ITERM-2910" significance="normal">
+                  <primary>linear
+equations</primary>
+               </indexterm> y, and z that satisfy the system of
+linear equations shown in <link linkend="jakartackbk-CHP-8-FIG-2">Figure 8-2</link>.</para>
+            <figure id="jakartackbk-CHP-8-FIG-2" label="8-2" float="0">
+               <title>A system of linear equations</title>
+               <mediaobject id="I_8_tt335">
+                  <imageobject role="print">
+                     <imagedata depth="55" width="92" fileref="figs/print/jccb_0802.pdf" format="PDF"/>
+                  </imageobject>
+                  <imageobject role="web">
+                     <imagedata depth="55" width="92" fileref="figs/web/jccb_0802.png" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-7.2">
+            <title>Solution</title>
+            <para>Use the
+<literal moreinfo="none">RealMatrix</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2911" significance="normal">
+                  <primary>RealMatrix</primary>
+               </indexterm>
+and <literal moreinfo="none">RealMatrixImpl</literal> from Commons Math. Represent
+this system of linear equations as matrices in the
+<filename moreinfo="none">Ax=B</filename> form, as shown in <link linkend="jakartackbk-CHP-8-FIG-3">Figure 8-3</link>. Place the coefficients of
+<filename moreinfo="none">A</filename> in a <literal moreinfo="none">RealMatrix</literal>, and put
+<filename moreinfo="none">B</filename> in a <literal moreinfo="none">double[]</literal>. Call the
+<literal moreinfo="none">solve( )</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2912" significance="normal">
+                  <primary>solve( )
+method</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2913" significance="normal">
+                  <primary>methods</primary>
+                  <secondary>solve(
+)</secondary>
+               </indexterm> method on <literal moreinfo="none">RealMatrix</literal> to
+retrieve a <literal moreinfo="none">double[]</literal> of values for x, y, and z that
+satisfy this system of equations.</para>
+            <figure id="jakartackbk-CHP-8-FIG-3" label="8-3" float="0">
+               <title>System of linear equations in Ax=B form</title>
+               <mediaobject id="I_8_tt336">
+                  <imageobject role="print">
+                     <imagedata depth="53" width="139" fileref="figs/print/jccb_0803.pdf" format="PDF"/>
+                  </imageobject>
+                  <imageobject role="web">
+                     <imagedata depth="53" width="139" fileref="figs/web/jccb_0803.png" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+            <para>The following example takes the
+<indexterm id="jakartackbk-CHP-8-ITERM-2914" significance="normal">
+                  <primary>coefficients</primary>
+               </indexterm>coefficients
+and <indexterm id="jakartackbk-CHP-8-ITERM-2915" significance="normal">
+                  <primary>constants</primary>
+               </indexterm>constants from
+<link linkend="jakartackbk-CHP-8-FIG-3">Figure 8-3</link> and uses a <literal moreinfo="none">RealMatrix</literal>
+to solve this system:</para>
+            <programlisting id="I_8_tt337" format="linespecific">import org.apache.commons.math.linear.RealMatrix;
+import org.apache.commons.math.linear.RealMatrixImpl;
+import org.apache.commons.lang.ArrayUtils;
+
+double[][] coefficients = { { 3.0, 20.0, 89.0 },
+                            { 4.0, 40.0, 298.0 },
+                            { 7.0, 21.0, 0.42 } };
+double[] values = { 1324, 2999, 2039 };
+
+RealMatrix matrix = new RealMatrixImpl( );
+matrix.setData( coefficients );
+        
+double[] answers = matrix.solve( values );
+
+System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlisting>
+            <para>This example solves this system of equations and prints out the
+values of x, y, and z using Commons Lang
+<literal moreinfo="none">ArrayUtils</literal> to print a <literal moreinfo="none">double[]</literal>:</para>
+            <programlisting id="I_8_tt338" format="linespecific">Answers: {400.4839095455532,-36.59139305646149,9.599731825759218}</programlisting>
+            <para>Using Commons Math, we find that the following values satisfy this
+system of equations: x = 400, y = -36, and z = 9.6.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-7.3">
+            <title>Discussion</title>
+            <para>To solve these equations, a <literal moreinfo="none">double[][]</literal> of
+coefficients is created to represent a 3 3 matrix, and a
+<literal moreinfo="none">double[]</literal> of constants is created. The
+<literal moreinfo="none">RealMatrix</literal> interface is implemented by
+<literal moreinfo="none">RealMatrixImpl</literal>, which stores a matrix as a
+<literal moreinfo="none">double[][]</literal>; to populate this
+<literal moreinfo="none">double[][]</literal>, pass the
+<literal moreinfo="none">double[][]</literal>, <literal moreinfo="none">coefficients</literal>, to
+the <literal moreinfo="none">setData( )</literal> method of
+<literal moreinfo="none">RealMatrixImpl</literal>. To solve the system, the
+<literal moreinfo="none">values</literal> 
+               <literal moreinfo="none">double[]</literal> is passed to
+<literal moreinfo="none">matrix.solve( )</literal>, and a <literal moreinfo="none">double[]</literal>
+containing x, y, and z is returned.</para>
+            <para>This method will not work for every matrix; there are systems of
+linear equations that are unsolvable. For example, if one attempts to
+find values for the system of equations from <link linkend="jakartackbk-CHP-8-FIG-4">Figure 8-4</link>, an <literal moreinfo="none">InvalidMatrixException</literal>
+will be thrown stating that the matrix is singular. Additionally, if
+the number of rows in <filename moreinfo="none">B</filename> does not equal the
+number of columns in <filename moreinfo="none">A</filename>, <literal moreinfo="none">solve()</literal> will throw an <literal moreinfo="none">InvalidMatrixException</literal>.</para>
+            <figure id="jakartackbk-CHP-8-FIG-4" label="8-4" float="0">
+               <title>An unsolvable system of equations</title>
+               <mediaobject id="I_8_tt339">
+                  <imageobject role="print">
+                     <imagedata depth="55" width="53" fileref="figs/print/jccb_0804.pdf" format="PDF"/>
+                  </imageobject>
+                  <imageobject role="web">
+                     <imagedata depth="55" width="53" fileref="figs/web/jccb_0804.png" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-7.4">
+            <title>See Also</title>
+            <para>For more information about solving systems of linear equations (or,
+for that matter, information about anything), see Wikipedia
+(<systemitem role="url" moreinfo="none">http://en.wikipedia.org/wiki/System_of_linear_equations</systemitem>).
+<literal moreinfo="none">RealMatixImpl</literal> uses a process known as LU
+decomposition to solve this system of equations. For more information
+about LU decomposition, see the JavaDoc for the
+<literal moreinfo="none">org.apache.commons.math.linear</literal> package
+(<systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/math/apidocs/index.html</systemitem>).</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-8-SECT-8" label="8.8" role="Recipe">
+         <title>Arithmetic with Complex Numbers</title>
+         <sect2 id="jakartackbk-CHP-8-SECT-8.1">
+            <title>Problem</title>
+            <para>You need to perform arithmetic<indexterm class="startofrange" id="jakartackbk-CHP-8-ITERM-2916" significance="normal">
+                  <primary>Commons
+Math</primary>
+                  <secondary>complex numbers</secondary>
+               </indexterm>
+               <indexterm class="startofrange" id="jakartackbk-CHP-8-ITERM-2917" significance="normal">
+                  <primary>math</primary>
+                  <secondary>complex
+numbers</secondary>
+               </indexterm> 
+               <indexterm class="startofrange" id="jakartackbk-CHP-8-ITERM-2918" significance="normal">
+                  <primary>applications</primary>
+                  <secondary>math</secondary>
+                  <tertiary>complex
+numbers</tertiary>
+               </indexterm> 
+               <indexterm class="startofrange" id="jakartackbk-CHP-8-ITERM-2919" significance="normal">
+                  <primary>documents</primary>
+                  <secondary>math</secondary>
+                  <tertiary>complex
+numbers</tertiary>
+               </indexterm> 
+               <indexterm class="startofrange" id="jakartackbk-CHP-8-ITERM-2920" significance="normal">
+                  <primary>complex
+numbers</primary>
+               </indexterm> 
+               <indexterm class="startofrange" id="jakartackbk-CHP-8-ITERM-2921" significance="normal">
+                  <primary>objects</primary>
+                  <secondary>complex
+numbers</secondary>
+               </indexterm> with complex numbers. For example,
+given the complex numbers <filename moreinfo="none">A</filename>,
+<filename moreinfo="none">B</filename>, <filename moreinfo="none">C</filename>, and
+<filename moreinfo="none">E</filename> and two equations shown in <link linkend="jakartackbk-CHP-8-FIG-5">Figure 8-5</link>, you need to find the real part of
+<filename moreinfo="none">F</filename> and the imaginary part of
+<filename moreinfo="none">D</filename>.</para>
+            <figure id="jakartackbk-CHP-8-FIG-5" label="8-5" float="0">
+               <title>Expressions evaluated with the Complex object</title>
+               <mediaobject id="I_8_tt340">
+                  <imageobject role="print">
+                     <imagedata depth="55" width="81" fileref="figs/print/jccb_0805.pdf" format="PDF"/>
+                  </imageobject>
+                  <imageobject role="web">
+                     <imagedata depth="55" width="81" fileref="figs/web/jccb_0805.png" format="PNG"/>
+                  </imageobject>
+               </mediaobject>
+            </figure>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-8.2">
+            <title>Solution</title>
+            <para>Use Commons Math <literal moreinfo="none">Complex</literal> and
+<literal moreinfo="none">ComplexMath</literal> classes to represent complex numbers
+and perform arithmetic using complex numbers. Use the
+<literal moreinfo="none">ComplexFormat</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2922" significance="normal">
+                  <primary>ComplexFormat
+class</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2923" significance="normal">
+                  <primary>classes</primary>
+                  <secondary>ComplexFormat</secondary>
+               </indexterm>
+class to print the real and imaginary parts of a complex number. The
+following example demonstrates the use of the
+<literal moreinfo="none">Complex</literal> class to calculate <filename moreinfo="none">D</filename>
+and <filename moreinfo="none">F</filename> from <link linkend="jakartackbk-CHP-8-FIG-5">Figure 8-5</link> using
+arbitrary values for <filename moreinfo="none">A</filename>, <filename moreinfo="none">B</filename>,
+<filename moreinfo="none">C</filename>, and <filename moreinfo="none">E</filename>:</para>
+            <programlisting id="I_8_tt341" format="linespecific">import org.apache.commons.math.complex.Complex;
+import org.apache.commons.math.complex.ComplexFormat;
+
+Complex a = new Complex(2, 3);
+Complex b = new Complex(4, 5);
+Complex c = new Complex(0.3, 2);
+Complex e = new Complex(4, 4);
+
+Complex sum = a.add( b );
+Complex d = c.divide( sum );
+Complex f = e.multiply( d.conjugate( ) );
+        
+System.out.println( "D is: " + ComplexFormat.formatComplex( d ) );
+System.out.println( "F is: " + ComplexFormat.formatComplex( f ) );
+    
+double realF = f.getReal( );
+double imD = d.getImaginary( );
+double answer = realF / imD;
+        
+System.out.println( "Answer Re(F)/Im(D): " + 
+        NumberFormat.getInstance( ).format( answer ) );</programlisting>
+            <para>The variables <literal moreinfo="none">a</literal>, <literal moreinfo="none">b</literal>,
+<literal moreinfo="none">c</literal>, and <literal moreinfo="none">e</literal> are created using
+arbitrary values, and an intermediate <literal moreinfo="none">Complex</literal>
+object <literal moreinfo="none">sum</literal> is calculated by adding
+<literal moreinfo="none">b</literal> to <literal moreinfo="none">a--a.add(b)</literal>.
+<literal moreinfo="none">d</literal> is calculated by dividing this intermediate
+<literal moreinfo="none">sum</literal> by <literal moreinfo="none">c</literal>:
+<literal moreinfo="none">c.divide(sum)</literal>. <literal moreinfo="none">f</literal> is calculated
+by multiplying <literal moreinfo="none">e</literal> times the complex conjugate of
+<literal moreinfo="none">d</literal>: <literal moreinfo="none">e.multiply( d.conjugate( )
+)</literal>. The final answer is calculated by taking the real part
+of <literal moreinfo="none">f</literal> (<literal moreinfo="none">f.getReal( )</literal>) and
+dividing that by the imaginary part of <literal moreinfo="none">d</literal>:
+<literal moreinfo="none">d.getImaginary( )</literal>. The previous example performs
+complex arithmetic and prints the following to the console:</para>
+            <programlisting id="I_8_tt342" format="linespecific">D is: 0.18 + 0.1i
+F is: 1.1 + 0.33i
+Answer Re(F)/Im(D): 11.417</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-8.3">
+            <title>Discussion</title>
+            <para>The previous example used the <literal moreinfo="none">ComplexFormat</literal> class
+to create a <literal moreinfo="none">String</literal> representation of a
+<literal moreinfo="none">Complex</literal> object. This class allows you to print out
+the complex number <filename moreinfo="none">N</filename> in the format
+<filename moreinfo="none">Re(N) + Im(N)i</filename>. This class also has a
+constructor that takes a <literal moreinfo="none">String</literal> to use instead of
+"i." In electrical engineering,
+where "i" is frequently used to
+refer to current, complex impedance is represented using a
+"j" instead of an
+"i." To print a complex number
+using a "j", write the following
+code:</para>
+            <programlisting id="I_8_tt343" format="linespecific">Complex impedance = new Complex( 1.0, 2.0 );
+ComplexFormat format = new ComplexFormat("j");
+System.out.println( "Impedance: " + format.format( impedance ) );</programlisting>
+            <para>The previous code prints the following output to the console:</para>
+            <programlisting id="I_8_tt344" format="linespecific">Impedance: 1.0 + 2.0j</programlisting>
+            <para>The <literal moreinfo="none">Complex</literal> object contains simple arithmetic
+methods such as <literal moreinfo="none">add( )</literal>, <literal moreinfo="none">subtract(
+)</literal>, <literal moreinfo="none">multiply( )</literal>, <literal moreinfo="none">divide()</literal>, <literal moreinfo="none">conjugate( )</literal>, and <literal moreinfo="none">negate(
+)</literal>. More advanced methods are available as static methods on
+the <literal moreinfo="none">ComplexMath</literal> class.
+<literal moreinfo="none">ComplexMath</literal> includes trigonometric methods such as
+<literal moreinfo="none">sin( )</literal>, <literal moreinfo="none">sinh( )</literal>, <literal moreinfo="none">cos()</literal>, and <literal moreinfo="none">tan( )</literal>, as well as methods to
+calculate logarithms and to take the square root of a
+<literal moreinfo="none">Complex</literal> object.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-8.4">
+            <title>See also</title>
+            <para>For more information about the <literal moreinfo="none">ComplexMath</literal>
+utility, see the Commons Math JavaDoc at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/math/apidocs/index.html</systemitem>.</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-8-SECT-9" label="8.9" role="Recipe">
+         <title>Establishing Relationships Between Variables</title>
+         <sect2 id="jakartackbk-CHP-8-SECT-9.1">
+            <title>Problem</title>
+            <para>You need to establish a relationship between two independent
+variables. These variables could be temperature versus energy use or
+the number of news channels versus stress-related ailments; you need
+to measure the correlation between two variables.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-9.2">
+            <title>Solution</title>
+            <para>Add data points to an instance of Commons Math
+<literal moreinfo="none">SimpleRegression</literal>. This class will calculate the
+slope, slope confidence, and a measure of relatedness known as
+R-square. The <literal moreinfo="none">SimpleRegression</literal> class performs a
+least squares regression with one independent variable; adding data
+points to this model refines parameters to the equation <filename moreinfo="none">y =
+ax + b</filename>. The following code uses
+<literal moreinfo="none">SimpleRegression</literal> to find a relationship between
+two series of values <filename moreinfo="none">[0, 1, 2, 3, 4, 5]</filename> and
+<filename moreinfo="none">[0, 1.2, 2.6, 3.2, 4, 5]</filename>:</para>
+            <programlisting id="I_8_tt345" format="linespecific">import orgorg.apache.commons.math.stat.multivariate.SimpleRegression;
+
+SimpleRegression sr = new SimpleRegression( );
+
+// Add data points         
+sr.addData( 0, 0 );
+sr.addData( 1, 1.2 );
+sr.addData( 2, 2.6 );
+sr.addData( 3, 3.2 );
+sr.addData( 4, 4 );
+sr.addData( 5, 5 );
+
+// Print the value of y when line intersects the y axis
+System.out.println( "Intercept: " + sr.getIntercept( ) );
+
+// Print the number of data points
+System.out.println( "N: " + sr.getN( ) );
+
+// Print the Slope and the Slop Confidence
+System.out.println( "Slope: " + sr.getSlope( ) );
+System.out.println( "Slope Confidence: " + sr.getSlopeConfidenceInterval( ) );
+
+// Print RSquare a measure of relatedness
+System.out.println( "RSquare: " + sr.getRSquare( ) );</programlisting>
+            <para>This example passes six data points to
+<literal moreinfo="none">SimpleRegression</literal> and prints the slope, number of
+data points, and R-square from <literal moreinfo="none">SimpleRegression</literal>:</para>
+            <programlisting id="I_8_tt346" format="linespecific">Intercept: 0.238
+N: 6
+Slope: 0.971
+Slope Confidence: 0.169
+RSquare: 0.985</programlisting>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-9.3">
+            <title>Discussion</title>
+            <para>R-square is the square of something called the
+Pearson's product moment correlation coefficient,
+which can be obtained by calling<indexterm id="jakartackbk-CHP-8-ITERM-2924" significance="normal">
+                  <primary>getR( )
+method</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2925" significance="normal">
+                  <primary>methods</primary>
+                  <secondary>getR(
+)</secondary>
+               </indexterm> 
+               <literal moreinfo="none">getR( )</literal> on
+<literal moreinfo="none">SimpleRegression</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2926" significance="normal">
+                  <primary>SimpleRegression</primary>
+               </indexterm>.
+R-square is a determination of correlation between two series of
+numbers. The parameters to the <literal moreinfo="none">addData()</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2927" significance="normal">
+                  <primary>addData( )
+method</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2928" significance="normal">
+                  <primary>methods</primary>
+                  <secondary>addData(
+)</secondary>
+               </indexterm> method of
+<literal moreinfo="none">SimpleRegression</literal> are a corresponding x and y value
+in two sets of data. If R-square is 1.0, the model shows that as x
+increases linearly, y increases linearly. In the previous example,
+R-square is 0.98, and this demonstrates that the (x,y) data points
+added to <literal moreinfo="none">SimpleRegression</literal> have a strong linear
+relationship.</para>
+            <para>If R-square is -1.0, x increases linearly as y decreases linearly. A
+value of 0.0 shows that the relationship between x and y is not
+linear. The following example demonstrates two series of numbers with
+no relationship:</para>
+            <programlisting id="I_8_tt347" format="linespecific">import org.apache.commons.math.stat.multivariate.SimpleRegression;
+
+SimpleRegression sr = new SimpleRegression( );
+sr.addData( 400, 100 );
+sr.addData( 300, 105 );
+sr.addData( 350, 70 );
+sr.addData( 200, 50 );
+sr.addData( 150, 300 );
+sr.addData( 50, 500 );
+
+// Print RSquare a measure of relatedness
+System.out.println( "RSquare: " + sr.getRSquare( ) );</programlisting>
+            <para>The data points added to this <literal moreinfo="none">SimpleRegression</literal> are
+all over the map; x and y are unrelated, and the R-square value for
+this set of data points is very close to zero:</para>
+            <programlisting id="I_8_tt348" format="linespecific">Intercept: 77.736
+N: 12
+Slope: 0.142
+Slope Confidence: 0.699
+RSquare: 0.02</programlisting>
+            <para>The (x,y) data points supplied to the previous example have no linear
+correlation. This doesn't prove that there is no
+relationship between x and y, but it does prove that the relationship
+is not linear.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-9.4">
+            <title>See Also</title>
+            <para>For more information about least squares, the technique used by
+<literal moreinfo="none">SimpleRegression</literal>, see Wikipedia (<systemitem role="url" moreinfo="none">http://en.wikipedia.org/wiki/Least_squares</systemitem>).
+More information about R and R-square can also be found on Wikipedia
+(<systemitem role="url" moreinfo="none">http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient</systemitem>).</para>
+         </sect2>
+      </sect1>
+      <sect1 id="jakartackbk-CHP-8-SECT-10" label="8.10" role="Recipe">
+         <title>Estimating the Amount of Time Left in a Process</title>
+         <sect2 id="jakartackbk-CHP-8-SECT-10.1">
+            <title>Problem</title>
+            <para>You are running a program that takes a long time to execute, and you
+need to present the user with an estimated time until completion.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-10.2">
+            <title>Solution</title>
+            <para>Use Commons Math's
+<literal moreinfo="none">SimpleRegression</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2929" significance="normal">
+                  <primary>SimpleRegression</primary>
+               </indexterm>
+and Commons Lang's <literal moreinfo="none">StopWatch</literal> to
+create a
+<literal moreinfo="none">ProcessEstimator</literal>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2930" significance="normal">
+                  <primary>ProcessEstimator
+class</primary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2931" significance="normal">
+                  <primary>classes</primary>
+                  <secondary>processEstimator</secondary>
+               </indexterm>
+               <indexterm id="jakartackbk-CHP-8-ITERM-2932" significance="normal">
+                  <primary>execution, ProcessEstimator
+class</primary>
+               </indexterm> class that can be used to predict when a
+particular program will be finished. Your program needs to process a
+number of records, and this program could take a few hours to finish.
+You would like to provide some feedback, and, if you are confident
+that each record will take roughly the same amount of time, you can
+use <literal moreinfo="none">SimpleRegression</literal>'s slope and
+intercept to estimate the time when all records will be processed.
+<link linkend="jakartackbk-CHP-8-EX-1">Example 8-1</link> defines the
+<literal moreinfo="none">ProcessEstimator</literal> class that combines the power of
+<literal moreinfo="none">StopWatch</literal> and <literal moreinfo="none">ProcessEstimator</literal>
+to estimate the time remaining in a process.</para>
+            <example id="jakartackbk-CHP-8-EX-1" label="8-1">
+               <title>ProcessEstimator to estimate time of program execution</title>
+               <programlisting format="linespecific">package com.discursive.jccook.math.timeestimate;
+
+import org.apache.commons.lang.time.StopWatch;
+import org.apache.commons.math.stat.multivariate.SimpleRegression;
+
+public class ProcessEstimator {
+
+    private SimpleRegression regression = new SimpleRegression( );
+    private StopWatch stopWatch = new StopWatch( );
+
+    // Total number of units
+    private int units = 0;
+    
+    // Number of units completed
+    private int completed = 0;
+
+    // Sample rate for regression
+    private int sampleRate = 1;
+    
+    public ProcessEstimator( int numUnits, int sampleRate ) {
+        this.units = numUnits;
+        this.sampleRate = sampleRate;
+    }
+    
+    public void start( ) {
+        stopWatch.start( );
+    }
+    
+    public void stop( ) {
+        stopWatch.stop( );
+    }
+
+    public void unitCompleted( ) {
+        completed++;
+        
+        if( completed % sampleRate == 0 ) {
+            long now = System.currentTimeMillis( );
+            regression.addData( units - completed, stopWatch.getTime( ));
+        }
+    }
+    
+    public long projectedFinish( ) {
+        return (long) regression.getIntercept( );
+    }
+    
+    public long getTimeSpent( ) {
+        return stopWatch.getTime( );
+    }
+
+    public long projectedTimeRemaining( ) {
+        long timeRemaining = projectedFinish( ) - getTimeSpent( );        
+        return timeRemaining;
+    }
+    
+    public int getUnits( ) {
+        return units;
+    }
+
+    public int getCompleted( ) {
+        return completed;
+    }
+
+}</programlisting>
+            </example>
+            <para>
+               <literal moreinfo="none">ProcessEstimator</literal> has a constructor that takes the
+number of records to process and the sample rate to measure progress.
+With 10,000 records to process and a sample of 100, the
+<literal moreinfo="none">SimpleRegression</literal> will add a data point of units
+remaining versus time elapsed after every 100 records. As the program
+continues to execute, <literal moreinfo="none">projectedTimeRemaining( )</literal>
+will return an updated estimation of time remaining by retrieving the
+y-intercept from <literal moreinfo="none">SimpleRegression</literal> and subtracting
+the time already spent in execution. The y-intercept from
+<literal moreinfo="none">SimpleRegression</literal> represents the y value when x
+equals zero, where x is the number of records remaining; as x
+decreases, y increases, and y represents the total time elapsed to
+process all records.</para>
+            <para>The <literal moreinfo="none">ProcessEstimationExample</literal> in <link linkend="jakartackbk-CHP-8-EX-2">Example 8-2</link> uses the <literal moreinfo="none">ProcessEstimator</literal>
+to estimate the time remaining while calling the
+<literal moreinfo="none">performLengthyProcess( )</literal> method 10,000 times.</para>
+            <example id="jakartackbk-CHP-8-EX-2" label="8-2">
+               <title>An example using the ProcessEstimator</title>
+               <programlisting format="linespecific">package com.discursive.jccook.math.timeestimate;
+
+import org.apache.commons.lang.math.RandomUtils;
+
+public class ProcessEstimationExample {
+
+    private ProcessEstimator estimate;
+
+    public static void main(String[] args) {
+        ProcessEstimationExample example = new ProcessEstimationExample( );
+        example.begin( );
+    }
+
+    public void begin( ) {
+        estimate = new ProcessEstimator( 10000, 100 );
+        estimate.start( );
+        
+        for( int i = 0; i &lt; 10000; i++ ) {
+            // Print status every 1000 items
+            printStatus(i);
+            performLengthyProcess( );
+            estimate.unitCompleted( );
+        }
+        
+        estimate.stop( );
+       
+        System.out.println( "Completed " + estimate.getUnits( ) + " in " + 
+                  Math.round( estimate.getTimeSpent( ) / 1000 ) + " seconds." );
+    }
+    
+    private void printStatus(int i) {
+        if( i % 1000 == 0 ) {
+            System.out.println( "Completed: " + estimate.getCompleted( ) +
+                                " of " + estimate.getUnits( ) );
+            
+            System.out.println( "\tTime Spent: " +
+                                 Math.round( estimate.getTimeSpent( ) / 1000) +
+                                 " sec" + ", Time Remaining: " +
+                       Math.round( estimate.projectedTimeRemaining( ) / 1000) +
+                                " sec" );
+        }
+    }
+
+    private void performLengthyProcess( ) {
+        try {
+            Thread.sleep(RandomUtils.nextInt(10));
+        } catch( Exception e ) {}
+    }
+}</programlisting>
+            </example>
+            <para>After each call to <literal moreinfo="none">performLengthyProcess( )</literal>, the
+<literal moreinfo="none">unitCompleted( )</literal> method on
+<literal moreinfo="none">ProcessEstimator</literal> is invoked. Every 100th call to
+<literal moreinfo="none">unitComplete( )</literal> causes
+<literal moreinfo="none">ProcessEstimator</literal> to update
+<literal moreinfo="none">SimpleRegression</literal> with the number of records
+remaining and the amount of time spent so far. After every <indexterm class="endofrange" startref="jakartackbk-CHP-8-ITERM-2916" id="jakartackbk-CHP-8-ITERM-2933" significance="normal"/> 
+               <indexterm class="endofrange" startref="jakartackbk-CHP-8-ITERM-2917" id="jakartackbk-CHP-8-ITERM-2934" significance="normal"/> 
+               <indexterm class="endofrange" startref="jakartackbk-CHP-8-ITERM-2918" id="jakartackbk-CHP-8-ITERM-2935" significance="normal"/> 
+               <indexterm class="endofrange" startref="jakartackbk-CHP-8-ITERM-2919" id="jakartackbk-CHP-8-ITERM-2936" significance="normal"/> 
+               <indexterm class="endofrange" startref="jakartackbk-CHP-8-ITERM-2920" id="jakartackbk-CHP-8-ITERM-2937" significance="normal"/> 
+               <indexterm class="endofrange" startref="jakartackbk-CHP-8-ITERM-2921" id="jakartackbk-CHP-8-ITERM-2938" significance="normal"/>1000th call to
+<literal moreinfo="none">performLengthyProcess( )</literal>, a status message is
+printed to the console as follows:</para>
+            <programlisting id="I_8_tt349" format="linespecific">Completed: 0 of 10000
+    Time Spent: 0 sec, Time Remaining: 0 sec
+Completed: 1000 of 10000
+    Time Spent: 4 sec, Time Remaining: 42 sec
+Completed: 2000 of 10000
+    Time Spent: 9 sec, Time Remaining: 38 sec
+Completed: 3000 of 10000
+    Time Spent: 14 sec, Time Remaining: 33 sec
+Completed: 4000 of 10000
+    Time Spent: 18 sec, Time Remaining: 28 sec
+Completed: 5000 of 10000
+    Time Spent: 24 sec, Time Remaining: 23 sec
+Completed: 6000 of 10000
+    Time Spent: 28 sec, Time Remaining: 19 sec
+Completed: 7000 of 10000
+    Time Spent: 33 sec, Time Remaining: 14 sec
+Completed: 8000 of 10000
+    Time Spent: 38 sec, Time Remaining: 9 sec
+Completed: 9000 of 10000
+    Time Spent: 43 sec, Time Remaining: 4 sec
+Completed 10000 in 47 seconds.</programlisting>
+            <para>As shown above, the output periodically displays the amount of time
+you can expect the program to continue executing. Initially, there is
+no data to make a prediction with, so the
+<literal moreinfo="none">ProcessEstimator</literal> returns zero seconds, but, as the
+program executes the <literal moreinfo="none">performLengthyProcess( )</literal>
+method 10,000 times, a meaningful time remaining is produced.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-10.3">
+            <title>Discussion</title>
+            <para>The previous example used a method that sleeps for a random number of
+milliseconds between 1 and 10, and this value is selected using the
+<literal moreinfo="none">RandomUtils</literal> class described in <link linkend="jakartackbk-CHP-8-SECT-4">Recipe 8.4</link>. It is easy to predict how long this process
+is going to take because, on average, each method call is going to
+sleep for five milliseconds. The <literal moreinfo="none">ProcessEstimator</literal>
+is inaccurate when the amount of time to process each record takes a
+steadily increasing or decreasing amount of time, or if there is a
+block of records that takes substantially more or less time to
+process. If the amount of time to process each record does not remain
+constant, then the relationship between records processed and time
+elapsed is not linear. Because the
+<literal moreinfo="none">ProcessEstimator</literal> uses a linear model,
+<literal moreinfo="none">SimpleRegression</literal>, a nonconstant execution time
+will produce inaccurate predictions for time remaining. If you are
+using the <literal moreinfo="none">ProcessEstimator</literal>, make sure that it
+takes roughly the same amount of time to process each record.</para>
+         </sect2>
+         <sect2 id="jakartackbk-CHP-8-SECT-10.4">
+            <title>See Also</title>
+            <para>This recipe refers to the <literal moreinfo="none">StopWatch</literal> class from
+Commons Lang. For more information about the
+<literal moreinfo="none">StopWatch</literal> class, see <link linkend="jakartackbk-CHP-1-SECT-19">Recipe 1.19</link>.</para>
+         </sect2>
+      </sect1>
+   </chapter>
