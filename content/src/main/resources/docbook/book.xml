@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 <book id="I__tt2">
-  <title>Jakarta Commons Cookbook</title>
+  <title>${book.title}</title>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bookinfo.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="copyright.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ch00.xml"/>

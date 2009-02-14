@@ -85,8 +85,7 @@
             </goals>
             <configuration>
               <chunkedOutput>true</chunkedOutput>
-              <chunkSectionDepth>2</chunkSectionDepth>
-              <chunkSeparateLots>1</chunkSeparateLots>
+              <chunkSectionDepth>1</chunkSectionDepth>
               <htmlCustomization>${basedir}/target/classes/xsl/html_chunk.xsl</htmlCustomization>
               <postProcess>
                 <copy todir="${project.build.directory}/site/reference">
