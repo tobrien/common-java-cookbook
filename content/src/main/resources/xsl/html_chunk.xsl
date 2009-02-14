@@ -10,7 +10,7 @@
     <!--###################################################
                      HTML Settings
     ################################################### -->
-    <xsl:param name="chunk.section.depth">'2'</xsl:param>
+    <xsl:param name="chunk.section.depth">'1'</xsl:param>
 	<xsl:param name="chunker.output.indent">yes</xsl:param>
     <xsl:param name="use.id.as.filename">'1'</xsl:param>
     <xsl:param name="html.stylesheet">../css/html.css</xsl:param>
