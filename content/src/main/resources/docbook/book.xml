@@ -11,11 +11,10 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-functors.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-collections.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-xml.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ch07.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ch08.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ch09.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ch10.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ch11.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ch12.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="colo1.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-app-infra.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-math.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-templating.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-io-network.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-http-webdav.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-searching-filtering.xml"/>
 </book>

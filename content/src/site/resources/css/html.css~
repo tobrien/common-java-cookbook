@@ -3,7 +3,7 @@ body {
   margin: 0px;
   padding: 0px;
   color: #999999;
-  background:#FFFFFF url(http://cms.sonatype.com/sites/all/themes/sonatype/images/bg_page.gif) repeat-x;
+  background:#FFFFFF url(../images/bg_page.gif) repeat-x;
   font-family:Georgia,serif;
   font-size:84.5%;
   font-size-adjust:none;
@@ -342,7 +342,7 @@ div.calloutlist * td {
     margin-top: -25px;
 }
 
-div.preface, div.chapter, div.titlepage, div.list-of-figures, div.list-of-examples, div.index {
+div.preface, div.chapter, div.titlepage, div.index {
   margin-top: 20px;
   font-size:120%;
   line-height:1.5em;
@@ -364,12 +364,9 @@ div.figure p.title {
 }
 
 div.book, div.chapter, div.preface, div#forbg > div.index  {
-    margin-top: -400px;
+    margin-top: 0px;
 }
 
-div.list-of-figures, div.list-of-examples {
-    margin-top: -380px;
-}
 
 div#forbg > div.section {
    position: relative;
@@ -377,15 +374,6 @@ div#forbg > div.section {
 }
 
 div.navheader {
-   position: relative;
-   top: -430px;
+
 }
 
-div#left-sidebar {
-   position: relative;
-   left: -210px;
-   top: 50px;
-   border: 1px solid black;
-   width: 160px;
-   padding: 10px;
-}

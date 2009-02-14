@@ -85,8 +85,6 @@
             </goals>
             <configuration>
               <chunkedOutput>true</chunkedOutput>
-              <chunkSectionDepth>2</chunkSectionDepth>
-              <chunkSeparateLots>1</chunkSeparateLots>
               <htmlCustomization>${basedir}/target/classes/xsl/html_chunk.xsl</htmlCustomization>
               <postProcess>
                 <copy todir="${project.build.directory}/site/reference">
@@ -144,7 +142,7 @@
         <site>
           <id>discursive-site</id>
           <name>Discursive Site</name>
-          <url>scp://deployer@mars.discursive.com/var/www/html/www.discursive.com/books/cjcook/</url>
+          <url>scp://tobrien@mars.discursive.com/var/www/html/www.discursive.com/books/cjcook/</url>
         </site>
         </distributionManagement>
         <properties>
@@ -156,7 +154,7 @@
         <site>
           <id>discursive-site</id>
           <name>Discursive Site</name>
-          <url>scp://deployer@mars.discursive.com/var/www/html/www.discursive.com/books/cjcook-stage/</url>
+          <url>scp://tobrien@mars.discursive.com/var/www/html/www.discursive.com/books/cjcook-stage/</url>
         </site>
         </distributionManagement>
         <properties>
