@@ -342,15 +342,16 @@ div.calloutlist * td {
     margin-top: -25px;
 }
 
-div.preface, div.chapter, div.titlepage, div.list-of-figures, div.list-of-examples, div.index {
+div.preface, div.chapter, div.titlepage, div.index {
   margin-top: 20px;
   font-size:120%;
   line-height:1.5em;
 }
 
+
+
 p {
   margin-bottom: 20px;
-  width: 600px;
 }
 
 div.figure p.title {
@@ -367,9 +368,6 @@ div.book, div.chapter, div.preface, div#forbg > div.index  {
     margin-top: 0px;
 }
 
-div.list-of-figures, div.list-of-examples {
-    margin-top: -380px;
-}
 
 div#forbg > div.section {
    position: relative;
