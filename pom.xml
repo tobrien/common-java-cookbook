@@ -39,6 +39,34 @@
   <modules>
     <module>content</module>
   </modules>
+  <build>
+    <plugins>
+      <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-release-plugin</artifactId>
+		<dependencies>
+		  <dependency>
+			<groupId>org.apache.maven.scm</groupId>
+			<artifactId>maven-scm-provider-gitexe
+			</artifactId>
+			<version>1.2-SNAPSHOT</version>
+		  </dependency>
+		</dependencies>
+	  </plugin>
+	  <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-scm-plugin</artifactId>
+		<dependencies>
+		  <dependency>
+			<groupId>org.apache.maven.scm</groupId>
+			<artifactId>maven-scm-provider-gitexe
+			</artifactId>
+			<version>1.2-SNAPSHOT</version>
+		  </dependency>
+		</dependencies>
+	  </plugin>
+    </plugins>
+  </build>
   
   <profiles>
     <profile>
@@ -64,4 +92,9 @@
       </distributionManagement>
     </profile>
   </profiles>
+  <scm>
+	<connection>scm:git:git://github.com/tobrien/common-java-cookbook.git</connection>
+	<url>scm:git:git://github.com/tobrien/common-java-cookbook.git</url>
+	<developerConnection>scm:git:git://github.com/tobrien/common-java-cookbook.git</developerConnection>	
+  </scm>
 </project>

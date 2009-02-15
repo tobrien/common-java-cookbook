@@ -4,6 +4,7 @@
   <title>${book.title}</title>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bookinfo.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="copyright.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="foreword.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="preface.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-lang.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-manipulate-text.xml"/>
