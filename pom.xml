@@ -91,8 +91,8 @@
     </profile>
   </profiles>
   <scm>
-	<connection>scm:git:git://github.com/tobrien/common-java-cookbook.git</connection>
-	<url>scm:git:git://github.com/tobrien/common-java-cookbook.git</url>
+	<connection>scm:git:ssh://github.com/tobrien/common-java-cookbook.git</connection>
+	<url>scm:git:ssh://github.com/tobrien/common-java-cookbook.git</url>
 	<developerConnection>scm:git:ssh://github.com/tobrien/common-java-cookbook.git</developerConnection>	
   </scm>
 </project>
