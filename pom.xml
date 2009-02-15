@@ -54,7 +54,7 @@
 	  <plugin>
 		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-scm-plugin</artifactId>
-        <version>1.2-SNAPSHOT</verion>
+        <version>1.2-SNAPSHOT</version>
 		<dependencies>
 		  <dependency>
 			<groupId>org.apache.maven.scm</groupId>
