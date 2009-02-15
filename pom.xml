@@ -75,4 +75,16 @@
 	<url>scm:git:git@github.com:tobrien/common-java-cookbook.git</url>
 	<developerConnection>scm:git:git@github.com:tobrien/common-java-cookbook.git</developerConnection>	
   </scm>
+  <distributionManagement>
+    <repository>
+      <id>local.repo</id>
+      <name>file repository to svn</name>
+      <url>file://${user.home}/mavenrepo</url>
+    </repository>
+    <snapshotRepository>
+      <id>local.repo</id>
+      <name>file repository to svn</name>
+      <url>file://${user.home}/mavenreposnapshot</url>    
+    </snapshotRepository>
+  </distributionManagement>  
 </project>
