@@ -56,8 +56,8 @@
       <title>Solution</title>
 
       <para>Download Commons CLI 1.0. Following the steps outlined in <link
-      linkend="jakartackbk-CHP-1-SECT-1">Recipt 1.1</link>, download "Commons
-      CLI 1.0" instead of Commons Lang. The Commons CLI archive—<filename
+      linkend="lang-sect-obtaining">Recipt 1.1</link>, download "Commons CLI
+      1.0" instead of Commons Lang. The Commons CLI archive—<filename
       moreinfo="none">cli-1.0.zip—</filename>contains a file named <filename
       moreinfo="none">commons-cli-1.0.jar</filename>; place this JAR file in
       your classpath, and you are ready to use Commons CLI in your
@@ -378,8 +378,8 @@ options.addOption( helpOption );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to provide the <indexterm
-          id="app-infra-ITERM-2792" significance="normal">
+      <para>You need to provide the <indexterm id="app-infra-ITERM-2792"
+          significance="normal">
           <primary>Commons CLI</primary>
 
           <secondary>printing usage information</secondary>
@@ -416,12 +416,12 @@ options.addOption( helpOption );</programlisting>
 
           <secondary>HelpFormatter</secondary>
         </indexterm> and print a usage message. <link
-      linkend="app-infra-EX-1">Example 7-1</link> creates the same
-      <literal moreinfo="none">Options</literal> object from <link
-      linkend="app-infra-SECT-3">Recipe 7.3</link>. If the help option
-      is specified, or if there is a problem parsing the program arguments,
-      the <literal moreinfo="none">printUsage()</literal> <indexterm
-          id="app-infra-ITERM-2798" significance="normal">
+      linkend="app-infra-EX-1">Example 7-1</link> creates the same <literal
+      moreinfo="none">Options</literal> object from <link
+      linkend="app-infra-sect-parsing-complex-cmdline">Recipe 7.3</link>. If
+      the help option is specified, or if there is a problem parsing the
+      program arguments, the <literal moreinfo="none">printUsage()</literal>
+      <indexterm id="app-infra-ITERM-2798" significance="normal">
           <primary>printUsage( ) method</primary>
         </indexterm> <indexterm id="app-infra-ITERM-2799"
           significance="normal">
@@ -574,9 +574,9 @@ For more instructions, see our website at: http://www.blah123.org</programlistin
       As Commons Configuration approaches a 1.0 release, a full binary release
       may also be available. Once Commons Configuration is released, you
       should be able to download a JAR by following the steps outlined in
-      <link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link> and
-      downloading "Commons Configuration 1.0" instead of Commons Lang. The
-      Commons Configuration archive contains a JAR file named <filename
+      <link linkend="lang-sect-obtaining">Recipe 1.1</link> and downloading
+      "Commons Configuration 1.0" instead of Commons Lang. The Commons
+      Configuration archive contains a JAR file named <filename
       moreinfo="none">commons-configuration-1.0-rc1.jar</filename>, which
       should be placed in your classpath.</para>
     </sect2>
@@ -706,27 +706,27 @@ boolean correct = config.getBoolean("correct");</programlisting>
           <secondary>Commons Configuration</secondary>
 
           <tertiary>XML documents</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="app-infra-ITERM-2806" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="app-infra-ITERM-2806"
+          significance="normal">
           <primary>Commons Configuration</primary>
 
           <secondary>XML documents</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="app-infra-ITERM-2807" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="app-infra-ITERM-2807"
+          significance="normal">
           <primary>configuration</primary>
 
           <secondary>Commons Configuration</secondary>
 
           <tertiary>XML documents</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="app-infra-ITERM-2808" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="app-infra-ITERM-2808"
+          significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>Common Configuration</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="app-infra-ITERM-2809" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="app-infra-ITERM-2809"
+          significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>Commons Configuration</secondary>
@@ -1151,7 +1151,7 @@ Speed: 75</programlisting>
       a property with a matching key in <filename
       moreinfo="none">test.properties</filename> before it attempts to locate
       the matching property in <filename moreinfo="none">test.xml</filename>.
-      See <link linkend="app-infra-SECT-7">Recipe 7.7</link> for more
+      See <link linkend="app-infra-config-xml">Recipe 7.7</link> for more
       information about retrieving configuration from XML documents.</para>
     </sect2>
 
@@ -1161,20 +1161,16 @@ Speed: 75</programlisting>
       <para>In addition to properties files<indexterm class="endofrange"
       id="app-infra-ITERM-2820" significance="normal"
       startref="app-infra-ITERM-2805"></indexterm> <indexterm
-      class="endofrange" id="app-infra-ITERM-2821"
-      significance="normal"
+      class="endofrange" id="app-infra-ITERM-2821" significance="normal"
       startref="app-infra-ITERM-2806"></indexterm> <indexterm
-      class="endofrange" id="app-infra-ITERM-2822"
-      significance="normal"
+      class="endofrange" id="app-infra-ITERM-2822" significance="normal"
       startref="app-infra-ITERM-2807"></indexterm> <indexterm
-      class="endofrange" id="app-infra-ITERM-2823"
-      significance="normal"
+      class="endofrange" id="app-infra-ITERM-2823" significance="normal"
       startref="app-infra-ITERM-2808"></indexterm> <indexterm
-      class="endofrange" id="app-infra-ITERM-2824"
-      significance="normal"
-      startref="app-infra-ITERM-2809"></indexterm> and XML documents,
-      Commons Configuration can also be instructed to resolve configuration
-      properties from a JNDI tree using <literal
+      class="endofrange" id="app-infra-ITERM-2824" significance="normal"
+      startref="app-infra-ITERM-2809"></indexterm> and XML documents, Commons
+      Configuration can also be instructed to resolve configuration properties
+      from a JNDI tree using <literal
       moreinfo="none">org.apache.commons.configuration.JNDIConfiguration</literal>.
       For more information on accessing properties in a JNDI tree using
       Commons Configuration, see the "Configuration Overview" page on the
@@ -1192,21 +1188,21 @@ Speed: 75</programlisting>
       <para>You need to use <indexterm class="startofrange"
           id="app-infra-ITERM-2825" significance="normal">
           <primary>Commons Logging, downloading</primary>
-        </indexterm> <indexterm class="startofrange"
-          id="app-infra-ITERM-2826" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="app-infra-ITERM-2826"
+          significance="normal">
           <primary>logging</primary>
 
           <secondary>Commons Logging, downloading</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="app-infra-ITERM-2827" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="app-infra-ITERM-2827"
+          significance="normal">
           <primary>frameworks, Commons Logging</primary>
-        </indexterm> <indexterm class="startofrange"
-          id="app-infra-ITERM-2828" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="app-infra-ITERM-2828"
+          significance="normal">
           <primary>applications</primary>
 
           <secondary>Commons Logging, downloading</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="app-infra-ITERM-2829" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="app-infra-ITERM-2829"
+          significance="normal">
           <primary>downloading</primary>
 
           <secondary>Commons Logging</secondary>
@@ -1219,8 +1215,8 @@ Speed: 75</programlisting>
       <title>Solution</title>
 
       <para>Download Commons Logging 1.0.3. Following the steps outlined in
-      <link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, download
-      "Commons Logging 1.0.3" instead of Commons Lang. The Commons Logging
+      <link linkend="lang-sect-obtaining">Recipe 1.1</link>, download "Commons
+      Logging 1.0.3" instead of Commons Lang. The Commons Logging
       archive—<filename
       moreinfo="none">commons-logging-1.0.3.zip—</filename>will contain a file
       named <filename moreinfo="none">commons-logging.jar</filename>. Place
@@ -1280,8 +1276,8 @@ Speed: 75</programlisting>
       <title>Solution</title>
 
       <para>Write messages to the Jakarta Commons Logging <literal
-      moreinfo="none">Log</literal> <indexterm
-          id="app-infra-ITERM-2830" significance="normal">
+      moreinfo="none">Log</literal> <indexterm id="app-infra-ITERM-2830"
+          significance="normal">
           <primary>Log interface</primary>
         </indexterm> <indexterm id="app-infra-ITERM-2831"
           significance="normal">
@@ -1351,7 +1347,7 @@ log.fatal( "This is fatal" );</programlisting>
     <sect2>
       <title>See Also</title>
 
-      <para><link linkend="app-infra-SECT-11">Recipe 7.11</link>
+      <para><link linkend="app-infra-sect-specify-log-impl">Recipe 7.11</link>
       details the algorithm Commons Logging uses to identify the appropriate
       concrete logging framework to use at runtime.</para>
     </sect2>
@@ -1439,8 +1435,8 @@ log.fatal( "This is fatal" );</programlisting>
       <title>See Also</title>
 
       <para>For more information about the configuration of Apache Log4J, see
-      <link linkend="app-infra-SECT-13">Recipe 7.13</link> and <link
-      linkend="app-infra-SECT-14">Recipe 7.14</link>. For more
+      <link linkend="app-infra-sect-log4j-properties">Recipe 7.13</link> and
+      <link linkend="app-infra-sect-log4j-xml">Recipe 7.14</link>. For more
       information about the configuration of the JDK 1.4 logging framework,
       see Sun's documentation of this framework at <systemitem moreinfo="none"
       role="url">http://java.sun.com/j2se/1.4.2/docs/guide/util/logging/</systemitem>.</para>
@@ -1450,21 +1446,17 @@ log.fatal( "This is fatal" );</programlisting>
       logging framework. For more information about configuring <literal
       moreinfo="none">SimpleLog</literal> via system properties, read the
       <indexterm class="endofrange" id="app-infra-ITERM-2834"
+      significance="normal" startref="app-infra-ITERM-2825"></indexterm>
+      <indexterm class="endofrange" id="app-infra-ITERM-2835"
+      significance="normal" startref="app-infra-ITERM-2826"></indexterm>
+      <indexterm class="endofrange" id="app-infra-ITERM-2836"
+      significance="normal" startref="app-infra-ITERM-2827"></indexterm>
+      <indexterm class="endofrange" id="app-infra-ITERM-2837"
+      significance="normal" startref="app-infra-ITERM-2828"></indexterm>
+      <indexterm class="endofrange" id="app-infra-ITERM-2838"
       significance="normal"
-      startref="app-infra-ITERM-2825"></indexterm> <indexterm
-      class="endofrange" id="app-infra-ITERM-2835"
-      significance="normal"
-      startref="app-infra-ITERM-2826"></indexterm> <indexterm
-      class="endofrange" id="app-infra-ITERM-2836"
-      significance="normal"
-      startref="app-infra-ITERM-2827"></indexterm> <indexterm
-      class="endofrange" id="app-infra-ITERM-2837"
-      significance="normal"
-      startref="app-infra-ITERM-2828"></indexterm> <indexterm
-      class="endofrange" id="app-infra-ITERM-2838"
-      significance="normal"
-      startref="app-infra-ITERM-2829"></indexterm>Commons Logging
-      JavaDoc at <systemitem moreinfo="none"
+      startref="app-infra-ITERM-2829"></indexterm>Commons Logging JavaDoc at
+      <systemitem moreinfo="none"
       role="url">http://jakarta.apache.org/commons/logging/api/index.html</systemitem>.</para>
     </sect2>
   </sect1>
@@ -1476,28 +1468,27 @@ log.fatal( "This is fatal" );</programlisting>
       <title>Problem</title>
 
       <para>You need to use Apache Log4J to print<indexterm
-          class="startofrange" id="app-infra-ITERM-2839"
-          significance="normal">
+          class="startofrange" id="app-infra-ITERM-2839" significance="normal">
           <primary>Apache Log4J</primary>
 
           <secondary>downloading</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="app-infra-ITERM-2840" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="app-infra-ITERM-2840"
+          significance="normal">
           <primary>downloading</primary>
 
           <secondary>Apache Log4J</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="app-infra-ITERM-2841" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="app-infra-ITERM-2841"
+          significance="normal">
           <primary>printing</primary>
 
           <secondary>Apache Log4J</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="app-infra-ITERM-2842" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="app-infra-ITERM-2842"
+          significance="normal">
           <primary>debugging</primary>
 
           <secondary>Apache Log4J</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="app-infra-ITERM-2843" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="app-infra-ITERM-2843"
+          significance="normal">
           <primary>applications</primary>
 
           <secondary>Apache Log4J</secondary>
@@ -1692,22 +1683,17 @@ ERROR (Sample.java:25) This is an error message</programlisting>
       starting point for Log4J configuration. For more information about
       various implementations of <literal moreinfo="none">Appender</literal>
       or syntax for <literal moreinfo="none">ConversionPattern</literal>, see
-      the Log4J <indexterm class="endofrange"
-      id="app-infra-ITERM-2846" significance="normal"
-      startref="app-infra-ITERM-2839"></indexterm> <indexterm
-      class="endofrange" id="app-infra-ITERM-2847"
-      significance="normal"
-      startref="app-infra-ITERM-2840"></indexterm> <indexterm
-      class="endofrange" id="app-infra-ITERM-2848"
-      significance="normal"
-      startref="app-infra-ITERM-2841"></indexterm> <indexterm
-      class="endofrange" id="app-infra-ITERM-2849"
-      significance="normal"
-      startref="app-infra-ITERM-2842"></indexterm> <indexterm
-      class="endofrange" id="app-infra-ITERM-2850"
-      significance="normal"
-      startref="app-infra-ITERM-2843"></indexterm>API documentation at
-      <systemitem moreinfo="none"
+      the Log4J <indexterm class="endofrange" id="app-infra-ITERM-2846"
+      significance="normal" startref="app-infra-ITERM-2839"></indexterm>
+      <indexterm class="endofrange" id="app-infra-ITERM-2847"
+      significance="normal" startref="app-infra-ITERM-2840"></indexterm>
+      <indexterm class="endofrange" id="app-infra-ITERM-2848"
+      significance="normal" startref="app-infra-ITERM-2841"></indexterm>
+      <indexterm class="endofrange" id="app-infra-ITERM-2849"
+      significance="normal" startref="app-infra-ITERM-2842"></indexterm>
+      <indexterm class="endofrange" id="app-infra-ITERM-2850"
+      significance="normal" startref="app-infra-ITERM-2843"></indexterm>API
+      documentation at <systemitem moreinfo="none"
       role="url">http://logging.apache.org/log4j/docs/api/index.html</systemitem>.</para>
     </sect2>
   </sect1>
@@ -1718,8 +1704,8 @@ ERROR (Sample.java:25) This is an error message</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to configure Log4J <indexterm
-          id="app-infra-ITERM-2851" significance="normal">
+      <para>You need to configure Log4J <indexterm id="app-infra-ITERM-2851"
+          significance="normal">
           <primary>Apache Log4J</primary>
 
           <secondary>configuration</secondary>
