@@ -1211,7 +1211,7 @@ consistent with <literal moreinfo="none">equals( )</literal>.</para>
 order for a set of objects, and they are frequently used when sorting
 a collection of JavaBeans©. If you are trying to
 sort a collection of beans, you are better off using the
-<literal moreinfo="none">BeanComparator</literal>, which is described in <link linkend="jakartackbk-CHP-3-SECT-10">Recipe 3.10</link>.</para>
+<literal moreinfo="none">BeanComparator</literal>, which is described in <link linkend="beans-SECT-10">Recipe 3.10</link>.</para>
             <para>Instead of capturing comparison logic in a <literal moreinfo="none">compareTo()</literal> method, consider using a <literal moreinfo="none">Comparator</literal>
 object. The Jakarta Commons Collections project contains a number of
 supplements to the <literal moreinfo="none">Comparator</literal> interface, such
@@ -1221,7 +1221,7 @@ supplements to the <literal moreinfo="none">Comparator</literal> interface, such
                <indexterm class="endofrange" startref="jakartackbk-CHP-1-ITERM-1811" id="jakartackbk-CHP-1-ITERM-1822" significance="normal"/>
                <indexterm class="endofrange" startref="jakartackbk-CHP-1-ITERM-1812" id="jakartackbk-CHP-1-ITERM-1823" significance="normal"/>as
 utilities to reverse and chain comparators.
-<literal moreinfo="none">Comparator</literal> utilities are discussed in <link linkend="jakartackbk-CHP-4">Chapter 4</link>.</para>
+<literal moreinfo="none">Comparator</literal> utilities are discussed in <link linkend="functors">Chapter 4</link>.</para>
          </sect2>
       </sect1>
       <sect1 id="jakartackbk-CHP-1-SECT-8" label="1.8" role="Recipe">
@@ -1924,11 +1924,11 @@ code.</para>
          <sect2 id="jakartackbk-CHP-1-SECT-11.4">
             <title>See Also</title>
             <para>
-               <link linkend="jakartackbk-CHP-4">Chapter 4</link> contains a number of recipes dealing
+               <link linkend="functors">Chapter 4</link> contains a number of recipes dealing
 with <literal moreinfo="none">Predicate</literal> objects and filtering collections.
 Instead of using the three methods defined in this recipe, you can
 put objects into a collection and count or select the elements that
-match an <literal moreinfo="none">EqualPredicate</literal>. See <link linkend="jakartackbk-CHP-4">Chapter 4</link> for more information about querying
+match an <literal moreinfo="none">EqualPredicate</literal>. See <link linkend="functors">Chapter 4</link> for more information about querying
 collections with predicates.</para>
          </sect2>
       </sect1>
@@ -2030,7 +2030,7 @@ primitives; <literal moreinfo="none">MapUtils.getDouble( )</literal> retrieves a
 object from a <literal moreinfo="none">Map</literal>, casts it to a
 <literal moreinfo="none">Number</literal>, and calls <literal moreinfo="none">doubleValue(
 )</literal> using the default value supplied if there is no
-corresponding key in the <literal moreinfo="none">Map</literal>. See <link linkend="jakartackbk-CHP-5-SECT-21">Recipe 5.21</link> for more information about
+corresponding key in the <literal moreinfo="none">Map</literal>. See <link linkend="collections-SECT-21">Recipe 5.21</link> for more information about
 <literal moreinfo="none">MapUtils.getDouble( )</literal>.</para>
          </sect2>
       </sect1>
@@ -3274,7 +3274,7 @@ quality.</para>
          <sect2 id="jakartackbk-CHP-1-SECT-18.4">
             <title>See Also</title>
             <para>
-               <link linkend="jakartackbk-CHP-8">Chapter 8</link> discusses
+               <link linkend="math">Chapter 8</link> discusses
 <literal moreinfo="none">DoubleRange</literal> and other utilities for capturing a
 range of numbers.</para>
             <para>Chapters 4 to Chapter 7 of the <emphasis>Java Extreme Programming

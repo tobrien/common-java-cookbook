@@ -63,7 +63,7 @@
   helped me to avoid some costly design decisions. Use this text as you will;
   if you are only interested in Commons Collections, you should be able to
   quickly familiarize yourself with Collections by browsing <link
-  linkend="jakartackbk-CHP-5">Chapter 5</link>. On the other hand, if you are
+  linkend="collections">Chapter 5</link>. On the other hand, if you are
   looking for a survey of some of the major projects in Apache Commons, read
   this book from start to finish. Part structured reference, part prose, the
   cookbook format lets you customize your reading experience, and I hope this
@@ -181,7 +181,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><link linkend="jakartackbk-CHP-2">Chapter 2</link>,
+        <term><link linkend="manipulate-text">Chapter 2</link>,
         <citetitle>Manipulating Text</citetitle></term>
 
         <listitem>
@@ -195,7 +195,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><link linkend="jakartackbk-CHP-3">Chapter 3</link>,
+        <term><link linkend="beans">Chapter 3</link>,
         <citetitle>JavaBeans</citetitle></term>
 
         <listitem>
@@ -207,7 +207,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><link linkend="jakartackbk-CHP-4">Chapter 4</link>,
+        <term><link linkend="functors">Chapter 4</link>,
         <citetitle>Functors</citetitle></term>
 
         <listitem>
@@ -220,7 +220,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><link linkend="jakartackbk-CHP-5">Chapter 5</link>,
+        <term><link linkend="collections">Chapter 5</link>,
         <citetitle>Collections</citetitle></term>
 
         <listitem>
@@ -234,7 +234,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><link linkend="jakartackbk-CHP-6">Chapter 6</link>,
+        <term><link linkend="xml">Chapter 6</link>,
         <citetitle>XML</citetitle></term>
 
         <listitem>
@@ -246,7 +246,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><link linkend="jakartackbk-CHP-7">Chapter 7</link>,
+        <term><link linkend="app-infra">Chapter 7</link>,
         <citetitle>Application Infrastructure</citetitle></term>
 
         <listitem>
@@ -260,7 +260,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><link linkend="jakartackbk-CHP-8">Chapter 8</link>,
+        <term><link linkend="math">Chapter 8</link>,
         <citetitle>Math</citetitle></term>
 
         <listitem>
@@ -272,7 +272,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><link linkend="jakartackbk-CHP-9">Chapter 9</link>,
+        <term><link linkend="templating">Chapter 9</link>,
         <citetitle>Templating</citetitle></term>
 
         <listitem>
@@ -285,7 +285,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><link linkend="jakartackbk-CHP-10">Chapter 10</link>,
+        <term><link linkend="io-network">Chapter 10</link>,
         <citetitle>I/O and Networking</citetitle></term>
 
         <listitem>
@@ -296,7 +296,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><link linkend="jakartackbk-CHP-11">Chapter 11</link>,
+        <term><link linkend="http-webdav">Chapter 11</link>,
         <citetitle>HTTP and WebDAV</citetitle></term>
 
         <listitem>
@@ -307,7 +307,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><link linkend="jakartackbk-CHP-12">Chapter 12</link>,
+        <term><link linkend="searching-filtering">Chapter 12</link>,
         <citetitle>Searching and Filtering</citetitle></term>
 
         <listitem>

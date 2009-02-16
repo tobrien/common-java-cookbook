@@ -9,7 +9,7 @@
 
     <para>The American Heritage Dictionary defines a <filename
     moreinfo="none">functor</filename> <indexterm
-        id="jakartackbk-CHP-4-ITERM-2290" significance="normal">
+        id="functors-ITERM-2290" significance="normal">
         <primary>functors</primary>
       </indexterm> as "one that performs an operation or a function," and, in
     the context of programming, a functor is an object that encapsulates
@@ -65,9 +65,9 @@
     part of functors isn't that Commons Collections has introduced a few new
     interfaces—the power is only evident once you realize how they can be used
     in concert with other Jakarta Commons utilities such as Commons BeanUtils
-    and Commons Collections. <link linkend="jakartackbk-CHP-5">Chapter
+    and Commons Collections. <link linkend="collections">Chapter
     5</link> makes heavy use of the functors introduced in this chapter, and
-    <link linkend="jakartackbk-CHP-3">Chapter 3</link> discusses a <literal
+    <link linkend="beans">Chapter 3</link> discusses a <literal
     moreinfo="none">BeanComparator</literal> and a <literal
     moreinfo="none">BeanPredicate</literal>.</para>
 
@@ -98,16 +98,16 @@
       <title>Problem</title>
 
       <para>You need to use Jakarta <indexterm
-          id="jakartackbk-CHP-4-ITERM-2291" significance="normal">
+          id="functors-ITERM-2291" significance="normal">
           <primary>Commons Collections</primary>
 
           <secondary>downloading</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2292"
+        </indexterm> <indexterm id="functors-ITERM-2292"
           significance="normal">
           <primary>downloading</primary>
 
           <secondary>Commons Collections</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2293"
+        </indexterm> <indexterm id="functors-ITERM-2293"
           significance="normal">
           <primary>functors</primary>
 
@@ -168,7 +168,7 @@
       Instructions for joining the user mailing list can be found in <link
       linkend="jakartackbk-CHP-1-SECT-2">Recipe 1.2</link>. For information on
       obtaining the source code for Commons Collections, see <link
-      linkend="jakartackbk-CHP-4-SECT-2">Recipe 4.2</link>.</para>
+      linkend="functors-SECT-2">Recipe 4.2</link>.</para>
     </sect2>
   </sect1>
 
@@ -179,28 +179,28 @@
       <title>Problem</title>
 
       <para>You need the source code for the<indexterm
-          id="jakartackbk-CHP-4-ITERM-2294" significance="normal">
+          id="functors-ITERM-2294" significance="normal">
           <primary>Commons Collections</primary>
 
           <secondary>source code</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2295"
+        </indexterm> <indexterm id="functors-ITERM-2295"
           significance="normal">
           <primary>source code</primary>
 
           <secondary>Commons Collections</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2296"
+        </indexterm> <indexterm id="functors-ITERM-2296"
           significance="normal">
           <primary>functors</primary>
 
           <secondary>Commons Collections</secondary>
 
           <tertiary>source code</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2297"
+        </indexterm> <indexterm id="functors-ITERM-2297"
           significance="normal">
           <primary>code</primary>
 
           <secondary>Commons Collections</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2298"
+        </indexterm> <indexterm id="functors-ITERM-2298"
           significance="normal">
           <primary>programming</primary>
 
@@ -231,7 +231,7 @@
       layout of the Collections source distribution, see <link
       linkend="jakartackbk-CHP-1-SECT-3">Recipe 1.3</link>. For information on
       obtaining the binary distribution for Commons Collections, see <link
-      linkend="jakartackbk-CHP-4-SECT-1">Recipe 4.1</link>.</para>
+      linkend="functors-SECT-1">Recipe 4.1</link>.</para>
     </sect2>
   </sect1>
 
@@ -242,19 +242,19 @@
       <title>Problem</title>
 
       <para>You need to reverse the effects <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2299" significance="normal">
+          id="functors-ITERM-2299" significance="normal">
           <primary>functors</primary>
 
           <secondary>Comparators</secondary>
 
           <tertiary>reversing</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2300" significance="normal">
+          id="functors-ITERM-2300" significance="normal">
           <primary>reversing</primary>
 
           <secondary>Comparators</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2301" significance="normal">
+          id="functors-ITERM-2301" significance="normal">
           <primary>Comparators</primary>
 
           <secondary>reversing</secondary>
@@ -268,7 +268,7 @@
       <title>Solution</title>
 
       <para>Use <literal moreinfo="none">ReverseComparator</literal>
-      <indexterm id="jakartackbk-CHP-4-ITERM-2302" significance="normal">
+      <indexterm id="functors-ITERM-2302" significance="normal">
           <primary>ReverseComparator</primary>
         </indexterm> to reverse the effects of a <literal
       moreinfo="none">Comparator</literal>. Supply an existing <literal
@@ -305,7 +305,7 @@ int comparison = myComparator.compare( book1, book2 );
     <sect2>
       <title>Discussion</title>
 
-      <para><link linkend="jakartackbk-CHP-4-EX-1">Example 4-1</link> is an
+      <para><link linkend="functors-EX-1">Example 4-1</link> is an
       implementation of a <literal moreinfo="none">Comparator</literal> that
       is reversed using the <literal
       moreinfo="none">ReverseComparator</literal>. This <literal
@@ -317,7 +317,7 @@ int comparison = myComparator.compare( book1, book2 );
       in a list sorted alphabetically by book name and author name; if two
       books have the same name, they are sorted by author name.</para>
 
-      <example id="jakartackbk-CHP-4-EX-1" label="4-1">
+      <example id="functors-EX-1" label="4-1">
         <title>A Comparator that compares Book objects by name and
         author</title>
 
@@ -358,11 +358,11 @@ public class BookComparator implements Comparator {
 }</programlisting>
       </example>
 
-      <para><link linkend="jakartackbk-CHP-4-EX-2">Example 4-2</link> sorts an
+      <para><link linkend="functors-EX-2">Example 4-2</link> sorts an
       array of <literal moreinfo="none">Book</literal> objects in reverse
       order.</para>
 
-      <example id="jakartackbk-CHP-4-EX-2" label="4-2">
+      <example id="functors-EX-2" label="4-2">
         <title>Using ReverseComparator to sort Book objects</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.compare;
@@ -429,24 +429,24 @@ public class ReverseExample {
       miniscule. <literal moreinfo="none">ReverseComparator</literal> makes
       more sense when used in the context of a <literal
       moreinfo="none">ChainedComparator</literal>; see <link
-      linkend="jakartackbk-CHP-4-SECT-4">Recipe 4.4</link> for more
+      linkend="functors-SECT-4">Recipe 4.4</link> for more
       information about the <literal
       moreinfo="none">ChainedComparator</literal>.</para>
 
       <para>Note that use of <literal moreinfo="none">StringUtils.isNotEmpty(
       )</literal> is used in <literal moreinfo="none">BookComparator</literal>
       to check if either of the bean properties are null or blank. This
-      utility,<indexterm class="endofrange" id="jakartackbk-CHP-4-ITERM-2303"
+      utility,<indexterm class="endofrange" id="functors-ITERM-2303"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2299"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2304"
+      startref="functors-ITERM-2299"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2304"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2300"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2305"
+      startref="functors-ITERM-2300"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2305"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2301"></indexterm> is from <literal
+      startref="functors-ITERM-2301"></indexterm> is from <literal
       moreinfo="none">StringUtils</literal>, and it is introduced in <link
-      linkend="jakartackbk-CHP-2-SECT-2">Recipe 2.2</link>.</para>
+      linkend="manipulate-text-SECT-2">Recipe 2.2</link>.</para>
     </sect2>
   </sect1>
 
@@ -457,7 +457,7 @@ public class ReverseExample {
       <title>Problem</title>
 
       <para>You need to sort a collection of objects by more<indexterm
-          class="startofrange" id="jakartackbk-CHP-4-ITERM-2306"
+          class="startofrange" id="functors-ITERM-2306"
           significance="normal">
           <primary>functors</primary>
 
@@ -465,12 +465,12 @@ public class ReverseExample {
 
           <tertiary>chaining</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2307" significance="normal">
+          id="functors-ITERM-2307" significance="normal">
           <primary>chaining</primary>
 
           <secondary>Comparators</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2308" significance="normal">
+          id="functors-ITERM-2308" significance="normal">
           <primary>Comparators</primary>
 
           <secondary>chaining</secondary>
@@ -481,7 +481,7 @@ public class ReverseExample {
       <title>Solution</title>
 
       <para>Use <literal moreinfo="none">ComparatorChain</literal> <indexterm
-          id="jakartackbk-CHP-4-ITERM-2309" significance="normal">
+          id="functors-ITERM-2309" significance="normal">
           <primary>ComparatorChain</primary>
         </indexterm> to create a series of <literal
       moreinfo="none">Comparator</literal> objects that appear as a single
@@ -555,7 +555,7 @@ Arrays.sort( persons, comparatorChain );</programlisting>
       <literal moreinfo="none">Collection</literal> implementation.</para>
 
       <para>The <literal moreinfo="none">ReverseComparator</literal>
-      (introduced in <link linkend="jakartackbk-CHP-4-SECT-3">Recipe
+      (introduced in <link linkend="functors-SECT-3">Recipe
       4.3</link>) makes more sense in light of the <literal
       moreinfo="none">ComparatorChain</literal>. If you need to sort a
       collection of objects for display, you might want to reverse a
@@ -590,11 +590,11 @@ comparaterChain.addComparator( new ReverseComparator
 
       <programlisting format="linespecific" id="I_4_tt163">SELECT * FROM person ORDER BY lastName ASC, firstName ASC, age DESC;</programlisting>
 
-      <sidebar id="jakartackbk-CHP-4-SIDEBAR-1">
+      <sidebar id="functors-SIDEBAR-1">
         <title>Where to Sort?</title>
 
         <para>In many organizations, there is a debate over<indexterm
-            id="jakartackbk-CHP-4-ITERM-2310" significance="normal">
+            id="functors-ITERM-2310" significance="normal">
             <primary>sorting</primary>
 
             <secondary>Comparators</secondary>
@@ -617,18 +617,18 @@ comparaterChain.addComparator( new ReverseComparator
 
       <para>The <literal moreinfo="none">BeanComparator</literal> was
       introduced in the previous chapter; for more information, see <link
-      linkend="jakartackbk-CHP-3-SECT-10">Recipe 3.10</link>. The <literal
+      linkend="beans-SECT-10">Recipe 3.10</link>. The <literal
       moreinfo="none">ReverseComparator</literal> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2311"
+      class="endofrange" id="functors-ITERM-2311"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2306"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2312"
+      startref="functors-ITERM-2306"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2312"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2307"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2313"
+      startref="functors-ITERM-2307"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2313"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2308"></indexterm> was introduced in
-      <link linkend="jakartackbk-CHP-4-SECT-3">Recipe 4.3</link>.</para>
+      startref="functors-ITERM-2308"></indexterm> was introduced in
+      <link linkend="functors-SECT-3">Recipe 4.3</link>.</para>
     </sect2>
   </sect1>
 
@@ -639,16 +639,16 @@ comparaterChain.addComparator( new ReverseComparator
       <title>Problem</title>
 
       <para>You need to sort an object array <indexterm
-          id="jakartackbk-CHP-4-ITERM-2314" significance="normal">
+          id="functors-ITERM-2314" significance="normal">
           <primary>functors</primary>
 
           <secondary>nulls, comparing</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2315"
+        </indexterm> <indexterm id="functors-ITERM-2315"
           significance="normal">
           <primary>nulls</primary>
 
           <secondary>comparing</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2316"
+        </indexterm> <indexterm id="functors-ITERM-2316"
           significance="normal">
           <primary>comparing</primary>
 
@@ -664,9 +664,9 @@ comparaterChain.addComparator( new ReverseComparator
 
       <para>Wrap your <literal moreinfo="none">Comparator</literal> in a
       <literal moreinfo="none">NullComparator</literal> <indexterm
-          id="jakartackbk-CHP-4-ITERM-2317" significance="normal">
+          id="functors-ITERM-2317" significance="normal">
           <primary>NullComparator</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2318"
+        </indexterm> <indexterm id="functors-ITERM-2318"
           significance="normal">
           <primary>Comparators</primary>
 
@@ -696,7 +696,7 @@ Arrays.sort( bookArray, nullComparator );</programlisting>
       moreinfo="none">Book</literal> objects at index zero and index one and a
       <literal moreinfo="none">null</literal> reference at index two.</para>
 
-      <tip id="jakartackbk-CHP-4-NOTE-56" role="ora">
+      <tip id="functors-NOTE-56" role="ora">
         <para>If a <literal moreinfo="none">Comparator</literal> does not
         handle <literal moreinfo="none">null</literal> values gracefully, wrap
         it in a <literal moreinfo="none">NullComparator</literal> and avoid a
@@ -707,12 +707,12 @@ Arrays.sort( bookArray, nullComparator );</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>To<indexterm id="jakartackbk-CHP-4-ITERM-2319"
+      <para>To<indexterm id="functors-ITERM-2319"
           significance="normal">
           <primary>configuration</primary>
 
           <secondary>NullComparator</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2320"
+        </indexterm> <indexterm id="functors-ITERM-2320"
           significance="normal">
           <primary>NullComparator</primary>
 
@@ -775,25 +775,25 @@ nullLowComparator.compare( null, null );</programlisting>
       <title>Problem</title>
 
       <para>You need to sort a collection <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2321" significance="normal">
+          id="functors-ITERM-2321" significance="normal">
           <primary>functors</primary>
 
           <secondary>fixed order comparisons</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2322" significance="normal">
+          id="functors-ITERM-2322" significance="normal">
           <primary>fixed order comparisons</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2323" significance="normal">
+          id="functors-ITERM-2323" significance="normal">
           <primary>comparing</primary>
 
           <secondary>fixed order comparisons</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2324" significance="normal">
+          id="functors-ITERM-2324" significance="normal">
           <primary>Commons Collections</primary>
 
           <secondary>FixedOrderComparator</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2325" significance="normal">
+          id="functors-ITERM-2325" significance="normal">
           <primary>Comparators</primary>
 
           <secondary>FixedOrderComparator</secondary>
@@ -864,12 +864,12 @@ athlete2.getMedal( ) );</programlisting>
       moreinfo="none">FixedOrderComparator</literal> and a <literal
       moreinfo="none">BeanComparator</literal>; A <literal
       moreinfo="none">PlayingCard</literal> object, defined in <link
-      linkend="jakartackbk-CHP-4-EX-3">Example 4-3</link>, is sorted according
+      linkend="functors-EX-3">Example 4-3</link>, is sorted according
       to the order of two arrays—one for the face value of the <literal
       moreinfo="none">PlayingCard</literal> and one for the suit of the
       <literal moreinfo="none">PlayingCard</literal>.</para>
 
-      <example id="jakartackbk-CHP-4-EX-3" label="4-3">
+      <example id="functors-EX-3" label="4-3">
         <title>A bean representing a playing card</title>
 
         <programlisting format="linespecific">package org.discursive.jccook.collections.compare;
@@ -904,7 +904,7 @@ public class PlayingCard( ) {
 }</programlisting>
       </example>
 
-      <para><link linkend="jakartackbk-CHP-4-EX-4">Example 4-4</link> creates
+      <para><link linkend="functors-EX-4">Example 4-4</link> creates
       a <literal moreinfo="none">ComparatorChain</literal> of <literal
       moreinfo="none">BeanComparators</literal>, which compares the <literal
       moreinfo="none">value</literal> and <literal
@@ -919,7 +919,7 @@ public class PlayingCard( ) {
       moreinfo="none">FixedOrderComparator</literal> with a <literal
       moreinfo="none">NullComparator</literal>.</para>
 
-      <example id="jakartackbk-CHP-4-EX-4" label="4-4">
+      <example id="functors-EX-4" label="4-4">
         <title>Combining FixedOrderComparator with BeanComparator,
         NullComparator, and ComparatorChain</title>
 
@@ -1013,7 +1013,7 @@ After sorting: 2S QS 4C JC JD 2H JOKER</programlisting>
       moreinfo="none">faceOrder</literal>. If a shuffled deck were used in the
       example, it would end up as a perfectly sorted deck of cards.</para>
 
-      <para><link linkend="jakartackbk-CHP-4-EX-4">Example 4-4</link> ties a
+      <para><link linkend="functors-EX-4">Example 4-4</link> ties a
       number of simple <literal moreinfo="none">Comparators</literal> together
       to perform a fairly complex sort. A <literal
       moreinfo="none">FixedOrderComparator</literal> is wrapped in a <literal
@@ -1035,29 +1035,29 @@ After sorting: 2S QS 4C JC JD 2H JOKER</programlisting>
       <title>See Also</title>
 
       <para><literal moreinfo="none">BeanComparator</literal> is discussed in
-      <link linkend="jakartackbk-CHP-3-SECT-10">Recipe 3.10</link>. This
+      <link linkend="beans-SECT-10">Recipe 3.10</link>. This
       helpful utility is indispensable if you are working with systems that
       need to sort JavaBeans.</para>
 
       <para>For more information about the <literal
       moreinfo="none">ComparatorChain</literal> <indexterm class="endofrange"
-      id="jakartackbk-CHP-4-ITERM-2326" significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2321"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2327"
+      id="functors-ITERM-2326" significance="normal"
+      startref="functors-ITERM-2321"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2327"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2322"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2328"
+      startref="functors-ITERM-2322"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2328"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2323"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2329"
+      startref="functors-ITERM-2323"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2329"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2324"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2330"
+      startref="functors-ITERM-2324"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2330"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2325"></indexterm>object, see <link
-      linkend="jakartackbk-CHP-4-SECT-4">Recipe 4.4</link>. For more
+      startref="functors-ITERM-2325"></indexterm>object, see <link
+      linkend="functors-SECT-4">Recipe 4.4</link>. For more
       information on the <literal moreinfo="none">NullComparator</literal>,
-      see <link linkend="jakartackbk-CHP-4-SECT-5">Recipe 4.5</link>.</para>
+      see <link linkend="functors-SECT-5">Recipe 4.5</link>.</para>
     </sect2>
   </sect1>
 
@@ -1068,18 +1068,18 @@ After sorting: 2S QS 4C JC JD 2H JOKER</programlisting>
       <title>Problem</title>
 
       <para>You need to perform logic that is predicated <indexterm
-          class="startofrange" id="jakartackbk-CHP-4-ITERM-2331"
+          class="startofrange" id="functors-ITERM-2331"
           significance="normal">
           <primary>functors</primary>
 
           <secondary>predicates</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2332" significance="normal">
+          id="functors-ITERM-2332" significance="normal">
           <primary>Commons Collections</primary>
 
           <secondary>predicates</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2333" significance="normal">
+          id="functors-ITERM-2333" significance="normal">
           <primary>predicates</primary>
 
           <secondary>Commons Collections</secondary>
@@ -1197,14 +1197,14 @@ if( name instanceof Double ) ) {
       object (<literal moreinfo="none">EqualPredicate</literal>), or that an
       object is of a certain type (<literal
       moreinfo="none">InstanceofPredicate</literal>). <link
-      linkend="jakartackbk-CHP-4-TABLE-1">Table 4-1</link> lists a number of
+      linkend="functors-TABLE-1">Table 4-1</link> lists a number of
       simple <literal moreinfo="none">Predicate</literal>
       implementations.</para>
 
-      <table id="jakartackbk-CHP-4-TABLE-1" label="4-1">
+      <table id="functors-TABLE-1" label="4-1">
         <title>Predicate implementations</title>
 
-        <indexterm id="jakartackbk-CHP-4-ITERM-2334" significance="normal">
+        <indexterm id="functors-ITERM-2334" significance="normal">
           <primary>implementation</primary>
 
           <secondary>predicates</secondary>
@@ -1315,7 +1315,7 @@ if( name instanceof Double ) ) {
       </table>
 
       <para>The following example demonstrates simple<indexterm
-          id="jakartackbk-CHP-4-ITERM-2335" significance="normal">
+          id="functors-ITERM-2335" significance="normal">
           <primary>objects</primary>
 
           <secondary>predicates</secondary>
@@ -1432,14 +1432,14 @@ System.out.println("'B' Unique?: " + unique.evaluate("B"));</programlisting>
       with functors if you have used the Standard Template Library (STL) in
       C++. STL documentation contains rigorous definitions for function
       objects and<indexterm class="endofrange"
-      id="jakartackbk-CHP-4-ITERM-2336" significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2331"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2337"
+      id="functors-ITERM-2336" significance="normal"
+      startref="functors-ITERM-2331"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2337"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2332"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2338"
+      startref="functors-ITERM-2332"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2338"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2333"></indexterm> predicates. For
+      startref="functors-ITERM-2333"></indexterm> predicates. For
       more information about functors in STL, see <systemitem moreinfo="none"
       role="url">http://www.sgi.com/tech/stl/functors.html</systemitem>.</para>
     </sect2>
@@ -1452,38 +1452,38 @@ System.out.println("'B' Unique?: " + unique.evaluate("B"));</programlisting>
       <title>Problem</title>
 
       <para>You need to evaluate an<indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2339" significance="normal">
+          id="functors-ITERM-2339" significance="normal">
           <primary>functors</primary>
 
           <secondary>predicates</secondary>
 
           <tertiary>customization</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2340" significance="normal">
+          id="functors-ITERM-2340" significance="normal">
           <primary>Commons Collections</primary>
 
           <secondary>predicates</secondary>
 
           <tertiary>customization</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2341" significance="normal">
+          id="functors-ITERM-2341" significance="normal">
           <primary>predicates</primary>
 
           <secondary>Commons Collections</secondary>
 
           <tertiary>customization</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2342" significance="normal">
+          id="functors-ITERM-2342" significance="normal">
           <primary>customization</primary>
 
           <secondary>predicates</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2343" significance="normal">
+          id="functors-ITERM-2343" significance="normal">
           <primary>interfaces</primary>
 
           <secondary>Predicate</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2344" significance="normal">
+          id="functors-ITERM-2344" significance="normal">
           <primary>implementation</primary>
 
           <secondary>Predicate interface</secondary>
@@ -1498,21 +1498,21 @@ System.out.println("'B' Unique?: " + unique.evaluate("B"));</programlisting>
       <para>Implement the <literal moreinfo="none">Predicate</literal>
       interface and capture your logic in an <literal
       moreinfo="none">evaluate( )</literal> <indexterm
-          id="jakartackbk-CHP-4-ITERM-2345" significance="normal">
+          id="functors-ITERM-2345" significance="normal">
           <primary>evaluate( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2346"
+        </indexterm> <indexterm id="functors-ITERM-2346"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>evaluate( )</secondary>
-        </indexterm> method. <link linkend="jakartackbk-CHP-4-EX-5">Example
+        </indexterm> method. <link linkend="functors-EX-5">Example
       4-5</link> is a simple <literal moreinfo="none">Predicate</literal>
       implementation that always returns <literal
       moreinfo="none">true</literal>; it is intended as a basic example of how
       to implement the <literal moreinfo="none">Predicate</literal>
       interface.</para>
 
-      <example id="jakartackbk-CHP-4-EX-5" label="4-5">
+      <example id="functors-EX-5" label="4-5">
         <title>A simple Predicate implementation</title>
 
         <programlisting format="linespecific">import org.apache.commons.collections.Predicate;
@@ -1542,7 +1542,7 @@ public class SimplePredicate implements Predicate {
       <para>To demonstrate the process of writing a fairly complex
       implementation of the <literal moreinfo="none">Predicate</literal>
       interface, a contrived example is developed in <link
-      linkend="jakartackbk-CHP-4-EX-6">Example 4-6</link>. Your application
+      linkend="functors-EX-6">Example 4-6</link>. Your application
       evaluates the condition of the space shuttle and makes a determination
       for launch—go or no go. Some of the criteria include the temperature of
       the launch pad, the status of the crew, and the presence (or absence) of
@@ -1551,7 +1551,7 @@ public class SimplePredicate implements Predicate {
       moreinfo="none">boolean</literal> decision. This decision is implemented
       in the <literal moreinfo="none">LaunchPredicate</literal> class.</para>
 
-      <example id="jakartackbk-CHP-4-EX-6" label="4-6">
+      <example id="functors-EX-6" label="4-6">
         <title>Implementing the Predicate interface</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.predicate;
@@ -1638,24 +1638,24 @@ if( launchDecision.evaluate( stats ) ) {
       condition is the ability to write a test for this condition logic;
       <filename moreinfo="none">mock objects</filename> are a method of unit
       testing that involves passing a mock implementation of an object to a
-      class i<indexterm class="endofrange" id="jakartackbk-CHP-4-ITERM-2347"
+      class i<indexterm class="endofrange" id="functors-ITERM-2347"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2339"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2348"
+      startref="functors-ITERM-2339"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2348"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2340"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2349"
+      startref="functors-ITERM-2340"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2349"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2341"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2350"
+      startref="functors-ITERM-2341"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2350"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2342"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2351"
+      startref="functors-ITERM-2342"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2351"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2343"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2352"
+      startref="functors-ITERM-2343"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2352"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2344"></indexterm>n a test. For more
+      startref="functors-ITERM-2344"></indexterm>n a test. For more
       information about mock objects, see <systemitem moreinfo="none"
       role="url">http://www.mockobjects.com/</systemitem>.</para>
     </sect2>
@@ -1668,34 +1668,34 @@ if( launchDecision.evaluate( stats ) ) {
       <title>Problem</title>
 
       <para>You need to perform complex<indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2353" significance="normal">
+          id="functors-ITERM-2353" significance="normal">
           <primary>functors</primary>
 
           <secondary>predicates</secondary>
 
           <tertiary>combining</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2354" significance="normal">
+          id="functors-ITERM-2354" significance="normal">
           <primary>Commons Collections</primary>
 
           <secondary>predicates</secondary>
 
           <tertiary>combining</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2355" significance="normal">
+          id="functors-ITERM-2355" significance="normal">
           <primary>predicates</primary>
 
           <secondary>Commons Collections</secondary>
 
           <tertiary>combining</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2356" significance="normal">
+          id="functors-ITERM-2356" significance="normal">
           <primary>combining predicates</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2357" significance="normal">
+          id="functors-ITERM-2357" significance="normal">
           <primary>multiple predicates, combining</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2358" significance="normal">
+          id="functors-ITERM-2358" significance="normal">
           <primary>conditions, combining predicates</primary>
         </indexterm> conditional logic using multiple <literal
       moreinfo="none">Predicate</literal> objects, and you need to combine and
@@ -1805,11 +1805,11 @@ XOR('Tim', not null, or Double?): true</programlisting>
       complex hierarchy of <literal moreinfo="none">Predicate</literal>
       objects; a circuit diagram is drawn, and a series of predicates are
       developed to model this circuit. <link
-      linkend="jakartackbk-CHP-4-FIG-1">Figure 4-1</link> contains a logical
+      linkend="functors-FIG-1">Figure 4-1</link> contains a logical
       expression that is implemented with digital logic and <literal
       moreinfo="none">Predicate</literal> objects.</para>
 
-      <figure float="0" id="jakartackbk-CHP-4-FIG-1" label="4-1">
+      <figure float="0" id="functors-FIG-1" label="4-1">
         <title>Logical expression to be modeled with Predicate</title>
 
         <mediaobject id="I_4_tt179">
@@ -1827,10 +1827,10 @@ XOR('Tim', not null, or Double?): true</programlisting>
 
       <para>Assuming that every letter corresponds to a <literal
       moreinfo="none">boolean</literal> variable, this expression corresponds
-      to the circuit diagram in <link linkend="jakartackbk-CHP-4-FIG-2">Figure
+      to the circuit diagram in <link linkend="functors-FIG-2">Figure
       4-2</link>. Each gate can be modeled as a composite <literal
       moreinfo="none">Predicate</literal>, and from <link
-      linkend="jakartackbk-CHP-4-FIG-2">Figure 4-2</link> it is clear that
+      linkend="functors-FIG-2">Figure 4-2</link> it is clear that
       this example will include two <literal
       moreinfo="none">AndPredicates</literal>, an <literal
       moreinfo="none">OrPredicate</literal>, and a <literal
@@ -1841,7 +1841,7 @@ XOR('Tim', not null, or Double?): true</programlisting>
       that is modeled with an <literal moreinfo="none">AllPredicate</literal>
       wrapped in a <literal moreinfo="none">NotPredicate</literal>.</para>
 
-      <figure float="0" id="jakartackbk-CHP-4-FIG-2" label="4-2">
+      <figure float="0" id="functors-FIG-2" label="4-2">
         <title>Circuit representing logical expression</title>
 
         <mediaobject id="I_4_tt180">
@@ -1867,19 +1867,19 @@ XOR('Tim', not null, or Double?): true</programlisting>
       input <literal moreinfo="none">Map</literal> and return the <literal
       moreinfo="none">boolean</literal> value of one of the inputs; in other
       words, an <literal moreinfo="none">InputPredicate</literal> <indexterm
-          id="jakartackbk-CHP-4-ITERM-2362" significance="normal">
+          id="functors-ITERM-2362" significance="normal">
           <primary>InputPredicate</primary>
         </indexterm> selects a <literal moreinfo="none">boolean</literal>
       value from a <literal moreinfo="none">Map</literal>, always returning
       the value of that input from the <literal moreinfo="none">Map</literal>
-      it evaluates. (See <link linkend="jakartackbk-CHP-4-EX-7">Example
+      it evaluates. (See <link linkend="functors-EX-7">Example
       4-7</link>.)</para>
 
-      <example id="jakartackbk-CHP-4-EX-7" label="4-7">
+      <example id="functors-EX-7" label="4-7">
         <title>InputPredicate: a predicate that selects an input from a
         Map</title>
 
-        <indexterm id="jakartackbk-CHP-4-ITERM-2363" significance="normal">
+        <indexterm id="functors-ITERM-2363" significance="normal">
           <primary>mapping</primary>
 
           <secondary>InputPredicate</secondary>
@@ -1922,33 +1922,33 @@ public class InputPredicate implements Predicate {
       moreinfo="none">circuit</literal>. The input map is passed to the
       top-most <literal moreinfo="none">Predicate</literal>, which, in turn,
       passes this same map to the <literal moreinfo="none">Predicate</literal>
-      that precedes it in <indexterm id="jakartackbk-CHP-4-ITERM-2364"
+      that precedes it in <indexterm id="functors-ITERM-2364"
           significance="normal">
           <primary>implementation</primary>
 
           <seealso>configuration</seealso>
         </indexterm>the circuit. <link
-      linkend="jakartackbk-CHP-4-EX-8">Example 4-8</link> ties everything
+      linkend="functors-EX-8">Example 4-8</link> ties everything
       together, and the logic to create our circuit-modeling predicate has
       been confined to the <literal
       moreinfo="none">createPredicate()</literal> <indexterm
-          id="jakartackbk-CHP-4-ITERM-2365" significance="normal">
+          id="functors-ITERM-2365" significance="normal">
           <primary>createPredicate( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2366"
+        </indexterm> <indexterm id="functors-ITERM-2366"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>createPredicate( )</secondary>
         </indexterm> method.</para>
 
-      <example id="jakartackbk-CHP-4-EX-8" label="4-8">
+      <example id="functors-EX-8" label="4-8">
         <title>Implementing a multilevel composite Predicate</title>
 
-        <indexterm id="jakartackbk-CHP-4-ITERM-2367" significance="normal">
+        <indexterm id="functors-ITERM-2367" significance="normal">
           <primary>multilevel composite predicate implementation</primary>
         </indexterm>
 
-        <indexterm id="jakartackbk-CHP-4-ITERM-2368" significance="normal">
+        <indexterm id="functors-ITERM-2368" significance="normal">
           <primary>implementation</primary>
 
           <secondary>multilevel composite predicates</secondary>
@@ -2010,23 +2010,23 @@ public class CompoundPredicateExample {
       moreinfo="none">Predicate</literal> instances, there is no limit to the
       level of complexity that can be achieved. Logic circuits were used in
       this example because a logic gate is <indexterm class="endofrange"
-      id="jakartackbk-CHP-4-ITERM-2369" significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2353"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2370"
+      id="functors-ITERM-2369" significance="normal"
+      startref="functors-ITERM-2353"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2370"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2354"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2371"
+      startref="functors-ITERM-2354"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2371"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2355"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2372"
+      startref="functors-ITERM-2355"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2372"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2356"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2373"
+      startref="functors-ITERM-2356"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2373"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2357"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2374"
+      startref="functors-ITERM-2357"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2374"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2358"></indexterm>a great analogy for
+      startref="functors-ITERM-2358"></indexterm>a great analogy for
       a <literal moreinfo="none">Predicate</literal>. Think of a <literal
       moreinfo="none">Predicate</literal> as a component—a gate in a logic
       circuit.</para>
@@ -2039,19 +2039,19 @@ public class CompoundPredicateExample {
     <sect2>
       <title>Problem</title>
 
-      <para>You need to perform a<indexterm id="jakartackbk-CHP-4-ITERM-2375"
+      <para>You need to perform a<indexterm id="functors-ITERM-2375"
           significance="normal">
           <primary>functors</primary>
 
           <secondary>objects</secondary>
 
           <tertiary>transformation</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2376"
+        </indexterm> <indexterm id="functors-ITERM-2376"
           significance="normal">
           <primary>objects</primary>
 
           <secondary>transformation</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2377"
+        </indexterm> <indexterm id="functors-ITERM-2377"
           significance="normal">
           <primary>transformation</primary>
 
@@ -2112,11 +2112,11 @@ Status after transformation: Pat T., Soldier</programlisting>
       of the <literal moreinfo="none">Transformer</literal> interface. The
       Javadoc for <literal moreinfo="none">Transformer</literal> expressly
       states, "The original object is left unchanged." <link
-      linkend="jakartackbk-CHP-4-FIG-3">Figure 4-3</link> illustrates the
+      linkend="functors-FIG-3">Figure 4-3</link> illustrates the
       simple <literal moreinfo="none">joinArmy</literal> <literal
       moreinfo="none">Transformer</literal>.</para>
 
-      <figure float="0" id="jakartackbk-CHP-4-FIG-3" label="4-3">
+      <figure float="0" id="functors-FIG-3" label="4-3">
         <title>Diagram of the joinArmy Transformer</title>
 
         <mediaobject id="I_4_tt183">
@@ -2154,27 +2154,27 @@ Status after transformation: Pat T., Soldier</programlisting>
       <title>Problem</title>
 
       <para>You have a series of transformations and <indexterm
-          id="jakartackbk-CHP-4-ITERM-2378" significance="normal">
+          id="functors-ITERM-2378" significance="normal">
           <primary>functors</primary>
 
           <secondary>objects</secondary>
 
           <tertiary>chaining transformations</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2379"
+        </indexterm> <indexterm id="functors-ITERM-2379"
           significance="normal">
           <primary>objects</primary>
 
           <secondary>transformation</secondary>
 
           <tertiary>chaining</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2380"
+        </indexterm> <indexterm id="functors-ITERM-2380"
           significance="normal">
           <primary>transformation</primary>
 
           <secondary>objects</secondary>
 
           <tertiary>chaining</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2381"
+        </indexterm> <indexterm id="functors-ITERM-2381"
           significance="normal">
           <primary>chaining</primary>
 
@@ -2190,7 +2190,7 @@ Status after transformation: Pat T., Soldier</programlisting>
       moreinfo="none">Transformer</literal>, and chain them together with
       <literal moreinfo="none">ChainedTransformer</literal>. A <literal
       moreinfo="none">ChainedTransformer</literal> <indexterm
-          id="jakartackbk-CHP-4-ITERM-2382" significance="normal">
+          id="functors-ITERM-2382" significance="normal">
           <primary>ChainedTransformer</primary>
         </indexterm> takes an array of <literal
       moreinfo="none">Transformer</literal> objects, passing the output of
@@ -2256,11 +2256,11 @@ Result: 3401</programlisting>
       moreinfo="none">Transformer</literal>, but this simple example
       demonstrates the mechanics of creating a simple pipeline of
       transformations, one leading to another. <link
-      linkend="jakartackbk-CHP-4-FIG-4">Figure 4-4</link> illustrates the
+      linkend="functors-FIG-4">Figure 4-4</link> illustrates the
       simple structure of this two-staged <literal
       moreinfo="none">ChainedTransformer</literal>.</para>
 
-      <figure float="0" id="jakartackbk-CHP-4-FIG-4" label="4-4">
+      <figure float="0" id="functors-FIG-4" label="4-4">
         <title>A ChainedTransformer with two Transformers</title>
 
         <mediaobject id="I_4_tt186">
@@ -2287,9 +2287,9 @@ Result: 3401</programlisting>
       moreinfo="none">UnaryFunction</literal> instances can be chained
       together using the <literal
       moreinfo="none">CompositeUnaryFunction</literal> <indexterm
-          id="jakartackbk-CHP-4-ITERM-2383" significance="normal">
+          id="functors-ITERM-2383" significance="normal">
           <primary>CompositeUnaryFunction class</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2384"
+        </indexterm> <indexterm id="functors-ITERM-2384"
           significance="normal">
           <primary>classes</primary>
 
@@ -2308,28 +2308,28 @@ Result: 3401</programlisting>
       <title>Problem</title>
 
       <para>You need to perform a different <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2385" significance="normal">
+          id="functors-ITERM-2385" significance="normal">
           <primary>functors</primary>
 
           <secondary>objects</secondary>
 
           <tertiary>conditional transformations</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2386" significance="normal">
+          id="functors-ITERM-2386" significance="normal">
           <primary>objects</primary>
 
           <secondary>transformation</secondary>
 
           <tertiary>conditional</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2387" significance="normal">
+          id="functors-ITERM-2387" significance="normal">
           <primary>transformation</primary>
 
           <secondary>objects</secondary>
 
           <tertiary>conditional</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2388" significance="normal">
+          id="functors-ITERM-2388" significance="normal">
           <primary>conditional transformations</primary>
         </indexterm>transformation depending on a series of conditions or
       cases.</para>
@@ -2339,7 +2339,7 @@ Result: 3401</programlisting>
       <title>Solution</title>
 
       <para>Use a <literal moreinfo="none">SwitchTransformer</literal>
-      <indexterm id="jakartackbk-CHP-4-ITERM-2389" significance="normal">
+      <indexterm id="functors-ITERM-2389" significance="normal">
           <primary>SwitchTransformer</primary>
         </indexterm> to apply a <literal moreinfo="none">Transformer</literal>
       that is dependent on a <literal moreinfo="none">Predicate</literal>. A
@@ -2348,12 +2348,12 @@ Result: 3401</programlisting>
       parameters: an array of <literal moreinfo="none">Predicate</literal>
       instances, an array of <literal moreinfo="none">Transformer</literal>
       instances, and a default <literal moreinfo="none">Transformer</literal>.
-      <link linkend="jakartackbk-CHP-4-EX-9">Example 4-9</link> uses a
+      <link linkend="functors-EX-9">Example 4-9</link> uses a
       <literal moreinfo="none">SwitchTransformer</literal> to apply a
       different <literal moreinfo="none">Transformer</literal> implementation
       to odd and even numbers.</para>
 
-      <example id="jakartackbk-CHP-4-EX-9" label="4-9">
+      <example id="functors-EX-9" label="4-9">
         <title>Using a SwitchTransformer</title>
 
         <programlisting format="linespecific">Transformer oddTransform = new Transformer( ) {
@@ -2441,19 +2441,19 @@ Transform of 4 = 12</programlisting>
       moreinfo="none">SwitchTransformer</literal> passes the object being
       transformed to the third parameter—the default <literal
       moreinfo="none">Transformer</literal>. In <link
-      linkend="jakartackbk-CHP-4-EX-9">Example 4-9</link>, the default
+      linkend="functors-EX-9">Example 4-9</link>, the default
       <literal moreinfo="none">Transformer</literal> was a <literal
       moreinfo="none">NOPTransformer</literal>, which is a <literal
       moreinfo="none">Transformer</literal> implementation that performs no
       transformation and returns the object passed to <literal
       moreinfo="none">transform()</literal>. <link
-      linkend="jakartackbk-CHP-4-FIG-5">Figure 4-5</link> illustrates the
+      linkend="functors-FIG-5">Figure 4-5</link> illustrates the
       <literal moreinfo="none">SwitchTransformer</literal> from the Solution;
       the two <literal moreinfo="none">Predicate</literal> instances
       correspond to two <literal moreinfo="none">Transformer</literal>
       instances.</para>
 
-      <figure float="0" id="jakartackbk-CHP-4-FIG-5" label="4-5">
+      <figure float="0" id="functors-FIG-5" label="4-5">
         <title>A SwitchTransform with two Predicate instances, two Transformer
         instances, and a default Transformer</title>
 
@@ -2482,18 +2482,18 @@ Transform of 4 = 12</programlisting>
       <literal moreinfo="none">UnaryPredicate</literal> object via the
       <literal moreinfo="none">ConditionalUnaryFunction</literal> class. For
       more information about <literal moreinfo="none">UnaryPredicate</literal>
-      <indexterm class="endofrange" id="jakartackbk-CHP-4-ITERM-2390"
+      <indexterm class="endofrange" id="functors-ITERM-2390"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2385"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2391"
+      startref="functors-ITERM-2385"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2391"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2386"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2392"
+      startref="functors-ITERM-2386"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2392"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2387"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2393"
+      startref="functors-ITERM-2387"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2393"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2388"></indexterm> and <literal
+      startref="functors-ITERM-2388"></indexterm> and <literal
       moreinfo="none">ConditionalUnaryFunction</literal>, see the Commons
       Functor page at <systemitem moreinfo="none"
       role="url">http://jakarta.apache.org/commons/sandbox/functor</systemitem>.</para>
@@ -2507,18 +2507,18 @@ Transform of 4 = 12</programlisting>
       <title>Problem</title>
 
       <para>You need a functor that <indexterm
-          id="jakartackbk-CHP-4-ITERM-2394" significance="normal">
+          id="functors-ITERM-2394" significance="normal">
           <primary>functors</primary>
 
           <secondary>objects</secondary>
 
           <tertiary>closures</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2395"
+        </indexterm> <indexterm id="functors-ITERM-2395"
           significance="normal">
           <primary>objects</primary>
 
           <secondary>closures</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2396"
+        </indexterm> <indexterm id="functors-ITERM-2396"
           significance="normal">
           <primary>closures</primary>
         </indexterm>operates on an object.</para>
@@ -2608,25 +2608,25 @@ Shoes after 3 discounts: Fancy Shoes for $87.48</programlisting>
       <title>Problem</title>
 
       <para>An object needs to be acted on<indexterm
-          id="jakartackbk-CHP-4-ITERM-2397" significance="normal">
+          id="functors-ITERM-2397" significance="normal">
           <primary>functors</primary>
 
           <secondary>objects</secondary>
 
           <tertiary>chaining closures</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2398"
+        </indexterm> <indexterm id="functors-ITERM-2398"
           significance="normal">
           <primary>objects</primary>
 
           <secondary>closures</secondary>
 
           <tertiary>chaining</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2399"
+        </indexterm> <indexterm id="functors-ITERM-2399"
           significance="normal">
           <primary>closures</primary>
 
           <secondary>chaining</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2400"
+        </indexterm> <indexterm id="functors-ITERM-2400"
           significance="normal">
           <primary>chaining</primary>
 
@@ -2642,7 +2642,7 @@ Shoes after 3 discounts: Fancy Shoes for $87.48</programlisting>
       chain of <literal moreinfo="none">Closure</literal> instances that
       appears as a single <literal moreinfo="none">Closure</literal>. A
       <literal moreinfo="none">ChainedClosure</literal> <indexterm
-          id="jakartackbk-CHP-4-ITERM-2401" significance="normal">
+          id="functors-ITERM-2401" significance="normal">
           <primary>ChainedClosure</primary>
         </indexterm> takes an array of <literal
       moreinfo="none">Closure</literal> objects and passes the same object
@@ -2694,7 +2694,7 @@ Shuttle before preLaunch: Shuttle Endeavour is fueled and is ready for reentry.<
       <title>Discussion</title>
 
       <para>This example should remind you of <link
-      linkend="jakartackbk-CHP-4-SECT-11">Recipe 4.11</link>. When chaining
+      linkend="functors-SECT-11">Recipe 4.11</link>. When chaining
       <literal moreinfo="none">Transformer</literal> objects, the result of
       each transformation is passed between stages—the results of stage one
       are passed to stage two, the results of stage two are passed to stage
@@ -2728,21 +2728,21 @@ Shuttle before preLaunch: Shuttle Endeavour is fueled and is ready for reentry.<
       <title>Problem</title>
 
       <para>You need to model a <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2402" significance="normal">
+          id="functors-ITERM-2402" significance="normal">
           <primary>functors</primary>
 
           <secondary>objects</secondary>
 
           <tertiary>conditional statements with closures</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2403" significance="normal">
+          id="functors-ITERM-2403" significance="normal">
           <primary>objects</primary>
 
           <secondary>closures</secondary>
 
           <tertiary>conditional statements with</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-4-ITERM-2404" significance="normal">
+          id="functors-ITERM-2404" significance="normal">
           <primary>closures</primary>
 
           <secondary>conditional statements with</secondary>
@@ -2881,14 +2881,14 @@ stockAction.execute( lucent );</programlisting>
       moreinfo="none">NOPClosure</literal>, which performs no operation on the
       <literal moreinfo="none">Stock</literal> object. If the stock price is
       less than the purchase price, the <indexterm class="endofrange"
-      id="jakartackbk-CHP-4-ITERM-2405" significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2402"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2406"
+      id="functors-ITERM-2405" significance="normal"
+      startref="functors-ITERM-2402"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2406"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2403"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-4-ITERM-2407"
+      startref="functors-ITERM-2403"></indexterm> <indexterm
+      class="endofrange" id="functors-ITERM-2407"
       significance="normal"
-      startref="jakartackbk-CHP-4-ITERM-2404"></indexterm> <literal
+      startref="functors-ITERM-2404"></indexterm> <literal
       moreinfo="none">Stock</literal> is passed to the <literal
       moreinfo="none">sell</literal> <literal
       moreinfo="none">Closure</literal>.</para>
@@ -2901,26 +2901,26 @@ stockAction.execute( lucent );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to execute a <indexterm id="jakartackbk-CHP-4-ITERM-2408"
+      <para>You need to execute a <indexterm id="functors-ITERM-2408"
           significance="normal">
           <primary>functors</primary>
 
           <secondary>objects</secondary>
 
           <tertiary>loops with closures</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2409"
+        </indexterm> <indexterm id="functors-ITERM-2409"
           significance="normal">
           <primary>objects</primary>
 
           <secondary>closures</secondary>
 
           <tertiary>loops with</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2410"
+        </indexterm> <indexterm id="functors-ITERM-2410"
           significance="normal">
           <primary>closures</primary>
 
           <secondary>loops with</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-4-ITERM-2411"
+        </indexterm> <indexterm id="functors-ITERM-2411"
           significance="normal">
           <primary>loops</primary>
 

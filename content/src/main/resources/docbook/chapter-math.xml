@@ -32,7 +32,7 @@
     univariate statistics, solving a system of linear equations, and
     establishing a relationship between two independent variables.
     Instructions for downloading and installing Commons Math can be found in
-    <link linkend="jakartackbk-CHP-8-SECT-5">Recipe 8.5</link>.</para>
+    <link linkend="math-SECT-5">Recipe 8.5</link>.</para>
   </sect1>
 
   <sect1 id="math-sect-fractions" label="8.1" role="Recipe">
@@ -42,26 +42,26 @@
       <title>Problem</title>
 
       <para>You need to work with fractions<indexterm
-          id="jakartackbk-CHP-8-ITERM-2856" significance="normal">
+          id="math-ITERM-2856" significance="normal">
           <primary>Commons Math</primary>
 
           <secondary>fractions</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2857"
+        </indexterm> <indexterm id="math-ITERM-2857"
           significance="normal">
           <primary>fractions</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2858"
+        </indexterm> <indexterm id="math-ITERM-2858"
           significance="normal">
           <primary>math</primary>
 
           <secondary>fractions</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2859"
+        </indexterm> <indexterm id="math-ITERM-2859"
           significance="normal">
           <primary>applications</primary>
 
           <secondary>math</secondary>
 
           <tertiary>fractions</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2860"
+        </indexterm> <indexterm id="math-ITERM-2860"
           significance="normal">
           <primary>documents</primary>
 
@@ -102,7 +102,7 @@ double value = fraction.doubleValue( );</programlisting>
       <para>The <literal moreinfo="none">Fraction</literal> class provides a
       number of operations that can be used to simplify the following
       expression to an improper fraction. The following code evaluates the
-      expression in <link linkend="jakartackbk-CHP-8-FIG-1">Figure 8-1</link>
+      expression in <link linkend="math-FIG-1">Figure 8-1</link>
       using <literal moreinfo="none">Fraction</literal>:</para>
 
       <programlisting format="linespecific" id="I_8_tt319">import org.apache.commons.lang.math.Fraction;
@@ -119,7 +119,7 @@ Fraction result = fraction.reduce( );
 System.out.println( "as Fraction: " + result.reduce( ).toString( ) );
 System.out.println( "as double: " + result.doubleValue( ) );</programlisting>
 
-      <figure float="0" id="jakartackbk-CHP-8-FIG-1" label="8-1">
+      <figure float="0" id="math-FIG-1" label="8-1">
         <title>Expression to be evaluated with Fraction</title>
 
         <mediaobject id="I_8_tt320">
@@ -161,7 +161,7 @@ String userInput = "101/99";
 String properString = Fraction.getFraction(userInput).toProperString( );
 // properString is now "1 2/99"</programlisting>
 
-      <warning id="jakartackbk-CHP-8-NOTE-61" role="ora">
+      <warning id="math-NOTE-61" role="ora">
         <para><literal moreinfo="none">Fraction</literal> does not
         automatically reduce contents, and it is important to call <literal
         moreinfo="none">reduce( )</literal> before performing any arithmetic
@@ -178,10 +178,10 @@ String properString = Fraction.getFraction(userInput).toProperString( );
         moreinfo="none">Fraction.getFraction(Integer.MAX_VALUE,
         Integer.MAX_VALUE)</literal> or <literal
         moreinfo="none">1.0</literal>. Call <literal moreinfo="none">reduce(
-        )</literal> <indexterm id="jakartackbk-CHP-8-ITERM-2861"
+        )</literal> <indexterm id="math-ITERM-2861"
             significance="normal">
             <primary>reduce( ) method</primary>
-          </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2862"
+          </indexterm> <indexterm id="math-ITERM-2862"
             significance="normal">
             <primary>methods</primary>
 
@@ -190,14 +190,14 @@ String properString = Fraction.getFraction(userInput).toProperString( );
         <literal moreinfo="none">Fraction</literal> class.</para>
       </warning>
 
-      <para><link linkend="jakartackbk-CHP-8-TABLE-1">Table 8-1</link> lists a
+      <para><link linkend="math-TABLE-1">Table 8-1</link> lists a
       sampling of methods available on the <literal
       moreinfo="none">Fraction</literal> class.</para>
 
-      <table id="jakartackbk-CHP-8-TABLE-1" label="8-1">
+      <table id="math-TABLE-1" label="8-1">
         <title>Methods on Commons Lang Fraction</title>
 
-        <indexterm id="jakartackbk-CHP-8-ITERM-2863" significance="normal">
+        <indexterm id="math-ITERM-2863" significance="normal">
           <primary>Commons Lang</primary>
 
           <secondary>fractions</secondary>
@@ -412,33 +412,33 @@ double min = minimum.evaluate( array, 0, array.length );</programlisting>
       <title>Problem</title>
 
       <para>You need to define a range<indexterm
-          id="jakartackbk-CHP-8-ITERM-2864" significance="normal">
+          id="math-ITERM-2864" significance="normal">
           <primary>Commons Math</primary>
 
           <secondary>number ranges</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2865"
+        </indexterm> <indexterm id="math-ITERM-2865"
           significance="normal">
           <primary>number ranges</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2866"
+        </indexterm> <indexterm id="math-ITERM-2866"
           significance="normal">
           <primary>math</primary>
 
           <secondary>number ranges</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2867"
+        </indexterm> <indexterm id="math-ITERM-2867"
           significance="normal">
           <primary>applications</primary>
 
           <secondary>math</secondary>
 
           <tertiary>number ranges</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2868"
+        </indexterm> <indexterm id="math-ITERM-2868"
           significance="normal">
           <primary>documents</primary>
 
           <secondary>math</secondary>
 
           <tertiary>number ranges</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2869"
+        </indexterm> <indexterm id="math-ITERM-2869"
           significance="normal">
           <primary>ranges, number</primary>
         </indexterm> of acceptable values for a variable, and test to see if
@@ -452,19 +452,19 @@ double min = minimum.evaluate( array, 0, array.length );</programlisting>
       an interface that defines a simple numerical range. There are a number
       of different implementations for different types: <literal
       moreinfo="none">NumberRange</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2870" significance="normal">
+          id="math-ITERM-2870" significance="normal">
           <primary>NumberRange</primary>
         </indexterm>, <literal moreinfo="none">DoubleRange</literal>
-      <indexterm id="jakartackbk-CHP-8-ITERM-2871" significance="normal">
+      <indexterm id="math-ITERM-2871" significance="normal">
           <primary>DoubleRange</primary>
         </indexterm>, <literal moreinfo="none">FloatRange</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2872" significance="normal">
+          id="math-ITERM-2872" significance="normal">
           <primary>FloatRange</primary>
         </indexterm>, <literal moreinfo="none">IntRange</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2873" significance="normal">
+          id="math-ITERM-2873" significance="normal">
           <primary>IntRange</primary>
         </indexterm>, and <literal moreinfo="none">LongRange</literal>
-      <indexterm id="jakartackbk-CHP-8-ITERM-2874" significance="normal">
+      <indexterm id="math-ITERM-2874" significance="normal">
           <primary>LongRange</primary>
         </indexterm>. The following example demonstrates the use of <literal
       moreinfo="none">DoubleRange</literal> to verify that a variable is
@@ -472,9 +472,9 @@ double min = minimum.evaluate( array, 0, array.length );</programlisting>
       is created with minimum and maximum values, and a value is tested by
       <literal moreinfo="none">DoubleRange</literal> using a method named
       <literal moreinfo="none">containsDouble( )</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2875" significance="normal">
+          id="math-ITERM-2875" significance="normal">
           <primary>containsDouble( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2876"
+        </indexterm> <indexterm id="math-ITERM-2876"
           significance="normal">
           <primary>methods</primary>
 
@@ -501,9 +501,9 @@ double currentSpeed = getCurrentSpeed( );
       moreinfo="none">Range</literal> overlaps another <literal
       moreinfo="none">Range</literal>. The following example demonstrates the
       use of <literal moreinfo="none">containsRange( )</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2877" significance="normal">
+          id="math-ITERM-2877" significance="normal">
           <primary>containsRange( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2878"
+        </indexterm> <indexterm id="math-ITERM-2878"
           significance="normal">
           <primary>methods</primary>
 
@@ -618,41 +618,41 @@ System.out.println( "The substance is in a " + state + " state." );
 
       <para>J2SE 1.4 includes a <literal
       moreinfo="none">java.lang.Math</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2879" significance="normal">
+          id="math-ITERM-2879" significance="normal">
           <primary>java.lang.Math class</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2880"
+        </indexterm> <indexterm id="math-ITERM-2880"
           significance="normal">
           <primary>classes</primary>
 
           <secondary>java.lang.Math</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2881"
+        </indexterm> <indexterm id="math-ITERM-2881"
           significance="normal">
           <primary>Commons Math</primary>
 
           <secondary>random variables</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2882"
+        </indexterm> <indexterm id="math-ITERM-2882"
           significance="normal">
           <primary>random variables</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2883"
+        </indexterm> <indexterm id="math-ITERM-2883"
           significance="normal">
           <primary>math</primary>
 
           <secondary>random variables</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2884"
+        </indexterm> <indexterm id="math-ITERM-2884"
           significance="normal">
           <primary>applications</primary>
 
           <secondary>math</secondary>
 
           <tertiary>random variables</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2885"
+        </indexterm> <indexterm id="math-ITERM-2885"
           significance="normal">
           <primary>documents</primary>
 
           <secondary>math</secondary>
 
           <tertiary>random variables</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2886"
+        </indexterm> <indexterm id="math-ITERM-2886"
           significance="normal">
           <primary>variables</primary>
 
@@ -678,9 +678,9 @@ System.out.println( "The substance is in a " + state + " state." );
       moreinfo="none">boolean</literal> variables. The following code
       generates a random integer between zero and the value specified in the
       parameter to <literal moreinfo="none">nextInt( )</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2887" significance="normal">
+          id="math-ITERM-2887" significance="normal">
           <primary>nextInt( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2888"
+        </indexterm> <indexterm id="math-ITERM-2888"
           significance="normal">
           <primary>methods</primary>
 
@@ -695,9 +695,9 @@ int randomInt = RandomUtils.nextInt( maxVal );</programlisting>
 
       <para>Or, if your application needs a random <literal
       moreinfo="none">boolean</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2889" significance="normal">
+          id="math-ITERM-2889" significance="normal">
           <primary>Boolean variables</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2890"
+        </indexterm> <indexterm id="math-ITERM-2890"
           significance="normal">
           <primary>variables</primary>
 
@@ -715,14 +715,14 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
 
       <para>A frequent argument for not using a utility like <literal
       moreinfo="none">RandomUtils</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2891" significance="normal">
+          id="math-ITERM-2891" significance="normal">
           <primary>RandomUtils</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2892"
+        </indexterm> <indexterm id="math-ITERM-2892"
           significance="normal">
           <primary>tools</primary>
 
           <secondary>randomUtils</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2893"
+        </indexterm> <indexterm id="math-ITERM-2893"
           significance="normal">
           <primary>utilities</primary>
 
@@ -758,9 +758,9 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
       multiple statements into a single line of code: two casts, a call to
       <literal moreinfo="none">floor( )</literal>, a call to <literal
       moreinfo="none">random()</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2894" significance="normal">
+          id="math-ITERM-2894" significance="normal">
           <primary>random( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2895"
+        </indexterm> <indexterm id="math-ITERM-2895"
           significance="normal">
           <primary>methods</primary>
 
@@ -809,10 +809,10 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
       Commons Math depends on Commons Collections 3.0, Commons Lang 2.0, and
       Commons Logging 1.0.3. To obtain these dependencies, see <link
       linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, <link
-      linkend="jakartackbk-CHP-5-SECT-1">Recipe 5.1</link>, and <link
-      linkend="jakartackbk-CHP-7-SECT-9">Recipe 7.9</link>.</para>
+      linkend="collections-SECT-1">Recipe 5.1</link>, and <link
+      linkend="app-infra-SECT-9">Recipe 7.9</link>.</para>
 
-      <warning id="jakartackbk-CHP-8-NOTE-63" role="ora">
+      <warning id="math-NOTE-63" role="ora">
         <para>By the time this book is published, Commons Math 1.0 may be
         released. Make sure you look at the Commons Math project page
         (<systemitem moreinfo="none"
@@ -863,34 +863,34 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to calculate <indexterm id="jakartackbk-CHP-8-ITERM-2896"
+      <para>You need to calculate <indexterm id="math-ITERM-2896"
           significance="normal">
           <primary>Commons Math</primary>
 
           <secondary>univariate statistic calculations</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2897"
+        </indexterm> <indexterm id="math-ITERM-2897"
           significance="normal">
           <primary>univariate statistic calculations</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2898"
+        </indexterm> <indexterm id="math-ITERM-2898"
           significance="normal">
           <primary>math</primary>
 
           <secondary>univariate statistic calculations</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2899"
+        </indexterm> <indexterm id="math-ITERM-2899"
           significance="normal">
           <primary>applications</primary>
 
           <secondary>math</secondary>
 
           <tertiary>univariate statistic calculations</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2900"
+        </indexterm> <indexterm id="math-ITERM-2900"
           significance="normal">
           <primary>documents</primary>
 
           <secondary>math</secondary>
 
           <tertiary>univariate statistic calculations</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2901"
+        </indexterm> <indexterm id="math-ITERM-2901"
           significance="normal">
           <primary>calculations</primary>
 
@@ -902,15 +902,15 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Use Commons Math's<indexterm id="jakartackbk-CHP-8-ITERM-2902"
+      <para>Use Commons Math's<indexterm id="math-ITERM-2902"
           significance="normal">
           <primary>StatUtils</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2903"
+        </indexterm> <indexterm id="math-ITERM-2903"
           significance="normal">
           <primary>tools</primary>
 
           <secondary>StatUtils</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2904"
+        </indexterm> <indexterm id="math-ITERM-2904"
           significance="normal">
           <primary>utilities</primary>
 
@@ -1022,40 +1022,40 @@ kurtosis: 4.102348153299074</programlisting>
       <title>Problem</title>
 
       <para>You need to find the values of x,<indexterm
-          id="jakartackbk-CHP-8-ITERM-2905" significance="normal">
+          id="math-ITERM-2905" significance="normal">
           <primary>Commons Math</primary>
 
           <secondary>linear equations</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2906"
+        </indexterm> <indexterm id="math-ITERM-2906"
           significance="normal">
           <primary>linear equations</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2907"
+        </indexterm> <indexterm id="math-ITERM-2907"
           significance="normal">
           <primary>math</primary>
 
           <secondary>linear equations</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2908"
+        </indexterm> <indexterm id="math-ITERM-2908"
           significance="normal">
           <primary>applications</primary>
 
           <secondary>math</secondary>
 
           <tertiary>linear equations</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2909"
+        </indexterm> <indexterm id="math-ITERM-2909"
           significance="normal">
           <primary>documents</primary>
 
           <secondary>math</secondary>
 
           <tertiary>linear equations</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2910"
+        </indexterm> <indexterm id="math-ITERM-2910"
           significance="normal">
           <primary>linear equations</primary>
         </indexterm> y, and z that satisfy the system of linear equations
-      shown in <link linkend="jakartackbk-CHP-8-FIG-2">Figure
+      shown in <link linkend="math-FIG-2">Figure
       8-2</link>.</para>
 
-      <figure float="0" id="jakartackbk-CHP-8-FIG-2" label="8-2">
+      <figure float="0" id="math-FIG-2" label="8-2">
         <title>A system of linear equations</title>
 
         <mediaobject id="I_8_tt335">
@@ -1076,20 +1076,20 @@ kurtosis: 4.102348153299074</programlisting>
       <title>Solution</title>
 
       <para>Use the <literal moreinfo="none">RealMatrix</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2911" significance="normal">
+          id="math-ITERM-2911" significance="normal">
           <primary>RealMatrix</primary>
         </indexterm> and <literal moreinfo="none">RealMatrixImpl</literal>
       from Commons Math. Represent this system of linear equations as matrices
       in the <filename moreinfo="none">Ax=B</filename> form, as shown in <link
-      linkend="jakartackbk-CHP-8-FIG-3">Figure 8-3</link>. Place the
+      linkend="math-FIG-3">Figure 8-3</link>. Place the
       coefficients of <filename moreinfo="none">A</filename> in a <literal
       moreinfo="none">RealMatrix</literal>, and put <filename
       moreinfo="none">B</filename> in a <literal
       moreinfo="none">double[]</literal>. Call the <literal
       moreinfo="none">solve( )</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2912" significance="normal">
+          id="math-ITERM-2912" significance="normal">
           <primary>solve( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2913"
+        </indexterm> <indexterm id="math-ITERM-2913"
           significance="normal">
           <primary>methods</primary>
 
@@ -1098,7 +1098,7 @@ kurtosis: 4.102348153299074</programlisting>
       to retrieve a <literal moreinfo="none">double[]</literal> of values for
       x, y, and z that satisfy this system of equations.</para>
 
-      <figure float="0" id="jakartackbk-CHP-8-FIG-3" label="8-3">
+      <figure float="0" id="math-FIG-3" label="8-3">
         <title>System of linear equations in Ax=B form</title>
 
         <mediaobject id="I_8_tt336">
@@ -1115,13 +1115,13 @@ kurtosis: 4.102348153299074</programlisting>
       </figure>
 
       <para>The following example takes the <indexterm
-          id="jakartackbk-CHP-8-ITERM-2914" significance="normal">
+          id="math-ITERM-2914" significance="normal">
           <primary>coefficients</primary>
         </indexterm>coefficients and <indexterm
-          id="jakartackbk-CHP-8-ITERM-2915" significance="normal">
+          id="math-ITERM-2915" significance="normal">
           <primary>constants</primary>
         </indexterm>constants from <link
-      linkend="jakartackbk-CHP-8-FIG-3">Figure 8-3</link> and uses a <literal
+      linkend="math-FIG-3">Figure 8-3</link> and uses a <literal
       moreinfo="none">RealMatrix</literal> to solve this system:</para>
 
       <programlisting format="linespecific" id="I_8_tt337">import org.apache.commons.math.linear.RealMatrix;
@@ -1175,7 +1175,7 @@ System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlist
       <para>This method will not work for every matrix; there are systems of
       linear equations that are unsolvable. For example, if one attempts to
       find values for the system of equations from <link
-      linkend="jakartackbk-CHP-8-FIG-4">Figure 8-4</link>, an <literal
+      linkend="math-FIG-4">Figure 8-4</link>, an <literal
       moreinfo="none">InvalidMatrixException</literal> will be thrown stating
       that the matrix is singular. Additionally, if the number of rows in
       <filename moreinfo="none">B</filename> does not equal the number of
@@ -1183,7 +1183,7 @@ System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlist
       moreinfo="none">solve()</literal> will throw an <literal
       moreinfo="none">InvalidMatrixException</literal>.</para>
 
-      <figure float="0" id="jakartackbk-CHP-8-FIG-4" label="8-4">
+      <figure float="0" id="math-FIG-4" label="8-4">
         <title>An unsolvable system of equations</title>
 
         <mediaobject id="I_8_tt339">
@@ -1223,34 +1223,34 @@ System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlist
       <title>Problem</title>
 
       <para>You need to perform arithmetic<indexterm class="startofrange"
-          id="jakartackbk-CHP-8-ITERM-2916" significance="normal">
+          id="math-ITERM-2916" significance="normal">
           <primary>Commons Math</primary>
 
           <secondary>complex numbers</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-8-ITERM-2917" significance="normal">
+          id="math-ITERM-2917" significance="normal">
           <primary>math</primary>
 
           <secondary>complex numbers</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-8-ITERM-2918" significance="normal">
+          id="math-ITERM-2918" significance="normal">
           <primary>applications</primary>
 
           <secondary>math</secondary>
 
           <tertiary>complex numbers</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-8-ITERM-2919" significance="normal">
+          id="math-ITERM-2919" significance="normal">
           <primary>documents</primary>
 
           <secondary>math</secondary>
 
           <tertiary>complex numbers</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-8-ITERM-2920" significance="normal">
+          id="math-ITERM-2920" significance="normal">
           <primary>complex numbers</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-8-ITERM-2921" significance="normal">
+          id="math-ITERM-2921" significance="normal">
           <primary>objects</primary>
 
           <secondary>complex numbers</secondary>
@@ -1258,11 +1258,11 @@ System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlist
       numbers <filename moreinfo="none">A</filename>, <filename
       moreinfo="none">B</filename>, <filename moreinfo="none">C</filename>,
       and <filename moreinfo="none">E</filename> and two equations shown in
-      <link linkend="jakartackbk-CHP-8-FIG-5">Figure 8-5</link>, you need to
+      <link linkend="math-FIG-5">Figure 8-5</link>, you need to
       find the real part of <filename moreinfo="none">F</filename> and the
       imaginary part of <filename moreinfo="none">D</filename>.</para>
 
-      <figure float="0" id="jakartackbk-CHP-8-FIG-5" label="8-5">
+      <figure float="0" id="math-FIG-5" label="8-5">
         <title>Expressions evaluated with the Complex object</title>
 
         <mediaobject id="I_8_tt340">
@@ -1286,9 +1286,9 @@ System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlist
       <literal moreinfo="none">ComplexMath</literal> classes to represent
       complex numbers and perform arithmetic using complex numbers. Use the
       <literal moreinfo="none">ComplexFormat</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2922" significance="normal">
+          id="math-ITERM-2922" significance="normal">
           <primary>ComplexFormat class</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2923"
+        </indexterm> <indexterm id="math-ITERM-2923"
           significance="normal">
           <primary>classes</primary>
 
@@ -1297,7 +1297,7 @@ System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlist
       number. The following example demonstrates the use of the <literal
       moreinfo="none">Complex</literal> class to calculate <filename
       moreinfo="none">D</filename> and <filename moreinfo="none">F</filename>
-      from <link linkend="jakartackbk-CHP-8-FIG-5">Figure 8-5</link> using
+      from <link linkend="math-FIG-5">Figure 8-5</link> using
       arbitrary values for <filename moreinfo="none">A</filename>, <filename
       moreinfo="none">B</filename>, <filename moreinfo="none">C</filename>,
       and <filename moreinfo="none">E</filename>:</para>
@@ -1471,24 +1471,24 @@ RSquare: 0.985</programlisting>
 
       <para>R-square is the square of something called the Pearson's product
       moment correlation coefficient, which can be obtained by
-      calling<indexterm id="jakartackbk-CHP-8-ITERM-2924"
+      calling<indexterm id="math-ITERM-2924"
           significance="normal">
           <primary>getR( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2925"
+        </indexterm> <indexterm id="math-ITERM-2925"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>getR( )</secondary>
         </indexterm> <literal moreinfo="none">getR( )</literal> on <literal
       moreinfo="none">SimpleRegression</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2926" significance="normal">
+          id="math-ITERM-2926" significance="normal">
           <primary>SimpleRegression</primary>
         </indexterm>. R-square is a determination of correlation between two
       series of numbers. The parameters to the <literal
       moreinfo="none">addData()</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2927" significance="normal">
+          id="math-ITERM-2927" significance="normal">
           <primary>addData( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2928"
+        </indexterm> <indexterm id="math-ITERM-2928"
           significance="normal">
           <primary>methods</primary>
 
@@ -1565,19 +1565,19 @@ RSquare: 0.02</programlisting>
 
       <para>Use Commons Math's <literal
       moreinfo="none">SimpleRegression</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2929" significance="normal">
+          id="math-ITERM-2929" significance="normal">
           <primary>SimpleRegression</primary>
         </indexterm> and Commons Lang's <literal
       moreinfo="none">StopWatch</literal> to create a <literal
       moreinfo="none">ProcessEstimator</literal> <indexterm
-          id="jakartackbk-CHP-8-ITERM-2930" significance="normal">
+          id="math-ITERM-2930" significance="normal">
           <primary>ProcessEstimator class</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2931"
+        </indexterm> <indexterm id="math-ITERM-2931"
           significance="normal">
           <primary>classes</primary>
 
           <secondary>processEstimator</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-8-ITERM-2932"
+        </indexterm> <indexterm id="math-ITERM-2932"
           significance="normal">
           <primary>execution, ProcessEstimator class</primary>
         </indexterm> class that can be used to predict when a particular
@@ -1587,13 +1587,13 @@ RSquare: 0.02</programlisting>
       record will take roughly the same amount of time, you can use <literal
       moreinfo="none">SimpleRegression</literal>'s slope and intercept to
       estimate the time when all records will be processed. <link
-      linkend="jakartackbk-CHP-8-EX-1">Example 8-1</link> defines the <literal
+      linkend="math-EX-1">Example 8-1</link> defines the <literal
       moreinfo="none">ProcessEstimator</literal> class that combines the power
       of <literal moreinfo="none">StopWatch</literal> and <literal
       moreinfo="none">ProcessEstimator</literal> to estimate the time
       remaining in a process.</para>
 
-      <example id="jakartackbk-CHP-8-EX-1" label="8-1">
+      <example id="math-EX-1" label="8-1">
         <title>ProcessEstimator to estimate time of program execution</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.math.timeestimate;
@@ -1677,13 +1677,13 @@ public class ProcessEstimator {
       records.</para>
 
       <para>The <literal moreinfo="none">ProcessEstimationExample</literal> in
-      <link linkend="jakartackbk-CHP-8-EX-2">Example 8-2</link> uses the
+      <link linkend="math-EX-2">Example 8-2</link> uses the
       <literal moreinfo="none">ProcessEstimator</literal> to estimate the time
       remaining while calling the <literal
       moreinfo="none">performLengthyProcess( )</literal> method 10,000
       times.</para>
 
-      <example id="jakartackbk-CHP-8-EX-2" label="8-2">
+      <example id="math-EX-2" label="8-2">
         <title>An example using the ProcessEstimator</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.math.timeestimate;
@@ -1744,24 +1744,24 @@ public class ProcessEstimationExample {
       )</literal> causes <literal moreinfo="none">ProcessEstimator</literal>
       to update <literal moreinfo="none">SimpleRegression</literal> with the
       number of records remaining and the amount of time spent so far. After
-      every <indexterm class="endofrange" id="jakartackbk-CHP-8-ITERM-2933"
+      every <indexterm class="endofrange" id="math-ITERM-2933"
       significance="normal"
-      startref="jakartackbk-CHP-8-ITERM-2916"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-8-ITERM-2934"
+      startref="math-ITERM-2916"></indexterm> <indexterm
+      class="endofrange" id="math-ITERM-2934"
       significance="normal"
-      startref="jakartackbk-CHP-8-ITERM-2917"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-8-ITERM-2935"
+      startref="math-ITERM-2917"></indexterm> <indexterm
+      class="endofrange" id="math-ITERM-2935"
       significance="normal"
-      startref="jakartackbk-CHP-8-ITERM-2918"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-8-ITERM-2936"
+      startref="math-ITERM-2918"></indexterm> <indexterm
+      class="endofrange" id="math-ITERM-2936"
       significance="normal"
-      startref="jakartackbk-CHP-8-ITERM-2919"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-8-ITERM-2937"
+      startref="math-ITERM-2919"></indexterm> <indexterm
+      class="endofrange" id="math-ITERM-2937"
       significance="normal"
-      startref="jakartackbk-CHP-8-ITERM-2920"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-8-ITERM-2938"
+      startref="math-ITERM-2920"></indexterm> <indexterm
+      class="endofrange" id="math-ITERM-2938"
       significance="normal"
-      startref="jakartackbk-CHP-8-ITERM-2921"></indexterm>1000th call to
+      startref="math-ITERM-2921"></indexterm>1000th call to
       <literal moreinfo="none">performLengthyProcess( )</literal>, a status
       message is printed to the console as follows:</para>
 
@@ -1802,7 +1802,7 @@ Completed 10000 in 47 seconds.</programlisting>
       <para>The previous example used a method that sleeps for a random number
       of milliseconds between 1 and 10, and this value is selected using the
       <literal moreinfo="none">RandomUtils</literal> class described in <link
-      linkend="jakartackbk-CHP-8-SECT-4">Recipe 8.4</link>. It is easy to
+      linkend="math-SECT-4">Recipe 8.4</link>. It is easy to
       predict how long this process is going to take because, on average, each
       method call is going to sleep for five milliseconds. The <literal
       moreinfo="none">ProcessEstimator</literal> is inaccurate when the amount

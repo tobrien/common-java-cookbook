@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<chapter id="jakartackbk-CHP-10" label="10">
+<chapter id="io-network" label="10">
       <title>I/O and Networking</title>
       <sect1 id="ch10-2-fm2xml">
          <title>Introduction</title>
@@ -56,21 +56,21 @@ for incoming messages. In addition to FTP, POP, and SMTP, Commons Net
 contains simple clients for Trivial File Transfer Protocol (TFTP),
 Telnet, Finger, and NNTP.</para>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-1" label="10.1" role="Recipe">
+      <sect1 id="io-network-SECT-1" label="10.1" role="Recipe">
          <title>Obtaining Commons IO</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-1.1">
+         <sect2 id="io-network-SECT-1.1">
             <title>Problem</title>
-            <para>You need to use Jakarta<indexterm id="jakartackbk-CHP-10-ITERM-3026" significance="normal">
+            <para>You need to use Jakarta<indexterm id="io-network-ITERM-3026" significance="normal">
                   <primary>Commons
 IO</primary>
                   <secondary>downloading</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3027" significance="normal">
+               <indexterm id="io-network-ITERM-3027" significance="normal">
                   <primary>downloading</primary>
                   <secondary>Commons
 IO</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3028" significance="normal">
+               <indexterm id="io-network-ITERM-3028" significance="normal">
                   <primary>I/O</primary>
                   <secondary>Commons
 IO</secondary>
@@ -78,7 +78,7 @@ IO</secondary>
                </indexterm> Commons
 IO.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-1.2">
+         <sect2 id="io-network-SECT-1.2">
             <title>Solution</title>
             <para>You must download the latest version of Commons IO, and place the
 Commons IO JAR<filename moreinfo="none"> </filename>in your
@@ -86,7 +86,7 @@ project's classpath. Following the steps outlined in
 <link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, download Commons IO 1.0
 instead of Commons Lang.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-1.3">
+         <sect2 id="io-network-SECT-1.3">
             <title>Discussion</title>
             <para>Commons IO contains a few utilities for simplifying a number of
 common I/O tasks. <literal moreinfo="none">CopyUtils</literal> and
@@ -112,7 +112,7 @@ dependency on Commons IO 1.0 with the following section in
   ....other dependencies...
 &lt;/dependencies&gt;</programlisting>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-1.4">
+         <sect2 id="io-network-SECT-1.4">
             <title>See Also</title>
             <para>For more information about the Commons IO project, see the project
 page at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/io</systemitem>. If you
@@ -122,36 +122,36 @@ mailing list. Instructions for joining the user mailing list can be
 found in <link linkend="jakartackbk-CHP-1-SECT-2">Recipe 1.2</link>.</para>
          </sect2>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-2" label="10.2" role="Recipe">
+      <sect1 id="io-network-SECT-2" label="10.2" role="Recipe">
          <title>Copying Streams, byte[ ], Readers, and Writers</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-2.1">
+         <sect2 id="io-network-SECT-2.1">
             <title>Problem</title>
             <para>You need to copy a stream, <literal moreinfo="none">byte[]</literal>,
-<literal moreinfo="none">Reader</literal>, <indexterm id="jakartackbk-CHP-10-ITERM-3029" significance="normal">
+<literal moreinfo="none">Reader</literal>, <indexterm id="io-network-ITERM-3029" significance="normal">
                   <primary>Commons
 IO</primary>
                   <secondary>CopyUtils</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3030" significance="normal">
+               <indexterm id="io-network-ITERM-3030" significance="normal">
                   <primary>CopyUtils</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3031" significance="normal">
+               <indexterm id="io-network-ITERM-3031" significance="normal">
                   <primary>I/O</primary>
                   <secondary>CopyUtils</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3032" significance="normal">
+               <indexterm id="io-network-ITERM-3032" significance="normal">
                   <primary>streams</primary>
                   <secondary>copying</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3033" significance="normal">
+               <indexterm id="io-network-ITERM-3033" significance="normal">
                   <primary>readers</primary>
                   <secondary>copying</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3034" significance="normal">
+               <indexterm id="io-network-ITERM-3034" significance="normal">
                   <primary>writers</primary>
                   <secondary>copying</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3035" significance="normal">
+               <indexterm id="io-network-ITERM-3035" significance="normal">
                   <primary>strings</primary>
                   <secondary>copying</secondary>
                </indexterm>or
@@ -160,7 +160,7 @@ from an <literal moreinfo="none">InputStream</literal> or <literal moreinfo="non
 to a <literal moreinfo="none">Writer</literal>, or you need to copy a
 <literal moreinfo="none">String</literal> to an <literal moreinfo="none">OutputStream</literal>.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-2.2">
+         <sect2 id="io-network-SECT-2.2">
             <title>Solution</title>
             <para>Use <literal moreinfo="none">CopyUtils</literal> from Commons IO to copy the contents
 of an <literal moreinfo="none">InputStream</literal>, <literal moreinfo="none">Reader</literal>,
@@ -186,14 +186,14 @@ an <literal moreinfo="none">InputStream</literal>, which is copied to a
 <literal moreinfo="none">FileWriter</literal> using <literal moreinfo="none">CopyUtils.copy(
 )</literal>.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-2.3">
+         <sect2 id="io-network-SECT-2.3">
             <title>Discussion</title>
             <para>If you need to copy information from a <literal moreinfo="none">Reader</literal> or
 <literal moreinfo="none">InputStream</literal> to a <literal moreinfo="none">String</literal>, use
 <literal moreinfo="none">IOUtils.toString( )</literal>. The following example opens
 an
 <literal moreinfo="none">InputStream</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3036" significance="normal">
+               <indexterm id="io-network-ITERM-3036" significance="normal">
                   <primary>InputStream</primary>
                </indexterm>
 from a <literal moreinfo="none">URL</literal> and copies the contents to a
@@ -218,38 +218,38 @@ to the <literal moreinfo="none">copy( )</literal> method. When using
 <literal moreinfo="none">copy( )</literal>.</para>
          </sect2>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-3" label="10.3" role="Recipe">
+      <sect1 id="io-network-SECT-3" label="10.3" role="Recipe">
          <title>Closing Streams, Readers, and Writers</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-3.1">
+         <sect2 id="io-network-SECT-3.1">
             <title>Problem</title>
-            <para>You need to close an <indexterm class="startofrange" id="jakartackbk-CHP-10-ITERM-3037" significance="normal">
+            <para>You need to close an <indexterm class="startofrange" id="io-network-ITERM-3037" significance="normal">
                   <primary>Commons
 IO</primary>
                   <secondary>closing</secondary>
                </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-10-ITERM-3038" significance="normal">
+               <indexterm class="startofrange" id="io-network-ITERM-3038" significance="normal">
                   <primary>closing,
 Commons IO</primary>
                </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-10-ITERM-3039" significance="normal">
+               <indexterm class="startofrange" id="io-network-ITERM-3039" significance="normal">
                   <primary>I/O</primary>
                   <secondary>Commons
 IO</secondary>
                   <tertiary>closing</tertiary>
                </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-10-ITERM-3040" significance="normal">
+               <indexterm class="startofrange" id="io-network-ITERM-3040" significance="normal">
                   <primary>streams</primary>
                   <secondary>closing</secondary>
                </indexterm>
-               <indexterm class="startofrange" id="jakartackbk-CHP-10-ITERM-3041" significance="normal">
+               <indexterm class="startofrange" id="io-network-ITERM-3041" significance="normal">
                   <primary>readers</primary>
                   <secondary>closing</secondary>
                </indexterm>
-               <indexterm class="startofrange" id="jakartackbk-CHP-10-ITERM-3042" significance="normal">
+               <indexterm class="startofrange" id="io-network-ITERM-3042" significance="normal">
                   <primary>writers</primary>
                   <secondary>closing</secondary>
                </indexterm>
-               <indexterm class="startofrange" id="jakartackbk-CHP-10-ITERM-3043" significance="normal">
+               <indexterm class="startofrange" id="io-network-ITERM-3043" significance="normal">
                   <primary>strings</primary>
                   <secondary>closing</secondary>
                </indexterm>
@@ -258,27 +258,27 @@ IO</secondary>
 <literal moreinfo="none">Writer</literal>, and you want to avoid catching an
 <literal moreinfo="none">IOException</literal> in a <literal moreinfo="none">finally</literal> block.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-3.2">
+         <sect2 id="io-network-SECT-3.2">
             <title>Solution</title>
             <para>Use <literal moreinfo="none">IOUtils.closeQuietly()</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3044" significance="normal">
+               <indexterm id="io-network-ITERM-3044" significance="normal">
                   <primary>IOUtils.closeQuietly( )
 methods</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3045" significance="normal">
+               <indexterm id="io-network-ITERM-3045" significance="normal">
                   <primary>methods</primary>
                   <secondary>IOUtils.closeQuietly(
 )</secondary>
                </indexterm> 
-               <indexterm id="jakartackbk-CHP-10-ITERM-3046" significance="normal">
+               <indexterm id="io-network-ITERM-3046" significance="normal">
                   <primary>blocks,
 finally</primary>
                </indexterm> 
-               <indexterm id="jakartackbk-CHP-10-ITERM-3047" significance="normal">
+               <indexterm id="io-network-ITERM-3047" significance="normal">
                   <primary>exceptions, finally
 block</primary>
                </indexterm> 
-               <indexterm id="jakartackbk-CHP-10-ITERM-3048" significance="normal">
+               <indexterm id="io-network-ITERM-3048" significance="normal">
                   <primary>finally
 block</primary>
                </indexterm> to close an
@@ -305,24 +305,24 @@ try {
     IOUtils.closeQuietly( reader );
 }</programlisting>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-3.3">
+         <sect2 id="io-network-SECT-3.3">
             <title>Discussion</title>
             <para>It is always a good idea to close streams, readers, and writers in
 <literal moreinfo="none">finally</literal> blocks because you can guarantee that a
 system will release I/O resources even if an exception is thrown. A
 call to <literal moreinfo="none">close( )</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3049" significance="normal">
+               <indexterm id="io-network-ITERM-3049" significance="normal">
                   <primary>close( )
 method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3050" significance="normal">
+               <indexterm id="io-network-ITERM-3050" significance="normal">
                   <primary>methods</primary>
                   <secondary>close(
 )</secondary>
                </indexterm> releases resources associated with the
 stream, but because <literal moreinfo="none">close( )</literal> can throw an
 <literal moreinfo="none">IOException</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3051" significance="normal">
+               <indexterm id="io-network-ITERM-3051" significance="normal">
                   <primary>IOException,
 finally blocks</primary>
                </indexterm>, you need to either surround
@@ -363,7 +363,7 @@ try {
             <para>The code within the <literal moreinfo="none">finally</literal> block is as tedious to
 read as it is to write. To avoid a
 <literal moreinfo="none">NullPointerException</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3052" significance="normal">
+               <indexterm id="io-network-ITERM-3052" significance="normal">
                   <primary>NullPointerException</primary>
                </indexterm>,
 both the <literal moreinfo="none">Reader</literal> and <literal moreinfo="none">Writer</literal> need
@@ -426,47 +426,47 @@ unlikely that you will be able to take any corrective action in a
 <literal moreinfo="none">OutputStream</literal>, <literal moreinfo="none">Reader</literal>, or
 <literal moreinfo="none">Writer</literal>, tests for <literal moreinfo="none">null</literal>, and
 swallows any <literal moreinfo="none">IOException</literal> that may be thrown
-<indexterm class="endofrange" startref="jakartackbk-CHP-10-ITERM-3037" id="jakartackbk-CHP-10-ITERM-3053" significance="normal"/>
-               <indexterm class="endofrange" startref="jakartackbk-CHP-10-ITERM-3038" id="jakartackbk-CHP-10-ITERM-3054" significance="normal"/>
-               <indexterm class="endofrange" startref="jakartackbk-CHP-10-ITERM-3039" id="jakartackbk-CHP-10-ITERM-3055" significance="normal"/>
-               <indexterm class="endofrange" startref="jakartackbk-CHP-10-ITERM-3040" id="jakartackbk-CHP-10-ITERM-3056" significance="normal"/>
-               <indexterm class="endofrange" startref="jakartackbk-CHP-10-ITERM-3041" id="jakartackbk-CHP-10-ITERM-3057" significance="normal"/>
-               <indexterm class="endofrange" startref="jakartackbk-CHP-10-ITERM-3042" id="jakartackbk-CHP-10-ITERM-3058" significance="normal"/>
-               <indexterm class="endofrange" startref="jakartackbk-CHP-10-ITERM-3043" id="jakartackbk-CHP-10-ITERM-3059" significance="normal"/>in
+<indexterm class="endofrange" startref="io-network-ITERM-3037" id="io-network-ITERM-3053" significance="normal"/>
+               <indexterm class="endofrange" startref="io-network-ITERM-3038" id="io-network-ITERM-3054" significance="normal"/>
+               <indexterm class="endofrange" startref="io-network-ITERM-3039" id="io-network-ITERM-3055" significance="normal"/>
+               <indexterm class="endofrange" startref="io-network-ITERM-3040" id="io-network-ITERM-3056" significance="normal"/>
+               <indexterm class="endofrange" startref="io-network-ITERM-3041" id="io-network-ITERM-3057" significance="normal"/>
+               <indexterm class="endofrange" startref="io-network-ITERM-3042" id="io-network-ITERM-3058" significance="normal"/>
+               <indexterm class="endofrange" startref="io-network-ITERM-3043" id="io-network-ITERM-3059" significance="normal"/>in
 the process of closing a stream or reader.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-3.4">
+         <sect2 id="io-network-SECT-3.4">
             <title>See Also</title>
             <para>This recipe used <literal moreinfo="none">CopyUtils</literal>, which was demonstrated
-in <link linkend="jakartackbk-CHP-10-SECT-2">Recipe 10.2</link>.</para>
+in <link linkend="io-network-SECT-2">Recipe 10.2</link>.</para>
          </sect2>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-4" label="10.4" role="Recipe">
+      <sect1 id="io-network-SECT-4" label="10.4" role="Recipe">
          <title>Printing a Human-Readable File Size</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-4.1">
+         <sect2 id="io-network-SECT-4.1">
             <title>Problem</title>
-            <para>You need to display <indexterm id="jakartackbk-CHP-10-ITERM-3060" significance="normal">
+            <para>You need to display <indexterm id="io-network-ITERM-3060" significance="normal">
                   <primary>Commons
 IO</primary>
                   <secondary>printing</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3061" significance="normal">
+               <indexterm id="io-network-ITERM-3061" significance="normal">
                   <primary>printing</primary>
                   <secondary>Commons
 IO</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3062" significance="normal">
+               <indexterm id="io-network-ITERM-3062" significance="normal">
                   <primary>I/O</primary>
                   <secondary>Commons
 IO</secondary>
                   <tertiary>printing</tertiary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3063" significance="normal">
+               <indexterm id="io-network-ITERM-3063" significance="normal">
                   <primary>sizing</primary>
                   <secondary>print
 files</secondary>
                </indexterm> 
-               <indexterm id="jakartackbk-CHP-10-ITERM-3064" significance="normal">
+               <indexterm id="io-network-ITERM-3064" significance="normal">
                   <primary>human-readable file
 size, printing</primary>
                </indexterm>the size of a file in kilobytes,
@@ -474,14 +474,14 @@ megabytes, or gigabytes. Instead of displaying file sizes as
 1,073,741,824 bytes, you want an approximate, human-readable size,
 such as 1 GB.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-4.2">
+         <sect2 id="io-network-SECT-4.2">
             <title>Solution</title>
             <para>Use <literal moreinfo="none">FileUtils.byteCountToDisplaySize()</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3065" significance="normal">
+               <indexterm id="io-network-ITERM-3065" significance="normal">
                   <primary>FileUtils.byteCountToDisplaySize( )
 method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3066" significance="normal">
+               <indexterm id="io-network-ITERM-3066" significance="normal">
                   <primary>methods</primary>
                   <secondary>FileUtils.byteCountToDisplaySize(
 )</secondary>
@@ -509,7 +509,7 @@ try {
   bytes: 2132
   size: 2 KB</programlisting>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-4.3">
+         <sect2 id="io-network-SECT-4.3">
             <title>Discussion</title>
             <para>
                <literal moreinfo="none">FileUtils</literal> contains three static
@@ -526,7 +526,7 @@ than 1.0. The value is then divided by
 <literal moreinfo="none">FileUtils.ONE_MB</literal>, which returns 2—the value
 used in the human-readable size "2
 MB."</para>
-            <warning id="jakartackbk-CHP-10-NOTE-68" role="ora">
+            <warning id="io-network-NOTE-68" role="ora">
                <para>
                   <literal moreinfo="none">FileUtils.byteCountToDisplaySize( )</literal> will not round
 the size of a file; a 2.9 MB file will have a display size of 2 MB.
@@ -536,62 +536,62 @@ remainder is discarded.</para>
             </warning>
          </sect2>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-5" label="10.5" role="Recipe">
+      <sect1 id="io-network-SECT-5" label="10.5" role="Recipe">
          <title>Copying Files, Strings, and URLs</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-5.1">
+         <sect2 id="io-network-SECT-5.1">
             <title>Problem</title>
-            <para>You need to copy a file <indexterm id="jakartackbk-CHP-10-ITERM-3067" significance="normal">
+            <para>You need to copy a file <indexterm id="io-network-ITERM-3067" significance="normal">
                   <primary>Commons
 IO</primary>
                   <secondary>copying files</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3068" significance="normal">
+               <indexterm id="io-network-ITERM-3068" significance="normal">
                   <primary>copying</primary>
                   <secondary>files</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3069" significance="normal">
+               <indexterm id="io-network-ITERM-3069" significance="normal">
                   <primary>I/O</primary>
                   <secondary>Commons
 IO</secondary>
                   <tertiary>copying files</tertiary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3070" significance="normal">
+               <indexterm id="io-network-ITERM-3070" significance="normal">
                   <primary>files</primary>
                   <secondary>copying</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3071" significance="normal">
+               <indexterm id="io-network-ITERM-3071" significance="normal">
                   <primary>strings</primary>
                   <secondary>copying</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3072" significance="normal">
+               <indexterm id="io-network-ITERM-3072" significance="normal">
                   <primary>URLs (uniform resource
 locators)</primary>
                   <secondary>copying</secondary>
                </indexterm>to
-another file, or you need to copy a <indexterm id="jakartackbk-CHP-10-ITERM-3073" significance="normal">
+another file, or you need to copy a <indexterm id="io-network-ITERM-3073" significance="normal">
                   <primary>uniform
 resource locators</primary>
                   <see>URLs</see>
                </indexterm>file to a
 directory.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-5.2">
+         <sect2 id="io-network-SECT-5.2">
             <title>Solution</title>
             <para>Use <literal moreinfo="none">FileUtils.copyFile()</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3074" significance="normal">
+               <indexterm id="io-network-ITERM-3074" significance="normal">
                   <primary>FileUtils.copyFile( )
 method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3075" significance="normal">
+               <indexterm id="io-network-ITERM-3075" significance="normal">
                   <primary>methods</primary>
                   <secondary>FileUtils.copyFile(
 )</secondary>
                </indexterm> and <literal moreinfo="none">FileUtils.copyFileToDirectory()</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3076" significance="normal">
+               <indexterm id="io-network-ITERM-3076" significance="normal">
                   <primary>FileUtils.copyFileToDirectory( )
 method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3077" significance="normal">
+               <indexterm id="io-network-ITERM-3077" significance="normal">
                   <primary>methods</primary>
                   <secondary>FileUtils.copyFileToDirectory(
 )</secondary>
@@ -620,7 +620,7 @@ to copy a file to a directory. The following code copies the file
     System.out.println( "Problem copying file to dir.");
 }</programlisting>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-5.3">
+         <sect2 id="io-network-SECT-5.3">
             <title>Discussion</title>
             <para>Quite often you need to write the contents of a
 <literal moreinfo="none">String</literal> to a file.
@@ -653,44 +653,44 @@ Times</emphasis> front page in a file
 }</programlisting>
          </sect2>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-6" label="10.6" role="Recipe">
+      <sect1 id="io-network-SECT-6" label="10.6" role="Recipe">
          <title>Deleting Directories Recursively</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-6.1">
+         <sect2 id="io-network-SECT-6.1">
             <title>Problem</title>
-            <para>You need to delete a directory and <indexterm id="jakartackbk-CHP-10-ITERM-3078" significance="normal">
+            <para>You need to delete a directory and <indexterm id="io-network-ITERM-3078" significance="normal">
                   <primary>Commons
 IO</primary>
                   <secondary>deleting directories</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3079" significance="normal">
+               <indexterm id="io-network-ITERM-3079" significance="normal">
                   <primary>deleting</primary>
                   <secondary>directories</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3080" significance="normal">
+               <indexterm id="io-network-ITERM-3080" significance="normal">
                   <primary>I/O</primary>
                   <secondary>Commons
 IO</secondary>
                   <tertiary>deleting directories</tertiary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3081" significance="normal">
+               <indexterm id="io-network-ITERM-3081" significance="normal">
                   <primary>directories</primary>
                   <secondary>deleting</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3082" significance="normal">
+               <indexterm id="io-network-ITERM-3082" significance="normal">
                   <primary>recursive deletes,
 directories</primary>
                </indexterm>everything it contains. You need a
 recursive delete—the equivalent of a Unix <literal moreinfo="none">rm
 -r</literal>.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-6.2">
+         <sect2 id="io-network-SECT-6.2">
             <title>Solution</title>
             <para>Use <literal moreinfo="none">FileUtils.deleteDirectory()</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3083" significance="normal">
+               <indexterm id="io-network-ITERM-3083" significance="normal">
                   <primary>FileUtils.deleteDirectory( )
 method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3084" significance="normal">
+               <indexterm id="io-network-ITERM-3084" significance="normal">
                   <primary>methods</primary>
                   <secondary>FileUtils.deleteDirectory(
 )</secondary>
@@ -710,15 +710,15 @@ try {
 <literal moreinfo="none">deleteDirectory( )</literal> will remove the
 <filename moreinfo="none">temp</filename> directory itself.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-6.3">
+         <sect2 id="io-network-SECT-6.3">
             <title>Discussion</title>
             <para>You can also "clean" a directory
 with the <literal moreinfo="none">cleanDirectory()</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3085" significance="normal">
+               <indexterm id="io-network-ITERM-3085" significance="normal">
                   <primary>cleanDirectory( )
 method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3086" significance="normal">
+               <indexterm id="io-network-ITERM-3086" significance="normal">
                   <primary>methods</primary>
                   <secondary>cleanDirectory(
 )</secondary>
@@ -726,7 +726,7 @@ method</primary>
 contents of the directory are erased, but the directory itself is not
 deleted. The following example cleans the <filename moreinfo="none">temp</filename>
 directory, emptying it of all files and
-<indexterm id="jakartackbk-CHP-10-ITERM-3087" significance="normal">
+<indexterm id="io-network-ITERM-3087" significance="normal">
                   <primary>subdirectories</primary>
                   <secondary>cleaning</secondary>
                </indexterm>subdirectories:</para>
@@ -740,38 +740,38 @@ try {
 }</programlisting>
          </sect2>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-7" label="10.7" role="Recipe">
+      <sect1 id="io-network-SECT-7" label="10.7" role="Recipe">
          <title>Obtaining the Size of a Directory</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-7.1">
+         <sect2 id="io-network-SECT-7.1">
             <title>Problem</title>
-            <para>You need to know the size of <indexterm id="jakartackbk-CHP-10-ITERM-3088" significance="normal">
+            <para>You need to know the size of <indexterm id="io-network-ITERM-3088" significance="normal">
                   <primary>Commons
 IO</primary>
                   <secondary>sizing directories</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3089" significance="normal">
+               <indexterm id="io-network-ITERM-3089" significance="normal">
                   <primary>sizing</primary>
                   <secondary>directories</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3090" significance="normal">
+               <indexterm id="io-network-ITERM-3090" significance="normal">
                   <primary>I/O</primary>
                   <secondary>Commons
 IO</secondary>
                   <tertiary>sizing directories</tertiary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3091" significance="normal">
+               <indexterm id="io-network-ITERM-3091" significance="normal">
                   <primary>directories</primary>
                   <secondary>sizing</secondary>
                </indexterm>everything
 contained within a directory.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-7.2">
+         <sect2 id="io-network-SECT-7.2">
             <title>Solution</title>
-            <para>Use the<indexterm id="jakartackbk-CHP-10-ITERM-3092" significance="normal">
+            <para>Use the<indexterm id="io-network-ITERM-3092" significance="normal">
                   <primary>FileUtils.sizeOfDirectory( )
 method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3093" significance="normal">
+               <indexterm id="io-network-ITERM-3093" significance="normal">
                   <primary>methods</primary>
                   <secondary>FileUtils.sizeOfDirectory(
 )</secondary>
@@ -790,44 +790,44 @@ subdirectory to obtain the size of each subdirectory, and it will
 return the sum of these sizes.</para>
          </sect2>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-8" label="10.8" role="Recipe">
+      <sect1 id="io-network-SECT-8" label="10.8" role="Recipe">
          <title>Touching a File</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-8.1">
+         <sect2 id="io-network-SECT-8.1">
             <title>Problem</title>
-            <para>You need to perform the <indexterm id="jakartackbk-CHP-10-ITERM-3094" significance="normal">
+            <para>You need to perform the <indexterm id="io-network-ITERM-3094" significance="normal">
                   <primary>Commons
 IO</primary>
                   <secondary>timestamps</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3095" significance="normal">
+               <indexterm id="io-network-ITERM-3095" significance="normal">
                   <primary>timestamps</primary>
                   <secondary>Commons
 IO</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3096" significance="normal">
+               <indexterm id="io-network-ITERM-3096" significance="normal">
                   <primary>I/O</primary>
                   <secondary>Commons
 IO</secondary>
                   <tertiary>timestamps</tertiary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3097" significance="normal">
+               <indexterm id="io-network-ITERM-3097" significance="normal">
                   <primary>updating timestamps</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3098" significance="normal">
+               <indexterm id="io-network-ITERM-3098" significance="normal">
                   <primary>timestamps</primary>
                   <secondary>updating</secondary>
                </indexterm>equivalent
 of the Unix <literal moreinfo="none">touch</literal> command; you want to create a
 file or update a file's modified timestamp.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-8.2">
+         <sect2 id="io-network-SECT-8.2">
             <title>Solution</title>
             <para>Use the <literal moreinfo="none">touch()</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3099" significance="normal">
+               <indexterm id="io-network-ITERM-3099" significance="normal">
                   <primary>FileUtils.touch( )
 method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3100" significance="normal">
+               <indexterm id="io-network-ITERM-3100" significance="normal">
                   <primary>methods</primary>
                   <secondary>FileUtils.touch(
 )</secondary>
@@ -856,30 +856,30 @@ timestamp will be updated to the current time after the call to
 <literal moreinfo="none">touch( )</literal>.</para>
          </sect2>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-9" label="10.9" role="Recipe">
+      <sect1 id="io-network-SECT-9" label="10.9" role="Recipe">
          <title>Filtering Files</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-9.1">
+         <sect2 id="io-network-SECT-9.1">
             <title>Problem</title>
-            <para>You need to select all the files<indexterm id="jakartackbk-CHP-10-ITERM-3101" significance="normal">
+            <para>You need to select all the files<indexterm id="io-network-ITERM-3101" significance="normal">
                   <primary>Commons
 IO</primary>
                   <secondary>filtering files</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3102" significance="normal">
+               <indexterm id="io-network-ITERM-3102" significance="normal">
                   <primary>filtering</primary>
                   <secondary>files</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3103" significance="normal">
+               <indexterm id="io-network-ITERM-3103" significance="normal">
                   <primary>I/O</primary>
                   <secondary>Commons
 IO</secondary>
                   <tertiary>filtering files</tertiary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3104" significance="normal">
+               <indexterm id="io-network-ITERM-3104" significance="normal">
                   <primary>files</primary>
                   <secondary>filtering</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3105" significance="normal">
+               <indexterm id="io-network-ITERM-3105" significance="normal">
                   <primary>directories</primary>
                   <secondary>filtering</secondary>
                </indexterm>
@@ -887,11 +887,11 @@ in a directory ending in <filename moreinfo="none">.xml</filename>, or you need 
 select only files (not subdirectories) contained in a directory. In
 other words, you need to filter a list of files.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-9.2">
+         <sect2 id="io-network-SECT-9.2">
             <title>Solution</title>
             <para>Use one of the many implementations of
 <literal moreinfo="none">IOFileFilter</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3106" significance="normal">
+               <indexterm id="io-network-ITERM-3106" significance="normal">
                   <primary>IOFileFilter</primary>
                </indexterm>
 in the <literal moreinfo="none">org.apache.commons.io.filefilter</literal> package.
@@ -916,11 +916,11 @@ the following output:</para>
             <programlisting id="I_10_tt415" format="linespecific">*** XML Files
 {project.xml}</programlisting>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-9.3">
+         <sect2 id="io-network-SECT-9.3">
             <title>Discussion</title>
             <para>The
 <literal moreinfo="none">org.apache.commons.io.filefilter</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3107" significance="normal">
+               <indexterm id="io-network-ITERM-3107" significance="normal">
                   <primary>org.apache.commons.io.filefilter
 package</primary>
                </indexterm> package contains a number of
@@ -954,11 +954,11 @@ System.out.println( "*** HTML Files" );
 System.out.println( ArrayUtils.toString( htmlFiles ) );</programlisting>
             <para>This example combines two
 <literal moreinfo="none">SuffixFileFilter</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3108" significance="normal">
+               <indexterm id="io-network-ITERM-3108" significance="normal">
                   <primary>SuffixFileFilter
 instances</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3109" significance="normal">
+               <indexterm id="io-network-ITERM-3109" significance="normal">
                   <primary>instances</primary>
                   <secondary>SuffixFileFilter</secondary>
                </indexterm>
@@ -975,38 +975,38 @@ implements both the <literal moreinfo="none">java.io.FileFilter</literal> and
 <literal moreinfo="none">java.io.FilenameFilter</literal> interfaces.</para>
          </sect2>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-10" label="10.10" role="Recipe">
+      <sect1 id="io-network-SECT-10" label="10.10" role="Recipe">
          <title>Measuring Stream Traffic</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-10.1">
+         <sect2 id="io-network-SECT-10.1">
             <title>Problem</title>
-            <para>You need to keep track <indexterm id="jakartackbk-CHP-10-ITERM-3110" significance="normal">
+            <para>You need to keep track <indexterm id="io-network-ITERM-3110" significance="normal">
                   <primary>Commons
 IO</primary>
                   <secondary>tracking traffic</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3111" significance="normal">
+               <indexterm id="io-network-ITERM-3111" significance="normal">
                   <primary>tracking</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3112" significance="normal">
+               <indexterm id="io-network-ITERM-3112" significance="normal">
                   <primary>traffic</primary>
                   <secondary>Commons
 IO</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3113" significance="normal">
+               <indexterm id="io-network-ITERM-3113" significance="normal">
                   <primary>I/O</primary>
                   <secondary>Commons
 IO</secondary>
                   <tertiary>tracking traffic</tertiary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3114" significance="normal">
+               <indexterm id="io-network-ITERM-3114" significance="normal">
                   <primary>traffic</primary>
                   <secondary>tracking</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3115" significance="normal">
+               <indexterm id="io-network-ITERM-3115" significance="normal">
                   <primary>streams</primary>
                   <secondary>tracking</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3116" significance="normal">
+               <indexterm id="io-network-ITERM-3116" significance="normal">
                   <primary>measuring</primary>
                   <secondary>stream
 traffic</secondary>
@@ -1014,23 +1014,23 @@ traffic</secondary>
 <literal moreinfo="none">InputStream</literal> or written to an
 <literal moreinfo="none">OutputStream</literal>.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-10.2">
+         <sect2 id="io-network-SECT-10.2">
             <title>Solution</title>
             <para>Use a
 <literal moreinfo="none">CountingInputStream</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3117" significance="normal">
+               <indexterm id="io-network-ITERM-3117" significance="normal">
                   <primary>CountingInputStream</primary>
                </indexterm>
 or
 <literal moreinfo="none">CountingOutputStream</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3118" significance="normal">
+               <indexterm id="io-network-ITERM-3118" significance="normal">
                   <primary>CountingOutputStream</primary>
                </indexterm>
 to keep track of the number of bytes written to a stream. The
 following example uses a <literal moreinfo="none">CountingOutputStream</literal> to
 keep track of the number of bytes written to a
 <literal moreinfo="none">FileOutputStream</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3119" significance="normal">
+               <indexterm id="io-network-ITERM-3119" significance="normal">
                   <primary>FileOutputStream</primary>
                </indexterm>:</para>
             <programlisting id="I_10_tt417" format="linespecific">import org.apache.commons.io.IOUtils;
@@ -1059,7 +1059,7 @@ with a <literal moreinfo="none">CountingOutputStream</literal>, producing the
 following console output:</para>
             <programlisting id="I_10_tt418" format="linespecific">Wrote 5 bytes to test.dat</programlisting>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-10.3">
+         <sect2 id="io-network-SECT-10.3">
             <title>Discussion</title>
             <para>
                <literal moreinfo="none">CountingInputStream</literal> wraps an
@@ -1089,35 +1089,35 @@ if( countStream != null ) {
 }</programlisting>
          </sect2>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-11" label="10.11" role="Recipe">
+      <sect1 id="io-network-SECT-11" label="10.11" role="Recipe">
          <title>Splitting an OutputStream</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-11.1">
+         <sect2 id="io-network-SECT-11.1">
             <title>Problem</title>
-            <para>You need to send the same output <indexterm id="jakartackbk-CHP-10-ITERM-3120" significance="normal">
+            <para>You need to send the same output <indexterm id="io-network-ITERM-3120" significance="normal">
                   <primary>Commons
 IO</primary>
                   <secondary>splitting
 OutputStreams</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3121" significance="normal">
+               <indexterm id="io-network-ITERM-3121" significance="normal">
                   <primary>splitting</primary>
                   <secondary>OutputStreamsCommons
 IO</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3122" significance="normal">
+               <indexterm id="io-network-ITERM-3122" significance="normal">
                   <primary>I/O</primary>
                   <secondary>Commons
 IO</secondary>
                   <tertiary>splitting OutputSteams</tertiary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3123" significance="normal">
+               <indexterm id="io-network-ITERM-3123" significance="normal">
                   <primary>OutputStreams, splitting</primary>
                </indexterm>to
 two <literal moreinfo="none">OutputStream</literal>s.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-11.2">
+         <sect2 id="io-network-SECT-11.2">
             <title>Solution</title>
-            <para>Use <indexterm id="jakartackbk-CHP-10-ITERM-3124" significance="normal">
+            <para>Use <indexterm id="io-network-ITERM-3124" significance="normal">
                   <primary>Commons IO
 TeeOutputStream</primary>
                </indexterm>Commons IO
@@ -1125,7 +1125,7 @@ TeeOutputStream</primary>
 instances of <literal moreinfo="none">OutputStream</literal>. When data is written to
 a
 <literal moreinfo="none">TeeOutputStream</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3125" significance="normal">
+               <indexterm id="io-network-ITERM-3125" significance="normal">
                   <primary>TeeOutputStream</primary>
                </indexterm>,
 that data is sent to the two instances of
@@ -1134,10 +1134,10 @@ following example demonstrates the use of
 <literal moreinfo="none">TeeOutputStream</literal> to write the same
 <literal moreinfo="none">String</literal> to two instances of
 <literal moreinfo="none">FileOutputStream</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3126" significance="normal">
+               <indexterm id="io-network-ITERM-3126" significance="normal">
                   <primary>FileOutputStream</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3127" significance="normal">
+               <indexterm id="io-network-ITERM-3127" significance="normal">
                   <primary>instances</primary>
                   <secondary>FileOutputStream</secondary>
                </indexterm>:</para>
@@ -1167,46 +1167,46 @@ contains. After this example is executed, two files,
 will contain the same text.</para>
          </sect2>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-12" label="10.12" role="Recipe">
+      <sect1 id="io-network-SECT-12" label="10.12" role="Recipe">
          <title>Obtaining Jakarta ORO</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-12.1">
+         <sect2 id="io-network-SECT-12.1">
             <title>Problem</title>
-            <para>You need to use <indexterm id="jakartackbk-CHP-10-ITERM-3128" significance="normal">
+            <para>You need to use <indexterm id="io-network-ITERM-3128" significance="normal">
                   <primary>Jakarta
 ORO</primary>
                   <secondary>downloading</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3129" significance="normal">
+               <indexterm id="io-network-ITERM-3129" significance="normal">
                   <primary>downloading</primary>
                   <secondary>Jakarta
 ORO</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3130" significance="normal">
+               <indexterm id="io-network-ITERM-3130" significance="normal">
                   <primary>files</primary>
                   <secondary>Jakarta
 ORO</secondary>
                   <tertiary>downloading</tertiary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3131" significance="normal">
+               <indexterm id="io-network-ITERM-3131" significance="normal">
                   <primary>searching</primary>
                   <secondary>Jakarta
 ORO</secondary>
                   <tertiary>downloading</tertiary>
                </indexterm>Jakarta
-ORO to finds files by<indexterm id="jakartackbk-CHP-10-ITERM-3132" significance="normal">
+ORO to finds files by<indexterm id="io-network-ITERM-3132" significance="normal">
                   <primary>ORO</primary>
                   <see>Jakarta
 ORO</see>
                </indexterm> a glob or regular expression.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-12.2">
+         <sect2 id="io-network-SECT-12.2">
             <title>Solution</title>
             <para>Download Jakarta ORO 2.0.8 from <systemitem role="url" moreinfo="none">http://jakarta.apache.org/site/binindex.cgi</systemitem>.
 Once you have downloaded and uncompressed the archive distribution,
 place the <filename moreinfo="none">jakarta-oro-2.0.8.jar</filename> in your
 classpath.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-12.3">
+         <sect2 id="io-network-SECT-12.3">
             <title>Discussion</title>
             <para>Jakarta ORO provides support for Perl regular expressions, AWK
 expressions, and glob expressions. Before Java 1.4 introduced the
@@ -1227,7 +1227,7 @@ dependency on Jakarta ORO 2.0.8 with the following section in
   ....other dependencies...
 &lt;/dependencies&gt;</programlisting>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-12.4">
+         <sect2 id="io-network-SECT-12.4">
             <title>See Also</title>
             <para>For more information about ORO, see the Jakarta ORO project at
 <systemitem role="url" moreinfo="none">http://jakarta.apache.org/oro</systemitem>.
@@ -1236,55 +1236,55 @@ Jakarta ORO, see the package summary for the
 <literal moreinfo="none">org.apache.oro.test.regex</literal> package at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/oro/api/org/apache/oro/text/regex/package-summary.html</systemitem>.</para>
          </sect2>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-13" label="10.13" role="Recipe">
+      <sect1 id="io-network-SECT-13" label="10.13" role="Recipe">
          <title>Using Globs and Perl5 Regular Expressions to List Files</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-13.1">
+         <sect2 id="io-network-SECT-13.1">
             <title>Problem</title>
-            <para>You need to get a list<indexterm id="jakartackbk-CHP-10-ITERM-3133" significance="normal">
+            <para>You need to get a list<indexterm id="io-network-ITERM-3133" significance="normal">
                   <primary>Jakarta
 ORO</primary>
                   <secondary>listing files</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3134" significance="normal">
+               <indexterm id="io-network-ITERM-3134" significance="normal">
                   <primary>lists</primary>
                   <secondary>files</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3135" significance="normal">
+               <indexterm id="io-network-ITERM-3135" significance="normal">
                   <primary>files</primary>
                   <secondary>Jakarta
 ORO</secondary>
                   <tertiary>listing</tertiary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3136" significance="normal">
+               <indexterm id="io-network-ITERM-3136" significance="normal">
                   <primary>searching</primary>
                   <secondary>Jakarta
 ORO</secondary>
                   <tertiary>listing files</tertiary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3137" significance="normal">
+               <indexterm id="io-network-ITERM-3137" significance="normal">
                   <primary>globs</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3138" significance="normal">
+               <indexterm id="io-network-ITERM-3138" significance="normal">
                   <primary>expressions</primary>
                   <secondary>files,
 listing</secondary>
                </indexterm> 
-               <indexterm id="jakartackbk-CHP-10-ITERM-3139" significance="normal">
+               <indexterm id="io-network-ITERM-3139" significance="normal">
                   <primary>regular
 expressions</primary>
                </indexterm> of files that match either a glob
 or regular expression.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-13.2">
+         <sect2 id="io-network-SECT-13.2">
             <title>Solution</title>
             <para>Use
 <literal moreinfo="none">Perl5FilenameFilter</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3140" significance="normal">
+               <indexterm id="io-network-ITERM-3140" significance="normal">
                   <primary>Perl5FilenameFilter</primary>
                </indexterm>
 or
 <literal moreinfo="none">GlobFilenameFilter</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3141" significance="normal">
+               <indexterm id="io-network-ITERM-3141" significance="normal">
                   <primary>GlobFilenameFilter</primary>
                </indexterm>
 from Jakarta ORO to select all files matching an expression. Both of
@@ -1310,21 +1310,21 @@ FilenameFilter regexFilter = <userinput moreinfo="none">new</userinput> Perl5Fil
 File[] tldFiles = dataDir.listFiles( regexFilter );</programlisting>
          </sect2>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-14" label="10.14" role="Recipe">
+      <sect1 id="io-network-SECT-14" label="10.14" role="Recipe">
          <title>Obtaining Commons Net</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-14.1">
+         <sect2 id="io-network-SECT-14.1">
             <title>Problem</title>
-            <para>You need to use <indexterm id="jakartackbk-CHP-10-ITERM-3142" significance="normal">
+            <para>You need to use <indexterm id="io-network-ITERM-3142" significance="normal">
                   <primary>Commons
 Net</primary>
                   <secondary>downloading</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3143" significance="normal">
+               <indexterm id="io-network-ITERM-3143" significance="normal">
                   <primary>downloading</primary>
                   <secondary>Commons
 Net</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3144" significance="normal">
+               <indexterm id="io-network-ITERM-3144" significance="normal">
                   <primary>clients</primary>
                   <secondary>Commons
 Net</secondary>
@@ -1332,14 +1332,14 @@ Net</secondary>
                </indexterm>Commons
 Net to write a simple FTP, SMTP, or POP3 client.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-14.2">
+         <sect2 id="io-network-SECT-14.2">
             <title>Solution</title>
             <para>Download the latest version of Commons Net, and place the Commons Net
 JAR<filename moreinfo="none"> </filename>in your project's
 classpath. Following the steps outlined in <link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, download Commons Net 1.2.2 instead of
 Commons Lang.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-14.3">
+         <sect2 id="io-network-SECT-14.3">
             <title>Discussion</title>
             <para>Jakarta Commons Net contains some simple clients for commonly used
 network protocols, such as FTP, TFTP, Telnet, NNTP, POP3, and SMTP.
@@ -1361,31 +1361,31 @@ dependency on Commons Net 1.2.2 with the following section in
   ....other dependencies...
 &lt;/dependencies&gt;</programlisting>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-14.4">
+         <sect2 id="io-network-SECT-14.4">
             <title>See Also</title>
             <para>For more information about Commons Net, see the Commons Net project
 page at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/net</systemitem>.</para>
          </sect2>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-15" label="10.15" role="Recipe">
+      <sect1 id="io-network-SECT-15" label="10.15" role="Recipe">
          <title>Writing an FTP Client</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-15.1">
+         <sect2 id="io-network-SECT-15.1">
             <title>Problem</title>
-            <para>You need to write a<indexterm id="jakartackbk-CHP-10-ITERM-3145" significance="normal">
+            <para>You need to write a<indexterm id="io-network-ITERM-3145" significance="normal">
                   <primary>File Transfer
 Protocol</primary>
                   <see>FTP</see>
                </indexterm> program to
-interact<indexterm class="startofrange" id="jakartackbk-CHP-10-ITERM-3146" significance="normal">
+interact<indexterm class="startofrange" id="io-network-ITERM-3146" significance="normal">
                   <primary>Commons
 Net</primary>
                   <secondary>FTP</secondary>
                </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-10-ITERM-3147" significance="normal">
+               <indexterm class="startofrange" id="io-network-ITERM-3147" significance="normal">
                   <primary>FTP (File
 Transfer Protocol)</primary>
                </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-10-ITERM-3148" significance="normal">
+               <indexterm class="startofrange" id="io-network-ITERM-3148" significance="normal">
                   <primary>clients</primary>
                   <secondary>Commons
 Net</secondary>
@@ -1393,10 +1393,10 @@ Net</secondary>
                </indexterm> with an FTP
 server.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-15.2">
+         <sect2 id="io-network-SECT-15.2">
             <title>Solution</title>
             <para>Use Commons Net <literal moreinfo="none">FTPClient</literal> to communicate
-<indexterm id="jakartackbk-CHP-10-ITERM-3149" significance="normal">
+<indexterm id="io-network-ITERM-3149" significance="normal">
                   <primary>servers</primary>
                   <secondary>FTP</secondary>
                </indexterm>with
@@ -1435,30 +1435,30 @@ is created; the example then logs on to
 <filename moreinfo="none">ftp.ibibio.org</filename> as
 <filename moreinfo="none">anonymous—</filename>with no password—using the
 <literal moreinfo="none">connect( )</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3150" significance="normal">
+               <indexterm id="io-network-ITERM-3150" significance="normal">
                   <primary>connect( )
 method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3151" significance="normal">
+               <indexterm id="io-network-ITERM-3151" significance="normal">
                   <primary>methods</primary>
                   <secondary>connect(
 )</secondary>
                </indexterm> and <literal moreinfo="none">login()</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3152" significance="normal">
+               <indexterm id="io-network-ITERM-3152" significance="normal">
                   <primary>login( ) method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3153" significance="normal">
+               <indexterm id="io-network-ITERM-3153" significance="normal">
                   <primary>methods</primary>
                   <secondary>login(
 )</secondary>
                </indexterm> method on <literal moreinfo="none">FTPClient</literal>. The
 full path to the remote file <filename moreinfo="none">c64bus.gif</filename> and an
 <literal moreinfo="none">OutputStream</literal> are passed to <literal moreinfo="none">retrieveFile()</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3154" significance="normal">
+               <indexterm id="io-network-ITERM-3154" significance="normal">
                   <primary>retrieveFile( )
 method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3155" significance="normal">
+               <indexterm id="io-network-ITERM-3155" significance="normal">
                   <primary>methods</primary>
                   <secondary>retrieveFile(
 )</secondary>
@@ -1467,18 +1467,18 @@ method</primary>
 been retrieved, the <literal moreinfo="none">FTPClient</literal> is disconnected from
 the server using the <literal moreinfo="none">disconnect(
 )</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3156" significance="normal">
+               <indexterm id="io-network-ITERM-3156" significance="normal">
                   <primary>disconnect( )
 method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3157" significance="normal">
+               <indexterm id="io-network-ITERM-3157" significance="normal">
                   <primary>methods</primary>
                   <secondary>disconnect(
 )</secondary>
                </indexterm> method in a <literal moreinfo="none">finally</literal>
 block.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-15.3">
+         <sect2 id="io-network-SECT-15.3">
             <title>Discussion</title>
             <para>
                <literal moreinfo="none">FTPClient</literal> can also be used to list the contents of
@@ -1526,19 +1526,19 @@ ecs-1.4.2.zip:         2 MB
 ecs-1.4.2.zip.asc:     65 bytes
 ecs-1.4.2.zip.md5:     33 bytes</programlisting>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-15.4">
+         <sect2 id="io-network-SECT-15.4">
             <title>See Also</title>
-            <para>Commons Net also contains a <indexterm id="jakartackbk-CHP-10-ITERM-3158" significance="normal">
+            <para>Commons Net also contains a <indexterm id="io-network-ITERM-3158" significance="normal">
                   <primary>Trivial File Transfer
 Protocol</primary>
                   <see>TFTP</see>
                </indexterm>Trivial File Transfer
 Protocol
-<indexterm id="jakartackbk-CHP-10-ITERM-3159" significance="normal">
+<indexterm id="io-network-ITERM-3159" significance="normal">
                   <primary>clients</primary>
                   <secondary>TFTP</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3160" significance="normal">
+               <indexterm id="io-network-ITERM-3160" significance="normal">
                   <primary>TFTP (Trivial File Transfer
 Protocol)</primary>
                </indexterm>(TFTP) client:
@@ -1547,47 +1547,47 @@ information about TFTP client, see the Javadoc for
 <literal moreinfo="none">TFTPClient</literal> at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/tftp/TFTPClient.html</systemitem>.</para>
             <para>
                <literal moreinfo="none">FTPClient</literal> contains a number of
-additional<indexterm class="endofrange" startref="jakartackbk-CHP-10-ITERM-3146" id="jakartackbk-CHP-10-ITERM-3161" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-10-ITERM-3147" id="jakartackbk-CHP-10-ITERM-3162" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-10-ITERM-3148" id="jakartackbk-CHP-10-ITERM-3163" significance="normal"/> features, such as active and
+additional<indexterm class="endofrange" startref="io-network-ITERM-3146" id="io-network-ITERM-3161" significance="normal"/> 
+               <indexterm class="endofrange" startref="io-network-ITERM-3147" id="io-network-ITERM-3162" significance="normal"/> 
+               <indexterm class="endofrange" startref="io-network-ITERM-3148" id="io-network-ITERM-3163" significance="normal"/> features, such as active and
 passive connection modes and the ability to append to remote files,
 make remote directories, and put files on a remote FTP server. For
 more information about <literal moreinfo="none">FTPClient</literal>, see the
 <literal moreinfo="none">FTPClient</literal> Javadoc at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/ftp/FTPClient.html</systemitem>.</para>
          </sect2>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-16" label="10.16" role="Recipe">
+      <sect1 id="io-network-SECT-16" label="10.16" role="Recipe">
          <title>Sending Mail with SMTP</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-16.1">
+         <sect2 id="io-network-SECT-16.1">
             <title>Problem</title>
-            <para>You need to <indexterm id="jakartackbk-CHP-10-ITERM-3164" significance="normal">
+            <para>You need to <indexterm id="io-network-ITERM-3164" significance="normal">
                   <primary>Simple Mail Transfer
 Protocol</primary>
                   <see>SMTP</see>
-               </indexterm>send an<indexterm class="startofrange" id="jakartackbk-CHP-10-ITERM-3165" significance="normal">
+               </indexterm>send an<indexterm class="startofrange" id="io-network-ITERM-3165" significance="normal">
                   <primary>Commons
 Net</primary>
                   <secondary>SMTP</secondary>
                </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-10-ITERM-3166" significance="normal">
+               <indexterm class="startofrange" id="io-network-ITERM-3166" significance="normal">
                   <primary>SMTP (Simple
 Mail Transfer Protocol)</primary>
                </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-10-ITERM-3167" significance="normal">
+               <indexterm class="startofrange" id="io-network-ITERM-3167" significance="normal">
                   <primary>sending</primary>
                   <secondary>email</secondary>
                </indexterm>
-               <indexterm class="startofrange" id="jakartackbk-CHP-10-ITERM-3168" significance="normal">
+               <indexterm class="startofrange" id="io-network-ITERM-3168" significance="normal">
                   <primary>email</primary>
                   <secondary>sending</secondary>
                </indexterm>
-               <indexterm class="startofrange" id="jakartackbk-CHP-10-ITERM-3169" significance="normal">
+               <indexterm class="startofrange" id="io-network-ITERM-3169" significance="normal">
                   <primary>clients</primary>
                   <secondary>SMTP</secondary>
                </indexterm>
 email.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-16.2">
+         <sect2 id="io-network-SECT-16.2">
             <title>Solution</title>
             <para>Use <literal moreinfo="none">SMTPClient</literal> from Commons Net. The following
 example sends a simple email to <filename moreinfo="none">somedude@aol.org</filename>
@@ -1603,11 +1603,11 @@ client.sendSimpleMessage("tobrien@discursive.com",
 client.disconnect( );</programlisting>
             <para>This example sends a very simple email message to one recipient by
 passing three arguments to <literal moreinfo="none">client.sendSimpleMessage()</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3170" significance="normal">
+               <indexterm id="io-network-ITERM-3170" significance="normal">
                   <primary>client.sendSimpleMessage( )
 method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3171" significance="normal">
+               <indexterm id="io-network-ITERM-3171" significance="normal">
                   <primary>methods</primary>
                   <secondary>client.sendSimpleMessage(
 )</secondary>
@@ -1633,14 +1633,14 @@ client.sendSimpleMessage("astronaut@nasa.gov",
                          "The eagle has landed." );
 client.disconnect( );</programlisting>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-16.3">
+         <sect2 id="io-network-SECT-16.3">
             <title>Discussion</title>
             <para>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3172" significance="normal">
+               <indexterm id="io-network-ITERM-3172" significance="normal">
                   <primary>Telnet</primary>
                </indexterm>Telnet to port 25 of
 a SMTP server,
-<indexterm id="jakartackbk-CHP-10-ITERM-3173" significance="normal">
+<indexterm id="io-network-ITERM-3173" significance="normal">
                   <primary>servers</primary>
                   <secondary>SMTP</secondary>
                </indexterm>and
@@ -1652,30 +1652,30 @@ response code, 220, is equal to the public static variable
 <literal moreinfo="none">SMTPReply.SERVICE_READY</literal>. The following example
 uses <literal moreinfo="none">getReplyCode(
 )</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3174" significance="normal">
+               <indexterm id="io-network-ITERM-3174" significance="normal">
                   <primary>getReplyCode( )
 method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3175" significance="normal">
+               <indexterm id="io-network-ITERM-3175" significance="normal">
                   <primary>methods</primary>
                   <secondary>getReplyCode(
 )</secondary>
                </indexterm> and
 <literal moreinfo="none">SMTPReply.isPositiveCompletion()</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3176" significance="normal">
+               <indexterm id="io-network-ITERM-3176" significance="normal">
                   <primary>SMTPReply.isPositiveCompletion( )
 method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3177" significance="normal">
+               <indexterm id="io-network-ITERM-3177" significance="normal">
                   <primary>methods</primary>
                   <secondary>SMTPReply.isPositiveCompletion(
 )</secondary>
                </indexterm> to test the connection
-to<indexterm id="jakartackbk-CHP-10-ITERM-3178" significance="normal">
+to<indexterm id="io-network-ITERM-3178" significance="normal">
                   <primary>connections</primary>
                   <secondary>testing</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3179" significance="normal">
+               <indexterm id="io-network-ITERM-3179" significance="normal">
                   <primary>testing</primary>
                   <secondary>connections</secondary>
                </indexterm>
@@ -1716,7 +1716,7 @@ example sets a sender address and two recipient addresses using
 message is sent by calling <literal moreinfo="none">completePendingCommand()</literal>. <literal moreinfo="none">completePendingCommand( )</literal> returns
 <literal moreinfo="none">true</literal> if the message has been queued for delivery.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-16.4">
+         <sect2 id="io-network-SECT-16.4">
             <title>See Also</title>
             <para>JavaMail is the set of utilities contained in the
 <literal moreinfo="none">javax.mail</literal> package, and JavaMail is usually used
@@ -1724,11 +1724,11 @@ in conjunction with the Java Activation Framework (JAF) to send email
 messages using SMTP. Commons Net does not aim to replace the JavaMail
 API, but it does provide a very straightforward alternative for
 sending email messages. For more information about JavaMail,
-see<indexterm class="endofrange" startref="jakartackbk-CHP-10-ITERM-3165" id="jakartackbk-CHP-10-ITERM-3180" significance="normal"/>
-               <indexterm class="endofrange" startref="jakartackbk-CHP-10-ITERM-3166" id="jakartackbk-CHP-10-ITERM-3181" significance="normal"/>
-               <indexterm class="endofrange" startref="jakartackbk-CHP-10-ITERM-3167" id="jakartackbk-CHP-10-ITERM-3182" significance="normal"/>
-               <indexterm class="endofrange" startref="jakartackbk-CHP-10-ITERM-3168" id="jakartackbk-CHP-10-ITERM-3183" significance="normal"/>
-               <indexterm class="endofrange" startref="jakartackbk-CHP-10-ITERM-3169" id="jakartackbk-CHP-10-ITERM-3184" significance="normal"/> the
+see<indexterm class="endofrange" startref="io-network-ITERM-3165" id="io-network-ITERM-3180" significance="normal"/>
+               <indexterm class="endofrange" startref="io-network-ITERM-3166" id="io-network-ITERM-3181" significance="normal"/>
+               <indexterm class="endofrange" startref="io-network-ITERM-3167" id="io-network-ITERM-3182" significance="normal"/>
+               <indexterm class="endofrange" startref="io-network-ITERM-3168" id="io-network-ITERM-3183" significance="normal"/>
+               <indexterm class="endofrange" startref="io-network-ITERM-3169" id="io-network-ITERM-3184" significance="normal"/> the
 JavaMail product page at <systemitem role="url" moreinfo="none">http://java.sun.com/products/javamail</systemitem>. For
 more information about the JavaMail API, see Chapter 10,
 "JavaMail Best Practices," in
@@ -1736,37 +1736,37 @@ more information about the JavaMail API, see Chapter 10,
 (O'Reilly).</para>
          </sect2>
       </sect1>
-      <sect1 id="jakartackbk-CHP-10-SECT-17" label="10.17" role="Recipe">
+      <sect1 id="io-network-SECT-17" label="10.17" role="Recipe">
          <title>Checking a POP3 Mailbox</title>
-         <sect2 id="jakartackbk-CHP-10-SECT-17.1">
+         <sect2 id="io-network-SECT-17.1">
             <title>Problem</title>
-            <para>You need to check a POP3 <indexterm id="jakartackbk-CHP-10-ITERM-3185" significance="normal">
+            <para>You need to check a POP3 <indexterm id="io-network-ITERM-3185" significance="normal">
                   <primary>Commons
 Net</primary>
                   <secondary>POP3</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3186" significance="normal">
+               <indexterm id="io-network-ITERM-3186" significance="normal">
                   <primary>POP3 (Post Office Protocol
 3)</primary>
                </indexterm> 
-               <indexterm id="jakartackbk-CHP-10-ITERM-3187" significance="normal">
+               <indexterm id="io-network-ITERM-3187" significance="normal">
                   <primary>mailboxes,
 POP3</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3188" significance="normal">
+               <indexterm id="io-network-ITERM-3188" significance="normal">
                   <primary>clients</primary>
                   <secondary>POP3</secondary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3189" significance="normal">
+               <indexterm id="io-network-ITERM-3189" significance="normal">
                   <primary>email</primary>
                   <secondary>mailboxes</secondary>
                </indexterm>mailbox.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-17.2">
+         <sect2 id="io-network-SECT-17.2">
             <title>Solution</title>
             <para>Use Commons Net <literal moreinfo="none">POP3Client</literal> to check a POP3 mailbox
 for incoming mail. The following example connects to the
-<indexterm id="jakartackbk-CHP-10-ITERM-3190" significance="normal">
+<indexterm id="io-network-ITERM-3190" significance="normal">
                   <primary>servers</primary>
                   <secondary>POP3</secondary>
                </indexterm>POP3
@@ -1794,11 +1794,11 @@ for (int i = 0; i &lt; messages.length; i++) {
 client.logout( );
 client.disconnect( );</programlisting>
             <para>This example calls <literal moreinfo="none">client.listMessage()</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3191" significance="normal">
+               <indexterm id="io-network-ITERM-3191" significance="normal">
                   <primary>client.listMessage( )
 method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3192" significance="normal">
+               <indexterm id="io-network-ITERM-3192" significance="normal">
                   <primary>methods</primary>
                   <secondary>client.listMessage(
 )</secondary>
@@ -1808,11 +1808,11 @@ using the message number contained in each
 <literal moreinfo="none">POP3MessageInfo</literal>. To retrieve the contents of an
 individual message, the message number is passed to
 <literal moreinfo="none">retrieveMessage()</literal>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3193" significance="normal">
+               <indexterm id="io-network-ITERM-3193" significance="normal">
                   <primary>retrieveMessage( )
 method</primary>
                </indexterm>
-               <indexterm id="jakartackbk-CHP-10-ITERM-3194" significance="normal">
+               <indexterm id="io-network-ITERM-3194" significance="normal">
                   <primary>methods</primary>
                   <secondary>retrieveMessage(
 )</secondary>
@@ -1851,7 +1851,7 @@ millions by sending useless spam.
 Mr. Jerk Spammer
 "I ruin email for everyone!"</programlisting>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-17.3">
+         <sect2 id="io-network-SECT-17.3">
             <title>Discussion</title>
             <para>This example did not venture into the topic of parsing an email
 message body. As shown above, the message read with
@@ -1864,12 +1864,12 @@ client for a user, you will need to write a parser that can extract a
 relevant header—such as <filename moreinfo="none">Subject</filename> and
 <filename moreinfo="none">From</filename>—from the raw email message.</para>
          </sect2>
-         <sect2 id="jakartackbk-CHP-10-SECT-17.4">
+         <sect2 id="io-network-SECT-17.4">
             <title>See Also</title>
             <para>This recipe used <literal moreinfo="none">IOUtils.toString( )</literal> and
 <literal moreinfo="none">IOUtils.closeQuietly( )</literal> to copy and close a
 <literal moreinfo="none">Reader</literal> for each email message. These methods are
-described in detail in  <link linkend="jakartackbk-CHP-10-SECT-2">Recipe 10.2</link> and <link linkend="jakartackbk-CHP-10-SECT-3">Recipe 10.3</link>.</para>
+described in detail in  <link linkend="io-network-SECT-2">Recipe 10.2</link> and <link linkend="io-network-SECT-3">Recipe 10.3</link>.</para>
             <para>For a good overview of SMTP and POP3 from the perspective of a
 FreeBSD administrator, take a look at Dru Lavigne's
 article "Understanding E-Mail" from

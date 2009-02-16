@@ -90,16 +90,16 @@
       <title>Problem</title>
 
       <para>You need to use Jakarta <indexterm
-          id="jakartackbk-CHP-6-ITERM-2690" significance="normal">
+          id="xml-ITERM-2690" significance="normal">
           <primary>Commons Digester</primary>
 
           <secondary>downloading</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2691"
+        </indexterm> <indexterm id="xml-ITERM-2691"
           significance="normal">
           <primary>downloading</primary>
 
           <secondary>Commons Digester</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2692"
+        </indexterm> <indexterm id="xml-ITERM-2692"
           significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
@@ -120,9 +120,9 @@
       moreinfo="none">commons-digester.jar</filename> in your classpath.
       Commons Digester depends on Commons BeanUtils, Commons Logging, and
       Commons Collections. To download dependencies, see <link
-      linkend="jakartackbk-CHP-3-SECT-2">Recipe 3.2</link>, <link
-      linkend="jakartackbk-CHP-5-SECT-1">Recipe 5.1</link>, and <link
-      linkend="jakartackbk-CHP-7-SECT-9">Recipe 7.9</link>.</para>
+      linkend="beans-SECT-2">Recipe 3.2</link>, <link
+      linkend="collections-SECT-1">Recipe 5.1</link>, and <link
+      linkend="app-infra-SECT-9">Recipe 7.9</link>.</para>
     </sect2>
 
     <sect2>
@@ -136,7 +136,7 @@
       a set of objects using the Digester. The Digester's most straightforward
       application is the mapping of an XML document to a set of Java objects,
       but, as shown in this chapter and <link
-      linkend="jakartackbk-CHP-12">Chapter 12</link>, Digester can also be
+      linkend="searching-filtering">Chapter 12</link>, Digester can also be
       used to create a simple XML command language and search index. Digester
       is a shortcut for creating a SAX parser. Almost anything you can do with
       a SAX parser can be done with Jakarta Commons Digester.</para>
@@ -161,7 +161,7 @@
       Digester project page at <systemitem moreinfo="none"
       role="url">http://jakarta.apache.org/commons/digester</systemitem>. For
       information about using the Digester to create a Lucene index, see <link
-      linkend="jakartackbk-CHP-12">Chapter 12</link>.</para>
+      linkend="searching-filtering">Chapter 12</link>.</para>
     </sect2>
   </sect1>
 
@@ -172,28 +172,28 @@
       <title>Problem</title>
 
       <para>You need to parse an XML <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2693" significance="normal">
+          id="xml-ITERM-2693" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>documents</secondary>
 
           <tertiary>converting to objects</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2694" significance="normal">
+          id="xml-ITERM-2694" significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>converting to objects</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2695" significance="normal">
+          id="xml-ITERM-2695" significance="normal">
           <primary>objects</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>converting to</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2696" significance="normal">
+          id="xml-ITERM-2696" significance="normal">
           <primary>conversion</primary>
 
           <secondary>XML</secondary>
@@ -414,9 +414,9 @@ List characters = (List) hamlet.getCharacters( );</programlisting>
       <para>Digester rule sets can be defined in an external XML document, or
       programmatically in compiled Java code, but the general rules are the
       same. The following code recreates the rule set defined in the previous
-      <indexterm id="jakartackbk-CHP-6-ITERM-2697" significance="normal">
+      <indexterm id="xml-ITERM-2697" significance="normal">
           <primary>rules, XML</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2698"
+        </indexterm> <indexterm id="xml-ITERM-2698"
           significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
@@ -471,17 +471,17 @@ rules.add( "plays/play/characters/character/description",
       <title>See Also</title>
 
       <para>More information about Digester<indexterm class="endofrange"
-      id="jakartackbk-CHP-6-ITERM-2699" significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2693"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2700"
+      id="xml-ITERM-2699" significance="normal"
+      startref="xml-ITERM-2693"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2700"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2694"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2701"
+      startref="xml-ITERM-2694"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2701"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2695"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2702"
+      startref="xml-ITERM-2695"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2702"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2696"></indexterm> XML rule sets can
+      startref="xml-ITERM-2696"></indexterm> XML rule sets can
       be found in the package document for <literal
       moreinfo="none">org.apache.commons.digester.xmlrules</literal>
       (<systemitem moreinfo="none"
@@ -502,24 +502,24 @@ rules.add( "plays/play/characters/character/description",
       <title>Solution</title>
 
       <para>Use Digester to parse<indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2703" significance="normal">
+          id="xml-ITERM-2703" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>documents</secondary>
 
           <tertiary>namespace-aware parsing</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2704" significance="normal">
+          id="xml-ITERM-2704" significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>namespace-aware parsing</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2705" significance="normal">
+          id="xml-ITERM-2705" significance="normal">
           <primary>namespace-aware parsing</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2706" significance="normal">
+          id="xml-ITERM-2706" significance="normal">
           <primary>parsing</primary>
 
           <secondary>namespace-aware</secondary>
@@ -578,11 +578,11 @@ public class PersonRuleSet extends RuleSetBase {
 
       <para><literal moreinfo="none">PersonRuleSet</literal> extends <literal
       moreinfo="none">RuleSetBase</literal> <indexterm
-          id="jakartackbk-CHP-6-ITERM-2707" significance="normal">
+          id="xml-ITERM-2707" significance="normal">
           <primary>RuleSetBase</primary>
         </indexterm>, which is an implementation of the <literal
       moreinfo="none">RuleSet</literal> <indexterm
-          id="jakartackbk-CHP-6-ITERM-2708" significance="normal">
+          id="xml-ITERM-2708" significance="normal">
           <primary>interfaces</primary>
 
           <secondary>RuleSet</secondary>
@@ -590,7 +590,7 @@ public class PersonRuleSet extends RuleSetBase {
       adds support for namespaces with a protected field <literal
       moreinfo="none">namespaceURI</literal>. The constructor of <literal
       moreinfo="none">PersonRuleSet</literal> <indexterm
-          id="jakartackbk-CHP-6-ITERM-2709" significance="normal">
+          id="xml-ITERM-2709" significance="normal">
           <primary>PersonRuleSet</primary>
         </indexterm> sets the <literal moreinfo="none">namespaceURI</literal>
       field to <filename
@@ -638,9 +638,9 @@ public class PageRuleSet extends RuleSetBase {
       moreinfo="none">RuleSet</literal> implementations are added to a
       <literal moreinfo="none">Digester</literal> using <literal
       moreinfo="none">addRuleSet()</literal> <indexterm
-          id="jakartackbk-CHP-6-ITERM-2710" significance="normal">
+          id="xml-ITERM-2710" significance="normal">
           <primary>addRuleSet( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2711"
+        </indexterm> <indexterm id="xml-ITERM-2711"
           significance="normal">
           <primary>methods</primary>
 
@@ -770,18 +770,18 @@ System.out.println(page);</programlisting>
       <title>See Also</title>
 
       <para>For more information relating to the use<indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2712"
+      class="endofrange" id="xml-ITERM-2712"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2703"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2713"
+      startref="xml-ITERM-2703"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2713"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2704"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2714"
+      startref="xml-ITERM-2704"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2714"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2705"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2715"
+      startref="xml-ITERM-2705"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2715"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2706"></indexterm> of namespaces in
+      startref="xml-ITERM-2706"></indexterm> of namespaces in
       the <literal moreinfo="none">Digester</literal>, refer to the Javadoc
       for the <literal moreinfo="none">org.apache.commons.digester</literal>
       package at <systemitem moreinfo="none"
@@ -796,24 +796,24 @@ System.out.println(page);</programlisting>
       <title>Problem</title>
 
       <para>You would like to capture <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2716" significance="normal">
+          id="xml-ITERM-2716" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>documents</secondary>
 
           <tertiary>commands</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2717" significance="normal">
+          id="xml-ITERM-2717" significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>commands</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2718" significance="normal">
+          id="xml-ITERM-2718" significance="normal">
           <primary>commands, XML</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2719" significance="normal">
+          id="xml-ITERM-2719" significance="normal">
           <primary>capturing</primary>
 
           <secondary>XML commands</secondary>
@@ -843,12 +843,12 @@ System.out.println(page);</programlisting>
   &lt;/email&gt;
 &lt;/operations&gt;</programlisting>
 
-      <para>The<indexterm id="jakartackbk-CHP-6-ITERM-2720"
+      <para>The<indexterm id="xml-ITERM-2720"
           significance="normal">
           <primary>email</primary>
 
           <secondary>tags</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2721"
+        </indexterm> <indexterm id="xml-ITERM-2721"
           significance="normal">
           <primary>tags</primary>
 
@@ -938,7 +938,7 @@ Resulting Message: !zlrqw qlleh</programlisting>
       moreinfo="none">LowerRule</literal> from the previous example overrides
       one method, and manipulates the <literal
       moreinfo="none">Message</literal> that which is on the top of the
-      <indexterm id="jakartackbk-CHP-6-ITERM-2722" significance="normal">
+      <indexterm id="xml-ITERM-2722" significance="normal">
           <primary>Commons Digester</primary>
 
           <secondary>Stack</secondary>
@@ -972,9 +972,9 @@ public class LowerRule extends Rule {
       moreinfo="none">ReplaceRule</literal>, extends <literal
       moreinfo="none">Rule</literal> and overrides the <literal
       moreinfo="none">begin( )</literal> <indexterm
-          id="jakartackbk-CHP-6-ITERM-2723" significance="normal">
+          id="xml-ITERM-2723" significance="normal">
           <primary>begin( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2724"
+        </indexterm> <indexterm id="xml-ITERM-2724"
           significance="normal">
           <primary>methods</primary>
 
@@ -1073,12 +1073,12 @@ public class EmailRule extends Rule {
       <literal moreinfo="none">Rule</literal> objects associated with a given
       pattern. If you are simply dealing with attributes, elements, and text
       nodes, Commons Digester can be a very straightforward alternative to
-      writing a <indexterm id="jakartackbk-CHP-6-ITERM-2725"
+      writing a <indexterm id="xml-ITERM-2725"
           significance="normal">
           <primary>parsing</primary>
 
           <secondary>SAX</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2726"
+        </indexterm> <indexterm id="xml-ITERM-2726"
           significance="normal">
           <primary>SAX parsers</primary>
         </indexterm>SAX parser.</para>
@@ -1089,23 +1089,23 @@ public class EmailRule extends Rule {
 
       <para>This recipe uses <literal moreinfo="none">StringUtils</literal> to
       manipulate<indexterm class="endofrange"
-      id="jakartackbk-CHP-6-ITERM-2727" significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2716"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2728"
+      id="xml-ITERM-2727" significance="normal"
+      startref="xml-ITERM-2716"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2728"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2717"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2729"
+      startref="xml-ITERM-2717"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2729"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2718"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2730"
+      startref="xml-ITERM-2718"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2730"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2719"></indexterm> text. For more
+      startref="xml-ITERM-2719"></indexterm> text. For more
       information about <literal moreinfo="none">StringUtils</literal>, see
-      <link linkend="jakartackbk-CHP-2">Chapter 2</link>. An email message is
+      <link linkend="manipulate-text">Chapter 2</link>. An email message is
       sent from the <literal moreinfo="none">EmailRule</literal> using the
       <literal moreinfo="none">SMTPClient</literal> from Commons Net. For more
       information about Commons Net, see <link
-      linkend="jakartackbk-CHP-10">Chapter 10</link>.</para>
+      linkend="io-network">Chapter 10</link>.</para>
     </sect2>
   </sect1>
 
@@ -1116,29 +1116,29 @@ public class EmailRule extends Rule {
       <title>Problem</title>
 
       <para>You need to parse XML that <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2731" significance="normal">
+          id="xml-ITERM-2731" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>parsing</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2732" significance="normal">
+          id="xml-ITERM-2732" significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>parsing</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2733" significance="normal">
+          id="xml-ITERM-2733" significance="normal">
           <primary>parsing</primary>
 
           <secondary>XML, variable substitutions</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2734" significance="normal">
+          id="xml-ITERM-2734" significance="normal">
           <primary>variables</primary>
 
           <secondary>substitution (XML)</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2735" significance="normal">
+          id="xml-ITERM-2735" significance="normal">
           <primary>references, variable substitution (XML)</primary>
         </indexterm>contains references to variables, and you need to replace
       these references with variable values at parse time.</para>
@@ -1149,16 +1149,16 @@ public class EmailRule extends Rule {
 
       <para>Use Commons Digester's <literal
       moreinfo="none">MultiVariableExpander</literal> <indexterm
-          id="jakartackbk-CHP-6-ITERM-2736" significance="normal">
+          id="xml-ITERM-2736" significance="normal">
           <primary>MultiVariableExpander</primary>
         </indexterm> and the <literal
       moreinfo="none">VariableSubstitutor</literal> <indexterm
-          id="jakartackbk-CHP-6-ITERM-2737" significance="normal">
+          id="xml-ITERM-2737" significance="normal">
           <primary>VariableSubstitutor</primary>
         </indexterm> to expand variable references in an XML document during a
       parse.</para>
 
-      <warning id="jakartackbk-CHP-6-NOTE-59" role="ora">
+      <warning id="xml-NOTE-59" role="ora">
         <para>This recipe explores a feature of Commons Digester—variable
         substitution—which is available only with a prerelease version of
         Digester, 1.6-dev. To follow the example in this recipe, you must
@@ -1205,7 +1205,7 @@ public class EmailRule extends Rule {
 }</programlisting>
 
       <para>The following XML rule set is similar to the rule set defined in
-      <link linkend="jakartackbk-CHP-6-SECT-2">Recipe 6.2</link>. When the
+      <link linkend="xml-SECT-2">Recipe 6.2</link>. When the
       parser hits an <literal moreinfo="none">email</literal> element, an
       instance of <literal moreinfo="none">Email</literal> is created and
       properties are populated:</para>
@@ -1224,7 +1224,7 @@ public class EmailRule extends Rule {
 &lt;/digester-rules&gt;</programlisting>
 
       <para>This difference between this recipe and <link
-      linkend="jakartackbk-CHP-6-SECT-2">Recipe 6.2</link> is that our XML
+      linkend="xml-SECT-2">Recipe 6.2</link> is that our XML
       document contains variables to be replaced at parse time. The following
       code creates a <literal moreinfo="none">Map</literal> that contains
       variables referenced in the XML document being parsed. This code creates
@@ -1304,20 +1304,20 @@ Email To: ldavid@hbo.com</programlisting>
 
       <para>For more information about other new features planned for Digester
       1.6, see the current development Javadoc <indexterm class="endofrange"
-      id="jakartackbk-CHP-6-ITERM-2738" significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2731"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2739"
+      id="xml-ITERM-2738" significance="normal"
+      startref="xml-ITERM-2731"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2739"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2732"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2740"
+      startref="xml-ITERM-2732"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2740"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2733"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2741"
+      startref="xml-ITERM-2733"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2741"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2734"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2742"
+      startref="xml-ITERM-2734"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2742"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2735"></indexterm>for the Digester at
+      startref="xml-ITERM-2735"></indexterm>for the Digester at
       <systemitem moreinfo="none"
       role="url">http://jakarta.apache.org/commons/digester/apidocs/index.html</systemitem>.</para>
     </sect2>
@@ -1330,26 +1330,26 @@ Email To: ldavid@hbo.com</programlisting>
       <title>Problem</title>
 
       <para>You need to use Jakarta<indexterm
-          id="jakartackbk-CHP-6-ITERM-2743" significance="normal">
+          id="xml-ITERM-2743" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>Commons Betwixt</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2744"
+        </indexterm> <indexterm id="xml-ITERM-2744"
           significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>Commons Betwixt</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2745"
+        </indexterm> <indexterm id="xml-ITERM-2745"
           significance="normal">
           <primary>downloading</primary>
 
           <secondary>Commons Betwixt</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2746"
+        </indexterm> <indexterm id="xml-ITERM-2746"
           significance="normal">
           <primary>Commons Betwixt, downloading</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2747"
+        </indexterm> <indexterm id="xml-ITERM-2747"
           significance="normal">
           <primary>beans</primary>
 
@@ -1369,10 +1369,10 @@ Email To: ldavid@hbo.com</programlisting>
       and place <filename moreinfo="none">commons-betwixt.jar</filename> in
       your classpath. Commons Betwixt depends on Commons Digester, Commons
       BeanUtils, Commons Logging, and Commons Collections. To download
-      dependencies, see <link linkend="jakartackbk-CHP-3-SECT-2">Recipe
-      3.2</link>, <link linkend="jakartackbk-CHP-5-SECT-1">Recipe 5.1</link>,
-      <link linkend="jakartackbk-CHP-6-SECT-1">Recipe 6.1</link>, and <link
-      linkend="jakartackbk-CHP-7-SECT-9">Recipe 7.9</link>.</para>
+      dependencies, see <link linkend="beans-SECT-2">Recipe
+      3.2</link>, <link linkend="collections-SECT-1">Recipe 5.1</link>,
+      <link linkend="xml-SECT-1">Recipe 6.1</link>, and <link
+      linkend="app-infra-SECT-9">Recipe 7.9</link>.</para>
     </sect2>
 
     <sect2>
@@ -1414,27 +1414,27 @@ Email To: ldavid@hbo.com</programlisting>
       <title>Problem</title>
 
       <para>You need to create an XML<indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2748" significance="normal">
+          id="xml-ITERM-2748" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>beans</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2749" significance="normal">
+          id="xml-ITERM-2749" significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>bean conversion</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2750" significance="normal">
+          id="xml-ITERM-2750" significance="normal">
           <primary>beans</primary>
 
           <secondary>XML</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2751" significance="normal">
+          id="xml-ITERM-2751" significance="normal">
           <primary>conversion</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2752" significance="normal">
+          id="xml-ITERM-2752" significance="normal">
           <primary>conversion</primary>
 
           <secondary>XML</secondary>
@@ -1447,13 +1447,13 @@ Email To: ldavid@hbo.com</programlisting>
       <title>Solution</title>
 
       <para>Use Commons Betwixt <literal moreinfo="none">BeanWriter</literal>
-      to <indexterm id="jakartackbk-CHP-6-ITERM-2753" significance="normal">
+      to <indexterm id="xml-ITERM-2753" significance="normal">
           <primary>transformation</primary>
 
           <secondary>beans</secondary>
         </indexterm>transform a bean to an XML document. The following code
       turns an instance of the <literal moreinfo="none">Play</literal> object
-      from <link linkend="jakartackbk-CHP-6-SECT-2">Recipe 6.2</link> into an
+      from <link linkend="xml-SECT-2">Recipe 6.2</link> into an
       XML document:</para>
 
       <programlisting format="linespecific" id="I_6_tt283">import org.apache.commons.betwixt.io.BeanWriter;
@@ -1476,16 +1476,16 @@ System.out.println( beanWriter.toString( ) );</programlisting>
       moreinfo="none">Play</literal> object is written to an XML document with
       <literal moreinfo="none">beanWriter.write( )</literal>. The previous
       example prints an XML document with structure similar to the XML
-      document parsed in <link linkend="jakartackbk-CHP-6-SECT-2">Recipe
+      document parsed in <link linkend="xml-SECT-2">Recipe
       6.2</link> with the exception of the <literal
       moreinfo="none">genre</literal>, <literal
       moreinfo="none">year</literal>, and <literal
       moreinfo="none">language</literal> elements. The following XML document
       is produced by the call to <literal
       moreinfo="none">beanWriter.write()</literal> <indexterm
-          id="jakartackbk-CHP-6-ITERM-2754" significance="normal">
+          id="xml-ITERM-2754" significance="normal">
           <primary>beanWriter.write( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2755"
+        </indexterm> <indexterm id="xml-ITERM-2755"
           significance="normal">
           <primary>methods</primary>
 
@@ -1558,7 +1558,7 @@ System.out.println( beanWriter.toString( ) );</programlisting>
       moreinfo="none">characters</literal> elements in favor of multiple
       <literal moreinfo="none">character</literal> child elements. Such a
       customization is demonstrated in the Discussion of <link
-      linkend="jakartackbk-CHP-6-SECT-8">Recipe 6.8</link>.</para>
+      linkend="xml-SECT-8">Recipe 6.8</link>.</para>
 
       <para><literal moreinfo="none">BeanWriter</literal> can also be used to
       write an XML document to an <literal
@@ -1601,22 +1601,22 @@ outputWriter.close( );</programlisting>
 
       <para>By default, <literal moreinfo="none">BeanWriter</literal> writes
       every bean <indexterm class="endofrange"
-      id="jakartackbk-CHP-6-ITERM-2756" significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2748"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2757"
+      id="xml-ITERM-2756" significance="normal"
+      startref="xml-ITERM-2748"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2757"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2749"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2758"
+      startref="xml-ITERM-2749"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2758"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2750"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2759"
+      startref="xml-ITERM-2750"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2759"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2751"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2760"
+      startref="xml-ITERM-2751"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2760"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2752"></indexterm>property of <literal
+      startref="xml-ITERM-2752"></indexterm>property of <literal
       moreinfo="none">Play</literal> as an element. <link
-      linkend="jakartackbk-CHP-6-SECT-8">Recipe 6.8</link> shows you how to
+      linkend="xml-SECT-8">Recipe 6.8</link> shows you how to
       customize the XML generated by Betwixt.</para>
     </sect2>
   </sect1>
@@ -1628,41 +1628,41 @@ outputWriter.close( );</programlisting>
       <title>Problem</title>
 
       <para>You are trying to create an XML<indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2761" significance="normal">
+          id="xml-ITERM-2761" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>object customization</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2762" significance="normal">
+          id="xml-ITERM-2762" significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>object customization</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2763" significance="normal">
+          id="xml-ITERM-2763" significance="normal">
           <primary>beans</primary>
 
           <secondary>XML</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2764" significance="normal">
+          id="xml-ITERM-2764" significance="normal">
           <primary>objects</primary>
 
           <secondary>customization</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2765" significance="normal">
+          id="xml-ITERM-2765" significance="normal">
           <primary>objects</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>customization</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2766" significance="normal">
+          id="xml-ITERM-2766" significance="normal">
           <primary>customization</primary>
 
           <secondary>objects</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-6-ITERM-2767" significance="normal">
+          id="xml-ITERM-2767" significance="normal">
           <primary>BeanWriter, customization</primary>
         </indexterm> document from a Java object, and you want to customize
       the layout and structure of the generated XML document.</para>
@@ -1674,7 +1674,7 @@ outputWriter.close( );</programlisting>
       <para>Use a Betwixt mapping file to customize the output of the <literal
       moreinfo="none">BeanWriter</literal>. Below is an example of a mapping
       file for the <literal moreinfo="none">Play</literal> class, which was
-      introduced in <link linkend="jakartackbk-CHP-6-SECT-2">Recipe
+      introduced in <link linkend="xml-SECT-2">Recipe
       6.2</link>. When Betwixt serializes or deserializes an object to or from
       XML, it will search for a resource, <filename
       moreinfo="none">&lt;classname&gt;.betwixt</filename>, in the same
@@ -1716,7 +1716,7 @@ logger.debug( beanWriter.toString( ) );</programlisting>
       moreinfo="none">language</literal> properties as attributes of the
       <literal moreinfo="none">play</literal> element. The differences between
       this XML document and the XML document in <link
-      linkend="jakartackbk-CHP-6-SECT-7">Recipe 6.7</link> are
+      linkend="xml-SECT-7">Recipe 6.7</link> are
       emphasized:</para>
 
       <programlisting format="linespecific" id="I_6_tt288">
@@ -1863,26 +1863,26 @@ beanWriter.write( object );</programlisting>
       <title>See Also</title>
 
       <para>For more information about possible <indexterm class="endofrange"
-      id="jakartackbk-CHP-6-ITERM-2768" significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2761"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2769"
+      id="xml-ITERM-2768" significance="normal"
+      startref="xml-ITERM-2761"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2769"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2762"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2770"
+      startref="xml-ITERM-2762"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2770"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2763"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2771"
+      startref="xml-ITERM-2763"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2771"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2764"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2772"
+      startref="xml-ITERM-2764"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2772"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2765"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2773"
+      startref="xml-ITERM-2765"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2773"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2766"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-6-ITERM-2774"
+      startref="xml-ITERM-2766"></indexterm> <indexterm
+      class="endofrange" id="xml-ITERM-2774"
       significance="normal"
-      startref="jakartackbk-CHP-6-ITERM-2767"></indexterm>customizations in
+      startref="xml-ITERM-2767"></indexterm>customizations in
       Betwixt, see the "Binding Beans" section of the user guide at
       <systemitem moreinfo="none"
       role="url">http://jakarta.apache.org/commons/betwixt/guide/binding.html</systemitem>.</para>
@@ -1896,29 +1896,29 @@ beanWriter.write( object );</programlisting>
       <title>Problem</title>
 
       <para>You need to convert an XML <indexterm
-          id="jakartackbk-CHP-6-ITERM-2775" significance="normal">
+          id="xml-ITERM-2775" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>beans</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2776"
+        </indexterm> <indexterm id="xml-ITERM-2776"
           significance="normal">
           <primary>conversion</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2777"
+        </indexterm> <indexterm id="xml-ITERM-2777"
           significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>bean conversion</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2778"
+        </indexterm> <indexterm id="xml-ITERM-2778"
           significance="normal">
           <primary>beans</primary>
 
           <secondary>XML</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2779"
+        </indexterm> <indexterm id="xml-ITERM-2779"
           significance="normal">
           <primary>conversion</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-6-ITERM-2780"
+        </indexterm> <indexterm id="xml-ITERM-2780"
           significance="normal">
           <primary>conversion</primary>
 
@@ -1940,7 +1940,7 @@ beanWriter.write( object );</programlisting>
       moreinfo="none">Reader</literal>. The following XML document will be
       parsed into the <literal moreinfo="none">Play</literal> and <literal
       moreinfo="none">Character</literal> beans introduced in <link
-      linkend="jakartackbk-CHP-6-SECT-2">Recipe 6.2</link>:</para>
+      linkend="xml-SECT-2">Recipe 6.2</link>:</para>
 
       <programlisting format="linespecific" id="I_6_tt294">&lt;play genre="tragedy" year="1603" language="english"&gt;
   &lt;author&gt;William Shakespeare&lt;/author&gt;
@@ -1963,7 +1963,7 @@ beanWriter.write( object );</programlisting>
 
       <para>This XML document was created with <literal
       moreinfo="none">BeanWriter</literal>, using the customized format from
-      <link linkend="jakartackbk-CHP-6-SECT-8">Recipe 6.8</link>. To read this
+      <link linkend="xml-SECT-8">Recipe 6.8</link>. To read this
       XML document with <literal moreinfo="none">BeanReader</literal>, the
       <literal moreinfo="none">Play</literal> class will need to be registered
       with <literal moreinfo="none">BeanReader</literal> and the <literal
@@ -1999,7 +1999,7 @@ Play play = (Play) beanReader.parse( customPlay );</programlisting>
       Digester, and the <literal moreinfo="none">BeanReader</literal> further
       reduces the amount of work required to parse XML to a bean. Instead of
       completing the process demonstrated in <link
-      linkend="jakartackbk-CHP-6-SECT-2">Recipe 6.2</link>, you can simply
+      linkend="xml-SECT-2">Recipe 6.2</link>, you can simply
       write a few, very manageable, <filename
       moreinfo="none">.betwixt</filename> files using <literal
       moreinfo="none">BeanReader</literal> to read the XML documents and

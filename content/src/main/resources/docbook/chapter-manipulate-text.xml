@@ -11,12 +11,12 @@
     (XML) came to town. Java's text manipulation capabilities have only
     recently received some badly overdue attention, with the addition of
     regular expressions and numerous improvements in Java 1.5. Despite the
-    improvements, using Java to<indexterm id="jakartackbk-CHP-2-ITERM-1949"
+    improvements, using Java to<indexterm id="manipulate-text-ITERM-1949"
         significance="normal">
         <primary>plain text</primary>
 
         <seealso>text</seealso>
-      </indexterm> manipulate <indexterm id="jakartackbk-CHP-2-ITERM-1950"
+      </indexterm> manipulate <indexterm id="manipulate-text-ITERM-1950"
         significance="normal">
         <primary>plain text</primary>
       </indexterm>plain text can inspire frustration. Hand a developer a
@@ -69,41 +69,41 @@
 
       <para>You want the ability to use <literal
       moreinfo="none">StringUtils</literal> <indexterm
-          id="jakartackbk-CHP-2-ITERM-1951" significance="normal">
+          id="manipulate-text-ITERM-1951" significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>configuration</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1952"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1952"
           significance="normal">
           <primary>classes</primary>
 
           <secondary>StringUtils</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1953"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1953"
           significance="normal">
           <primary>WordUtils class</primary>
 
           <secondary>configuration</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1954"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1954"
           significance="normal">
           <primary>classes</primary>
 
           <secondary>WordUtils</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1955"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1955"
           significance="normal">
           <primary>configuration</primary>
 
           <secondary>WordUtils class</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1956"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1956"
           significance="normal">
           <primary>configuration</primary>
 
           <secondary>StringUtils class</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1957"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1957"
           significance="normal">
           <primary>text</primary>
 
           <secondary>WordUtils class</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1958"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1958"
           significance="normal">
           <primary>text</primary>
 
@@ -159,34 +159,34 @@ import org.apache.commons.lang.WordUtils;</programlisting>
       <title>Problem</title>
 
       <para>You need to test for an empty or<indexterm class="startofrange"
-          id="jakartackbk-CHP-2-ITERM-1959" significance="normal">
+          id="manipulate-text-ITERM-1959" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>testing empty strings</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-2-ITERM-1960" significance="normal">
+          id="manipulate-text-ITERM-1960" significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>testing empty strings</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-2-ITERM-1961" significance="normal">
+          id="manipulate-text-ITERM-1961" significance="normal">
           <primary>testing</primary>
 
           <secondary>empty strings</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-2-ITERM-1962" significance="normal">
+          id="manipulate-text-ITERM-1962" significance="normal">
           <primary>empty strings, testing</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-2-ITERM-1963" significance="normal">
+          id="manipulate-text-ITERM-1963" significance="normal">
           <primary>strings</primary>
 
           <secondary>empty, testing</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-2-ITERM-1964" significance="normal">
+          id="manipulate-text-ITERM-1964" significance="normal">
           <primary>null strings, testing</primary>
         </indexterm> <literal moreinfo="none">null</literal> string.</para>
     </sect2>
@@ -195,9 +195,9 @@ import org.apache.commons.lang.WordUtils;</programlisting>
       <title>Solution</title>
 
       <para>Use <literal moreinfo="none">StringUtils.isBlank()</literal>
-      <indexterm id="jakartackbk-CHP-2-ITERM-1965" significance="normal">
+      <indexterm id="manipulate-text-ITERM-1965" significance="normal">
           <primary>StringUtils.isBlank( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1966"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1966"
           significance="normal">
           <primary>methods</primary>
 
@@ -305,24 +305,24 @@ test3 trimToNull: null</programlisting>
       problem occurs or an exception is thrown. While <literal
       moreinfo="none">trimToNull()</literal> can accomplish the goal, it does
       increase the occurrence of <literal moreinfo="none">null</literal>s in
-      code; <indexterm class="endofrange" id="jakartackbk-CHP-2-ITERM-1967"
+      code; <indexterm class="endofrange" id="manipulate-text-ITERM-1967"
       significance="normal"
-      startref="jakartackbk-CHP-2-ITERM-1959"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-2-ITERM-1968"
+      startref="manipulate-text-ITERM-1959"></indexterm> <indexterm
+      class="endofrange" id="manipulate-text-ITERM-1968"
       significance="normal"
-      startref="jakartackbk-CHP-2-ITERM-1960"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-2-ITERM-1969"
+      startref="manipulate-text-ITERM-1960"></indexterm> <indexterm
+      class="endofrange" id="manipulate-text-ITERM-1969"
       significance="normal"
-      startref="jakartackbk-CHP-2-ITERM-1961"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-2-ITERM-1970"
+      startref="manipulate-text-ITERM-1961"></indexterm> <indexterm
+      class="endofrange" id="manipulate-text-ITERM-1970"
       significance="normal"
-      startref="jakartackbk-CHP-2-ITERM-1962"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-2-ITERM-1971"
+      startref="manipulate-text-ITERM-1962"></indexterm> <indexterm
+      class="endofrange" id="manipulate-text-ITERM-1971"
       significance="normal"
-      startref="jakartackbk-CHP-2-ITERM-1963"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-2-ITERM-1972"
+      startref="manipulate-text-ITERM-1963"></indexterm> <indexterm
+      class="endofrange" id="manipulate-text-ITERM-1972"
       significance="normal"
-      startref="jakartackbk-CHP-2-ITERM-1964"></indexterm>use <literal
+      startref="manipulate-text-ITERM-1964"></indexterm>use <literal
       moreinfo="none">isBlank( )</literal> and <literal
       moreinfo="none">isNotBlank( )</literal> to excise dangerous <literal
       moreinfo="none">null</literal>s from your code.</para>
@@ -342,36 +342,36 @@ test3 trimToNull: null</programlisting>
       <title>Solution</title>
 
       <para>Use <literal moreinfo="none">StringUtils.abbreviate()</literal>
-      <indexterm id="jakartackbk-CHP-2-ITERM-1973" significance="normal">
+      <indexterm id="manipulate-text-ITERM-1973" significance="normal">
           <primary>StringUtils.abbreviate( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1974"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1974"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>StringUtils.abbreviate( )</secondary>
-        </indexterm>. Supply<indexterm id="jakartackbk-CHP-2-ITERM-1975"
+        </indexterm>. Supply<indexterm id="manipulate-text-ITERM-1975"
           significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>abbreviating strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1976"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1976"
           significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>abbreviating strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1977"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1977"
           significance="normal">
           <primary>abbreviating strings</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1978"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1978"
           significance="normal">
           <primary>strings</primary>
 
           <secondary>abbreviating</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1979"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1979"
           significance="normal">
           <primary>characters</primary>
 
@@ -455,7 +455,7 @@ int width = 20 + message.length( );
       beginning of a string. If the offset is greater than four, the first
       three characters will be ellipses.</para>
 
-      <warning id="jakartackbk-CHP-2-NOTE-51" role="ora">
+      <warning id="manipulate-text-NOTE-51" role="ora">
         <para>If a width less than four is specified, <literal
         moreinfo="none">abbreviate()</literal> will throw an <literal
         moreinfo="none">IllegalArgumentException</literal>. A width less than
@@ -472,30 +472,30 @@ int width = 20 + message.length( );
       <title>Problem</title>
 
       <para>You want to split a string on a<indexterm
-          id="jakartackbk-CHP-2-ITERM-1980" significance="normal">
+          id="manipulate-text-ITERM-1980" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>splitting strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1981"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1981"
           significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>splitting strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1982"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1982"
           significance="normal">
           <primary>splitting</primary>
 
           <secondary>strings</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1983"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1983"
           significance="normal">
           <primary>strings</primary>
 
           <secondary>splitting</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1984"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1984"
           significance="normal">
           <primary>characters</primary>
 
@@ -507,9 +507,9 @@ int width = 20 + message.length( );
       <title>Solution</title>
 
       <para>Use <literal moreinfo="none">StringUtils.split()</literal>
-      <indexterm id="jakartackbk-CHP-2-ITERM-1985" significance="normal">
+      <indexterm id="manipulate-text-ITERM-1985" significance="normal">
           <primary>StringUtils.split( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1986"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1986"
           significance="normal">
           <primary>methods</primary>
 
@@ -612,30 +612,30 @@ System.out.println( ArrayUtils.toString( tokens );</programlisting>
       <title>Problem</title>
 
       <para>You want to locate strings nested <indexterm
-          id="jakartackbk-CHP-2-ITERM-1987" significance="normal">
+          id="manipulate-text-ITERM-1987" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>searching nested strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1988"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1988"
           significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>searching nested strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1989"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1989"
           significance="normal">
           <primary>searching</primary>
 
           <secondary>strings</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1990"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1990"
           significance="normal">
           <primary>strings</primary>
 
           <secondary>searching</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1991"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1991"
           significance="normal">
           <primary>nested strings, searching</primary>
         </indexterm>within other strings.</para>
@@ -675,9 +675,9 @@ System.out.println( "Title: " + title );</programlisting>
 
       <para>In the Solution section, the <literal
       moreinfo="none">substringBetween()</literal> <indexterm
-          id="jakartackbk-CHP-2-ITERM-1992" significance="normal">
+          id="manipulate-text-ITERM-1992" significance="normal">
           <primary>substringBetween( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1993"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1993"
           significance="normal">
           <primary>methods</primary>
 
@@ -734,65 +734,65 @@ String second = StringUtils.substringBetween( message, "BOUNDARY");</programlist
       <title>Problem</title>
 
       <para>You need to strip or trim a string<indexterm
-          id="jakartackbk-CHP-2-ITERM-1994" significance="normal">
+          id="manipulate-text-ITERM-1994" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>stripping strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1995"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1995"
           significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>stripping strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1996"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1996"
           significance="normal">
           <primary>stripping strings</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1997"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1997"
           significance="normal">
           <primary>strings</primary>
 
           <secondary>stripping</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1998"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1998"
           significance="normal">
           <primary>whitespace</primary>
 
           <secondary>stripping</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-1999"
+        </indexterm> <indexterm id="manipulate-text-ITERM-1999"
           significance="normal">
           <primary>characters</primary>
 
           <secondary>stripping</secondary>
         </indexterm> of extraneous <indexterm
-          id="jakartackbk-CHP-2-ITERM-2000" significance="normal">
+          id="manipulate-text-ITERM-2000" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>trimming strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2001"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2001"
           significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>trimming strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2002"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2002"
           significance="normal">
           <primary>trimming strings</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2003"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2003"
           significance="normal">
           <primary>strings</primary>
 
           <secondary>trimming</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2004"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2004"
           significance="normal">
           <primary>whitespace</primary>
 
           <secondary>trimming</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2005"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2005"
           significance="normal">
           <primary>characters</primary>
 
@@ -805,9 +805,9 @@ String second = StringUtils.substringBetween( message, "BOUNDARY");</programlist
       <title>Solution</title>
 
       <para><literal moreinfo="none">StringUtils.trim()</literal> <indexterm
-          id="jakartackbk-CHP-2-ITERM-2006" significance="normal">
+          id="manipulate-text-ITERM-2006" significance="normal">
           <primary>StringUtils.trim( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2007"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2007"
           significance="normal">
           <primary>methods</primary>
 
@@ -837,9 +837,9 @@ null</programlisting>
       <title>Discussion</title>
 
       <para>A <filename moreinfo="none">control character</filename>
-      <indexterm id="jakartackbk-CHP-2-ITERM-2008" significance="normal">
+      <indexterm id="manipulate-text-ITERM-2008" significance="normal">
           <primary>control characters</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2009"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2009"
           significance="normal">
           <primary>characters</primary>
 
@@ -883,14 +883,14 @@ System.out.println( "Stripped: " + stripped )</programlisting>
         <title>Trimming to null</title>
 
         <para>Use <literal moreinfo="none">trimToNull( )</literal> <indexterm
-            id="jakartackbk-CHP-2-ITERM-2010" significance="normal">
+            id="manipulate-text-ITERM-2010" significance="normal">
             <primary>trimToNull( ) method</primary>
-          </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2011"
+          </indexterm> <indexterm id="manipulate-text-ITERM-2011"
             significance="normal">
             <primary>methods</primary>
 
             <secondary>trimToNull( )</secondary>
-          </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2012"
+          </indexterm> <indexterm id="manipulate-text-ITERM-2012"
             significance="normal">
             <primary>nulls</primary>
 
@@ -931,45 +931,45 @@ System.out.println( "Stripped: " + stripped )</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to remove a<indexterm id="jakartackbk-CHP-2-ITERM-2013"
+      <para>You need to remove a<indexterm id="manipulate-text-ITERM-2013"
           significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>chomping strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2014"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2014"
           significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>chomping strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2015"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2015"
           significance="normal">
           <primary>chomping strings</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2016"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2016"
           significance="normal">
           <primary>strings</primary>
 
           <secondary>chomping</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2017"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2017"
           significance="normal">
           <primary>deleting</primary>
 
           <secondary>newlines</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2018"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2018"
           significance="normal">
           <primary>newlines, deleting</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2019"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2019"
           significance="normal">
           <primary>carriage returns, deleting</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2020"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2020"
           significance="normal">
           <primary>deleting</primary>
 
           <secondary>carriage returns</secondary>
-        </indexterm> trailing <indexterm id="jakartackbk-CHP-2-ITERM-2021"
+        </indexterm> trailing <indexterm id="manipulate-text-ITERM-2021"
           significance="normal">
           <primary>trailing newlines, deleting</primary>
         </indexterm>newline or carriage return from a string.</para>
@@ -978,10 +978,10 @@ System.out.println( "Stripped: " + stripped )</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Use<indexterm id="jakartackbk-CHP-2-ITERM-2022"
+      <para>Use<indexterm id="manipulate-text-ITERM-2022"
           significance="normal">
           <primary>StringUtils.chomp( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2023"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2023"
           significance="normal">
           <primary>methods</primary>
 
@@ -1006,30 +1006,30 @@ String chomped2 = StringUtils.chomp( input2 );
       <title>Problem</title>
 
       <para>You would like to print an <indexterm
-          id="jakartackbk-CHP-2-ITERM-2024" significance="normal">
+          id="manipulate-text-ITERM-2024" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>printing headers</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2025"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2025"
           significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>printing headers</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2026"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2026"
           significance="normal">
           <primary>headers</primary>
 
           <secondary>printing</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2027"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2027"
           significance="normal">
           <primary>printing</primary>
 
           <secondary>headers</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2028"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2028"
           significance="normal">
           <primary>emphasized headers, creating</primary>
         </indexterm>attention-grabbing header.</para>
@@ -1040,25 +1040,25 @@ String chomped2 = StringUtils.chomp( input2 );
 
       <para>Combine the powers of <literal
       moreinfo="none">StringUtils.repeat()</literal> <indexterm
-          id="jakartackbk-CHP-2-ITERM-2029" significance="normal">
+          id="manipulate-text-ITERM-2029" significance="normal">
           <primary>StringUtils.repeat( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2030"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2030"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>StringUtils.repeat( )</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2031"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2031"
           significance="normal">
           <primary>StringUtils.center( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2032"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2032"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>StringUtils.center( )</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2033"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2033"
           significance="normal">
           <primary>StringUtils.join( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2034"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2034"
           significance="normal">
           <primary>methods</primary>
 
@@ -1107,26 +1107,26 @@ String chomped2 = StringUtils.chomp( input2 );
     <sect2>
       <title>Problem</title>
 
-      <para>You need to reverse<indexterm id="jakartackbk-CHP-2-ITERM-2035"
+      <para>You need to reverse<indexterm id="manipulate-text-ITERM-2035"
           significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>reversing strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2036"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2036"
           significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>reversing strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2037"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2037"
           significance="normal">
           <primary>reversing</primary>
 
           <secondary>strings</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2038"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2038"
           significance="normal">
           <primary>strings</primary>
 
@@ -1137,10 +1137,10 @@ String chomped2 = StringUtils.chomp( input2 );
     <sect2>
       <title>Solution</title>
 
-      <para>Use<indexterm id="jakartackbk-CHP-2-ITERM-2039"
+      <para>Use<indexterm id="manipulate-text-ITERM-2039"
           significance="normal">
           <primary>StringUtils.reverse( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2040"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2040"
           significance="normal">
           <primary>methods</primary>
 
@@ -1217,30 +1217,30 @@ Susan am I.</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You want to wrap <indexterm id="jakartackbk-CHP-2-ITERM-2041"
+      <para>You want to wrap <indexterm id="manipulate-text-ITERM-2041"
           significance="normal">
           <primary>text</primary>
 
           <secondary>wrapping</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2042"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2042"
           significance="normal">
           <primary>WordUtils class</primary>
 
           <secondary>text, wrapping</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2043"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2043"
           significance="normal">
           <primary>wrapping</primary>
 
           <secondary>words</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2044"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2044"
           significance="normal">
           <primary>words</primary>
 
           <secondary>wrapping</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2045"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2045"
           significance="normal">
           <primary>lines, formatting</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2046"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2046"
           significance="normal">
           <primary>formatting</primary>
 
@@ -1350,25 +1350,25 @@ String wrappedString = WordUtils.wrap( message, 40, "&lt;br/&gt;", false );</pro
       <title>Problem</title>
 
       <para>You need to make sure a string<indexterm
-          id="jakartackbk-CHP-2-ITERM-2047" significance="normal">
+          id="manipulate-text-ITERM-2047" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>testing strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2048"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2048"
           significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>testing strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2049"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2049"
           significance="normal">
           <primary>testing</primary>
 
           <secondary>strings</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2050"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2050"
           significance="normal">
           <primary>strings</primary>
 
@@ -1382,34 +1382,34 @@ String wrappedString = WordUtils.wrap( message, 40, "&lt;br/&gt;", false );</pro
 
       <para>Use the various <literal moreinfo="none">StringUtils</literal>
       methods to validate user input; <literal moreinfo="none">isNumeric(
-      )</literal> <indexterm id="jakartackbk-CHP-2-ITERM-2051"
+      )</literal> <indexterm id="manipulate-text-ITERM-2051"
           significance="normal">
           <primary>isNumeric( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2052"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2052"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>isNumeric( )</secondary>
         </indexterm>, <literal moreinfo="none">isAlpha()</literal> <indexterm
-          id="jakartackbk-CHP-2-ITERM-2053" significance="normal">
+          id="manipulate-text-ITERM-2053" significance="normal">
           <primary>isAlpha( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2054"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2054"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>isAlpha( )</secondary>
         </indexterm>, <literal moreinfo="none">isAlphanumeric()</literal>
-      <indexterm id="jakartackbk-CHP-2-ITERM-2055" significance="normal">
+      <indexterm id="manipulate-text-ITERM-2055" significance="normal">
           <primary>isAlphanumeric( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2056"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2056"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>isAlphanumeric( )</secondary>
         </indexterm>, and <literal moreinfo="none">isAlphaSpace()</literal>
-      <indexterm id="jakartackbk-CHP-2-ITERM-2057" significance="normal">
+      <indexterm id="manipulate-text-ITERM-2057" significance="normal">
           <primary>isAlphaSpace( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2058"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2058"
           significance="normal">
           <primary>methods</primary>
 
@@ -1533,28 +1533,28 @@ boolean t2val = StringUtils.isAlpha( name2Temp ); // returns false</programlisti
       <title>Problem</title>
 
       <para>You need to find out how many times a<indexterm
-          id="jakartackbk-CHP-2-ITERM-2059" significance="normal">
+          id="manipulate-text-ITERM-2059" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>measuring string frequency</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2060"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2060"
           significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>measuring string frequency</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2061"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2061"
           significance="normal">
           <primary>strings</primary>
 
           <secondary>measuring frequency</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2062"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2062"
           significance="normal">
           <primary>frequency, measuring strings</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2063"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2063"
           significance="normal">
           <primary>measuring</primary>
 
@@ -1566,9 +1566,9 @@ boolean t2val = StringUtils.isAlpha( name2Temp ); // returns false</programlisti
       <title>Solution</title>
 
       <para><literal moreinfo="none">StringUtils.countMatches()</literal>
-      <indexterm id="jakartackbk-CHP-2-ITERM-2064" significance="normal">
+      <indexterm id="manipulate-text-ITERM-2064" significance="normal">
           <primary>StringUtils.countMatches( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2065"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2065"
           significance="normal">
           <primary>methods</primary>
 
@@ -1632,7 +1632,7 @@ while( lineReader.ready( ) ) {
     <sect2>
       <title>See Also</title>
 
-      <para><link linkend="jakartackbk-CHP-12">Chapter 12</link> contains a
+      <para><link linkend="searching-filtering">Chapter 12</link> contains a
       number of recipes devoted to searching and filtering content. If you are
       creating a system that needs to search a large collection of documents,
       consider using Jakarta Lucene (<systemitem moreinfo="none"
@@ -1648,7 +1648,7 @@ while( lineReader.ready( ) ) {
       <title>Problem</title>
 
       <para>You need to parse a string containing <indexterm
-          class="startofrange" id="jakartackbk-CHP-2-ITERM-2066"
+          class="startofrange" id="manipulate-text-ITERM-2066"
           significance="normal">
           <primary>text</primary>
 
@@ -1656,24 +1656,24 @@ while( lineReader.ready( ) ) {
 
           <tertiary>parsing strings</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-2-ITERM-2067" significance="normal">
+          id="manipulate-text-ITERM-2067" significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>parsing strings</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-2-ITERM-2068" significance="normal">
+          id="manipulate-text-ITERM-2068" significance="normal">
           <primary>parsing</primary>
 
           <secondary>strings</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-2-ITERM-2069" significance="normal">
+          id="manipulate-text-ITERM-2069" significance="normal">
           <primary>strings</primary>
 
           <secondary>parsing</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-2-ITERM-2070" significance="normal">
+          id="manipulate-text-ITERM-2070" significance="normal">
           <primary>formatting</primary>
 
           <secondary>strings, parsing</secondary>
@@ -1687,9 +1687,9 @@ while( lineReader.ready( ) ) {
       <title>Solution</title>
 
       <para>Use variations of <literal moreinfo="none">substring()</literal>
-      <indexterm id="jakartackbk-CHP-2-ITERM-2071" significance="normal">
+      <indexterm id="manipulate-text-ITERM-2071" significance="normal">
           <primary>substring( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2072"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2072"
           significance="normal">
           <primary>methods</primary>
 
@@ -1878,21 +1878,21 @@ String score2 = boxScore.substring( secondComma + 1, secondParen );</programlist
       method, but the <literal moreinfo="none">StringUtils.trim( )</literal>
       method can gracefully handle a <literal moreinfo="none">null</literal>
       input. If a <literal moreinfo="none">null</literal> value is passed to
-      <indexterm class="endofrange" id="jakartackbk-CHP-2-ITERM-2073"
+      <indexterm class="endofrange" id="manipulate-text-ITERM-2073"
       significance="normal"
-      startref="jakartackbk-CHP-2-ITERM-2066"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-2-ITERM-2074"
+      startref="manipulate-text-ITERM-2066"></indexterm> <indexterm
+      class="endofrange" id="manipulate-text-ITERM-2074"
       significance="normal"
-      startref="jakartackbk-CHP-2-ITERM-2067"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-2-ITERM-2075"
+      startref="manipulate-text-ITERM-2067"></indexterm> <indexterm
+      class="endofrange" id="manipulate-text-ITERM-2075"
       significance="normal"
-      startref="jakartackbk-CHP-2-ITERM-2068"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-2-ITERM-2076"
+      startref="manipulate-text-ITERM-2068"></indexterm> <indexterm
+      class="endofrange" id="manipulate-text-ITERM-2076"
       significance="normal"
-      startref="jakartackbk-CHP-2-ITERM-2069"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-2-ITERM-2077"
+      startref="manipulate-text-ITERM-2069"></indexterm> <indexterm
+      class="endofrange" id="manipulate-text-ITERM-2077"
       significance="normal"
-      startref="jakartackbk-CHP-2-ITERM-2070"></indexterm> <literal
+      startref="manipulate-text-ITERM-2070"></indexterm> <literal
       moreinfo="none">StringUtils.trim()</literal>, a <literal
       moreinfo="none">null</literal> value is returned.</para>
     </sect2>
@@ -1905,30 +1905,30 @@ String score2 = boxScore.substring( secondComma + 1, secondParen );</programlist
       <title>Problem</title>
 
       <para>Your application needs to compare<indexterm
-          id="jakartackbk-CHP-2-ITERM-2078" significance="normal">
+          id="manipulate-text-ITERM-2078" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>comparing strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2079"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2079"
           significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>comparing strings</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2080"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2080"
           significance="normal">
           <primary>comparing</primary>
 
           <secondary>strings</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2081"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2081"
           significance="normal">
           <primary>strings</primary>
 
           <secondary>comparing</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2082"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2082"
           significance="normal">
           <primary>printing</primary>
 
@@ -1970,9 +1970,9 @@ Diff Index: 3</programlisting>
       <title>Discussion</title>
 
       <para><literal moreinfo="none">StringUtils.difference()</literal>
-      <indexterm id="jakartackbk-CHP-2-ITERM-2083" significance="normal">
+      <indexterm id="manipulate-text-ITERM-2083" significance="normal">
           <primary>StringUtils.difference( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2084"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2084"
           significance="normal">
           <primary>methods</primary>
 
@@ -1980,14 +1980,14 @@ Diff Index: 3</programlisting>
         </indexterm> returns the difference between two strings, returning the
       portion of the second string, which starts to differ from the first.
       <literal moreinfo="none">StringUtils.indexOfDifference()</literal>
-      <indexterm id="jakartackbk-CHP-2-ITERM-2085" significance="normal">
+      <indexterm id="manipulate-text-ITERM-2085" significance="normal">
           <primary>StringUtils.indexOfDifference( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2086"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2086"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>StringUtils.indexOfDifference( )</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2087"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2087"
           significance="normal">
           <primary>indexes</primary>
 
@@ -2075,7 +2075,7 @@ distance(Steve, Stereo): 3</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You want to use <indexterm id="jakartackbk-CHP-2-ITERM-2088"
+      <para>You want to use <indexterm id="manipulate-text-ITERM-2088"
           significance="normal">
           <primary>Commons Codec</primary>
         </indexterm>Commons Codec.</para>
@@ -2094,7 +2094,7 @@ distance(Steve, Stereo): 3</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>The <indexterm id="jakartackbk-CHP-2-ITERM-2089"
+      <para>The <indexterm id="manipulate-text-ITERM-2089"
           significance="normal">
           <primary>libraries</primary>
 
@@ -2129,7 +2129,7 @@ distance(Steve, Stereo): 3</programlisting>
       <title>See Also</title>
 
       <para>For information on obtaining the source code for Commons Codec,
-      see <link linkend="jakartackbk-CHP-2-SECT-16">Recipe 2.16</link>. To
+      see <link linkend="manipulate-text-SECT-16">Recipe 2.16</link>. To
       learn more about Commons Codec, visit the Jakarta Commons Codec web site
       at <systemitem moreinfo="none"
       role="url">http://jakarta.apache.org/commons/codec/</systemitem>.</para>
@@ -2143,21 +2143,21 @@ distance(Steve, Stereo): 3</programlisting>
       <title>Problem</title>
 
       <para>You want the source code for the <indexterm
-          id="jakartackbk-CHP-2-ITERM-2090" significance="normal">
+          id="manipulate-text-ITERM-2090" significance="normal">
           <primary>Commons Codec</primary>
 
           <secondary>source code</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2091"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2091"
           significance="normal">
           <primary>code</primary>
 
           <secondary>Commons Codec</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2092"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2092"
           significance="normal">
           <primary>source code</primary>
 
           <secondary>Commons Codec</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2093"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2093"
           significance="normal">
           <primary>programming</primary>
 
@@ -2187,12 +2187,12 @@ distance(Steve, Stereo): 3</programlisting>
       linkend="jakartackbk-CHP-1-SECT-3">Recipe 1.3</link>.</para>
 
       <para>For information on obtaining the binary <indexterm
-          id="jakartackbk-CHP-2-ITERM-2094" significance="normal">
+          id="manipulate-text-ITERM-2094" significance="normal">
           <primary>words</primary>
 
           <seealso>text</seealso>
         </indexterm>distribution for Commons Codec, see <link
-      linkend="jakartackbk-CHP-2-SECT-15">Recipe 2.15</link>.</para>
+      linkend="manipulate-text-SECT-15">Recipe 2.15</link>.</para>
     </sect2>
   </sect1>
 
@@ -2202,40 +2202,40 @@ distance(Steve, Stereo): 3</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need the<indexterm id="jakartackbk-CHP-2-ITERM-2095"
+      <para>You need the<indexterm id="manipulate-text-ITERM-2095"
           significance="normal">
           <primary>Commons Codec</primary>
 
           <secondary>Soundex</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2096"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2096"
           significance="normal">
           <primary>Soundex</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2097"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2097"
           significance="normal">
           <primary>code</primary>
 
           <secondary>Soundex</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2098"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2098"
           significance="normal">
           <primary>source code</primary>
 
           <secondary>Soundex</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2099"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2099"
           significance="normal">
           <primary>programming</primary>
 
           <secondary>Soundex</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2100"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2100"
           significance="normal">
           <primary>calculations</primary>
 
           <secondary>Soundex</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2101"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2101"
           significance="normal">
           <primary>names</primary>
 
           <secondary>Soundex</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-2-ITERM-2102"
+        </indexterm> <indexterm id="manipulate-text-ITERM-2102"
           significance="normal">
           <primary>words</primary>
 

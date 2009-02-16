@@ -77,7 +77,7 @@ System.out.println( "******************************" );</programlisting>
       JDOM to create a <literal moreinfo="none">Document</literal> object,
       serializing an object with Jakarta Commons Betwixt, and using Exolab's
       Castor are a few of these possibilities. Some of these techniques are
-      explained in <link linkend="jakartackbk-CHP-6">Chapter 6</link>, but
+      explained in <link linkend="xml">Chapter 6</link>, but
       here is an example of how <emphasis role="bold">not</emphasis> to
       generate an XML document:</para>
 
@@ -157,15 +157,15 @@ System.out.println("&lt;/Config&gt;");</programlisting>
     <sect2>
       <title>Templating in Web Applications</title>
 
-      <para>Examine the JSP code<indexterm id="jakartackbk-CHP-9-ITERM-2939"
+      <para>Examine the JSP code<indexterm id="templating-ITERM-2939"
           significance="normal">
           <primary>templating</primary>
 
           <secondary>Web applications</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-2940"
+        </indexterm> <indexterm id="templating-ITERM-2940"
           significance="normal">
           <primary>Web applications, templating</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-2941"
+        </indexterm> <indexterm id="templating-ITERM-2941"
           significance="normal">
           <primary>applications</primary>
 
@@ -213,7 +213,7 @@ There are a few things I would like to tell you.
 
 &lt;jsp:include page="footer.html" /&gt;</programlisting>
 
-      <tip id="jakartackbk-CHP-9-NOTE-65" role="ora">
+      <tip id="templating-NOTE-65" role="ora">
         <para>This is real code from a real system, and it was written by a
         whole team of programmers who didn't find anything terribly wrong with
         this style. If you were raised on JSP like this, you might not
@@ -265,9 +265,9 @@ There are a few things I would like to tell you.
     <sect2>
       <title>Discussion</title>
 
-      <para><indexterm id="jakartackbk-CHP-9-ITERM-2942" significance="normal">
+      <para><indexterm id="templating-ITERM-2942" significance="normal">
           <primary>Commons JEXL</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-2943"
+        </indexterm> <indexterm id="templating-ITERM-2943"
           significance="normal">
           <primary>expressions</primary>
 
@@ -278,7 +278,7 @@ There are a few things I would like to tell you.
       This means that it can be integrated into any application that needs to
       use an expression language.</para>
 
-      <tip id="jakartackbk-CHP-9-NOTE-66" role="ora">
+      <tip id="templating-NOTE-66" role="ora">
         <para>JEXL is similar to EL with one major difference. The JSP 2.0 EL
         implementation project in Jakarta Commons, Commons EL, is covered by a
         Java Specification Request (JSR), which was developed under the Java
@@ -305,7 +305,7 @@ There are a few things I would like to tell you.
       <title>See Also</title>
 
       <para>For more information about downloading Commons Logging 1.0.3, see
-      <link linkend="jakartackbk-CHP-7-SECT-9">Recipe 7.9</link>.</para>
+      <link linkend="app-infra-SECT-9">Recipe 7.9</link>.</para>
 
       <para>To learn more about Commons JEXL, visit the Jakarta Commons JEXL
       web site (<systemitem moreinfo="none"
@@ -330,27 +330,27 @@ There are a few things I would like to tell you.
       <title>Problem</title>
 
       <para>You need to parameterize text <indexterm class="startofrange"
-          id="jakartackbk-CHP-9-ITERM-2944" significance="normal">
+          id="templating-ITERM-2944" significance="normal">
           <primary>templating</primary>
 
           <secondary>expression languages</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-9-ITERM-2945" significance="normal">
+          id="templating-ITERM-2945" significance="normal">
           <primary>expressions</primary>
 
           <secondary>language</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-9-ITERM-2946" significance="normal">
+          id="templating-ITERM-2946" significance="normal">
           <primary>variables</primary>
 
           <secondary>expression language</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-9-ITERM-2947" significance="normal">
+          id="templating-ITERM-2947" significance="normal">
           <primary>beans</primary>
 
           <secondary>expression language</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-9-ITERM-2948" significance="normal">
+          id="templating-ITERM-2948" significance="normal">
           <primary>properties</primary>
 
           <secondary>expression language</secondary>
@@ -363,7 +363,7 @@ There are a few things I would like to tell you.
       <para>Use Commons JEXL to evaluate an expression containing references
       to bean properties. To reference properties of an object, create an
       expression using the bean property syntax introduced in <link
-      linkend="jakartackbk-CHP-3">Chapter 3</link>. Surround each property
+      linkend="beans">Chapter 3</link>. Surround each property
       reference with curly braces and a leading <literal
       moreinfo="none">$</literal>, as in the following example:</para>
 
@@ -437,27 +437,27 @@ System.out.println( message );</programlisting>
       <para>This chapter makes heavy use of expressions in templating engines,
       and this is a logical time to introduce the concept of the syntax used
       to create expressions. If you are familiar with <indexterm
-          id="jakartackbk-CHP-9-ITERM-2949" significance="normal">
+          id="templating-ITERM-2949" significance="normal">
           <primary>JavaServer Pages</primary>
 
           <see>JSPs</see>
         </indexterm>JavaServer Pages (JSPs) you may<indexterm
-          id="jakartackbk-CHP-9-ITERM-2950" significance="normal">
+          id="templating-ITERM-2950" significance="normal">
           <primary>JSPs (JavaServer Pages)</primary>
         </indexterm> know about a tag library called the <indexterm
-          id="jakartackbk-CHP-9-ITERM-2951" significance="normal">
+          id="templating-ITERM-2951" significance="normal">
           <primary>JavaServer Pages Standard Tag Library</primary>
 
           <see>JSTL</see>
         </indexterm>JavaServer Pages Standard Tag Library <indexterm
-          id="jakartackbk-CHP-9-ITERM-2952" significance="normal">
+          id="templating-ITERM-2952" significance="normal">
           <primary>JSTL (JavaServer Page Tag Library)</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-2953"
+        </indexterm> <indexterm id="templating-ITERM-2953"
           significance="normal">
           <primary>tags</primary>
 
           <secondary>JSTL</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-2954"
+        </indexterm> <indexterm id="templating-ITERM-2954"
           significance="normal">
           <primary>libraries</primary>
 
@@ -466,11 +466,11 @@ System.out.println( message );</programlisting>
       make creating JSP pages much easier. Along with JSTL came something
       called EL, which is an expression language you can use in JSTL tags and
       in JSP 2.0. In general, JEXL can do everything that JSP EL can do, and
-      more. <link linkend="jakartackbk-CHP-9-TABLE-1">Table 9-1</link> lists
+      more. <link linkend="templating-TABLE-1">Table 9-1</link> lists
       expressions that are valid in both JSP 2.0 EL and Jakarta Commons
       JEXL.</para>
 
-      <table id="jakartackbk-CHP-9-TABLE-1" label="9-1">
+      <table id="templating-TABLE-1" label="9-1">
         <title>Simple Commons JEXL and JSP 2.0 EL expressions</title>
 
         <tgroup cols="2">
@@ -692,19 +692,19 @@ System.out.println( message );</programlisting>
       moreinfo="none">opera</literal>.</para>
 
       <para>Because JEXL is not governed by the <indexterm
-          id="jakartackbk-CHP-9-ITERM-2955" significance="normal">
+          id="templating-ITERM-2955" significance="normal">
           <primary>Java Community Process</primary>
 
           <see>JCP</see>
-        </indexterm>Java Community<indexterm id="jakartackbk-CHP-9-ITERM-2956"
+        </indexterm>Java Community<indexterm id="templating-ITERM-2956"
           significance="normal">
           <primary>JCP (Java Community Process)</primary>
         </indexterm> Process (JCP), JEXL is free to extend the feature set of
-      EL. <link linkend="jakartackbk-CHP-9-TABLE-2">Table 9-2</link> presents
+      EL. <link linkend="templating-TABLE-2">Table 9-2</link> presents
       valid JEXL expressions that are actually <emphasis>invalid</emphasis>
       JSP 2.0 EL expressions.</para>
 
-      <table id="jakartackbk-CHP-9-TABLE-2" label="9-2">
+      <table id="templating-TABLE-2" label="9-2">
         <title>Extended capabilities of JEXL expression language</title>
 
         <tgroup cols="2">
@@ -780,22 +780,22 @@ System.out.println( message );</programlisting>
       <title>Problem</title>
 
       <para>You need to capture application <indexterm
-          id="jakartackbk-CHP-9-ITERM-2957" significance="normal">
+          id="templating-ITERM-2957" significance="normal">
           <primary>applications</primary>
 
           <secondary>logic</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-2958"
+        </indexterm> <indexterm id="templating-ITERM-2958"
           significance="normal">
           <primary>logic, applications</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-2959"
+        </indexterm> <indexterm id="templating-ITERM-2959"
           significance="normal">
           <primary>capturing</primary>
 
           <secondary>application logic</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-2960"
+        </indexterm> <indexterm id="templating-ITERM-2960"
           significance="normal">
           <primary>external files, capturing application logic</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-2961"
+        </indexterm> <indexterm id="templating-ITERM-2961"
           significance="normal">
           <primary>files</primary>
 
@@ -807,7 +807,7 @@ System.out.println( message );</programlisting>
       <title>Solution</title>
 
       <para>Use an external properties file to store <indexterm
-          id="jakartackbk-CHP-9-ITERM-2962" significance="normal">
+          id="templating-ITERM-2962" significance="normal">
           <primary>storage, expressions</primary>
         </indexterm>expressions used in an application. For this recipe,
       imagine yourself creating a system to sort <literal
@@ -889,9 +889,9 @@ while( ballsIter.hasNext( ) ) {
 
       <para>The result of the <literal moreinfo="none">Expression</literal>
       evaluation is a <literal moreinfo="none">Boolean</literal> <indexterm
-          id="jakartackbk-CHP-9-ITERM-2963" significance="normal">
+          id="templating-ITERM-2963" significance="normal">
           <primary>Boolean values</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-2964"
+        </indexterm> <indexterm id="templating-ITERM-2964"
           significance="normal">
           <primary>values</primary>
 
@@ -926,20 +926,20 @@ while( ballsIter.hasNext( ) ) {
       <title>See Also</title>
 
       <para>This recipe demonstrated a system<indexterm class="endofrange"
-      id="jakartackbk-CHP-9-ITERM-2965" significance="normal"
-      startref="jakartackbk-CHP-9-ITERM-2944"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-9-ITERM-2966"
+      id="templating-ITERM-2965" significance="normal"
+      startref="templating-ITERM-2944"></indexterm> <indexterm
+      class="endofrange" id="templating-ITERM-2966"
       significance="normal"
-      startref="jakartackbk-CHP-9-ITERM-2945"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-9-ITERM-2967"
+      startref="templating-ITERM-2945"></indexterm> <indexterm
+      class="endofrange" id="templating-ITERM-2967"
       significance="normal"
-      startref="jakartackbk-CHP-9-ITERM-2946"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-9-ITERM-2968"
+      startref="templating-ITERM-2946"></indexterm> <indexterm
+      class="endofrange" id="templating-ITERM-2968"
       significance="normal"
-      startref="jakartackbk-CHP-9-ITERM-2947"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-9-ITERM-2969"
+      startref="templating-ITERM-2947"></indexterm> <indexterm
+      class="endofrange" id="templating-ITERM-2969"
       significance="normal"
-      startref="jakartackbk-CHP-9-ITERM-2948"></indexterm> that uses a simple
+      startref="templating-ITERM-2948"></indexterm> that uses a simple
       set of rules to categorize balls. For more information about a serious
       open source Rule Engine for Java named JESS, take a look at <systemitem
       moreinfo="none"
@@ -958,20 +958,20 @@ while( ballsIter.hasNext( ) ) {
       <title>Problem</title>
 
       <para>You need to use Jakarta <indexterm class="startofrange"
-          id="jakartackbk-CHP-9-ITERM-2970" significance="normal">
+          id="templating-ITERM-2970" significance="normal">
           <primary>templating</primary>
 
           <secondary>Jakarta Velocity, downloading</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-9-ITERM-2971" significance="normal">
+          id="templating-ITERM-2971" significance="normal">
           <primary>downloading</primary>
 
           <secondary>Jakarta Velocity</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-9-ITERM-2972" significance="normal">
+          id="templating-ITERM-2972" significance="normal">
           <primary>Jakarta Velocity, downloading</primary>
         </indexterm>Velocity to create<indexterm
-          id="jakartackbk-CHP-9-ITERM-2973" significance="normal">
+          id="templating-ITERM-2973" significance="normal">
           <primary>Velocity</primary>
 
           <see>Jakarta Velocity</see>
@@ -1045,7 +1045,7 @@ while( ballsIter.hasNext( ) ) {
       <para>Use Jakarta Velocity and store your template in the filesystem.
       Jakarta Velocity is a straightforward templating engine with a
       lightweight syntax similar to the expression language introduced in
-      <link linkend="jakartackbk-CHP-9-SECT-2">Recipe 9.2</link>. The
+      <link linkend="templating-SECT-2">Recipe 9.2</link>. The
       following Velocity template is used to create an email:</para>
 
       <programlisting format="linespecific" id="I_9_tt364">#set( $customer = $subscription.customer )
@@ -1068,10 +1068,10 @@ ${magazine.baseUrl}/renew?cust=${customer.id}</programlisting>
       properties are assigned to a local template variable using the <literal
       moreinfo="none">#set</literal> directive. To render a Velocity template,
       the engine is initialized using <literal moreinfo="none">Velocity.init(
-      )</literal> <indexterm id="jakartackbk-CHP-9-ITERM-2974"
+      )</literal> <indexterm id="templating-ITERM-2974"
           significance="normal">
           <primary>Velocity.init( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-2975"
+        </indexterm> <indexterm id="templating-ITERM-2975"
           significance="normal">
           <primary>methods</primary>
 
@@ -1079,7 +1079,7 @@ ${magazine.baseUrl}/renew?cust=${customer.id}</programlisting>
         </indexterm>, a <literal moreinfo="none">VelocityContext</literal> is
       created and populated, and the template is read with a <literal
       moreinfo="none">FileReader</literal> <indexterm
-          id="jakartackbk-CHP-9-ITERM-2976" significance="normal">
+          id="templating-ITERM-2976" significance="normal">
           <primary>FileReader</primary>
         </indexterm>. The following code renders this template:</para>
 
@@ -1122,7 +1122,7 @@ http://www.scienceworld.com/renew?cust=22324</programlisting>
       <para>In the previous example, <literal
       moreinfo="none">Velocity</literal> is used as a singleton—a single
       instance of the <literal moreinfo="none">VelocityEngine</literal>
-      <indexterm id="jakartackbk-CHP-9-ITERM-2977" significance="normal">
+      <indexterm id="templating-ITERM-2977" significance="normal">
           <primary>VelocityEngine</primary>
         </indexterm> in one Java Virtual Machine. The Velocity engine has a
       number of configuration options, but, in this example, the Velocity
@@ -1132,7 +1132,7 @@ http://www.scienceworld.com/renew?cust=22324</programlisting>
       moreinfo="none">FileReader</literal>. The output of the template
       evaluation is written to a <literal
       moreinfo="none">StringWriter</literal>. To <indexterm
-          id="jakartackbk-CHP-9-ITERM-2978" significance="normal">
+          id="templating-ITERM-2978" significance="normal">
           <primary>syntax</primary>
 
           <seealso>code</seealso>
@@ -1142,7 +1142,7 @@ http://www.scienceworld.com/renew?cust=22324</programlisting>
       <literal moreinfo="none">Writer</literal> to hold the output, a name for
       logging purposes, and a Reader to read the template.</para>
 
-      <para>Velocity syntax is<indexterm id="jakartackbk-CHP-9-ITERM-2979"
+      <para>Velocity syntax is<indexterm id="templating-ITERM-2979"
           significance="normal">
           <primary>syntax</primary>
 
@@ -1154,7 +1154,7 @@ http://www.scienceworld.com/renew?cust=22324</programlisting>
       moreinfo="none">${bean.getProperty( )}</literal>; Velocity can handle
       both bean properties and methods. In addition to the basic expression
       syntax, Velocity also supports a number of directives and control loops,
-      which are explored in <link linkend="jakartackbk-CHP-9-SECT-7">Recipe
+      which are explored in <link linkend="templating-SECT-7">Recipe
       9.7</link></para>
 
       <para>The one directive used in the previous example is <literal
@@ -1165,11 +1165,11 @@ http://www.scienceworld.com/renew?cust=22324</programlisting>
       moreinfo="none">customer</literal> property of the <literal
       moreinfo="none">subscription</literal> object to the variable <literal
       moreinfo="none">$customer</literal>. <link
-      linkend="jakartackbk-CHP-9-TABLE-3">Table 9-3</link> lists some sample
+      linkend="templating-TABLE-3">Table 9-3</link> lists some sample
       Velocity references that demonstrate referencing bean properties and
       invoking methods.</para>
 
-      <table id="jakartackbk-CHP-9-TABLE-3" label="9-3">
+      <table id="templating-TABLE-3" label="9-3">
         <title>Sample Velocity references</title>
 
         <tgroup cols="2">
@@ -1298,9 +1298,9 @@ http://www.scienceworld.com/renew?cust=22324</programlisting>
 
       <para>To render this template, a <literal moreinfo="none">List</literal>
       of <literal moreinfo="none">Airport</literal> objects and a<indexterm
-          id="jakartackbk-CHP-9-ITERM-2980" significance="normal">
+          id="templating-ITERM-2980" significance="normal">
           <primary>countryCode string</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-2981"
+        </indexterm> <indexterm id="templating-ITERM-2981"
           significance="normal">
           <primary>strings</primary>
 
@@ -1347,11 +1347,11 @@ Velocity.evaluate(context, writer, "test", reader);
 System.out.println( writer.toString( ) );</programlisting>
 
       <para>This code produces the following output after <indexterm
-          id="jakartackbk-CHP-9-ITERM-2982" significance="normal">
+          id="templating-ITERM-2982" significance="normal">
           <primary>merging templates</primary>
         </indexterm>merging the Velocity template with a <literal
       moreinfo="none">VelocityContext</literal> <indexterm
-          id="jakartackbk-CHP-9-ITERM-2983" significance="normal">
+          id="templating-ITERM-2983" significance="normal">
           <primary>VelocityContext</primary>
         </indexterm>:</para>
 
@@ -1434,14 +1434,14 @@ Rank  Code  Name                Passengers  US Domestic
       <title>See Also</title>
 
       <para>For information about the<indexterm class="endofrange"
-      id="jakartackbk-CHP-9-ITERM-2984" significance="normal"
-      startref="jakartackbk-CHP-9-ITERM-2970"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-9-ITERM-2985"
+      id="templating-ITERM-2984" significance="normal"
+      startref="templating-ITERM-2970"></indexterm> <indexterm
+      class="endofrange" id="templating-ITERM-2985"
       significance="normal"
-      startref="jakartackbk-CHP-9-ITERM-2971"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-9-ITERM-2986"
+      startref="templating-ITERM-2971"></indexterm> <indexterm
+      class="endofrange" id="templating-ITERM-2986"
       significance="normal"
-      startref="jakartackbk-CHP-9-ITERM-2972"></indexterm> relational and
+      startref="templating-ITERM-2972"></indexterm> relational and
       logical operators supports by Velocity, see the Velocity Template
       Language (VTL) Reference Guide (<systemitem moreinfo="none"
       role="url">http://jakarta.apache.org/velocity/vtl-reference-guide.html</systemitem>).</para>
@@ -1455,12 +1455,12 @@ Rank  Code  Name                Passengers  US Domestic
       <title>Problem</title>
 
       <para>You need to reuse portions of<indexterm class="startofrange"
-          id="jakartackbk-CHP-9-ITERM-2987" significance="normal">
+          id="templating-ITERM-2987" significance="normal">
           <primary>templating</primary>
 
           <secondary>macros</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-9-ITERM-2988" significance="normal">
+          id="templating-ITERM-2988" significance="normal">
           <primary>macros</primary>
 
           <secondary>templating</secondary>
@@ -1472,7 +1472,7 @@ Rank  Code  Name                Passengers  US Domestic
       <title>Solution</title>
 
       <para>Use Velocity Macro definitions to reuse logic to print out
-      both<indexterm id="jakartackbk-CHP-9-ITERM-2989" significance="normal">
+      both<indexterm id="templating-ITERM-2989" significance="normal">
           <primary>printing</primary>
 
           <secondary>Jakarta Velocity</secondary>
@@ -1604,12 +1604,12 @@ Jersey City, NJ 20213</programlisting>
     &lt;Macro Body&gt;
 #end</programlisting>
 
-      <para>Macro parameters are <indexterm id="jakartackbk-CHP-9-ITERM-2990"
+      <para>Macro parameters are <indexterm id="templating-ITERM-2990"
           significance="normal">
           <primary>macros</primary>
 
           <secondary>parameters</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-2991"
+        </indexterm> <indexterm id="templating-ITERM-2991"
           significance="normal">
           <primary>parameters</primary>
 
@@ -1738,9 +1738,9 @@ More results are available here:
 http://www.test.com/detail?test={results.id}</programlisting>
 
       <para>The <literal moreinfo="none">StatUtil</literal> <indexterm
-          id="jakartackbk-CHP-9-ITERM-2992" significance="normal">
+          id="templating-ITERM-2992" significance="normal">
           <primary>StatUtil object</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-2993"
+        </indexterm> <indexterm id="templating-ITERM-2993"
           significance="normal">
           <primary>objects</primary>
 
@@ -1778,15 +1778,15 @@ http://www.test.com/detail?test={results.id}</programlisting>
       <para>The template shown above is loaded from the classpath, and a
       <literal moreinfo="none">StatUtil</literal> object is added to the
       <literal moreinfo="none">VelocityContext</literal> <indexterm
-          id="jakartackbk-CHP-9-ITERM-2994" significance="normal">
+          id="templating-ITERM-2994" significance="normal">
           <primary>VelocityContext</primary>
         </indexterm>. The <literal moreinfo="none">VelocityEngine</literal> is
       configured to load templates from the classpath, and the template is
       merged with a call to <literal moreinfo="none">mergeTemplate(
-      )</literal> <indexterm id="jakartackbk-CHP-9-ITERM-2995"
+      )</literal> <indexterm id="templating-ITERM-2995"
           significance="normal">
           <primary>mergeTemplate( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-2996"
+        </indexterm> <indexterm id="templating-ITERM-2996"
           significance="normal">
           <primary>methods</primary>
 
@@ -1898,7 +1898,7 @@ ClasspathResourceLoader</programlisting>
 
       <para>Instead of configuring a <literal
       moreinfo="none">VelocityEngine</literal> <indexterm
-          id="jakartackbk-CHP-9-ITERM-2997" significance="normal">
+          id="templating-ITERM-2997" significance="normal">
           <primary>VelocityEngine</primary>
         </indexterm> in Java code, the name of this properties file can be
       passed to the <literal moreinfo="none">init( )</literal> method:</para>
@@ -1924,12 +1924,12 @@ engine.init( "conf/velocity.properties" );</programlisting>
       Try to evaluate <literal moreinfo="none">${var &lt; 37.4}</literal> in a
       Velocity template and you will have inconsistent results. Velocity is
       simple is by design. If you are looking for a more complex templating
-      engine<indexterm class="endofrange" id="jakartackbk-CHP-9-ITERM-2998"
+      engine<indexterm class="endofrange" id="templating-ITERM-2998"
       significance="normal"
-      startref="jakartackbk-CHP-9-ITERM-2987"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-9-ITERM-2999"
+      startref="templating-ITERM-2987"></indexterm> <indexterm
+      class="endofrange" id="templating-ITERM-2999"
       significance="normal"
-      startref="jakartackbk-CHP-9-ITERM-2988"></indexterm>, the next few
+      startref="templating-ITERM-2988"></indexterm>, the next few
       recipes introduce another templating engine named FreeMarker.</para>
     </sect2>
   </sect1>
@@ -1941,14 +1941,14 @@ engine.init( "conf/velocity.properties" );</programlisting>
       <title>Problem</title>
 
       <para>You need to use FreeMarker to write<indexterm
-          id="jakartackbk-CHP-9-ITERM-3000" significance="normal">
+          id="templating-ITERM-3000" significance="normal">
           <primary>templating</primary>
 
           <secondary>FreeMaker, downloading</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-3001"
+        </indexterm> <indexterm id="templating-ITERM-3001"
           significance="normal">
           <primary>FreeMarker, downloading</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-3002"
+        </indexterm> <indexterm id="templating-ITERM-3002"
           significance="normal">
           <primary>downloading</primary>
 
@@ -2078,9 +2078,9 @@ Your final grade has been submitted to the Registrar.
       moreinfo="none">Map</literal> with named attributes and pass this
       <literal moreinfo="none">Map</literal> to the <literal
       moreinfo="none">template.process()</literal> <indexterm
-          id="jakartackbk-CHP-9-ITERM-3003" significance="normal">
+          id="templating-ITERM-3003" significance="normal">
           <primary>template.process( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-3004"
+        </indexterm> <indexterm id="templating-ITERM-3004"
           significance="normal">
           <primary>methods</primary>
 
@@ -2241,7 +2241,7 @@ Your final grade has been submitted to the Registrar.  Have a great Summer!</pro
         </listitem>
       </itemizedlist>
 
-      <tip id="jakartackbk-CHP-9-NOTE-67" role="ora">
+      <tip id="templating-NOTE-67" role="ora">
         <para>Velocity has a very large user base, and it is the right tool
         for a simple job. FreeMarker has some very useful features "out of the
         box," while Velocity requires developers to install supporting
@@ -2360,9 +2360,9 @@ System.out.println("output: \n" + writer.toString( ));</programlisting>
 &lt;/composers&gt;</programlisting>
 
       <para>The <literal moreinfo="none">NodeModel</literal> <indexterm
-          id="jakartackbk-CHP-9-ITERM-3005" significance="normal">
+          id="templating-ITERM-3005" significance="normal">
           <primary>NodeModel object</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-3006"
+        </indexterm> <indexterm id="templating-ITERM-3006"
           significance="normal">
           <primary>objects</primary>
 
@@ -2393,10 +2393,10 @@ System.out.println("output: \n" + writer.toString( ));</programlisting>
 
       <para>In addition to simple access to elements and attributes,
       FreeMarker also allows you to use XPath expressions if <indexterm
-          id="jakartackbk-CHP-9-ITERM-3007" significance="normal">
+          id="templating-ITERM-3007" significance="normal">
           <primary>Apache Xalan</primary>
         </indexterm>Apache Xalan is available on the classpath. If you have
-      <indexterm id="jakartackbk-CHP-9-ITERM-3008" significance="normal">
+      <indexterm id="templating-ITERM-3008" significance="normal">
           <primary>Xalan</primary>
         </indexterm>Xalan, you can use XPath with the same syntax you would
       use if you were trying to access a map. Instead of <literal
@@ -2413,13 +2413,13 @@ System.out.println("output: \n" + writer.toString( ));</programlisting>
       moreinfo="none">NodeModel</literal> objects; in the previous template,
       <literal moreinfo="none">?parent</literal> returns the parent element of
       the element represented by the <literal moreinfo="none">birth</literal>
-      node. <link linkend="jakartackbk-CHP-9-TABLE-4">Table 9-4</link> lists a
+      node. <link linkend="templating-TABLE-4">Table 9-4</link> lists a
       number of built-ins for XML nodes; <literal
       moreinfo="none">?children</literal> returns all of the child nodes of a
       given node, and <literal moreinfo="none">?ancestors</literal> gives
       every node above this node in an XML document.</para>
 
-      <table id="jakartackbk-CHP-9-TABLE-4" label="9-4">
+      <table id="templating-TABLE-4" label="9-4">
         <title>FreeMarker built-ins for NodeModel objects</title>
 
         <tgroup cols="2">
@@ -2606,24 +2606,24 @@ System.out.println("output: \n" + writer.toString( ));</programlisting>
     <sect2>
       <title>See Also</title>
 
-      <para><indexterm id="jakartackbk-CHP-9-ITERM-3009" significance="normal">
+      <para><indexterm id="templating-ITERM-3009" significance="normal">
           <primary>VelocityTools</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-3010"
+        </indexterm> <indexterm id="templating-ITERM-3010"
           significance="normal">
           <primary>tools</primary>
 
           <secondary>VelocityTools</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-3011"
+        </indexterm> <indexterm id="templating-ITERM-3011"
           significance="normal">
           <primary>utilities</primary>
 
           <secondary>VelocityTools</secondary>
         </indexterm>VelocityTools also contains a project named <indexterm
-          id="jakartackbk-CHP-9-ITERM-3012" significance="normal">
+          id="templating-ITERM-3012" significance="normal">
           <primary>VelocityStruts</primary>
         </indexterm>VelocityStruts, which provides tools to integrate Velocity
       with Jakarta Struts. The VelocityStruts project has tools that duplicate
-      the functionality of the<indexterm id="jakartackbk-CHP-9-ITERM-3013"
+      the functionality of the<indexterm id="templating-ITERM-3013"
           significance="normal">
           <primary>Struts JSP tag libraries</primary>
         </indexterm> Struts JSP tag libraries—a <literal
@@ -2709,23 +2709,23 @@ System.out.println("output: \n" + writer.toString( ));</programlisting>
 &lt;app:printStuff var="test" mode="fast"/&gt;</programlisting>
 
       <para>The <literal moreinfo="none">app</literal> <indexterm
-          id="jakartackbk-CHP-9-ITERM-3014" significance="normal">
+          id="templating-ITERM-3014" significance="normal">
           <primary>app tag library</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-3015"
+        </indexterm> <indexterm id="templating-ITERM-3015"
           significance="normal">
           <primary>tags</primary>
 
           <secondary>app tag library</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-3016"
+        </indexterm> <indexterm id="templating-ITERM-3016"
           significance="normal">
           <primary>libraries</primary>
 
           <secondary>app tag</secondary>
         </indexterm> tag library has a <literal
       moreinfo="none">printStuff</literal> <indexterm
-          id="jakartackbk-CHP-9-ITERM-3017" significance="normal">
+          id="templating-ITERM-3017" significance="normal">
           <primary>printStuff tag</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-3018"
+        </indexterm> <indexterm id="templating-ITERM-3018"
           significance="normal">
           <primary>tags</primary>
 
@@ -2754,14 +2754,14 @@ System.out.println("output: \n" + writer.toString( ));</programlisting>
       <title>See Also</title>
 
       <para>This is a valuable piece of <indexterm
-          id="jakartackbk-CHP-9-ITERM-3019" significance="normal">
+          id="templating-ITERM-3019" significance="normal">
           <primary>templating</primary>
 
           <secondary>FreeMaker, downloading</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-3020"
+        </indexterm> <indexterm id="templating-ITERM-3020"
           significance="normal">
           <primary>FreeMarker, downloading</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-3021"
+        </indexterm> <indexterm id="templating-ITERM-3021"
           significance="normal">
           <primary>downloading</primary>
 
@@ -2781,19 +2781,19 @@ System.out.println("output: \n" + writer.toString( ));</programlisting>
       <title>Problem</title>
 
       <para>You are writing a fair amount of <indexterm
-          id="jakartackbk-CHP-9-ITERM-3022" significance="normal">
+          id="templating-ITERM-3022" significance="normal">
           <primary>templating</primary>
 
           <secondary>Eclipse</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-3023"
+        </indexterm> <indexterm id="templating-ITERM-3023"
           significance="normal">
           <primary>Eclipse</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-3024"
+        </indexterm> <indexterm id="templating-ITERM-3024"
           significance="normal">
           <primary>tools</primary>
 
           <secondary>Eclipse</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-9-ITERM-3025"
+        </indexterm> <indexterm id="templating-ITERM-3025"
           significance="normal">
           <primary>utilities</primary>
 

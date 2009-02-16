@@ -50,23 +50,23 @@
       <title>Problem</title>
 
       <para>You need to use Jakarta Commons <indexterm
-          id="jakartackbk-CHP-12-ITERM-3363" significance="normal">
+          id="searching-filtering-ITERM-3363" significance="normal">
           <primary>Commons JXPath</primary>
 
           <secondary>downloading</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3364"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3364"
           significance="normal">
           <primary>downloading</primary>
 
           <secondary>Commons JXPath</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3365"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3365"
           significance="normal">
           <primary>collections</primary>
 
           <secondary>Commons JXPath</secondary>
 
           <tertiary>downloading</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3366"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3366"
           significance="normal">
           <primary>objects</primary>
 
@@ -91,14 +91,14 @@
       <title>Discussion</title>
 
       <para>Commons JXPath provides a mechanism<indexterm
-          id="jakartackbk-CHP-12-ITERM-3367" significance="normal">
+          id="searching-filtering-ITERM-3367" significance="normal">
           <primary>XPath (XML Path Language)</primary>
         </indexterm> for evaluating<indexterm
-          id="jakartackbk-CHP-12-ITERM-3368" significance="normal">
+          id="searching-filtering-ITERM-3368" significance="normal">
           <primary>XML Path Language</primary>
 
           <see>XPath</see>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3369"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3369"
           significance="normal">
           <primary>XPath (XML Path Language)</primary>
 
@@ -142,31 +142,31 @@
       <title>Problem</title>
 
       <para>You need to retrieve nested bean<indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3370" significance="normal">
+          id="searching-filtering-ITERM-3370" significance="normal">
           <primary>Commons JXPath</primary>
 
           <secondary>querying object graphs</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3371" significance="normal">
+          id="searching-filtering-ITERM-3371" significance="normal">
           <primary>collections</primary>
 
           <secondary>Commons JXPath</secondary>
 
           <tertiary>querying object graphs</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3372" significance="normal">
+          id="searching-filtering-ITERM-3372" significance="normal">
           <primary>objects</primary>
 
           <secondary>Commons JXPath</secondary>
 
           <tertiary>querying object graphs</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3373" significance="normal">
+          id="searching-filtering-ITERM-3373" significance="normal">
           <primary>queries</primary>
 
           <secondary>object graphs</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3374" significance="normal">
+          id="searching-filtering-ITERM-3374" significance="normal">
           <primary>graphs, objects</primary>
         </indexterm> properties using an XPath expression. You need to perform
       an XPath query on an object graph.</para>
@@ -296,25 +296,25 @@ while( teamIterator.hasNext( ) ) {
       <para>Commons JXPath can also be used to reference objects at a specific
       index in a <literal moreinfo="none">List</literal> or an array, or
       objects by a known key in a <literal moreinfo="none">Map</literal>.
-      <link linkend="jakartackbk-CHP-12-SECT-4">Recipe 12.4</link>
+      <link linkend="searching-filtering-SECT-4">Recipe 12.4</link>
       demonstrates how to use JXPath to reference items in a <literal
       moreinfo="none">Map</literal>, and <link
-      linkend="jakartackbk-CHP-12-SECT-3">Recipe 12.3</link>
+      linkend="searching-filtering-SECT-3">Recipe 12.3</link>
       demonstrates<indexterm class="endofrange"
-      id="jakartackbk-CHP-12-ITERM-3375" significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3370"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3376"
+      id="searching-filtering-ITERM-3375" significance="normal"
+      startref="searching-filtering-ITERM-3370"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3376"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3371"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3377"
+      startref="searching-filtering-ITERM-3371"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3377"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3372"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3378"
+      startref="searching-filtering-ITERM-3372"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3378"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3373"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3379"
+      startref="searching-filtering-ITERM-3373"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3379"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3374"></indexterm> the use of JXPath
+      startref="searching-filtering-ITERM-3374"></indexterm> the use of JXPath
       to reference an item at a specific index in a <literal
       moreinfo="none">List</literal>.</para>
     </sect2>
@@ -328,31 +328,31 @@ while( teamIterator.hasNext( ) ) {
       <title>Problem</title>
 
       <para>You need to select objects<indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3380" significance="normal">
+          id="searching-filtering-ITERM-3380" significance="normal">
           <primary>Commons JXPath</primary>
 
           <secondary>searching</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3381" significance="normal">
+          id="searching-filtering-ITERM-3381" significance="normal">
           <primary>collections</primary>
 
           <secondary>Commons JXPath</secondary>
 
           <tertiary>searching</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3382" significance="normal">
+          id="searching-filtering-ITERM-3382" significance="normal">
           <primary>objects</primary>
 
           <secondary>Commons JXPath</secondary>
 
           <tertiary>searching</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3383" significance="normal">
+          id="searching-filtering-ITERM-3383" significance="normal">
           <primary>searching</primary>
 
           <secondary>objects</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3384" significance="normal">
+          id="searching-filtering-ITERM-3384" significance="normal">
           <primary>predicates</primary>
 
           <secondary>searching</secondary>
@@ -366,9 +366,9 @@ while( teamIterator.hasNext( ) ) {
       <para>Use Jakarta Commons JXPath to select objects from a <literal
       moreinfo="none">Collection</literal> using predicates in XPath
       expressions. The <literal moreinfo="none">iterate( )</literal>
-      <indexterm id="jakartackbk-CHP-12-ITERM-3385" significance="normal">
+      <indexterm id="searching-filtering-ITERM-3385" significance="normal">
           <primary>iterate( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3386"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3386"
           significance="normal">
           <primary>methods</primary>
 
@@ -445,7 +445,7 @@ Person: Tom Russell, age: 35</programlisting>
       moreinfo="none">.[2]</filename> selected the second element in the
       <literal moreinfo="none">List</literal> supplied to the <literal
       moreinfo="none">JXPathContext</literal> <indexterm
-          id="jakartackbk-CHP-12-ITERM-3387" significance="normal">
+          id="searching-filtering-ITERM-3387" significance="normal">
           <primary>JXPathContext</primary>
         </indexterm>. Whenever an XPath expression deals with a property,
       which is a <literal moreinfo="none">List</literal> or an array, a
@@ -493,27 +493,27 @@ Person: Tom Russell, age: 35</programlisting>
     <sect2>
       <title>See Also</title>
 
-      <para><link linkend="jakartackbk-CHP-5">Chapter 5</link> demonstrates
+      <para><link linkend="collections">Chapter 5</link> demonstrates
       the use of Commons <indexterm class="endofrange"
-      id="jakartackbk-CHP-12-ITERM-3388" significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3380"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3389"
+      id="searching-filtering-ITERM-3388" significance="normal"
+      startref="searching-filtering-ITERM-3380"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3389"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3381"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3390"
+      startref="searching-filtering-ITERM-3381"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3390"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3382"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3391"
+      startref="searching-filtering-ITERM-3382"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3391"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3383"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3392"
+      startref="searching-filtering-ITERM-3383"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3392"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3384"></indexterm>Collections'
+      startref="searching-filtering-ITERM-3384"></indexterm>Collections'
       <literal moreinfo="none">CollectionUtils</literal> to select items in a
       <literal moreinfo="none">Collection</literal> that satisfy a <literal
       moreinfo="none">Predicate</literal>. For more information about using
       <literal moreinfo="none">Predicate</literal> objects to filter
-      collections, refer to <link linkend="jakartackbk-CHP-5-SECT-4">Recipe
+      collections, refer to <link linkend="collections-SECT-4">Recipe
       5.4</link>.</para>
     </sect2>
   </sect1>
@@ -526,30 +526,30 @@ Person: Tom Russell, age: 35</programlisting>
       <title>Problem</title>
 
       <para>You need to use XPath expressions to<indexterm
-          class="startofrange" id="jakartackbk-CHP-12-ITERM-3393"
+          class="startofrange" id="searching-filtering-ITERM-3393"
           significance="normal">
           <primary>Commons JXPath</primary>
 
           <secondary>applying object graphs</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3394" significance="normal">
+          id="searching-filtering-ITERM-3394" significance="normal">
           <primary>collections</primary>
 
           <secondary>Commons JXPath</secondary>
 
           <tertiary>applying object graphs</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3395" significance="normal">
+          id="searching-filtering-ITERM-3395" significance="normal">
           <primary>objects</primary>
 
           <secondary>Commons JXPath</secondary>
 
           <tertiary>applying object graphs</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3396" significance="normal">
+          id="searching-filtering-ITERM-3396" significance="normal">
           <primary>applying XPath to object graphs</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3397" significance="normal">
+          id="searching-filtering-ITERM-3397" significance="normal">
           <primary>graphs, objects</primary>
         </indexterm> select objects from a complex object graph referencing
       the contents of a <literal moreinfo="none">Map</literal> and using
@@ -598,7 +598,7 @@ Object: Saturn</programlisting>
       <para>This object graph was created from an XML document that contains a
       list of planets and their physical properties including mass, radius,
       atmospheric composition, lunar population, and orbital distance and
-      period. Commons Digester (from <link linkend="jakartackbk-CHP-6">Chapter
+      period. Commons Digester (from <link linkend="xml">Chapter
       6</link>) is used to parse this XML document to a list of <literal
       moreinfo="none">Planet</literal> objects. The following XML document,
       <filename moreinfo="none">planets.xml</filename>, was parsed in the
@@ -642,9 +642,9 @@ Object: Saturn</programlisting>
       <para>To parse this XML document, the following Digester rules are
       passed to <literal
       moreinfo="none">DigesterLoader.createDigester()</literal> <indexterm
-          id="jakartackbk-CHP-12-ITERM-3398" significance="normal">
+          id="searching-filtering-ITERM-3398" significance="normal">
           <primary>createDigester( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3399"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3399"
           significance="normal">
           <primary>methods</primary>
 
@@ -661,9 +661,9 @@ Object: Saturn</programlisting>
       moreinfo="none">component</literal> <literal
       moreinfo="none">Map</literal> using <literal
       moreinfo="none">addComponent( )</literal> <indexterm
-          id="jakartackbk-CHP-12-ITERM-3400" significance="normal">
+          id="searching-filtering-ITERM-3400" significance="normal">
           <primary>addComponent( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3401"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3401"
           significance="normal">
           <primary>methods</primary>
 
@@ -772,10 +772,10 @@ while( iterator.hasNext( ) ) {
       contains a reference to the variable <literal
       moreinfo="none">$moonName</literal>, which is set by passing a variable
       name and value to the <literal moreinfo="none">declareVariable(
-      )</literal> <indexterm id="jakartackbk-CHP-12-ITERM-3402"
+      )</literal> <indexterm id="searching-filtering-ITERM-3402"
           significance="normal">
           <primary>declareVariable( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3403"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3403"
           significance="normal">
           <primary>methods</primary>
 
@@ -800,21 +800,21 @@ Moon: Mimas,           Planet: Saturn</programlisting>
       <title>See Also</title>
 
       <para>There is much more to JXPath including object creation <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3404"
+      class="endofrange" id="searching-filtering-ITERM-3404"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3393"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3405"
+      startref="searching-filtering-ITERM-3393"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3405"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3394"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3406"
+      startref="searching-filtering-ITERM-3394"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3406"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3395"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3407"
+      startref="searching-filtering-ITERM-3395"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3407"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3396"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3408"
+      startref="searching-filtering-ITERM-3396"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3408"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3397"></indexterm>and the ability to
+      startref="searching-filtering-ITERM-3397"></indexterm>and the ability to
       set properties using XPath expressions; for more information about using
       JXPath to access maps, collections, servlet contexts, and DOM/JDOM
       Documents, see the JXPath User's Guide (<systemitem moreinfo="none"
@@ -829,30 +829,30 @@ Moon: Mimas,           Planet: Saturn</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to use <indexterm id="jakartackbk-CHP-12-ITERM-3409"
+      <para>You need to use <indexterm id="searching-filtering-ITERM-3409"
           significance="normal">
           <primary>Jakarta Lucene</primary>
 
           <secondary>downloading</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3410"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3410"
           significance="normal">
           <primary>downloading</primary>
 
           <secondary>Jakarta Lucene</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3411"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3411"
           significance="normal">
           <primary>indexes</primary>
 
           <secondary>Jakarta Lucene</secondary>
 
           <tertiary>downloading</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3412"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3412"
           significance="normal">
           <primary>documents</primary>
 
           <secondary>Jakarta Lucene</secondary>
         </indexterm>Jakarta Lucene to <indexterm
-          id="jakartackbk-CHP-12-ITERM-3413" significance="normal">
+          id="searching-filtering-ITERM-3413" significance="normal">
           <primary>Lucene</primary>
 
           <see>Jakarta Lucene</see>
@@ -873,7 +873,7 @@ Moon: Mimas,           Planet: Saturn</programlisting>
       <title>Discussion</title>
 
       <para>Jakarta Lucene is a full-text <indexterm
-          id="jakartackbk-CHP-12-ITERM-3414" significance="normal">
+          id="searching-filtering-ITERM-3414" significance="normal">
           <primary>searching</primary>
 
           <seealso>Jakarta Lucene</seealso>
@@ -911,24 +911,24 @@ Moon: Mimas,           Planet: Saturn</programlisting>
       <title>Problem</title>
 
       <para>You need to quickly search a <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3415" significance="normal">
+          id="searching-filtering-ITERM-3415" significance="normal">
           <primary>Jakarta Lucene</primary>
 
           <secondary>XML documents</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3416" significance="normal">
+          id="searching-filtering-ITERM-3416" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>Jakarta Lucene</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3417" significance="normal">
+          id="searching-filtering-ITERM-3417" significance="normal">
           <primary>indexes</primary>
 
           <secondary>Jakarta Lucene</secondary>
 
           <tertiary>XML documents</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3418" significance="normal">
+          id="searching-filtering-ITERM-3418" significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
@@ -985,9 +985,9 @@ Moon: Mimas,           Planet: Saturn</programlisting>
       <literal moreinfo="none">PlayIndexer</literal> to create Lucene <literal
       moreinfo="none">Document</literal> objects for every speech. These
       <literal moreinfo="none">Document</literal> <indexterm
-          id="jakartackbk-CHP-12-ITERM-3419" significance="normal">
+          id="searching-filtering-ITERM-3419" significance="normal">
           <primary>Document objects</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3420"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3420"
           significance="normal">
           <primary>objects</primary>
 
@@ -1025,11 +1025,11 @@ writer.close( );
 logger.info( "Parsing Complete, Index Created");</programlisting>
 
       <para>The <literal moreinfo="none">PlayIndexer</literal> class, shown in
-      <link linkend="jakartackbk-CHP-12-EX-1">Example 12-1</link>, parses each
+      <link linkend="searching-filtering-EX-1">Example 12-1</link>, parses each
       XML file and creates <literal moreinfo="none">Document</literal> objects
       that are written to an <literal moreinfo="none">IndexWriter</literal>.
       The <literal moreinfo="none">PlayIndexer</literal> <indexterm
-          id="jakartackbk-CHP-12-ITERM-3421" significance="normal">
+          id="searching-filtering-ITERM-3421" significance="normal">
           <primary>PlayIndexer</primary>
         </indexterm> uses Commons Digester to create a Lucene <literal
       moreinfo="none">Document</literal> object for every speech. The <literal
@@ -1043,9 +1043,9 @@ logger.info( "Parsing Complete, Index Created");</programlisting>
       moreinfo="none">speech</literal>. At the end of every speech element,
       the <literal moreinfo="none">DigestContext</literal> invokes the
       <literal moreinfo="none">processSpeech( )</literal> <indexterm
-          id="jakartackbk-CHP-12-ITERM-3422" significance="normal">
+          id="searching-filtering-ITERM-3422" significance="normal">
           <primary>processSpeech( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3423"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3423"
           significance="normal">
           <primary>methods</primary>
 
@@ -1053,14 +1053,14 @@ logger.info( "Parsing Complete, Index Created");</programlisting>
         </indexterm> method that creates a Lucene <literal
       moreinfo="none">Document</literal> for each speech and writes this
       <literal moreinfo="none">Document</literal> to the Lucene<indexterm
-          id="jakartackbk-CHP-12-ITERM-3424" significance="normal">
+          id="searching-filtering-ITERM-3424" significance="normal">
           <primary>IndexWriter</primary>
         </indexterm> <literal moreinfo="none">IndexWriter</literal>. Because
       each <literal moreinfo="none">Document</literal> is associated with the
       specific context of a speech, it will be possible to obtain a specific
       location for each term or phrase.</para>
 
-      <example id="jakartackbk-CHP-12-EX-1" label="12-1">
+      <example id="searching-filtering-EX-1" label="12-1">
         <title>PlayIndexer using Commons Digester and Jakarta Lucene</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.xml.bardsearch;
@@ -1141,12 +1141,12 @@ public class PlayIndexer {
 }</programlisting>
       </example>
 
-      <para><link linkend="jakartackbk-CHP-12-EX-1">Example 12-1</link> used a
+      <para><link linkend="searching-filtering-EX-1">Example 12-1</link> used a
       Digester rule set defined in <link
-      linkend="jakartackbk-CHP-12-EX-2">Example 12-2</link>. This set of rules
+      linkend="searching-filtering-EX-2">Example 12-2</link>. This set of rules
       is designed to invoke a series of methods in a set sequence to populate
       the context variables for each speech. The Digester rules in <link
-      linkend="jakartackbk-CHP-12-EX-2">Example 12-2</link> never push or pop
+      linkend="searching-filtering-EX-2">Example 12-2</link> never push or pop
       objects onto the digester stack; instead, the Digester is being used to
       populate variables and invoke methods on an object that creates Lucene
       <literal moreinfo="none">Document</literal> objects based on a set of
@@ -1157,7 +1157,7 @@ public class PlayIndexer {
       the underlying SAX parser and the <literal
       moreinfo="none">DigestContext</literal>.</para>
 
-      <example id="jakartackbk-CHP-12-EX-2" label="12-2">
+      <example id="searching-filtering-EX-2" label="12-2">
         <title>Digester rules for PlayIndexer</title>
 
         <programlisting format="linespecific">&lt;?xml version="1.0"?&gt;
@@ -1239,9 +1239,9 @@ public class PlayIndexer {
       moreinfo="none">Document</literal> objects using <literal
       moreinfo="none">Document</literal>'s <literal
       moreinfo="none">addDoc()</literal> <indexterm
-          id="jakartackbk-CHP-12-ITERM-3425" significance="normal">
+          id="searching-filtering-ITERM-3425" significance="normal">
           <primary>addDoc( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3426"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3426"
           significance="normal">
           <primary>methods</primary>
 
@@ -1255,9 +1255,9 @@ public class PlayIndexer {
       moreinfo="none">Text( )</literal>, a static method on <literal
       moreinfo="none">Field</literal>. The first parameter to <literal
       moreinfo="none">Text( )</literal> <indexterm
-          id="jakartackbk-CHP-12-ITERM-3427" significance="normal">
+          id="searching-filtering-ITERM-3427" significance="normal">
           <primary>Text( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3428"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3428"
           significance="normal">
           <primary>methods</primary>
 
@@ -1287,8 +1287,8 @@ public class PlayIndexer {
 
       <para>Sure, you've created a Lucene index, but how would you search it?
       The index created in this recipe can be searched with Lucene using
-      techniques described in <link linkend="jakartackbk-CHP-12-SECT-7">Recipe
-      12.7</link> and <link linkend="jakartackbk-CHP-12-SECT-8">Recipe
+      techniques described in <link linkend="searching-filtering-SECT-7">Recipe
+      12.7</link> and <link linkend="searching-filtering-SECT-8">Recipe
       12.8</link>.</para>
 
       <para>If you are indexing a huge database of English documents, consider
@@ -1310,17 +1310,17 @@ public class PlayIndexer {
       role="url">http://jakarta.apache.org/lucene</systemitem>.</para>
 
       <para>This recipe uses<indexterm class="endofrange"
-      id="jakartackbk-CHP-12-ITERM-3429" significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3415"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3430"
+      id="searching-filtering-ITERM-3429" significance="normal"
+      startref="searching-filtering-ITERM-3415"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3430"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3416"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3431"
+      startref="searching-filtering-ITERM-3416"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3431"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3417"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3432"
+      startref="searching-filtering-ITERM-3417"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3432"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3418"></indexterm> the <emphasis>The
+      startref="searching-filtering-ITERM-3418"></indexterm> the <emphasis>The
       Plays of Shakespeare</emphasis>, compiled by Jon Bosak. To download the
       complete works of Shakespeare in XML format, see <systemitem
       moreinfo="none"
@@ -1336,23 +1336,23 @@ public class PlayIndexer {
       <title>Problem</title>
 
       <para>You need to identify which documents in <indexterm
-          class="startofrange" id="jakartackbk-CHP-12-ITERM-3433"
+          class="startofrange" id="searching-filtering-ITERM-3433"
           significance="normal">
           <primary>Jakarta Lucene</primary>
 
           <secondary>specific searches</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3434" significance="normal">
+          id="searching-filtering-ITERM-3434" significance="normal">
           <primary>specific searches, Jakarta Lucene</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3435" significance="normal">
+          id="searching-filtering-ITERM-3435" significance="normal">
           <primary>indexes</primary>
 
           <secondary>Jakarta Lucene</secondary>
 
           <tertiary>specific searches</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3436" significance="normal">
+          id="searching-filtering-ITERM-3436" significance="normal">
           <primary>documents</primary>
 
           <secondary>Jakarta Lucene</secondary>
@@ -1364,7 +1364,7 @@ public class PlayIndexer {
     <sect2>
       <title>Solution</title>
 
-      <para>Use an <indexterm id="jakartackbk-CHP-12-ITERM-3437"
+      <para>Use an <indexterm id="searching-filtering-ITERM-3437"
           significance="normal">
           <primary>IndexSearcher</primary>
         </indexterm>IndexSearcher to search a Lucene index created with
@@ -1376,9 +1376,9 @@ public class PlayIndexer {
       <literal moreinfo="none">String</literal> query, a default search field,
       and an <literal moreinfo="none">Analyzer</literal> to <literal
       moreinfo="none">QueryParser.parse()</literal> <indexterm
-          id="jakartackbk-CHP-12-ITERM-3438" significance="normal">
+          id="searching-filtering-ITERM-3438" significance="normal">
           <primary>QueryParser.parse( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3439"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3439"
           significance="normal">
           <primary>methods</primary>
 
@@ -1417,14 +1417,14 @@ for( int i = 0; i &lt; hits.length( ); i++ ) {
       <para>An <literal moreinfo="none">IndexSearcher</literal> is created by
       passing in the name of the directory containing the Lucene index to its
       constructor. Next, an <literal moreinfo="none">Analyzer</literal>
-      <indexterm id="jakartackbk-CHP-12-ITERM-3440" significance="normal">
+      <indexterm id="searching-filtering-ITERM-3440" significance="normal">
           <primary>Analyzers</primary>
 
           <secondary>creating</secondary>
         </indexterm> is created that will analyze the query <literal
       moreinfo="none">String</literal>.</para>
 
-      <warning id="jakartackbk-CHP-12-NOTE-75" role="ora">
+      <warning id="searching-filtering-NOTE-75" role="ora">
         <para>It is important at this stage to use the same <literal
         moreinfo="none">Anaylzer</literal> implementation that was used to
         create the Lucene index to be searched, and, in this case, a <literal
@@ -1528,15 +1528,15 @@ Score | Play   | Act     | Scene   | Speaker
       )</literal> is the default field for a query, and, in the previous
       example, the default field is "speech." This means that a term without a
       field qualifier will match the "speech" field. <link
-      linkend="jakartackbk-CHP-12-TABLE-1">Table 12-1</link> lists
-      some<indexterm id="jakartackbk-CHP-12-ITERM-3441" significance="normal">
+      linkend="searching-filtering-TABLE-1">Table 12-1</link> lists
+      some<indexterm id="searching-filtering-ITERM-3441" significance="normal">
           <primary>queries</primary>
 
           <secondary>Jakarta Lucene</secondary>
         </indexterm> possible Lucene queries and describes the results they
       would return.</para>
 
-      <table id="jakartackbk-CHP-12-TABLE-1" label="12-1">
+      <table id="searching-filtering-TABLE-1" label="12-1">
         <title>A survey of Lucene queries</title>
 
         <tgroup cols="2">
@@ -1625,17 +1625,17 @@ Score | Play    | Act     | Scene                           | Speaker
       <title>See Also</title>
 
       <para>Lucene is a capable search <indexterm class="endofrange"
-      id="jakartackbk-CHP-12-ITERM-3442" significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3433"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3443"
+      id="searching-filtering-ITERM-3442" significance="normal"
+      startref="searching-filtering-ITERM-3433"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3443"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3434"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3444"
+      startref="searching-filtering-ITERM-3434"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3444"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3435"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3445"
+      startref="searching-filtering-ITERM-3435"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3445"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3436"></indexterm>engine with very
+      startref="searching-filtering-ITERM-3436"></indexterm>engine with very
       rich query syntax supporting fuzzy term matching and searching for terms
       based on proximity. For more details on Lucene query syntax, see
       <systemitem moreinfo="none"
@@ -1650,23 +1650,23 @@ Score | Play    | Act     | Scene                           | Speaker
       <title>Problem</title>
 
       <para>You need to find the most frequently<indexterm
-          class="startofrange" id="jakartackbk-CHP-12-ITERM-3446"
+          class="startofrange" id="searching-filtering-ITERM-3446"
           significance="normal">
           <primary>Jakarta Lucene</primary>
 
           <secondary>term frequency</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3447" significance="normal">
+          id="searching-filtering-ITERM-3447" significance="normal">
           <primary>term frequency, Jakarta Lucene</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3448" significance="normal">
+          id="searching-filtering-ITERM-3448" significance="normal">
           <primary>indexes</primary>
 
           <secondary>Jakarta Lucene</secondary>
 
           <tertiary>term frequency</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-12-ITERM-3449" significance="normal">
+          id="searching-filtering-ITERM-3449" significance="normal">
           <primary>documents</primary>
 
           <secondary>Jakarta Lucene</secondary>
@@ -1680,9 +1680,9 @@ Score | Play    | Act     | Scene                           | Speaker
 
       <para>Use Jakarta Lucene to index your documents and obtain a <literal
       moreinfo="none">TermEnum</literal> <indexterm
-          id="jakartackbk-CHP-12-ITERM-3450" significance="normal">
+          id="searching-filtering-ITERM-3450" significance="normal">
           <primary>TermEnum object</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3451"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3451"
           significance="normal">
           <primary>objects</primary>
 
@@ -1691,11 +1691,11 @@ Score | Play    | Act     | Scene                           | Speaker
       The frequency of a term is defined as the number of documents in which a
       specific term appears, and a <literal moreinfo="none">TermEnum</literal>
       object contains the frequency of every term in a set of documents. <link
-      linkend="jakartackbk-CHP-12-EX-3">Example 12-3</link> iterates over the
+      linkend="searching-filtering-EX-3">Example 12-3</link> iterates over the
       terms contained in <literal moreinfo="none">TermEnum</literal> returning
       every term that appears in more than 1,100 speeches.</para>
 
-      <example id="jakartackbk-CHP-12-EX-3" label="12-3">
+      <example id="searching-filtering-EX-3" label="12-3">
         <title>TermFreq finding the most frequent terms in an index</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.xml.bardsearch;
@@ -1827,9 +1827,9 @@ Frequency | Term
       will not be stored as terms in the index, and they will not show up on
       the most frequent terms list. Running this example against an index
       created with a <literal moreinfo="none">StandardAnalyzer</literal>
-      <indexterm id="jakartackbk-CHP-12-ITERM-3452" significance="normal">
+      <indexterm id="searching-filtering-ITERM-3452" significance="normal">
           <primary>StandardAnalyzer</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3453"
+        </indexterm> <indexterm id="searching-filtering-ITERM-3453"
           significance="normal">
           <primary>Analyzers</primary>
 
@@ -1860,17 +1860,17 @@ Frequency | Term
       <title>See Also</title>
 
       <para>There is an example of enumerating <indexterm class="endofrange"
-      id="jakartackbk-CHP-12-ITERM-3454" significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3446"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3455"
+      id="searching-filtering-ITERM-3454" significance="normal"
+      startref="searching-filtering-ITERM-3446"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3455"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3447"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3456"
+      startref="searching-filtering-ITERM-3447"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3456"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3448"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-12-ITERM-3457"
+      startref="searching-filtering-ITERM-3448"></indexterm> <indexterm
+      class="endofrange" id="searching-filtering-ITERM-3457"
       significance="normal"
-      startref="jakartackbk-CHP-12-ITERM-3449"></indexterm>term frequency in
+      startref="searching-filtering-ITERM-3449"></indexterm>term frequency in
       the Jakarta Lucene Sandbox. To see this frequency analysis example, see
       the "High Frequency Terms" example (<systemitem moreinfo="none"
       role="url">http://jakarta.apache.org/lucene/docs/lucene-sandbox/</systemitem>).</para>

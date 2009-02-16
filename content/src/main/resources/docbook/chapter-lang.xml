@@ -1406,7 +1406,7 @@ public int compareTo(Object o) {
       used when sorting a collection of JavaBeans©. If you are trying to sort
       a collection of beans, you are better off using the <literal
       moreinfo="none">BeanComparator</literal>, which is described in <link
-      linkend="jakartackbk-CHP-3-SECT-10">Recipe 3.10</link>.</para>
+      linkend="beans-SECT-10">Recipe 3.10</link>.</para>
 
       <para>Instead of capturing comparison logic in a <literal
       moreinfo="none">compareTo()</literal> method, consider using a <literal
@@ -1430,7 +1430,7 @@ public int compareTo(Object o) {
       startref="jakartackbk-CHP-1-ITERM-1812"></indexterm>as utilities to
       reverse and chain comparators. <literal
       moreinfo="none">Comparator</literal> utilities are discussed in <link
-      linkend="jakartackbk-CHP-4">Chapter 4</link>.</para>
+      linkend="functors">Chapter 4</link>.</para>
     </sect2>
   </sect1>
 
@@ -2171,13 +2171,13 @@ for( int i = 0; i &lt; temps.length; i++ ) {
     <sect2>
       <title>See Also</title>
 
-      <para><link linkend="jakartackbk-CHP-4">Chapter 4</link> contains a
+      <para><link linkend="functors">Chapter 4</link> contains a
       number of recipes dealing with <literal
       moreinfo="none">Predicate</literal> objects and filtering collections.
       Instead of using the three methods defined in this recipe, you can put
       objects into a collection and count or select the elements that match an
       <literal moreinfo="none">EqualPredicate</literal>. See <link
-      linkend="jakartackbk-CHP-4">Chapter 4</link> for more information about
+      linkend="functors">Chapter 4</link> for more information about
       querying collections with predicates.</para>
     </sect2>
   </sect1>
@@ -2297,7 +2297,7 @@ Double hydrogenWeight = map.get( "H" );</programlisting>
       moreinfo="none">doubleValue( )</literal> using the default value
       supplied if there is no corresponding key in the <literal
       moreinfo="none">Map</literal>. See <link
-      linkend="jakartackbk-CHP-5-SECT-21">Recipe 5.21</link> for more
+      linkend="collections-SECT-21">Recipe 5.21</link> for more
       information about <literal moreinfo="none">MapUtils.getDouble(
       )</literal>.</para>
     </sect2>
@@ -3684,7 +3684,7 @@ public double elevation( double latitude,
     <sect2>
       <title>See Also</title>
 
-      <para><link linkend="jakartackbk-CHP-8">Chapter 8</link> discusses
+      <para><link linkend="math">Chapter 8</link> discusses
       <literal moreinfo="none">DoubleRange</literal> and other utilities for
       capturing a range of numbers.</para>
 
