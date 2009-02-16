@@ -69,7 +69,7 @@
   cookbook format lets you customize your reading experience, and I hope this
   book is as interesting to read as it was to write.</para>
 
-  <sect1 id="jakartackbk-PREFACE-2-SECT-1" role="">
+  <sect1 id="preface-sect-inside" role="">
     <title>What's Inside</title>
 
     <para>This book covers components from Apache Commons, and one project
@@ -352,7 +352,7 @@
     Discursive site for updates related to this book.</para>
   </sect1>
 
-  <sect1 id="jakartackbk-PREFACE-2-SECT-2" role="">
+  <sect1 id="preface-sect-conventions" role="">
     <title>Conventions Used in This Book</title>
 
     <para>I'll use a number of conventions you should know about in this book.
@@ -423,7 +423,7 @@ digester.doSomething( );</programlisting>
     </warning>
   </sect1>
 
-  <sect1 id="jakartackbk-PREFACE-2-SECT-3" role="">
+  <sect1 id="preface-sect-what-you-need" role="">
     <title>What You'll Need</title>
 
     <para>To experiment with the various libraries introduced in this book,
@@ -439,7 +439,7 @@ digester.doSomething( );</programlisting>
     click on "Binaries" under "Download" in the left menu.</para>
   </sect1>
 
-  <sect1 id="jakartackbk-PREFACE-2-SECT-4" role="">
+  <sect1 id="preface-sect-community" role="">
     <title>The Apache Commons Community</title>
 
     <para>The Apache community and the larger community of the Apache Software
@@ -513,7 +513,7 @@ digester.doSomething( );</programlisting>
     url="http://www.apache.org/foundation/contributing.html">http://www.apache.org/foundation/contributing.html</ulink>).</para>
   </sect1>
 
-  <sect1 id="jakartackbk-PREFACE-2-SECT-5" role="">
+  <sect1 id="preface-sect-license" role="">
     <title>The Apache Software License</title>
 
     <para>Everything in this book is covered by the Apache Software License
@@ -538,7 +538,7 @@ digester.doSomething( );</programlisting>
     commercial product.</para>
   </sect1>
 
-  <sect1 id="jakartackbk-PREFACE-2-SECT-7" role="">
+  <sect1 id="preface-sect-feedback" role="">
     <title>We'd Like to Hear from You</title>
 
     <para>Please address comments and questions concerning this book to the
