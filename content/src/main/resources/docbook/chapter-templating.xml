@@ -620,7 +620,8 @@ System.out.println( message );</programlisting>
     </sect2>
   </sect1>
 
-  <sect1 id="templating-sect-invoking-methods" label="9.3" role="Recipe">
+  <sect1 id="templating-sect-invoking-methods-expression" label="9.3"
+         role="Recipe">
     <title>Invoking Methods in an Expression</title>
 
     <sect2>
