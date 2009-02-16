@@ -1,170 +1,195 @@
-<?xml version="1.0"?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 <chapter id="searching-filtering" label="12">
-      <title>Searching and Filtering</title>
-      <sect1 id="ch12-2-fm2xml">
-         <title>Introduction</title>
-         <para>XPath is a popular way to select nodes from an XML document. If you
-are working with a single XML document or a series of XML documents
-in an XML Database— such as Apache Xindice—XPath is used
-to query, address, and filter XML content. Jakarta Commons JXPath
-allows you to use an XPath query to address objects in a collection
-or properties of a bean. JXPath is an unconventional application of
-an XML standard to Java objects, which allows you to quickly select
-objects from a <literal moreinfo="none">Collection</literal> without the need for an
-<literal moreinfo="none">Iterator</literal> and a comparison. For example, if you had
-a <literal moreinfo="none">List</literal> of <literal moreinfo="none">Person</literal> objects with
-an <literal moreinfo="none">age</literal> property, you could select all of the
-people older than 10 by passing the expression <filename moreinfo="none">/person[@age
-&gt; 10]</filename> to a <literal moreinfo="none">JXPathContext</literal>. JXPath
-implements a large subset of the XPath specification, and JXPath
-expressions can be applied to a wide array of objects, beans,
-Document Object Model (DOM) Documents, collections, and maps. This
-chapter shows you how to use Commons JXPath to search and filter
-objects in a collection.</para>
-         <para>A system will frequently need to search for and identify occurrences
-of text in a large set of documents. To accomplish this, you will use
-a tool, such as Jakarta Lucene, to create a searchable index of
-terms. For example, if you've used an IDE, such as
-Eclipse, you may find yourself searching for all of the occurrences
-of the text "testVariable" in your
-workspace. Eclipse can quickly perform any number of complex
-searches, and when it does, it is using Jakarta Lucene to index and
-search every file. Jakarta Lucene is a very efficient search engine
-that can be used to search a set of documents for terms and phrases
-and analyze the frequency of terms within a set of documents. Lucene
-offers a complex query syntax, which allows for compound queries and
-term matching using proximity and wildcards. This chapter combines
-Lucene with Commons Digester to create a tool to search a set of XML
-documents.</para>
-      </sect1>
-      <sect1 id="jakartackbk-CHP-12-SECT-1" label="12.1" role="Recipe">
-         <title>Obtaining Commons JXPath</title>
-         <sect2 id="jakartackbk-CHP-12-SECT-1.1">
-            <title>Problem</title>
-            <para>You need to use Jakarta Commons <indexterm id="jakartackbk-CHP-12-ITERM-3363" significance="normal">
-                  <primary>Commons
-JXPath</primary>
-                  <secondary>downloading</secondary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3364" significance="normal">
-                  <primary>downloading</primary>
-                  <secondary>Commons
-JXPath</secondary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3365" significance="normal">
-                  <primary>collections</primary>
-                  <secondary>Commons
-JXPath</secondary>
-                  <tertiary>downloading</tertiary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3366" significance="normal">
-                  <primary>objects</primary>
-                  <secondary>Commons
-JXPath</secondary>
-                  <tertiary>downloading</tertiary>
-               </indexterm>JXPath
-to select objects from a <literal moreinfo="none">Collection</literal> using XPath
-syntax.</para>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-1.2">
-            <title>Solution</title>
-            <para>You must download the latest version of Commons JXPath, and place the
-Commons JXPath JAR<filename moreinfo="none"> </filename>in your
-project's classpath. Following the steps outlined in
-<link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, download Commons JXPath 1.2
-instead of Commons Lang.</para>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-1.3">
-            <title>Discussion</title>
-            <para>Commons JXPath provides a mechanism<indexterm id="jakartackbk-CHP-12-ITERM-3367" significance="normal">
-                  <primary>XPath (XML
-Path Language)</primary>
-               </indexterm> for
-evaluating<indexterm id="jakartackbk-CHP-12-ITERM-3368" significance="normal">
-                  <primary>XML Path
-Language</primary>
-                  <see>XPath</see>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3369" significance="normal">
-                  <primary>XPath (XML Path Language)</primary>
-                  <seealso>Commons JXPath</seealso>
-               </indexterm> XML Path Language
-(XPath) expressions against objects and various data structures in
-Java. This unconventional application of XPath to objects enables a
-developer to traverse, address, and filter specific nodes or
-locations in a complex object graph. This chapter details a few of
-the ways in which JXPath can be used to search, select, and filter
-objects.</para>
-            <para>If you have a Maven project that needs to use Commons JXPath, add a
-dependency on Commons JXPath 1.2 with the following section in
-<filename moreinfo="none">project.xml</filename>:</para>
-            <programlisting id="I_12_tt482" format="linespecific">&lt;dependencies&gt;
+  <title>Searching and Filtering</title>
+
+  <sect1 id="searching-filtering-sect-intro">
+    <title>Introduction</title>
+
+    <para>XPath is a popular way to select nodes from an XML document. If you
+    are working with a single XML document or a series of XML documents in an
+    XML Database— such as Apache Xindice—XPath is used to query, address, and
+    filter XML content. Jakarta Commons JXPath allows you to use an XPath
+    query to address objects in a collection or properties of a bean. JXPath
+    is an unconventional application of an XML standard to Java objects, which
+    allows you to quickly select objects from a <literal
+    moreinfo="none">Collection</literal> without the need for an <literal
+    moreinfo="none">Iterator</literal> and a comparison. For example, if you
+    had a <literal moreinfo="none">List</literal> of <literal
+    moreinfo="none">Person</literal> objects with an <literal
+    moreinfo="none">age</literal> property, you could select all of the people
+    older than 10 by passing the expression <filename
+    moreinfo="none">/person[@age &gt; 10]</filename> to a <literal
+    moreinfo="none">JXPathContext</literal>. JXPath implements a large subset
+    of the XPath specification, and JXPath expressions can be applied to a
+    wide array of objects, beans, Document Object Model (DOM) Documents,
+    collections, and maps. This chapter shows you how to use Commons JXPath to
+    search and filter objects in a collection.</para>
+
+    <para>A system will frequently need to search for and identify occurrences
+    of text in a large set of documents. To accomplish this, you will use a
+    tool, such as Jakarta Lucene, to create a searchable index of terms. For
+    example, if you've used an IDE, such as Eclipse, you may find yourself
+    searching for all of the occurrences of the text "testVariable" in your
+    workspace. Eclipse can quickly perform any number of complex searches, and
+    when it does, it is using Jakarta Lucene to index and search every file.
+    Jakarta Lucene is a very efficient search engine that can be used to
+    search a set of documents for terms and phrases and analyze the frequency
+    of terms within a set of documents. Lucene offers a complex query syntax,
+    which allows for compound queries and term matching using proximity and
+    wildcards. This chapter combines Lucene with Commons Digester to create a
+    tool to search a set of XML documents.</para>
+  </sect1>
+
+  <sect1 id="searching-filtering-sect-obtaining-jxpath" label="12.1"
+         role="Recipe">
+    <title>Obtaining Commons JXPath</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to use Jakarta Commons <indexterm
+          id="jakartackbk-CHP-12-ITERM-3363" significance="normal">
+          <primary>Commons JXPath</primary>
+
+          <secondary>downloading</secondary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3364"
+          significance="normal">
+          <primary>downloading</primary>
+
+          <secondary>Commons JXPath</secondary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3365"
+          significance="normal">
+          <primary>collections</primary>
+
+          <secondary>Commons JXPath</secondary>
+
+          <tertiary>downloading</tertiary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3366"
+          significance="normal">
+          <primary>objects</primary>
+
+          <secondary>Commons JXPath</secondary>
+
+          <tertiary>downloading</tertiary>
+        </indexterm>JXPath to select objects from a <literal
+      moreinfo="none">Collection</literal> using XPath syntax.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>You must download the latest version of Commons JXPath, and place
+      the Commons JXPath JAR<filename moreinfo="none"> </filename>in your
+      project's classpath. Following the steps outlined in <link
+      linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, download Commons
+      JXPath 1.2 instead of Commons Lang.</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>Commons JXPath provides a mechanism<indexterm
+          id="jakartackbk-CHP-12-ITERM-3367" significance="normal">
+          <primary>XPath (XML Path Language)</primary>
+        </indexterm> for evaluating<indexterm
+          id="jakartackbk-CHP-12-ITERM-3368" significance="normal">
+          <primary>XML Path Language</primary>
+
+          <see>XPath</see>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3369"
+          significance="normal">
+          <primary>XPath (XML Path Language)</primary>
+
+          <seealso>Commons JXPath</seealso>
+        </indexterm> XML Path Language (XPath) expressions against objects and
+      various data structures in Java. This unconventional application of
+      XPath to objects enables a developer to traverse, address, and filter
+      specific nodes or locations in a complex object graph. This chapter
+      details a few of the ways in which JXPath can be used to search, select,
+      and filter objects.</para>
+
+      <para>If you have a Maven project that needs to use Commons JXPath, add
+      a dependency on Commons JXPath 1.2 with the following section in
+      <filename moreinfo="none">project.xml</filename>:</para>
+
+      <programlisting format="linespecific" id="I_12_tt482">&lt;dependencies&gt;
   &lt;dependency&gt;
     &lt;id&gt;commons-jxpath&lt;/id&gt;
     &lt;version&gt;1.2&lt;/version&gt;
   &lt;/dependency&gt;
   ....other dependencies...
 &lt;/dependencies&gt;</programlisting>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-1.4">
-            <title>See Also</title>
-            <para>For more information about Commons JXPath, see the Commons JXPath
-project page at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/jxpath</systemitem>. For
-more information about XPath, see the official W3C XPath
-recommendation at <systemitem role="url" moreinfo="none">http://www.w3.org/TR/xpath</systemitem>.</para>
-         </sect2>
-      </sect1>
-      <sect1 id="jakartackbk-CHP-12-SECT-2" label="12.2" role="Recipe">
-         <title>Querying an Object Graph with XPath</title>
-         <sect2 id="jakartackbk-CHP-12-SECT-2.1">
-            <title>Problem</title>
-            <para>You need to retrieve nested bean<indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3370" significance="normal">
-                  <primary>Commons
-JXPath</primary>
-                  <secondary>querying object
-graphs</secondary>
-               </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3371" significance="normal">
-                  <primary>collections</primary>
-                  <secondary>Commons
-JXPath</secondary>
-                  <tertiary>querying object
-graphs</tertiary>
-               </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3372" significance="normal">
-                  <primary>objects</primary>
-                  <secondary>Commons
-JXPath</secondary>
-                  <tertiary>querying object
-graphs</tertiary>
-               </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3373" significance="normal">
-                  <primary>queries</primary>
-                  <secondary>object
-graphs</secondary>
-               </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3374" significance="normal">
-                  <primary>graphs,
-objects</primary>
-               </indexterm> properties using an XPath expression.
-You need to perform an XPath query on an object graph.</para>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-2.2">
-            <title>Solution</title>
-            <para>Use Commons JXPath to evaluate an XPath expression against an object
-graph. JXPath treats nested bean properties as if they were nested
-elements in an XML document; using JXPath, the expression
-<filename moreinfo="none">a/b/c</filename> is the equivalent of
-<literal moreinfo="none">getA( ).getB( ).getC( )</literal>. Create a
-<literal moreinfo="none">JXPathContext</literal> by passing an object to
-<literal moreinfo="none">JXPathContext.newContext( )</literal>, and retrieve the
-value of a nested property by passing an XPath expression to the
-<literal moreinfo="none">getValue( )</literal> method on
-<literal moreinfo="none">JXPathContext</literal>. The following example creates an
-object graph rooted on a <literal moreinfo="none">League</literal> object and
-retrieves nested properties using two XPath expressions:</para>
-            <programlisting id="I_12_tt483" format="linespecific">import org.apache.commons.jxpath.JXPathContext;
+    </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para>For more information about Commons JXPath, see the Commons JXPath
+      project page at <systemitem moreinfo="none"
+      role="url">http://jakarta.apache.org/commons/jxpath</systemitem>. For
+      more information about XPath, see the official W3C XPath recommendation
+      at <systemitem moreinfo="none"
+      role="url">http://www.w3.org/TR/xpath</systemitem>.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="searching-filtering-sect-query-graph" label="12.2" role="Recipe">
+    <title>Querying an Object Graph with XPath</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to retrieve nested bean<indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3370" significance="normal">
+          <primary>Commons JXPath</primary>
+
+          <secondary>querying object graphs</secondary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3371" significance="normal">
+          <primary>collections</primary>
+
+          <secondary>Commons JXPath</secondary>
+
+          <tertiary>querying object graphs</tertiary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3372" significance="normal">
+          <primary>objects</primary>
+
+          <secondary>Commons JXPath</secondary>
+
+          <tertiary>querying object graphs</tertiary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3373" significance="normal">
+          <primary>queries</primary>
+
+          <secondary>object graphs</secondary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3374" significance="normal">
+          <primary>graphs, objects</primary>
+        </indexterm> properties using an XPath expression. You need to perform
+      an XPath query on an object graph.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use Commons JXPath to evaluate an XPath expression against an
+      object graph. JXPath treats nested bean properties as if they were
+      nested elements in an XML document; using JXPath, the expression
+      <filename moreinfo="none">a/b/c</filename> is the equivalent of <literal
+      moreinfo="none">getA( ).getB( ).getC( )</literal>. Create a <literal
+      moreinfo="none">JXPathContext</literal> by passing an object to <literal
+      moreinfo="none">JXPathContext.newContext( )</literal>, and retrieve the
+      value of a nested property by passing an XPath expression to the
+      <literal moreinfo="none">getValue( )</literal> method on <literal
+      moreinfo="none">JXPathContext</literal>. The following example creates
+      an object graph rooted on a <literal moreinfo="none">League</literal>
+      object and retrieves nested properties using two XPath
+      expressions:</para>
+
+      <programlisting format="linespecific" id="I_12_tt483">import org.apache.commons.jxpath.JXPathContext;
 
 // Create an Object graph
 League league = new League( );
@@ -195,51 +220,58 @@ context = JXPathContext.newContext( league );
 System.out.println( "** Retrieve the players on Coach Susan's team");
 <userinput moreinfo="none">value = context.getValue( "teams/coach[firstName = 'Coach Susan']/../players" );</userinput>
 System.out.println( value );</programlisting>
-            <para>This example creates a <literal moreinfo="none">League</literal> with two
-<literal moreinfo="none">Team</literal> objects stored in a <literal moreinfo="none">List</literal>.
-Each <literal moreinfo="none">Team</literal> object has a <literal moreinfo="none">coach</literal>
-property of type <literal moreinfo="none">Person</literal>, and a
-<literal moreinfo="none">players</literal> property, which is a
-<literal moreinfo="none">List</literal> of <literal moreinfo="none">Person</literal> objects. A
-<literal moreinfo="none">JXPathContext</literal> is created by passing
-<literal moreinfo="none">league</literal> to <literal moreinfo="none">JXPathContext.newContext(
-)</literal>, and two XPath queries are executed by passing query
-strings to <literal moreinfo="none">getValue( )</literal>. The first XPath query
-returns the <literal moreinfo="none">firstName</literal> of Ted's
-coach, and the second XPath query returns the
-<literal moreinfo="none">players</literal> 
-               <literal moreinfo="none">List</literal> of the team Susan
-coaches. This example produces the following output:</para>
-            <programlisting id="I_12_tt484" format="linespecific">Retrieve the first name of Ted's coach
+
+      <para>This example creates a <literal moreinfo="none">League</literal>
+      with two <literal moreinfo="none">Team</literal> objects stored in a
+      <literal moreinfo="none">List</literal>. Each <literal
+      moreinfo="none">Team</literal> object has a <literal
+      moreinfo="none">coach</literal> property of type <literal
+      moreinfo="none">Person</literal>, and a <literal
+      moreinfo="none">players</literal> property, which is a <literal
+      moreinfo="none">List</literal> of <literal
+      moreinfo="none">Person</literal> objects. A <literal
+      moreinfo="none">JXPathContext</literal> is created by passing <literal
+      moreinfo="none">league</literal> to <literal
+      moreinfo="none">JXPathContext.newContext( )</literal>, and two XPath
+      queries are executed by passing query strings to <literal
+      moreinfo="none">getValue( )</literal>. The first XPath query returns the
+      <literal moreinfo="none">firstName</literal> of Ted's coach, and the
+      second XPath query returns the <literal
+      moreinfo="none">players</literal> <literal
+      moreinfo="none">List</literal> of the team Susan coaches. This example
+      produces the following output:</para>
+
+      <programlisting format="linespecific" id="I_12_tt484">Retrieve the first name of Ted's coach
 Coach Bob
 Retrieve the players on Coach Susan's team
 [com.discursive.jccook.xml.jxpath.Person@173831b]</programlisting>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-2.3">
-            <title>Discussion</title>
-            <para>XPath is generally used by select nodes in an XML document, and you
-may have used it to transform XML with Extensible Stylesheet Language
-Transformations (XSLT). In this example, XPath is used in a somewhat
-unconventional manner as a query to filter and select objects based
-on the values of deeply nested properties. The first
-query—<emphasis>teams/players[firstname =
-`Player
-Ted']/../coach/firstName</emphasis>
-               <filename moreinfo="none">—</filename>is
-evaluated using the <literal moreinfo="none">League</literal> object as the current
-node, and if one were to evaluate the XPath expressions
-<emphasis>self( )</emphasis> or ., you would
-retrieve the <literal moreinfo="none">League</literal> object passed to
-<literal moreinfo="none">newContext( )</literal>. When the previous example retrieved
-the first name of Ted's coach, JXPath iterated
-through the <literal moreinfo="none">team</literal> 
-               <literal moreinfo="none">List</literal>, and
-located the matching <literal moreinfo="none">Player</literal> and
-<literal moreinfo="none">Coach</literal> object. The execution of the first XPath
-expression in the previous example is equivalent to the following
-code, which iterates through the <literal moreinfo="none">Team</literal> and
-<literal moreinfo="none">Player</literal> lists:</para>
-            <programlisting id="I_12_tt485" format="linespecific">String firstName = null;
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>XPath is generally used by select nodes in an XML document, and
+      you may have used it to transform XML with Extensible Stylesheet
+      Language Transformations (XSLT). In this example, XPath is used in a
+      somewhat unconventional manner as a query to filter and select objects
+      based on the values of deeply nested properties. The first
+      query—<emphasis>teams/players[firstname = `Player
+      Ted']/../coach/firstName</emphasis> <filename
+      moreinfo="none">—</filename>is evaluated using the <literal
+      moreinfo="none">League</literal> object as the current node, and if one
+      were to evaluate the XPath expressions <emphasis>self( )</emphasis> or
+      ., you would retrieve the <literal moreinfo="none">League</literal>
+      object passed to <literal moreinfo="none">newContext( )</literal>. When
+      the previous example retrieved the first name of Ted's coach, JXPath
+      iterated through the <literal moreinfo="none">team</literal> <literal
+      moreinfo="none">List</literal>, and located the matching <literal
+      moreinfo="none">Player</literal> and <literal
+      moreinfo="none">Coach</literal> object. The execution of the first XPath
+      expression in the previous example is equivalent to the following code,
+      which iterates through the <literal moreinfo="none">Team</literal> and
+      <literal moreinfo="none">Player</literal> lists:</para>
+
+      <programlisting format="linespecific" id="I_12_tt485">String firstName = null;
 
 Iterator teamIterator = league.getTeams( ).iterator( );
 while( teamIterator.hasNext( ) ) {
@@ -252,76 +284,104 @@ while( teamIterator.hasNext( ) ) {
         }
     }
 }</programlisting>
-            <para>The ability to filter a complex object graph with a simple expression
-can help you avoid writing tedious code to iterate through doubly
-nested collections to compare property values.</para>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-2.4">
-            <title>See Also</title>
-            <para>Commons JXPath can also be used to reference objects at a specific
-index in a <literal moreinfo="none">List</literal> or an array, or objects by a known
-key in a <literal moreinfo="none">Map</literal>. <link linkend="jakartackbk-CHP-12-SECT-4">Recipe 12.4</link>
-demonstrates how to use JXPath to reference items in a
-<literal moreinfo="none">Map</literal>, and <link linkend="jakartackbk-CHP-12-SECT-3">Recipe 12.3</link>
-demonstrates<indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3370" id="jakartackbk-CHP-12-ITERM-3375" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3371" id="jakartackbk-CHP-12-ITERM-3376" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3372" id="jakartackbk-CHP-12-ITERM-3377" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3373" id="jakartackbk-CHP-12-ITERM-3378" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3374" id="jakartackbk-CHP-12-ITERM-3379" significance="normal"/> the use of JXPath to reference an
-item at a specific index in a <literal moreinfo="none">List</literal>.</para>
-         </sect2>
-      </sect1>
-      <sect1 id="jakartackbk-CHP-12-SECT-3" label="12.3" role="Recipe">
-         <title>Search a Collection of Simple Objects</title>
-         <sect2 id="jakartackbk-CHP-12-SECT-3.1">
-            <title>Problem</title>
-            <para>You need to select objects<indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3380" significance="normal">
-                  <primary>Commons
-JXPath</primary>
-                  <secondary>searching</secondary>
-               </indexterm>
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3381" significance="normal">
-                  <primary>collections</primary>
-                  <secondary>Commons
-JXPath</secondary>
-                  <tertiary>searching</tertiary>
-               </indexterm>
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3382" significance="normal">
-                  <primary>objects</primary>
-                  <secondary>Commons
-JXPath</secondary>
-                  <tertiary>searching</tertiary>
-               </indexterm>
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3383" significance="normal">
-                  <primary>searching</primary>
-                  <secondary>objects</secondary>
-               </indexterm>
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3384" significance="normal">
-                  <primary>predicates</primary>
-                  <secondary>searching</secondary>
-               </indexterm>
-from a <literal moreinfo="none">Collection</literal> using XPath predicates.</para>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-3.2">
-            <title>Solution</title>
-            <para>Use Jakarta Commons JXPath to select objects from a
-<literal moreinfo="none">Collection</literal> using predicates in XPath expressions.
-The <literal moreinfo="none">iterate( )</literal>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3385" significance="normal">
-                  <primary>iterate( )
-method</primary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3386" significance="normal">
-                  <primary>methods</primary>
-                  <secondary>iterate(
-)</secondary>
-               </indexterm> method on <literal moreinfo="none">JXPathContext</literal>
-takes an XPath expression and returns an <literal moreinfo="none">Iterator</literal>
-that contains each node satisfying that expression. The following
-example uses simple XPath predicates to select
-<literal moreinfo="none">Person</literal> objects from a <literal moreinfo="none">List</literal> by
-age, first name, and position:</para>
-            <programlisting id="I_12_tt486" format="linespecific">import org.apache.commons.jxpath.JXPathContext;
+
+      <para>The ability to filter a complex object graph with a simple
+      expression can help you avoid writing tedious code to iterate through
+      doubly nested collections to compare property values.</para>
+    </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para>Commons JXPath can also be used to reference objects at a specific
+      index in a <literal moreinfo="none">List</literal> or an array, or
+      objects by a known key in a <literal moreinfo="none">Map</literal>.
+      <link linkend="jakartackbk-CHP-12-SECT-4">Recipe 12.4</link>
+      demonstrates how to use JXPath to reference items in a <literal
+      moreinfo="none">Map</literal>, and <link
+      linkend="jakartackbk-CHP-12-SECT-3">Recipe 12.3</link>
+      demonstrates<indexterm class="endofrange"
+      id="jakartackbk-CHP-12-ITERM-3375" significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3370"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3376"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3371"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3377"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3372"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3378"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3373"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3379"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3374"></indexterm> the use of JXPath
+      to reference an item at a specific index in a <literal
+      moreinfo="none">List</literal>.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="searching-filtering-sect-search-simple" label="12.3"
+         role="Recipe">
+    <title>Search a Collection of Simple Objects</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to select objects<indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3380" significance="normal">
+          <primary>Commons JXPath</primary>
+
+          <secondary>searching</secondary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3381" significance="normal">
+          <primary>collections</primary>
+
+          <secondary>Commons JXPath</secondary>
+
+          <tertiary>searching</tertiary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3382" significance="normal">
+          <primary>objects</primary>
+
+          <secondary>Commons JXPath</secondary>
+
+          <tertiary>searching</tertiary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3383" significance="normal">
+          <primary>searching</primary>
+
+          <secondary>objects</secondary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3384" significance="normal">
+          <primary>predicates</primary>
+
+          <secondary>searching</secondary>
+        </indexterm> from a <literal moreinfo="none">Collection</literal>
+      using XPath predicates.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use Jakarta Commons JXPath to select objects from a <literal
+      moreinfo="none">Collection</literal> using predicates in XPath
+      expressions. The <literal moreinfo="none">iterate( )</literal>
+      <indexterm id="jakartackbk-CHP-12-ITERM-3385" significance="normal">
+          <primary>iterate( ) method</primary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3386"
+          significance="normal">
+          <primary>methods</primary>
+
+          <secondary>iterate( )</secondary>
+        </indexterm> method on <literal
+      moreinfo="none">JXPathContext</literal> takes an XPath expression and
+      returns an <literal moreinfo="none">Iterator</literal> that contains
+      each node satisfying that expression. The following example uses simple
+      XPath predicates to select <literal moreinfo="none">Person</literal>
+      objects from a <literal moreinfo="none">List</literal> by age, first
+      name, and position:</para>
+
+      <programlisting format="linespecific" id="I_12_tt486">import org.apache.commons.jxpath.JXPathContext;
 
 // Create a List of Person objects
 List people = new ArrayList( );
@@ -356,12 +416,16 @@ private void printPeople(Iterator iterator) {
             " " + p.getLastName( ) + ", age: " + p.getAge( ) );
     }
 }</programlisting>
-            <para>A <literal moreinfo="none">JXPathContext</literal> is created by passing a
-<literal moreinfo="none">List</literal> to <literal moreinfo="none">newContext( )</literal>, and each
-expression is evaluated through a call to <literal moreinfo="none">context.iterate()</literal>. Three expressions are evaluated, and the results of each
-expression are printed in the <literal moreinfo="none">printPeople( )</literal>
-method:</para>
-            <programlisting id="I_12_tt487" format="linespecific">** People older than 30
+
+      <para>A <literal moreinfo="none">JXPathContext</literal> is created by
+      passing a <literal moreinfo="none">List</literal> to <literal
+      moreinfo="none">newContext( )</literal>, and each expression is
+      evaluated through a call to <literal
+      moreinfo="none">context.iterate()</literal>. Three expressions are
+      evaluated, and the results of each expression are printed in the
+      <literal moreinfo="none">printPeople( )</literal> method:</para>
+
+      <programlisting format="linespecific" id="I_12_tt487">** People older than 30
 Person: Tom Russell, age: 35
 Person: Ahmad Abuzayedeh, age: 33
 
@@ -371,109 +435,137 @@ Person: Ahmad Abuzayedeh, age: 33
 
 ** Second Person in List
 Person: Tom Russell, age: 35</programlisting>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-3.3">
-            <title>Discussion</title>
-            <para>The final expression in the previous example is a reference to a
-specific index in a <literal moreinfo="none">List</literal>;
-<filename moreinfo="none">.[2]</filename> selected the second element in the
-<literal moreinfo="none">List</literal> supplied to the
-<literal moreinfo="none">JXPathContext</literal>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3387" significance="normal">
-                  <primary>JXPathContext</primary>
-               </indexterm>.
-Whenever an XPath expression deals with a property, which is a
-<literal moreinfo="none">List</literal> or an array, a one-based index can be
-supplied in brackets after the name of the property. If a
-<literal moreinfo="none">League</literal> object contains a <literal moreinfo="none">List</literal>
-of <literal moreinfo="none">Team</literal> objects, and a <literal moreinfo="none">Team</literal>
-object contains a <literal moreinfo="none">List</literal> of
-<literal moreinfo="none">Player</literal> objects, the third
-<literal moreinfo="none">Player</literal> object of the fourteenth
-<literal moreinfo="none">Team</literal> can be selected by using the XPath expression
-<filename moreinfo="none">league/teams[14]/players[3]</filename>.</para>
-            <para>In the previous example, which filtered a <literal moreinfo="none">List</literal> of
-<literal moreinfo="none">Person</literal> objects, you might have noticed that the
-properties <literal moreinfo="none">age</literal> and <literal moreinfo="none">firstName</literal>
-are referenced as attributes in the XPath predicate expression. A
-property can be referenced either as an element or an attribute. In
-XPath terms, when JXPath resolves properties on an object, the
-<filename moreinfo="none">child</filename> and <filename moreinfo="none">attribute</filename> axis
-both reference properties. This means that the expressions
-<filename moreinfo="none">.[@age &gt; 30]</filename> and <filename moreinfo="none">.[age &gt;
-30]</filename> would return the same results, as
-<literal moreinfo="none">age</literal> can be addressed as a child element or
-attribute of the current node.</para>
-            <para>
-               <literal moreinfo="none">iterate( )</literal> returns an <literal moreinfo="none">Iterator</literal>
-that lets you iterate over all nodes that satisfy the given XPath
-query. <literal moreinfo="none">getValue( )</literal> returns the first matching
-result. In the previous example, <literal moreinfo="none">iterate( )</literal>
-retrieves two <literal moreinfo="none">Person</literal> objects with an
-<literal moreinfo="none">age</literal> property greater than 30. If the same
-expression were evaluated with <literal moreinfo="none">getValue( )</literal>, only
-one <literal moreinfo="none">Person</literal> object would have been returned: Tom
-Russell. Use <literal moreinfo="none">iterate( )</literal> when multiple nodes may
-match an XPath expression.</para>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-3.4">
-            <title>See Also</title>
-            <para>
-               <link linkend="jakartackbk-CHP-5">Chapter 5</link> demonstrates the use of Commons
-<indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3380" id="jakartackbk-CHP-12-ITERM-3388" significance="normal"/>
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3381" id="jakartackbk-CHP-12-ITERM-3389" significance="normal"/>
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3382" id="jakartackbk-CHP-12-ITERM-3390" significance="normal"/>
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3383" id="jakartackbk-CHP-12-ITERM-3391" significance="normal"/>
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3384" id="jakartackbk-CHP-12-ITERM-3392" significance="normal"/>Collections'
-<literal moreinfo="none">CollectionUtils</literal> to select items in a
-<literal moreinfo="none">Collection</literal> that satisfy a
-<literal moreinfo="none">Predicate</literal>. For more information about using
-<literal moreinfo="none">Predicate</literal> objects to filter collections, refer to
-<link linkend="jakartackbk-CHP-5-SECT-4">Recipe 5.4</link>.</para>
-         </sect2>
-      </sect1>
-      <sect1 id="jakartackbk-CHP-12-SECT-4" label="12.4" role="Recipe">
-         <title>Applying XPath Queries to Complex Object Graphs</title>
-         <sect2 id="jakartackbk-CHP-12-SECT-4.1">
-            <title>Problem</title>
-            <para>You need to use XPath expressions to<indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3393" significance="normal">
-                  <primary>Commons
-JXPath</primary>
-                  <secondary>applying object
-graphs</secondary>
-               </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3394" significance="normal">
-                  <primary>collections</primary>
-                  <secondary>Commons
-JXPath</secondary>
-                  <tertiary>applying object
-graphs</tertiary>
-               </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3395" significance="normal">
-                  <primary>objects</primary>
-                  <secondary>Commons
-JXPath</secondary>
-                  <tertiary>applying object
-graphs</tertiary>
-               </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3396" significance="normal">
-                  <primary>applying XPath to object
-graphs</primary>
-               </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3397" significance="normal">
-                  <primary>graphs,
-objects</primary>
-               </indexterm> select objects from a complex object
-graph referencing the contents of a <literal moreinfo="none">Map</literal> and using
-expressions with variable references.</para>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-4.2">
-            <title>Solution</title>
-            <para>Use Jakarta Commons JXPath to select objects from a collection using
-XPath queries. The following example uses Commons Digester to parse
-an XML file into an object graph, and selects
-<literal moreinfo="none">Planet</literal> objects with a radius greater than 5000:</para>
-            <programlisting id="I_12_tt488" format="linespecific">import org.apache.commons.digester.Digester;
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>The final expression in the previous example is a reference to a
+      specific index in a <literal moreinfo="none">List</literal>; <filename
+      moreinfo="none">.[2]</filename> selected the second element in the
+      <literal moreinfo="none">List</literal> supplied to the <literal
+      moreinfo="none">JXPathContext</literal> <indexterm
+          id="jakartackbk-CHP-12-ITERM-3387" significance="normal">
+          <primary>JXPathContext</primary>
+        </indexterm>. Whenever an XPath expression deals with a property,
+      which is a <literal moreinfo="none">List</literal> or an array, a
+      one-based index can be supplied in brackets after the name of the
+      property. If a <literal moreinfo="none">League</literal> object contains
+      a <literal moreinfo="none">List</literal> of <literal
+      moreinfo="none">Team</literal> objects, and a <literal
+      moreinfo="none">Team</literal> object contains a <literal
+      moreinfo="none">List</literal> of <literal
+      moreinfo="none">Player</literal> objects, the third <literal
+      moreinfo="none">Player</literal> object of the fourteenth <literal
+      moreinfo="none">Team</literal> can be selected by using the XPath
+      expression <filename
+      moreinfo="none">league/teams[14]/players[3]</filename>.</para>
+
+      <para>In the previous example, which filtered a <literal
+      moreinfo="none">List</literal> of <literal
+      moreinfo="none">Person</literal> objects, you might have noticed that
+      the properties <literal moreinfo="none">age</literal> and <literal
+      moreinfo="none">firstName</literal> are referenced as attributes in the
+      XPath predicate expression. A property can be referenced either as an
+      element or an attribute. In XPath terms, when JXPath resolves properties
+      on an object, the <filename moreinfo="none">child</filename> and
+      <filename moreinfo="none">attribute</filename> axis both reference
+      properties. This means that the expressions <filename
+      moreinfo="none">.[@age &gt; 30]</filename> and <filename
+      moreinfo="none">.[age &gt; 30]</filename> would return the same results,
+      as <literal moreinfo="none">age</literal> can be addressed as a child
+      element or attribute of the current node.</para>
+
+      <para><literal moreinfo="none">iterate( )</literal> returns an <literal
+      moreinfo="none">Iterator</literal> that lets you iterate over all nodes
+      that satisfy the given XPath query. <literal moreinfo="none">getValue(
+      )</literal> returns the first matching result. In the previous example,
+      <literal moreinfo="none">iterate( )</literal> retrieves two <literal
+      moreinfo="none">Person</literal> objects with an <literal
+      moreinfo="none">age</literal> property greater than 30. If the same
+      expression were evaluated with <literal moreinfo="none">getValue(
+      )</literal>, only one <literal moreinfo="none">Person</literal> object
+      would have been returned: Tom Russell. Use <literal
+      moreinfo="none">iterate( )</literal> when multiple nodes may match an
+      XPath expression.</para>
+    </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para><link linkend="jakartackbk-CHP-5">Chapter 5</link> demonstrates
+      the use of Commons <indexterm class="endofrange"
+      id="jakartackbk-CHP-12-ITERM-3388" significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3380"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3389"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3381"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3390"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3382"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3391"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3383"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3392"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3384"></indexterm>Collections'
+      <literal moreinfo="none">CollectionUtils</literal> to select items in a
+      <literal moreinfo="none">Collection</literal> that satisfy a <literal
+      moreinfo="none">Predicate</literal>. For more information about using
+      <literal moreinfo="none">Predicate</literal> objects to filter
+      collections, refer to <link linkend="jakartackbk-CHP-5-SECT-4">Recipe
+      5.4</link>.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="searching-filtering-sect-complex-graphs" label="12.4"
+         role="Recipe">
+    <title>Applying XPath Queries to Complex Object Graphs</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to use XPath expressions to<indexterm
+          class="startofrange" id="jakartackbk-CHP-12-ITERM-3393"
+          significance="normal">
+          <primary>Commons JXPath</primary>
+
+          <secondary>applying object graphs</secondary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3394" significance="normal">
+          <primary>collections</primary>
+
+          <secondary>Commons JXPath</secondary>
+
+          <tertiary>applying object graphs</tertiary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3395" significance="normal">
+          <primary>objects</primary>
+
+          <secondary>Commons JXPath</secondary>
+
+          <tertiary>applying object graphs</tertiary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3396" significance="normal">
+          <primary>applying XPath to object graphs</primary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3397" significance="normal">
+          <primary>graphs, objects</primary>
+        </indexterm> select objects from a complex object graph referencing
+      the contents of a <literal moreinfo="none">Map</literal> and using
+      expressions with variable references.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use Jakarta Commons JXPath to select objects from a collection
+      using XPath queries. The following example uses Commons Digester to
+      parse an XML file into an object graph, and selects <literal
+      moreinfo="none">Planet</literal> objects with a radius greater than
+      5000:</para>
+
+      <programlisting format="linespecific" id="I_12_tt488">import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.xmlrules.DigesterLoader;
 import org.apache.commons.jxpath.JXPathContext;
 
@@ -494,19 +586,25 @@ while( iterator.hasNext( ) ) {
     Object o  = (Object) iterator.next( );
     System.out.println( "Object: " + o);
 }</programlisting>
-            <para>The <literal moreinfo="none">Planet</literal> objects are filtered and the names of
-planets with sufficient radii are printed to the console:</para>
-            <programlisting id="I_12_tt489" format="linespecific">Planet Name where radius &gt; 5000
+
+      <para>The <literal moreinfo="none">Planet</literal> objects are filtered
+      and the names of planets with sufficient radii are printed to the
+      console:</para>
+
+      <programlisting format="linespecific" id="I_12_tt489">Planet Name where radius &gt; 5000
 Object: Venus
 Object: Saturn</programlisting>
-            <para>This object graph was created from an XML document that contains a
-list of planets and their physical properties including mass, radius,
-atmospheric composition, lunar population, and orbital distance and
-period. Commons Digester (from <link linkend="jakartackbk-CHP-6">Chapter 6</link>) is
-used to parse this XML document to a list of
-<literal moreinfo="none">Planet</literal> objects. The following XML document,
-<filename moreinfo="none">planets.xml</filename>, was parsed in the previous example:</para>
-            <programlisting id="I_12_tt490" format="linespecific">&lt;planets&gt;
+
+      <para>This object graph was created from an XML document that contains a
+      list of planets and their physical properties including mass, radius,
+      atmospheric composition, lunar population, and orbital distance and
+      period. Commons Digester (from <link linkend="jakartackbk-CHP-6">Chapter
+      6</link>) is used to parse this XML document to a list of <literal
+      moreinfo="none">Planet</literal> objects. The following XML document,
+      <filename moreinfo="none">planets.xml</filename>, was parsed in the
+      previous example:</para>
+
+      <programlisting format="linespecific" id="I_12_tt490">&lt;planets&gt;
     &lt;planet name="Venus" mass="4.869e+24" radius="6051.8"&gt;
         &lt;orbit distance="108200000" period="224.701"/&gt;
         &lt;atmosphere meanTemp="482" pressure="92"&gt;
@@ -540,39 +638,41 @@ used to parse this XML document to a list of
     &lt;moon&gt;Mimas&lt;/moon&gt;
   &lt;/planet&gt;
 &lt;/planets&gt;</programlisting>
-            <para>To parse this XML document, the following Digester rules are passed
-to <literal moreinfo="none">DigesterLoader.createDigester()</literal>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3398" significance="normal">
-                  <primary>createDigester( )
-method</primary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3399" significance="normal">
-                  <primary>methods</primary>
-                  <secondary>createDigester(
-)</secondary>
-               </indexterm>. This digester rule-set creates a
-<literal moreinfo="none">Planet</literal>, <literal moreinfo="none">Orbit</literal>, and
-<literal moreinfo="none">Atmosphere</literal> object for each planet.
-<literal moreinfo="none">Moon</literal> objects are created and added to
-<literal moreinfo="none">Planet</literal> objects using the <literal moreinfo="none">addMoon(
-)</literal> method on <literal moreinfo="none">Planet</literal>. Individual compounds
-in an atmosphere are added to an
-<literal moreinfo="none">Atmosphere</literal>'s
-<literal moreinfo="none">component</literal> 
-               <literal moreinfo="none">Map</literal> using
-<literal moreinfo="none">addComponent( )</literal>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3400" significance="normal">
-                  <primary>addComponent( )
-method</primary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3401" significance="normal">
-                  <primary>methods</primary>
-                  <secondary>addComponent(
-)</secondary>
-               </indexterm>. The following XML document contains the
-contents of the <filename moreinfo="none">planet-digester-rules.xml</filename> file
-used in the previous example:</para>
-            <programlisting id="I_12_tt491" format="linespecific">&lt;digester-rules&gt;
+
+      <para>To parse this XML document, the following Digester rules are
+      passed to <literal
+      moreinfo="none">DigesterLoader.createDigester()</literal> <indexterm
+          id="jakartackbk-CHP-12-ITERM-3398" significance="normal">
+          <primary>createDigester( ) method</primary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3399"
+          significance="normal">
+          <primary>methods</primary>
+
+          <secondary>createDigester( )</secondary>
+        </indexterm>. This digester rule-set creates a <literal
+      moreinfo="none">Planet</literal>, <literal
+      moreinfo="none">Orbit</literal>, and <literal
+      moreinfo="none">Atmosphere</literal> object for each planet. <literal
+      moreinfo="none">Moon</literal> objects are created and added to <literal
+      moreinfo="none">Planet</literal> objects using the <literal
+      moreinfo="none">addMoon( )</literal> method on <literal
+      moreinfo="none">Planet</literal>. Individual compounds in an atmosphere
+      are added to an <literal moreinfo="none">Atmosphere</literal>'s <literal
+      moreinfo="none">component</literal> <literal
+      moreinfo="none">Map</literal> using <literal
+      moreinfo="none">addComponent( )</literal> <indexterm
+          id="jakartackbk-CHP-12-ITERM-3400" significance="normal">
+          <primary>addComponent( ) method</primary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3401"
+          significance="normal">
+          <primary>methods</primary>
+
+          <secondary>addComponent( )</secondary>
+        </indexterm>. The following XML document contains the contents of the
+      <filename moreinfo="none">planet-digester-rules.xml</filename> file used
+      in the previous example:</para>
+
+      <programlisting format="linespecific" id="I_12_tt491">&lt;digester-rules&gt;
     &lt;pattern value="planets/planet"&gt;
         &lt;object-create-rule classname="Planet"/&gt;
         &lt;set-properties-rule/&gt;
@@ -598,50 +698,62 @@ used in the previous example:</para>
         &lt;set-next-rule methodname="add" paramtype="java.lang.Object"/&gt;
     &lt;/pattern&gt;
 &lt;/digester-rules&gt;</programlisting>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-4.3">
-            <title>Discussion</title>
-            <para>XPath expressions can be parameterized by referencing a variable
-name: <filename moreinfo="none">$variable</filename>. The following example
-references a variable <filename moreinfo="none">$moonName</filename>, which is
-populated by calling <literal moreinfo="none">declareVariable( )</literal> on
-<literal moreinfo="none">context.getVariables( )</literal>:</para>
-            <programlisting id="I_12_tt492" format="linespecific">System.out.println( "Planet Name where a moon is named Deimos");
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>XPath expressions can be parameterized by referencing a variable
+      name: <filename moreinfo="none">$variable</filename>. The following
+      example references a variable <filename
+      moreinfo="none">$moonName</filename>, which is populated by calling
+      <literal moreinfo="none">declareVariable( )</literal> on <literal
+      moreinfo="none">context.getVariables( )</literal>:</para>
+
+      <programlisting format="linespecific" id="I_12_tt492">System.out.println( "Planet Name where a moon is named Deimos");
 context.getVariables( ).declareVariable("moonName", "Deimos");
 iterator = context.iterate("./moons[. = $moonName]/../name");
 while( iterator.hasNext( ) ) {
     String name  = (String) iterator.next( );
     System.out.println( "Planet Namet: " + name);
 }</programlisting>
-            <para>This example selects the name of a planet with a moon named
-"Deimos." The results of the
-previous example are printed below:</para>
-            <programlisting id="I_12_tt493" format="linespecific">Planet Name where a moon is named Deimos
+
+      <para>This example selects the name of a planet with a moon named
+      "Deimos." The results of the previous example are printed below:</para>
+
+      <programlisting format="linespecific" id="I_12_tt493">Planet Name where a moon is named Deimos
 Planet Namet: Mars</programlisting>
-            <para>
-               <literal moreinfo="none">Planet.getAtmosphere( ).getComponents( )</literal> returns a
-<literal moreinfo="none">Map</literal> with element symbols as keys. The following
-example selects every planet with more than a 2% Helium atmosphere:</para>
-            <programlisting id="I_12_tt494" format="linespecific">System.out.println( "Planet where Helium percentage greater than 2");
+
+      <para><literal moreinfo="none">Planet.getAtmosphere( ).getComponents(
+      )</literal> returns a <literal moreinfo="none">Map</literal> with
+      element symbols as keys. The following example selects every planet with
+      more than a 2% Helium atmosphere:</para>
+
+      <programlisting format="linespecific" id="I_12_tt494">System.out.println( "Planet where Helium percentage greater than 2");
 iterator = context.iterate("./atmosphere/components/He[.&gt;2]/../../..");
 while( iterator.hasNext( ) ) {
     Planet p  = (Planet) iterator.next( );
     System.out.println( "Planet: " + p.getName( ));
 }</programlisting>
-            <para>To select every planet with more than a 2% Helium atmosphere, the
-XPath expression in the previous example references a specific key in
-the components <literal moreinfo="none">Map</literal> as if it were a nested element.
-<filename moreinfo="none">components/He[.&gt;2]</filename> will evaluate to
-<literal moreinfo="none">true</literal> if <literal moreinfo="none">getComponents(
-).get("He")</literal> is a number larger than 2. The previous code
-determines that Saturn is the only one of these three planets with
-more than 2% Helium:</para>
-            <programlisting id="I_12_tt495" format="linespecific">Planet where Helium percentage greater than 2
+
+      <para>To select every planet with more than a 2% Helium atmosphere, the
+      XPath expression in the previous example references a specific key in
+      the components <literal moreinfo="none">Map</literal> as if it were a
+      nested element. <filename
+      moreinfo="none">components/He[.&gt;2]</filename> will evaluate to
+      <literal moreinfo="none">true</literal> if <literal
+      moreinfo="none">getComponents( ).get("He")</literal> is a number larger
+      than 2. The previous code determines that Saturn is the only one of
+      these three planets with more than 2% Helium:</para>
+
+      <programlisting format="linespecific" id="I_12_tt495">Planet where Helium percentage greater than 2
 Planet: Saturn</programlisting>
-            <para>The following example prints a list of each moon and the
-corresponding planet using a reference to a variable in an XPath
-expression:</para>
-            <programlisting id="I_12_tt496" format="linespecific">System.out.println( "All of the Moon Names");
+
+      <para>The following example prints a list of each moon and the
+      corresponding planet using a reference to a variable in an XPath
+      expression:</para>
+
+      <programlisting format="linespecific" id="I_12_tt496">System.out.println( "All of the Moon Names");
 iterator = context.iterate("./moons");
 while( iterator.hasNext( ) ) {
     String moon  = (String) iterator.next( );
@@ -650,26 +762,29 @@ while( iterator.hasNext( ) ) {
         (String) context.getValue("./moons[. = $moonName]/../name");
     System.out.println( "Moon: " + moon + ", \t\t\tPlanet: " + planet);
 }</programlisting>
-            <para>The previous example shows that a <literal moreinfo="none">JXPathContext</literal>
-can be reused. This example iterates through each moon and finds the
-name of the planet corresponding to each moon using the results of
-the first expression to populate a variable in the second expression.
-The XPath expression, <filename moreinfo="none">./moons[. =
-$moonName]/../name</filename>, contains a reference to the variable
-<literal moreinfo="none">$moonName</literal>, which is set by passing a variable name
-and value to the <literal moreinfo="none">declareVariable(
-)</literal>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3402" significance="normal">
-                  <primary>declareVariable( )
-method</primary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3403" significance="normal">
-                  <primary>methods</primary>
-                  <secondary>declareVariable(
-)</secondary>
-               </indexterm> method on <literal moreinfo="none">JXPathContext</literal>.
-This example prints each moon and planet to the console as follows:</para>
-            <programlisting id="I_12_tt497" format="linespecific">All of the Moon Names
+
+      <para>The previous example shows that a <literal
+      moreinfo="none">JXPathContext</literal> can be reused. This example
+      iterates through each moon and finds the name of the planet
+      corresponding to each moon using the results of the first expression to
+      populate a variable in the second expression. The XPath expression,
+      <filename moreinfo="none">./moons[. = $moonName]/../name</filename>,
+      contains a reference to the variable <literal
+      moreinfo="none">$moonName</literal>, which is set by passing a variable
+      name and value to the <literal moreinfo="none">declareVariable(
+      )</literal> <indexterm id="jakartackbk-CHP-12-ITERM-3402"
+          significance="normal">
+          <primary>declareVariable( ) method</primary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3403"
+          significance="normal">
+          <primary>methods</primary>
+
+          <secondary>declareVariable( )</secondary>
+        </indexterm> method on <literal
+      moreinfo="none">JXPathContext</literal>. This example prints each moon
+      and planet to the console as follows:</para>
+
+      <programlisting format="linespecific" id="I_12_tt497">All of the Moon Names
 Moon: Phobos,          Planet: Mars
 Moon: Deimos,          Planet: Mars
 Moon: Pan,             Planet: Saturn
@@ -679,125 +794,164 @@ Moon: Pandora,         Planet: Saturn
 Moon: Epimetheus,      Planet: Saturn
 Moon: Janus,           Planet: Saturn
 Moon: Mimas,           Planet: Saturn</programlisting>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-4.4">
-            <title>See Also</title>
-            <para>There is much more to JXPath including object creation <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3393" id="jakartackbk-CHP-12-ITERM-3404" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3394" id="jakartackbk-CHP-12-ITERM-3405" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3395" id="jakartackbk-CHP-12-ITERM-3406" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3396" id="jakartackbk-CHP-12-ITERM-3407" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3397" id="jakartackbk-CHP-12-ITERM-3408" significance="normal"/>and the ability
-to set properties using XPath expressions; for more information about
-using JXPath to access maps, collections, servlet contexts, and
-DOM/JDOM Documents, see the JXPath User's Guide
-(<systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/jxpath/users-guide.html</systemitem>).</para>
-         </sect2>
-      </sect1>
-      <sect1 id="jakartackbk-CHP-12-SECT-5" label="12.5" role="Recipe">
-         <title>Obtaining Jakarta Lucene</title>
-         <sect2 id="jakartackbk-CHP-12-SECT-5.1">
-            <title>Problem</title>
-            <para>You need to use <indexterm id="jakartackbk-CHP-12-ITERM-3409" significance="normal">
-                  <primary>Jakarta
-Lucene</primary>
-                  <secondary>downloading</secondary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3410" significance="normal">
-                  <primary>downloading</primary>
-                  <secondary>Jakarta
-Lucene</secondary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3411" significance="normal">
-                  <primary>indexes</primary>
-                  <secondary>Jakarta
-Lucene</secondary>
-                  <tertiary>downloading</tertiary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3412" significance="normal">
-                  <primary>documents</primary>
-                  <secondary>Jakarta
-Lucene</secondary>
-               </indexterm>Jakarta Lucene to
-<indexterm id="jakartackbk-CHP-12-ITERM-3413" significance="normal">
-                  <primary>Lucene</primary>
-                  <see>Jakarta
-Lucene</see>
-               </indexterm>create a searchable index of documents.</para>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-5.2">
-            <title>Solution</title>
-            <para>Download Jakarta Lucene 1.4 from <systemitem role="url" moreinfo="none">http://jakarta.apache.org/site/binindex.cgi</systemitem>,
-and uncompress the distribution archive. Place the <systemitem role="url" moreinfo="none">lucene-1.4-final.jar</systemitem> file in your classpath.</para>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-5.3">
-            <title>Discussion</title>
-            <para>Jakarta Lucene is a full-text
-<indexterm id="jakartackbk-CHP-12-ITERM-3414" significance="normal">
-                  <primary>searching</primary>
-                  <seealso>Jakarta
-Lucene</seealso>
-               </indexterm>search engine that can be used to index
-any information. Lucene maintains an index of
-<literal moreinfo="none">Document</literal> objects that can contain any number of
-fields, and this index can be searched using a highly developed query
-language.</para>
-            <para>If you have a Maven project that needs to use Jakarta Lucene, add a
-dependency on Jakarta Lucene 1.4 with the following section in
-<filename moreinfo="none">project.xml</filename>:</para>
-            <programlisting id="I_12_tt498" format="linespecific">&lt;dependencies&gt;
+    </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para>There is much more to JXPath including object creation <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3404"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3393"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3405"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3394"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3406"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3395"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3407"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3396"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3408"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3397"></indexterm>and the ability to
+      set properties using XPath expressions; for more information about using
+      JXPath to access maps, collections, servlet contexts, and DOM/JDOM
+      Documents, see the JXPath User's Guide (<systemitem moreinfo="none"
+      role="url">http://jakarta.apache.org/commons/jxpath/users-guide.html</systemitem>).</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="searching-filtering-sect-obtaining-lucene" label="12.5"
+         role="Recipe">
+    <title>Obtaining Jakarta Lucene</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to use <indexterm id="jakartackbk-CHP-12-ITERM-3409"
+          significance="normal">
+          <primary>Jakarta Lucene</primary>
+
+          <secondary>downloading</secondary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3410"
+          significance="normal">
+          <primary>downloading</primary>
+
+          <secondary>Jakarta Lucene</secondary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3411"
+          significance="normal">
+          <primary>indexes</primary>
+
+          <secondary>Jakarta Lucene</secondary>
+
+          <tertiary>downloading</tertiary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3412"
+          significance="normal">
+          <primary>documents</primary>
+
+          <secondary>Jakarta Lucene</secondary>
+        </indexterm>Jakarta Lucene to <indexterm
+          id="jakartackbk-CHP-12-ITERM-3413" significance="normal">
+          <primary>Lucene</primary>
+
+          <see>Jakarta Lucene</see>
+        </indexterm>create a searchable index of documents.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Download Jakarta Lucene 1.4 from <systemitem moreinfo="none"
+      role="url">http://jakarta.apache.org/site/binindex.cgi</systemitem>, and
+      uncompress the distribution archive. Place the <systemitem
+      moreinfo="none" role="url">lucene-1.4-final.jar</systemitem> file in
+      your classpath.</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>Jakarta Lucene is a full-text <indexterm
+          id="jakartackbk-CHP-12-ITERM-3414" significance="normal">
+          <primary>searching</primary>
+
+          <seealso>Jakarta Lucene</seealso>
+        </indexterm>search engine that can be used to index any information.
+      Lucene maintains an index of <literal moreinfo="none">Document</literal>
+      objects that can contain any number of fields, and this index can be
+      searched using a highly developed query language.</para>
+
+      <para>If you have a Maven project that needs to use Jakarta Lucene, add
+      a dependency on Jakarta Lucene 1.4 with the following section in
+      <filename moreinfo="none">project.xml</filename>:</para>
+
+      <programlisting format="linespecific" id="I_12_tt498">&lt;dependencies&gt;
   &lt;dependency&gt;
     &lt;id&gt;lucene&lt;/id&gt;
     &lt;version&gt;1.4&lt;/version&gt;
   &lt;/dependency&gt;
   ....other dependencies...
 &lt;/dependencies&gt;</programlisting>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-5.4">
-            <title>See Also</title>
-            <para>For more information on the Jakarta Lucene project, see the Jakarta
-Lucene project page at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/lucene</systemitem>.</para>
-         </sect2>
-      </sect1>
-      <sect1 id="jakartackbk-CHP-12-SECT-6" label="12.6" role="Recipe">
-         <title>Creating an Index of XML Documents</title>
-         <sect2 id="jakartackbk-CHP-12-SECT-6.1">
-            <title>Problem</title>
-            <para>You need to quickly search a <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3415" significance="normal">
-                  <primary>Jakarta
-Lucene</primary>
-                  <secondary>XML documents</secondary>
-               </indexterm>
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3416" significance="normal">
-                  <primary>XML (Extensible Markup
-Language)</primary>
-                  <secondary>Jakarta Lucene</secondary>
-               </indexterm>
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3417" significance="normal">
-                  <primary>indexes</primary>
-                  <secondary>Jakarta
-Lucene</secondary>
-                  <tertiary>XML documents</tertiary>
-               </indexterm>
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3418" significance="normal">
-                  <primary>documents</primary>
-                  <secondary>XML</secondary>
-                  <tertiary>Jakarta
-Lucene</tertiary>
-               </indexterm>collection of XML documents, and, to do
-this, you need to create an index of terms keeping track of the
-context in which these terms appear.</para>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-6.2">
-            <title>Solution</title>
-            <para>Use Jakarta Lucene and Jakarta Digester and create an index of Lucene
-<literal moreinfo="none">Document</literal> objects for the lowest level of
-granularity you wish to search. For example, if you are attempting to
-search for speeches in a Shakespeare play that contain specific
-terms, create a Lucene <literal moreinfo="none">Document</literal> object for each
-speech. For the purposes of this recipe, assume that you are
-attempting to index Shakespeare plays stored in the following XML
-format:</para>
-            <programlisting id="I_12_tt499" format="linespecific">
+    </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para>For more information on the Jakarta Lucene project, see the
+      Jakarta Lucene project page at <systemitem moreinfo="none"
+      role="url">http://jakarta.apache.org/lucene</systemitem>.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="searching-filtering-sect-index-xml" label="12.6" role="Recipe">
+    <title>Creating an Index of XML Documents</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to quickly search a <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3415" significance="normal">
+          <primary>Jakarta Lucene</primary>
+
+          <secondary>XML documents</secondary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3416" significance="normal">
+          <primary>XML (Extensible Markup Language)</primary>
+
+          <secondary>Jakarta Lucene</secondary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3417" significance="normal">
+          <primary>indexes</primary>
+
+          <secondary>Jakarta Lucene</secondary>
+
+          <tertiary>XML documents</tertiary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3418" significance="normal">
+          <primary>documents</primary>
+
+          <secondary>XML</secondary>
+
+          <tertiary>Jakarta Lucene</tertiary>
+        </indexterm>collection of XML documents, and, to do this, you need to
+      create an index of terms keeping track of the context in which these
+      terms appear.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use Jakarta Lucene and Jakarta Digester and create an index of
+      Lucene <literal moreinfo="none">Document</literal> objects for the
+      lowest level of granularity you wish to search. For example, if you are
+      attempting to search for speeches in a Shakespeare play that contain
+      specific terms, create a Lucene <literal
+      moreinfo="none">Document</literal> object for each speech. For the
+      purposes of this recipe, assume that you are attempting to index
+      Shakespeare plays stored in the following XML format:</para>
+
+      <programlisting format="linespecific" id="I_12_tt499">
 &lt;?xml version="1.0"?&gt;
 
 
@@ -824,23 +978,24 @@ format:</para>
     &lt;/SCENE&gt;
   &lt;/ACT&gt;
 &lt;/PLAY&gt;</programlisting>
-            <para>The following class creates a Lucene index of Shakespeare speeches,
-reading XML files for each play in the
-<filename moreinfo="none">./data/Shakespeare</filename> directory, and calling the
-<literal moreinfo="none">PlayIndexer</literal> to create Lucene
-<literal moreinfo="none">Document</literal> objects for every speech. These
-<literal moreinfo="none">Document</literal>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3419" significance="normal">
-                  <primary>Document
-objects</primary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3420" significance="normal">
-                  <primary>objects</primary>
-                  <secondary>Documents</secondary>
-               </indexterm>
-objects are then written to a Lucene index using an
-<literal moreinfo="none">IndexWriter</literal>:</para>
-            <programlisting id="I_12_tt500" format="linespecific">import java.io.File;
+
+      <para>The following class creates a Lucene index of Shakespeare
+      speeches, reading XML files for each play in the <filename
+      moreinfo="none">./data/Shakespeare</filename> directory, and calling the
+      <literal moreinfo="none">PlayIndexer</literal> to create Lucene <literal
+      moreinfo="none">Document</literal> objects for every speech. These
+      <literal moreinfo="none">Document</literal> <indexterm
+          id="jakartackbk-CHP-12-ITERM-3419" significance="normal">
+          <primary>Document objects</primary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3420"
+          significance="normal">
+          <primary>objects</primary>
+
+          <secondary>Documents</secondary>
+        </indexterm> objects are then written to a Lucene index using an
+      <literal moreinfo="none">IndexWriter</literal>:</para>
+
+      <programlisting format="linespecific" id="I_12_tt500">import java.io.File;
 import java.io.FilenameFilter;
 
 import org.apache.log4j.Logger;
@@ -868,44 +1023,47 @@ writer.optimize( );
 writer.close( );
 
 logger.info( "Parsing Complete, Index Created");</programlisting>
-            <para>The <literal moreinfo="none">PlayIndexer</literal> class, shown in <link linkend="jakartackbk-CHP-12-EX-1">Example 12-1</link>, parses each XML file and creates
-<literal moreinfo="none">Document</literal> objects that are written to an
-<literal moreinfo="none">IndexWriter</literal>. The
-<literal moreinfo="none">PlayIndexer</literal>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3421" significance="normal">
-                  <primary>PlayIndexer</primary>
-               </indexterm>
-uses Commons Digester to create a Lucene <literal moreinfo="none">Document</literal>
-object for every speech. The <literal moreinfo="none">init( )</literal> method
-creates a <literal moreinfo="none">Digester</literal> instance designed to interact
-with an inner class, <literal moreinfo="none">DigestContext</literal>, which keeps
-track of the current context of a
-speech—<literal moreinfo="none">play</literal>, <literal moreinfo="none">act</literal>,
-<literal moreinfo="none">scene</literal>, <literal moreinfo="none">speaker</literal>—and the
-textual contents of a <literal moreinfo="none">speech</literal>. At the end of every
-speech element, the <literal moreinfo="none">DigestContext</literal> invokes the
-<literal moreinfo="none">processSpeech( )</literal>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3422" significance="normal">
-                  <primary>processSpeech(
-) method</primary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3423" significance="normal">
-                  <primary>methods</primary>
-                  <secondary>processSpeech(
-)</secondary>
-               </indexterm> method that creates a Lucene
-<literal moreinfo="none">Document</literal> for each speech and writes this
-<literal moreinfo="none">Document</literal> to the
-Lucene<indexterm id="jakartackbk-CHP-12-ITERM-3424" significance="normal">
-                  <primary>IndexWriter</primary>
-               </indexterm>
-               <literal moreinfo="none">IndexWriter</literal>. Because each
-<literal moreinfo="none">Document</literal> is associated with the specific context
-of a speech, it will be possible to obtain a specific location for
-each term or phrase.</para>
-            <example id="jakartackbk-CHP-12-EX-1" label="12-1">
-               <title>PlayIndexer using Commons Digester and Jakarta Lucene</title>
-               <programlisting format="linespecific">package com.discursive.jccook.xml.bardsearch;
+
+      <para>The <literal moreinfo="none">PlayIndexer</literal> class, shown in
+      <link linkend="jakartackbk-CHP-12-EX-1">Example 12-1</link>, parses each
+      XML file and creates <literal moreinfo="none">Document</literal> objects
+      that are written to an <literal moreinfo="none">IndexWriter</literal>.
+      The <literal moreinfo="none">PlayIndexer</literal> <indexterm
+          id="jakartackbk-CHP-12-ITERM-3421" significance="normal">
+          <primary>PlayIndexer</primary>
+        </indexterm> uses Commons Digester to create a Lucene <literal
+      moreinfo="none">Document</literal> object for every speech. The <literal
+      moreinfo="none">init( )</literal> method creates a <literal
+      moreinfo="none">Digester</literal> instance designed to interact with an
+      inner class, <literal moreinfo="none">DigestContext</literal>, which
+      keeps track of the current context of a speech—<literal
+      moreinfo="none">play</literal>, <literal moreinfo="none">act</literal>,
+      <literal moreinfo="none">scene</literal>, <literal
+      moreinfo="none">speaker</literal>—and the textual contents of a <literal
+      moreinfo="none">speech</literal>. At the end of every speech element,
+      the <literal moreinfo="none">DigestContext</literal> invokes the
+      <literal moreinfo="none">processSpeech( )</literal> <indexterm
+          id="jakartackbk-CHP-12-ITERM-3422" significance="normal">
+          <primary>processSpeech( ) method</primary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3423"
+          significance="normal">
+          <primary>methods</primary>
+
+          <secondary>processSpeech( )</secondary>
+        </indexterm> method that creates a Lucene <literal
+      moreinfo="none">Document</literal> for each speech and writes this
+      <literal moreinfo="none">Document</literal> to the Lucene<indexterm
+          id="jakartackbk-CHP-12-ITERM-3424" significance="normal">
+          <primary>IndexWriter</primary>
+        </indexterm> <literal moreinfo="none">IndexWriter</literal>. Because
+      each <literal moreinfo="none">Document</literal> is associated with the
+      specific context of a speech, it will be possible to obtain a specific
+      location for each term or phrase.</para>
+
+      <example id="jakartackbk-CHP-12-EX-1" label="12-1">
+        <title>PlayIndexer using Commons Digester and Jakarta Lucene</title>
+
+        <programlisting format="linespecific">package com.discursive.jccook.xml.bardsearch;
 
 import java.io.File;
 import java.io.IOException;
@@ -981,23 +1139,28 @@ public class PlayIndexer {
         }
     }
 }</programlisting>
-            </example>
-            <para>
-               <link linkend="jakartackbk-CHP-12-EX-1">Example 12-1</link> used a Digester rule set defined in
-<link linkend="jakartackbk-CHP-12-EX-2">Example 12-2</link>. This set of rules is designed to invoke
-a series of methods in a set sequence to populate the context
-variables for each speech. The Digester rules in <link linkend="jakartackbk-CHP-12-EX-2">Example 12-2</link> never push or pop objects onto the digester
-stack; instead, the Digester is being used to populate variables and
-invoke methods on an object that creates Lucene
-<literal moreinfo="none">Document</literal> objects based on a set of context
-variables. This example uses the Digester as a shorthand Simple API
-for XML (SAX) parser; the <literal moreinfo="none">PlayIndexer</literal> contains a
-series of callback methods, and the Digester rule set simplifies the
-interaction between the underlying SAX parser and the
-<literal moreinfo="none">DigestContext</literal>.</para>
-            <example id="jakartackbk-CHP-12-EX-2" label="12-2">
-               <title>Digester rules for PlayIndexer</title>
-               <programlisting format="linespecific">&lt;?xml version="1.0"?&gt;
+      </example>
+
+      <para><link linkend="jakartackbk-CHP-12-EX-1">Example 12-1</link> used a
+      Digester rule set defined in <link
+      linkend="jakartackbk-CHP-12-EX-2">Example 12-2</link>. This set of rules
+      is designed to invoke a series of methods in a set sequence to populate
+      the context variables for each speech. The Digester rules in <link
+      linkend="jakartackbk-CHP-12-EX-2">Example 12-2</link> never push or pop
+      objects onto the digester stack; instead, the Digester is being used to
+      populate variables and invoke methods on an object that creates Lucene
+      <literal moreinfo="none">Document</literal> objects based on a set of
+      context variables. This example uses the Digester as a shorthand Simple
+      API for XML (SAX) parser; the <literal
+      moreinfo="none">PlayIndexer</literal> contains a series of callback
+      methods, and the Digester rule set simplifies the interaction between
+      the underlying SAX parser and the <literal
+      moreinfo="none">DigestContext</literal>.</para>
+
+      <example id="jakartackbk-CHP-12-EX-2" label="12-2">
+        <title>Digester rules for PlayIndexer</title>
+
+        <programlisting format="linespecific">&lt;?xml version="1.0"?&gt;
 
 &lt;digester-rules&gt;
     &lt;pattern value="PLAY"&gt;
@@ -1037,162 +1200,194 @@ interaction between the underlying SAX parser and the
         &lt;/pattern&gt;
     &lt;/pattern&gt;
 &lt;/digester-rules&gt;</programlisting>
-            </example>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-6.3">
-            <title>Discussion</title>
-            <para>In this recipe, an <literal moreinfo="none">IndexWriter</literal> was created with a
-<literal moreinfo="none">SimpleAnalyzer</literal>. An <literal moreinfo="none">Analyzer</literal>
-takes a series of terms or tokens and creates the terms to be
-indexed; different <literal moreinfo="none">Analyzer</literal> implementations are
-appropriate for different applications. A
-<literal moreinfo="none">SimpleAnalyzer</literal> will keep every term in a piece of
-text, discarding nothing. A <literal moreinfo="none">StandardAnalyzer</literal> is an
-<literal moreinfo="none">Analyzer</literal> that discards common English words with
-little semantic value, such as
-"the,"
-"a,"
-"an," and
-"for." The
-<literal moreinfo="none">StandardAnalyzer</literal> maintains a list of terms to
-discard—a <filename moreinfo="none">stop list</filename>. Cutting down on the
-number of terms indexed can save time and space in an index, but it
-can also limit accuracy. For example, if one were to use the
-<literal moreinfo="none">StandardAnalyzer</literal> to index the play
-<emphasis>Hamlet</emphasis>, a search for "to be or
-not to be" would return zero results, because every
-term in that phrase is a common English word on
-<literal moreinfo="none">StandardAnalyzer</literal>'s stop list. In
-this recipe, a <literal moreinfo="none">SimpleAnalyzer</literal> is used because it
-keeps track of the occurrence of every term in a document.</para>
-            <para>What you end up with after running this example is a directory named
-<filename moreinfo="none">index</filename>, which contains files used by Lucene to
-associate terms with documents. In this example, a Lucene
-<literal moreinfo="none">Document</literal> consists of the contextual information
-fully describing each
-speech—"play,"
-"act,"
-"scene,"
-"speaker," and
-"speech." <literal moreinfo="none">Field</literal>
-objects are added to <literal moreinfo="none">Document</literal> objects using
-<literal moreinfo="none">Document</literal>'s <literal moreinfo="none">addDoc()</literal>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3425" significance="normal">
-                  <primary>addDoc( ) method</primary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3426" significance="normal">
-                  <primary>methods</primary>
-                  <secondary>addDoc(
-)</secondary>
-               </indexterm> method. The <literal moreinfo="none">processSpeech()</literal> method in <literal moreinfo="none">PlayIndexer</literal> creates Lucene
-<literal moreinfo="none">Document</literal> objects that contain
-<literal moreinfo="none">Field</literal>s; <literal moreinfo="none">Field</literal> objects are
-created by calling <literal moreinfo="none">Text( )</literal>, a static method on
-<literal moreinfo="none">Field</literal>. The first parameter to <literal moreinfo="none">Text(
-)</literal>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3427" significance="normal">
-                  <primary>Text( ) method</primary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3428" significance="normal">
-                  <primary>methods</primary>
-                  <secondary>Text(
-)</secondary>
-               </indexterm> is the name of the field, and the second
-parameter is the content to be indexed. Passing a
-<literal moreinfo="none">String</literal> as the second parameter to <literal moreinfo="none">Text()</literal> instructs the <literal moreinfo="none">IndexWriter</literal> to store the
-content of a field in a Lucene index; a <literal moreinfo="none">Field</literal>
-created with a <literal moreinfo="none">String</literal> can be displayed in a search
-result. Passing a <literal moreinfo="none">Reader</literal> as the second parameter
-to <literal moreinfo="none">Text( )</literal> instructs the
-<literal moreinfo="none">IndexWriter</literal> not to store the contents of a field,
-and the contents of a field created with a <literal moreinfo="none">Reader</literal>
-               <emphasis role="bold">cannot</emphasis> be returned in a search
-result. In the previous example, the
-"speech" field is created with a
-<literal moreinfo="none">Reader</literal> to reduce the size of the Lucene index, and
-every other <literal moreinfo="none">Field</literal> is created with a
-<literal moreinfo="none">String</literal> so that our search results can provide a
-speech's contextual coordinates.</para>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-6.4">
-            <title>See Also</title>
-            <para>Sure, you've created a Lucene index, but how would
-you search it? The index created in this recipe can be searched with
-Lucene using techniques described in <link linkend="jakartackbk-CHP-12-SECT-7">Recipe 12.7</link> and <link linkend="jakartackbk-CHP-12-SECT-8">Recipe 12.8</link>.</para>
-            <para>If you are indexing a huge database of English documents, consider
-using the <literal moreinfo="none">StandardAnalyzer</literal> to discard common
-English words. If you are indexing documents written in German or
-Russian, Lucene ships with <literal moreinfo="none">GermanAnalyzer</literal> and
-<literal moreinfo="none">RussianAnalyzer</literal>, which both contain stop word
-lists for these languages. For more information about these two
-implementations of <literal moreinfo="none">Analyzer</literal>, see the Lucene
-JavaDoc at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/lucene/docs/api/index.html</systemitem>.
-Analyzer implementations for French, Dutch, Chinese, and Czech can be
-found in the Lucene Sandbox (<systemitem role="url" moreinfo="none">http://cvs.apache.org/viewcvs/jakarta-lucene-sandbox/contributions/analyzers/</systemitem>).</para>
-            <para>For more information about Jakarta Lucene, see the Lucene project web
-site at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/lucene</systemitem>.</para>
-            <para>This recipe uses<indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3415" id="jakartackbk-CHP-12-ITERM-3429" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3416" id="jakartackbk-CHP-12-ITERM-3430" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3417" id="jakartackbk-CHP-12-ITERM-3431" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3418" id="jakartackbk-CHP-12-ITERM-3432" significance="normal"/> the <emphasis>The Plays of
-Shakespeare</emphasis>, compiled by Jon Bosak. To download the
-complete works of Shakespeare in XML format, see <systemitem role="url" moreinfo="none">http://www.ibiblio.org/bosak/</systemitem>.</para>
-         </sect2>
-      </sect1>
-      <sect1 id="jakartackbk-CHP-12-SECT-7" label="12.7" role="Recipe">
-         <title>Searching for a Specific Term in a Document Index</title>
-         <sect2 id="jakartackbk-CHP-12-SECT-7.1">
-            <title>Problem</title>
-            <para>You need to identify which documents in <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3433" significance="normal">
-                  <primary>Jakarta
-Lucene</primary>
-                  <secondary>specific searches</secondary>
-               </indexterm>
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3434" significance="normal">
-                  <primary>specific searches, Jakarta
-Lucene</primary>
-               </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3435" significance="normal">
-                  <primary>indexes</primary>
-                  <secondary>Jakarta
-Lucene</secondary>
-                  <tertiary>specific searches</tertiary>
-               </indexterm>
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3436" significance="normal">
-                  <primary>documents</primary>
-                  <secondary>Jakarta
-Lucene</secondary>
-                  <tertiary>specific searches</tertiary>
-               </indexterm>a
-Lucene index contain specific terms or phrases.</para>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-7.2">
-            <title>Solution</title>
-            <para>Use an
-<indexterm id="jakartackbk-CHP-12-ITERM-3437" significance="normal">
-                  <primary>IndexSearcher</primary>
-               </indexterm>IndexSearcher
-to search a Lucene index created with IndexWriter. This recipe
-assumes that you have created a Lucene index using the techniques
-shown in the previous recipe. The constructor of
-<literal moreinfo="none">IndexSearcher</literal> takes the name of a directory that
-contains a Lucene index. A <literal moreinfo="none">Query</literal> object can be
-created by passing a <literal moreinfo="none">String</literal> query, a default
-search field, and an <literal moreinfo="none">Analyzer</literal> to
-<literal moreinfo="none">QueryParser.parse()</literal>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3438" significance="normal">
-                  <primary>QueryParser.parse( )
-method</primary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3439" significance="normal">
-                  <primary>methods</primary>
-                  <secondary>QueryParser.parse(
-)</secondary>
-               </indexterm>. The following example searches the
-<literal moreinfo="none">Lucene</literal> index created in the previous recipe for
-all speeches containing the term
-"Ophelia":</para>
-            <programlisting id="I_12_tt501" format="linespecific">import org.apache.lucene.analysis.Analyzer;
+      </example>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>In this recipe, an <literal moreinfo="none">IndexWriter</literal>
+      was created with a <literal moreinfo="none">SimpleAnalyzer</literal>. An
+      <literal moreinfo="none">Analyzer</literal> takes a series of terms or
+      tokens and creates the terms to be indexed; different <literal
+      moreinfo="none">Analyzer</literal> implementations are appropriate for
+      different applications. A <literal
+      moreinfo="none">SimpleAnalyzer</literal> will keep every term in a piece
+      of text, discarding nothing. A <literal
+      moreinfo="none">StandardAnalyzer</literal> is an <literal
+      moreinfo="none">Analyzer</literal> that discards common English words
+      with little semantic value, such as "the," "a," "an," and "for." The
+      <literal moreinfo="none">StandardAnalyzer</literal> maintains a list of
+      terms to discard—a <filename moreinfo="none">stop list</filename>.
+      Cutting down on the number of terms indexed can save time and space in
+      an index, but it can also limit accuracy. For example, if one were to
+      use the <literal moreinfo="none">StandardAnalyzer</literal> to index the
+      play <emphasis>Hamlet</emphasis>, a search for "to be or not to be"
+      would return zero results, because every term in that phrase is a common
+      English word on <literal moreinfo="none">StandardAnalyzer</literal>'s
+      stop list. In this recipe, a <literal
+      moreinfo="none">SimpleAnalyzer</literal> is used because it keeps track
+      of the occurrence of every term in a document.</para>
+
+      <para>What you end up with after running this example is a directory
+      named <filename moreinfo="none">index</filename>, which contains files
+      used by Lucene to associate terms with documents. In this example, a
+      Lucene <literal moreinfo="none">Document</literal> consists of the
+      contextual information fully describing each speech—"play," "act,"
+      "scene," "speaker," and "speech." <literal
+      moreinfo="none">Field</literal> objects are added to <literal
+      moreinfo="none">Document</literal> objects using <literal
+      moreinfo="none">Document</literal>'s <literal
+      moreinfo="none">addDoc()</literal> <indexterm
+          id="jakartackbk-CHP-12-ITERM-3425" significance="normal">
+          <primary>addDoc( ) method</primary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3426"
+          significance="normal">
+          <primary>methods</primary>
+
+          <secondary>addDoc( )</secondary>
+        </indexterm> method. The <literal
+      moreinfo="none">processSpeech()</literal> method in <literal
+      moreinfo="none">PlayIndexer</literal> creates Lucene <literal
+      moreinfo="none">Document</literal> objects that contain <literal
+      moreinfo="none">Field</literal>s; <literal
+      moreinfo="none">Field</literal> objects are created by calling <literal
+      moreinfo="none">Text( )</literal>, a static method on <literal
+      moreinfo="none">Field</literal>. The first parameter to <literal
+      moreinfo="none">Text( )</literal> <indexterm
+          id="jakartackbk-CHP-12-ITERM-3427" significance="normal">
+          <primary>Text( ) method</primary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3428"
+          significance="normal">
+          <primary>methods</primary>
+
+          <secondary>Text( )</secondary>
+        </indexterm> is the name of the field, and the second parameter is the
+      content to be indexed. Passing a <literal
+      moreinfo="none">String</literal> as the second parameter to <literal
+      moreinfo="none">Text()</literal> instructs the <literal
+      moreinfo="none">IndexWriter</literal> to store the content of a field in
+      a Lucene index; a <literal moreinfo="none">Field</literal> created with
+      a <literal moreinfo="none">String</literal> can be displayed in a search
+      result. Passing a <literal moreinfo="none">Reader</literal> as the
+      second parameter to <literal moreinfo="none">Text( )</literal> instructs
+      the <literal moreinfo="none">IndexWriter</literal> not to store the
+      contents of a field, and the contents of a field created with a <literal
+      moreinfo="none">Reader</literal> <emphasis role="bold">cannot</emphasis>
+      be returned in a search result. In the previous example, the "speech"
+      field is created with a <literal moreinfo="none">Reader</literal> to
+      reduce the size of the Lucene index, and every other <literal
+      moreinfo="none">Field</literal> is created with a <literal
+      moreinfo="none">String</literal> so that our search results can provide
+      a speech's contextual coordinates.</para>
+    </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para>Sure, you've created a Lucene index, but how would you search it?
+      The index created in this recipe can be searched with Lucene using
+      techniques described in <link linkend="jakartackbk-CHP-12-SECT-7">Recipe
+      12.7</link> and <link linkend="jakartackbk-CHP-12-SECT-8">Recipe
+      12.8</link>.</para>
+
+      <para>If you are indexing a huge database of English documents, consider
+      using the <literal moreinfo="none">StandardAnalyzer</literal> to discard
+      common English words. If you are indexing documents written in German or
+      Russian, Lucene ships with <literal
+      moreinfo="none">GermanAnalyzer</literal> and <literal
+      moreinfo="none">RussianAnalyzer</literal>, which both contain stop word
+      lists for these languages. For more information about these two
+      implementations of <literal moreinfo="none">Analyzer</literal>, see the
+      Lucene JavaDoc at <systemitem moreinfo="none"
+      role="url">http://jakarta.apache.org/lucene/docs/api/index.html</systemitem>.
+      Analyzer implementations for French, Dutch, Chinese, and Czech can be
+      found in the Lucene Sandbox (<systemitem moreinfo="none"
+      role="url">http://cvs.apache.org/viewcvs/jakarta-lucene-sandbox/contributions/analyzers/</systemitem>).</para>
+
+      <para>For more information about Jakarta Lucene, see the Lucene project
+      web site at <systemitem moreinfo="none"
+      role="url">http://jakarta.apache.org/lucene</systemitem>.</para>
+
+      <para>This recipe uses<indexterm class="endofrange"
+      id="jakartackbk-CHP-12-ITERM-3429" significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3415"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3430"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3416"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3431"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3417"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3432"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3418"></indexterm> the <emphasis>The
+      Plays of Shakespeare</emphasis>, compiled by Jon Bosak. To download the
+      complete works of Shakespeare in XML format, see <systemitem
+      moreinfo="none"
+      role="url">http://www.ibiblio.org/bosak/</systemitem>.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="searching-filtering-sect-searching-term" label="12.7"
+         role="Recipe">
+    <title>Searching for a Specific Term in a Document Index</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to identify which documents in <indexterm
+          class="startofrange" id="jakartackbk-CHP-12-ITERM-3433"
+          significance="normal">
+          <primary>Jakarta Lucene</primary>
+
+          <secondary>specific searches</secondary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3434" significance="normal">
+          <primary>specific searches, Jakarta Lucene</primary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3435" significance="normal">
+          <primary>indexes</primary>
+
+          <secondary>Jakarta Lucene</secondary>
+
+          <tertiary>specific searches</tertiary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3436" significance="normal">
+          <primary>documents</primary>
+
+          <secondary>Jakarta Lucene</secondary>
+
+          <tertiary>specific searches</tertiary>
+        </indexterm>a Lucene index contain specific terms or phrases.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use an <indexterm id="jakartackbk-CHP-12-ITERM-3437"
+          significance="normal">
+          <primary>IndexSearcher</primary>
+        </indexterm>IndexSearcher to search a Lucene index created with
+      IndexWriter. This recipe assumes that you have created a Lucene index
+      using the techniques shown in the previous recipe. The constructor of
+      <literal moreinfo="none">IndexSearcher</literal> takes the name of a
+      directory that contains a Lucene index. A <literal
+      moreinfo="none">Query</literal> object can be created by passing a
+      <literal moreinfo="none">String</literal> query, a default search field,
+      and an <literal moreinfo="none">Analyzer</literal> to <literal
+      moreinfo="none">QueryParser.parse()</literal> <indexterm
+          id="jakartackbk-CHP-12-ITERM-3438" significance="normal">
+          <primary>QueryParser.parse( ) method</primary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3439"
+          significance="normal">
+          <primary>methods</primary>
+
+          <secondary>QueryParser.parse( )</secondary>
+        </indexterm>. The following example searches the <literal
+      moreinfo="none">Lucene</literal> index created in the previous recipe
+      for all speeches containing the term "Ophelia":</para>
+
+      <programlisting format="linespecific" id="I_12_tt501">import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.SimpleAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.queryParser.QueryParser;
@@ -1218,51 +1413,51 @@ for( int i = 0; i &lt; hits.length( ); i++ ) {
     System.out.print( " | " + doc.get("scene") );
     System.out.print( " | " + doc.get("speaker") + "\n" );
 }</programlisting>
-            <para>An <literal moreinfo="none">IndexSearcher</literal> is created by passing in the name
-of the directory containing the Lucene index to its constructor.
-Next, an
-<literal moreinfo="none">Analyzer</literal>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3440" significance="normal">
-                  <primary>Analyzers</primary>
-                  <secondary>creating</secondary>
-               </indexterm>
-is created that will analyze the query <literal moreinfo="none">String</literal>.</para>
-            <warning id="jakartackbk-CHP-12-NOTE-75" role="ora">
-               <para>It is important at this stage to use the same
-<literal moreinfo="none">Anaylzer</literal> implementation that was used to create
-the Lucene index to be searched, and, in this case, a
-<literal moreinfo="none">SimpleAnalyzer</literal> is used. If you use an
-<literal moreinfo="none">Analyzer</literal>, which discards the words
-"to,"
-"be,"
-"or," and
-"not," and then try to create a
-<literal moreinfo="none">Query</literal> for "to be or not to
-be," you are not going to find the appropriate
-speech in <emphasis>Hamlet</emphasis> because the
-<literal moreinfo="none">Analyzer</literal> you used to parse your query dropped
-every term.</para>
-            </warning>
-            <para>
-               <literal moreinfo="none">QueryParser</literal> parses the query string and creates a
-<literal moreinfo="none">Query</literal> object that will search the
-"speech" field of each
-<literal moreinfo="none">Document</literal> in the index. The example then calls
-<literal moreinfo="none">searcher.search( )</literal> and iterates through
-<literal moreinfo="none">Document</literal> objects contained in an instance of
-<literal moreinfo="none">Hits</literal>. <literal moreinfo="none">Hits</literal> contains a
-<literal moreinfo="none">List</literal> of <literal moreinfo="none">Document</literal> objects and a
-relevance score for each result; a relevance score is a number
-between 1.00 and 0.00 that tells you how strongly a particular
-<literal moreinfo="none">Document</literal> matches a particular query. The more a
-term occurs in a speech, the more relevant the speech is, and the
-closer the relevance score is to 1. The previous example returns
-every occurrence of the term
-"Ophelia" in every Shakespeare
-play, and, from the results, it is clear that Ophelia is a character
-in <emphasis>Hamlet</emphasis>. Every occurrence of Ophelia is listed
-with the relevance, play, act, scene, and speaker:</para>
-            <programlisting id="I_12_tt502" format="linespecific">1   INFO [main] TermSearch     - Searching for Ophelia
+
+      <para>An <literal moreinfo="none">IndexSearcher</literal> is created by
+      passing in the name of the directory containing the Lucene index to its
+      constructor. Next, an <literal moreinfo="none">Analyzer</literal>
+      <indexterm id="jakartackbk-CHP-12-ITERM-3440" significance="normal">
+          <primary>Analyzers</primary>
+
+          <secondary>creating</secondary>
+        </indexterm> is created that will analyze the query <literal
+      moreinfo="none">String</literal>.</para>
+
+      <warning id="jakartackbk-CHP-12-NOTE-75" role="ora">
+        <para>It is important at this stage to use the same <literal
+        moreinfo="none">Anaylzer</literal> implementation that was used to
+        create the Lucene index to be searched, and, in this case, a <literal
+        moreinfo="none">SimpleAnalyzer</literal> is used. If you use an
+        <literal moreinfo="none">Analyzer</literal>, which discards the words
+        "to," "be," "or," and "not," and then try to create a <literal
+        moreinfo="none">Query</literal> for "to be or not to be," you are not
+        going to find the appropriate speech in <emphasis>Hamlet</emphasis>
+        because the <literal moreinfo="none">Analyzer</literal> you used to
+        parse your query dropped every term.</para>
+      </warning>
+
+      <para><literal moreinfo="none">QueryParser</literal> parses the query
+      string and creates a <literal moreinfo="none">Query</literal> object
+      that will search the "speech" field of each <literal
+      moreinfo="none">Document</literal> in the index. The example then calls
+      <literal moreinfo="none">searcher.search( )</literal> and iterates
+      through <literal moreinfo="none">Document</literal> objects contained in
+      an instance of <literal moreinfo="none">Hits</literal>. <literal
+      moreinfo="none">Hits</literal> contains a <literal
+      moreinfo="none">List</literal> of <literal
+      moreinfo="none">Document</literal> objects and a relevance score for
+      each result; a relevance score is a number between 1.00 and 0.00 that
+      tells you how strongly a particular <literal
+      moreinfo="none">Document</literal> matches a particular query. The more
+      a term occurs in a speech, the more relevant the speech is, and the
+      closer the relevance score is to 1. The previous example returns every
+      occurrence of the term "Ophelia" in every Shakespeare play, and, from
+      the results, it is clear that Ophelia is a character in
+      <emphasis>Hamlet</emphasis>. Every occurrence of Ophelia is listed with
+      the relevance, play, act, scene, and speaker:</para>
+
+      <programlisting format="linespecific" id="I_12_tt502">1   INFO [main] TermSearch     - Searching for Ophelia
 321 INFO [main] TermSearch     - Searching Done, hit: 19
 
 Score | Play   | Act     | Scene     | Speaker
@@ -1285,229 +1480,225 @@ Score | Play   | Act     | Scene     | Speaker
 13    | Hamlet | ACT I   | SCENE III | LORD POLONIUS
 11    | Hamlet | ACT I   | SCENE III | LAERTES
 11    | Hamlet | ACT III | SCENE I   | HAMLET</programlisting>
-            <para>A <literal moreinfo="none">Query</literal> can also search for multiple terms in a
-specific order because a Lucene index keeps track of the order
-relationships between terms within a <literal moreinfo="none">Document</literal>.
-Searching for the famous "to be or not to
-be" returns a single match from Act III, Scene I of
-<emphasis>Hamlet</emphasis>:</para>
-            <programlisting id="I_12_tt503" format="linespecific">0 [main] INFO TermSearch  - Searching for 'speech:"to be or not to be"'
+
+      <para>A <literal moreinfo="none">Query</literal> can also search for
+      multiple terms in a specific order because a Lucene index keeps track of
+      the order relationships between terms within a <literal
+      moreinfo="none">Document</literal>. Searching for the famous "to be or
+      not to be" returns a single match from Act III, Scene I of
+      <emphasis>Hamlet</emphasis>:</para>
+
+      <programlisting format="linespecific" id="I_12_tt503">0 [main] INFO TermSearch  - Searching for 'speech:"to be or not to be"'
 354 [main] INFO TermSearch  - Searching Done, hit: 1
 
 Score | Play   | Act     | Scene   | Speaker
 100   | Hamlet | ACT III | SCENE I | HAMLET</programlisting>
-            <para>This search was only possible because the
-<literal moreinfo="none">SimpleAnalyzer</literal> is used during index creation and
-query parsing. If a different <literal moreinfo="none">Analyzer</literal> had been
-used to create the index, the Lucene index would not be storing
-information about such common words as
-"to,"
-"be,"
-"or," and
-"not." It is a common practice for
-general search engines to discard very common terms such as
-"the,"
-"a,"
-"an," or
-"when." Discarding unimportant
-terms can reduce the size of an index remarkably, but if you need to
-search for "to be or not to be,"
-you will need to preserve all terms.</para>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-7.3">
-            <title>Discussion</title>
-            <para>Both of the previous examples executed queries in about 300
-milliseconds on a very cheap 2.0 GHz Celeron eMachine. This search
-would have taken orders of magnitude longer to execute if every
-document had to be parsed and searched in response to a query. The
-only reason a full-text search can be completed in a few hundred
-milliseconds is the presence of a Lucene index. The Lucene index
-provides a database of Documents indexed by term, and an
-<literal moreinfo="none">IndexSearcher</literal> is essentially retrieving objects
-from this database.</para>
-            <para>A Lucene query can combine multiple criteria, search for terms
-matching wildcards, and find documents by multiple fields. A specific
-field can be searched by prefixing a term with the field name and a
-colon; for example, to search for documents in a certain play, one
-would use the query
-<filename moreinfo="none">play:"Hamlet"</filename>.
-The second parameter to <literal moreinfo="none">QueryParser.parse( )</literal> is
-the default field for a query, and, in the previous example, the
-default field is "speech." This
-means that a term without a field qualifier will match the
-"speech" field. <link linkend="jakartackbk-CHP-12-TABLE-1">Table 12-1</link> lists
-some<indexterm id="jakartackbk-CHP-12-ITERM-3441" significance="normal">
-                  <primary>queries</primary>
-                  <secondary>Jakarta
-Lucene</secondary>
-               </indexterm> possible Lucene queries and describes
-the results they would return.</para>
-            <table id="jakartackbk-CHP-12-TABLE-1" label="12-1">
-               <title>A survey of Lucene queries</title>
-               <tgroup cols="2">
-                  <colspec colnum="1" colname="col1"/>
-                  <colspec colnum="2" colname="col2"/>
-                  <thead>
-                     <row>
-                        <entry>
-                           <para>Query</para>
-                        </entry>
-                        <entry>
-                           <para>Description</para>
-                        </entry>
-                     </row>
-                  </thead>
-                  <tbody>
-                     <row>
-                        <entry>
-                           <para>play:"Hamlet"</para>
-                        </entry>
-                        <entry>
-                           <para>Returns all documents with a "play"
-field matching the string "Hamlet"</para>
-                        </entry>
-                     </row>
-                     <row>
-                        <entry>
-                           <para>"to be" AND "not
-to be"</para>
-                        </entry>
-                        <entry>
-                           <para>Returns a document with a "speech"
-field containing the strings "to
-be" and "not to
-be"</para>
-                        </entry>
-                     </row>
-                     <row>
-                        <entry>
-                           <para>play:"Hamlet" AND
-("Polonius" OR
-"Hamlet")</para>
-                        </entry>
-                        <entry>
-                           <para>Returns all documents with a "play"
-field matching "Hamlet" with a
-"speech" field that contains the
-terms "Polonius" or
-"Hamlet"</para>
-                        </entry>
-                     </row>
-                     <row>
-                        <entry>
-                           <para>s*ings</para>
-                        </entry>
-                        <entry>
-                           <para>Returns all documents with a
-"speech" field containing a term
-that starts with "s" and ends in
-"ings"; includes terms such as
-"strings" and
-"slings"</para>
-                        </entry>
-                     </row>
-                     <row>
-                        <entry>
-                           <para>L?ve</para>
-                        </entry>
-                        <entry>
-                           <para>Returns all documents with a
-"speech" field containing terms
-such as "Love" or
-"Live"</para>
-                        </entry>
-                     </row>
-                     <row>
-                        <entry>
-                           <para>"slings" NOT
-"arrows"</para>
-                        </entry>
-                        <entry>
-                           <para>Returns documents with a "speech"
-field that contains "slings" but
-not "arrows"</para>
-                        </entry>
-                     </row>
-                  </tbody>
-               </tgroup>
-            </table>
-            <para>The following Lucene query finds documents containing
-"Saint Crispin" and
-"England" or "to
-be or not to be" and "slings and
-arrows":</para>
-            <programlisting id="I_12_tt504" format="linespecific">("Saint Crispin" AND "England") OR 
+
+      <para>This search was only possible because the <literal
+      moreinfo="none">SimpleAnalyzer</literal> is used during index creation
+      and query parsing. If a different <literal
+      moreinfo="none">Analyzer</literal> had been used to create the index,
+      the Lucene index would not be storing information about such common
+      words as "to," "be," "or," and "not." It is a common practice for
+      general search engines to discard very common terms such as "the," "a,"
+      "an," or "when." Discarding unimportant terms can reduce the size of an
+      index remarkably, but if you need to search for "to be or not to be,"
+      you will need to preserve all terms.</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>Both of the previous examples executed queries in about 300
+      milliseconds on a very cheap 2.0 GHz Celeron eMachine. This search would
+      have taken orders of magnitude longer to execute if every document had
+      to be parsed and searched in response to a query. The only reason a
+      full-text search can be completed in a few hundred milliseconds is the
+      presence of a Lucene index. The Lucene index provides a database of
+      Documents indexed by term, and an <literal
+      moreinfo="none">IndexSearcher</literal> is essentially retrieving
+      objects from this database.</para>
+
+      <para>A Lucene query can combine multiple criteria, search for terms
+      matching wildcards, and find documents by multiple fields. A specific
+      field can be searched by prefixing a term with the field name and a
+      colon; for example, to search for documents in a certain play, one would
+      use the query <filename moreinfo="none">play:"Hamlet"</filename>. The
+      second parameter to <literal moreinfo="none">QueryParser.parse(
+      )</literal> is the default field for a query, and, in the previous
+      example, the default field is "speech." This means that a term without a
+      field qualifier will match the "speech" field. <link
+      linkend="jakartackbk-CHP-12-TABLE-1">Table 12-1</link> lists
+      some<indexterm id="jakartackbk-CHP-12-ITERM-3441" significance="normal">
+          <primary>queries</primary>
+
+          <secondary>Jakarta Lucene</secondary>
+        </indexterm> possible Lucene queries and describes the results they
+      would return.</para>
+
+      <table id="jakartackbk-CHP-12-TABLE-1" label="12-1">
+        <title>A survey of Lucene queries</title>
+
+        <tgroup cols="2">
+          <colspec colname="col1" colnum="1" />
+
+          <colspec colname="col2" colnum="2" />
+
+          <thead>
+            <row>
+              <entry><para>Query</para></entry>
+
+              <entry><para>Description</para></entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry><para>play:"Hamlet"</para></entry>
+
+              <entry><para>Returns all documents with a "play" field matching
+              the string "Hamlet"</para></entry>
+            </row>
+
+            <row>
+              <entry><para>"to be" AND "not to be"</para></entry>
+
+              <entry><para>Returns a document with a "speech" field containing
+              the strings "to be" and "not to be"</para></entry>
+            </row>
+
+            <row>
+              <entry><para>play:"Hamlet" AND ("Polonius" OR
+              "Hamlet")</para></entry>
+
+              <entry><para>Returns all documents with a "play" field matching
+              "Hamlet" with a "speech" field that contains the terms
+              "Polonius" or "Hamlet"</para></entry>
+            </row>
+
+            <row>
+              <entry><para>s*ings</para></entry>
+
+              <entry><para>Returns all documents with a "speech" field
+              containing a term that starts with "s" and ends in "ings";
+              includes terms such as "strings" and "slings"</para></entry>
+            </row>
+
+            <row>
+              <entry><para>L?ve</para></entry>
+
+              <entry><para>Returns all documents with a "speech" field
+              containing terms such as "Love" or "Live"</para></entry>
+            </row>
+
+            <row>
+              <entry><para>"slings" NOT "arrows"</para></entry>
+
+              <entry><para>Returns documents with a "speech" field that
+              contains "slings" but not "arrows"</para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <para>The following Lucene query finds documents containing "Saint
+      Crispin" and "England" or "to be or not to be" and "slings and
+      arrows":</para>
+
+      <programlisting format="linespecific" id="I_12_tt504">("Saint Crispin" AND "England") OR 
 ("to be or not to be" AND ("slings and arrows") )</programlisting>
-            <para>When this query is executed against the Lucene index used in the
-previous two recipes, two speeches are returned—a rousing
-battle speech from <email>Henry V</email> and
-Hamlet's existential rant. Running this query would
-produce the following output:</para>
-            <programlisting id="I_12_tt505" format="linespecific">0 [main] INFO TermSearch  - Searching for ("Saint Crispin" AND "England") OR 
+
+      <para>When this query is executed against the Lucene index used in the
+      previous two recipes, two speeches are returned—a rousing battle speech
+      from <email>Henry V</email> and Hamlet's existential rant. Running this
+      query would produce the following output:</para>
+
+      <programlisting format="linespecific" id="I_12_tt505">0 [main] INFO TermSearch  - Searching for ("Saint Crispin" AND "England") OR 
 ("to be or not to be" AND ("slings and arrows") )
 406 [main] INFO TermSearch  - Searching Done, hit: 2
 Score | Play    | Act     | Scene                           | Speaker
 31    | Hamlet  | ACT III | SCENE I.  A room in the castle. | HAMLET
 11    | Henry V | ACT IV  | SCENE III.  The English camp.   | KING HENRY V</programlisting>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-7.4">
-            <title>See Also</title>
-            <para>Lucene is a capable search <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3433" id="jakartackbk-CHP-12-ITERM-3442" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3434" id="jakartackbk-CHP-12-ITERM-3443" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3435" id="jakartackbk-CHP-12-ITERM-3444" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3436" id="jakartackbk-CHP-12-ITERM-3445" significance="normal"/>engine with very rich query syntax
-supporting fuzzy term matching and searching for terms based on
-proximity. For more details on Lucene query syntax, see <systemitem role="url" moreinfo="none">http://jakarta.apache.org/lucene/docs/queryparsersyntax.html</systemitem>.</para>
-         </sect2>
-      </sect1>
-      <sect1 id="jakartackbk-CHP-12-SECT-8" label="12.8" role="Recipe">
-         <title>Finding the Frequency of Terms in an Index</title>
-         <sect2 id="jakartackbk-CHP-12-SECT-8.1">
-            <title>Problem</title>
-            <para>You need to find the most frequently<indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3446" significance="normal">
-                  <primary>Jakarta
-Lucene</primary>
-                  <secondary>term frequency</secondary>
-               </indexterm>
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3447" significance="normal">
-                  <primary>term frequency, Jakarta
-Lucene</primary>
-               </indexterm> 
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3448" significance="normal">
-                  <primary>indexes</primary>
-                  <secondary>Jakarta
-Lucene</secondary>
-                  <tertiary>term frequency</tertiary>
-               </indexterm>
-               <indexterm class="startofrange" id="jakartackbk-CHP-12-ITERM-3449" significance="normal">
-                  <primary>documents</primary>
-                  <secondary>Jakarta
-Lucene</secondary>
-                  <tertiary>term frequency</tertiary>
-               </indexterm>
-used terms in a Lucene index.</para>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-8.2">
-            <title>Solution</title>
-            <para>Use Jakarta Lucene to index your documents and obtain a
-<literal moreinfo="none">TermEnum</literal>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3450" significance="normal">
-                  <primary>TermEnum
-object</primary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3451" significance="normal">
-                  <primary>objects</primary>
-                  <secondary>TermEnum</secondary>
-               </indexterm>
-using an <literal moreinfo="none">IndexReader</literal>. The frequency of a term is
-defined as the number of documents in which a specific term appears,
-and a <literal moreinfo="none">TermEnum</literal> object contains the frequency of
-every term in a set of documents. <link linkend="jakartackbk-CHP-12-EX-3">Example 12-3</link>
-iterates over the terms contained in <literal moreinfo="none">TermEnum</literal>
-returning every term that appears in more than 1,100 speeches.</para>
-            <example id="jakartackbk-CHP-12-EX-3" label="12-3">
-               <title>TermFreq finding the most frequent terms in an index</title>
-               <programlisting format="linespecific">package com.discursive.jccook.xml.bardsearch;
+    </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para>Lucene is a capable search <indexterm class="endofrange"
+      id="jakartackbk-CHP-12-ITERM-3442" significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3433"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3443"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3434"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3444"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3435"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3445"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3436"></indexterm>engine with very
+      rich query syntax supporting fuzzy term matching and searching for terms
+      based on proximity. For more details on Lucene query syntax, see
+      <systemitem moreinfo="none"
+      role="url">http://jakarta.apache.org/lucene/docs/queryparsersyntax.html</systemitem>.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="searching-filtering-sect-freq-terms" label="12.8" role="Recipe">
+    <title>Finding the Frequency of Terms in an Index</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to find the most frequently<indexterm
+          class="startofrange" id="jakartackbk-CHP-12-ITERM-3446"
+          significance="normal">
+          <primary>Jakarta Lucene</primary>
+
+          <secondary>term frequency</secondary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3447" significance="normal">
+          <primary>term frequency, Jakarta Lucene</primary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3448" significance="normal">
+          <primary>indexes</primary>
+
+          <secondary>Jakarta Lucene</secondary>
+
+          <tertiary>term frequency</tertiary>
+        </indexterm> <indexterm class="startofrange"
+          id="jakartackbk-CHP-12-ITERM-3449" significance="normal">
+          <primary>documents</primary>
+
+          <secondary>Jakarta Lucene</secondary>
+
+          <tertiary>term frequency</tertiary>
+        </indexterm> used terms in a Lucene index.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use Jakarta Lucene to index your documents and obtain a <literal
+      moreinfo="none">TermEnum</literal> <indexterm
+          id="jakartackbk-CHP-12-ITERM-3450" significance="normal">
+          <primary>TermEnum object</primary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3451"
+          significance="normal">
+          <primary>objects</primary>
+
+          <secondary>TermEnum</secondary>
+        </indexterm> using an <literal moreinfo="none">IndexReader</literal>.
+      The frequency of a term is defined as the number of documents in which a
+      specific term appears, and a <literal moreinfo="none">TermEnum</literal>
+      object contains the frequency of every term in a set of documents. <link
+      linkend="jakartackbk-CHP-12-EX-3">Example 12-3</link> iterates over the
+      terms contained in <literal moreinfo="none">TermEnum</literal> returning
+      every term that appears in more than 1,100 speeches.</para>
+
+      <example id="jakartackbk-CHP-12-EX-3" label="12-3">
+        <title>TermFreq finding the most frequent terms in an index</title>
+
+        <programlisting format="linespecific">package com.discursive.jccook.xml.bardsearch;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -1573,27 +1764,35 @@ public class TermFreq {
         }
     }
 }</programlisting>
-            </example>
-            <para>A Lucene index is opened by passing the name of the
-<filename moreinfo="none">index</filename> directory to <literal moreinfo="none">IndexReader.open()</literal>, and a <literal moreinfo="none">TermEnum</literal> is retrieved from the
-<literal moreinfo="none">IndexReader</literal> with a call to <literal moreinfo="none">reader.terms()</literal>. The previous example iterates through every term
-contained in <literal moreinfo="none">TermEnum</literal>, creating and populating an
-instance of the inner class <literal moreinfo="none">Freq</literal>, if a term
-appears in more than 1,100 documents and the term occurs in the
-"speech" field.
-<literal moreinfo="none">TermEnum</literal> contains three methods of interest:
-<literal moreinfo="none">next( )</literal>, <literal moreinfo="none">docFreq( )</literal>, and
-<literal moreinfo="none">term( )</literal>. <literal moreinfo="none">next( )</literal> moves to the
-next term in the <literal moreinfo="none">TermEnum</literal>, returning
-<literal moreinfo="none">false</literal> if no more terms are available.
-<literal moreinfo="none">docFreq( )</literal> returns the number of documents a term
-appears in, and <literal moreinfo="none">term( )</literal> returns a
-<literal moreinfo="none">Term</literal> object containing the text of the term and
-the field the term occurs in. The <literal moreinfo="none">List</literal> of
-<literal moreinfo="none">Freq</literal> objects is sorted by frequency and reversed,
-and the most frequent terms in a set of Shakespeare plays is printed
-to the console:</para>
-            <programlisting id="I_12_tt506" format="linespecific">0    INFO  [main] TermFreq     - Threshold is 4500
+      </example>
+
+      <para>A Lucene index is opened by passing the name of the <filename
+      moreinfo="none">index</filename> directory to <literal
+      moreinfo="none">IndexReader.open()</literal>, and a <literal
+      moreinfo="none">TermEnum</literal> is retrieved from the <literal
+      moreinfo="none">IndexReader</literal> with a call to <literal
+      moreinfo="none">reader.terms()</literal>. The previous example iterates
+      through every term contained in <literal
+      moreinfo="none">TermEnum</literal>, creating and populating an instance
+      of the inner class <literal moreinfo="none">Freq</literal>, if a term
+      appears in more than 1,100 documents and the term occurs in the "speech"
+      field. <literal moreinfo="none">TermEnum</literal> contains three
+      methods of interest: <literal moreinfo="none">next( )</literal>,
+      <literal moreinfo="none">docFreq( )</literal>, and <literal
+      moreinfo="none">term( )</literal>. <literal moreinfo="none">next(
+      )</literal> moves to the next term in the <literal
+      moreinfo="none">TermEnum</literal>, returning <literal
+      moreinfo="none">false</literal> if no more terms are available. <literal
+      moreinfo="none">docFreq( )</literal> returns the number of documents a
+      term appears in, and <literal moreinfo="none">term( )</literal> returns
+      a <literal moreinfo="none">Term</literal> object containing the text of
+      the term and the field the term occurs in. The <literal
+      moreinfo="none">List</literal> of <literal
+      moreinfo="none">Freq</literal> objects is sorted by frequency and
+      reversed, and the most frequent terms in a set of Shakespeare plays is
+      printed to the console:</para>
+
+      <programlisting format="linespecific" id="I_12_tt506">0    INFO  [main] TermFreq     - Threshold is 4500
 Frequency | Term
 2907 | i
 2823 | the
@@ -1614,32 +1813,31 @@ Frequency | Term
 1168 | be
 1124 | this
 1109 | but</programlisting>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-8.3">
-            <title>Discussion</title>
-            <para>From this list, it appears that the most frequent terms in
-Shakespeare plays are inconsequential words, such as
-"the,"
-"a,"
-"of," and
-"be." The index this example was
-executed against was created with a <literal moreinfo="none">SimpleAnalyzer</literal>
-that does not discard any terms. If this index is created with
-<literal moreinfo="none">StandardAnalyzer</literal>, common articles and pronouns
-will not be stored as terms in the index, and they will not show up
-on the most frequent terms list. Running this example against an
-index created with a
-<literal moreinfo="none">StandardAnalyzer</literal>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3452" significance="normal">
-                  <primary>StandardAnalyzer</primary>
-               </indexterm>
-               <indexterm id="jakartackbk-CHP-12-ITERM-3453" significance="normal">
-                  <primary>Analyzers</primary>
-                  <secondary>StandardAnalyzer</secondary>
-               </indexterm>
-and reducing the frequency threshold to 600 documents returns the
-following results:</para>
-            <programlisting id="I_12_tt507" format="linespecific">Frequency | Term
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>From this list, it appears that the most frequent terms in
+      Shakespeare plays are inconsequential words, such as "the," "a," "of,"
+      and "be." The index this example was executed against was created with a
+      <literal moreinfo="none">SimpleAnalyzer</literal> that does not discard
+      any terms. If this index is created with <literal
+      moreinfo="none">StandardAnalyzer</literal>, common articles and pronouns
+      will not be stored as terms in the index, and they will not show up on
+      the most frequent terms list. Running this example against an index
+      created with a <literal moreinfo="none">StandardAnalyzer</literal>
+      <indexterm id="jakartackbk-CHP-12-ITERM-3452" significance="normal">
+          <primary>StandardAnalyzer</primary>
+        </indexterm> <indexterm id="jakartackbk-CHP-12-ITERM-3453"
+          significance="normal">
+          <primary>Analyzers</primary>
+
+          <secondary>StandardAnalyzer</secondary>
+        </indexterm> and reducing the frequency threshold to 600 documents
+      returns the following results:</para>
+
+      <programlisting format="linespecific" id="I_12_tt507">Frequency | Term
 2727 | i
 2153 | you
 1862 | my
@@ -1656,16 +1854,26 @@ following results:</para>
 647 | thou
 632 | shall
 614 | lord</programlisting>
-         </sect2>
-         <sect2 id="jakartackbk-CHP-12-SECT-8.4">
-            <title>See Also</title>
-            <para>There is an example of enumerating <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3446" id="jakartackbk-CHP-12-ITERM-3454" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3447" id="jakartackbk-CHP-12-ITERM-3455" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3448" id="jakartackbk-CHP-12-ITERM-3456" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-12-ITERM-3449" id="jakartackbk-CHP-12-ITERM-3457" significance="normal"/>term frequency in the Jakarta
-Lucene Sandbox. To see this frequency analysis example, see the
-"High Frequency Terms" example
-(<systemitem role="url" moreinfo="none">http://jakarta.apache.org/lucene/docs/lucene-sandbox/</systemitem>).</para>
-         </sect2>
-      </sect1>
-   </chapter>
+    </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para>There is an example of enumerating <indexterm class="endofrange"
+      id="jakartackbk-CHP-12-ITERM-3454" significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3446"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3455"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3447"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3456"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3448"></indexterm> <indexterm
+      class="endofrange" id="jakartackbk-CHP-12-ITERM-3457"
+      significance="normal"
+      startref="jakartackbk-CHP-12-ITERM-3449"></indexterm>term frequency in
+      the Jakarta Lucene Sandbox. To see this frequency analysis example, see
+      the "High Frequency Terms" example (<systemitem moreinfo="none"
+      role="url">http://jakarta.apache.org/lucene/docs/lucene-sandbox/</systemitem>).</para>
+    </sect2>
+  </sect1>
+</chapter>
