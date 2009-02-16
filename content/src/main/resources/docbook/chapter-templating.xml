@@ -255,7 +255,7 @@ There are a few things I would like to tell you.
 
       <para>You must download the latest version of Commons JEXL, and place
       the Commons JEXL JAR in your project's classpath. Follow the steps
-      outlined in <link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>,
+      outlined in <link linkend="lang-sect-obtaining">Recipe 1.1</link>,
       downloading Commons JEXL 1.0 instead of Commons Lang.</para>
 
       <para>Commons JEXL depends on Commons Logging 1.0.3, which can be
@@ -986,7 +986,7 @@ while( ballsIter.hasNext( ) ) {
       <para>You must download the latest version of Jakarta Velocity, and
       place the Velocity JAR<filename moreinfo="none"> </filename>in your
       project's classpath. Follow the steps outlined in <link
-      linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, downloading
+      linkend="lang-sect-obtaining">Recipe 1.1</link>, downloading
       Jakarta Velocity 1.4 instead of Commons Lang.</para>
     </sect2>
 

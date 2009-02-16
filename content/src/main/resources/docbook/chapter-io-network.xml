@@ -96,7 +96,7 @@
       <para>You must download the latest version of Commons IO, and place the
       Commons IO JAR<filename moreinfo="none"> </filename>in your project's
       classpath. Following the steps outlined in <link
-      linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, download Commons
+      linkend="lang-sect-obtaining">Recipe 1.1</link>, download Commons
       IO 1.0 instead of Commons Lang.</para>
     </sect2>
 
@@ -1579,7 +1579,7 @@ File[] tldFiles = dataDir.listFiles( regexFilter );</programlisting>
       <para>Download the latest version of Commons Net, and place the Commons
       Net JAR<filename moreinfo="none"> </filename>in your project's
       classpath. Following the steps outlined in <link
-      linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, download Commons
+      linkend="lang-sect-obtaining">Recipe 1.1</link>, download Commons
       Net 1.2.2 instead of Commons Lang.</para>
     </sect2>
 

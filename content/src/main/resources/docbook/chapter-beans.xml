@@ -416,7 +416,7 @@ public class SimpleBean {
 
       <para>You must download the latest version of Commons BeanUtils, and
       place the Commons BeanUtils JAR in your project's classpath. Following
-      the steps outlined in <link linkend="jakartackbk-CHP-1-SECT-1">Recipe
+      the steps outlined in <link linkend="lang-sect-obtaining">Recipe
       1.1</link>, download Commons BeanUtils 1.7 instead of Commons
       Lang.</para>
 
@@ -556,7 +556,7 @@ public class SimpleBean {
       <para>Download the source from <systemitem moreinfo="none"
       role="url">http://jakarta.apache.org/site/sourceindex.cgi</systemitem>,
       following the same procedure as outlined in <link
-      linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>. Download a file
+      linkend="lang-sect-obtaining">Recipe 1.1</link>. Download a file
       named <filename moreinfo="none">commons-beanutils-1.7-src.zip</filename>
       (or <filename
       moreinfo="none">commons-beanutils-1.7-src.tar.gz</filename>); once you

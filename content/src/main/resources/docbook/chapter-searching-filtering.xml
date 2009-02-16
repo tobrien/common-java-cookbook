@@ -83,7 +83,7 @@
       <para>You must download the latest version of Commons JXPath, and place
       the Commons JXPath JAR<filename moreinfo="none"> </filename>in your
       project's classpath. Following the steps outlined in <link
-      linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, download Commons
+      linkend="lang-sect-obtaining">Recipe 1.1</link>, download Commons
       JXPath 1.2 instead of Commons Lang.</para>
     </sect2>
 

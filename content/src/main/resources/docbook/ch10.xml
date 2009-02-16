@@ -83,7 +83,7 @@ IO.</para>
             <para>You must download the latest version of Commons IO, and place the
 Commons IO JAR<filename moreinfo="none"> </filename>in your
 project's classpath. Following the steps outlined in
-<link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, download Commons IO 1.0
+<link linkend="lang-sect-obtaining">Recipe 1.1</link>, download Commons IO 1.0
 instead of Commons Lang.</para>
          </sect2>
          <sect2 id="io-network-SECT-1.3">
@@ -1336,7 +1336,7 @@ Net to write a simple FTP, SMTP, or POP3 client.</para>
             <title>Solution</title>
             <para>Download the latest version of Commons Net, and place the Commons Net
 JAR<filename moreinfo="none"> </filename>in your project's
-classpath. Following the steps outlined in <link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, download Commons Net 1.2.2 instead of
+classpath. Following the steps outlined in <link linkend="lang-sect-obtaining">Recipe 1.1</link>, download Commons Net 1.2.2 instead of
 Commons Lang.</para>
          </sect2>
          <sect2 id="io-network-SECT-14.3">

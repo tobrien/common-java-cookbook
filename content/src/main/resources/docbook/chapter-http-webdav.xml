@@ -89,7 +89,7 @@
       <title>Solution</title>
 
       <para>Download Jakarta HttpClient 3.0. Following the steps outlined in
-      <link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, download
+      <link linkend="lang-sect-obtaining">Recipe 1.1</link>, download
       "Commons HttpClient 3.0" instead of Commons Lang. The HttpClient
       archive—<filename
       moreinfo="none">commons-httpclient-3.0.zip—</filename>will contain a
@@ -2662,7 +2662,7 @@ method.recycle( );</programlisting>
         </indexterm>the appropriate JAR<filename moreinfo="none">
       </filename>files<filename moreinfo="none"> </filename>in your project's
       classpath. Following the steps outlined in <link
-      linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, download Jakarta
+      linkend="lang-sect-obtaining">Recipe 1.1</link>, download Jakarta
       Slide 2.0—<filename moreinfo="none">2.0 client zip—</filename>instead of
       Commons Lang.</para>
 

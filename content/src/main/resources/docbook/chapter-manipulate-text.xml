@@ -116,7 +116,7 @@
       <title>Solution</title>
 
       <para>To download the latest version of Commons Lang, refer to the steps
-      outlined in <link linkend="jakartackbk-CHP-1-SECT-1">Recipe
+      outlined in <link linkend="lang-sect-obtaining">Recipe
       1.1</link>.</para>
     </sect2>
 
@@ -2087,7 +2087,7 @@ distance(Steve, Stereo): 3</programlisting>
       <para>You must download the latest version of Jakarta Commons Codec, and
       place the Commons Codec JAR<filename moreinfo="none"> </filename>in your
       project's classpath. Follow the steps outlined in <link
-      linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, downloading
+      linkend="lang-sect-obtaining">Recipe 1.1</link>, downloading
       Commons Codec 1.2 instead of Commons Lang.</para>
     </sect2>
 
@@ -2171,7 +2171,7 @@ distance(Steve, Stereo): 3</programlisting>
       <para>Download the source from <systemitem moreinfo="none"
       role="url">http://jakarta.apache.org/site/sourceindex.cgi</systemitem>.
       Follow the same procedure as outlined in <link
-      linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>. Download a file
+      linkend="lang-sect-obtaining">Recipe 1.1</link>. Download a file
       named <filename moreinfo="none">commons-codec-1.2-src.zip</filename> (or
       <filename moreinfo="none">commons-lang-1.2-src.tar.gz</filename>), and
       once you unzip this file, you will have the source to Commons Codec in

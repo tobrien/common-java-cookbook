@@ -125,7 +125,7 @@
       <para>You must download the latest version of Commons Collections and
       place the Commons Collections JAR<filename moreinfo="none">
       </filename>in your project's classpath. Following the steps outlined in
-      <link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, download
+      <link linkend="lang-sect-obtaining">Recipe 1.1</link>, download
       Commons Collections 3.0 instead of Commons Lang.</para>
     </sect2>
 

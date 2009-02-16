@@ -26,7 +26,7 @@
     of numbers, and convenient ways to retrieve different random variables.
     Commons Lang was introduced in <link linkend="jakartackbk-CHP-1">Chapter
     1</link>, and instructions for downloading and installing Commons Lang can
-    be found in <link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>.
+    be found in <link linkend="lang-sect-obtaining">Recipe 1.1</link>.
     The remainder of this chapter deals with Jakarta Commons Math. Recipes
     involving Commons Math deal with complex numbers, the calculation of
     univariate statistics, solving a system of linear equations, and
@@ -328,7 +328,7 @@ String properString = Fraction.getFraction(userInput).toProperString( );
       <title>See Also</title>
 
       <para>For more information about downloading Commons Lang, see <link
-      linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>.</para>
+      linkend="lang-sect-obtaining">Recipe 1.1</link>.</para>
     </sect2>
   </sect1>
 
@@ -606,7 +606,7 @@ System.out.println( "The substance is in a " + state + " state." );
       <title>See Also</title>
 
       <para>For more information about downloading Commons Lang, see <link
-      linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>.</para>
+      linkend="lang-sect-obtaining">Recipe 1.1</link>.</para>
     </sect2>
   </sect1>
 
@@ -808,7 +808,7 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
       fractions, root-finding, interpolation, and bivariate regression.
       Commons Math depends on Commons Collections 3.0, Commons Lang 2.0, and
       Commons Logging 1.0.3. To obtain these dependencies, see <link
-      linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, <link
+      linkend="lang-sect-obtaining">Recipe 1.1</link>, <link
       linkend="collections-SECT-1">Recipe 5.1</link>, and <link
       linkend="app-infra-SECT-9">Recipe 7.9</link>.</para>
 
@@ -1825,7 +1825,7 @@ Completed 10000 in 47 seconds.</programlisting>
       <para>This recipe refers to the <literal
       moreinfo="none">StopWatch</literal> class from Commons Lang. For more
       information about the <literal moreinfo="none">StopWatch</literal>
-      class, see <link linkend="jakartackbk-CHP-1-SECT-19">Recipe
+      class, see <link linkend="lang-sect-obtaining9">Recipe
       1.19</link>.</para>
     </sect2>
   </sect1>
