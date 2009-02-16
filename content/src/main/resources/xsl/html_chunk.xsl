@@ -313,6 +313,16 @@
                 </xsl:if>
             </div>
             <br/>
+
+<script>
+var idcomments_acct = 'b740285dedd2abc0ef4bab7566268471';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+
+
             <center>
               Copyright ${copyright.year}. ${organization.name}. All Rights Reserved.
             </center>
