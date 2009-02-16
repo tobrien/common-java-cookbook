@@ -198,11 +198,11 @@
       significance="normal"
       startref="jakartackbk-CHP-1-ITERM-1723"></indexterm> with one of the
       utilities in Commons Lang, see <link
-      linkend="jakartackbk-CHP-1-SECT-2">Recipe 1.2</link> on joining the
+      linkend="lang-sect-mailinglist">Recipe 1.2</link> on joining the
       Commons-user mailing list. If you are looking for the source code, see
-      <link linkend="jakartackbk-CHP-1-SECT-3">Recipe 1.3</link> on obtaining
-      the source code for Commons Lang. You can also visit the Commons Lang
-      web site at <systemitem moreinfo="none"
+      <link linkend="lang-sect-sourcecode">Recipe 1.3</link> on obtaining the
+      source code for Commons Lang. You can also visit the Commons Lang web
+      site at <systemitem moreinfo="none"
       role="url">http://jakarta.apache.org/commons/lang</systemitem>.</para>
     </sect2>
   </sect1>
@@ -330,10 +330,10 @@
       <para>Download the source code from <systemitem moreinfo="none"
       role="url">http://jakarta.apache.org/site/sourceindex.cgi</systemitem>.
       Following the same procedure as outlined in <link
-      linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link>, you can download a
-      file named <filename moreinfo="none">commons-lang-2.0-src.zip</filename>
-      (or <filename moreinfo="none">commons-lang-2.0-src.tar.gz</filename>).
-      Once you unzip this file, you will have the source to Commons Lang in
+      linkend="lang-sect-obtaining">Recipe 1.1</link>, you can download a file
+      named <filename moreinfo="none">commons-lang-2.0-src.zip</filename> (or
+      <filename moreinfo="none">commons-lang-2.0-src.tar.gz</filename>). Once
+      you unzip this file, you will have the source to Commons Lang in
       <filename moreinfo="none">./commons-lang-2.0-src</filename>.</para>
     </sect2>
 
@@ -427,7 +427,7 @@
       <emphasis>Java Extreme Programming Cookbook</emphasis> by Burke and
       Coyner.</para>
 
-      <para>See <link linkend="jakartackbk-CHP-1-SECT-1">Recipe 1.1</link> for
+      <para>See <link linkend="lang-sect-obtaining">Recipe 1.1</link> for
       information about obtaining the binary distribution for Commons Lang,
       and see the Commons Lang web site at <systemitem moreinfo="none"
       role="url">http://jakarta.apache.org/commons/lang</systemitem>.</para>
@@ -750,8 +750,8 @@ public String toString( ) {
 
       <tip id="jakartackbk-CHP-1-NOTE-46" role="ora">
         <para>Unlike the output shown in <link
-        linkend="jakartackbk-CHP-1-SECT-4">Recipe 1.4</link>, this output is
-        shown <emphasis>exactly</emphasis> as it appears on your
+        linkend="lang-sect-automate-tostring">Recipe 1.4</link>, this output
+        is shown <emphasis>exactly</emphasis> as it appears on your
         screen.</para>
       </tip>
     </sect2>
@@ -1406,7 +1406,7 @@ public int compareTo(Object o) {
       used when sorting a collection of JavaBeans©. If you are trying to sort
       a collection of beans, you are better off using the <literal
       moreinfo="none">BeanComparator</literal>, which is described in <link
-      linkend="beans-SECT-10">Recipe 3.10</link>.</para>
+      linkend="beans-sect-comparing">Recipe 3.10</link>.</para>
 
       <para>Instead of capturing comparison logic in a <literal
       moreinfo="none">compareTo()</literal> method, consider using a <literal
@@ -2171,14 +2171,14 @@ for( int i = 0; i &lt; temps.length; i++ ) {
     <sect2>
       <title>See Also</title>
 
-      <para><link linkend="functors">Chapter 4</link> contains a
-      number of recipes dealing with <literal
-      moreinfo="none">Predicate</literal> objects and filtering collections.
-      Instead of using the three methods defined in this recipe, you can put
-      objects into a collection and count or select the elements that match an
-      <literal moreinfo="none">EqualPredicate</literal>. See <link
-      linkend="functors">Chapter 4</link> for more information about
-      querying collections with predicates.</para>
+      <para><link linkend="functors">Chapter 4</link> contains a number of
+      recipes dealing with <literal moreinfo="none">Predicate</literal>
+      objects and filtering collections. Instead of using the three methods
+      defined in this recipe, you can put objects into a collection and count
+      or select the elements that match an <literal
+      moreinfo="none">EqualPredicate</literal>. See <link
+      linkend="functors">Chapter 4</link> for more information about querying
+      collections with predicates.</para>
     </sect2>
   </sect1>
 
@@ -2297,8 +2297,8 @@ Double hydrogenWeight = map.get( "H" );</programlisting>
       moreinfo="none">doubleValue( )</literal> using the default value
       supplied if there is no corresponding key in the <literal
       moreinfo="none">Map</literal>. See <link
-      linkend="collections-SECT-21">Recipe 5.21</link> for more
-      information about <literal moreinfo="none">MapUtils.getDouble(
+      linkend="collections-sect-retrieving-casting">Recipe 5.21</link> for
+      more information about <literal moreinfo="none">MapUtils.getDouble(
       )</literal>.</para>
     </sect2>
   </sect1>
@@ -2896,9 +2896,8 @@ Truncated Hour: 2004-03-28T13:00:00</programlisting>
       <para><literal moreinfo="none">DateUtils.truncate( )</literal> can also
       be used to truncate a date to the nearest <literal
       moreinfo="none">DateUtils.SEMI_MONTH</literal>. <link
-      linkend="jakartackbk-CHP-1-SECT-14">Recipe 1.14</link> discusses
-      <literal moreinfo="none">DateUtils.SEMI_MONTH</literal> in more
-      detail.</para>
+      linkend="lang-sect-rounding-date">Recipe 1.14</link> discusses <literal
+      moreinfo="none">DateUtils.SEMI_MONTH</literal> in more detail.</para>
     </sect2>
   </sect1>
 
@@ -3684,9 +3683,9 @@ public double elevation( double latitude,
     <sect2>
       <title>See Also</title>
 
-      <para><link linkend="math">Chapter 8</link> discusses
-      <literal moreinfo="none">DoubleRange</literal> and other utilities for
-      capturing a range of numbers.</para>
+      <para><link linkend="math">Chapter 8</link> discusses <literal
+      moreinfo="none">DoubleRange</literal> and other utilities for capturing
+      a range of numbers.</para>
 
       <para>Chapters 4 to Chapter 7 of the <emphasis>Java Extreme Programming
       Cookbook</emphasis> by Eric Burke and Brian Coyner (O'Reilly) are great
