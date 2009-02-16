@@ -101,7 +101,7 @@
       <para>Jakarta HttpClient depends on Jakarta Commons Logging, which can
       be obtained from the same binary download page as HttpClient. To
       download Commons Logging, see <link
-      linkend="app-infra-SECT-9">Recipe 7.9</link>. Jakarta HttpClient
+      linkend="app-infra-sect-obtaining-logging">Recipe 7.9</link>. Jakarta HttpClient
       also depends on Jakarta Commons Codec, which can also be obtained from
       the same binary download page as HttpClient. To download Commons Codec,
       see <link linkend="manipulate-text-SECT-15">Recipe 2.15</link>.</para>

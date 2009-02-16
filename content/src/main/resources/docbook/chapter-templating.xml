@@ -305,7 +305,7 @@ There are a few things I would like to tell you.
       <title>See Also</title>
 
       <para>For more information about downloading Commons Logging 1.0.3, see
-      <link linkend="app-infra-SECT-9">Recipe 7.9</link>.</para>
+      <link linkend="app-infra-sect-obtaining-logging">Recipe 7.9</link>.</para>
 
       <para>To learn more about Commons JEXL, visit the Jakarta Commons JEXL
       web site (<systemitem moreinfo="none"

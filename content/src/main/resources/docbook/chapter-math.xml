@@ -810,7 +810,7 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
       Commons Logging 1.0.3. To obtain these dependencies, see <link
       linkend="lang-sect-obtaining">Recipe 1.1</link>, <link
       linkend="collections-SECT-1">Recipe 5.1</link>, and <link
-      linkend="app-infra-SECT-9">Recipe 7.9</link>.</para>
+      linkend="app-infra-sect-obtaining-logging">Recipe 7.9</link>.</para>
 
       <warning id="math-NOTE-63" role="ora">
         <para>By the time this book is published, Commons Math 1.0 may be
