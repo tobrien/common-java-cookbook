@@ -112,6 +112,35 @@
 	      <xincludeSupported>true</xincludeSupported>
 	    </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy</id>
+            <phase>site</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.discursive.cjcook</groupId>
+                  <artifactId>examples</artifactId>
+                  <version>${project.version}</version>
+                  <type>jar</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>${basedir}/target/site</outputDirectory>
+                  <destFileName>cjcook-examples-${project.version}.zip</destFileName>
+                </artifactItem>
+              </artifactItems>
+<!--              <outputDirectory>${project.build.directory}/wars</outputDirectory>
+              <overWriteReleases>false</overWriteReleases>
+              <overWriteSnapshots>true</overWriteSnapshots> -->
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
   
@@ -162,5 +191,10 @@
       </profile>
   </profiles>
   <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>examples</artifactId>
+      <version>${project.version}</version>
+    </dependency>
   </dependencies>
 </project>

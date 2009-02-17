@@ -35,6 +35,7 @@
   </developers>
   <modules>
     <module>content</module>
+    <module>examples</module>
   </modules>
   <build>
     <plugins>
