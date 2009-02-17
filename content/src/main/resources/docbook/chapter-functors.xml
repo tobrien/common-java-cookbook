@@ -168,7 +168,7 @@
       Instructions for joining the user mailing list can be found in <link
       linkend="lang-sect-mailinglist">Recipe 1.2</link>. For information on
       obtaining the source code for Commons Collections, see <link
-      linkend="functors-SECT-2">Recipe 4.2</link>.</para>
+      linkend="functors-sect-sourcecode">Recipe 4.2</link>.</para>
     </sect2>
   </sect1>
 
@@ -429,7 +429,7 @@ public class ReverseExample {
       miniscule. <literal moreinfo="none">ReverseComparator</literal> makes
       more sense when used in the context of a <literal
       moreinfo="none">ChainedComparator</literal>; see <link
-      linkend="functors-SECT-4">Recipe 4.4</link> for more
+      linkend="functors-sect-chaining">Recipe 4.4</link> for more
       information about the <literal
       moreinfo="none">ChainedComparator</literal>.</para>
 
@@ -446,7 +446,7 @@ public class ReverseExample {
       significance="normal"
       startref="functors-ITERM-2301"></indexterm> is from <literal
       moreinfo="none">StringUtils</literal>, and it is introduced in <link
-      linkend="manipulate-text-SECT-2">Recipe 2.2</link>.</para>
+      linkend="manipulate-text-sect-checking-empty">Recipe 2.2</link>.</para>
     </sect2>
   </sect1>
 
@@ -555,7 +555,7 @@ Arrays.sort( persons, comparatorChain );</programlisting>
       <literal moreinfo="none">Collection</literal> implementation.</para>
 
       <para>The <literal moreinfo="none">ReverseComparator</literal>
-      (introduced in <link linkend="functors-SECT-3">Recipe
+      (introduced in <link linkend="functors-sect-reversing">Recipe
       4.3</link>) makes more sense in light of the <literal
       moreinfo="none">ComparatorChain</literal>. If you need to sort a
       collection of objects for display, you might want to reverse a
@@ -617,7 +617,7 @@ comparaterChain.addComparator( new ReverseComparator
 
       <para>The <literal moreinfo="none">BeanComparator</literal> was
       introduced in the previous chapter; for more information, see <link
-      linkend="beans-SECT-10">Recipe 3.10</link>. The <literal
+      linkend="beans-sect-comparing">Recipe 3.10</link>. The <literal
       moreinfo="none">ReverseComparator</literal> <indexterm
       class="endofrange" id="functors-ITERM-2311"
       significance="normal"
@@ -628,7 +628,7 @@ comparaterChain.addComparator( new ReverseComparator
       class="endofrange" id="functors-ITERM-2313"
       significance="normal"
       startref="functors-ITERM-2308"></indexterm> was introduced in
-      <link linkend="functors-SECT-3">Recipe 4.3</link>.</para>
+      <link linkend="functors-sect-reversing">Recipe 4.3</link>.</para>
     </sect2>
   </sect1>
 
@@ -1035,7 +1035,7 @@ After sorting: 2S QS 4C JC JD 2H JOKER</programlisting>
       <title>See Also</title>
 
       <para><literal moreinfo="none">BeanComparator</literal> is discussed in
-      <link linkend="beans-SECT-10">Recipe 3.10</link>. This
+      <link linkend="beans-sect-comparing">Recipe 3.10</link>. This
       helpful utility is indispensable if you are working with systems that
       need to sort JavaBeans.</para>
 
@@ -1055,7 +1055,7 @@ After sorting: 2S QS 4C JC JD 2H JOKER</programlisting>
       class="endofrange" id="functors-ITERM-2330"
       significance="normal"
       startref="functors-ITERM-2325"></indexterm>object, see <link
-      linkend="functors-SECT-4">Recipe 4.4</link>. For more
+      linkend="functors-sect-chaining">Recipe 4.4</link>. For more
       information on the <literal moreinfo="none">NullComparator</literal>,
       see <link linkend="functors-sect-comparing-nulls">Recipe 4.5</link>.</para>
     </sect2>
@@ -2694,7 +2694,7 @@ Shuttle before preLaunch: Shuttle Endeavour is fueled and is ready for reentry.<
       <title>Discussion</title>
 
       <para>This example should remind you of <link
-      linkend="functors-sect-obtaining1">Recipe 4.11</link>. When chaining
+      linkend="functors-sect-create-chain">Recipe 4.11</link>. When chaining
       <literal moreinfo="none">Transformer</literal> objects, the result of
       each transformation is passed between stages—the results of stage one
       are passed to stage two, the results of stage two are passed to stage

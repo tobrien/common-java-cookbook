@@ -1211,7 +1211,7 @@ consistent with <literal moreinfo="none">equals( )</literal>.</para>
 order for a set of objects, and they are frequently used when sorting
 a collection of JavaBeans©. If you are trying to
 sort a collection of beans, you are better off using the
-<literal moreinfo="none">BeanComparator</literal>, which is described in <link linkend="beans-SECT-10">Recipe 3.10</link>.</para>
+<literal moreinfo="none">BeanComparator</literal>, which is described in <link linkend="beans-sect-comparing">Recipe 3.10</link>.</para>
             <para>Instead of capturing comparison logic in a <literal moreinfo="none">compareTo()</literal> method, consider using a <literal moreinfo="none">Comparator</literal>
 object. The Jakarta Commons Collections project contains a number of
 supplements to the <literal moreinfo="none">Comparator</literal> interface, such
