@@ -76,7 +76,7 @@
       <para>Commons Collections was introduced in <link
       linkend="functors">Chapter 4</link>. For instructions on
       obtaining Collections, see <link
-      linkend="functors-SECT-1">Recipe 4.1</link>.</para>
+      linkend="functors-sect-obtaining">Recipe 4.1</link>.</para>
     </sect2>
 
     <sect2>
@@ -776,7 +776,7 @@ ArrayList quakes = createQuakes( );
       moreinfo="none">CollectionUtils</literal> and <literal
       moreinfo="none">Predicate</literal> objects, or you can also select
       elements from a <literal moreinfo="none">Collection</literal> using an
-      XPath expression. <link linkend="searching-filtering-SECT-1">Recipe
+      XPath expression. <link linkend="searching-filtering-sect-obtaining-jxpath">Recipe
       12.1</link> demonstrates the use on Commons JXPath to query a <literal
       moreinfo="none">Collection</literal>.</para>
     </sect2>
@@ -908,7 +908,7 @@ while( uniqueIterator.hasNext( ) ) {
 
       <para>For more information about the <literal
       moreinfo="none">UniquePredicate</literal> see <link
-      linkend="functors-SECT-7">Recipe 4.7</link>.</para>
+      linkend="functors-sect-simple-pred">Recipe 4.7</link>.</para>
     </sect2>
   </sect1>
 

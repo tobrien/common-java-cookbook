@@ -492,9 +492,9 @@ public class SimpleBean {
       <para>For more information about downloading Commons Logging 1.0.3, see
       <link linkend="app-infra-sect-obtaining-logging">Recipe 7.9</link>. For more
       information about downloading Commons Collections, see <link
-      linkend="functors-SECT-1">Recipe 4.1</link>. For information on
+      linkend="functors-sect-obtaining">Recipe 4.1</link>. For information on
       obtaining the source code for Commons BeanUtils, see <link
-      linkend="beans-SECT-3">Recipe 3.3</link>.</para>
+      linkend="beans-sect-sourcecode">Recipe 3.3</link>.</para>
 
       <para>To learn more about Commons BeanUtils, visit the Commons BeanUtils
       web site: <systemitem moreinfo="none"
@@ -574,7 +574,7 @@ public class SimpleBean {
       linkend="lang-sect-sourcecode">Recipe 1.3</link>.</para>
 
       <para>For information on obtaining the binary distribution for Commons
-      BeanUtils, see <link linkend="beans-SECT-2">Recipe
+      BeanUtils, see <link linkend="beans-sect-obtaining">Recipe
       3.2</link>.</para>
     </sect2>
   </sect1>
@@ -783,7 +783,7 @@ try {
       properties: nested, indexed, and mapped. Simple properties may also be
       retrieved with <literal moreinfo="none">PropertyUtils.getProperty(
       )</literal>; this method is described in <link
-      linkend="beans-SECT-8">Recipe 3.8</link>.</para>
+      linkend="beans-sect-accessing-all">Recipe 3.8</link>.</para>
 
       <para>This recipe<indexterm class="endofrange"
       id="beans-ITERM-2149" significance="normal"
@@ -1495,7 +1495,7 @@ Long population = city.getPopulation( );</programlisting>
           <primary>JEXL (Java Expression Language)</primary>
         </indexterm>Java Expression Language (JEXL). For more information
       about retrieving bean properties using an expression language, see <link
-      linkend="searching-filtering-SECT-1">Recipe 12.1</link>.</para>
+      linkend="searching-filtering-sect-obtaining-jxpath">Recipe 12.1</link>.</para>
 
       <para>Bean properties may also be<indexterm class="endofrange"
       id="beans-ITERM-2200" significance="normal"
@@ -1510,7 +1510,7 @@ Long population = city.getPopulation( );</programlisting>
       significance="normal"
       startref="beans-ITERM-2193"></indexterm> retrieved using an
       XPath expression. For more information, see <link
-      linkend="searching-filtering-SECT-1">Recipe 12.1</link>.</para>
+      linkend="searching-filtering-sect-obtaining-jxpath">Recipe 12.1</link>.</para>
     </sect2>
   </sect1>
 
@@ -1890,12 +1890,12 @@ while( vehicleIter.hasNext( ) ) {
       moreinfo="none">ComparableComparator</literal> will throw a <literal
       moreinfo="none">NullPointerException</literal> if a property value is
       <literal moreinfo="none">null</literal>. <link
-      linkend="functors-SECT-5">Recipe 4.5</link> discusses
+      linkend="functors-sect-comparing-nulls">Recipe 4.5</link> discusses
       techniques for decorating a <literal
       moreinfo="none">Comparator</literal> with <literal
       moreinfo="none">NullComparator</literal>.</para>
 
-      <para><link linkend="beans-SECT-15">Recipe 3.15</link>
+      <para><link linkend="beans-sect-validating-predicate">Recipe 3.15</link>
       discusses a <literal moreinfo="none">BeanPredicate</literal> <indexterm
           id="beans-ITERM-2216" significance="normal">
           <primary>BeanPredicate object</primary>
@@ -2062,7 +2062,7 @@ PropertyUtils.copyProperties( destinationBook, mapProps );</programlisting>
       <title>See Also</title>
 
       <para>If you need to clone a bean, take a look at <link
-      linkend="beans-SECT-12">Recipe 3.12</link></para>
+      linkend="beans-sect-cloning">Recipe 3.12</link></para>
     </sect2>
   </sect1>
 
@@ -2564,7 +2564,7 @@ Predicate eitherABC =
       self-validating collections. This recipe introduces two simple
       predicates; <literal moreinfo="none">EqualPredicate</literal> and
       <literal moreinfo="none">NotNullPredicate</literal> are discussed in
-      <link linkend="functors-SECT-7">Recipe 4.7</link>. For more
+      <link linkend="functors-sect-simple-pred">Recipe 4.7</link>. For more
       information about using predicates, see <link
       linkend="functors">Chapter 4</link> and the Commons Collections
       project site at <systemitem moreinfo="none"
@@ -2674,7 +2674,7 @@ Author Name: Some Dude</programlisting>
     <sect2>
       <title>See Also</title>
 
-      <para><link linkend="beans-SECT-17">Recipe 3.17</link>
+      <para><link linkend="beans-sect-wrap-map">Recipe 3.17</link>
       demonstrates the use of the <literal moreinfo="none">BeanMap</literal>
       to wrap a bean and expose a bean's properties via the <literal
       moreinfo="none">Map</literal> interface.</para>
@@ -2947,8 +2947,8 @@ public class BeanMapExample {
       significance="normal"
       startref="beans-ITERM-2269"></indexterm>bean properties with
       <literal moreinfo="none">PropertyUtils</literal>, see <link
-      linkend="beans-SECT-8">Recipe 3.8</link> and <link
-      linkend="beans-SECT-13">Recipe 3.13</link>.</para>
+      linkend="beans-sect-accessing-all">Recipe 3.8</link> and <link
+      linkend="beans-sect-setting-property">Recipe 3.13</link>.</para>
     </sect2>
   </sect1>
 

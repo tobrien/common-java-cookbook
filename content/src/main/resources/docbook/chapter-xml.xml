@@ -120,7 +120,7 @@
       moreinfo="none">commons-digester.jar</filename> in your classpath.
       Commons Digester depends on Commons BeanUtils, Commons Logging, and
       Commons Collections. To download dependencies, see <link
-      linkend="beans-SECT-2">Recipe 3.2</link>, <link
+      linkend="beans-sect-obtaining">Recipe 3.2</link>, <link
       linkend="collections-sect-obtaining">Recipe 5.1</link>, and <link
       linkend="app-infra-sect-obtaining-logging">Recipe 7.9</link>.</para>
     </sect2>
@@ -1369,7 +1369,7 @@ Email To: ldavid@hbo.com</programlisting>
       and place <filename moreinfo="none">commons-betwixt.jar</filename> in
       your classpath. Commons Betwixt depends on Commons Digester, Commons
       BeanUtils, Commons Logging, and Commons Collections. To download
-      dependencies, see <link linkend="beans-SECT-2">Recipe
+      dependencies, see <link linkend="beans-sect-obtaining">Recipe
       3.2</link>, <link linkend="collections-sect-obtaining">Recipe 5.1</link>,
       <link linkend="xml-sect-obtaining-digester">Recipe 6.1</link>, and <link
       linkend="app-infra-sect-obtaining-logging">Recipe 7.9</link>.</para>
