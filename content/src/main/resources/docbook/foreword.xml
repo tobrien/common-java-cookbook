@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE preface PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<?xml version="1.0"?>
 <preface id="foreword">
   <title>Foreword: ${project.version}</title>
 
@@ -15,8 +13,7 @@
 
   <para>Tim O'Brien, Discursive</para>
 
-  <para><ulink
-  url="mailto:tobrien@discursive.com">tobrien@discursive.com</ulink></para>
+  <para><ulink url="mailto:tobrien@discursive.com">tobrien@discursive.com</ulink></para>
 
   <para>Feb 15, 2009</para>
 

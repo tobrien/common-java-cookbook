@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE preface PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
-"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<?xml version="1.0"?>
 <preface id="preface">
   <title>Preface</title>
 
@@ -62,8 +60,7 @@
   book like this five years ago; it would have accelerated my learning and
   helped me to avoid some costly design decisions. Use this text as you will;
   if you are only interested in Commons Collections, you should be able to
-  quickly familiarize yourself with Collections by browsing <link
-  linkend="collections">Chapter 5</link>. On the other hand, if you are
+  quickly familiarize yourself with Collections by browsing <link linkend="collections">Chapter 5</link>. On the other hand, if you are
   looking for a survey of some of the major projects in Apache Commons, read
   this book from start to finish. Part structured reference, part prose, the
   cookbook format lets you customize your reading experience, and I hope this
@@ -171,8 +168,7 @@
         the Java 2 Platform</citetitle></term>
 
         <listitem>
-          <para>This chapter introduces Commons Lang. Automation of <literal
-          moreinfo="none">toString( )</literal>, working with arrays,
+          <para>This chapter introduces Commons Lang. Automation of <literal moreinfo="none">toString( )</literal>, working with arrays,
           formatting and rounding dates, working with enumerations, generating
           identifiers, and measuring time are some of the topics discussed in
           this chapter. This chapter also covers the generation of unique
@@ -189,8 +185,7 @@
           capabilities of a scripting language like Perl, Commons Lang's
           <literal moreinfo="none">StringUtils</literal> has a number of
           utility methods that can be used to manipulate text. This chapter
-          deals with <literal moreinfo="none">StringUtils</literal>, <literal
-          moreinfo="none">WordUtils</literal>, and Commons Codec.</para>
+          deals with <literal moreinfo="none">StringUtils</literal>, <literal moreinfo="none">WordUtils</literal>, and Commons Codec.</para>
         </listitem>
       </varlistentry>
 
@@ -356,10 +351,7 @@
     <title>Conventions Used in This Book</title>
 
     <para>I'll use a number of conventions you should know about in this book.
-    For example, menu items are separated with an<symbol remap="8594"
-    role="unicode">→</symbol> like this: File<symbol remap="8594"
-    role="unicode">→</symbol> New<symbol remap="8594"
-    role="unicode">→</symbol> Project. To make them stand out, new lines of
+    For example, menu items are separated with an<symbol remap="8594" role="unicode">&#x2192;</symbol> like this: File<symbol remap="8594" role="unicode">&#x2192;</symbol> New<symbol remap="8594" role="unicode">&#x2192;</symbol> Project. To make them stand out, new lines of
     code will be displayed highlighted when they're added. Example code is
     often presented out of context; instead of developing an entire class,
     only the relevant block of code is presented. Most examples will include
@@ -427,15 +419,12 @@ digester.doSomething( );</programlisting>
     <title>What You'll Need</title>
 
     <para>To experiment with the various libraries introduced in this book,
-    you will need the J2SE 1.5 SDK, which can be obtained from <ulink
-    url="http://java.sun.com">http://java.sun.com</ulink>. The examples in
+    you will need the J2SE 1.5 SDK, which can be obtained from <ulink url="http://java.sun.com">http://java.sun.com</ulink>. The examples in
     this book were developed in an IDE named Eclipse, which can be downloaded
-    from the Eclipse project site at <ulink
-    url="http://www.eclipse.org">http://www.eclipse.org</ulink>. Each chapter
+    from the Eclipse project site at <ulink url="http://www.eclipse.org">http://www.eclipse.org</ulink>. Each chapter
     contains instructions for downloading the various Apache Commons
     components; to download any component from Apache Commons, go to the
-    Apache Commons page at <ulink
-    url="http://commons.apache.org">http://commons.apache.org/</ulink> and
+    Apache Commons page at <ulink url="http://commons.apache.org">http://commons.apache.org/</ulink> and
     click on "Binaries" under "Download" in the left menu.</para>
   </sect1>
 
@@ -448,8 +437,7 @@ digester.doSomething( );</programlisting>
     supports ongoing collaborative software development according to a set of
     simple ideals: transparency, meritocracy, consensus, and mutual respect.
     To learn more about the foundation, start at the Frequently Asked
-    Questions page on www.apache.org (<ulink
-    url="http://www.apache.org/foundation/faq.html">http://www.apache.org/foundation/faq.html</ulink>).
+    Questions page on www.apache.org (<ulink url="http://www.apache.org/foundation/faq.html">http://www.apache.org/foundation/faq.html</ulink>).
     Apache is a project under the Apache Software Foundation, and it is
     managed by what is known as a Project Management Committee (PMC). This
     committee manages a number of Apache subprojects including the Apache
@@ -497,20 +485,17 @@ digester.doSomething( );</programlisting>
     any other Apache software) useful, you should consider taking a little bit
     of time to help a fellow user on the user mailing list or submit
     documentation patches. If you find a typo or a bug, file a report on
-    Apache's Bugzilla installation (<ulink
-    url="http://issues.apache.org/bugzilla">http://issues.apache.org/bugzilla</ulink>)
-    or Jira installation (<ulink
-    url="http://issues.apache.org/jira">http://issues.apache.org/jira</ulink>).</para>
+    Apache's Bugzilla installation (<ulink url="http://issues.apache.org/bugzilla">http://issues.apache.org/bugzilla</ulink>)
+    or Jira installation (<ulink url="http://issues.apache.org/jira">http://issues.apache.org/jira</ulink>).</para>
 
     <para>There is always a need for greater unit test coverage, and any time
     you find an inconsistency in code you should file a bug. Contributions can
-    come in many forms — answering user questions, writing documentation,
+    come in many forms &#x2014; answering user questions, writing documentation,
     writing unit tests, submitting patches, or providing feedback. All of
     these contributions help sustain a living community. If you find yourself
     unable to participate in the community, you can make a small (possibly
     tax-deductible) donation to the Apache Software Foundation to help offset
-    the cost of infrastructure and bandwidth (<ulink
-    url="http://www.apache.org/foundation/contributing.html">http://www.apache.org/foundation/contributing.html</ulink>).</para>
+    the cost of infrastructure and bandwidth (<ulink url="http://www.apache.org/foundation/contributing.html">http://www.apache.org/foundation/contributing.html</ulink>).</para>
   </sect1>
 
   <sect1 id="preface-sect-license" role="">
@@ -523,14 +508,12 @@ digester.doSomething( );</programlisting>
     become familiar with the Apache license (and other BSD-style licenses) and
     how it differs from the GNU General Public License (GPL) and GNU Lesser
     General Public License (LGPL). Read the Apache Software License 2.0 at
-    <ulink
-    url="http://www.apache.org/licenses/">http://www.apache.org/licenses/</ulink>.</para>
+    <ulink url="http://www.apache.org/licenses/">http://www.apache.org/licenses/</ulink>.</para>
 
     <para>I am not a lawyer (IANAL), but I would urge you to learn as much as
     you can about these licenses before you start to use them. For more
     information about open source, and for a comprehensive list of licenses,
-    see the Open Source Initiative (OSI) at <ulink
-    url="http://www.opensource.org">http://www.opensource.org</ulink>. The
+    see the Open Source Initiative (OSI) at <ulink url="http://www.opensource.org">http://www.opensource.org</ulink>. The
     Apache license does not place restrictions on people or organizations that
     wish to redistribute the software it covers, and, in general, the Apache
     license creates fewer licensing headaches for individuals and

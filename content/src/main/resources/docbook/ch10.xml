@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 <chapter id="io-network" label="10">
       <title>I/O and Networking</title>
       <sect1 id="ch10-2-fm2xml">
@@ -38,7 +37,7 @@ expression syntax supported by Java 1.4 and the regular expression
 syntax supported in Perl 5. You can learn more about the differences
 between Perl5 regular expressions supported by ORO and regular
 expressions supported by Java 1.4 by reading the ORO project page at
-<systemitem role="url" moreinfo="none">http://jakarta.apache.org/oro</systemitem>.
+<ulink url="http://jakarta.apache.org/oro">http://jakarta.apache.org/oro</ulink>.
 Take a look at Jakarta ORO if your application needs to work with
 globs and complex regular expressions.</para>
          <para>Commons Net contains simple clients for common protocols, such as
@@ -115,9 +114,9 @@ dependency on Commons IO 1.0 with the following section in
          <sect2 id="io-network-SECT-1.4">
             <title>See Also</title>
             <para>For more information about the Commons IO project, see the project
-page at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/io</systemitem>. If you
+page at <ulink url="http://jakarta.apache.org/commons/io">http://jakarta.apache.org/commons/io</ulink>. If you
 have questions about using Commons IO, please feel free to join the
-<systemitem role="url" moreinfo="none">commons-user@jakarta.apache.org</systemitem>
+<ulink url="commons-user@jakarta.apache.org">commons-user@jakarta.apache.org</ulink>
 mailing list. Instructions for joining the user mailing list can be
 found in <link linkend="lang-sect-mailinglist">Recipe 1.2</link>.</para>
          </sect2>
@@ -409,12 +408,12 @@ meaningful context in an exception message. Expanding the scope of a
 a nested
 <literal moreinfo="none">try</literal>/<literal moreinfo="none">catch</literal>/<literal moreinfo="none">finally</literal>
 is an overly complex solution for what should be a relatively
-straightforward task—closing a <literal moreinfo="none">Reader</literal> and a
+straightforward task&#x2014;closing a <literal moreinfo="none">Reader</literal> and a
 <literal moreinfo="none">Writer</literal>. There is a more subtle problem with this
 second approach, as well; if an <literal moreinfo="none">IOException</literal> is
 thrown by <literal moreinfo="none">reader.close( )</literal> in the
 <literal moreinfo="none">finally</literal> block, <literal moreinfo="none">writer.close( )</literal>
-may never be executed—a possible resource leak.</para>
+may never be executed&#x2014;a possible resource leak.</para>
             <para>
                <literal moreinfo="none">IOUtils.closeQuietly( )</literal> allows you to ignore this
 dilemma entirely if you accept the assumption that a problem closing
@@ -513,9 +512,9 @@ try {
             <title>Discussion</title>
             <para>
                <literal moreinfo="none">FileUtils</literal> contains three static
-variables—<literal moreinfo="none">FileUtils.ONE_KB</literal>,
+variables&#x2014;<literal moreinfo="none">FileUtils.ONE_KB</literal>,
 <literal moreinfo="none">FileUtils.ONE_MB</literal>, and
-<literal moreinfo="none">FileUtils.ONE_GB</literal>—which represent the number
+<literal moreinfo="none">FileUtils.ONE_GB</literal>&#x2014;which represent the number
 of bytes in a kilobyte, megabyte, and gigabyte.
 <literal moreinfo="none">FileUtils.byteCountToDisplaySize( )</literal> divides the
 number of bytes by each constant until it finds a constant that can
@@ -523,7 +522,7 @@ divide the number of bytes, discarding the remainder to create a
 human-readable value. For example, the value 2,123,022 is divided by
 <literal moreinfo="none">FileUtils.ONE_GB</literal>, which returns a value of less
 than 1.0. The value is then divided by
-<literal moreinfo="none">FileUtils.ONE_MB</literal>, which returns 2—the value
+<literal moreinfo="none">FileUtils.ONE_MB</literal>, which returns 2&#x2014;the value
 used in the human-readable size "2
 MB."</para>
             <warning id="io-network-NOTE-68" role="ora">
@@ -680,7 +679,7 @@ IO</secondary>
                   <primary>recursive deletes,
 directories</primary>
                </indexterm>everything it contains. You need a
-recursive delete—the equivalent of a Unix <literal moreinfo="none">rm
+recursive delete&#x2014;the equivalent of a Unix <literal moreinfo="none">rm
 -r</literal>.</para>
          </sect2>
          <sect2 id="io-network-SECT-6.2">
@@ -1201,7 +1200,7 @@ ORO</see>
          </sect2>
          <sect2 id="io-network-SECT-12.2">
             <title>Solution</title>
-            <para>Download Jakarta ORO 2.0.8 from <systemitem role="url" moreinfo="none">http://jakarta.apache.org/site/binindex.cgi</systemitem>.
+            <para>Download Jakarta ORO 2.0.8 from <ulink url="http://jakarta.apache.org/site/binindex.cgi">http://jakarta.apache.org/site/binindex.cgi</ulink>.
 Once you have downloaded and uncompressed the archive distribution,
 place the <filename moreinfo="none">jakarta-oro-2.0.8.jar</filename> in your
 classpath.</para>
@@ -1230,10 +1229,10 @@ dependency on Jakarta ORO 2.0.8 with the following section in
          <sect2 id="io-network-SECT-12.4">
             <title>See Also</title>
             <para>For more information about ORO, see the Jakarta ORO project at
-<systemitem role="url" moreinfo="none">http://jakarta.apache.org/oro</systemitem>.
+<ulink url="http://jakarta.apache.org/oro">http://jakarta.apache.org/oro</ulink>.
 For more information about the regular expression syntax supported by
 Jakarta ORO, see the package summary for the
-<literal moreinfo="none">org.apache.oro.test.regex</literal> package at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/oro/api/org/apache/oro/text/regex/package-summary.html</systemitem>.</para>
+<literal moreinfo="none">org.apache.oro.test.regex</literal> package at <ulink url="http://jakarta.apache.org/oro/api/org/apache/oro/text/regex/package-summary.html">http://jakarta.apache.org/oro/api/org/apache/oro/text/regex/package-summary.html</ulink>.</para>
          </sect2>
       </sect1>
       <sect1 id="io-network-SECT-13" label="10.13" role="Recipe">
@@ -1364,7 +1363,7 @@ dependency on Commons Net 1.2.2 with the following section in
          <sect2 id="io-network-SECT-14.4">
             <title>See Also</title>
             <para>For more information about Commons Net, see the Commons Net project
-page at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/net</systemitem>.</para>
+page at <ulink url="http://jakarta.apache.org/commons/net">http://jakarta.apache.org/commons/net</ulink>.</para>
          </sect2>
       </sect1>
       <sect1 id="io-network-SECT-15" label="10.15" role="Recipe">
@@ -1433,7 +1432,7 @@ try {
             <para>In the previous example, an instance of <literal moreinfo="none">FTPClient</literal>
 is created; the example then logs on to
 <filename moreinfo="none">ftp.ibibio.org</filename> as
-<filename moreinfo="none">anonymous—</filename>with no password—using the
+<filename moreinfo="none">anonymous&#x2014;</filename>with no password&#x2014;using the
 <literal moreinfo="none">connect( )</literal>
                <indexterm id="io-network-ITERM-3150" significance="normal">
                   <primary>connect( )
@@ -1544,7 +1543,7 @@ Protocol)</primary>
                </indexterm>(TFTP) client:
 <literal moreinfo="none">org.apache.commons.net.tftp.TFTPClient</literal>. For more
 information about TFTP client, see the Javadoc for
-<literal moreinfo="none">TFTPClient</literal> at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/tftp/TFTPClient.html</systemitem>.</para>
+<literal moreinfo="none">TFTPClient</literal> at <ulink url="http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/tftp/TFTPClient.html">http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/tftp/TFTPClient.html</ulink>.</para>
             <para>
                <literal moreinfo="none">FTPClient</literal> contains a number of
 additional<indexterm class="endofrange" startref="io-network-ITERM-3146" id="io-network-ITERM-3161" significance="normal"/> 
@@ -1553,7 +1552,7 @@ additional<indexterm class="endofrange" startref="io-network-ITERM-3146" id="io-
 passive connection modes and the ability to append to remote files,
 make remote directories, and put files on a remote FTP server. For
 more information about <literal moreinfo="none">FTPClient</literal>, see the
-<literal moreinfo="none">FTPClient</literal> Javadoc at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/ftp/FTPClient.html</systemitem>.</para>
+<literal moreinfo="none">FTPClient</literal> Javadoc at <ulink url="http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/ftp/FTPClient.html">http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/ftp/FTPClient.html</ulink>.</para>
          </sect2>
       </sect1>
       <sect1 id="io-network-SECT-16" label="10.16" role="Recipe">
@@ -1729,7 +1728,7 @@ see<indexterm class="endofrange" startref="io-network-ITERM-3165" id="io-network
                <indexterm class="endofrange" startref="io-network-ITERM-3167" id="io-network-ITERM-3182" significance="normal"/>
                <indexterm class="endofrange" startref="io-network-ITERM-3168" id="io-network-ITERM-3183" significance="normal"/>
                <indexterm class="endofrange" startref="io-network-ITERM-3169" id="io-network-ITERM-3184" significance="normal"/> the
-JavaMail product page at <systemitem role="url" moreinfo="none">http://java.sun.com/products/javamail</systemitem>. For
+JavaMail product page at <ulink url="http://java.sun.com/products/javamail">http://java.sun.com/products/javamail</ulink>. For
 more information about the JavaMail API, see Chapter 10,
 "JavaMail Best Practices," in
 <emphasis>Java Enterprise Best Practices</emphasis>
@@ -1861,8 +1860,8 @@ headers containing the <filename moreinfo="none">Subject</filename>,
 associated with a message. The body of a message is separated from a
 list of headers by a single blank, and if you are creating a mail
 client for a user, you will need to write a parser that can extract a
-relevant header—such as <filename moreinfo="none">Subject</filename> and
-<filename moreinfo="none">From</filename>—from the raw email message.</para>
+relevant header&#x2014;such as <filename moreinfo="none">Subject</filename> and
+<filename moreinfo="none">From</filename>&#x2014;from the raw email message.</para>
          </sect2>
          <sect2 id="io-network-SECT-17.4">
             <title>See Also</title>
@@ -1873,7 +1872,7 @@ described in detail in  <link linkend="io-network-sect-copying">Recipe 10.2</lin
             <para>For a good overview of SMTP and POP3 from the perspective of a
 FreeBSD administrator, take a look at Dru Lavigne's
 article "Understanding E-Mail" from
-OnLamp.com (<systemitem role="url" moreinfo="none">http://www.onlamp.com/pub/a/bsd/2000/08/30/FreeBSD_Basics.html</systemitem>).</para>
+OnLamp.com (<ulink url="http://www.onlamp.com/pub/a/bsd/2000/08/30/FreeBSD_Basics.html">http://www.onlamp.com/pub/a/bsd/2000/08/30/FreeBSD_Basics.html</ulink>).</para>
          </sect2>
       </sect1>
    </chapter>

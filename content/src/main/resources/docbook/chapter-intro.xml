@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 <chapter id="intro" label="1">
       <title>Supplements to the Java 2 Platform</title>
       <sect1 id="ch01-2-fm2xml">
@@ -91,7 +90,7 @@ array manipulation, date manipulation, and enums.</para>
             <para>To download the latest version of Commons Lang, follow these steps:</para>
             <orderedlist inheritnum="ignore" continuation="restarts">
                <listitem>
-                  <para>In a web browser, open the URL <systemitem role="url" moreinfo="none">http://jakarta.apache.org/site/binindex.cgi</systemitem>.
+                  <para>In a web browser, open the URL <ulink url="http://jakarta.apache.org/site/binindex.cgi">http://jakarta.apache.org/site/binindex.cgi</ulink>.
 This URL will select a mirror, and generate a page with links to
 download binary distributions from an Apache mirror.</para>
                </listitem>
@@ -150,7 +149,7 @@ Lang</secondary>
 for working with dates, exceptions, arrays, enums, and more. It is
 one of the most widely used libraries in open source Java. To learn
 more about Commons Lang, visit the Jakarta Commons Lang web site at
-<systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/lang/</systemitem>.</para>
+<ulink url="http://jakarta.apache.org/commons/lang/">http://jakarta.apache.org/commons/lang/</ulink>.</para>
             <tip id="jakartackbk-CHP-1-NOTE-42" role="ora">
                <para>At the time of writing, the most recent version of the Commons Lang
 component was Version 2.0. If there is a more recent version of
@@ -172,7 +171,7 @@ Commons Lang, see <link linkend="jakartackbk-CHP-1-SECT-2">Recipe 1.2</link> on 
 Commons-user mailing list. If you are looking for the source code,
 see <link linkend="jakartackbk-CHP-1-SECT-3">Recipe 1.3</link> on obtaining the source code
 for Commons Lang. You can also visit the Commons Lang web site at
-<systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/lang</systemitem>.</para>
+<ulink url="http://jakarta.apache.org/commons/lang">http://jakarta.apache.org/commons/lang</ulink>.</para>
          </sect2>
       </sect1>
       <sect1 id="jakartackbk-CHP-1-SECT-2" label="1.2" role="Recipe">
@@ -195,7 +194,7 @@ component in Jakarta Commons.</para>
          </sect2>
          <sect2 id="jakartackbk-CHP-1-SECT-2.2">
             <title>Solution</title>
-            <para>Join the <systemitem role="url" moreinfo="none">commons-user@jakarta.apache.org</systemitem> mailing list,
+            <para>Join the <ulink url="commons-user@jakarta.apache.org">commons-user@jakarta.apache.org</ulink> mailing list,
 and ask your question. This mailing list is full of Commons users,
 and it is a good place to discuss any problems
 you've had with a particular utility in the Jakarta
@@ -218,9 +217,9 @@ mailing lists</primary>
 mailing lists</primary>
                </indexterm> list, take a moment to
 familiarize yourself with the mailing list guidelines available at
-<systemitem role="url" moreinfo="none">http://jakarta.apache.org/site/mail.html</systemitem>.
+<ulink url="http://jakarta.apache.org/site/mail.html">http://jakarta.apache.org/site/mail.html</ulink>.
 Once you have read these guidelines, you can find information about
-joining this mailing list at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/site/mail2.html#Commons</systemitem>.</para>
+joining this mailing list at <ulink url="http://jakarta.apache.org/site/mail2.html#Commons">http://jakarta.apache.org/site/mail2.html#Commons</ulink>.</para>
             <para>The Jakarta Commons-user mailing list is a place for users of all
 Commons components to ask questions of other users and Commons
 developers. This mailing list has a high volume of messages, and
@@ -230,13 +229,13 @@ starts with <literal moreinfo="none">[lang]</literal> before sending a message t
 Commons-user mailing list; otherwise, your email may be ignored.</para>
             <para>If you have a question or a comment, you will save yourself time and
 trouble if you search the archives of the Commons-user mailing list
-(<systemitem role="url" moreinfo="none">http://www.mail-archive.com/commons-user@jakarta.apache.org/</systemitem>)
+(<ulink url="http://www.mail-archive.com/commons-user@jakarta.apache.org/">http://www.mail-archive.com/commons-user@jakarta.apache.org/</ulink>)
 for related discussions. The archives of this mailing list are a
 great place to look if you are having problems with a particular
 Commons component. Try not to ask a question that has already been
 asked and answered in a previous discussion, and remember that the
 Apache Software Foundation (ASF) is a volunteer
-organization—members of the community will gladly assist you if
+organization&#x2014;members of the community will gladly assist you if
 you provide enough information. And, don't be shy.
 If you know the answer to someone's question, you
 don't have to ask for anyone's
@@ -245,7 +244,7 @@ permission to actively participate.</para>
          <sect2 id="jakartackbk-CHP-1-SECT-2.4">
             <title>See Also</title>
             <para>The Commons-user mailing list archive is also available from the
-Eyebrowse list archive at <systemitem role="url" moreinfo="none">http://nagoya.apache.org/eyebrowse/SummarizeList?listId=15</systemitem>.</para>
+Eyebrowse list archive at <ulink url="http://nagoya.apache.org/eyebrowse/SummarizeList?listId=15">http://nagoya.apache.org/eyebrowse/SummarizeList?listId=15</ulink>.</para>
          </sect2>
       </sect1>
       <sect1 id="jakartackbk-CHP-1-SECT-3" label="1.3" role="Recipe">
@@ -279,7 +278,7 @@ Lang</secondary>
          </sect2>
          <sect2 id="jakartackbk-CHP-1-SECT-3.2">
             <title>Solution</title>
-            <para>Download the source code from <systemitem role="url" moreinfo="none">http://jakarta.apache.org/site/sourceindex.cgi</systemitem>.
+            <para>Download the source code from <ulink url="http://jakarta.apache.org/site/sourceindex.cgi">http://jakarta.apache.org/site/sourceindex.cgi</ulink>.
 Following the same procedure as outlined in <link linkend="lang-sect-obtaining">Recipe 1.1</link>, you can download a file named
 <filename moreinfo="none">commons-lang-2.0-src.zip</filename> (or
 <filename moreinfo="none">commons-lang-2.0-src.tar.gz</filename>). Once you unzip
@@ -358,18 +357,18 @@ contains unit tests for the Commons Lang project. Each
          <sect2 id="jakartackbk-CHP-1-SECT-3.4">
             <title>See Also</title>
             <para>For more information about Apache Ant, see the Ant project page at
-<systemitem role="url" moreinfo="none">http://ant.apache.org</systemitem>. Also see
+<ulink url="http://ant.apache.org">http://ant.apache.org</ulink>. Also see
 Chapter 3 in the <emphasis>Java Extreme Programming
 Cookbook</emphasis> by Eric M. Burke and Brian M. Coyner
 (O'Reilly).</para>
             <para>The unit tests in this source distribution use the JUnit testing
 framework. For more information about JUnit, see the JUnit project
-page at <systemitem role="url" moreinfo="none">http://www.junit.org</systemitem>.
+page at <ulink url="http://www.junit.org">http://www.junit.org</ulink>.
 Also see Chapter 4 in the <emphasis>Java Extreme Programming
 Cookbook</emphasis> by Burke and Coyner.</para>
             <para>See <link linkend="lang-sect-obtaining">Recipe 1.1</link> for information about
 obtaining the binary distribution for Commons Lang, and see the
-Commons Lang web site at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/lang</systemitem>.</para>
+Commons Lang web site at <ulink url="http://jakarta.apache.org/commons/lang">http://jakarta.apache.org/commons/lang</ulink>.</para>
          </sect2>
       </sect1>
       <sect1 id="jakartackbk-CHP-1-SECT-4" label="1.4" role="Recipe">
@@ -421,7 +420,7 @@ public void toString( ) {
          <sect2 id="jakartackbk-CHP-1-SECT-4.3">
             <title>Discussion</title>
             <para>Assume that you have an object named
-<literal moreinfo="none">PoliticalCandidate</literal>—a bean that represents
+<literal moreinfo="none">PoliticalCandidate</literal>&#x2014;a bean that represents
 some information about a presidential candidate. This bean has a set
 of properties: <literal moreinfo="none">firstName</literal>,
 <literal moreinfo="none">lastName</literal>, <literal moreinfo="none">dateOfBirth</literal>,
@@ -527,7 +526,7 @@ the message printed out will be accurate; the alternative is to have
 a message that may or may not <indexterm class="endofrange" startref="jakartackbk-CHP-1-ITERM-1748" id="jakartackbk-CHP-1-ITERM-1758" significance="normal"/> 
                <indexterm class="endofrange" startref="jakartackbk-CHP-1-ITERM-1749" id="jakartackbk-CHP-1-ITERM-1759" significance="normal"/> 
                <indexterm class="endofrange" startref="jakartackbk-CHP-1-ITERM-1750" id="jakartackbk-CHP-1-ITERM-1760" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-1-ITERM-1751" id="jakartackbk-CHP-1-ITERM-1761" significance="normal"/>be relevant—trusting
+               <indexterm class="endofrange" startref="jakartackbk-CHP-1-ITERM-1751" id="jakartackbk-CHP-1-ITERM-1761" significance="normal"/>be relevant&#x2014;trusting
 developers to keep <literal moreinfo="none">toString( )</literal> methods updated
 manually.</para>
             <warning id="jakartackbk-CHP-1-NOTE-44" role="ora">
@@ -1169,7 +1168,7 @@ the <literal moreinfo="none">firstName</literal>. The following example demonstr
 a customization of the <literal moreinfo="none">compareTo( )</literal> method.</para>
             <para>Calling <literal moreinfo="none">append( )</literal> specifies what variables will be
 compared and in what order they will be compared. The order of the
-calls to <literal moreinfo="none">append( )</literal> are backward—similar to
+calls to <literal moreinfo="none">append( )</literal> are backward&#x2014;similar to
 pushing an object onto the top of a stack. The last property
 "pushed" onto the
 <literal moreinfo="none">CompareToBuilder</literal> is the first property to be
@@ -1209,7 +1208,7 @@ consistent with <literal moreinfo="none">equals( )</literal>.</para>
             <para>
                <literal moreinfo="none">compareTo( )</literal> methods provide the natural sorting
 order for a set of objects, and they are frequently used when sorting
-a collection of JavaBeans©. If you are trying to
+a collection of JavaBeans&#xA9;. If you are trying to
 sort a collection of beans, you are better off using the
 <literal moreinfo="none">BeanComparator</literal>, which is described in <link linkend="beans-sect-comparing">Recipe 3.10</link>.</para>
             <para>Instead of capturing comparison logic in a <literal moreinfo="none">compareTo()</literal> method, consider using a <literal moreinfo="none">Comparator</literal>
@@ -1787,7 +1786,7 @@ both the <literal moreinfo="none">toObject( )</literal> and <literal moreinfo="n
                   <primary>autoboxing</primary>
                </indexterm>autoboxing, which
 provides for automatic conversions between primitives and objects.
-For more information about autoboxing, see <systemitem role="url" moreinfo="none">http://www.jcp.org/aboutJava/communityprocess/jsr/tiger/autoboxing.html</systemitem>.</para>
+For more information about autoboxing, see <ulink url="http://www.jcp.org/aboutJava/communityprocess/jsr/tiger/autoboxing.html">http://www.jcp.org/aboutJava/communityprocess/jsr/tiger/autoboxing.html</ulink>.</para>
          </sect2>
       </sect1>
       <sect1 id="lang-sect-obtaining1" label="1.11" role="Recipe">
@@ -1865,7 +1864,7 @@ Last Index of 'Red'? 4</programlisting>
             <para>All three methods work with an object array or any primitive array;
 in fact, almost every method defined in <literal moreinfo="none">ArrayUtils</literal>
 can be applied to every possible array
-type—<literal moreinfo="none">boolean[]</literal>, <literal moreinfo="none">byte[]</literal>,
+type&#x2014;<literal moreinfo="none">boolean[]</literal>, <literal moreinfo="none">byte[]</literal>,
 <literal moreinfo="none">char[]</literal>, <literal moreinfo="none">double[]</literal>,
 <literal moreinfo="none">float[]</literal>, <literal moreinfo="none">long[]</literal>,
 <literal moreinfo="none">short[]</literal>, and <literal moreinfo="none">Object[]</literal>. When
@@ -1914,7 +1913,7 @@ for( int i = 0; i &lt; temps.length; i++ ) {
     }
 }</programlisting>
             <para>The benefits are small, but maintaining your own custom utility
-classes is a pain—it is just another thing to test and
+classes is a pain&#x2014;it is just another thing to test and
 maintain. <literal moreinfo="none">ArrayUtils</literal> isn't going
 to change your application's architecture, but it
 will ultimately reduce the amount of trivial code you have to write,
@@ -2238,15 +2237,15 @@ should migrate to <literal moreinfo="none">FastDateFormat</literal> immediately.
          </sect2>
          <sect2 id="lang-sect-obtaining3.4">
             <title>See Also</title>
-            <para>Java date and time classes have a number of issues—concurrency
+            <para>Java date and time classes have a number of issues&#x2014;concurrency
 issues with date formatting being "only the tip of
 the iceberg." An active member of the Jakarta
 Commons Community, Stephen Colebourne, has taken time to create a
 clean room reimplementation of a date and time API. For more
 information about Joda, take a look at the Joda project page
-(<systemitem role="url" moreinfo="none">http://www.joda.org/)</systemitem>.</para>
+(<ulink url="http://www.joda.org/)">http://www.joda.org/)</ulink>.</para>
             <para>For more information about the ISO date and time standards, see
-<systemitem role="url" moreinfo="none">http://www.cl.cam.ac.uk/~mgk25/iso-time.html</systemitem>.</para>
+<ulink url="http://www.cl.cam.ac.uk/~mgk25/iso-time.html">http://www.cl.cam.ac.uk/~mgk25/iso-time.html</ulink>.</para>
             <para>For more information about nonthread-safe implementations of
 <literal moreinfo="none">SimpleDateFormat</literal>
                <indexterm id="jakartackbk-CHP-1-ITERM-1871" significance="normal">
@@ -2361,7 +2360,7 @@ is it more likely that you remember that you woke up around 9 A.M.?
 It would be appropriate to round this time to the
 <literal moreinfo="none">Calendar.MINUTE</literal> or
 <literal moreinfo="none">Calendar.HOUR</literal> field at the very
-least—recording a general time, such as
+least&#x2014;recording a general time, such as
 "around 9 A.M." In the following
 example, <literal moreinfo="none">DateUtils.round( )</literal> calculates an
 approximate time:</para>
@@ -2458,7 +2457,7 @@ the month than it is to the middle of the month. If the
 been rounded to a <literal moreinfo="none">DateUtils.SEMI_MONTH</literal>, the
 rounded date would have been set to midnight on March 16th. One would
 think that the middle of March is the 15th? Isn't
-that date the famous Ides of March—the date on which Brutus
+that date the famous Ides of March&#x2014;the date on which Brutus
 betrayed Caesar? According to <literal moreinfo="none">DateUtils</literal>, the first
 half of the month ends at 11:59 P.M. on the 15th of the month; the
 <literal moreinfo="none">DateUtils.round( )</literal> method returns the first
@@ -2476,7 +2475,7 @@ take a look at<indexterm id="jakartackbk-CHP-1-ITERM-1883" significance="normal"
 Joda contains an entire package devoted to date, time, and duration
 formatting, and it is not based on the <literal moreinfo="none">Date</literal> or
 <literal moreinfo="none">Calendar</literal> classes. For more information about Joda,
-take a look at the Joda project page at: <systemitem role="url" moreinfo="none">http://www.joda.org/</systemitem>.</para>
+take a look at the Joda project page at: <ulink url="http://www.joda.org/">http://www.joda.org/</ulink>.</para>
          </sect2>
       </sect1>
       <sect1 id="lang-sect-obtaining5" label="1.15" role="Recipe">
@@ -2745,7 +2744,7 @@ while( parts.hasNext( ) ) {
             <para>This example did not include any reference to a specific voice part,
 but, if your code needs to reference a specific voice type, it can
 use the static constants in
-<literal moreinfo="none">PartEnum</literal>—<literal moreinfo="none">PartEnum.SOPRANO</literal>,
+<literal moreinfo="none">PartEnum</literal>&#x2014;<literal moreinfo="none">PartEnum.SOPRANO</literal>,
 <literal moreinfo="none">PartEnum.ALTO</literal>, <literal moreinfo="none">PartEnum.TENOR</literal>,
 and <literal moreinfo="none">PartEnum.BASS</literal>. And, lastly, it is impossible
 to create a <literal moreinfo="none">Vocalist</literal> object with an invalid voice
@@ -2789,8 +2788,8 @@ public static final constants for category information</title>
     public void setGender(int gender) { this.gender = gender; }
 }</programlisting>
             </example>
-            <para>This class defines two properties—<literal moreinfo="none">jobStatus</literal>
-and <literal moreinfo="none">gender</literal>—and both correspond to codes
+            <para>This class defines two properties&#x2014;<literal moreinfo="none">jobStatus</literal>
+and <literal moreinfo="none">gender</literal>&#x2014;and both correspond to codes
 stored in the database. This system needs to know; that
 <literal moreinfo="none">MALE</literal>, <literal moreinfo="none">FEMALE</literal>, and
 <literal moreinfo="none">UNKNOWN</literal> are the valid values for the
@@ -2802,7 +2801,7 @@ does not define which constants are related to which property. Is
 <literal moreinfo="none">UNKNOWN</literal> a <literal moreinfo="none">gender</literal> or a
 <literal moreinfo="none">jobStatus</literal>? Some systems rename these static
 variables to reflect which properties they correspond
-to—<literal moreinfo="none">GENDER_MALE</literal>,
+to&#x2014;<literal moreinfo="none">GENDER_MALE</literal>,
 <literal moreinfo="none">GENDER_FEMALE</literal>, <literal moreinfo="none">and
 GENDER_UNKNOWN</literal> would clearly correspond to the
 <literal moreinfo="none">gender</literal> property; and
@@ -2842,7 +2841,7 @@ the solution. And, if you haven't upgraded to Java
             <para>As mentioned previously, Java 1.5 (or Tiger) has a new language
 feature: enums. If you are using Java 1.5, see the
 "Java 1.5 in a Nutshell" article
-from Sun Microsystems at <systemitem role="url" moreinfo="none">http://java.sun.com/developer/technicalArticles/releases/j2se15/</systemitem>.</para>
+from Sun Microsystems at <ulink url="http://java.sun.com/developer/technicalArticles/releases/j2se15/">http://java.sun.com/developer/technicalArticles/releases/j2se15/</ulink>.</para>
          </sect2>
       </sect1>
       <sect1 id="lang-sect-obtaining7" label="1.17" role="Recipe">
@@ -3012,7 +3011,7 @@ few utilities for working with UUID values, but, at the time of
 writing, these utilities are not yet ready for a final release. If
 you would like to either generate or use a UUID in a Java program,
 you are encouraged to follow the development of Commons Id UUID
-utilities at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons/sandbox/id</systemitem>.</para>
+utilities at <ulink url="http://jakarta.apache.org/commons/sandbox/id">http://jakarta.apache.org/commons/sandbox/id</ulink>.</para>
             <para>The J2SE contains a class that can create a unique identifier across
 every JVM: a <indexterm id="jakartackbk-CHP-1-ITERM-1918" significance="normal">
                   <primary>VMID (Virtual Machine
@@ -3035,7 +3034,7 @@ method<indexterm class="endofrange" startref="jakartackbk-CHP-1-ITERM-1902" id="
                <indexterm class="endofrange" startref="jakartackbk-CHP-1-ITERM-1903" id="jakartackbk-CHP-1-ITERM-1923" significance="normal"/> 
                <indexterm class="endofrange" startref="jakartackbk-CHP-1-ITERM-1904" id="jakartackbk-CHP-1-ITERM-1924" significance="normal"/> 
                <indexterm class="endofrange" startref="jakartackbk-CHP-1-ITERM-1905" id="jakartackbk-CHP-1-ITERM-1925" significance="normal"/> invocation (RMI), see the Javadoc
-at <systemitem role="url" moreinfo="none">http://java.sun.com/j2se/1.4.2/docs/api/java/rmi/dgc/VMID.html</systemitem>.</para>
+at <ulink url="http://java.sun.com/j2se/1.4.2/docs/api/java/rmi/dgc/VMID.html">http://java.sun.com/j2se/1.4.2/docs/api/java/rmi/dgc/VMID.html</ulink>.</para>
          </sect2>
       </sect1>
       <sect1 id="lang-sect-obtaining8" label="1.18" role="Recipe">
@@ -3083,7 +3082,7 @@ public doSomething( int param1, Object[] param2, Collection param3 ) {
             <title>Discussion</title>
             <para>Write finicky methods. Don't just work with any
 input, have some standards. Don't hang around with
-garbage or <literal moreinfo="none">null</literal>s—clean up your act, and use
+garbage or <literal moreinfo="none">null</literal>s&#x2014;clean up your act, and use
 <literal moreinfo="none">Validate</literal>. Methods in <literal moreinfo="none">Validate</literal>
 throw an <literal moreinfo="none">IllegalArgumentException</literal> if invalid
 parameters are encountered. <literal moreinfo="none">Validate.notEmpty( )</literal>
@@ -3201,9 +3200,9 @@ errors are dealt with as different application layers throw a
 potpourri of exceptions. Other, more unstable, systems will pass a
 <literal moreinfo="none">null</literal> all the way down the call stack until the
 lowest level blows up and spits back a
-<literal moreinfo="none">NullPointerException</literal>—with a long-winded
+<literal moreinfo="none">NullPointerException</literal>&#x2014;with a long-winded
 stack trace. Don't play around with
-<literal moreinfo="none">null</literal>—avoid it, test your system
+<literal moreinfo="none">null</literal>&#x2014;avoid it, test your system
 exhaustively, and throw an
 <literal moreinfo="none">IllegalArgumentException</literal>.</para>
             <para>Consider the following method, which takes a latitude, longitude, and
@@ -3218,7 +3217,7 @@ validation. To test the validity of the coordinates, two constant
 <literal moreinfo="none">DoubleRange</literal> objects are created outside of the
 method. <literal moreinfo="none">DoubleRange.includesDouble(double</literal>
                <literal moreinfo="none">d)</literal> returns true if the number falls within the
-defined range—<literal moreinfo="none">if x &lt;= rangeMax &amp;&amp; x &gt;=
+defined range&#x2014;<literal moreinfo="none">if x &lt;= rangeMax &amp;&amp; x &gt;=
 rangeMin</literal>. (See <link linkend="jakartackbk-CHP-1-EX-19">Example 1-19</link>.)</para>
             <example id="jakartackbk-CHP-1-EX-19" label="1-19">
                <title>Using the Validator and the DoubleRange to validate method parameters</title>
@@ -3250,7 +3249,7 @@ characterized by frequent occurrences of
 <literal moreinfo="none">IllegalArgumentException</literal> might seem like an odd
 recipe for increasing overall stability. But, if you actively throw
 exceptions and test exhaustively, it will be less toil and trouble to
-identify and fix defects—your application will fail sooner, and
+identify and fix defects&#x2014;your application will fail sooner, and
 you will have short stack traces and well-defined problems.
 Performing rigorous parameter validation alone will not create a
 stable system, but it is part of a larger equation, which involves
@@ -3261,7 +3260,7 @@ and then measure your test coverage with a tool like Clover or
 JCoverage, you can save yourself an amazing amount of grief fixing
 unanticipated defects. Your unit tests should be covering close to
 100% of your code, and they should throw curveballs.
-Don't just test the expected situation—if your
+Don't just test the expected situation&#x2014;if your
 method takes a double, see what it does with
 <literal moreinfo="none">Double.POSITIVE_INFINITY</literal>; and if your method takes
 an array, pass it a <literal moreinfo="none">null</literal>. Test the unexpected; if
@@ -3290,13 +3289,13 @@ methods on <literal moreinfo="none">Validate</literal> are analogous to the
 some time to look at Clover from Cortex eBusiness. Cortex eBusiness
 offers a free license to Open Source projects, but if you are using
 the product in a commercial environment, it is around $250. More
-information about Clover is available at <systemitem role="url" moreinfo="none">http://www.thecortex.net/clover/</systemitem>. Other than
+information about Clover is available at <ulink url="http://www.thecortex.net/clover/">http://www.thecortex.net/clover/</ulink>. Other than
 Clover, there is another tool named JCoverage, which can also be used
 to measure test coverage. More information about JCoverage is
-available at <systemitem role="url" moreinfo="none">http://www.jcoverage.com/</systemitem>. For more
+available at <ulink url="http://www.jcoverage.com/">http://www.jcoverage.com/</ulink>. For more
 information <indexterm class="endofrange" startref="jakartackbk-CHP-1-ITERM-1926" id="jakartackbk-CHP-1-ITERM-1929" significance="normal"/> 
                <indexterm class="endofrange" startref="jakartackbk-CHP-1-ITERM-1927" id="jakartackbk-CHP-1-ITERM-1930" significance="normal"/> 
-               <indexterm class="endofrange" startref="jakartackbk-CHP-1-ITERM-1928" id="jakartackbk-CHP-1-ITERM-1931" significance="normal"/>about JUnit, go to <systemitem role="url" moreinfo="none">http://www.junit.org/</systemitem>.</para>
+               <indexterm class="endofrange" startref="jakartackbk-CHP-1-ITERM-1928" id="jakartackbk-CHP-1-ITERM-1931" significance="normal"/>about JUnit, go to <ulink url="http://www.junit.org/">http://www.junit.org/</ulink>.</para>
          </sect2>
       </sect1>
       <sect1 id="lang-sect-obtaining9" label="1.19" role="Recipe">

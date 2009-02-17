@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE bookinfo PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
-"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<?xml version="1.0"?>
 <bookinfo>
   <isbn>9780596007065</isbn>
 
@@ -13,8 +11,7 @@
       <surname>O'Brien</surname>
 
       <authorblurb role="web">
-        <para><ulink
-        url="http://www.oreillynet.com/cs/catalog/view/au/1738?x-t=book.view"></ulink></para>
+        <para><ulink url="http://www.oreillynet.com/cs/catalog/view/au/1738?x-t=book.view"/></para>
       </authorblurb>
     </author>
   </authorgroup>
@@ -33,23 +30,17 @@
     you.</para>
   </abstract>
 
-  <bibliomisc role="errata"><ulink
-  url="http://www.oreilly.com/catalog/jakartackbk/errata/"></ulink></bibliomisc>
+  <bibliomisc role="errata"><ulink url="http://www.oreilly.com/catalog/jakartackbk/errata/"/></bibliomisc>
 
-  <bibliomisc role="reviews-published"><ulink
-  url="http://www.oreilly.com/catalog/jakartackbk/reviews.html"></ulink></bibliomisc>
+  <bibliomisc role="reviews-published"><ulink url="http://www.oreilly.com/catalog/jakartackbk/reviews.html"/></bibliomisc>
 
-  <bibliomisc role="reviews-reader"><ulink
-  url="http://www.oreilly.com/cgi-bin/reviews?bookident=jakartackbk"></ulink></bibliomisc>
+  <bibliomisc role="reviews-reader"><ulink url="http://www.oreilly.com/cgi-bin/reviews?bookident=jakartackbk"/></bibliomisc>
 
-  <bibliomisc role="catalog-page"><ulink
-  url="http://www.oreilly.com/catalog/jakartackbk/"></ulink></bibliomisc>
+  <bibliomisc role="catalog-page"><ulink url="http://www.oreilly.com/catalog/jakartackbk/"/></bibliomisc>
 
-  <bibliomisc role="buyprint"><ulink
-  url="https://epoch.oreilly.com/shop/cart.asp?prod=0-596-00706-X"></ulink></bibliomisc>
+  <bibliomisc role="buyprint"><ulink url="https://epoch.oreilly.com/shop/cart.asp?prod=0-596-00706-X"/></bibliomisc>
 
-  <bibliomisc role="academic"><ulink
-  url="http://academic.oreilly.com"></ulink></bibliomisc>
+  <bibliomisc role="academic"><ulink url="http://academic.oreilly.com"/></bibliomisc>
 
   <!--  offlinecontentlist to be filled in by sfmetafetch  -->
 </bookinfo>

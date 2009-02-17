@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
-"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<?xml version="1.0"?>
 <chapter id="xml" label="6">
   <title>XML</title>
 
@@ -28,11 +26,8 @@
     <para>More than a few developers have noted that parsing a simple XML
     document with SAX or DOM can be an unreasonably complex task, especially
     if one is simply attempting to create a prototype. With SAX, you need to
-    write a series of callback methods like <literal
-    moreinfo="none">startElement( )</literal> and <literal
-    moreinfo="none">endElement()</literal>, and in DOM, you need to write a
-    not-trivial amount of code to traverse a <literal
-    moreinfo="none">Document</literal> object. It isn't the case that you
+    write a series of callback methods like <literal moreinfo="none">startElement( )</literal> and <literal moreinfo="none">endElement()</literal>, and in DOM, you need to write a
+    not-trivial amount of code to traverse a <literal moreinfo="none">Document</literal> object. It isn't the case that you
     should never write a DOM or SAX parser; there are some systems that call
     for this level of control and complexity, and a thorough knowledge of SAX,
     DOM, and JDOM is essential knowledge for any developer. This chapter isn't
@@ -55,7 +50,7 @@
     options. If you don't like what you see in this chapter, there are a
     variety of options, and while the abundance of choice is overwhelming,
     open source is about having options and choices. This chapter introduces
-    you to two battle-tested options from Jakarta Commons—Jakarta Commons
+    you to two battle-tested options from Jakarta Commons&#x2014;Jakarta Commons
     Digester and Jakarta Commons Betwixt.</para>
 
     <para>Commons Digester makes the task of parsing XML exceedingly
@@ -64,10 +59,8 @@
     code. If you use Digester with an XML rule set, it is possible to write a
     system that parses an XML document with three or four lines of compiled
     code and no hardcoded logic dealing with document structure. Commons
-    Betwixt maps beans to XML documents and vice versa. The <literal
-    moreinfo="none">BeanWriter</literal> class can be used to serialize an
-    object as an XML document, and the <literal
-    moreinfo="none">BeanReader</literal> can be used to read an XML document.
+    Betwixt maps beans to XML documents and vice versa. The <literal moreinfo="none">BeanWriter</literal> class can be used to serialize an
+    object as an XML document, and the <literal moreinfo="none">BeanReader</literal> can be used to read an XML document.
     The XML produced by Betwixt can be customized with an XML document that
     controls such things as whether properties are to be serialized as
     attributes or elements, how Collections are handled, or how property names
@@ -76,11 +69,9 @@
     <para>For more information about XML data binding, pick up a copy of Brett
     McLaughlin's <emphasis>Java &amp; XML Data Binding</emphasis> (O'Reilly)
     or <emphasis>Java &amp; XML</emphasis> (O'Reilly). For more information
-    about XML, see the W3C at <systemitem moreinfo="none"
-    role="url">http://www.w3c.org</systemitem>. For a list of technologies,
+    about XML, see the W3C at <ulink url="http://www.w3c.org">http://www.w3c.org</ulink>. For a list of technologies,
     take a look at Ronald Bourret's <emphasis>XML Data Binding
-    Resources</emphasis> (<systemitem moreinfo="none"
-    role="url">http://www.rpbourret.com/xml/XMLDataBinding.htm</systemitem>).</para>
+    Resources</emphasis> (<ulink url="http://www.rpbourret.com/xml/XMLDataBinding.htm">http://www.rpbourret.com/xml/XMLDataBinding.htm</ulink>).</para>
   </sect1>
 
   <sect1 id="xml-sect-obtaining-digester" label="6.1" role="Recipe">
@@ -89,18 +80,15 @@
     <sect2>
       <title>Problem</title>
 
-      <para>You need to use Jakarta <indexterm
-          id="xml-ITERM-2690" significance="normal">
+      <para>You need to use Jakarta <indexterm id="xml-ITERM-2690" significance="normal">
           <primary>Commons Digester</primary>
 
           <secondary>downloading</secondary>
-        </indexterm> <indexterm id="xml-ITERM-2691"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2691" significance="normal">
           <primary>downloading</primary>
 
           <secondary>Commons Digester</secondary>
-        </indexterm> <indexterm id="xml-ITERM-2692"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2692" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>Commons Digester, downloading</secondary>
@@ -113,16 +101,11 @@
 
       <para>You must download the latest version of Commons Digester and place
       the Commons Digester JAR<filename moreinfo="none"> </filename>in your
-      project's classpath. Following the steps outlined in <link
-      linkend="lang-sect-obtaining">Recipe 1.1</link>, download Commons
+      project's classpath. Following the steps outlined in <link linkend="lang-sect-obtaining">Recipe 1.1</link>, download Commons
       Digester 1.5 instead of Commons Lang. Uncompress the distribution
-      archive and place <filename
-      moreinfo="none">commons-digester.jar</filename> in your classpath.
+      archive and place <filename moreinfo="none">commons-digester.jar</filename> in your classpath.
       Commons Digester depends on Commons BeanUtils, Commons Logging, and
-      Commons Collections. To download dependencies, see <link
-      linkend="beans-sect-obtaining">Recipe 3.2</link>, <link
-      linkend="collections-sect-obtaining">Recipe 5.1</link>, and <link
-      linkend="app-infra-sect-obtaining-logging">Recipe 7.9</link>.</para>
+      Commons Collections. To download dependencies, see <link linkend="beans-sect-obtaining">Recipe 3.2</link>, <link linkend="collections-sect-obtaining">Recipe 5.1</link>, and <link linkend="app-infra-sect-obtaining-logging">Recipe 7.9</link>.</para>
     </sect2>
 
     <sect2>
@@ -135,8 +118,7 @@
       the main configuration point for Jakarta Struts, and it is converted to
       a set of objects using the Digester. The Digester's most straightforward
       application is the mapping of an XML document to a set of Java objects,
-      but, as shown in this chapter and <link
-      linkend="searching-filtering">Chapter 12</link>, Digester can also be
+      but, as shown in this chapter and <link linkend="searching-filtering">Chapter 12</link>, Digester can also be
       used to create a simple XML command language and search index. Digester
       is a shortcut for creating a SAX parser. Almost anything you can do with
       a SAX parser can be done with Jakarta Commons Digester.</para>
@@ -158,10 +140,8 @@
       <title>See Also</title>
 
       <para>For more information about Commons Digester, see the Commons
-      Digester project page at <systemitem moreinfo="none"
-      role="url">http://jakarta.apache.org/commons/digester</systemitem>. For
-      information about using the Digester to create a Lucene index, see <link
-      linkend="searching-filtering">Chapter 12</link>.</para>
+      Digester project page at <ulink url="http://jakarta.apache.org/commons/digester">http://jakarta.apache.org/commons/digester</ulink>. For
+      information about using the Digester to create a Lucene index, see <link linkend="searching-filtering">Chapter 12</link>.</para>
     </sect2>
   </sect1>
 
@@ -171,29 +151,25 @@
     <sect2>
       <title>Problem</title>
 
-      <para>You need to parse an XML <indexterm class="startofrange"
-          id="xml-ITERM-2693" significance="normal">
+      <para>You need to parse an XML <indexterm class="startofrange" id="xml-ITERM-2693" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>documents</secondary>
 
           <tertiary>converting to objects</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2694" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2694" significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>converting to objects</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2695" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2695" significance="normal">
           <primary>objects</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>converting to</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2696" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2696" significance="normal">
           <primary>conversion</primary>
 
           <secondary>XML</secondary>
@@ -244,19 +220,10 @@
   &lt;/play&gt;
 &lt;/plays&gt;</programlisting>
 
-      <para>This XML document contains a list of <literal
-      moreinfo="none">play</literal> elements describing plays by William
-      Shakespeare. One play element describes "Hamlet"; it includes a <literal
-      moreinfo="none">name</literal>, <literal
-      moreinfo="none">author</literal>, and <literal
-      moreinfo="none">summary</literal> element as well as a <literal
-      moreinfo="none">characters</literal> element containing <literal
-      moreinfo="none">character</literal> elements describing characters in
-      the play. After parsing a document with Digester, each <literal
-      moreinfo="none">play</literal> element will be represented by a <literal
-      moreinfo="none">Play</literal> object with a set of properties and a
-      <literal moreinfo="none">List</literal> of <literal
-      moreinfo="none">Character</literal> objects:</para>
+      <para>This XML document contains a list of <literal moreinfo="none">play</literal> elements describing plays by William
+      Shakespeare. One play element describes "Hamlet"; it includes a <literal moreinfo="none">name</literal>, <literal moreinfo="none">author</literal>, and <literal moreinfo="none">summary</literal> element as well as a <literal moreinfo="none">characters</literal> element containing <literal moreinfo="none">character</literal> elements describing characters in
+      the play. After parsing a document with Digester, each <literal moreinfo="none">play</literal> element will be represented by a <literal moreinfo="none">Play</literal> object with a set of properties and a
+      <literal moreinfo="none">List</literal> of <literal moreinfo="none">Character</literal> objects:</para>
 
       <programlisting format="linespecific" id="I_6_tt260">public class Play {
     private String genre;
@@ -285,12 +252,10 @@ public class Character {
 
       <para>The Digester maps XML to objects using a set of rules, which can
       be defined either in an XML file, or they can be constructed
-      programmatically by creating instances of <literal
-      moreinfo="none">Rule</literal> and adding them to an instance of
+      programmatically by creating instances of <literal moreinfo="none">Rule</literal> and adding them to an instance of
       <literal moreinfo="none">Digester</literal>. This recipe uses an XML
       file to create a set of rules that tell the Digester how to translate an
-      XML document to a <literal moreinfo="none">List</literal> of <literal
-      moreinfo="none">Play</literal> objects:</para>
+      XML document to a <literal moreinfo="none">List</literal> of <literal moreinfo="none">Play</literal> objects:</para>
 
       <programlisting format="linespecific" id="I_6_tt261">&lt;?xml version="1.0"?&gt;
 
@@ -319,18 +284,13 @@ public class Character {
 
       <para>This mapping document (or rule sets) can be explained in very
       straightforward language. It is telling Digester how to deal with the
-      document, "When you see an element matching the pattern <filename
-      moreinfo="none">plays/play</filename>, create an instance of <literal
-      moreinfo="none">xml.digester.Play</literal>, set some properties, and
-      push it on to a <literal moreinfo="none">Stack</literal> (<literal
-      moreinfo="none">object-create-rule</literal>). If you encounter an
+      document, "When you see an element matching the pattern <filename moreinfo="none">plays/play</filename>, create an instance of <literal moreinfo="none">xml.digester.Play</literal>, set some properties, and
+      push it on to a <literal moreinfo="none">Stack</literal> (<literal moreinfo="none">object-create-rule</literal>). If you encounter an
       element within a <literal moreinfo="none">play</literal> element that
       matches <filename moreinfo="none">characters/character</filename>,
-      create an instance of <literal
-      moreinfo="none">xml.digester.Character</literal>, set some properties,
+      create an instance of <literal moreinfo="none">xml.digester.Character</literal>, set some properties,
       and add it to the <literal moreinfo="none">Play</literal> object." The
-      following code creates an instance of <literal
-      moreinfo="none">Digester</literal> from the XML rule sets shown
+      following code creates an instance of <literal moreinfo="none">Digester</literal> from the XML rule sets shown
       previously, producing a <literal moreinfo="none">plays List</literal>,
       which contains one <literal moreinfo="none">Play</literal>
       object:</para>
@@ -361,8 +321,7 @@ List characters = (List) hamlet.getCharacters( );</programlisting>
 
       <para>Digester is simple, but there is one concept you need to
       understand: Digester uses a <literal moreinfo="none">Stack</literal> to
-      relate objects to one another. In the previous example, <literal
-      moreinfo="none">set-next-rule</literal> tells the Digester to relate the
+      relate objects to one another. In the previous example, <literal moreinfo="none">set-next-rule</literal> tells the Digester to relate the
       top of the <literal moreinfo="none">Stack</literal> to the next-to-top
       of the <literal moreinfo="none">Stack</literal>. Before the XML document
       is parsed, a <literal moreinfo="none">List</literal> is pushed onto the
@@ -370,30 +329,19 @@ List characters = (List) hamlet.getCharacters( );</programlisting>
       encounters a <literal moreinfo="none">play</literal> element, it will
       create an instance of <literal moreinfo="none">Play</literal>, push it
       onto the top of the <literal moreinfo="none">Stack</literal>, and call
-      <literal moreinfo="none">add( )</literal> with <literal
-      moreinfo="none">Play</literal> as an argument on the object next to the
+      <literal moreinfo="none">add( )</literal> with <literal moreinfo="none">Play</literal> as an argument on the object next to the
       top of the stack. Since the <literal moreinfo="none">List</literal> is
       next to the top of the <literal moreinfo="none">Stack</literal>, the
       Digester is simply adding the <literal moreinfo="none">Play</literal> to
       the <literal moreinfo="none">playList</literal>. Within the pattern
       element matching <filename moreinfo="none">plays/play</filename>, there
-      is another pattern element matching <filename
-      moreinfo="none">characters/character</filename>. When an element
+      is another pattern element matching <filename moreinfo="none">characters/character</filename>. When an element
       matching <filename moreinfo="none">characters/character</filename> is
       encountered, a <literal moreinfo="none">Character</literal> object is
-      created, pushed onto the top of the <literal
-      moreinfo="none">Stack</literal>, and the <literal
-      moreinfo="none">addCharacter( )</literal> method is called on the next
+      created, pushed onto the top of the <literal moreinfo="none">Stack</literal>, and the <literal moreinfo="none">addCharacter( )</literal> method is called on the next
       to top of the <literal moreinfo="none">Stack</literal>. When the
       <literal moreinfo="none">Character</literal> object is pushed onto the
-      top of the <literal moreinfo="none">Stack</literal>, the <literal
-      moreinfo="none">Play</literal> object is next to the top of the <literal
-      moreinfo="none">Stack</literal>; therefore, the call to <literal
-      moreinfo="none">addCharacter( )</literal> adds a <literal
-      moreinfo="none">Character</literal> to the <literal
-      moreinfo="none">List</literal> of <literal
-      moreinfo="none">Character</literal> objects in the <literal
-      moreinfo="none">Play</literal> object.</para>
+      top of the <literal moreinfo="none">Stack</literal>, the <literal moreinfo="none">Play</literal> object is next to the top of the <literal moreinfo="none">Stack</literal>; therefore, the call to <literal moreinfo="none">addCharacter( )</literal> adds a <literal moreinfo="none">Character</literal> to the <literal moreinfo="none">List</literal> of <literal moreinfo="none">Character</literal> objects in the <literal moreinfo="none">Play</literal> object.</para>
 
       <para>Digester can be summed up as follows: define patterns to be
       matched and a sequence of actions (rules) to take when these patterns
@@ -401,12 +349,9 @@ List characters = (List) hamlet.getCharacters( );</programlisting>
       parser, letting you accomplish the same task without having to deal with
       the complexity of the SAX API. If you look at the source for the
       <literal moreinfo="none">org.apache.commons.digester.Digester</literal>
-      class, you see that it implements <literal
-      moreinfo="none">org.xml.sax.helpers.DefaultHandler</literal> and that a
-      call to <literal moreinfo="none">parse( )</literal> causes <literal
-      moreinfo="none">Digester</literal> to register itself as a content
-      handler on an instance of <literal
-      moreinfo="none">org.xml.sax.XMLReader</literal>. Digester is simply a
+      class, you see that it implements <literal moreinfo="none">org.xml.sax.helpers.DefaultHandler</literal> and that a
+      call to <literal moreinfo="none">parse( )</literal> causes <literal moreinfo="none">Digester</literal> to register itself as a content
+      handler on an instance of <literal moreinfo="none">org.xml.sax.XMLReader</literal>. Digester is simply a
       lightweight shell around SAX, and, because of this, you can parse XML
       just as fast with the Digester as with a system written to the SAX
       API.</para>
@@ -416,8 +361,7 @@ List characters = (List) hamlet.getCharacters( );</programlisting>
       same. The following code recreates the rule set defined in the previous
       <indexterm id="xml-ITERM-2697" significance="normal">
           <primary>rules, XML</primary>
-        </indexterm> <indexterm id="xml-ITERM-2698"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2698" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>rules</secondary>
@@ -470,22 +414,9 @@ rules.add( "plays/play/characters/character/description",
     <sect2>
       <title>See Also</title>
 
-      <para>More information about Digester<indexterm class="endofrange"
-      id="xml-ITERM-2699" significance="normal"
-      startref="xml-ITERM-2693"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2700"
-      significance="normal"
-      startref="xml-ITERM-2694"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2701"
-      significance="normal"
-      startref="xml-ITERM-2695"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2702"
-      significance="normal"
-      startref="xml-ITERM-2696"></indexterm> XML rule sets can
-      be found in the package document for <literal
-      moreinfo="none">org.apache.commons.digester.xmlrules</literal>
-      (<systemitem moreinfo="none"
-      role="url">http://jakarta.apache.org/commons/digester/apidocs/index.html</systemitem>).</para>
+      <para>More information about Digester<indexterm class="endofrange" id="xml-ITERM-2699" significance="normal" startref="xml-ITERM-2693"/> <indexterm class="endofrange" id="xml-ITERM-2700" significance="normal" startref="xml-ITERM-2694"/> <indexterm class="endofrange" id="xml-ITERM-2701" significance="normal" startref="xml-ITERM-2695"/> <indexterm class="endofrange" id="xml-ITERM-2702" significance="normal" startref="xml-ITERM-2696"/> XML rule sets can
+      be found in the package document for <literal moreinfo="none">org.apache.commons.digester.xmlrules</literal>
+      (<ulink url="http://jakarta.apache.org/commons/digester/apidocs/index.html">http://jakarta.apache.org/commons/digester/apidocs/index.html</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -501,35 +432,28 @@ rules.add( "plays/play/characters/character/description",
     <sect2>
       <title>Solution</title>
 
-      <para>Use Digester to parse<indexterm class="startofrange"
-          id="xml-ITERM-2703" significance="normal">
+      <para>Use Digester to parse<indexterm class="startofrange" id="xml-ITERM-2703" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>documents</secondary>
 
           <tertiary>namespace-aware parsing</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2704" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2704" significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>namespace-aware parsing</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2705" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2705" significance="normal">
           <primary>namespace-aware parsing</primary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2706" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2706" significance="normal">
           <primary>parsing</primary>
 
           <secondary>namespace-aware</secondary>
-        </indexterm> XML with multiple namespaces, using <literal
-      moreinfo="none">digester.setNamespaceAware(true)</literal>, and
+        </indexterm> XML with multiple namespaces, using <literal moreinfo="none">digester.setNamespaceAware(true)</literal>, and
       supplying two <literal moreinfo="none">RuleSet</literal> objects to
       parse elements in each namespace. Consider the following document, which
-      contains elements from two namespaces: <filename
-      moreinfo="none">http://discursive.com/page</filename> and <filename
-      moreinfo="none">http://discursive.com/person</filename>:</para>
+      contains elements from two namespaces: <filename moreinfo="none">http://discursive.com/page</filename> and <filename moreinfo="none">http://discursive.com/person</filename>:</para>
 
       <programlisting format="linespecific" id="I_6_tt264">&lt;?xml version="1.0"?&gt;
 
@@ -546,18 +470,9 @@ rules.add( "plays/play/characters/character/description",
 &lt;/pages&gt;</programlisting>
 
       <para>To parse this XML document with the Digester, you need to create
-      two separate sets of rules for each namespace, adding each <literal
-      moreinfo="none">RuleSet</literal> object to <literal
-      moreinfo="none">Digester</literal> with <literal
-      moreinfo="none">addRuleSet( )</literal>. A <literal
-      moreinfo="none">RuleSet</literal> adds <literal
-      moreinfo="none">Rule</literal> objects to an instance of <literal
-      moreinfo="none">Digester</literal>. By extending the <literal
-      moreinfo="none">RuleSetBase</literal> class, and setting the <literal
-      moreinfo="none">namespaceURI</literal> in the default constructor, the
+      two separate sets of rules for each namespace, adding each <literal moreinfo="none">RuleSet</literal> object to <literal moreinfo="none">Digester</literal> with <literal moreinfo="none">addRuleSet( )</literal>. A <literal moreinfo="none">RuleSet</literal> adds <literal moreinfo="none">Rule</literal> objects to an instance of <literal moreinfo="none">Digester</literal>. By extending the <literal moreinfo="none">RuleSetBase</literal> class, and setting the <literal moreinfo="none">namespaceURI</literal> in the default constructor, the
       following class, <literal moreinfo="none">PersonRuleSet</literal>,
-      defines rules to parse the <filename
-      moreinfo="none">http://discursive.com/person</filename>
+      defines rules to parse the <filename moreinfo="none">http://discursive.com/person</filename>
       namespace:</para>
 
       <programlisting format="linespecific" id="I_6_tt265">import org.apache.commons.digester.Digester;
@@ -576,30 +491,20 @@ public class PersonRuleSet extends RuleSetBase {
     }
 }</programlisting>
 
-      <para><literal moreinfo="none">PersonRuleSet</literal> extends <literal
-      moreinfo="none">RuleSetBase</literal> <indexterm
-          id="xml-ITERM-2707" significance="normal">
+      <para><literal moreinfo="none">PersonRuleSet</literal> extends <literal moreinfo="none">RuleSetBase</literal> <indexterm id="xml-ITERM-2707" significance="normal">
           <primary>RuleSetBase</primary>
-        </indexterm>, which is an implementation of the <literal
-      moreinfo="none">RuleSet</literal> <indexterm
-          id="xml-ITERM-2708" significance="normal">
+        </indexterm>, which is an implementation of the <literal moreinfo="none">RuleSet</literal> <indexterm id="xml-ITERM-2708" significance="normal">
           <primary>interfaces</primary>
 
           <secondary>RuleSet</secondary>
         </indexterm> interface. <literal moreinfo="none">RuleSetBase</literal>
-      adds support for namespaces with a protected field <literal
-      moreinfo="none">namespaceURI</literal>. The constructor of <literal
-      moreinfo="none">PersonRuleSet</literal> <indexterm
-          id="xml-ITERM-2709" significance="normal">
+      adds support for namespaces with a protected field <literal moreinfo="none">namespaceURI</literal>. The constructor of <literal moreinfo="none">PersonRuleSet</literal> <indexterm id="xml-ITERM-2709" significance="normal">
           <primary>PersonRuleSet</primary>
         </indexterm> sets the <literal moreinfo="none">namespaceURI</literal>
-      field to <filename
-      moreinfo="none">http://discursive.com/person</filename>, which tells the
+      field to <filename moreinfo="none">http://discursive.com/person</filename>, which tells the
       <literal moreinfo="none">Digester</literal> to apply these rules only to
-      elements and attributes in the <filename
-      moreinfo="none">http://discursive.com/person</filename> namespace.
-      <literal moreinfo="none">PageRuleSet</literal> extends <literal
-      moreinfo="none">RuleSetBase</literal> and provides a set of rules for
+      elements and attributes in the <filename moreinfo="none">http://discursive.com/person</filename> namespace.
+      <literal moreinfo="none">PageRuleSet</literal> extends <literal moreinfo="none">RuleSetBase</literal> and provides a set of rules for
       the <filename moreinfo="none">http://discursive.com/page</filename>
       namespace:</para>
 
@@ -620,28 +525,17 @@ public class PageRuleSet extends RuleSetBase {
 }</programlisting>
 
       <para>Both <literal moreinfo="none">RuleSet</literal> implementations
-      instruct the Digester to create a <literal
-      moreinfo="none">Page</literal> or a <literal
-      moreinfo="none">Person</literal> object whenever either element is
+      instruct the Digester to create a <literal moreinfo="none">Page</literal> or a <literal moreinfo="none">Person</literal> object whenever either element is
       encountered. The <literal moreinfo="none">PageRuleSet</literal>
-      instructs the Digester to create a <literal
-      moreinfo="none">Page</literal> object when a <literal
-      moreinfo="none">page</literal> element is encountered by using a
-      wildcard pattern—<filename moreinfo="none">*/page</filename>. Both
-      <literal moreinfo="none">PageRuleSet</literal> and <literal
-      moreinfo="none">PersonRuleSet</literal> use <literal
-      moreinfo="none">digester.addSetNext( )</literal> to add the objects just
-      created to the next object in the <literal
-      moreinfo="none">Stack</literal>. In the following code, an instance of
+      instructs the Digester to create a <literal moreinfo="none">Page</literal> object when a <literal moreinfo="none">page</literal> element is encountered by using a
+      wildcard pattern&#x2014;<filename moreinfo="none">*/page</filename>. Both
+      <literal moreinfo="none">PageRuleSet</literal> and <literal moreinfo="none">PersonRuleSet</literal> use <literal moreinfo="none">digester.addSetNext( )</literal> to add the objects just
+      created to the next object in the <literal moreinfo="none">Stack</literal>. In the following code, an instance of
       <literal moreinfo="none">Pages</literal> is pushed onto the Digester
-      <literal moreinfo="none">Stack</literal>, and both <literal
-      moreinfo="none">RuleSet</literal> implementations are added to a
-      <literal moreinfo="none">Digester</literal> using <literal
-      moreinfo="none">addRuleSet()</literal> <indexterm
-          id="xml-ITERM-2710" significance="normal">
+      <literal moreinfo="none">Stack</literal>, and both <literal moreinfo="none">RuleSet</literal> implementations are added to a
+      <literal moreinfo="none">Digester</literal> using <literal moreinfo="none">addRuleSet()</literal> <indexterm id="xml-ITERM-2710" significance="normal">
           <primary>addRuleSet( ) method</primary>
-        </indexterm> <indexterm id="xml-ITERM-2711"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2711" significance="normal">
           <primary>methods</primary>
 
           <secondary>addRuleSet( )</secondary>
@@ -670,10 +564,7 @@ System.out.println(page);</programlisting>
 
       <para>Because the <literal moreinfo="none">PageRuleSet</literal> adds
       each <literal moreinfo="none">Page</literal> object to the next object
-      on the <literal moreinfo="none">Stack</literal>, the <literal
-      moreinfo="none">Pages</literal> object has an <literal
-      moreinfo="none">addPage( )</literal> method that accepts a <literal
-      moreinfo="none">Page</literal> object.</para>
+      on the <literal moreinfo="none">Stack</literal>, the <literal moreinfo="none">Pages</literal> object has an <literal moreinfo="none">addPage( )</literal> method that accepts a <literal moreinfo="none">Page</literal> object.</para>
     </sect2>
 
     <sect2>
@@ -714,21 +605,10 @@ System.out.println(page);</programlisting>
       <para>Calling <literal moreinfo="none">digester.setRuleNamespaceURI(
       )</literal> associates the <literal moreinfo="none">Rule</literal>s
       contained in each <literal moreinfo="none">FromXmlRuleSet</literal> with
-      a specific namespace. In the Solution, the <literal
-      moreinfo="none">RuleSetBase</literal> protected field <literal
-      moreinfo="none">namespaceURI</literal> was used to associate <literal
-      moreinfo="none">RuleSet</literal> objects with namespaces. In the
-      previous example, the namespace is specified by calling <literal
-      moreinfo="none">setRuleNamespaceURI( )</literal> before each <literal
-      moreinfo="none">FromXmlRuleSet</literal> is added to the <literal
-      moreinfo="none">digester</literal> because there is no access to the
-      protected member variable, <literal
-      moreinfo="none">namespaceURI</literal>, which <literal
-      moreinfo="none">FromXmlRuleSet</literal> inherits from <literal
-      moreinfo="none">RuleSetBase</literal>. <filename
-      moreinfo="none">person-rules.xml</filename> contains an XML rule set for
-      parsing the <filename
-      moreinfo="none">http://discursive.com/person</filename>
+      a specific namespace. In the Solution, the <literal moreinfo="none">RuleSetBase</literal> protected field <literal moreinfo="none">namespaceURI</literal> was used to associate <literal moreinfo="none">RuleSet</literal> objects with namespaces. In the
+      previous example, the namespace is specified by calling <literal moreinfo="none">setRuleNamespaceURI( )</literal> before each <literal moreinfo="none">FromXmlRuleSet</literal> is added to the <literal moreinfo="none">digester</literal> because there is no access to the
+      protected member variable, <literal moreinfo="none">namespaceURI</literal>, which <literal moreinfo="none">FromXmlRuleSet</literal> inherits from <literal moreinfo="none">RuleSetBase</literal>. <filename moreinfo="none">person-rules.xml</filename> contains an XML rule set for
+      parsing the <filename moreinfo="none">http://discursive.com/person</filename>
       namespace:</para>
 
       <programlisting format="linespecific" id="I_6_tt269">&lt;?xml version="1.0"?&gt;
@@ -747,8 +627,7 @@ System.out.println(page);</programlisting>
 &lt;/digester-rules&gt;</programlisting>
 
       <para><literal moreinfo="none">page-rules.xml</literal> contains an XML
-      rule set for parsing the <filename
-      moreinfo="none">http://discursive.com/page</filename> namespace:</para>
+      rule set for parsing the <filename moreinfo="none">http://discursive.com/page</filename> namespace:</para>
 
       <programlisting format="linespecific" id="I_6_tt270">&lt;?xml version="1.0"?&gt;
 
@@ -769,23 +648,10 @@ System.out.println(page);</programlisting>
     <sect2>
       <title>See Also</title>
 
-      <para>For more information relating to the use<indexterm
-      class="endofrange" id="xml-ITERM-2712"
-      significance="normal"
-      startref="xml-ITERM-2703"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2713"
-      significance="normal"
-      startref="xml-ITERM-2704"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2714"
-      significance="normal"
-      startref="xml-ITERM-2705"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2715"
-      significance="normal"
-      startref="xml-ITERM-2706"></indexterm> of namespaces in
+      <para>For more information relating to the use<indexterm class="endofrange" id="xml-ITERM-2712" significance="normal" startref="xml-ITERM-2703"/> <indexterm class="endofrange" id="xml-ITERM-2713" significance="normal" startref="xml-ITERM-2704"/> <indexterm class="endofrange" id="xml-ITERM-2714" significance="normal" startref="xml-ITERM-2705"/> <indexterm class="endofrange" id="xml-ITERM-2715" significance="normal" startref="xml-ITERM-2706"/> of namespaces in
       the <literal moreinfo="none">Digester</literal>, refer to the Javadoc
       for the <literal moreinfo="none">org.apache.commons.digester</literal>
-      package at <systemitem moreinfo="none"
-      role="url">http://jakarta.apache.org/commons/digester/apidocs</systemitem>.</para>
+      package at <ulink url="http://jakarta.apache.org/commons/digester/apidocs">http://jakarta.apache.org/commons/digester/apidocs</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -795,25 +661,21 @@ System.out.println(page);</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You would like to capture <indexterm class="startofrange"
-          id="xml-ITERM-2716" significance="normal">
+      <para>You would like to capture <indexterm class="startofrange" id="xml-ITERM-2716" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>documents</secondary>
 
           <tertiary>commands</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2717" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2717" significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>commands</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2718" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2718" significance="normal">
           <primary>commands, XML</primary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2719" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2719" significance="normal">
           <primary>capturing</primary>
 
           <secondary>XML commands</secondary>
@@ -824,8 +686,7 @@ System.out.println(page);</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Write a custom implementation of <literal
-      moreinfo="none">Rule</literal>, and create a rule set that instructs
+      <para>Write a custom implementation of <literal moreinfo="none">Rule</literal>, and create a rule set that instructs
       Commons Digester to invoke these rules when specific elements are
       parsed. Consider the example of a system that sends an encrypted email.
       The following XML document contains instructions for the primitive
@@ -843,37 +704,25 @@ System.out.println(page);</programlisting>
   &lt;/email&gt;
 &lt;/operations&gt;</programlisting>
 
-      <para>The<indexterm id="xml-ITERM-2720"
-          significance="normal">
+      <para>The<indexterm id="xml-ITERM-2720" significance="normal">
           <primary>email</primary>
 
           <secondary>tags</secondary>
-        </indexterm> <indexterm id="xml-ITERM-2721"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2721" significance="normal">
           <primary>tags</primary>
 
           <secondary>email</secondary>
         </indexterm> <literal moreinfo="none">email</literal> tag surrounds
-      three elements—<literal moreinfo="none">replace</literal>, <literal
-      moreinfo="none">lower</literal>, and <literal
-      moreinfo="none">reverse</literal>. The system that executes these
-      commands receives a message as a <literal
-      moreinfo="none">String</literal> and runs this <literal
-      moreinfo="none">String</literal> through three stages before sending an
+      three elements&#x2014;<literal moreinfo="none">replace</literal>, <literal moreinfo="none">lower</literal>, and <literal moreinfo="none">reverse</literal>. The system that executes these
+      commands receives a message as a <literal moreinfo="none">String</literal> and runs this <literal moreinfo="none">String</literal> through three stages before sending an
       email to <filename moreinfo="none">tobrien@discursive.com</filename>.
-      When the parser encounters the <literal
-      moreinfo="none">replace</literal> element, it replaces all occurrences
+      When the parser encounters the <literal moreinfo="none">replace</literal> element, it replaces all occurrences
       of the contents of the <literal moreinfo="none">search</literal>
-      attribute with the contents of the <literal
-      moreinfo="none">replace</literal> attribute. When the parser encounters
+      attribute with the contents of the <literal moreinfo="none">replace</literal> attribute. When the parser encounters
       a <literal moreinfo="none">lower</literal> element, it translates all
-      characters to lowercase; and when the parser encounters a <literal
-      moreinfo="none">reverse</literal> element, it reverses the <literal
-      moreinfo="none">String</literal>. When the parser encounters the end of
+      characters to lowercase; and when the parser encounters a <literal moreinfo="none">reverse</literal> element, it reverses the <literal moreinfo="none">String</literal>. When the parser encounters the end of
       the <literal moreinfo="none">email</literal> element, the result of
-      these four operations is sent to the recipient specified in the <literal
-      moreinfo="none">to</literal> attribute of the <literal
-      moreinfo="none">email</literal> element.</para>
+      these four operations is sent to the recipient specified in the <literal moreinfo="none">to</literal> attribute of the <literal moreinfo="none">email</literal> element.</para>
 
       <programlisting format="linespecific" id="I_6_tt272">import org.apache.commons.digester.Digester;
 
@@ -900,13 +749,8 @@ digester.parse( encrypt );
 System.out.println("Resulting Message: " + message.getText( ) );</programlisting>
 
       <para>The <literal moreinfo="none">Message</literal> object is a bean
-      with one <literal moreinfo="none">String</literal> property: <literal
-      moreinfo="none">text</literal>. This <literal
-      moreinfo="none">Message</literal> object is pushed onto the <literal
-      moreinfo="none">Digester</literal>'s <literal
-      moreinfo="none">Stack</literal> and is acted upon by each of the
-      commands in the XML document <filename
-      moreinfo="none">encrypt.xml</filename>, shown previously. This code is
+      with one <literal moreinfo="none">String</literal> property: <literal moreinfo="none">text</literal>. This <literal moreinfo="none">Message</literal> object is pushed onto the <literal moreinfo="none">Digester</literal>'s <literal moreinfo="none">Stack</literal> and is acted upon by each of the
+      commands in the XML document <filename moreinfo="none">encrypt.xml</filename>, shown previously. This code is
       executed, and the following output is produced showing that the original
       message has been passed through two replace commands, a lowercase
       command, and a reverse command:</para>
@@ -914,36 +758,21 @@ System.out.println("Resulting Message: " + message.getText( ) );</programlisting
       <programlisting format="linespecific" id="I_6_tt273">Intial Message: Hello World!
 Resulting Message: !zlrqw qlleh</programlisting>
 
-      <para>This example defines three new extensions of <literal
-      moreinfo="none">Rule</literal>: <literal
-      moreinfo="none">EmailRule</literal>, <literal
-      moreinfo="none">LowerRule</literal>, <literal
-      moreinfo="none">ReverseRule</literal>, and <literal
-      moreinfo="none">ReplaceRule</literal>. Each of these rules will retrieve
-      and operate upon the root object from the <literal
-      moreinfo="none">Digester</literal>; this "root" object is the bottom of
+      <para>This example defines three new extensions of <literal moreinfo="none">Rule</literal>: <literal moreinfo="none">EmailRule</literal>, <literal moreinfo="none">LowerRule</literal>, <literal moreinfo="none">ReverseRule</literal>, and <literal moreinfo="none">ReplaceRule</literal>. Each of these rules will retrieve
+      and operate upon the root object from the <literal moreinfo="none">Digester</literal>; this "root" object is the bottom of
       the <literal moreinfo="none">Stack</literal>, and, in this case, the
       <literal moreinfo="none">Message</literal> object pushed onto the
       <literal moreinfo="none">Digester</literal> before parsing. These rules
       are assigned to patterns; for example, the previous code associates the
-      <literal moreinfo="none">EmailRule</literal> with the <filename
-      moreinfo="none">*/email</filename> pattern and the <literal
-      moreinfo="none">LowerRule</literal> with the <filename
-      moreinfo="none">*/lower</filename> pattern. The <literal
-      moreinfo="none">Rule</literal> object defines a series of callback
-      methods to handle different stages of parsing an element—<literal
-      moreinfo="none">begin( )</literal>, <literal moreinfo="none">body(
-      )</literal>, <literal moreinfo="none">end( )</literal>, and <literal
-      moreinfo="none">finish( )</literal>. The <literal
-      moreinfo="none">LowerRule</literal> from the previous example overrides
-      one method, and manipulates the <literal
-      moreinfo="none">Message</literal> that which is on the top of the
+      <literal moreinfo="none">EmailRule</literal> with the <filename moreinfo="none">*/email</filename> pattern and the <literal moreinfo="none">LowerRule</literal> with the <filename moreinfo="none">*/lower</filename> pattern. The <literal moreinfo="none">Rule</literal> object defines a series of callback
+      methods to handle different stages of parsing an element&#x2014;<literal moreinfo="none">begin( )</literal>, <literal moreinfo="none">body(
+      )</literal>, <literal moreinfo="none">end( )</literal>, and <literal moreinfo="none">finish( )</literal>. The <literal moreinfo="none">LowerRule</literal> from the previous example overrides
+      one method, and manipulates the <literal moreinfo="none">Message</literal> that which is on the top of the
       <indexterm id="xml-ITERM-2722" significance="normal">
           <primary>Commons Digester</primary>
 
           <secondary>Stack</secondary>
-        </indexterm> <literal moreinfo="none">Digester</literal> <literal
-      moreinfo="none">Stack</literal>:</para>
+        </indexterm> <literal moreinfo="none">Digester</literal> <literal moreinfo="none">Stack</literal>:</para>
 
       <programlisting format="linespecific" id="I_6_tt274">package com.discursive.jccook.xml.bean;
 
@@ -962,20 +791,13 @@ public class LowerRule extends Rule {
     }
 }</programlisting>
 
-      <para><literal moreinfo="none">LowerRule</literal> uses <literal
-      moreinfo="none">StringUtils</literal> from Commons Lang to translate the
-      <literal moreinfo="none">text</literal> property of the <literal
-      moreinfo="none">Message</literal> object to lowercase. If you need to
+      <para><literal moreinfo="none">LowerRule</literal> uses <literal moreinfo="none">StringUtils</literal> from Commons Lang to translate the
+      <literal moreinfo="none">text</literal> property of the <literal moreinfo="none">Message</literal> object to lowercase. If you need to
       write a <literal moreinfo="none">Rule</literal> that can access
       attributes, you would override the <literal moreinfo="none">begin(
-      )</literal> method. The following class, <literal
-      moreinfo="none">ReplaceRule</literal>, extends <literal
-      moreinfo="none">Rule</literal> and overrides the <literal
-      moreinfo="none">begin( )</literal> <indexterm
-          id="xml-ITERM-2723" significance="normal">
+      )</literal> method. The following class, <literal moreinfo="none">ReplaceRule</literal>, extends <literal moreinfo="none">Rule</literal> and overrides the <literal moreinfo="none">begin( )</literal> <indexterm id="xml-ITERM-2723" significance="normal">
           <primary>begin( ) method</primary>
-        </indexterm> <indexterm id="xml-ITERM-2724"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2724" significance="normal">
           <primary>methods</primary>
 
           <secondary>begin( )</secondary>
@@ -1003,18 +825,10 @@ public class ReplaceRule extends Rule {
     }
 }</programlisting>
 
-      <para><literal moreinfo="none">ReplaceRule</literal> reads the <literal
-      moreinfo="none">search</literal> and <literal
-      moreinfo="none">replace</literal> attributes, using <literal
-      moreinfo="none">StringUtils</literal> to replace all occurrences of the
-      search <literal moreinfo="none">String</literal> in the <literal
-      moreinfo="none">text</literal> property of <literal
-      moreinfo="none">Message</literal> with the replace <literal
-      moreinfo="none">String</literal>. The <literal
-      moreinfo="none">EmailRule</literal> demonstrates a more complex
+      <para><literal moreinfo="none">ReplaceRule</literal> reads the <literal moreinfo="none">search</literal> and <literal moreinfo="none">replace</literal> attributes, using <literal moreinfo="none">StringUtils</literal> to replace all occurrences of the
+      search <literal moreinfo="none">String</literal> in the <literal moreinfo="none">text</literal> property of <literal moreinfo="none">Message</literal> with the replace <literal moreinfo="none">String</literal>. The <literal moreinfo="none">EmailRule</literal> demonstrates a more complex
       extension of the <literal moreinfo="none">Rule</literal> object by
-      overriding <literal moreinfo="none">begin( )</literal> and <literal
-      moreinfo="none">end( )</literal>:</para>
+      overriding <literal moreinfo="none">begin( )</literal> and <literal moreinfo="none">end( )</literal>:</para>
 
       <programlisting format="linespecific" id="I_6_tt276">import org.apache.commons.digester.Rule;
 import org.apache.commons.net.smtp.SMTPClient;
@@ -1044,9 +858,7 @@ public class EmailRule extends Rule {
       four elements that control the primitive message encryption, and the end
       of this element tells this rule to send an email to the address
       specified in the <literal moreinfo="none">to</literal> attribute
-      recorded in <literal moreinfo="none">begin()</literal>. <literal
-      moreinfo="none">EmailRule</literal> uses the <literal
-      moreinfo="none">SMTPClient</literal> from Commons Net to send a simple
+      recorded in <literal moreinfo="none">begin()</literal>. <literal moreinfo="none">EmailRule</literal> uses the <literal moreinfo="none">SMTPClient</literal> from Commons Net to send a simple
       email in <literal moreinfo="none">end( )</literal>.</para>
     </sect2>
 
@@ -1055,31 +867,25 @@ public class EmailRule extends Rule {
 
       <para>The <literal moreinfo="none">Rule</literal> class defines four
       methods that you can override to execute code when XML is
-      parsed—<literal moreinfo="none">begin( )</literal>, <literal
-      moreinfo="none">body( )</literal>, <literal moreinfo="none">end(
-      )</literal>, and <literal moreinfo="none">finish( )</literal>. <literal
-      moreinfo="none">begin( )</literal> provides access to an element's
+      parsed&#x2014;<literal moreinfo="none">begin( )</literal>, <literal moreinfo="none">body( )</literal>, <literal moreinfo="none">end(
+      )</literal>, and <literal moreinfo="none">finish( )</literal>. <literal moreinfo="none">begin( )</literal> provides access to an element's
       attributes; <literal moreinfo="none">body( )</literal> provides access
-      to the element's namespace, local name, and body text; <literal
-      moreinfo="none">end( )</literal> is called when the end of an element is
+      to the element's namespace, local name, and body text; <literal moreinfo="none">end( )</literal> is called when the end of an element is
       encountered; and <literal moreinfo="none">finish( )</literal> is called
       after <literal moreinfo="none">end( )</literal> and can be used to clean
       up data or release resources, such as open network connections or files.
       When using the Digester in this manner, you are using a technique much
       closer to writing a SAX parser; instead of dealing with a single
-      <literal moreinfo="none">startElement</literal>, <literal
-      moreinfo="none">Digester</literal> registers itself as a content handler
+      <literal moreinfo="none">startElement</literal>, <literal moreinfo="none">Digester</literal> registers itself as a content handler
       with an <literal moreinfo="none">XMLReader</literal> and delegates to
       <literal moreinfo="none">Rule</literal> objects associated with a given
       pattern. If you are simply dealing with attributes, elements, and text
       nodes, Commons Digester can be a very straightforward alternative to
-      writing a <indexterm id="xml-ITERM-2725"
-          significance="normal">
+      writing a <indexterm id="xml-ITERM-2725" significance="normal">
           <primary>parsing</primary>
 
           <secondary>SAX</secondary>
-        </indexterm> <indexterm id="xml-ITERM-2726"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2726" significance="normal">
           <primary>SAX parsers</primary>
         </indexterm>SAX parser.</para>
     </sect2>
@@ -1088,24 +894,12 @@ public class EmailRule extends Rule {
       <title>See Also</title>
 
       <para>This recipe uses <literal moreinfo="none">StringUtils</literal> to
-      manipulate<indexterm class="endofrange"
-      id="xml-ITERM-2727" significance="normal"
-      startref="xml-ITERM-2716"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2728"
-      significance="normal"
-      startref="xml-ITERM-2717"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2729"
-      significance="normal"
-      startref="xml-ITERM-2718"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2730"
-      significance="normal"
-      startref="xml-ITERM-2719"></indexterm> text. For more
+      manipulate<indexterm class="endofrange" id="xml-ITERM-2727" significance="normal" startref="xml-ITERM-2716"/> <indexterm class="endofrange" id="xml-ITERM-2728" significance="normal" startref="xml-ITERM-2717"/> <indexterm class="endofrange" id="xml-ITERM-2729" significance="normal" startref="xml-ITERM-2718"/> <indexterm class="endofrange" id="xml-ITERM-2730" significance="normal" startref="xml-ITERM-2719"/> text. For more
       information about <literal moreinfo="none">StringUtils</literal>, see
       <link linkend="manipulate-text">Chapter 2</link>. An email message is
       sent from the <literal moreinfo="none">EmailRule</literal> using the
       <literal moreinfo="none">SMTPClient</literal> from Commons Net. For more
-      information about Commons Net, see <link
-      linkend="io-network">Chapter 10</link>.</para>
+      information about Commons Net, see <link linkend="io-network">Chapter 10</link>.</para>
     </sect2>
   </sect1>
 
@@ -1115,30 +909,25 @@ public class EmailRule extends Rule {
     <sect2>
       <title>Problem</title>
 
-      <para>You need to parse XML that <indexterm class="startofrange"
-          id="xml-ITERM-2731" significance="normal">
+      <para>You need to parse XML that <indexterm class="startofrange" id="xml-ITERM-2731" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>parsing</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2732" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2732" significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>parsing</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2733" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2733" significance="normal">
           <primary>parsing</primary>
 
           <secondary>XML, variable substitutions</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2734" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2734" significance="normal">
           <primary>variables</primary>
 
           <secondary>substitution (XML)</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2735" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2735" significance="normal">
           <primary>references, variable substitution (XML)</primary>
         </indexterm>contains references to variables, and you need to replace
       these references with variable values at parse time.</para>
@@ -1147,35 +936,25 @@ public class EmailRule extends Rule {
     <sect2>
       <title>Solution</title>
 
-      <para>Use Commons Digester's <literal
-      moreinfo="none">MultiVariableExpander</literal> <indexterm
-          id="xml-ITERM-2736" significance="normal">
+      <para>Use Commons Digester's <literal moreinfo="none">MultiVariableExpander</literal> <indexterm id="xml-ITERM-2736" significance="normal">
           <primary>MultiVariableExpander</primary>
-        </indexterm> and the <literal
-      moreinfo="none">VariableSubstitutor</literal> <indexterm
-          id="xml-ITERM-2737" significance="normal">
+        </indexterm> and the <literal moreinfo="none">VariableSubstitutor</literal> <indexterm id="xml-ITERM-2737" significance="normal">
           <primary>VariableSubstitutor</primary>
         </indexterm> to expand variable references in an XML document during a
       parse.</para>
 
       <warning id="xml-NOTE-59" role="ora">
-        <para>This recipe explores a feature of Commons Digester—variable
-        substitution—which is available only with a prerelease version of
+        <para>This recipe explores a feature of Commons Digester&#x2014;variable
+        substitution&#x2014;which is available only with a prerelease version of
         Digester, 1.6-dev. To follow the example in this recipe, you must
-        download a nightly snapshot distribution from <systemitem
-        moreinfo="none"
-        role="url">http://cvs.apache.org/builds/jakarta-commons/nightly/</systemitem>.
+        download a nightly snapshot distribution from <ulink url="http://cvs.apache.org/builds/jakarta-commons/nightly/">http://cvs.apache.org/builds/jakarta-commons/nightly/</ulink>.
         Use nightly distributions of Commons components at your own risk;
         these distributions may contain unresolved bugs.</para>
       </warning>
 
       <para>The following XML document contains four variable
-      references—<filename moreinfo="none">${email.to}</filename>, <filename
-      moreinfo="none">${order.id}</filename>, <filename
-      moreinfo="none">${user.name}</filename>, and <filename
-      moreinfo="none">${product.name}—</filename>all of which need to be
-      replaced with values before the XML is parsed by the <literal
-      moreinfo="none">Digester</literal>:</para>
+      references&#x2014;<filename moreinfo="none">${email.to}</filename>, <filename moreinfo="none">${order.id}</filename>, <filename moreinfo="none">${user.name}</filename>, and <filename moreinfo="none">${product.name}&#x2014;</filename>all of which need to be
+      replaced with values before the XML is parsed by the <literal moreinfo="none">Digester</literal>:</para>
 
       <programlisting format="linespecific" id="I_6_tt277">&lt;?xml version="1.0"?&gt;
 
@@ -1223,15 +1002,13 @@ public class EmailRule extends Rule {
   &lt;/pattern&gt;
 &lt;/digester-rules&gt;</programlisting>
 
-      <para>This difference between this recipe and <link
-      linkend="xml-sect-xml-doc-obj">Recipe 6.2</link> is that our XML
+      <para>This difference between this recipe and <link linkend="xml-sect-xml-doc-obj">Recipe 6.2</link> is that our XML
       document contains variables to be replaced at parse time. The following
       code creates a <literal moreinfo="none">Map</literal> that contains
       variables referenced in the XML document being parsed. This code creates
       the variable <literal moreinfo="none">Map</literal>, reads the XML rule
       set from <filename moreinfo="none">email-rules.xml</filename>, and
-      parses the XML document <filename
-      moreinfo="none">email.xml</filename>:</para>
+      parses the XML document <filename moreinfo="none">email.xml</filename>:</para>
 
       <programlisting format="linespecific" id="I_6_tt280">import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.Substitutor;
@@ -1271,16 +1048,14 @@ Email email = (Email) emails.get(0);
 System.out.println( "Email Subject: " + email.getSubject( ) );
 System.out.println( "Email To: " + email.getTo( ) );</programlisting>
 
-      <para>Variable substitution is performed by a <literal
-      moreinfo="none">VariableSubstitutor</literal> that has been configured
+      <para>Variable substitution is performed by a <literal moreinfo="none">VariableSubstitutor</literal> that has been configured
       with a <literal moreinfo="none">MultiVariableExpander</literal>. The
       <literal moreinfo="none">MultiVariableExpander</literal> retrieves
       variables from a <literal moreinfo="none">Map</literal>, and, in this
       example, the <literal moreinfo="none">addSource( )</literal> method is
       called with a <literal moreinfo="none">$</literal> marker. This means
       that variables are referenced by surrounding a variable name with
-      <literal moreinfo="none">${</literal> and <literal
-      moreinfo="none">}--${variable}</literal>. The previous example produces
+      <literal moreinfo="none">${</literal> and <literal moreinfo="none">}--${variable}</literal>. The previous example produces
       the following output, which demonstrates the substitution of
       variables:</para>
 
@@ -1303,23 +1078,8 @@ Email To: ldavid@hbo.com</programlisting>
       <title>See Also</title>
 
       <para>For more information about other new features planned for Digester
-      1.6, see the current development Javadoc <indexterm class="endofrange"
-      id="xml-ITERM-2738" significance="normal"
-      startref="xml-ITERM-2731"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2739"
-      significance="normal"
-      startref="xml-ITERM-2732"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2740"
-      significance="normal"
-      startref="xml-ITERM-2733"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2741"
-      significance="normal"
-      startref="xml-ITERM-2734"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2742"
-      significance="normal"
-      startref="xml-ITERM-2735"></indexterm>for the Digester at
-      <systemitem moreinfo="none"
-      role="url">http://jakarta.apache.org/commons/digester/apidocs/index.html</systemitem>.</para>
+      1.6, see the current development Javadoc <indexterm class="endofrange" id="xml-ITERM-2738" significance="normal" startref="xml-ITERM-2731"/> <indexterm class="endofrange" id="xml-ITERM-2739" significance="normal" startref="xml-ITERM-2732"/> <indexterm class="endofrange" id="xml-ITERM-2740" significance="normal" startref="xml-ITERM-2733"/> <indexterm class="endofrange" id="xml-ITERM-2741" significance="normal" startref="xml-ITERM-2734"/> <indexterm class="endofrange" id="xml-ITERM-2742" significance="normal" startref="xml-ITERM-2735"/>for the Digester at
+      <ulink url="http://jakarta.apache.org/commons/digester/apidocs/index.html">http://jakarta.apache.org/commons/digester/apidocs/index.html</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -1329,28 +1089,23 @@ Email To: ldavid@hbo.com</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to use Jakarta<indexterm
-          id="xml-ITERM-2743" significance="normal">
+      <para>You need to use Jakarta<indexterm id="xml-ITERM-2743" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>Commons Betwixt</secondary>
-        </indexterm> <indexterm id="xml-ITERM-2744"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2744" significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>Commons Betwixt</tertiary>
-        </indexterm> <indexterm id="xml-ITERM-2745"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2745" significance="normal">
           <primary>downloading</primary>
 
           <secondary>Commons Betwixt</secondary>
-        </indexterm> <indexterm id="xml-ITERM-2746"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2746" significance="normal">
           <primary>Commons Betwixt, downloading</primary>
-        </indexterm> <indexterm id="xml-ITERM-2747"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2747" significance="normal">
           <primary>beans</primary>
 
           <secondary>Commons Betwixt</secondary>
@@ -1363,24 +1118,21 @@ Email To: ldavid@hbo.com</programlisting>
 
       <para>You must download the latest version of Commons Betwixt, and place
       the Commons Betwixt JAR<filename moreinfo="none"> </filename>in your
-      project's classpath. Following the steps outlined in <link
-      linkend="lang-sect-obtaining">Recipe 1.1</link>, download Commons
+      project's classpath. Following the steps outlined in <link linkend="lang-sect-obtaining">Recipe 1.1</link>, download Commons
       Betwixt 0.5 instead of Commons Lang. Uncompress the distribution archive
       and place <filename moreinfo="none">commons-betwixt.jar</filename> in
       your classpath. Commons Betwixt depends on Commons Digester, Commons
       BeanUtils, Commons Logging, and Commons Collections. To download
       dependencies, see <link linkend="beans-sect-obtaining">Recipe
       3.2</link>, <link linkend="collections-sect-obtaining">Recipe 5.1</link>,
-      <link linkend="xml-sect-obtaining-digester">Recipe 6.1</link>, and <link
-      linkend="app-infra-sect-obtaining-logging">Recipe 7.9</link>.</para>
+      <link linkend="xml-sect-obtaining-digester">Recipe 6.1</link>, and <link linkend="app-infra-sect-obtaining-logging">Recipe 7.9</link>.</para>
     </sect2>
 
     <sect2>
       <title>Discussion</title>
 
       <para>Betwixt allows you to translate from beans to XML and vice versa.
-      Beans are serialized to XML documents using a <literal
-      moreinfo="none">BeanWriter</literal>, and they are read from XML using a
+      Beans are serialized to XML documents using a <literal moreinfo="none">BeanWriter</literal>, and they are read from XML using a
       <literal moreinfo="none">BeanReader</literal>. The structure of the XML
       can be automatically generated or customized using an XML document to
       bind properties to elements or attributes.</para>
@@ -1402,8 +1154,7 @@ Email To: ldavid@hbo.com</programlisting>
       <title>See Also</title>
 
       <para>For more information about Commons Betwixt, see the Commons
-      Betwixt project page at <systemitem moreinfo="none"
-      role="url">http://jakarta.apache.org/commons/betwixt</systemitem>.</para>
+      Betwixt project page at <ulink url="http://jakarta.apache.org/commons/betwixt">http://jakarta.apache.org/commons/betwixt</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -1413,28 +1164,23 @@ Email To: ldavid@hbo.com</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to create an XML<indexterm class="startofrange"
-          id="xml-ITERM-2748" significance="normal">
+      <para>You need to create an XML<indexterm class="startofrange" id="xml-ITERM-2748" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>beans</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2749" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2749" significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>bean conversion</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2750" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2750" significance="normal">
           <primary>beans</primary>
 
           <secondary>XML</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2751" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2751" significance="normal">
           <primary>conversion</primary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2752" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2752" significance="normal">
           <primary>conversion</primary>
 
           <secondary>XML</secondary>
@@ -1471,22 +1217,14 @@ beanWriter.write( play );
 System.out.println( beanWriter.toString( ) );</programlisting>
 
       <para>A <literal moreinfo="none">BeanWriter</literal> instance is
-      created, indentation is enabled with a call to <literal
-      moreinfo="none">enablePrettyPrint( )</literal>, and the <literal
-      moreinfo="none">Play</literal> object is written to an XML document with
+      created, indentation is enabled with a call to <literal moreinfo="none">enablePrettyPrint( )</literal>, and the <literal moreinfo="none">Play</literal> object is written to an XML document with
       <literal moreinfo="none">beanWriter.write( )</literal>. The previous
       example prints an XML document with structure similar to the XML
       document parsed in <link linkend="xml-sect-xml-doc-obj">Recipe
-      6.2</link> with the exception of the <literal
-      moreinfo="none">genre</literal>, <literal
-      moreinfo="none">year</literal>, and <literal
-      moreinfo="none">language</literal> elements. The following XML document
-      is produced by the call to <literal
-      moreinfo="none">beanWriter.write()</literal> <indexterm
-          id="xml-ITERM-2754" significance="normal">
+      6.2</link> with the exception of the <literal moreinfo="none">genre</literal>, <literal moreinfo="none">year</literal>, and <literal moreinfo="none">language</literal> elements. The following XML document
+      is produced by the call to <literal moreinfo="none">beanWriter.write()</literal> <indexterm id="xml-ITERM-2754" significance="normal">
           <primary>beanWriter.write( ) method</primary>
-        </indexterm> <indexterm id="xml-ITERM-2755"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2755" significance="normal">
           <primary>methods</primary>
 
           <secondary>beanWriter.write( )</secondary>
@@ -1531,42 +1269,26 @@ System.out.println( beanWriter.toString( ) );</programlisting>
       <para>Using the <literal moreinfo="none">BeanWriter</literal> is an easy
       way to create XML documents from beans, and if you don't have a
       preference for the layout of the resulting XML document, it is the
-      easiest way to serialize an object to XML. The <literal
-      moreinfo="none">BeanWriter</literal> offers some control over the
-      appearance of the XML it generates. <literal
-      moreinfo="none">setEndOfLine( )</literal> takes a <literal
-      moreinfo="none">String</literal> that is used as a line termination
+      easiest way to serialize an object to XML. The <literal moreinfo="none">BeanWriter</literal> offers some control over the
+      appearance of the XML it generates. <literal moreinfo="none">setEndOfLine( )</literal> takes a <literal moreinfo="none">String</literal> that is used as a line termination
       sequence. <literal moreinfo="none">setWriteEmptyElements( )</literal>
       controls the way in which an empty element is written by Betwixt. If
       <literal moreinfo="none">setWriteEmptyElements( )</literal> is passed
       <literal moreinfo="none">true</literal>, an element will be written to
       the XML document even if there are no child nodes or attributes.
-      <literal moreinfo="none">setIndent( )</literal> takes a <literal
-      moreinfo="none">String</literal> that is used as an indentation string
-      when pretty printing—indented output—is enabled using the <literal
-      moreinfo="none">enablePrettyPrint( )</literal> method on <literal
-      moreinfo="none">BeanWriter</literal>.</para>
+      <literal moreinfo="none">setIndent( )</literal> takes a <literal moreinfo="none">String</literal> that is used as an indentation string
+      when pretty printing&#x2014;indented output&#x2014;is enabled using the <literal moreinfo="none">enablePrettyPrint( )</literal> method on <literal moreinfo="none">BeanWriter</literal>.</para>
 
-      <para>When Betwixt encounters the <literal
-      moreinfo="none">List</literal> of <literal
-      moreinfo="none">Character</literal> objects, it creates an element
+      <para>When Betwixt encounters the <literal moreinfo="none">List</literal> of <literal moreinfo="none">Character</literal> objects, it creates an element
       <literal moreinfo="none">characters</literal>, which holds individual
       <literal moreinfo="none">character</literal> elements created by using
       introspection on the <literal moreinfo="none">Character</literal> class.
-      This behavior is configurable, and you can instruct <literal
-      moreinfo="none">Betwixt</literal> to omit the <literal
-      moreinfo="none">characters</literal> elements in favor of multiple
+      This behavior is configurable, and you can instruct <literal moreinfo="none">Betwixt</literal> to omit the <literal moreinfo="none">characters</literal> elements in favor of multiple
       <literal moreinfo="none">character</literal> child elements. Such a
-      customization is demonstrated in the Discussion of <link
-      linkend="xml-sect-customizing-xml">Recipe 6.8</link>.</para>
+      customization is demonstrated in the Discussion of <link linkend="xml-sect-customizing-xml">Recipe 6.8</link>.</para>
 
       <para><literal moreinfo="none">BeanWriter</literal> can also be used to
-      write an XML document to an <literal
-      moreinfo="none">OutputStream</literal> or a <literal
-      moreinfo="none">Writer</literal> by passing a <literal
-      moreinfo="none">Writer</literal> or an <literal
-      moreinfo="none">OutputStream</literal> to the <literal
-      moreinfo="none">BeanWriter</literal> constructor. The following code
+      write an XML document to an <literal moreinfo="none">OutputStream</literal> or a <literal moreinfo="none">Writer</literal> by passing a <literal moreinfo="none">Writer</literal> or an <literal moreinfo="none">OutputStream</literal> to the <literal moreinfo="none">BeanWriter</literal> constructor. The following code
       uses a <literal moreinfo="none">BeanWriter</literal> to write an XML
       document to <filename moreinfo="none">test.dat</filename>:</para>
 
@@ -1588,11 +1310,7 @@ beanWriter.write( play );
 // Close FileWriter
 outputWriter.close( );</programlisting>
 
-      <para>Since the previous example contains a call to <literal
-      moreinfo="none">setEndOfLine()</literal>, <literal
-      moreinfo="none">enablePrettyPrint( )</literal>, and <literal
-      moreinfo="none">setIndent( )</literal>, <filename
-      moreinfo="none">test.dat</filename> will have DOS-style line termination
+      <para>Since the previous example contains a call to <literal moreinfo="none">setEndOfLine()</literal>, <literal moreinfo="none">enablePrettyPrint( )</literal>, and <literal moreinfo="none">setIndent( )</literal>, <filename moreinfo="none">test.dat</filename> will have DOS-style line termination
       and Betwixt will use the tab character for indentation.</para>
     </sect2>
 
@@ -1600,23 +1318,7 @@ outputWriter.close( );</programlisting>
       <title>See Also</title>
 
       <para>By default, <literal moreinfo="none">BeanWriter</literal> writes
-      every bean <indexterm class="endofrange"
-      id="xml-ITERM-2756" significance="normal"
-      startref="xml-ITERM-2748"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2757"
-      significance="normal"
-      startref="xml-ITERM-2749"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2758"
-      significance="normal"
-      startref="xml-ITERM-2750"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2759"
-      significance="normal"
-      startref="xml-ITERM-2751"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2760"
-      significance="normal"
-      startref="xml-ITERM-2752"></indexterm>property of <literal
-      moreinfo="none">Play</literal> as an element. <link
-      linkend="xml-sect-customizing-xml">Recipe 6.8</link> shows you how to
+      every bean <indexterm class="endofrange" id="xml-ITERM-2756" significance="normal" startref="xml-ITERM-2748"/> <indexterm class="endofrange" id="xml-ITERM-2757" significance="normal" startref="xml-ITERM-2749"/> <indexterm class="endofrange" id="xml-ITERM-2758" significance="normal" startref="xml-ITERM-2750"/> <indexterm class="endofrange" id="xml-ITERM-2759" significance="normal" startref="xml-ITERM-2751"/> <indexterm class="endofrange" id="xml-ITERM-2760" significance="normal" startref="xml-ITERM-2752"/>property of <literal moreinfo="none">Play</literal> as an element. <link linkend="xml-sect-customizing-xml">Recipe 6.8</link> shows you how to
       customize the XML generated by Betwixt.</para>
     </sect2>
   </sect1>
@@ -1627,42 +1329,35 @@ outputWriter.close( );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You are trying to create an XML<indexterm class="startofrange"
-          id="xml-ITERM-2761" significance="normal">
+      <para>You are trying to create an XML<indexterm class="startofrange" id="xml-ITERM-2761" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>object customization</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2762" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2762" significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>object customization</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2763" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2763" significance="normal">
           <primary>beans</primary>
 
           <secondary>XML</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2764" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2764" significance="normal">
           <primary>objects</primary>
 
           <secondary>customization</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2765" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2765" significance="normal">
           <primary>objects</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>customization</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2766" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2766" significance="normal">
           <primary>customization</primary>
 
           <secondary>objects</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="xml-ITERM-2767" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="xml-ITERM-2767" significance="normal">
           <primary>BeanWriter, customization</primary>
         </indexterm> document from a Java object, and you want to customize
       the layout and structure of the generated XML document.</para>
@@ -1671,15 +1366,13 @@ outputWriter.close( );</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Use a Betwixt mapping file to customize the output of the <literal
-      moreinfo="none">BeanWriter</literal>. Below is an example of a mapping
+      <para>Use a Betwixt mapping file to customize the output of the <literal moreinfo="none">BeanWriter</literal>. Below is an example of a mapping
       file for the <literal moreinfo="none">Play</literal> class, which was
       introduced in <link linkend="xml-sect-xml-doc-obj">Recipe
       6.2</link>. When Betwixt serializes or deserializes an object to or from
-      XML, it will search for a resource, <filename
-      moreinfo="none">&lt;classname&gt;.betwixt</filename>, in the same
+      XML, it will search for a resource, <filename moreinfo="none">&lt;classname&gt;.betwixt</filename>, in the same
       package as the class to be written or read. The following XML
-      document—<filename moreinfo="none">Play.betwixt—</filename>is stored in
+      document&#x2014;<filename moreinfo="none">Play.betwixt&#x2014;</filename>is stored in
       the same package as the <literal moreinfo="none">Play</literal> class,
       and it customizes the XML output from Betwixt:</para>
 
@@ -1692,10 +1385,7 @@ outputWriter.close( );</programlisting>
   &lt;/element&gt;
 &lt;/info&gt;</programlisting>
 
-      <para>This file tells Betwixt that <literal
-      moreinfo="none">genre</literal>, <literal
-      moreinfo="none">year</literal>, and <literal
-      moreinfo="none">language</literal> shall be stored as XML attributes,
+      <para>This file tells Betwixt that <literal moreinfo="none">genre</literal>, <literal moreinfo="none">year</literal>, and <literal moreinfo="none">language</literal> shall be stored as XML attributes,
       and that the remaining bean properties are to be written as XML
       elements. The following code is used to create a customized XML document
       from an instance of <literal moreinfo="none">Play</literal>:</para>
@@ -1711,12 +1401,9 @@ beanWriter.write( play );
 logger.debug( beanWriter.toString( ) );</programlisting>
 
       <para>Betwixt creates the following XML document, which stores the
-      <literal moreinfo="none">genre</literal>, <literal
-      moreinfo="none">year</literal>, and <literal
-      moreinfo="none">language</literal> properties as attributes of the
+      <literal moreinfo="none">genre</literal>, <literal moreinfo="none">year</literal>, and <literal moreinfo="none">language</literal> properties as attributes of the
       <literal moreinfo="none">play</literal> element. The differences between
-      this XML document and the XML document in <link
-      linkend="xml-sect-beans-xml">Recipe 6.7</link> are
+      this XML document and the XML document in <link linkend="xml-sect-beans-xml">Recipe 6.7</link> are
       emphasized:</para>
 
       <programlisting format="linespecific" id="I_6_tt288">
@@ -1745,12 +1432,9 @@ logger.debug( beanWriter.toString( ) );</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>The previous example wrote the <literal
-      moreinfo="none">protagonist</literal> property of the <literal
-      moreinfo="none">Character</literal> class as an attribute of the
+      <para>The previous example wrote the <literal moreinfo="none">protagonist</literal> property of the <literal moreinfo="none">Character</literal> class as an attribute of the
       <literal moreinfo="none">character</literal> element. This customization
-      was accomplished by putting a <filename
-      moreinfo="none">Character.betwixt</filename> resource in the same
+      was accomplished by putting a <filename moreinfo="none">Character.betwixt</filename> resource in the same
       package as the <literal moreinfo="none">Character</literal> class.
       <filename moreinfo="none">Character.betwixt</filename> is shown
       here:</para>
@@ -1764,11 +1448,9 @@ logger.debug( beanWriter.toString( ) );</programlisting>
 
       <para>In addition to customizing the structure on an XML document, a
       Betwixt mapping file can also be used to change the names of elements
-      and attributes in an XML document. The following mapping file—another
-      version of <filename moreinfo="none">Character.betwixt—</filename>writes
-      the <literal moreinfo="none">description</literal> property of <literal
-      moreinfo="none">Character</literal> as a <literal
-      moreinfo="none">bio</literal> element:</para>
+      and attributes in an XML document. The following mapping file&#x2014;another
+      version of <filename moreinfo="none">Character.betwixt&#x2014;</filename>writes
+      the <literal moreinfo="none">description</literal> property of <literal moreinfo="none">Character</literal> as a <literal moreinfo="none">bio</literal> element:</para>
 
       <programlisting format="linespecific" id="I_6_tt290">&lt;info primitiveTypes="element"&gt;
   &lt;element name="character"&gt;
@@ -1778,13 +1460,8 @@ logger.debug( beanWriter.toString( ) );</programlisting>
   &lt;/element&gt;
 &lt;/info&gt;</programlisting>
 
-      <para>In this recipe, Betwixt has wrapped all <literal
-      moreinfo="none">character</literal> elements in a <literal
-      moreinfo="none">characters</literal> element. If you prefer <literal
-      moreinfo="none">character</literal> elements to be child elements of
-      <literal moreinfo="none">play</literal>, you can tell the <literal
-      moreinfo="none">XMLIntrospector</literal> used by <literal
-      moreinfo="none">BeanWriter</literal> to omit elements wrapping
+      <para>In this recipe, Betwixt has wrapped all <literal moreinfo="none">character</literal> elements in a <literal moreinfo="none">characters</literal> element. If you prefer <literal moreinfo="none">character</literal> elements to be child elements of
+      <literal moreinfo="none">play</literal>, you can tell the <literal moreinfo="none">XMLIntrospector</literal> used by <literal moreinfo="none">BeanWriter</literal> to omit elements wrapping
       collections with the following code:</para>
 
       <programlisting format="linespecific" id="I_6_tt291">import org.apache.commons.betwixt.io.BeanWriter;
@@ -1803,8 +1480,7 @@ beanWriter.write( play );
         
 logger.debug( beanWriter.toString( ) );</programlisting>
 
-      <para>The previous code creates an XML document without the <literal
-      moreinfo="none">characters</literal> element:</para>
+      <para>The previous code creates an XML document without the <literal moreinfo="none">characters</literal> element:</para>
 
       <programlisting format="linespecific" id="I_6_tt292">&lt;play genre="tragedy" year="1603" language="english"&gt;
   &lt;author&gt;William Shakespeare&lt;/author&gt;
@@ -1826,23 +1502,13 @@ logger.debug( beanWriter.toString( ) );</programlisting>
 &lt;/play&gt;</programlisting>
 
       <para>Betwixt also allows for the customization of element and attribute
-      names; for example, if your class contains the property <literal
-      moreinfo="none">maximumSpeed</literal>, it can be written as an
+      names; for example, if your class contains the property <literal moreinfo="none">maximumSpeed</literal>, it can be written as an
       attribute named <literal moreinfo="none">maximum-speed</literal> or
-      <literal moreinfo="none">MAXIMUM_SPEED</literal>, using the <literal
-      moreinfo="none">HyphenatedNameMapper</literal> strategy. The same
-      property could also be written as an element named <literal
-      moreinfo="none">MaximumSpeed</literal>, using the <literal
-      moreinfo="none">CapitalizeNameMapper</literal> strategy. Different
+      <literal moreinfo="none">MAXIMUM_SPEED</literal>, using the <literal moreinfo="none">HyphenatedNameMapper</literal> strategy. The same
+      property could also be written as an element named <literal moreinfo="none">MaximumSpeed</literal>, using the <literal moreinfo="none">CapitalizeNameMapper</literal> strategy. Different
       naming strategies can be used for elements and attributes by passing
-      instances of <literal moreinfo="none">NameMapper</literal> to <literal
-      moreinfo="none">setElementNameMapper( )</literal> and <literal
-      moreinfo="none">setAttributeNameMapper( )</literal> on an <literal
-      moreinfo="none">XMLIntrospector</literal>. The following code
-      demonstrates the setting of both the attribute and element <literal
-      moreinfo="none">NameMapper</literal> on a <literal
-      moreinfo="none">BeanWriter</literal>'s <literal
-      moreinfo="none">XMLIntrospector</literal>:</para>
+      instances of <literal moreinfo="none">NameMapper</literal> to <literal moreinfo="none">setElementNameMapper( )</literal> and <literal moreinfo="none">setAttributeNameMapper( )</literal> on an <literal moreinfo="none">XMLIntrospector</literal>. The following code
+      demonstrates the setting of both the attribute and element <literal moreinfo="none">NameMapper</literal> on a <literal moreinfo="none">BeanWriter</literal>'s <literal moreinfo="none">XMLIntrospector</literal>:</para>
 
       <programlisting format="linespecific" id="I_6_tt293">import org.apache.commons.betwixt.io.BeanWriter;
 import org.apache.commons.betwixt.XMLIntrospector;
@@ -1862,30 +1528,9 @@ beanWriter.write( object );</programlisting>
     <sect2>
       <title>See Also</title>
 
-      <para>For more information about possible <indexterm class="endofrange"
-      id="xml-ITERM-2768" significance="normal"
-      startref="xml-ITERM-2761"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2769"
-      significance="normal"
-      startref="xml-ITERM-2762"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2770"
-      significance="normal"
-      startref="xml-ITERM-2763"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2771"
-      significance="normal"
-      startref="xml-ITERM-2764"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2772"
-      significance="normal"
-      startref="xml-ITERM-2765"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2773"
-      significance="normal"
-      startref="xml-ITERM-2766"></indexterm> <indexterm
-      class="endofrange" id="xml-ITERM-2774"
-      significance="normal"
-      startref="xml-ITERM-2767"></indexterm>customizations in
+      <para>For more information about possible <indexterm class="endofrange" id="xml-ITERM-2768" significance="normal" startref="xml-ITERM-2761"/> <indexterm class="endofrange" id="xml-ITERM-2769" significance="normal" startref="xml-ITERM-2762"/> <indexterm class="endofrange" id="xml-ITERM-2770" significance="normal" startref="xml-ITERM-2763"/> <indexterm class="endofrange" id="xml-ITERM-2771" significance="normal" startref="xml-ITERM-2764"/> <indexterm class="endofrange" id="xml-ITERM-2772" significance="normal" startref="xml-ITERM-2765"/> <indexterm class="endofrange" id="xml-ITERM-2773" significance="normal" startref="xml-ITERM-2766"/> <indexterm class="endofrange" id="xml-ITERM-2774" significance="normal" startref="xml-ITERM-2767"/>customizations in
       Betwixt, see the "Binding Beans" section of the user guide at
-      <systemitem moreinfo="none"
-      role="url">http://jakarta.apache.org/commons/betwixt/guide/binding.html</systemitem>.</para>
+      <ulink url="http://jakarta.apache.org/commons/betwixt/guide/binding.html">http://jakarta.apache.org/commons/betwixt/guide/binding.html</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -1895,31 +1540,25 @@ beanWriter.write( object );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to convert an XML <indexterm
-          id="xml-ITERM-2775" significance="normal">
+      <para>You need to convert an XML <indexterm id="xml-ITERM-2775" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
           <secondary>beans</secondary>
-        </indexterm> <indexterm id="xml-ITERM-2776"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2776" significance="normal">
           <primary>conversion</primary>
-        </indexterm> <indexterm id="xml-ITERM-2777"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2777" significance="normal">
           <primary>documents</primary>
 
           <secondary>XML</secondary>
 
           <tertiary>bean conversion</tertiary>
-        </indexterm> <indexterm id="xml-ITERM-2778"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2778" significance="normal">
           <primary>beans</primary>
 
           <secondary>XML</secondary>
-        </indexterm> <indexterm id="xml-ITERM-2779"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2779" significance="normal">
           <primary>conversion</primary>
-        </indexterm> <indexterm id="xml-ITERM-2780"
-          significance="normal">
+        </indexterm> <indexterm id="xml-ITERM-2780" significance="normal">
           <primary>conversion</primary>
 
           <secondary>XML</secondary>
@@ -1933,14 +1572,9 @@ beanWriter.write( object );</programlisting>
 
       <para>Use Betwixt's <literal moreinfo="none">BeanReader</literal> to
       parse an XML document and create an instance of the appropriate bean.
-      Register bean classes with the <literal
-      moreinfo="none">BeanReader</literal>, and parse an XML document loaded
-      from an <literal moreinfo="none">InputStream</literal>, <literal
-      moreinfo="none">InputSource</literal>, or <literal
-      moreinfo="none">Reader</literal>. The following XML document will be
-      parsed into the <literal moreinfo="none">Play</literal> and <literal
-      moreinfo="none">Character</literal> beans introduced in <link
-      linkend="xml-sect-xml-doc-obj">Recipe 6.2</link>:</para>
+      Register bean classes with the <literal moreinfo="none">BeanReader</literal>, and parse an XML document loaded
+      from an <literal moreinfo="none">InputStream</literal>, <literal moreinfo="none">InputSource</literal>, or <literal moreinfo="none">Reader</literal>. The following XML document will be
+      parsed into the <literal moreinfo="none">Play</literal> and <literal moreinfo="none">Character</literal> beans introduced in <link linkend="xml-sect-xml-doc-obj">Recipe 6.2</link>:</para>
 
       <programlisting format="linespecific" id="I_6_tt294">&lt;play genre="tragedy" year="1603" language="english"&gt;
   &lt;author&gt;William Shakespeare&lt;/author&gt;
@@ -1961,17 +1595,14 @@ beanWriter.write( object );</programlisting>
     finally dies in a duel.&lt;/summary&gt;
 &lt;/play&gt;</programlisting>
 
-      <para>This XML document was created with <literal
-      moreinfo="none">BeanWriter</literal>, using the customized format from
+      <para>This XML document was created with <literal moreinfo="none">BeanWriter</literal>, using the customized format from
       <link linkend="xml-sect-customizing-xml">Recipe 6.8</link>. To read this
       XML document with <literal moreinfo="none">BeanReader</literal>, the
       <literal moreinfo="none">Play</literal> class will need to be registered
-      with <literal moreinfo="none">BeanReader</literal> and the <literal
-      moreinfo="none">XMLIntrospector</literal> must have the same settings as
+      with <literal moreinfo="none">BeanReader</literal> and the <literal moreinfo="none">XMLIntrospector</literal> must have the same settings as
       the <literal moreinfo="none">XMLIntrospector</literal> used when writing
       the document with <literal moreinfo="none">BeanWriter</literal>. The
-      following code instantiates and configures a <literal
-      moreinfo="none">BeanReader</literal> to read this customized XML for the
+      following code instantiates and configures a <literal moreinfo="none">BeanReader</literal> to read this customized XML for the
       <literal moreinfo="none">Play</literal> object:</para>
 
       <programlisting format="linespecific" id="I_6_tt295">import org.apache.commons.betwixt.io.BeanReader;
@@ -1988,49 +1619,33 @@ Play play = (Play) beanReader.parse( customPlay );</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>Betwixt uses Commons Digester to parse XML, and the <literal
-      moreinfo="none">BeanReader</literal> object is an extension of the
-      <literal moreinfo="none">Digester</literal>. <literal
-      moreinfo="none">BeanReader</literal> creates a Digester rule set using
+      <para>Betwixt uses Commons Digester to parse XML, and the <literal moreinfo="none">BeanReader</literal> object is an extension of the
+      <literal moreinfo="none">Digester</literal>. <literal moreinfo="none">BeanReader</literal> creates a Digester rule set using
       introspection and the Betwixt mapping files available on the classpath.
       Digester, as introduced in the first half of this chapter, is a quick
       way to parse an XML document; all that is required to parse XML with the
       Digester is a rule set and a little bit of code. Betwixt is built-upon
       Digester, and the <literal moreinfo="none">BeanReader</literal> further
       reduces the amount of work required to parse XML to a bean. Instead of
-      completing the process demonstrated in <link
-      linkend="xml-sect-xml-doc-obj">Recipe 6.2</link>, you can simply
-      write a few, very manageable, <filename
-      moreinfo="none">.betwixt</filename> files using <literal
-      moreinfo="none">BeanReader</literal> to read the XML documents and
+      completing the process demonstrated in <link linkend="xml-sect-xml-doc-obj">Recipe 6.2</link>, you can simply
+      write a few, very manageable, <filename moreinfo="none">.betwixt</filename> files using <literal moreinfo="none">BeanReader</literal> to read the XML documents and
       <literal moreinfo="none">BeanWriter</literal> to write the XML
       documents.</para>
 
-      <para>When Betwixt is adding <literal
-      moreinfo="none">Character</literal> objects to the characters <literal
-      moreinfo="none">List</literal> on a <literal
-      moreinfo="none">Play</literal> object, it's calling the <literal
-      moreinfo="none">addCharacter()</literal> method on the <literal
-      moreinfo="none">Play</literal> object. Without this <literal
-      moreinfo="none">addCharacter( )</literal> object, Betwixt would not be
+      <para>When Betwixt is adding <literal moreinfo="none">Character</literal> objects to the characters <literal moreinfo="none">List</literal> on a <literal moreinfo="none">Play</literal> object, it's calling the <literal moreinfo="none">addCharacter()</literal> method on the <literal moreinfo="none">Play</literal> object. Without this <literal moreinfo="none">addCharacter( )</literal> object, Betwixt would not be
       able to populate this <literal moreinfo="none">List</literal>. Betwixt
-      automatically recognizes a plural property name such as <literal
-      moreinfo="none">characters</literal>, <literal
-      moreinfo="none">characterList</literal>, or <literal
-      moreinfo="none">characterSet</literal>, and it attempts to call the
+      automatically recognizes a plural property name such as <literal moreinfo="none">characters</literal>, <literal moreinfo="none">characterList</literal>, or <literal moreinfo="none">characterSet</literal>, and it attempts to call the
       corresponding <literal moreinfo="none">addCharacter( )</literal> method.
       For more information about the algorithm Betwixt uses to recognize
       composite properties, see "Using Adder Methods for Composite Properties"
-      in the Betwixt user guide (<systemitem moreinfo="none"
-      role="url">http://jakarta.apache.org/commons/betwixt/guide/binding.html</systemitem>).</para>
+      in the Betwixt user guide (<ulink url="http://jakarta.apache.org/commons/betwixt/guide/binding.html">http://jakarta.apache.org/commons/betwixt/guide/binding.html</ulink>).</para>
     </sect2>
 
     <sect2>
       <title>See Also</title>
 
       <para>For more information about reading beans with Betwixt, see
-      "Reading Beans" in the Betwixt user guide (<systemitem moreinfo="none"
-      role="url">http://jakarta.apache.org/commons/betwixt/guide/reading.html</systemitem>).</para>
+      "Reading Beans" in the Betwixt user guide (<ulink url="http://jakarta.apache.org/commons/betwixt/guide/reading.html">http://jakarta.apache.org/commons/betwixt/guide/reading.html</ulink>).</para>
     </sect2>
   </sect1>
 </chapter>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
-"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<?xml version="1.0"?>
 <chapter id="beans" label="3">
   <title>JavaBeans</title>
 
@@ -11,28 +9,22 @@
     enterprise applications, Swing Graphical User Interface (GUIs), templating
     engines, and object-relational mapping (ORM) tools. Most systems have some
     sort of object model; for example, an electronic commerce application
-    would have an object model involving an <literal
-    moreinfo="none">Invoice</literal>, which relates to a <literal
-    moreinfo="none">Customer</literal>; or a sports news web site would have
-    related <literal moreinfo="none">Athlete</literal>, <literal
-    moreinfo="none">Sport</literal>, and <literal
-    moreinfo="none">Team</literal> objects. Frequently, objects in these
-    object models are beans—simple objects with properties, encapsulating
+    would have an object model involving an <literal moreinfo="none">Invoice</literal>, which relates to a <literal moreinfo="none">Customer</literal>; or a sports news web site would have
+    related <literal moreinfo="none">Athlete</literal>, <literal moreinfo="none">Sport</literal>, and <literal moreinfo="none">Team</literal> objects. Frequently, objects in these
+    object models are beans&#x2014;simple objects with properties, encapsulating
     access to these properties via public getter and setter methods.</para>
 
-    <para>In 1997, Sun Microsystems published Version 1.01 of the <indexterm
-        id="beans-ITERM-2103" significance="normal">
+    <para>In 1997, Sun Microsystems published Version 1.01 of the <indexterm id="beans-ITERM-2103" significance="normal">
         <primary>JavaBeans</primary>
-      </indexterm>JavaBeans© specification. Initially, Sun offered beans as
+      </indexterm>JavaBeans&#xA9; specification. Initially, Sun offered beans as
     visual components for graphical user interfaces; JavaBeans were to be the
-    equivalent of Microsoft's ActiveX controls—a framework and set of
+    equivalent of Microsoft's ActiveX controls&#x2014;a framework and set of
     interfaces for creating reusable and pluggable GUI components. Used as
     components, which exposed states through a series of accessor and mutator
-    (<literal moreinfo="none">getX( )</literal> and <literal
-    moreinfo="none">setX()</literal>) methods, a developer would develop a GUI
+    (<literal moreinfo="none">getX( )</literal> and <literal moreinfo="none">setX()</literal>) methods, a developer would develop a GUI
     Java application by creating a visual layout using an IDE like Visual Cafe
     or JBuilder. If you've ever developed with Microsoft tools, you'll know
-    exactly what this means—Java was going to unseat Visual Basic, and GUI
+    exactly what this means&#x2014;Java was going to unseat Visual Basic, and GUI
     development was going to be easier than easy. According to the JavaBeans
     Specification Version 1.01 from 1997:</para>
 
@@ -55,9 +47,7 @@
     3-1</link> defines a bean, <literal moreinfo="none">SimpleBean</literal>
     <indexterm id="beans-ITERM-2104" significance="normal">
         <primary>SimpleBean</primary>
-      </indexterm>, which contains two bean properties—<literal
-    moreinfo="none">name1</literal> and <literal
-    moreinfo="none">name2</literal>.</para>
+      </indexterm>, which contains two bean properties&#x2014;<literal moreinfo="none">name1</literal> and <literal moreinfo="none">name2</literal>.</para>
 
     <example id="beans-EX-1" label="3-1">
       <title>Sample bean</title>
@@ -78,26 +68,17 @@ public class SimpleBean {
 }</programlisting>
     </example>
 
-    <para>The presence of the public methods <literal
-    moreinfo="none">getName1( )</literal> and <literal
-    moreinfo="none">getName2( )</literal> make the bean properties <literal
-    moreinfo="none">name1</literal> and <literal
-    moreinfo="none">name2</literal> readable, and the public methods <literal
-    moreinfo="none">setName1( )</literal> and <literal
-    moreinfo="none">setName2( )</literal> make these properties writable. A
+    <para>The presence of the public methods <literal moreinfo="none">getName1( )</literal> and <literal moreinfo="none">getName2( )</literal> make the bean properties <literal moreinfo="none">name1</literal> and <literal moreinfo="none">name2</literal> readable, and the public methods <literal moreinfo="none">setName1( )</literal> and <literal moreinfo="none">setName2( )</literal> make these properties writable. A
     bean should also have a public no-argument constructor; other constructors
     are not prohibited, but, since many tools need to dynamically create and
     populate beans, a no-argument constructor is required.</para>
 
-    <para>The original JavaBeans specification is available at <systemitem
-    moreinfo="none"
-    role="url">http://java.sun.com/products/javabeans/docs/spec.html</systemitem>.
+    <para>The original JavaBeans specification is available at <ulink url="http://java.sun.com/products/javabeans/docs/spec.html">http://java.sun.com/products/javabeans/docs/spec.html</ulink>.
     The JavaBeans specification still exists and features have been added to
     the Java 1.4 release to support reading and writing JavaBeans to
     Extensible Markup Language (XML) documents. More information about more
     modern additions to the JavaBeans specification can be found at
-    <systemitem moreinfo="none"
-    role="url">http://java.sun.com/j2se/1.4.2/docs/guide/beans/changes14.html</systemitem>.</para>
+    <ulink url="http://java.sun.com/j2se/1.4.2/docs/guide/beans/changes14.html">http://java.sun.com/j2se/1.4.2/docs/guide/beans/changes14.html</ulink>.</para>
   </sect1>
 
   <sect1 id="beans-sect-rep-graphic" label="3.1" role="Recipe">
@@ -106,26 +87,21 @@ public class SimpleBean {
     <sect2>
       <title>Problem</title>
 
-      <para>You need to draw a diagram of<indexterm class="startofrange"
-          id="beans-ITERM-2105" significance="normal">
+      <para>You need to draw a diagram of<indexterm class="startofrange" id="beans-ITERM-2105" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>relationships, diagramming</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2106" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2106" significance="normal">
           <primary>beans</primary>
 
           <secondary>relationships, diagramming</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2107" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2107" significance="normal">
           <primary>relationships</primary>
 
           <secondary>diagramming</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2108" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2108" significance="normal">
           <primary>diagramming relationships</primary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2109" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2109" significance="normal">
           <primary>objects</primary>
 
           <secondary>JavaBeans, diagramming</secondary>
@@ -136,34 +112,28 @@ public class SimpleBean {
     <sect2>
       <title>Solution</title>
 
-      <para>Use a simplified variant of a <indexterm
-          id="beans-ITERM-2110" significance="normal">
+      <para>Use a simplified variant of a <indexterm id="beans-ITERM-2110" significance="normal">
           <primary>Unified Modeling Language</primary>
 
           <see>UML</see>
-        </indexterm> <indexterm id="beans-ITERM-2111"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2111" significance="normal">
           <primary>UML (Unified Modeling Language)</primary>
 
           <secondary>diagrams</secondary>
         </indexterm>Unified Modeling Language (UML) class diagram that
-      contains only class names, attribute names, and attribute types. <link
-      linkend="beans-FIG-1">Figure 3-1</link> describes two
-      related beans—<literal moreinfo="none">Person</literal> and <literal
-      moreinfo="none">Job</literal>.</para>
+      contains only class names, attribute names, and attribute types. <link linkend="beans-FIG-1">Figure 3-1</link> describes two
+      related beans&#x2014;<literal moreinfo="none">Person</literal> and <literal moreinfo="none">Job</literal>.</para>
 
       <figure float="0" id="beans-FIG-1" label="3-1">
         <title>Structure of Person and Job beans</title>
 
         <mediaobject id="I_3_tt112">
           <imageobject role="print">
-            <imagedata depth="59" fileref="figs/print/jccb_0301.pdf"
-                       format="PDF" width="193" />
+            <imagedata depth="59" fileref="figs/print/jccb_0301.pdf" format="PDF" width="193"/>
           </imageobject>
 
           <imageobject role="web">
-            <imagedata depth="59" fileref="figs/web/jccb_0301.png"
-                       format="PNG" width="193" />
+            <imagedata depth="59" fileref="figs/web/jccb_0301.png" format="PNG" width="193"/>
           </imageobject>
         </mediaobject>
       </figure>
@@ -181,11 +151,7 @@ public class SimpleBean {
       getter method and a setter method. The beans represented by these
       diagrams are simply objects with attributes, and the only operations on
       a bean are getter and setter methods and no-argument constructors. To
-      help you get used to translating these diagrams into code, the <literal
-      moreinfo="none">Person</literal> and <literal
-      moreinfo="none">Job</literal> classes are defined in Examples <link
-      linkend="beans-EX-2">Example 3-2</link> and <link
-      linkend="beans-EX-3">Example 3-3</link>.</para>
+      help you get used to translating these diagrams into code, the <literal moreinfo="none">Person</literal> and <literal moreinfo="none">Job</literal> classes are defined in Examples <link linkend="beans-EX-2">Example 3-2</link> and <link linkend="beans-EX-3">Example 3-3</link>.</para>
 
       <example id="beans-EX-2" label="3-2">
         <title>The Person bean</title>
@@ -221,34 +187,28 @@ public class SimpleBean {
 }</programlisting>
       </example>
 
-      <para>When an object contains an attribute of type <literal
-      moreinfo="none">List</literal>, it is helpful to know the type of object
+      <para>When an object contains an attribute of type <literal moreinfo="none">List</literal>, it is helpful to know the type of object
       that <literal moreinfo="none">List</literal> contains. To convey the
       type of object contained in a <literal moreinfo="none">List</literal>,
       every list attribute will be followed by the type it is intended to
-      contain surrounded by brackets: <filename
-      moreinfo="none">List&lt;Integer&gt;</filename>. Similarly, if an object
+      contain surrounded by brackets: <filename moreinfo="none">List&lt;Integer&gt;</filename>. Similarly, if an object
       contains a <literal moreinfo="none">Map</literal>, the type of the key
       and value will be separated by a comma and surrounded by brackets:
       <filename moreinfo="none">Map&lt;String,Integer&gt;</filename>. If the
       <literal moreinfo="none">Person</literal> object had contained a list of
       <literal moreinfo="none">Job</literal> objects instead of a single Job
-      object, the attribute type would be written <filename
-      moreinfo="none">List&lt;Job&gt;</filename>, as in <link
-      linkend="beans-FIG-2">Figure 3-2</link>.</para>
+      object, the attribute type would be written <filename moreinfo="none">List&lt;Job&gt;</filename>, as in <link linkend="beans-FIG-2">Figure 3-2</link>.</para>
 
       <figure float="0" id="beans-FIG-2" label="3-2">
         <title>Representing a list of Job objects</title>
 
         <mediaobject id="I_3_tt113">
           <imageobject role="print">
-            <imagedata depth="59" fileref="figs/print/jccb_0302.pdf"
-                       format="PDF" width="193" />
+            <imagedata depth="59" fileref="figs/print/jccb_0302.pdf" format="PDF" width="193"/>
           </imageobject>
 
           <imageobject role="web">
-            <imagedata depth="59" fileref="figs/web/jccb_0302.png"
-                       format="PNG" width="193" />
+            <imagedata depth="59" fileref="figs/web/jccb_0302.png" format="PNG" width="193"/>
           </imageobject>
         </mediaobject>
       </figure>
@@ -278,26 +238,20 @@ public class SimpleBean {
           <term>ArgoUML</term>
 
           <listitem>
-            <para><indexterm id="beans-ITERM-2112"
-                significance="normal">
+            <para><indexterm id="beans-ITERM-2112" significance="normal">
                 <primary>ArgoUML</primary>
-              </indexterm>ArgoUML is a UML <indexterm
-                id="beans-ITERM-2113" significance="normal">
+              </indexterm>ArgoUML is a UML <indexterm id="beans-ITERM-2113" significance="normal">
                 <primary>editors, UML</primary>
-              </indexterm> <indexterm id="beans-ITERM-2114"
-                significance="normal">
+              </indexterm> <indexterm id="beans-ITERM-2114" significance="normal">
                 <primary>UML (Unified Modeling Language)</primary>
 
                 <secondary>editors</secondary>
               </indexterm>editor from Tigris.org, an open source community
-            hosted by CollabNet (<systemitem moreinfo="none"
-            role="url">http://www.collabnet.com</systemitem>). ArgoUML
+            hosted by CollabNet (<ulink url="http://www.collabnet.com">http://www.collabnet.com</ulink>). ArgoUML
             supports reverse engineering and code generation to Java, C++, C#,
             and PHP. For more information about ArgoUML, see the project page
-            at <systemitem moreinfo="none"
-            role="url">http://argouml.tigris.org/</systemitem>. To launch
-            ArgoUML via Java Web Start, click on <systemitem moreinfo="none"
-            role="url">http://argouml.tigris.org/files/documents/4/383/ArgoUML-stable.jnlp</systemitem>.</para>
+            at <ulink url="http://argouml.tigris.org/">http://argouml.tigris.org/</ulink>. To launch
+            ArgoUML via Java Web Start, click on <ulink url="http://argouml.tigris.org/files/documents/4/383/ArgoUML-stable.jnlp">http://argouml.tigris.org/files/documents/4/383/ArgoUML-stable.jnlp</ulink>.</para>
           </listitem>
         </varlistentry>
 
@@ -305,21 +259,18 @@ public class SimpleBean {
           <term>Poseidon for UML</term>
 
           <listitem>
-            <para><indexterm id="beans-ITERM-2115"
-                significance="normal">
+            <para><indexterm id="beans-ITERM-2115" significance="normal">
                 <primary>Gentleware AG</primary>
               </indexterm>Gentleware AG has taken ArgoUML and extended it,
             providing additional features, such as language export options and
             improved usability. A community edition is free to download and
             use. For more information about this product, see the Gentleware
-            AG site at <systemitem moreinfo="none"
-            role="url">http://www.gentleware.com</systemitem>. If you have
+            AG site at <ulink url="http://www.gentleware.com">http://www.gentleware.com</ulink>. If you have
             Java Web Start installed, you can launch the community edition of
             <indexterm id="beans-ITERM-2116" significance="normal">
                 <primary>Poseidon</primary>
               </indexterm>Poseidon through a browser by clicking on
-            <systemitem moreinfo="none"
-            role="url">http://www.gentleware.com/products/webstart.php4</systemitem>.</para>
+            <ulink url="http://www.gentleware.com/products/webstart.php4">http://www.gentleware.com/products/webstart.php4</ulink>.</para>
           </listitem>
         </varlistentry>
 
@@ -327,17 +278,14 @@ public class SimpleBean {
           <term>SmartDraw</term>
 
           <listitem>
-            <para><indexterm id="beans-ITERM-2117"
-                significance="normal">
+            <para><indexterm id="beans-ITERM-2117" significance="normal">
                 <primary>SmartDraw</primary>
               </indexterm>SmartDraw, from SmartDraw.com, offers a very usable
             general purpose tool for creating diagrams. This tool stands out
             from the rest because it is simple, and, unlike other tools, it is
             solely concerned with the creation of diagrams; it makes no
             attempt to get involved with your application, and it has an
-            attractive price of around $129. Details are at <systemitem
-            moreinfo="none"
-            role="url">http://www.smartdraw.com</systemitem>.</para>
+            attractive price of around $129. Details are at <ulink url="http://www.smartdraw.com">http://www.smartdraw.com</ulink>.</para>
           </listitem>
         </varlistentry>
 
@@ -345,31 +293,15 @@ public class SimpleBean {
           <term>Other Tools</term>
 
           <listitem>
-            <para>It seem that almost every<indexterm
-                id="beans-ITERM-2118" significance="normal">
+            <para>It seem that almost every<indexterm id="beans-ITERM-2118" significance="normal">
                 <primary>tools</primary>
 
                 <secondary>UML editors</secondary>
               </indexterm> software company has attempted to create a UML
             modeling tool, some of the well-known commercial products are
             IBM's Rational Rose, Microsoft's Visio, and Borland's Together.
-            The URL <systemitem moreinfo="none"
-            role="url">http://www.objectsbydesign.com/tools/umltools_byCompany.html</systemitem>
-            contains<indexterm class="endofrange"
-            id="beans-ITERM-2119" significance="normal"
-            startref="beans-ITERM-2105"></indexterm> <indexterm
-            class="endofrange" id="beans-ITERM-2120"
-            significance="normal"
-            startref="beans-ITERM-2106"></indexterm> <indexterm
-            class="endofrange" id="beans-ITERM-2121"
-            significance="normal"
-            startref="beans-ITERM-2107"></indexterm> <indexterm
-            class="endofrange" id="beans-ITERM-2122"
-            significance="normal"
-            startref="beans-ITERM-2108"></indexterm> <indexterm
-            class="endofrange" id="beans-ITERM-2123"
-            significance="normal"
-            startref="beans-ITERM-2109"></indexterm> an exhaustive
+            The URL <ulink url="http://www.objectsbydesign.com/tools/umltools_byCompany.html">http://www.objectsbydesign.com/tools/umltools_byCompany.html</ulink>
+            contains<indexterm class="endofrange" id="beans-ITERM-2119" significance="normal" startref="beans-ITERM-2105"/> <indexterm class="endofrange" id="beans-ITERM-2120" significance="normal" startref="beans-ITERM-2106"/> <indexterm class="endofrange" id="beans-ITERM-2121" significance="normal" startref="beans-ITERM-2107"/> <indexterm class="endofrange" id="beans-ITERM-2122" significance="normal" startref="beans-ITERM-2108"/> <indexterm class="endofrange" id="beans-ITERM-2123" significance="normal" startref="beans-ITERM-2109"/> an exhaustive
             list of other UML tools.</para>
           </listitem>
         </varlistentry>
@@ -383,25 +315,21 @@ public class SimpleBean {
     <sect2>
       <title>Problem</title>
 
-      <para>You want to use Jakarta <indexterm
-          id="beans-ITERM-2124" significance="normal">
+      <para>You want to use Jakarta <indexterm id="beans-ITERM-2124" significance="normal">
           <primary>Commons BeanUtils</primary>
 
           <secondary>downloading</secondary>
-        </indexterm> <indexterm id="beans-ITERM-2125"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2125" significance="normal">
           <primary>downloading</primary>
 
           <secondary>Commons BeanUtils</secondary>
-        </indexterm> <indexterm id="beans-ITERM-2126"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2126" significance="normal">
           <primary>beans</primary>
 
           <secondary>Commons BeanUtils</secondary>
 
           <tertiary>downloading</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2127"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2127" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>Commons BeanUtils</secondary>
@@ -459,14 +387,11 @@ public class SimpleBean {
         <para>BeanUtils was originally a part of Jakarta Struts, a widely used
         <indexterm id="beans-ITERM-2128" significance="normal">
             <primary>Model-View-Controller (MVC)</primary>
-          </indexterm> <indexterm id="beans-ITERM-2129"
-            significance="normal">
+          </indexterm> <indexterm id="beans-ITERM-2129" significance="normal">
             <primary>MVC (Model-View-Controller)</primary>
-          </indexterm> <indexterm id="beans-ITERM-2130"
-            significance="normal">
+          </indexterm> <indexterm id="beans-ITERM-2130" significance="normal">
             <primary>form beans</primary>
-          </indexterm> <indexterm id="beans-ITERM-2131"
-            significance="normal">
+          </indexterm> <indexterm id="beans-ITERM-2131" significance="normal">
             <primary>beans</primary>
 
             <secondary>form</secondary>
@@ -474,12 +399,8 @@ public class SimpleBean {
         applications, which originated in the Jakarta project. The Struts
         framework hinges upon <filename moreinfo="none">form beans</filename>,
         which are used to present and communicate user input to and from a
-        Struts action. The Struts <literal
-        moreinfo="none">ActionServlet</literal> and the bean JavaServer Pages
-        (JSP) tag libraries use the <literal
-        moreinfo="none">BeanUtils</literal>, <literal
-        moreinfo="none">PropertyUtils</literal>, and <literal
-        moreinfo="none">ConvertUtils</literal> classes to populate and
+        Struts action. The Struts <literal moreinfo="none">ActionServlet</literal> and the bean JavaServer Pages
+        (JSP) tag libraries use the <literal moreinfo="none">BeanUtils</literal>, <literal moreinfo="none">PropertyUtils</literal>, and <literal moreinfo="none">ConvertUtils</literal> classes to populate and
         manipulate beans. Refactoring BeanUtils from Struts has created new
         possibilities of reuse throughout the Jakarta project and the larger
         open source Java community.</para>
@@ -491,14 +412,11 @@ public class SimpleBean {
 
       <para>For more information about downloading Commons Logging 1.0.3, see
       <link linkend="app-infra-sect-obtaining-logging">Recipe 7.9</link>. For more
-      information about downloading Commons Collections, see <link
-      linkend="functors-sect-obtaining">Recipe 4.1</link>. For information on
-      obtaining the source code for Commons BeanUtils, see <link
-      linkend="beans-sect-sourcecode">Recipe 3.3</link>.</para>
+      information about downloading Commons Collections, see <link linkend="functors-sect-obtaining">Recipe 4.1</link>. For information on
+      obtaining the source code for Commons BeanUtils, see <link linkend="beans-sect-sourcecode">Recipe 3.3</link>.</para>
 
       <para>To learn more about Commons BeanUtils, visit the Commons BeanUtils
-      web site: <systemitem moreinfo="none"
-      role="url">http://jakarta.apache.org/commons/beanutils/</systemitem>.</para>
+      web site: <ulink url="http://jakarta.apache.org/commons/beanutils/">http://jakarta.apache.org/commons/beanutils/</ulink>.</para>
 
       <para>If you have questions about how to use Commons BeanUtils, you can
       join the <email>commons-user@jakarta.apache.org</email> mailing list.
@@ -513,37 +431,31 @@ public class SimpleBean {
     <sect2>
       <title>Problem</title>
 
-      <para>You need the source code<indexterm
-          id="beans-ITERM-2132" significance="normal">
+      <para>You need the source code<indexterm id="beans-ITERM-2132" significance="normal">
           <primary>Commons BeanUtils</primary>
 
           <secondary>source code</secondary>
-        </indexterm> <indexterm id="beans-ITERM-2133"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2133" significance="normal">
           <primary>source code</primary>
 
           <secondary>Commons BeanUtils</secondary>
-        </indexterm> <indexterm id="beans-ITERM-2134"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2134" significance="normal">
           <primary>beans</primary>
 
           <secondary>Commons BeanUtils</secondary>
 
           <tertiary>source code</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2135"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2135" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>Commons BeanUtils</secondary>
 
           <tertiary>source code</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2136"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2136" significance="normal">
           <primary>code</primary>
 
           <secondary>Commons BeanUtils</secondary>
-        </indexterm> <indexterm id="beans-ITERM-2137"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2137" significance="normal">
           <primary>programming</primary>
 
           <secondary>Commons BeanUtils</secondary>
@@ -553,16 +465,12 @@ public class SimpleBean {
     <sect2>
       <title>Solution</title>
 
-      <para>Download the source from <systemitem moreinfo="none"
-      role="url">http://jakarta.apache.org/site/sourceindex.cgi</systemitem>,
-      following the same procedure as outlined in <link
-      linkend="lang-sect-obtaining">Recipe 1.1</link>. Download a file
+      <para>Download the source from <ulink url="http://jakarta.apache.org/site/sourceindex.cgi">http://jakarta.apache.org/site/sourceindex.cgi</ulink>,
+      following the same procedure as outlined in <link linkend="lang-sect-obtaining">Recipe 1.1</link>. Download a file
       named <filename moreinfo="none">commons-beanutils-1.7-src.zip</filename>
-      (or <filename
-      moreinfo="none">commons-beanutils-1.7-src.tar.gz</filename>); once you
+      (or <filename moreinfo="none">commons-beanutils-1.7-src.tar.gz</filename>); once you
       unzip this archive, you will have the source to Commons BeanUtils in
-      <filename
-      moreinfo="none">./commons-beanutils-1.7-src/src</filename>.</para>
+      <filename moreinfo="none">./commons-beanutils-1.7-src/src</filename>.</para>
     </sect2>
 
     <sect2>
@@ -570,8 +478,7 @@ public class SimpleBean {
 
       <para>Most Commons components follow a similar convention for the layout
       of binary and source distributions. For more information about the
-      layout of the BeanUtils source distribution, see <link
-      linkend="lang-sect-sourcecode">Recipe 1.3</link>.</para>
+      layout of the BeanUtils source distribution, see <link linkend="lang-sect-sourcecode">Recipe 1.3</link>.</para>
 
       <para>For information on obtaining the binary distribution for Commons
       BeanUtils, see <link linkend="beans-sect-obtaining">Recipe
@@ -585,29 +492,25 @@ public class SimpleBean {
     <sect2>
       <title>Problem</title>
 
-      <para>You need to access a simple <indexterm class="startofrange"
-          id="beans-ITERM-2138" significance="normal">
+      <para>You need to access a simple <indexterm class="startofrange" id="beans-ITERM-2138" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>accessing</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2139" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2139" significance="normal">
           <primary>beans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>accessing</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2140" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2140" significance="normal">
           <primary>properties</primary>
 
           <secondary>beans</secondary>
 
           <tertiary>accessing</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2141" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2141" significance="normal">
           <primary>access</primary>
 
           <secondary>properties</secondary>
@@ -619,17 +522,13 @@ public class SimpleBean {
     <sect2>
       <title>Solution</title>
 
-      <para>Use <literal
-      moreinfo="none">PropertyUtils.getSimpleProperty()</literal> <indexterm
-          id="beans-ITERM-2142" significance="normal">
+      <para>Use <literal moreinfo="none">PropertyUtils.getSimpleProperty()</literal> <indexterm id="beans-ITERM-2142" significance="normal">
           <primary>PropertyUtils.getSimpleProperty( ) method</primary>
-        </indexterm> <indexterm id="beans-ITERM-2143"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2143" significance="normal">
           <primary>methods</primary>
 
           <secondary>PropertyUtils.getSimpleProperty( )</secondary>
-        </indexterm> to access a bean property by <indexterm
-          id="beans-ITERM-2144" significance="normal">
+        </indexterm> to access a bean property by <indexterm id="beans-ITERM-2144" significance="normal">
           <primary>names</primary>
 
           <secondary>bean properties</secondary>
@@ -648,17 +547,13 @@ System.out.println( name );</programlisting>
 
       <para><literal moreinfo="none">PropertyUtils.getSimpleProperty(
       )</literal> invokes the public method <literal moreinfo="none">getName(
-      )</literal> <indexterm id="beans-ITERM-2145"
-          significance="normal">
+      )</literal> <indexterm id="beans-ITERM-2145" significance="normal">
           <primary>getName( ) method</primary>
-        </indexterm> <indexterm id="beans-ITERM-2146"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2146" significance="normal">
           <primary>methods</primary>
 
           <secondary>getName( )</secondary>
-        </indexterm> on an instance of <literal
-      moreinfo="none">Person</literal>, returning the value of the <literal
-      moreinfo="none">name</literal> property. The previous example executes
+        </indexterm> on an instance of <literal moreinfo="none">Person</literal>, returning the value of the <literal moreinfo="none">name</literal> property. The previous example executes
       and prints out the name "Alex."</para>
     </sect2>
 
@@ -667,20 +562,15 @@ System.out.println( name );</programlisting>
 
       <para>A simple bean property is a private member variable that can be
       accessed with a getter method. If a property can be read via a getter
-      method, that getter method is said to be the<indexterm
-          id="beans-ITERM-2147" significance="normal">
+      method, that getter method is said to be the<indexterm id="beans-ITERM-2147" significance="normal">
           <primary>read methods</primary>
         </indexterm> <filename moreinfo="none">read method</filename> for the
       named property. If the property can be modified with a setter method,
       that setter method is said to be the <filename moreinfo="none">write
-      method </filename> <indexterm id="beans-ITERM-2148"
-          significance="normal">
+      method </filename> <indexterm id="beans-ITERM-2148" significance="normal">
           <primary>write methods</primary>
-        </indexterm>for the named property. The <literal
-      moreinfo="none">Person</literal> bean in <link
-      linkend="beans-EX-4">Example 3-4</link> defines two simple
-      bean properties, <literal moreinfo="none">name</literal> and <literal
-      moreinfo="none">favoriteColor</literal>.</para>
+        </indexterm>for the named property. The <literal moreinfo="none">Person</literal> bean in <link linkend="beans-EX-4">Example 3-4</link> defines two simple
+      bean properties, <literal moreinfo="none">name</literal> and <literal moreinfo="none">favoriteColor</literal>.</para>
 
       <example id="beans-EX-4" label="3-4">
         <title>A Person bean with two simple properties</title>
@@ -705,12 +595,8 @@ public class Person {
 }</programlisting>
       </example>
 
-      <para>The class defined in <link
-      linkend="beans-EX-4">Example 3-4</link> is used in the
-      following sample code, which creates a <literal
-      moreinfo="none">Person</literal> object, sets the <literal
-      moreinfo="none">name</literal> and <literal
-      moreinfo="none">favoriteColor</literal> properties, and demonstrates the
+      <para>The class defined in <link linkend="beans-EX-4">Example 3-4</link> is used in the
+      following sample code, which creates a <literal moreinfo="none">Person</literal> object, sets the <literal moreinfo="none">name</literal> and <literal moreinfo="none">favoriteColor</literal> properties, and demonstrates the
       use of <literal moreinfo="none">Property.getSimpleProperty( )</literal>
       to retrieve both properties by name:</para>
 
@@ -735,37 +621,27 @@ try {
 }</programlisting>
 
       <para>Take note of the extensive exception handling required to retrieve
-      two bean properties; three separate exceptions can be thrown by <literal
-      moreinfo="none">getSimpleProperty( )</literal>. The first, <literal
-      moreinfo="none">IllegalAccessException</literal>, is thrown if the
-      getter method is not accessible (not public). <literal
-      moreinfo="none">InvocationTargetException</literal> is thrown if the
-      getter method throws an exception, and <literal
-      moreinfo="none">NoSuchMethodException</literal> is thrown if you specify
+      two bean properties; three separate exceptions can be thrown by <literal moreinfo="none">getSimpleProperty( )</literal>. The first, <literal moreinfo="none">IllegalAccessException</literal>, is thrown if the
+      getter method is not accessible (not public). <literal moreinfo="none">InvocationTargetException</literal> is thrown if the
+      getter method throws an exception, and <literal moreinfo="none">NoSuchMethodException</literal> is thrown if you specify
       a bean property that does not exist on an object; for example,
-      attempting to retrieve the <literal
-      moreinfo="none">numberOfDoors</literal> property from the <literal
-      moreinfo="none">person</literal> object above would throw a <literal
-      moreinfo="none">NoSuchMethodException</literal> because there is no
+      attempting to retrieve the <literal moreinfo="none">numberOfDoors</literal> property from the <literal moreinfo="none">person</literal> object above would throw a <literal moreinfo="none">NoSuchMethodException</literal> because there is no
       <literal moreinfo="none">getNumberOfDoors( )</literal> method.</para>
 
       <tip id="beans-NOTE-54" role="ora">
         <para>To simplify the examples in this chapter, most examples will
-        omit the <literal moreinfo="none">try</literal>/<literal
-        moreinfo="none">catch</literal> or catch the general <literal
-        moreinfo="none">Exception</literal>—to do otherwise would be a
+        omit the <literal moreinfo="none">try</literal>/<literal moreinfo="none">catch</literal> or catch the general <literal moreinfo="none">Exception</literal>&#x2014;to do otherwise would be a
         needless waste of paper. As a general programming practice, catching
         the general <literal moreinfo="none">Exception</literal> should be
         avoided; well-written code usually catches individual, specific
-        exceptions. But, in this case, catching the general <literal
-        moreinfo="none">Exception</literal> may save you a great deal of
+        exceptions. But, in this case, catching the general <literal moreinfo="none">Exception</literal> may save you a great deal of
         hassle.</para>
       </tip>
 
       <para>Using <literal moreinfo="none">PropertyUtils.getSimpleProperty(
       )</literal> when you could simply call a get method might seem like an
-      unwieldy solution to a very simple problem, but the alternative—calling
-      a getter method—locks you into a specific bean property at compile time.
+      unwieldy solution to a very simple problem, but the alternative&#x2014;calling
+      a getter method&#x2014;locks you into a specific bean property at compile time.
       This may be unacceptable if you are designing something generic like a
       templating system or an expression language interpreter; you may need to
       access an arbitrary property of an arbitrary object known only at
@@ -782,26 +658,12 @@ try {
       <para>The next three recipes focus on accessing different types of bean
       properties: nested, indexed, and mapped. Simple properties may also be
       retrieved with <literal moreinfo="none">PropertyUtils.getProperty(
-      )</literal>; this method is described in <link
-      linkend="beans-sect-accessing-all">Recipe 3.8</link>.</para>
+      )</literal>; this method is described in <link linkend="beans-sect-accessing-all">Recipe 3.8</link>.</para>
 
-      <para>This recipe<indexterm class="endofrange"
-      id="beans-ITERM-2149" significance="normal"
-      startref="beans-ITERM-2138"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2150"
-      significance="normal"
-      startref="beans-ITERM-2139"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2151"
-      significance="normal"
-      startref="beans-ITERM-2140"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2152"
-      significance="normal"
-      startref="beans-ITERM-2141"></indexterm> mentions Struts, a
+      <para>This recipe<indexterm class="endofrange" id="beans-ITERM-2149" significance="normal" startref="beans-ITERM-2138"/> <indexterm class="endofrange" id="beans-ITERM-2150" significance="normal" startref="beans-ITERM-2139"/> <indexterm class="endofrange" id="beans-ITERM-2151" significance="normal" startref="beans-ITERM-2140"/> <indexterm class="endofrange" id="beans-ITERM-2152" significance="normal" startref="beans-ITERM-2141"/> mentions Struts, a
       web application MVC framework. For more information about the Struts
-      project, see <systemitem moreinfo="none"
-      role="url">http://jakarta.apache.org/struts</systemitem>. Jakarta
-      Velocity and Jakarta Commons JEXL are discussed in <link
-      linkend="templating">Chapter 9</link>, and Commons Collections is
+      project, see <ulink url="http://jakarta.apache.org/struts">http://jakarta.apache.org/struts</ulink>. Jakarta
+      Velocity and Jakarta Commons JEXL are discussed in <link linkend="templating">Chapter 9</link>, and Commons Collections is
       discussed in <link linkend="collections">Chapter 5</link>.</para>
     </sect2>
   </sect1>
@@ -812,36 +674,31 @@ try {
     <sect2>
       <title>Problem</title>
 
-      <para>You need to access a nested <indexterm class="startofrange"
-          id="beans-ITERM-2153" significance="normal">
+      <para>You need to access a nested <indexterm class="startofrange" id="beans-ITERM-2153" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>nested bean access</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2154" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2154" significance="normal">
           <primary>beans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>nested access</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2155" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2155" significance="normal">
           <primary>properties</primary>
 
           <secondary>beans</secondary>
 
           <tertiary>nested access</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2156" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2156" significance="normal">
           <primary>access</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>nested beans</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2157" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2157" significance="normal">
           <primary>nested beans</primary>
         </indexterm>bean property.</para>
     </sect2>
@@ -849,22 +706,17 @@ try {
     <sect2>
       <title>Solution</title>
 
-      <para>Use <literal
-      moreinfo="none">PropertyUtils.getNestedProperty()</literal> <indexterm
-          id="beans-ITERM-2158" significance="normal">
+      <para>Use <literal moreinfo="none">PropertyUtils.getNestedProperty()</literal> <indexterm id="beans-ITERM-2158" significance="normal">
           <primary>PropertyUtils.getNestedProperty( ) method</primary>
-        </indexterm> <indexterm id="beans-ITERM-2159"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2159" significance="normal">
           <primary>methods</primary>
 
           <secondary>PropertyUtils.getNestedProperty( )</secondary>
         </indexterm> to retrieve a nested bean property. Use a period as a
-      delimiter to identify nested bean properties; <filename
-      moreinfo="none">one.two.three.four</filename> refers to a property
-      nested three levels deep—the <literal moreinfo="none">four</literal>
+      delimiter to identify nested bean properties; <filename moreinfo="none">one.two.three.four</filename> refers to a property
+      nested three levels deep&#x2014;the <literal moreinfo="none">four</literal>
       property of the <literal moreinfo="none">three</literal> property of the
-      <literal moreinfo="none">two</literal> property of the <literal
-      moreinfo="none">one</literal> property. The following example accesses a
+      <literal moreinfo="none">two</literal> property of the <literal moreinfo="none">one</literal> property. The following example accesses a
       nested bean property on a <literal moreinfo="none">Person</literal>
       bean, <filename moreinfo="none">author.name</filename>:</para>
 
@@ -887,19 +739,8 @@ Waldo Emerson".</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>The <literal moreinfo="none">author</literal> property of <literal
-      moreinfo="none">Book</literal> is a <literal
-      moreinfo="none">Person</literal> bean with a <literal
-      moreinfo="none">name</literal> property; calling <literal
-      moreinfo="none">getNestedProperty( )</literal> with <filename
-      moreinfo="none">author.name</filename> retrieves the simple property
-      <literal moreinfo="none">author</literal> from <literal
-      moreinfo="none">Book</literal> and the property <literal
-      moreinfo="none">name</literal>, which is nested in the <literal
-      moreinfo="none">author</literal> property. <link
-      linkend="beans-FIG-3">Figure 3-3</link> shows the <literal
-      moreinfo="none">Book</literal> and <literal
-      moreinfo="none">Person</literal> beans that were used in the previous
+      <para>The <literal moreinfo="none">author</literal> property of <literal moreinfo="none">Book</literal> is a <literal moreinfo="none">Person</literal> bean with a <literal moreinfo="none">name</literal> property; calling <literal moreinfo="none">getNestedProperty( )</literal> with <filename moreinfo="none">author.name</filename> retrieves the simple property
+      <literal moreinfo="none">author</literal> from <literal moreinfo="none">Book</literal> and the property <literal moreinfo="none">name</literal>, which is nested in the <literal moreinfo="none">author</literal> property. <link linkend="beans-FIG-3">Figure 3-3</link> shows the <literal moreinfo="none">Book</literal> and <literal moreinfo="none">Person</literal> beans that were used in the previous
       example.</para>
 
       <figure float="0" id="beans-FIG-3" label="3-3">
@@ -907,20 +748,16 @@ Waldo Emerson".</programlisting>
 
         <mediaobject id="I_3_tt118">
           <imageobject role="print">
-            <imagedata depth="46" fileref="figs/print/jccb_0303.pdf"
-                       format="PDF" width="193" />
+            <imagedata depth="46" fileref="figs/print/jccb_0303.pdf" format="PDF" width="193"/>
           </imageobject>
 
           <imageobject role="web">
-            <imagedata depth="46" fileref="figs/web/jccb_0303.png"
-                       format="PNG" width="193" />
+            <imagedata depth="46" fileref="figs/web/jccb_0303.png" format="PNG" width="193"/>
           </imageobject>
         </mediaobject>
       </figure>
 
-      <para>The following example demonstrates a combination of <literal
-      moreinfo="none">getSimpleProperty( )</literal> and <literal
-      moreinfo="none">getNestedProperty( )</literal>, retrieving a book name
+      <para>The following example demonstrates a combination of <literal moreinfo="none">getSimpleProperty( )</literal> and <literal moreinfo="none">getNestedProperty( )</literal>, retrieving a book name
       and an author name:</para>
 
       <programlisting format="linespecific" id="I_3_tt119">General Exception is caught.
@@ -958,8 +795,7 @@ try {
       property; demonstrating the retrieval of a deeply nested property, the
       following example retrieves the <literal moreinfo="none">name</literal>
       property from the <literal moreinfo="none">state</literal> property of
-      the <literal moreinfo="none">address</literal> property of a <literal
-      moreinfo="none">Person</literal> object:</para>
+      the <literal moreinfo="none">address</literal> property of a <literal moreinfo="none">Person</literal> object:</para>
 
       <programlisting format="linespecific" id="I_3_tt120">String propertyName = "address.state.name";
 
@@ -967,51 +803,27 @@ try {
                <userinput moreinfo="none">    (String) PropertyUtils.getNestedProperty( person,  propertyName );</userinput>
             </programlisting>
 
-      <para>This example assumes that the <literal
-      moreinfo="none">Person</literal> class has a<indexterm
-          id="beans-ITERM-2160" significance="normal">
+      <para>This example assumes that the <literal moreinfo="none">Person</literal> class has a<indexterm id="beans-ITERM-2160" significance="normal">
           <primary>getAddress( ) method</primary>
-        </indexterm> <indexterm id="beans-ITERM-2161"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2161" significance="normal">
           <primary>methods</primary>
 
           <secondary>getAddress( )</secondary>
         </indexterm> <literal moreinfo="none">getAddress( )</literal> method
       that returns an <literal moreinfo="none">Address</literal> object with a
-      <literal moreinfo="none">getState( )</literal> <indexterm
-          id="beans-ITERM-2162" significance="normal">
+      <literal moreinfo="none">getState( )</literal> <indexterm id="beans-ITERM-2162" significance="normal">
           <primary>getState( ) method</primary>
-        </indexterm> <indexterm id="beans-ITERM-2163"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2163" significance="normal">
           <primary>methods</primary>
 
           <secondary>getState( )</secondary>
-        </indexterm> method and returns a <literal
-      moreinfo="none">State</literal> object with a <literal
-      moreinfo="none">getName()</literal> <indexterm
-          id="beans-ITERM-2164" significance="normal">
+        </indexterm> method and returns a <literal moreinfo="none">State</literal> object with a <literal moreinfo="none">getName()</literal> <indexterm id="beans-ITERM-2164" significance="normal">
           <primary>getName( ) method</primary>
-        </indexterm> <indexterm id="beans-ITERM-2165"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2165" significance="normal">
           <primary>methods</primary>
 
           <secondary>getName( )</secondary>
-        </indexterm> method. The emphasized code in <indexterm
-      class="endofrange" id="beans-ITERM-2166"
-      significance="normal"
-      startref="beans-ITERM-2153"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2167"
-      significance="normal"
-      startref="beans-ITERM-2154"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2168"
-      significance="normal"
-      startref="beans-ITERM-2155"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2169"
-      significance="normal"
-      startref="beans-ITERM-2156"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2170"
-      significance="normal"
-      startref="beans-ITERM-2157"></indexterm>the previous example
+        </indexterm> method. The emphasized code in <indexterm class="endofrange" id="beans-ITERM-2166" significance="normal" startref="beans-ITERM-2153"/> <indexterm class="endofrange" id="beans-ITERM-2167" significance="normal" startref="beans-ITERM-2154"/> <indexterm class="endofrange" id="beans-ITERM-2168" significance="normal" startref="beans-ITERM-2155"/> <indexterm class="endofrange" id="beans-ITERM-2169" significance="normal" startref="beans-ITERM-2156"/> <indexterm class="endofrange" id="beans-ITERM-2170" significance="normal" startref="beans-ITERM-2157"/>the previous example
       is the equivalent of the following three lines of code:</para>
 
       <programlisting format="linespecific" id="I_3_tt121">Address address = person.getAddress( );
@@ -1026,36 +838,31 @@ String stateName = state.getName( );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to access the nth <indexterm
-          id="beans-ITERM-2171" significance="normal">
+      <para>You need to access the nth <indexterm id="beans-ITERM-2171" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>indexed bean access</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2172"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2172" significance="normal">
           <primary>beans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>indexed access</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2173"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2173" significance="normal">
           <primary>properties</primary>
 
           <secondary>beans</secondary>
 
           <tertiary>indexed access</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2174"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2174" significance="normal">
           <primary>access</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>indexed beans</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2175"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2175" significance="normal">
           <primary>indexes</primary>
 
           <secondary>bean properties</secondary>
@@ -1069,16 +876,13 @@ String stateName = state.getName( );</programlisting>
       <para>Use <literal moreinfo="none">PropertyUtils.getIndexed()</literal>
       <indexterm id="beans-ITERM-2176" significance="normal">
           <primary>PropertyUtils.getIndexed( ) method</primary>
-        </indexterm> <indexterm id="beans-ITERM-2177"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2177" significance="normal">
           <primary>methods</primary>
 
           <secondary>PropertyUtils.getIndexed( )</secondary>
         </indexterm> to retrieve an element at a specific index of an array or
       a <literal moreinfo="none">List</literal> property. Assuming that the
-      <literal moreinfo="none">chapters</literal> property of the <literal
-      moreinfo="none">Book</literal> object is an instance of <literal
-      moreinfo="none">List</literal>, the following demonstrates the use of
+      <literal moreinfo="none">chapters</literal> property of the <literal moreinfo="none">Book</literal> object is an instance of <literal moreinfo="none">List</literal>, the following demonstrates the use of
       <literal moreinfo="none">getIndexedProperty( )</literal> to access the
       first element of the list of chapters.</para>
 
@@ -1102,8 +906,7 @@ book.getChapters( ).add( chapter2 );
     <sect2>
       <title>Discussion</title>
 
-      <para>There are two ways of accessing an indexed property via <literal
-      moreinfo="none">PropertyUtils</literal>: the index can be specified in
+      <para>There are two ways of accessing an indexed property via <literal moreinfo="none">PropertyUtils</literal>: the index can be specified in
       the name, or it can be specified as a third parameter. The following
       code uses both versions of <literal moreinfo="none">getIndexedProperty(
       )</literal> to retrieve the first chapter from the list of
@@ -1130,20 +933,13 @@ book.setChapters( chapters );
                <userinput moreinfo="none">    (Chapter) PropertyUtils.getIndexedProperty( book, "chapters", 0 );</userinput>
             </programlisting>
 
-      <para>In the previous example, the first version of <literal
-      moreinfo="none">getIndexedProperty( )</literal> accepts a string
-      specifying an indexed bean property—<literal
-      moreinfo="none">chapters[0]</literal>. If this string is not
+      <para>In the previous example, the first version of <literal moreinfo="none">getIndexedProperty( )</literal> accepts a string
+      specifying an indexed bean property&#x2014;<literal moreinfo="none">chapters[0]</literal>. If this string is not
       well-formed, <literal moreinfo="none">PropertyUtils</literal> will throw
-      an <literal moreinfo="none">IllegalArgumentException</literal>; <literal
-      moreinfo="none">chapters[zero]</literal> and <literal
-      moreinfo="none">chapters['zero']</literal> will cause an exception
-      because neither index is an integer value, and <literal
-      moreinfo="none">chapters]0[</literal> will cause an exception because
-      the brackets are transposed. The second call to <literal
-      moreinfo="none">getIndexedProperty( )</literal> is preferred because
-      there is less risk that a parsing error will throw an <literal
-      moreinfo="none">IllegalArgumentException</literal>.</para>
+      an <literal moreinfo="none">IllegalArgumentException</literal>; <literal moreinfo="none">chapters[zero]</literal> and <literal moreinfo="none">chapters['zero']</literal> will cause an exception
+      because neither index is an integer value, and <literal moreinfo="none">chapters]0[</literal> will cause an exception because
+      the brackets are transposed. The second call to <literal moreinfo="none">getIndexedProperty( )</literal> is preferred because
+      there is less risk that a parsing error will throw an <literal moreinfo="none">IllegalArgumentException</literal>.</para>
     </sect2>
   </sect1>
 
@@ -1153,60 +949,49 @@ book.setChapters( chapters );
     <sect2>
       <title>Problem</title>
 
-      <para>You need to retrieve values <indexterm class="startofrange"
-          id="beans-ITERM-2178" significance="normal">
+      <para>You need to retrieve values <indexterm class="startofrange" id="beans-ITERM-2178" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>mapped bean access</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2179" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2179" significance="normal">
           <primary>beans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>mapped access</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2180" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2180" significance="normal">
           <primary>properties</primary>
 
           <secondary>beans</secondary>
 
           <tertiary>mapped access</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2181" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2181" significance="normal">
           <primary>access</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>mapped beans</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2182" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2182" significance="normal">
           <primary>mapping</primary>
 
           <secondary>bean property access</secondary>
-        </indexterm>from a bean property of type <literal
-      moreinfo="none">Map</literal>.</para>
+        </indexterm>from a bean property of type <literal moreinfo="none">Map</literal>.</para>
     </sect2>
 
     <sect2>
       <title>Solution</title>
 
-      <para>Use <literal
-      moreinfo="none">PropertyUtils.getMappedProperty()</literal> <indexterm
-          id="beans-ITERM-2183" significance="normal">
+      <para>Use <literal moreinfo="none">PropertyUtils.getMappedProperty()</literal> <indexterm id="beans-ITERM-2183" significance="normal">
           <primary>PropertyUtils.getMappedProperty( ) method</primary>
-        </indexterm> <indexterm id="beans-ITERM-2184"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2184" significance="normal">
           <primary>methods</primary>
 
           <secondary>PropertyUtils.getMappedProperty( )</secondary>
         </indexterm> to obtain values from a map property. The code here
       retrieves the value corresponding to the key "Dining Room" from the
-      <literal moreinfo="none">room</literal> <literal
-      moreinfo="none">map</literal> property of the <literal
-      moreinfo="none">Apartment</literal> bean:</para>
+      <literal moreinfo="none">room</literal> <literal moreinfo="none">map</literal> property of the <literal moreinfo="none">Apartment</literal> bean:</para>
 
       <programlisting format="linespecific" id="I_3_tt124">import org.apache.commons.beanutils.PropertyUtils;
 
@@ -1231,49 +1016,36 @@ apartment.setRooms( rooms );
       <title>Discussion</title>
 
       <para>The code shown in the Solution section retrieves the value from
-      the <literal moreinfo="none">rooms</literal> <literal
-      moreinfo="none">map</literal> corresponding to the key "Dining
-      Room"—<literal moreinfo="none">rooms(Dining</literal> <literal
-      moreinfo="none">Room)</literal>. The call to <literal
-      moreinfo="none">getMappedProperty( )</literal> is the equivalent of
+      the <literal moreinfo="none">rooms</literal> <literal moreinfo="none">map</literal> corresponding to the key "Dining
+      Room"&#x2014;<literal moreinfo="none">rooms(Dining</literal> <literal moreinfo="none">Room)</literal>. The call to <literal moreinfo="none">getMappedProperty( )</literal> is the equivalent of
       calling <literal moreinfo="none">apartment.getRooms(
-      ).get("Dining</literal> <literal moreinfo="none">Room")</literal>. <link
-      linkend="beans-FIG-4">Figure 3-4</link> illustrates the
-      structure and relationship of these two beans used, <literal
-      moreinfo="none">Apartment</literal> and <literal
-      moreinfo="none">Room</literal>.</para>
+      ).get("Dining</literal> <literal moreinfo="none">Room")</literal>. <link linkend="beans-FIG-4">Figure 3-4</link> illustrates the
+      structure and relationship of these two beans used, <literal moreinfo="none">Apartment</literal> and <literal moreinfo="none">Room</literal>.</para>
 
       <figure float="0" id="beans-FIG-4" label="3-4">
         <title>Diagram of the Apartment and Room beans</title>
 
         <mediaobject id="I_3_tt125">
           <imageobject role="print">
-            <imagedata depth="60" fileref="figs/print/jccb_0304.pdf"
-                       format="PDF" width="235" />
+            <imagedata depth="60" fileref="figs/print/jccb_0304.pdf" format="PDF" width="235"/>
           </imageobject>
 
           <imageobject role="web">
-            <imagedata depth="60" fileref="figs/web/jccb_0304.png"
-                       format="PNG" width="235" />
+            <imagedata depth="60" fileref="figs/web/jccb_0304.png" format="PNG" width="235"/>
           </imageobject>
         </mediaobject>
       </figure>
 
       <para><literal moreinfo="none">getMappedProperty( )</literal> works only
-      if the specified <literal moreinfo="none">Map</literal> has <literal
-      moreinfo="none">String</literal> keys. <literal
-      moreinfo="none">getMappedProperty( )</literal> takes the string between
-      <literal moreinfo="none">(</literal> and <literal
-      moreinfo="none">)</literal> and retrieves the value corresponding to
+      if the specified <literal moreinfo="none">Map</literal> has <literal moreinfo="none">String</literal> keys. <literal moreinfo="none">getMappedProperty( )</literal> takes the string between
+      <literal moreinfo="none">(</literal> and <literal moreinfo="none">)</literal> and retrieves the value corresponding to
       this string.</para>
 
-      <para>There is another version of <literal
-      moreinfo="none">PropertyUtils.getMappedProperty()</literal> that takes a
+      <para>There is another version of <literal moreinfo="none">PropertyUtils.getMappedProperty()</literal> that takes a
       third argument, allowing you to specify the map property in the second
       argument and the key in the third argument. The code here uses two
       different versions of <literal moreinfo="none">getMappedProperty(
-      )</literal> to retrieve the same value from the <literal
-      moreinfo="none">rooms</literal> <literal moreinfo="none">map</literal>
+      )</literal> to retrieve the same value from the <literal moreinfo="none">rooms</literal> <literal moreinfo="none">map</literal>
       property:</para>
 
       <programlisting format="linespecific" id="I_3_tt126">import java.util.Map;
@@ -1305,33 +1077,13 @@ room =
 
       <para>What was true for <literal moreinfo="none">getIndexedProperty(
       )</literal> is also true for <literal moreinfo="none">getMappedProperty(
-      )</literal>. In the previous example, the first call to <literal
-      moreinfo="none">getMappedProperty( )</literal> specifies a key with a
-      string—<literal moreinfo="none">rooms(Dining Room)</literal>. If
+      )</literal>. In the previous example, the first call to <literal moreinfo="none">getMappedProperty( )</literal> specifies a key with a
+      string&#x2014;<literal moreinfo="none">rooms(Dining Room)</literal>. If
       <literal moreinfo="none">getMappedProperty( )</literal> is unable to
-      parse this string, an <literal
-      moreinfo="none">IllegalArgumentException</literal> will be thrown;
-      <literal moreinfo="none">rooms[DiningRoom)</literal> and <literal
-      moreinfo="none">rooms((DiningRoom)</literal> will both throw <literal
-      moreinfo="none">IllegalArgumentException</literal> because the property
-      string is not well-formed. The second call to <literal
-      moreinfo="none">getMappedProperty( )</literal> reduces the risk of a
-      property string parsing error because the key <indexterm
-      class="endofrange" id="beans-ITERM-2185"
-      significance="normal"
-      startref="beans-ITERM-2178"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2186"
-      significance="normal"
-      startref="beans-ITERM-2179"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2187"
-      significance="normal"
-      startref="beans-ITERM-2180"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2188"
-      significance="normal"
-      startref="beans-ITERM-2181"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2189"
-      significance="normal"
-      startref="beans-ITERM-2182"></indexterm>is specified in a
+      parse this string, an <literal moreinfo="none">IllegalArgumentException</literal> will be thrown;
+      <literal moreinfo="none">rooms[DiningRoom)</literal> and <literal moreinfo="none">rooms((DiningRoom)</literal> will both throw <literal moreinfo="none">IllegalArgumentException</literal> because the property
+      string is not well-formed. The second call to <literal moreinfo="none">getMappedProperty( )</literal> reduces the risk of a
+      property string parsing error because the key <indexterm class="endofrange" id="beans-ITERM-2185" significance="normal" startref="beans-ITERM-2178"/> <indexterm class="endofrange" id="beans-ITERM-2186" significance="normal" startref="beans-ITERM-2179"/> <indexterm class="endofrange" id="beans-ITERM-2187" significance="normal" startref="beans-ITERM-2180"/> <indexterm class="endofrange" id="beans-ITERM-2188" significance="normal" startref="beans-ITERM-2181"/> <indexterm class="endofrange" id="beans-ITERM-2189" significance="normal" startref="beans-ITERM-2182"/>is specified in a
       third parameter.</para>
     </sect2>
   </sect1>
@@ -1343,29 +1095,25 @@ room =
     <sect2>
       <title>Problem</title>
 
-      <para>You need to access a nested,<indexterm class="startofrange"
-          id="beans-ITERM-2190" significance="normal">
+      <para>You need to access a nested,<indexterm class="startofrange" id="beans-ITERM-2190" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>accessing</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2191" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2191" significance="normal">
           <primary>beans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>accessing</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2192" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2192" significance="normal">
           <primary>properties</primary>
 
           <secondary>beans</secondary>
 
           <tertiary>accessing</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2193" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2193" significance="normal">
           <primary>access</primary>
 
           <secondary>properties</secondary>
@@ -1380,8 +1128,7 @@ room =
       <para>Use <literal moreinfo="none">PropertyUtils.getProperty()</literal>
       <indexterm id="beans-ITERM-2194" significance="normal">
           <primary>PropertyUtils.getProperty( ) method</primary>
-        </indexterm> <indexterm id="beans-ITERM-2195"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2195" significance="normal">
           <primary>methods</primary>
 
           <secondary>PropertyUtils.getProperty( )</secondary>
@@ -1422,20 +1169,15 @@ country.setRegions( regions );
 
       <para>Most of this code sets up a complex nested object hierarchy to be
       queried by <literal moreinfo="none">PropertyUtils.getProperty(
-      )</literal>. Retrieving the <literal
-      moreinfo="none">regions[0].cities(richmond).population</literal>
+      )</literal>. Retrieving the <literal moreinfo="none">regions[0].cities(richmond).population</literal>
       property is the equivalent of traversing down a tree of objects and
-      retrieving the bottom-most element—<literal
-      moreinfo="none">population</literal>.</para>
+      retrieving the bottom-most element&#x2014;<literal moreinfo="none">population</literal>.</para>
     </sect2>
 
     <sect2>
       <title>Discussion</title>
 
-      <para>The emphasized code retrieves the <literal
-      moreinfo="none">population</literal> of the <literal
-      moreinfo="none">City</literal> object <literal
-      moreinfo="none">richmond</literal>; it is equivalent to the following
+      <para>The emphasized code retrieves the <literal moreinfo="none">population</literal> of the <literal moreinfo="none">City</literal> object <literal moreinfo="none">richmond</literal>; it is equivalent to the following
       code excerpt:</para>
 
       <programlisting format="linespecific" id="I_3_tt128">Region region = (Region) country.getRegions( ).get(0);
@@ -1443,74 +1185,46 @@ City city = (City) region.getCities( ).get("Richmond");
 Long population = city.getPopulation( );</programlisting>
 
       <para><link linkend="beans-FIG-5">Figure 3-5</link> displays
-      the structure of these three beans: <literal
-      moreinfo="none">Country</literal>, <literal
-      moreinfo="none">Region</literal>, and <literal
-      moreinfo="none">City</literal>.</para>
+      the structure of these three beans: <literal moreinfo="none">Country</literal>, <literal moreinfo="none">Region</literal>, and <literal moreinfo="none">City</literal>.</para>
 
       <figure float="0" id="beans-FIG-5" label="3-5">
         <title>The Country, Region, and City beans</title>
 
         <mediaobject id="I_3_tt129">
           <imageobject role="print">
-            <imagedata depth="46" fileref="figs/print/jccb_0305.pdf"
-                       format="PDF" width="334" />
+            <imagedata depth="46" fileref="figs/print/jccb_0305.pdf" format="PDF" width="334"/>
           </imageobject>
 
           <imageobject role="web">
-            <imagedata depth="46" fileref="figs/web/jccb_0305.png"
-                       format="PNG" width="334" />
+            <imagedata depth="46" fileref="figs/web/jccb_0305.png" format="PNG" width="334"/>
           </imageobject>
         </mediaobject>
       </figure>
 
-      <para>When accessing a bean property, you can use <literal
-      moreinfo="none">PropertyUtils.getProperty( )</literal> in lieu of the
-      methods introduced in the previous four recipes. The <literal
-      moreinfo="none">getProperty( )</literal> method parses the supplied
+      <para>When accessing a bean property, you can use <literal moreinfo="none">PropertyUtils.getProperty( )</literal> in lieu of the
+      methods introduced in the previous four recipes. The <literal moreinfo="none">getProperty( )</literal> method parses the supplied
       property name, splitting the name as the period character. Once this
       property has been split, this utility parses each token and passes the
-      string to the appropriate method—<literal
-      moreinfo="none">getSimpleProperty()</literal>, <literal
-      moreinfo="none">getNestedProperty( )</literal>, <literal
-      moreinfo="none">getIndexedProperty( )</literal>, or <literal
-      moreinfo="none">getMappedProperty( )</literal>.</para>
+      string to the appropriate method&#x2014;<literal moreinfo="none">getSimpleProperty()</literal>, <literal moreinfo="none">getNestedProperty( )</literal>, <literal moreinfo="none">getIndexedProperty( )</literal>, or <literal moreinfo="none">getMappedProperty( )</literal>.</para>
     </sect2>
 
     <sect2>
       <title>See Also</title>
 
       <para>Bean properties may also be retrieved using a simple expression
-      language, such as <indexterm id="beans-ITERM-2196"
-          significance="normal">
+      language, such as <indexterm id="beans-ITERM-2196" significance="normal">
           <primary>Expression Language (EL)</primary>
-        </indexterm> <indexterm id="beans-ITERM-2197"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2197" significance="normal">
           <primary>EL (Expression Language)</primary>
-        </indexterm>Expression Language (EL) or <indexterm
-          id="beans-ITERM-2198" significance="normal">
+        </indexterm>Expression Language (EL) or <indexterm id="beans-ITERM-2198" significance="normal">
           <primary>Java Expression Language (JEXL)</primary>
-        </indexterm> <indexterm id="beans-ITERM-2199"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2199" significance="normal">
           <primary>JEXL (Java Expression Language)</primary>
         </indexterm>Java Expression Language (JEXL). For more information
-      about retrieving bean properties using an expression language, see <link
-      linkend="searching-filtering-sect-obtaining-jxpath">Recipe 12.1</link>.</para>
+      about retrieving bean properties using an expression language, see <link linkend="searching-filtering-sect-obtaining-jxpath">Recipe 12.1</link>.</para>
 
-      <para>Bean properties may also be<indexterm class="endofrange"
-      id="beans-ITERM-2200" significance="normal"
-      startref="beans-ITERM-2190"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2201"
-      significance="normal"
-      startref="beans-ITERM-2191"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2202"
-      significance="normal"
-      startref="beans-ITERM-2192"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2203"
-      significance="normal"
-      startref="beans-ITERM-2193"></indexterm> retrieved using an
-      XPath expression. For more information, see <link
-      linkend="searching-filtering-sect-obtaining-jxpath">Recipe 12.1</link>.</para>
+      <para>Bean properties may also be<indexterm class="endofrange" id="beans-ITERM-2200" significance="normal" startref="beans-ITERM-2190"/> <indexterm class="endofrange" id="beans-ITERM-2201" significance="normal" startref="beans-ITERM-2191"/> <indexterm class="endofrange" id="beans-ITERM-2202" significance="normal" startref="beans-ITERM-2192"/> <indexterm class="endofrange" id="beans-ITERM-2203" significance="normal" startref="beans-ITERM-2193"/> retrieved using an
+      XPath expression. For more information, see <link linkend="searching-filtering-sect-obtaining-jxpath">Recipe 12.1</link>.</para>
     </sect2>
   </sect1>
 
@@ -1520,29 +1234,25 @@ Long population = city.getPopulation( );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to determine <indexterm id="beans-ITERM-2204"
-          significance="normal">
+      <para>You need to determine <indexterm id="beans-ITERM-2204" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>types of</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2205"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2205" significance="normal">
           <primary>beans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>types of</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2206"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2206" significance="normal">
           <primary>properties</primary>
 
           <secondary>beans</secondary>
 
           <tertiary>types of</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2207"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2207" significance="normal">
           <primary>types of bean properties</primary>
         </indexterm>the type of a bean property.</para>
     </sect2>
@@ -1554,9 +1264,7 @@ Long population = city.getPopulation( );</programlisting>
       )</literal> to determine the type of a bean property. This utility will
       return a <literal moreinfo="none">Class</literal> object that represents
       the return type of the property's getter method. The following example
-      uses this method to obtain the return type for the <literal
-      moreinfo="none">author</literal> property on the <literal
-      moreinfo="none">Book</literal> bean:</para>
+      uses this method to obtain the return type for the <literal moreinfo="none">author</literal> property on the <literal moreinfo="none">Book</literal> bean:</para>
 
       <programlisting format="linespecific" id="I_3_tt130">import org.apache.commons.beanutils.PropertyUtils
 
@@ -1566,10 +1274,7 @@ Class type = PropertyUtils.getPropertyType( book, "author" );
 
 System.out.println( "book.author type: " + type.getName( ) );</programlisting>
 
-      <para>This example retrieves and displays the type of the <literal
-      moreinfo="none">author</literal> property on <literal
-      moreinfo="none">Book</literal>, which happens to be a <literal
-      moreinfo="none">Person</literal> object. The type of the property is
+      <para>This example retrieves and displays the type of the <literal moreinfo="none">author</literal> property on <literal moreinfo="none">Book</literal>, which happens to be a <literal moreinfo="none">Person</literal> object. The type of the property is
       returned and printed to the console:</para>
 
       <programlisting format="linespecific" id="I_3_tt131">book.author type: org.test.Person</programlisting>
@@ -1581,16 +1286,14 @@ System.out.println( "book.author type: " + type.getName( ) );</programlisting>
       <para><literal moreinfo="none">PropertyUtils.getPropertyType()</literal>
       <indexterm id="beans-ITERM-2208" significance="normal">
           <primary>PropertyUtils.getPropertyType( ) method</primary>
-        </indexterm> <indexterm id="beans-ITERM-2209"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2209" significance="normal">
           <primary>methods</primary>
 
           <secondary>PropertyUtils.getProperty( )</secondary>
         </indexterm> also works for a complex bean property. Passing a nested,
       indexed, or mapped bean property to this utility will return the type of
       the last property specified. The following code retrieves the type of a
-      nested, indexed property—<literal
-      moreinfo="none">chapters[0].name</literal>:</para>
+      nested, indexed property&#x2014;<literal moreinfo="none">chapters[0].name</literal>:</para>
 
       <programlisting format="linespecific" id="I_3_tt132">import org.apache.commons.beanutils.PropertyUtils;
 
@@ -1611,9 +1314,7 @@ book.setChapters( chapters );
 
 System.out.println( property + " type: " + propertyType.getName( ) );</programlisting>
 
-      <para>This code retrieves the type of the <literal
-      moreinfo="none">name</literal> property from an instance of the <literal
-      moreinfo="none">Chapter</literal> retrieved as an indexed property, and
+      <para>This code retrieves the type of the <literal moreinfo="none">name</literal> property from an instance of the <literal moreinfo="none">Chapter</literal> retrieved as an indexed property, and
       it prints the following output:</para>
 
       <programlisting format="linespecific" id="I_3_tt133">chapters[0].name type: java.lang.String</programlisting>
@@ -1625,8 +1326,7 @@ System.out.println( property + " type: " + propertyType.getName( ) );</programli
       describing the type of a property and providing access to the read and
       write methods of a property. The following code excerpt obtains the
       <literal moreinfo="none">PropertyDescriptor</literal> of a nested,
-      indexed property—<literal
-      moreinfo="none">chapters[0].name</literal>:</para>
+      indexed property&#x2014;<literal moreinfo="none">chapters[0].name</literal>:</para>
 
       <programlisting format="linespecific" id="I_3_tt134">String property = "chapters[0].name";
 
@@ -1645,34 +1345,29 @@ Method readMethod = descriptor.getReadMethod( );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to sort <indexterm class="startofrange"
-          id="beans-ITERM-2210" significance="normal">
+      <para>You need to sort <indexterm class="startofrange" id="beans-ITERM-2210" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>comparing</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2211" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2211" significance="normal">
           <primary>beans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>comparing</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2212" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2212" significance="normal">
           <primary>properties</primary>
 
           <secondary>beans</secondary>
 
           <tertiary>comparing</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2213" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2213" significance="normal">
           <primary>comparing</primary>
 
           <secondary>beans</secondary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2214" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2214" significance="normal">
           <primary>sorting</primary>
 
           <secondary>bean properties</secondary>
@@ -1682,18 +1377,13 @@ Method readMethod = descriptor.getReadMethod( );</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Use <literal moreinfo="none">BeanComparator</literal> <indexterm
-          id="beans-ITERM-2215" significance="normal">
+      <para>Use <literal moreinfo="none">BeanComparator</literal> <indexterm id="beans-ITERM-2215" significance="normal">
           <primary>BeanComparator</primary>
         </indexterm> to compare two beans using a bean property, which can be
-      simple, nested, indexed, or mapped. <literal
-      moreinfo="none">BeanComparator</literal> obtains the value of the same
+      simple, nested, indexed, or mapped. <literal moreinfo="none">BeanComparator</literal> obtains the value of the same
       bean property from two objects and, by default, compares the properties
       with a <literal moreinfo="none">ComparableComparator</literal>. The
-      following example sorts a list of <literal
-      moreinfo="none">Country</literal> objects using a <literal
-      moreinfo="none">BeanComparator</literal> and the default <literal
-      moreinfo="none">ComparableComparator</literal>:</para>
+      following example sorts a list of <literal moreinfo="none">Country</literal> objects using a <literal moreinfo="none">BeanComparator</literal> and the default <literal moreinfo="none">ComparableComparator</literal>:</para>
 
       <programlisting format="linespecific" id="I_3_tt135">import java.util.*;
 import org.apache.commons.beanutils.BeanComparator;
@@ -1723,8 +1413,7 @@ while( countryIterator.hasNext( ) ) {
 }</programlisting>
 
       <para>This code creates three <literal moreinfo="none">Country</literal>
-      objects with different names, places the <literal
-      moreinfo="none">Country</literal> objects into a list, and sorts this
+      objects with different names, places the <literal moreinfo="none">Country</literal> objects into a list, and sorts this
       list with a <literal moreinfo="none">BeanComparator</literal> configured
       to compare by the bean property <literal moreinfo="none">name</literal>.
       This code executes and prints the sorted list of countries:</para>
@@ -1738,51 +1427,35 @@ while( countryIterator.hasNext( ) ) {
     <sect2>
       <title>Discussion</title>
 
-      <para>The previous example demonstrated the default behavior of <literal
-      moreinfo="none">BeanComparator</literal>; when a <literal
-      moreinfo="none">BeanComparator</literal> is constructed with only one
-      parameter, it uses a <literal
-      moreinfo="none">ComparableComparator</literal> to compare the values of
-      the properties it retrieves. You can also construct a <literal
-      moreinfo="none">BeanComparator</literal> with an instance of <literal
-      moreinfo="none">Comparator</literal>; in this case, <literal
-      moreinfo="none">BeanComparator</literal> decorates another <literal
-      moreinfo="none">Comparator</literal>, retrieving the values of a
-      property and passing these values on to an instance of <literal
-      moreinfo="none">Comparator</literal>. The following example demonstrates
+      <para>The previous example demonstrated the default behavior of <literal moreinfo="none">BeanComparator</literal>; when a <literal moreinfo="none">BeanComparator</literal> is constructed with only one
+      parameter, it uses a <literal moreinfo="none">ComparableComparator</literal> to compare the values of
+      the properties it retrieves. You can also construct a <literal moreinfo="none">BeanComparator</literal> with an instance of <literal moreinfo="none">Comparator</literal>; in this case, <literal moreinfo="none">BeanComparator</literal> decorates another <literal moreinfo="none">Comparator</literal>, retrieving the values of a
+      property and passing these values on to an instance of <literal moreinfo="none">Comparator</literal>. The following example demonstrates
       the use of <literal moreinfo="none">BeanComparator</literal> with a
       custom <literal moreinfo="none">Comparator</literal> implementation.
-      This example involves two objects shown in <link
-      linkend="beans-FIG-6">Figure 3-6</link>: <literal
-      moreinfo="none">ElectricVehicle</literal> and <literal
-      moreinfo="none">Engine</literal>.</para>
+      This example involves two objects shown in <link linkend="beans-FIG-6">Figure 3-6</link>: <literal moreinfo="none">ElectricVehicle</literal> and <literal moreinfo="none">Engine</literal>.</para>
 
       <figure float="0" id="beans-FIG-6" label="3-6">
         <title>Objects involved in a sorting example</title>
 
         <mediaobject id="I_3_tt137">
           <imageobject role="print">
-            <imagedata depth="88" fileref="figs/print/jccb_0306.pdf"
-                       format="PDF" width="223" />
+            <imagedata depth="88" fileref="figs/print/jccb_0306.pdf" format="PDF" width="223"/>
           </imageobject>
 
           <imageobject role="web">
-            <imagedata depth="88" fileref="figs/web/jccb_0306.png"
-                       format="PNG" width="223" />
+            <imagedata depth="88" fileref="figs/web/jccb_0306.png" format="PNG" width="223"/>
           </imageobject>
         </mediaobject>
       </figure>
 
-      <para>An application needs to sort <literal
-      moreinfo="none">ElectricVehicle</literal> objects by efficiency, and, in
+      <para>An application needs to sort <literal moreinfo="none">ElectricVehicle</literal> objects by efficiency, and, in
       this contrived example, efficiency is defined as the number of miles per
       gallon times the percentage of electric operation; an 80% electric
       hybrid vehicle is more efficient than a 25% electric hybrid vehicle with
       the same mileage because of reduced emissions. The code fragments shown
       in <link linkend="beans-EX-5">Example 3-5</link> sort a
-      collection of beans by wrapping a custom <literal
-      moreinfo="none">Comparator</literal> with a <literal
-      moreinfo="none">BeanComparator</literal>.</para>
+      collection of beans by wrapping a custom <literal moreinfo="none">Comparator</literal> with a <literal moreinfo="none">BeanComparator</literal>.</para>
 
       <example id="beans-EX-5" label="3-5">
         <title>Decorating a Comparator with a BeanComparator</title>
@@ -1862,10 +1535,7 @@ while( vehicleIter.hasNext( ) ) {
       </example>
 
       <para><literal moreinfo="none">engineCompare</literal> contains the
-      logic used to sort vehicles by efficiency, and <literal
-      moreinfo="none">BeanComparator</literal> supplies the <literal
-      moreinfo="none">engine</literal> properties to this <literal
-      moreinfo="none">Comparator</literal> implementation. This previous
+      logic used to sort vehicles by efficiency, and <literal moreinfo="none">BeanComparator</literal> supplies the <literal moreinfo="none">engine</literal> properties to this <literal moreinfo="none">Comparator</literal> implementation. This previous
       example creates three vehicles and sorts the vehicles in order of
       efficiency; the following results are printed:</para>
 
@@ -1882,47 +1552,20 @@ while( vehicleIter.hasNext( ) ) {
       examples of various <literal moreinfo="none">Comparator</literal>
       implementations, which can be used to decorate other comparators. One
       <literal moreinfo="none">Comparator</literal> in particular is important
-      if you plan to sort beans on a bean property, which could be <literal
-      moreinfo="none">null</literal>. If a bean property could be <literal
-      moreinfo="none">null</literal>, make sure to pass a <literal
-      moreinfo="none">NullComparator</literal> to <literal
-      moreinfo="none">BeanComparator</literal>; otherwise, <literal
-      moreinfo="none">ComparableComparator</literal> will throw a <literal
-      moreinfo="none">NullPointerException</literal> if a property value is
-      <literal moreinfo="none">null</literal>. <link
-      linkend="functors-sect-comparing-nulls">Recipe 4.5</link> discusses
-      techniques for decorating a <literal
-      moreinfo="none">Comparator</literal> with <literal
-      moreinfo="none">NullComparator</literal>.</para>
+      if you plan to sort beans on a bean property, which could be <literal moreinfo="none">null</literal>. If a bean property could be <literal moreinfo="none">null</literal>, make sure to pass a <literal moreinfo="none">NullComparator</literal> to <literal moreinfo="none">BeanComparator</literal>; otherwise, <literal moreinfo="none">ComparableComparator</literal> will throw a <literal moreinfo="none">NullPointerException</literal> if a property value is
+      <literal moreinfo="none">null</literal>. <link linkend="functors-sect-comparing-nulls">Recipe 4.5</link> discusses
+      techniques for decorating a <literal moreinfo="none">Comparator</literal> with <literal moreinfo="none">NullComparator</literal>.</para>
 
       <para><link linkend="beans-sect-validating-predicate">Recipe 3.15</link>
-      discusses a <literal moreinfo="none">BeanPredicate</literal> <indexterm
-          id="beans-ITERM-2216" significance="normal">
+      discusses a <literal moreinfo="none">BeanPredicate</literal> <indexterm id="beans-ITERM-2216" significance="normal">
           <primary>BeanPredicate object</primary>
-        </indexterm> <indexterm id="beans-ITERM-2217"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2217" significance="normal">
           <primary>objects</primary>
 
           <secondary>BeanPredicate</secondary>
-        </indexterm> object that can be used to validate beans. The <literal
-      moreinfo="none">BeanPredicate</literal> is similar to the <literal
-      moreinfo="none">BeanComparator</literal> as it decorates another
+        </indexterm> object that can be used to validate beans. The <literal moreinfo="none">BeanPredicate</literal> is similar to the <literal moreinfo="none">BeanComparator</literal> as it decorates another
       instance of <literal moreinfo="none">Predicate</literal>, providing
-      access to a<indexterm class="endofrange"
-      id="beans-ITERM-2218" significance="normal"
-      startref="beans-ITERM-2210"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2219"
-      significance="normal"
-      startref="beans-ITERM-2211"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2220"
-      significance="normal"
-      startref="beans-ITERM-2212"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2221"
-      significance="normal"
-      startref="beans-ITERM-2213"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2222"
-      significance="normal"
-      startref="beans-ITERM-2214"></indexterm> bean
+      access to a<indexterm class="endofrange" id="beans-ITERM-2218" significance="normal" startref="beans-ITERM-2210"/> <indexterm class="endofrange" id="beans-ITERM-2219" significance="normal" startref="beans-ITERM-2211"/> <indexterm class="endofrange" id="beans-ITERM-2220" significance="normal" startref="beans-ITERM-2212"/> <indexterm class="endofrange" id="beans-ITERM-2221" significance="normal" startref="beans-ITERM-2213"/> <indexterm class="endofrange" id="beans-ITERM-2222" significance="normal" startref="beans-ITERM-2214"/> bean
       property.</para>
     </sect2>
   </sect1>
@@ -1933,34 +1576,29 @@ while( vehicleIter.hasNext( ) ) {
     <sect2>
       <title>Problem</title>
 
-      <para>You have two instances of a <indexterm
-          id="beans-ITERM-2223" significance="normal">
+      <para>You have two instances of a <indexterm id="beans-ITERM-2223" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>copying</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2224"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2224" significance="normal">
           <primary>beans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>copying</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2225"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2225" significance="normal">
           <primary>properties</primary>
 
           <secondary>beans</secondary>
 
           <tertiary>copying</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2226"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2226" significance="normal">
           <primary>copying</primary>
 
           <secondary>bean properties</secondary>
-        </indexterm> <indexterm id="beans-ITERM-2227"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2227" significance="normal">
           <primary>instances</primary>
 
           <secondary>beans</secondary>
@@ -1973,12 +1611,9 @@ while( vehicleIter.hasNext( ) ) {
     <sect2>
       <title>Solution</title>
 
-      <para>Use <literal
-      moreinfo="none">PropertyUtils.copyProperties()</literal> <indexterm
-          id="beans-ITERM-2228" significance="normal">
+      <para>Use <literal moreinfo="none">PropertyUtils.copyProperties()</literal> <indexterm id="beans-ITERM-2228" significance="normal">
           <primary>PropertyUtils.copyProperties( ) method</primary>
-        </indexterm> <indexterm id="beans-ITERM-2229"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2229" significance="normal">
           <primary>methods</primary>
 
           <secondary>PropertyUtils.copyProperties( )</secondary>
@@ -1996,14 +1631,9 @@ Book destinationBook = new Book( );
 
 PropertyUtils.copyProperties( destinationBook, book );</programlisting>
 
-      <para>After executing this code, <literal
-      moreinfo="none">destinationBook.getName()</literal> should return
-      "Prelude to Foundation," and <literal
-      moreinfo="none">destinationBook.getAuthorName( )</literal> should return
-      "Asimov"; the <literal moreinfo="none">name</literal> and <literal
-      moreinfo="none">authorName</literal> properties of <literal
-      moreinfo="none">book</literal> were both copied to <literal
-      moreinfo="none">destinationBook</literal>.</para>
+      <para>After executing this code, <literal moreinfo="none">destinationBook.getName()</literal> should return
+      "Prelude to Foundation," and <literal moreinfo="none">destinationBook.getAuthorName( )</literal> should return
+      "Asimov"; the <literal moreinfo="none">name</literal> and <literal moreinfo="none">authorName</literal> properties of <literal moreinfo="none">book</literal> were both copied to <literal moreinfo="none">destinationBook</literal>.</para>
     </sect2>
 
     <sect2>
@@ -2014,11 +1644,8 @@ PropertyUtils.copyProperties( destinationBook, book );</programlisting>
       assigning the retrieved values to a matching property on a destination
       instance. If the <literal moreinfo="none">Book</literal> bean in the
       previous example had an <literal moreinfo="none">author</literal>
-      property of type <literal moreinfo="none">Author</literal>, <literal
-      moreinfo="none">copyProperties( )</literal> would have assigned the same
-      reference object to the <literal
-      moreinfo="none">destinationBook</literal>. In other words, <literal
-      moreinfo="none">copyProperties( )</literal> does
+      property of type <literal moreinfo="none">Author</literal>, <literal moreinfo="none">copyProperties( )</literal> would have assigned the same
+      reference object to the <literal moreinfo="none">destinationBook</literal>. In other words, <literal moreinfo="none">copyProperties( )</literal> does
       <emphasis>not</emphasis> clone the values of the bean properties. The
       following example demonstrates this explicitly:</para>
 
@@ -2040,8 +1667,7 @@ if( book.getAuthor( ) == destinationBook.getAuthor( ) ) {
 
       <para>The <literal moreinfo="none">author</literal> properties of these
       two objects are now identical references to the same instance of the
-      <literal moreinfo="none">Author</literal> class. <literal
-      moreinfo="none">copyProperties( )</literal> does not clone the values of
+      <literal moreinfo="none">Author</literal> class. <literal moreinfo="none">copyProperties( )</literal> does not clone the values of
       bean properties.</para>
 
       <para><literal moreinfo="none">copyProperties( )</literal> can also copy
@@ -2061,8 +1687,7 @@ PropertyUtils.copyProperties( destinationBook, mapProps );</programlisting>
     <sect2>
       <title>See Also</title>
 
-      <para>If you need to clone a bean, take a look at <link
-      linkend="beans-sect-cloning">Recipe 3.12</link></para>
+      <para>If you need to clone a bean, take a look at <link linkend="beans-sect-cloning">Recipe 3.12</link></para>
     </sect2>
   </sect1>
 
@@ -2072,34 +1697,29 @@ PropertyUtils.copyProperties( destinationBook, mapProps );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to clone a bean.<indexterm
-          id="beans-ITERM-2230" significance="normal">
+      <para>You need to clone a bean.<indexterm id="beans-ITERM-2230" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>cloning</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2231"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2231" significance="normal">
           <primary>beans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>cloning</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2232"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2232" significance="normal">
           <primary>properties</primary>
 
           <secondary>beans</secondary>
 
           <tertiary>cloning</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2233"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2233" significance="normal">
           <primary>cloning</primary>
 
           <secondary>properties</secondary>
-        </indexterm> <indexterm id="beans-ITERM-2234"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2234" significance="normal">
           <primary>instances</primary>
 
           <secondary>beans</secondary>
@@ -2114,15 +1734,13 @@ PropertyUtils.copyProperties( destinationBook, mapProps );</programlisting>
       <para>Use <literal moreinfo="none">BeanUtils.cloneBean()</literal>
       <indexterm id="beans-ITERM-2235" significance="normal">
           <primary>BeanUtils.cloneBean( ) method</primary>
-        </indexterm> <indexterm id="beans-ITERM-2236"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2236" significance="normal">
           <primary>methods</primary>
 
           <secondary>BeanUtils.cloneBean( )</secondary>
         </indexterm>. This method creates a new instance of a bean with the
       default constructor, and it copies every property to the new bean
-      instance. The following instance creates a cloned instance of a <literal
-      moreinfo="none">Book</literal> object:</para>
+      instance. The following instance creates a cloned instance of a <literal moreinfo="none">Book</literal> object:</para>
 
       <programlisting format="linespecific" id="I_3_tt142">import org.apache.commons.beanutils.BeanUtils;
 
@@ -2137,8 +1755,7 @@ book1.setName( "Count of Monte Cristo" );
       <title>Discussion</title>
 
       <para><literal moreinfo="none">cloneBean( )</literal> instantiates a new
-      instance of the bean to be cloned and calls <literal
-      moreinfo="none">BeanUtils.copyProperties( )</literal> to transfer all
+      instance of the bean to be cloned and calls <literal moreinfo="none">BeanUtils.copyProperties( )</literal> to transfer all
       readable bean properties to the newly instantiated bean. The following
       code demonstrates the steps that <literal moreinfo="none">cloneBean(
       )</literal> is taking to clone an instance of a bean:</para>
@@ -2158,32 +1775,27 @@ book1.setName( "Practical C Programming" );
     <sect2>
       <title>Problem</title>
 
-      <para>You need to set a simple, indexed, nested, or <indexterm
-          id="beans-ITERM-2237" significance="normal">
+      <para>You need to set a simple, indexed, nested, or <indexterm id="beans-ITERM-2237" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>setting</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2238"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2238" significance="normal">
           <primary>beans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>setting</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2239"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2239" significance="normal">
           <primary>properties</primary>
 
           <secondary>beans</secondary>
 
           <tertiary>setting</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2240"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2240" significance="normal">
           <primary>setting bean properties</primary>
-        </indexterm> <indexterm id="beans-ITERM-2241"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2241" significance="normal">
           <primary>configuration</primary>
 
           <secondary>bean properties</secondary>
@@ -2196,8 +1808,7 @@ book1.setName( "Practical C Programming" );
       <para>Use <literal moreinfo="none">PropertyUtils.setProperty()</literal>
       <indexterm id="beans-ITERM-2242" significance="normal">
           <primary>PropertyUtils.setProperty( ) method</primary>
-        </indexterm> <indexterm id="beans-ITERM-2243"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2243" significance="normal">
           <primary>methods</primary>
 
           <secondary>PropertyUtils.setProperty( )</secondary>
@@ -2221,10 +1832,7 @@ PropertyUtils.setProperty( book1, "name", "Some Apache Book" );
 PropertyUtils.setProperty( book1, "author", new Person( ) );
 PropertyUtils.setProperty( book1, "author.name", "Ken Coar" );</programlisting>
 
-      <para>This code created an instance of the <literal
-      moreinfo="none">Book</literal> bean and the <literal
-      moreinfo="none">Person</literal> bean, and <literal
-      moreinfo="none">PropertyUtils.setProperty( )</literal> set both a simple
+      <para>This code created an instance of the <literal moreinfo="none">Book</literal> bean and the <literal moreinfo="none">Person</literal> bean, and <literal moreinfo="none">PropertyUtils.setProperty( )</literal> set both a simple
       and a nested bean property.</para>
     </sect2>
 
@@ -2253,11 +1861,8 @@ PropertyUtils.setProperty( apartment, "rooms(livingRoom).length",
 
       <para>Assume that the <literal moreinfo="none">Book</literal> bean is
       associated with a series of <literal moreinfo="none">Chapter</literal>
-      objects each of which have a name property. The <literal
-      moreinfo="none">Book</literal> bean has a <literal
-      moreinfo="none">chapters</literal> property, which is a list. The name
-      of the first chapter is set by referencing the <literal
-      moreinfo="none">chapters[0].name</literal> property.</para>
+      objects each of which have a name property. The <literal moreinfo="none">Book</literal> bean has a <literal moreinfo="none">chapters</literal> property, which is a list. The name
+      of the first chapter is set by referencing the <literal moreinfo="none">chapters[0].name</literal> property.</para>
     </sect2>
   </sect1>
 
@@ -2267,34 +1872,29 @@ PropertyUtils.setProperty( apartment, "rooms(livingRoom).length",
     <sect2>
       <title>Problem</title>
 
-      <para>You need to test a bean property <indexterm
-          id="beans-ITERM-2244" significance="normal">
+      <para>You need to test a bean property <indexterm id="beans-ITERM-2244" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>testing</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2245"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2245" significance="normal">
           <primary>beans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>testing</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2246"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2246" significance="normal">
           <primary>properties</primary>
 
           <secondary>beans</secondary>
 
           <tertiary>testing</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2247"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2247" significance="normal">
           <primary>testing</primary>
 
           <secondary>bean properties</secondary>
-        </indexterm> <indexterm id="beans-ITERM-2248"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2248" significance="normal">
           <primary>access</primary>
 
           <secondary>beans</secondary>
@@ -2307,17 +1907,14 @@ PropertyUtils.setProperty( apartment, "rooms(livingRoom).length",
       <para>Use <literal moreinfo="none">PropertyUtils.isReadable()</literal>
       <indexterm id="beans-ITERM-2249" significance="normal">
           <primary>PropertyUtils.isReadable( ) method</primary>
-        </indexterm> <indexterm id="beans-ITERM-2250"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2250" significance="normal">
           <primary>methods</primary>
 
           <secondary>PropertyUtils.isReadable( )</secondary>
         </indexterm> and <literal moreinfo="none">PropertyUtils.isWritable(
-      )</literal> <indexterm id="beans-ITERM-2251"
-          significance="normal">
+      )</literal> <indexterm id="beans-ITERM-2251" significance="normal">
           <primary>PropertyUtils.isWritable( ) method</primary>
-        </indexterm> <indexterm id="beans-ITERM-2252"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2252" significance="normal">
           <primary>methods</primary>
 
           <secondary>PropertyUtils.isWritable( )</secondary>
@@ -2341,9 +1938,7 @@ System.out.println( "Is name readable? " + nameReadable );
 System.out.println( "Is name writable? " + nameWritable );</programlisting>
 
       <para>The <literal moreinfo="none">name</literal> property is both
-      readable and writable, so the <literal
-      moreinfo="none">nameReadable</literal> and <literal
-      moreinfo="none">nameWritable</literal> variables will both be true. The
+      readable and writable, so the <literal moreinfo="none">nameReadable</literal> and <literal moreinfo="none">nameWritable</literal> variables will both be true. The
       output of this example is as follows:</para>
 
       <programlisting format="linespecific" id="I_3_tt147">Is name readable? true
@@ -2353,9 +1948,7 @@ Is name writable? true</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>In addition to working with simple properties, <literal
-      moreinfo="none">isReadable()</literal> and <literal
-      moreinfo="none">isWritable( )</literal> also work on nested, indexed,
+      <para>In addition to working with simple properties, <literal moreinfo="none">isReadable()</literal> and <literal moreinfo="none">isWritable( )</literal> also work on nested, indexed,
       and mapped properties. The following example demonstrates the use of
       these methods to check access to the indexed, quadruple-nested, mapped
       bean property <literal moreinfo="none">length</literal>:</para>
@@ -2376,9 +1969,7 @@ boolean isWritable =
       getter method, and <literal moreinfo="none">PropertyUtils.isWritable(
       )</literal> returns true if a specified bean property corresponds to a
       public setter method. This is an overly complex example, but it
-      demonstrates the versatility of <literal
-      moreinfo="none">PropertyUtils.isReadable( )</literal> and of <literal
-      moreinfo="none">PropertyUtils.isWritable( )</literal>.</para>
+      demonstrates the versatility of <literal moreinfo="none">PropertyUtils.isReadable( )</literal> and of <literal moreinfo="none">PropertyUtils.isWritable( )</literal>.</para>
     </sect2>
   </sect1>
 
@@ -2388,34 +1979,29 @@ boolean isWritable =
     <sect2>
       <title>Problem</title>
 
-      <para>You need to test the state of a <indexterm
-          id="beans-ITERM-2253" significance="normal">
+      <para>You need to test the state of a <indexterm id="beans-ITERM-2253" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>validation</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2254"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2254" significance="normal">
           <primary>beans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>validation</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2255"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2255" significance="normal">
           <primary>properties</primary>
 
           <secondary>beans</secondary>
 
           <tertiary>validation</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2256"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2256" significance="normal">
           <primary>validation</primary>
 
           <secondary>bean properties</secondary>
-        </indexterm> <indexterm id="beans-ITERM-2257"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2257" significance="normal">
           <primary>predicates</primary>
 
           <secondary>bean validation</secondary>
@@ -2426,25 +2012,16 @@ boolean isWritable =
     <sect2>
       <title>Solution</title>
 
-      <para>Use a <literal moreinfo="none">BeanPredicate</literal> <indexterm
-          id="beans-ITERM-2258" significance="normal">
+      <para>Use a <literal moreinfo="none">BeanPredicate</literal> <indexterm id="beans-ITERM-2258" significance="normal">
           <primary>BeanPredicate</primary>
-        </indexterm> <indexterm id="beans-ITERM-2259"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2259" significance="normal">
           <primary>interfaces</primary>
 
           <secondary>BeanPredicate</secondary>
-        </indexterm> from Commons BeanUtils. A <literal
-      moreinfo="none">BeanPredicate</literal> is an implementation of the
+        </indexterm> from Commons BeanUtils. A <literal moreinfo="none">BeanPredicate</literal> is an implementation of the
       <literal moreinfo="none">Predicate</literal> interface defined in
-      Commons Collections. As described in <link
-      linkend="functors">Chapter 4</link>, a <literal
-      moreinfo="none">Predicate</literal>'s <literal
-      moreinfo="none">evaluate()</literal> method takes an object and returns
-      a <literal moreinfo="none">boolean</literal>; <literal
-      moreinfo="none">BeanPredicate</literal> decorates another <literal
-      moreinfo="none">Predicate</literal>, allowing that <literal
-      moreinfo="none">Predicate</literal> to evaluate a bean property: simple,
+      Commons Collections. As described in <link linkend="functors">Chapter 4</link>, a <literal moreinfo="none">Predicate</literal>'s <literal moreinfo="none">evaluate()</literal> method takes an object and returns
+      a <literal moreinfo="none">boolean</literal>; <literal moreinfo="none">BeanPredicate</literal> decorates another <literal moreinfo="none">Predicate</literal>, allowing that <literal moreinfo="none">Predicate</literal> to evaluate a bean property: simple,
       nested, indexed, or mapped. The following code demonstrates the use of
       <literal moreinfo="none">BeanPredicate</literal> to validate the
       condition of a bean:</para>
@@ -2475,18 +2052,8 @@ System.out.println( "Is Hens team valid? " + hensValid );</programlisting>
 
       <para>Assume that the two <literal moreinfo="none">Team</literal>
       objects contain two properties: <literal moreinfo="none">name</literal>
-      and <literal moreinfo="none">coach</literal>. The <literal
-      moreinfo="none">coach</literal> property on <literal
-      moreinfo="none">Team</literal> is a <literal
-      moreinfo="none">Coach</literal> object with two properties: <literal
-      moreinfo="none">firstName</literal> and <literal
-      moreinfo="none">lastName</literal>. The first <literal
-      moreinfo="none">BeanPredicate</literal>, <literal
-      moreinfo="none">teamNotNull</literal>, uses a <literal
-      moreinfo="none">NotNullPredicate</literal> to test the simple property
-      <literal moreinfo="none">name</literal>. The second <literal
-      moreinfo="none">BeanPredicate</literal> uses an <literal
-      moreinfo="none">EqualPredicate</literal> to test the nested property
+      and <literal moreinfo="none">coach</literal>. The <literal moreinfo="none">coach</literal> property on <literal moreinfo="none">Team</literal> is a <literal moreinfo="none">Coach</literal> object with two properties: <literal moreinfo="none">firstName</literal> and <literal moreinfo="none">lastName</literal>. The first <literal moreinfo="none">BeanPredicate</literal>, <literal moreinfo="none">teamNotNull</literal>, uses a <literal moreinfo="none">NotNullPredicate</literal> to test the simple property
+      <literal moreinfo="none">name</literal>. The second <literal moreinfo="none">BeanPredicate</literal> uses an <literal moreinfo="none">EqualPredicate</literal> to test the nested property
       <literal moreinfo="none">coach.firstName</literal>. In the previous
       example, a <literal moreinfo="none">Team</literal> object is only valid
       if it has a name, and the first name of the coach is "Tom." Two teams
@@ -2500,16 +2067,11 @@ Is Hens team valid? false</programlisting>
       <title>Discussion</title>
 
       <para>A <literal moreinfo="none">BeanPredicate</literal> obtains the
-      value of the specified bean property using <literal
-      moreinfo="none">PropertyUtils</literal> and passes the resulting
+      value of the specified bean property using <literal moreinfo="none">PropertyUtils</literal> and passes the resulting
       property value to the <literal moreinfo="none">Predicate</literal> it
       was constructed with; <literal moreinfo="none">BeanPredicate</literal>
       decorates another <literal moreinfo="none">Predicate</literal>. The
-      following example demonstrates the use of <literal
-      moreinfo="none">BeanPredicate</literal>, wrapping an <literal
-      moreinfo="none">EqualPredicate</literal>, <literal
-      moreinfo="none">InstanceofPredicate</literal>, and a composite <literal
-      moreinfo="none">AnyPredicate</literal>:</para>
+      following example demonstrates the use of <literal moreinfo="none">BeanPredicate</literal>, wrapping an <literal moreinfo="none">EqualPredicate</literal>, <literal moreinfo="none">InstanceofPredicate</literal>, and a composite <literal moreinfo="none">AnyPredicate</literal>:</para>
 
       <programlisting format="linespecific" id="I_3_tt151">import org.apache.commons.collections.Predicate;
 import org.apache.commons.beanutils.BeanPredicate;
@@ -2540,17 +2102,10 @@ Predicate eitherABC =
       <para>Predicate <literal moreinfo="none">example1</literal> tests the
       <literal moreinfo="none">age</literal> property of a bean, passing the
       property value to an <literal moreinfo="none">EqualPredicate</literal>,
-      which returns true if age is 10. Predicate <literal
-      moreinfo="none">example2</literal> tests the property <literal
-      moreinfo="none">title</literal> from the fifth element in the <literal
-      moreinfo="none">book</literal> property; if the book's title property
-      value is of type <literal moreinfo="none">String</literal>, <literal
-      moreinfo="none">example2</literal> returns true. Predicate <literal
-      moreinfo="none">example3</literal> tests the value of the <literal
-      moreinfo="none">mode</literal> property of a bean, it evaluates to true
+      which returns true if age is 10. Predicate <literal moreinfo="none">example2</literal> tests the property <literal moreinfo="none">title</literal> from the fifth element in the <literal moreinfo="none">book</literal> property; if the book's title property
+      value is of type <literal moreinfo="none">String</literal>, <literal moreinfo="none">example2</literal> returns true. Predicate <literal moreinfo="none">example3</literal> tests the value of the <literal moreinfo="none">mode</literal> property of a bean, it evaluates to true
       if <literal moreinfo="none">mode</literal> equals "A," "B," or "C."
-      These three examples demonstrate that a <literal
-      moreinfo="none">BeanPredicate</literal> is a simple decorator, which
+      These three examples demonstrate that a <literal moreinfo="none">BeanPredicate</literal> is a simple decorator, which
       allows one to apply any <literal moreinfo="none">Predicate</literal> to
       a bean property.</para>
     </sect2>
@@ -2565,10 +2120,8 @@ Predicate eitherABC =
       predicates; <literal moreinfo="none">EqualPredicate</literal> and
       <literal moreinfo="none">NotNullPredicate</literal> are discussed in
       <link linkend="functors-sect-simple-pred">Recipe 4.7</link>. For more
-      information about using predicates, see <link
-      linkend="functors">Chapter 4</link> and the Commons Collections
-      project site at <systemitem moreinfo="none"
-      role="url">http://jakarta.apache.org/commons/collections</systemitem>.</para>
+      information about using predicates, see <link linkend="functors">Chapter 4</link> and the Commons Collections
+      project site at <ulink url="http://jakarta.apache.org/commons/collections">http://jakarta.apache.org/commons/collections</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -2585,22 +2138,19 @@ Predicate eitherABC =
           <secondary>properties</secondary>
 
           <tertiary>mapping</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2261"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2261" significance="normal">
           <primary>beans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>mapping</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2262"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2262" significance="normal">
           <primary>properties</primary>
 
           <secondary>beans</secondary>
 
           <tertiary>mapping</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2263"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2263" significance="normal">
           <primary>mapping</primary>
 
           <secondary>beans properties</secondary>
@@ -2613,17 +2163,14 @@ Predicate eitherABC =
       <para>Use <literal moreinfo="none">PropertyUtils.describe()</literal>
       <indexterm id="beans-ITERM-2264" significance="normal">
           <primary>PropertyUtils.describe( ) method</primary>
-        </indexterm> <indexterm id="beans-ITERM-2265"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2265" significance="normal">
           <primary>methods</primary>
 
           <secondary>PropertyUtils.describe( )</secondary>
         </indexterm> to generate a <literal moreinfo="none">Map</literal>
       containing all of the readable bean properties from a bean instance.
-      Supply an instance of a bean and this method will return a <literal
-      moreinfo="none">Map</literal> containing all readable bean properties.
-      The code shown here demonstrates the use of <literal
-      moreinfo="none">PropertyUtils.describe( )</literal> to describe a
+      Supply an instance of a bean and this method will return a <literal moreinfo="none">Map</literal> containing all readable bean properties.
+      The code shown here demonstrates the use of <literal moreinfo="none">PropertyUtils.describe( )</literal> to describe a
       <literal moreinfo="none">Person</literal> bean:</para>
 
       <programlisting format="linespecific" id="I_3_tt152">import java.util.*;
@@ -2648,26 +2195,14 @@ System.out.println( "Author Name: " + authorMap.get( "name" ) );</programlisting
     <sect2>
       <title>Discussion</title>
 
-      <para>The previous example involves a <literal
-      moreinfo="none">Book</literal> bean with a <literal
-      moreinfo="none">name</literal> and <literal
-      moreinfo="none">author</literal> property; the <literal
-      moreinfo="none">author</literal> property is a <literal
-      moreinfo="none">Person</literal> bean with one property: <literal
-      moreinfo="none">name</literal>. The two maps, <literal
-      moreinfo="none">bookMap</literal> and <literal
-      moreinfo="none">authorMap</literal>, contain keys for every defined bean
+      <para>The previous example involves a <literal moreinfo="none">Book</literal> bean with a <literal moreinfo="none">name</literal> and <literal moreinfo="none">author</literal> property; the <literal moreinfo="none">author</literal> property is a <literal moreinfo="none">Person</literal> bean with one property: <literal moreinfo="none">name</literal>. The two maps, <literal moreinfo="none">bookMap</literal> and <literal moreinfo="none">authorMap</literal>, contain keys for every defined bean
       property, and two of those properties are printed out:</para>
 
       <programlisting format="linespecific" id="I_3_tt153">Book Name: Some Silly Computer Book
 Author Name: Some Dude</programlisting>
 
-      <para>The map returned from <literal
-      moreinfo="none">PropertyUtils.describe( )</literal> is a <literal
-      moreinfo="none">HashMap</literal> that contains every property from the
-      bean to be described. Internally, <literal
-      moreinfo="none">PropertyUtils.describe()</literal> uses <literal
-      moreinfo="none">PropertyUtils.getPropertyDescriptors( )</literal> to
+      <para>The map returned from <literal moreinfo="none">PropertyUtils.describe( )</literal> is a <literal moreinfo="none">HashMap</literal> that contains every property from the
+      bean to be described. Internally, <literal moreinfo="none">PropertyUtils.describe()</literal> uses <literal moreinfo="none">PropertyUtils.getPropertyDescriptors( )</literal> to
       obtain the list of properties to put into this map.</para>
     </sect2>
 
@@ -2676,8 +2211,7 @@ Author Name: Some Dude</programlisting>
 
       <para><link linkend="beans-sect-wrap-map">Recipe 3.17</link>
       demonstrates the use of the <literal moreinfo="none">BeanMap</literal>
-      to wrap a bean and expose a bean's properties via the <literal
-      moreinfo="none">Map</literal> interface.</para>
+      to wrap a bean and expose a bean's properties via the <literal moreinfo="none">Map</literal> interface.</para>
     </sect2>
   </sect1>
 
@@ -2687,36 +2221,30 @@ Author Name: Some Dude</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to expose a bean's properties<indexterm
-          class="startofrange" id="beans-ITERM-2266"
-          significance="normal">
+      <para>You need to expose a bean's properties<indexterm class="startofrange" id="beans-ITERM-2266" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>wrapping maps</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2267" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2267" significance="normal">
           <primary>beans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>wrapping maps</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2268" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2268" significance="normal">
           <primary>properties</primary>
 
           <secondary>beans</secondary>
 
           <tertiary>wrapping maps</tertiary>
-        </indexterm> <indexterm class="startofrange"
-          id="beans-ITERM-2269" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="beans-ITERM-2269" significance="normal">
           <primary>wrapping</primary>
 
           <secondary>bean properties</secondary>
         </indexterm> as a <literal moreinfo="none">Map</literal>, and operate
-      on the bean properties as if they were entries in a <literal
-      moreinfo="none">Map</literal>.</para>
+      on the bean properties as if they were entries in a <literal moreinfo="none">Map</literal>.</para>
     </sect2>
 
     <sect2>
@@ -2727,9 +2255,7 @@ Author Name: Some Dude</programlisting>
           <primary>BeanMap</primary>
         </indexterm>. This <literal moreinfo="none">Map</literal>
       implementation uses introspection to provide access to bean properties
-      as if they were key/value pairs in a map. This code wraps a <literal
-      moreinfo="none">Person</literal> bean with <literal
-      moreinfo="none">BeanMap</literal>, iterating through every key and
+      as if they were key/value pairs in a map. This code wraps a <literal moreinfo="none">Person</literal> bean with <literal moreinfo="none">BeanMap</literal>, iterating through every key and
       accessing bean properties with <literal moreinfo="none">get(
       )</literal>:</para>
 
@@ -2755,13 +2281,9 @@ while( keyIterator.hasNext( ) ) {
 }</programlisting>
 
       <para>The <literal moreinfo="none">Person</literal> bean has the
-      following properties: <literal moreinfo="none">age</literal>, <literal
-      moreinfo="none">name</literal>, and <literal
-      moreinfo="none">occupation</literal>; an instance of this bean is
-      created and passed to the constructor of <literal
-      moreinfo="none">BeanMap</literal>. The following output is created by
-      iterating over the key set of <literal
-      moreinfo="none">beanMap</literal>:</para>
+      following properties: <literal moreinfo="none">age</literal>, <literal moreinfo="none">name</literal>, and <literal moreinfo="none">occupation</literal>; an instance of this bean is
+      created and passed to the constructor of <literal moreinfo="none">BeanMap</literal>. The following output is created by
+      iterating over the key set of <literal moreinfo="none">beanMap</literal>:</para>
 
       <programlisting format="linespecific" id="I_3_tt155">Property: Age, Value: 28, Type: java.lang.String
 Property: Name, Value: Jim, Type: java.lang.Integer
@@ -2771,18 +2293,13 @@ Property: Occupation, Value: Developer, Type: java.lang.String</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>The previous example demonstrates the use of <literal
-      moreinfo="none">PropertyUtils.describe( )</literal> to create a <literal
-      moreinfo="none">Map</literal> containing bean properties. <literal
-      moreinfo="none">BeanMap</literal> not only exposes bean properties with
+      <para>The previous example demonstrates the use of <literal moreinfo="none">PropertyUtils.describe( )</literal> to create a <literal moreinfo="none">Map</literal> containing bean properties. <literal moreinfo="none">BeanMap</literal> not only exposes bean properties with
       a <literal moreinfo="none">Map</literal> interface, it wraps a bean
       instance, allowing you to alter the contents of the underlying bean via
       <literal moreinfo="none">put()</literal>. In addition to implementing
-      the <literal moreinfo="none">Map</literal> interface, <literal
-      moreinfo="none">BeanMap</literal> provides a number of additional
+      the <literal moreinfo="none">Map</literal> interface, <literal moreinfo="none">BeanMap</literal> provides a number of additional
       methods for obtaining <literal moreinfo="none">Method</literal> objects
-      and the types of bean properties. <link
-      linkend="beans-TABLE-1">Table 3-1</link> describes
+      and the types of bean properties. <link linkend="beans-TABLE-1">Table 3-1</link> describes
       a<indexterm id="beans-ITERM-2271" significance="normal">
           <primary>methods</primary>
 
@@ -2793,9 +2310,9 @@ Property: Occupation, Value: Developer, Type: java.lang.String</programlisting>
         <title>Methods provided by BeanMap</title>
 
         <tgroup cols="2">
-          <colspec colname="col1" colnum="1" />
+          <colspec colname="col1" colnum="1"/>
 
-          <colspec colname="col2" colnum="2" />
+          <colspec colname="col2" colnum="2"/>
 
           <thead>
             <row>
@@ -2820,8 +2337,7 @@ Property: Occupation, Value: Developer, Type: java.lang.String</programlisting>
               <entry><para> <literal moreinfo="none">clone( )</literal>
               </para></entry>
 
-              <entry><para>If possible, creates another instance of <literal
-              moreinfo="none">BeanMap</literal>, wrapping a copy of the
+              <entry><para>If possible, creates another instance of <literal moreinfo="none">BeanMap</literal>, wrapping a copy of the
               wrapped bean</para></entry>
             </row>
 
@@ -2829,16 +2345,14 @@ Property: Occupation, Value: Developer, Type: java.lang.String</programlisting>
               <entry><para> <literal moreinfo="none">getBean( )</literal>
               </para></entry>
 
-              <entry><para>Returns the bean wrapped by this <literal
-              moreinfo="none">BeanMap</literal> </para></entry>
+              <entry><para>Returns the bean wrapped by this <literal moreinfo="none">BeanMap</literal> </para></entry>
             </row>
 
             <row>
               <entry><para> <literal moreinfo="none">setBean(Object
               bean)</literal> </para></entry>
 
-              <entry><para>Causes an instance of <literal
-              moreinfo="none">BeanMap</literal> to wrap the supplied
+              <entry><para>Causes an instance of <literal moreinfo="none">BeanMap</literal> to wrap the supplied
               bean</para></entry>
             </row>
 
@@ -2854,8 +2368,7 @@ Property: Occupation, Value: Developer, Type: java.lang.String</programlisting>
               <entry><para> <literal moreinfo="none">getReadMethod(String
               name)</literal> </para></entry>
 
-              <entry><para>Retrieves a <literal
-              moreinfo="none">Method</literal> object for the read method (or
+              <entry><para>Retrieves a <literal moreinfo="none">Method</literal> object for the read method (or
               getter) of the specified property</para></entry>
             </row>
 
@@ -2863,8 +2376,7 @@ Property: Occupation, Value: Developer, Type: java.lang.String</programlisting>
               <entry><para> <literal moreinfo="none">getWriteMethod(String
               name)</literal> </para></entry>
 
-              <entry><para>Retrieves a <literal
-              moreinfo="none">Method</literal> object for the write method (or
+              <entry><para>Retrieves a <literal moreinfo="none">Method</literal> object for the write method (or
               setter) of the specified property</para></entry>
             </row>
           </tbody>
@@ -2932,23 +2444,9 @@ public class BeanMapExample {
 
       <para><literal moreinfo="none">BeanMap</literal> provides a convenient
       shortcut for accessing and manipulating beans, providing the same
-      abilities that are provided by <literal
-      moreinfo="none">PropertyUtils</literal>. For more information about
-      accessing and manipulating <indexterm class="endofrange"
-      id="beans-ITERM-2272" significance="normal"
-      startref="beans-ITERM-2266"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2273"
-      significance="normal"
-      startref="beans-ITERM-2267"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2274"
-      significance="normal"
-      startref="beans-ITERM-2268"></indexterm> <indexterm
-      class="endofrange" id="beans-ITERM-2275"
-      significance="normal"
-      startref="beans-ITERM-2269"></indexterm>bean properties with
-      <literal moreinfo="none">PropertyUtils</literal>, see <link
-      linkend="beans-sect-accessing-all">Recipe 3.8</link> and <link
-      linkend="beans-sect-setting-property">Recipe 3.13</link>.</para>
+      abilities that are provided by <literal moreinfo="none">PropertyUtils</literal>. For more information about
+      accessing and manipulating <indexterm class="endofrange" id="beans-ITERM-2272" significance="normal" startref="beans-ITERM-2266"/> <indexterm class="endofrange" id="beans-ITERM-2273" significance="normal" startref="beans-ITERM-2267"/> <indexterm class="endofrange" id="beans-ITERM-2274" significance="normal" startref="beans-ITERM-2268"/> <indexterm class="endofrange" id="beans-ITERM-2275" significance="normal" startref="beans-ITERM-2269"/>bean properties with
+      <literal moreinfo="none">PropertyUtils</literal>, see <link linkend="beans-sect-accessing-all">Recipe 3.8</link> and <link linkend="beans-sect-setting-property">Recipe 3.13</link>.</para>
     </sect2>
   </sect1>
 
@@ -2958,18 +2456,15 @@ public class BeanMapExample {
     <sect2>
       <title>Problem</title>
 
-      <para>You need to be able to create a bean <indexterm
-          id="beans-ITERM-2276" significance="normal">
+      <para>You need to be able to create a bean <indexterm id="beans-ITERM-2276" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>dynamic beans</secondary>
-        </indexterm> <indexterm id="beans-ITERM-2277"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2277" significance="normal">
           <primary>beans</primary>
 
           <secondary>dynamic</secondary>
-        </indexterm> <indexterm id="beans-ITERM-2278"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2278" significance="normal">
           <primary>dynamic beans</primary>
         </indexterm>dynamically at runtime.</para>
     </sect2>
@@ -2979,12 +2474,9 @@ public class BeanMapExample {
 
       <para>Use a <literal moreinfo="none">DynaBean</literal>. You can create
       a <literal moreinfo="none">DynaBean</literal> with an arbitrary set of
-      properties at runtime, and the resulting <literal
-      moreinfo="none">DynaBean</literal> object will function properly with
-      all Commons BeanUtils utilities, such as <literal
-      moreinfo="none">PropertyUtils</literal>. The following example
-      demonstrates the use of a <literal
-      moreinfo="none">BasicDynaBean</literal> to model a politician:</para>
+      properties at runtime, and the resulting <literal moreinfo="none">DynaBean</literal> object will function properly with
+      all Commons BeanUtils utilities, such as <literal moreinfo="none">PropertyUtils</literal>. The following example
+      demonstrates the use of a <literal moreinfo="none">BasicDynaBean</literal> to model a politician:</para>
 
       <programlisting format="linespecific" id="I_3_tt156">import java.util.*;
 import org.apache.commons.beanutils.*;
@@ -3010,26 +2502,19 @@ PropertyUtils.setProperty( politician, "name", "John Major" );
 PropertyUtils.setProperty( politician, "party", Party.TORY );
 PropertyUtils.setProperty( politician, "votes", new Long( 50000000 ) );</programlisting>
 
-      <para>In this code, the properties of the <literal
-      moreinfo="none">politician</literal> bean are set using two different
-      methods. The first method is to manipulate properties via the <literal
-      moreinfo="none">DynaBean</literal> <indexterm
-          id="beans-ITERM-2279" significance="normal">
+      <para>In this code, the properties of the <literal moreinfo="none">politician</literal> bean are set using two different
+      methods. The first method is to manipulate properties via the <literal moreinfo="none">DynaBean</literal> <indexterm id="beans-ITERM-2279" significance="normal">
           <primary>DynaBean interface</primary>
-        </indexterm> <indexterm id="beans-ITERM-2280"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2280" significance="normal">
           <primary>interfaces</primary>
 
           <secondary>DynaBean</secondary>
-        </indexterm> <indexterm id="beans-ITERM-2281"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2281" significance="normal">
           <primary>objects</primary>
 
           <secondary>DynaBean</secondary>
-        </indexterm> interface, and the second method involves using <literal
-      moreinfo="none">PropertyUtils.setProperty( )</literal>. Both regions of
-      code accomplish the same goal, and <literal
-      moreinfo="none">PropertyUtils</literal> was included to emphasize the
+        </indexterm> interface, and the second method involves using <literal moreinfo="none">PropertyUtils.setProperty( )</literal>. Both regions of
+      code accomplish the same goal, and <literal moreinfo="none">PropertyUtils</literal> was included to emphasize the
       fact that most utilities in BeanUtils will understand how to work with
       <literal moreinfo="none">DynaBean</literal> implementations.</para>
     </sect2>
@@ -3049,8 +2534,7 @@ PropertyUtils.setProperty( politician, "votes", new Long( 50000000 ) );</program
       <para>A <literal moreinfo="none">DynaBean</literal> contains the methods
       listed in <link linkend="beans-TABLE-2">Table 3-2</link>.
       There are methods to get and set indexed and mapped properties, and two
-      operations—<literal moreinfo="none">remove()</literal> and <literal
-      moreinfo="none">contains( )</literal>—allow you to manipulate the
+      operations&#x2014;<literal moreinfo="none">remove()</literal> and <literal moreinfo="none">contains( )</literal>&#x2014;allow you to manipulate the
       contents of a <literal moreinfo="none">Map</literal> property.</para>
 
       <table id="beans-TABLE-2" label="3-2">
@@ -3063,9 +2547,9 @@ PropertyUtils.setProperty( politician, "votes", new Long( 50000000 ) );</program
         </indexterm>
 
         <tgroup cols="2">
-          <colspec colname="col1" colnum="1" />
+          <colspec colname="col1" colnum="1"/>
 
-          <colspec colname="col2" colnum="2" />
+          <colspec colname="col2" colnum="2"/>
 
           <thead>
             <row>
@@ -3160,29 +2644,25 @@ PropertyUtils.setProperty( politician, "votes", new Long( 50000000 ) );</program
     <sect2>
       <title>Problem</title>
 
-      <para>You need to persist a bean to a<indexterm
-          id="beans-ITERM-2283" significance="normal">
+      <para>You need to persist a bean to a<indexterm id="beans-ITERM-2283" significance="normal">
           <primary>JavaBeans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>strings</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2284"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2284" significance="normal">
           <primary>beans</primary>
 
           <secondary>properties</secondary>
 
           <tertiary>strings</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2285"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2285" significance="normal">
           <primary>properties</primary>
 
           <secondary>beans</secondary>
 
           <tertiary>strings</tertiary>
-        </indexterm> <indexterm id="beans-ITERM-2286"
-          significance="normal">
+        </indexterm> <indexterm id="beans-ITERM-2286" significance="normal">
           <primary>strings</primary>
 
           <secondary>beans properties</secondary>
@@ -3196,11 +2676,8 @@ PropertyUtils.setProperty( politician, "votes", new Long( 50000000 ) );</program
       <para>Use <literal moreinfo="none">BeanUtils</literal> to get and set
       bean properties with strings. This utility contains many of the same
       functions as <literal moreinfo="none">PropertyUtils</literal> with one
-      major exception; instead of returning the <literal
-      moreinfo="none">Object</literal> value of the property, <literal
-      moreinfo="none">BeanUtils</literal> returns and expects a string
-      representation of a value. The following code uses <literal
-      moreinfo="none">BeanUtils</literal> to populate a bean that is dependent
+      major exception; instead of returning the <literal moreinfo="none">Object</literal> value of the property, <literal moreinfo="none">BeanUtils</literal> returns and expects a string
+      representation of a value. The following code uses <literal moreinfo="none">BeanUtils</literal> to populate a bean that is dependent
       on user input:</para>
 
       <programlisting format="linespecific" id="I_3_tt157">import java.util.*;
@@ -3224,22 +2701,12 @@ person.setOccupation( "Salesman" );
 
       <para><literal moreinfo="none">BeanUtils</literal> come in handy when a
       bean is populated from a user-supplied input like standard input or the
-      parameters of an HTTP request. In fact, <literal
-      moreinfo="none">BeanUtils</literal> started as the mechanism used to
+      parameters of an HTTP request. In fact, <literal moreinfo="none">BeanUtils</literal> started as the mechanism used to
       populate a Struts <literal moreinfo="none">ActionForm</literal> from the
-      contents of an HTTP request. When the Struts <literal
-      moreinfo="none">ActionServlet</literal> receives a request that is
-      mapped to an <literal moreinfo="none">Action</literal>, the <literal
-      moreinfo="none">ActionServlet</literal> calls a method in <literal
-      moreinfo="none">RequestUtils</literal>, which examines the request and
-      sets any properties on the relevant <literal
-      moreinfo="none">ActionForm</literal>. Because the inner workings of
-      Struts are outside the scope of this book, <link
-      linkend="beans-EX-7">Example 3-7</link> takes a <literal
-      moreinfo="none">String</literal> input from <literal
-      moreinfo="none">System.in</literal> and sets the <literal
-      moreinfo="none">age</literal> property of <literal
-      moreinfo="none">Person</literal>.</para>
+      contents of an HTTP request. When the Struts <literal moreinfo="none">ActionServlet</literal> receives a request that is
+      mapped to an <literal moreinfo="none">Action</literal>, the <literal moreinfo="none">ActionServlet</literal> calls a method in <literal moreinfo="none">RequestUtils</literal>, which examines the request and
+      sets any properties on the relevant <literal moreinfo="none">ActionForm</literal>. Because the inner workings of
+      Struts are outside the scope of this book, <link linkend="beans-EX-7">Example 3-7</link> takes a <literal moreinfo="none">String</literal> input from <literal moreinfo="none">System.in</literal> and sets the <literal moreinfo="none">age</literal> property of <literal moreinfo="none">Person</literal>.</para>
 
       <example id="beans-EX-7" label="3-7">
         <title>Using BeanUtils to populate a bean from user input</title>
@@ -3286,23 +2753,16 @@ public class ReadAge {
       <para>When <literal moreinfo="none">BeanUtils</literal> sets the
       <literal moreinfo="none">age</literal> property, it uses a set of
       registered <literal moreinfo="none">Converter</literal> instances that
-      are available to translate between a <literal
-      moreinfo="none">String</literal> and an <literal
-      moreinfo="none">Object</literal>. Behind the scenes, <literal
-      moreinfo="none">BeanUtils</literal> used the <literal
-      moreinfo="none">IntegerConverter</literal> class to convert the
-      user-supplied <literal moreinfo="none">String</literal> to an <literal
-      moreinfo="none">Integer</literal> object. For a full list of converters,
-      read the documentation for the <literal
-      moreinfo="none">org.apache.commons.beanutils.converters</literal>
+      are available to translate between a <literal moreinfo="none">String</literal> and an <literal moreinfo="none">Object</literal>. Behind the scenes, <literal moreinfo="none">BeanUtils</literal> used the <literal moreinfo="none">IntegerConverter</literal> class to convert the
+      user-supplied <literal moreinfo="none">String</literal> to an <literal moreinfo="none">Integer</literal> object. For a full list of converters,
+      read the documentation for the <literal moreinfo="none">org.apache.commons.beanutils.converters</literal>
       package.</para>
     </sect2>
 
     <sect2>
       <title>See Also</title>
 
-      <para>The BeanUtils Javadoc is available at <systemitem moreinfo="none"
-      role="url">http://jakarta.apache.org/commons/beanutils/api/index.html</systemitem>.</para>
+      <para>The BeanUtils Javadoc is available at <ulink url="http://jakarta.apache.org/commons/beanutils/api/index.html">http://jakarta.apache.org/commons/beanutils/api/index.html</ulink>.</para>
     </sect2>
   </sect1>
 </chapter>

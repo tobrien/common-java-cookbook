@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
-<!DOCTYPE preface PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 <preface role="copyrightpg" id="jakartackbk-PREFACE-1">
       <title>Copyright</title>
-      <para>Copyright © ${copyright.year} ${organization.name}. All rights reserved.</para>
+      <para>Copyright &#xA9; ${copyright.year} ${organization.name}. All rights reserved.</para>
       <para>Published by ${organization.name}, ${organization.address}.</para>
 
       <para>Java and all Java-based trademarks and logos are trademarks or registered trademarks of Sun Microsystems, Inc., in the United States and other countries. Discursive is independent of Sun Microsystems, Inc.</para>
