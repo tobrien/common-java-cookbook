@@ -128,7 +128,8 @@
                   <groupId>com.discursive.cjcook</groupId>
                   <artifactId>examples</artifactId>
                   <version>${project.version}</version>
-                  <type>jar</type>
+                  <classifier>src</classifier>
+                  <type>zip</type>
                   <overWrite>true</overWrite>
                   <outputDirectory>${basedir}/target/site</outputDirectory>
                   <destFileName>cjcook-examples-${project.version}.zip</destFileName>
