@@ -4,3 +4,5 @@ release.properties
 content/pom.xml.releaseBackup
 pom.xml.releaseBackup
 *.bak
+.#*#
+#*#
