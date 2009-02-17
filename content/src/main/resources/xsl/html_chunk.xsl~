@@ -99,6 +99,14 @@
         <div id="right-header">
           <h2>${book.title}</h2>
           <h4>Edition: ${project.version}</h4>
+          <h4>Current Page:
+<script>
+var idcomments_acct = 'b740285dedd2abc0ef4bab7566268471';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
+          </h4>
         </div>
         <div style="clear:both;">
         </div>
