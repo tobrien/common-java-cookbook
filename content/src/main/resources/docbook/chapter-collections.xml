@@ -250,7 +250,7 @@ Item 2</programlisting>
     <sect2>
       <title>See Also</title>
 
-      <para><link linkend="collections-SECT-3">Recipe 5.3</link> deals
+      <para><link linkend="collections-sect-iterating-arraylist">Recipe 5.3</link> deals
       with another implementation of <literal
       moreinfo="none">ResettableIterator</literal>, <literal
       moreinfo="none">ArrayListIterator</literal>, which can be used to
@@ -2724,7 +2724,7 @@ Value retrieved for 'iL': Illinois</programlisting>
       would be just as easy to decorate a <literal
       moreinfo="none">Map</literal> with a <literal
       moreinfo="none">Transformer</literal> object to provide case
-      insensitivity. <link linkend="collections-sect-obtaining6">Recipe
+      insensitivity. <link linkend="collections-sect-transforming">Recipe
       5.16</link> discusses the use of a <literal
       moreinfo="none">Transformer</literal> to <indexterm class="endofrange"
       id="collections-ITERM-2577" significance="normal"
@@ -3945,7 +3945,7 @@ Key: Susan, Value: nasuS</programlisting>
       a cache populated on demand, and it also demonstrates the <literal
       moreinfo="none">LRUMap</literal>—a fixed-size implementation of the
       <literal moreinfo="none">Map</literal> introduced in <link
-      linkend="collections-sect-obtaining7">Recipe 5.17</link>.</para>
+      linkend="collections-sect-lru-cache">Recipe 5.17</link>.</para>
 
       <example id="collections-EX-17" label="5-17">
         <title>Example using a LazyMap</title>
@@ -4116,7 +4116,7 @@ public class StockQuoteTransformer implements Transformer {
       startref="collections-ITERM-2640"></indexterm> see <link
       linkend="http-webdav">Chapter 11</link>. For more information
       about the <literal moreinfo="none">LRUMap</literal>, see <link
-      linkend="collections-sect-obtaining7">Recipe 5.17</link>.</para>
+      linkend="collections-sect-lru-cache">Recipe 5.17</link>.</para>
     </sect2>
   </sect1>
 
@@ -4329,7 +4329,7 @@ Cardinality Map:
       significance="normal"
       startref="collections-ITERM-2652"></indexterm> cardinality of
       objects it contains. <literal moreinfo="none">Bag</literal> objects are
-      described in <link linkend="collections-SECT-6">Recipe
+      described in <link linkend="collections-sect-bag">Recipe
       5.6</link>.</para>
     </sect2>
   </sect1>

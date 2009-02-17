@@ -18,4 +18,5 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-io-network.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-http-webdav.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-searching-filtering.xml"/>
+  <index></index>
 </book>
