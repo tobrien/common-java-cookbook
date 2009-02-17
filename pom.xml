@@ -46,7 +46,7 @@
         <configuration>
           <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
           <autoVersionSubmodules>true</autoVersionSubmodules>
-          <goals>clean compile site-deploy</goals>
+          <goals>clean compile install site-deploy</goals>
           <releaseProfiles>publish</releaseProfiles>
           <useReleaseProfile>false</useReleaseProfile>
         </configuration>
