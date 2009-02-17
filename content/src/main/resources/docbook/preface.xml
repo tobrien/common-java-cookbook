@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <preface id="preface">
   <title>Preface</title>
 
@@ -21,16 +21,18 @@
   <para>This book focuses on tactical implementation details, answering such
   questions as: How do we parse XML? How do we serialize beans? Is there an
   easier way to work with Collections? How do we work with HTTP and keep track
-  of cookies? The tactical is often sacrificed for the strategic. Consider a
-  complex enterprise-scale system with a solid, well-conceived architecture.
-  The strategic (or high-level) design appears reasonable from 40,000 feet,
-  but as soon as you drill into the details, you notice that every component
-  contains pages upon pages of unmaintainable and unnecessary code because the
-  developers were not aware of some valuable time-saver like BeanUtils,
-  Collections, or the Digester. Or, worse, the developer may have spent a week
-  reimplementing most of the capabilities of Commons BeanUtils even though
-  BeanUtils was already in the classpath. Knowing what Apache Commons has to
-  offer often helps to inform decisions made at the lowest level.</para>
+  of cookies? In enterprise software development, the tactical is often
+  sacrificed for the strategic. Consider a complex enterprise-scale system
+  with a solid, well-conceived architecture. The strategic (or high-level)
+  design appears reasonable from 40,000 feet, but as soon as you drill into
+  the details, you notice that every component contains pages upon pages of
+  unmaintainable and unnecessary code because the developers were not aware of
+  some valuable time-saver like BeanUtils, Collections, or the Digester. Or,
+  worse, the developer may have spent a week reimplementing most of the
+  capabilities of Commons BeanUtils even though BeanUtils was already in the
+  classpath. While a familiarity with Apache Commons may not directly affect
+  the architecture of your application, knowing what Apache Commons can do
+  often helps to inform decisions made at the class level.</para>
 
   <para>Few application developers would consider writing a custom XML parser,
   but developers will frequently write custom components that duplicate freely
@@ -41,8 +43,7 @@
   or turning a DOM <literal moreinfo="none">Document</literal> into a set of
   beans may be accomplished with a set of classes in some custom code. Apache
   Commons provides solutions to both of these problems and many more, and
-  reading this book may help you to avoid unnecessary wheel
-  reinvention.</para>
+  reading this book may help you avoid unnecessary wheel reinvention.</para>
 
   <para>Many people know of these components in a general sense, but few have
   the months or weeks necessary to sit down and read the relevant tutorials,
@@ -60,7 +61,8 @@
   book like this five years ago; it would have accelerated my learning and
   helped me to avoid some costly design decisions. Use this text as you will;
   if you are only interested in Commons Collections, you should be able to
-  quickly familiarize yourself with Collections by browsing <link linkend="collections">Chapter 5</link>. On the other hand, if you are
+  quickly familiarize yourself with Collections by browsing <link
+  linkend="collections">Chapter 5</link>. On the other hand, if you are
   looking for a survey of some of the major projects in Apache Commons, read
   this book from start to finish. Part structured reference, part prose, the
   cookbook format lets you customize your reading experience, and I hope this
@@ -69,7 +71,7 @@
   <sect1 id="preface-sect-inside" role="">
     <title>What's Inside</title>
 
-    <para>This book covers components from Apache Commons, and one project
+    <para>This book covers components from Apache Commons, and a few projects
     outside of the Apache Software Foundation. This book covers the following
     components:</para>
 
@@ -168,7 +170,8 @@
         the Java 2 Platform</citetitle></term>
 
         <listitem>
-          <para>This chapter introduces Commons Lang. Automation of <literal moreinfo="none">toString( )</literal>, working with arrays,
+          <para>This chapter introduces Commons Lang. Automation of <literal
+          moreinfo="none">toString( )</literal>, working with arrays,
           formatting and rounding dates, working with enumerations, generating
           identifiers, and measuring time are some of the topics discussed in
           this chapter. This chapter also covers the generation of unique
@@ -185,7 +188,8 @@
           capabilities of a scripting language like Perl, Commons Lang's
           <literal moreinfo="none">StringUtils</literal> has a number of
           utility methods that can be used to manipulate text. This chapter
-          deals with <literal moreinfo="none">StringUtils</literal>, <literal moreinfo="none">WordUtils</literal>, and Commons Codec.</para>
+          deals with <literal moreinfo="none">StringUtils</literal>, <literal
+          moreinfo="none">WordUtils</literal>, and Commons Codec.</para>
         </listitem>
       </varlistentry>
 
@@ -280,8 +284,8 @@
       </varlistentry>
 
       <varlistentry>
-        <term><link linkend="io-network">Chapter 10</link>,
-        <citetitle>I/O and Networking</citetitle></term>
+        <term><link linkend="io-network">Chapter 10</link>, <citetitle>I/O and
+        Networking</citetitle></term>
 
         <listitem>
           <para>This chapter introduces Commons IO, which contains a number of
@@ -291,8 +295,8 @@
       </varlistentry>
 
       <varlistentry>
-        <term><link linkend="http-webdav">Chapter 11</link>,
-        <citetitle>HTTP and WebDAV</citetitle></term>
+        <term><link linkend="http-webdav">Chapter 11</link>, <citetitle>HTTP
+        and WebDAV</citetitle></term>
 
         <listitem>
           <para>If you need to communicate with anything over HTTP, read this
@@ -336,22 +340,26 @@
 
     <para>Writing a book about a series of frequently released components is
     reminiscent of a game called whack-a-mole. Just when you finish updating a
-    chapter for a new release, another component has a release. On average,
-    one commons component is released every one or two weeks; therefore, a few
-    of the versions in this book may be obsolete as soon as this book hits the
-    shelves. In general, Apache Commons makes a concerted effort to preserve
-    backward compatibility and keep a stable public interface. Lessons learned
-    on Commons BeanUtils 1.6 should remain applicable to Commons BeanUtils
-    1.7. If you find that a more recent version of a component has been
-    released, you should download that more recent version and check the
-    Discursive site for updates related to this book.</para>
+    chapter for a new release, another component has been released. On
+    average, one commons component is released every one or two weeks;
+    therefore, a few of the versions in this book may be obsolete as soon as
+    this book hits the shelves. In general, Apache Commons makes a concerted
+    effort to preserve backward compatibility and keep a stable public
+    interface. Lessons learned on Commons BeanUtils 1.6 should remain
+    applicable to Commons BeanUtils 1.7. If you find that a more recent
+    version of a component has been released, you should download that more
+    recent version and check the Discursive site for updates related to this
+    book.</para>
   </sect1>
 
   <sect1 id="preface-sect-conventions" role="">
     <title>Conventions Used in This Book</title>
 
     <para>I'll use a number of conventions you should know about in this book.
-    For example, menu items are separated with an<symbol remap="8594" role="unicode">&#x2192;</symbol> like this: File<symbol remap="8594" role="unicode">&#x2192;</symbol> New<symbol remap="8594" role="unicode">&#x2192;</symbol> Project. To make them stand out, new lines of
+    For example, menu items are separated with an<symbol remap="8594"
+    role="unicode">→</symbol> like this: File<symbol remap="8594"
+    role="unicode">→</symbol> New<symbol remap="8594"
+    role="unicode">→</symbol> Project. To make them stand out, new lines of
     code will be displayed highlighted when they're added. Example code is
     often presented out of context; instead of developing an entire class,
     only the relevant block of code is presented. Most examples will include
@@ -419,12 +427,20 @@ digester.doSomething( );</programlisting>
     <title>What You'll Need</title>
 
     <para>To experiment with the various libraries introduced in this book,
-    you will need the J2SE 1.5 SDK, which can be obtained from <ulink url="http://java.sun.com">http://java.sun.com</ulink>. The examples in
-    this book were developed in an IDE named Eclipse, which can be downloaded
-    from the Eclipse project site at <ulink url="http://www.eclipse.org">http://www.eclipse.org</ulink>. Each chapter
-    contains instructions for downloading the various Apache Commons
-    components; to download any component from Apache Commons, go to the
-    Apache Commons page at <ulink url="http://commons.apache.org">http://commons.apache.org/</ulink> and
+    you will need the J2SE 1.5 SDK, which can be obtained from <ulink
+    url="http://java.sun.com">http://java.sun.com</ulink>. The examples in
+    this book were developed in Eclipse, which can be downloaded from the
+    Eclipse project site at <ulink
+    url="http://www.eclipse.org">http://www.eclipse.org</ulink>. All of the
+    examples in this book can be compiled and packaged using Apache Maven. For
+    more information about Apache Maven, see <ulink
+    url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
+    Guide</ulink> a free, online book available from Sonatype.</para>
+
+    <para>Each chapter contains instructions for downloading the various
+    Apache Commons components; to download any component from Apache Commons,
+    go to the Apache Commons page at <ulink
+    url="http://commons.apache.org">http://commons.apache.org/</ulink> and
     click on "Binaries" under "Download" in the left menu.</para>
   </sect1>
 
@@ -437,8 +453,9 @@ digester.doSomething( );</programlisting>
     supports ongoing collaborative software development according to a set of
     simple ideals: transparency, meritocracy, consensus, and mutual respect.
     To learn more about the foundation, start at the Frequently Asked
-    Questions page on www.apache.org (<ulink url="http://www.apache.org/foundation/faq.html">http://www.apache.org/foundation/faq.html</ulink>).
-    Apache is a project under the Apache Software Foundation, and it is
+    Questions page on www.apache.org (<ulink
+    url="http://www.apache.org/foundation/faq.html">http://www.apache.org/foundation/faq.html</ulink>).
+    Commons is a project under the Apache Software Foundation, and it is
     managed by what is known as a Project Management Committee (PMC). This
     committee manages a number of Apache subprojects including the Apache
     Commons.</para>
@@ -448,77 +465,146 @@ digester.doSomething( );</programlisting>
     forces in open source Java. Tomcat, Struts, Xerces, Xalan, Ant, Cocoon,
     and other projects were embraced by the larger community and Java
     developed a very strong association with open source because of the
-    influence of Apache. Toward the end of this growth spurt, the corporate
+    influence of Jakarta. Toward the end of this growth spurt, the corporate
     structure of Apache required a certain level of oversight and
-    accountability, which could not be achieved in an umbrella project like
-    Apache with hundreds of committers. A decision was made to encourage
-    Apache subprojects to move toward smaller, more focused PMCs. One of the
-    first projects to leave Apache was Apache Ant, and other projects such as
+    accountability which could not be achieved in an umbrella project like
+    Jakarta's hundreds of committers. A decision was made to encourage Jakarta
+    subprojects to move toward smaller, more focused PMCs. One of the first
+    projects to leave Jakarta was Apache Ant, and other projects such as
     Maven, Struts, and Log4j followed suit. This new, more nimble approach to
     the structure of collaborative software development avoids the creation of
-    a management layer between project participants and the PMC. Apache is
-    making way for a new generation of projects that will set the standard for
-    open source Java, including Geronimo, Pluto, Directory, Derby, and Axion.
-    Be aware that the structure of projects and subprojects in Apache is
-    somewhat fluid at the moment, and, as the situation evolves, certain
-    components could be split off into separate Apache projects.</para>
+    multiple management layers between project participants and the PMC.
+    </para>
+
+    <para>In the past few years (2004-2009), Apache has made way for a new
+    generation of projects that have set the standard for open source,
+    including Directory, Derby, Lucene, Maven, CouchDB, Wicket, and Abdera
+    among others. The community which was once Jakarta has been slowly
+    evaporating over time into separate top-level projects, and Jakarta
+    Commons finally made the switch to Apache Commons in 2007. Compared to the
+    organizational structure of Jakarta in 2002 and 2003, this new approach of
+    requiring more focused top-level projects have proven beneficial over
+    time. Jakarta had become something of a "star stage" for political
+    advocacy, and the general Jakarta discussion list was a series of
+    continuous flame wars toward the end of that community. While some Apache
+    projects are still characterized by endless procedural bickering, they are
+    largely the exception. The more focused approach of having top level
+    projects focused on a single piece of software or a limited set of related
+    components allows for a more scalable structure. As a result, the number
+    of projects in the Apache Software Foundation has grow substantially over
+    just the last five years.</para>
 
     <para>If you find the components in this book helpful, I encourage you to
-    take some time to observe the commons-dev developer mailing list. The ASF
-    is (mostly) transparent, and this means that the general public has a
-    window into the collaborative development process that is used to create a
-    large body of great software. I would encourage any developer to take an
-    interest in a piece of software and watch the development process. Follow
-    the decisions, releases, arguments, flame-wars, and evolution of something
-    like Apache Commons and you can see for yourself what works and what
-    doesn't work. This is also a great way to keep yourself informed of the
-    changes and direction of certain projects.</para>
-
-    <para>I don't intend to speak for this community, and, honestly, no one
-    can speak for a group as diverse as the one that has formed around Apache
-    Commons. I wanted to write this book to help attract more people to the
-    concept of Apache Commons and to take some time to encourage people to
-    think about how they could contribute to that effort. If there are more
-    people paying attention to the software, Commons components will have
-    higher quality, more bug reports will be filed, and more people might take
-    some time to submit documentation patches. If you find Apache Commons (or
-    any other Apache software) useful, you should consider taking a little bit
-    of time to help a fellow user on the user mailing list or submit
+    take some time to observe the developer mailing list for Apache Commons.
+    The ASF is (mostly) transparent, and this means that the general public
+    has a window into the collaborative development process that is used to
+    create a large body of great software. I would encourage any developer to
+    take an interest in a piece of software and watch the development process.
+    Follow the decisions, releases, arguments, flame-wars, and evolution of
+    something like Apache Commons and you can see for yourself what works and
+    what doesn't work. This is also a great way to keep yourself informed of
+    the changes and direction of certain projects. If you find Apache Commons
+    (or any other Apache software) useful, you should consider taking a little
+    bit of time to help a fellow user on the user mailing list or submit
     documentation patches. If you find a typo or a bug, file a report on
-    Apache's Bugzilla installation (<ulink url="http://issues.apache.org/bugzilla">http://issues.apache.org/bugzilla</ulink>)
-    or Jira installation (<ulink url="http://issues.apache.org/jira">http://issues.apache.org/jira</ulink>).</para>
+    Apache's Jira installation (<ulink
+    url="http://issues.apache.org/jira">http://issues.apache.org/jira</ulink>).</para>
 
     <para>There is always a need for greater unit test coverage, and any time
     you find an inconsistency in code you should file a bug. Contributions can
-    come in many forms &#x2014; answering user questions, writing documentation,
+    come in many forms — answering user questions, writing documentation,
     writing unit tests, submitting patches, or providing feedback. All of
     these contributions help sustain a living community. If you find yourself
     unable to participate in the community, you can make a small (possibly
     tax-deductible) donation to the Apache Software Foundation to help offset
-    the cost of infrastructure and bandwidth (<ulink url="http://www.apache.org/foundation/contributing.html">http://www.apache.org/foundation/contributing.html</ulink>).</para>
+    the cost of infrastructure and bandwidth (<ulink
+    url="http://www.apache.org/foundation/contributing.html">http://www.apache.org/foundation/contributing.html</ulink>).</para>
   </sect1>
 
   <sect1 id="preface-sect-license" role="">
     <title>The Apache Software License</title>
 
-    <para>Everything in this book is covered by the Apache Software License
-    2.0 (except FreeMarker, which is covered by a similar BSD-style license).
-    All developers who touch open source should be familiar with the various
-    licenses and come to their own conclusions; most importantly, you should
-    become familiar with the Apache license (and other BSD-style licenses) and
-    how it differs from the GNU General Public License (GPL) and GNU Lesser
-    General Public License (LGPL). Read the Apache Software License 2.0 at
-    <ulink url="http://www.apache.org/licenses/">http://www.apache.org/licenses/</ulink>.</para>
+    <para>Apache Commons components are released under the Apache Software
+    License, Version 2.0. If you want to read this license, read this license
+    on the Open Source Initiative's web site here <ulink
+    url="http://www.opensource.org/licenses/apache2.0.php">http://www.opensource.org/licenses/apache2.0.php</ulink>.</para>
 
-    <para>I am not a lawyer (IANAL), but I would urge you to learn as much as
-    you can about these licenses before you start to use them. For more
-    information about open source, and for a comprehensive list of licenses,
-    see the Open Source Initiative (OSI) at <ulink url="http://www.opensource.org">http://www.opensource.org</ulink>. The
-    Apache license does not place restrictions on people or organizations that
-    wish to redistribute the software it covers, and, in general, the Apache
-    license creates fewer licensing headaches for individuals and
-    organizations that want to incorporate open source software into a
-    commercial product.</para>
+    <para>There's a good chance that, if you are reading this book, you are
+    not a lawyer. If you are wondering what the Apache License, Version 2.0
+    means, the Apache Software Foundation has assembled a very helpful
+    Frequently Asked Questions (FAQ) page about the license available here
+    <ulink
+    url="http://www.apache.org/foundation/licence-FAQ.html">http://www.apache.org/foundation/licence-FAQ.html</ulink>.
+    Here's is the answer to the question "I am not a lawyer. What does it all
+    mean?"</para>
+
+    <para><blockquote>
+        <para><emphasis>[This license] allows you to:</emphasis></para>
+
+        <itemizedlist>
+          <listitem>
+            <para>freely download and use Apache software, in whole or in
+            part, for personal, company internal, or commercial
+            purposes;</para>
+          </listitem>
+
+          <listitem>
+            <para>use Apache software in packages or distributions that you
+            create.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para><emphasis>It forbids you to:</emphasis></para>
+
+        <itemizedlist>
+          <listitem>
+            <para>redistribute any piece of Apache-originated software without
+            proper attribution;</para>
+          </listitem>
+
+          <listitem>
+            <para>use any marks owned by The Apache Software Foundation in any
+            way that might state or imply that the Foundation endorses your
+            distribution;</para>
+          </listitem>
+
+          <listitem>
+            <para>use any marks owned by The Apache Software Foundation in any
+            way that might state or imply that you created the Apache software
+            in question.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para><emphasis>It requires you to:</emphasis></para>
+
+        <itemizedlist>
+          <listitem>
+            <para>include a copy of the license in any redistribution you may
+            make that includes Apache software;</para>
+          </listitem>
+
+          <listitem>
+            <para>provide clear attribution to The Apache Software Foundation
+            for any distributions that include Apache software.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para><emphasis>It does not require you to:</emphasis></para>
+
+        <itemizedlist>
+          <listitem>
+            <para>include the source of the Apache software itself, or of any
+            modifications you may have made to it, in any redistribution you
+            may assemble that includes it;</para>
+          </listitem>
+
+          <listitem>
+            <para>submit changes that you make to the software back to the
+            Apache Software Foundation (though such feedback is
+            encouraged).</para>
+          </listitem>
+        </itemizedlist>
+      </blockquote></para>
   </sect1>
 
   <sect1 id="preface-sect-feedback" role="">
