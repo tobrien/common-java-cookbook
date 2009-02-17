@@ -141,7 +141,7 @@
       <systemitem moreinfo="none"
       role="url">commons-user@jakarta.apache.org</systemitem> mailing list.
       Instructions for joining the user mailing list can be found in <link
-      linkend="jakartackbk-CHP-1-SECT-2">Recipe 1.2</link>.</para>
+      linkend="lang-sect-mailinglist">Recipe 1.2</link>.</para>
     </sect2>
   </sect1>
 
@@ -533,7 +533,7 @@ try {
 
       <para>This recipe used <literal moreinfo="none">CopyUtils</literal>,
       which was demonstrated in <link
-      linkend="io-network-SECT-2">Recipe 10.2</link>.</para>
+      linkend="io-network-sect-copying">Recipe 10.2</link>.</para>
     </sect2>
   </sect1>
 
@@ -2197,8 +2197,8 @@ Mr. Jerk Spammer
       )</literal> to copy and close a <literal
       moreinfo="none">Reader</literal> for each email message. These methods
       are described in detail in <link
-      linkend="io-network-SECT-2">Recipe 10.2</link> and <link
-      linkend="io-network-SECT-3">Recipe 10.3</link>.</para>
+      linkend="io-network-sect-copying">Recipe 10.2</link> and <link
+      linkend="io-network-sect-closing">Recipe 10.3</link>.</para>
 
       <para>For a good overview of SMTP and POP3 from the perspective of a
       FreeBSD administrator, take a look at Dru Lavigne's article

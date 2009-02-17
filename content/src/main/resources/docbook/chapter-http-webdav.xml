@@ -104,7 +104,7 @@
       linkend="app-infra-sect-obtaining-logging">Recipe 7.9</link>. Jakarta HttpClient
       also depends on Jakarta Commons Codec, which can also be obtained from
       the same binary download page as HttpClient. To download Commons Codec,
-      see <link linkend="manipulate-text-SECT-15">Recipe 2.15</link>.</para>
+      see <link linkend="manipulate-text-sect-using-codec">Recipe 2.15</link>.</para>
     </sect2>
 
     <sect2>
@@ -156,14 +156,14 @@
       join the <systemitem moreinfo="none"
       role="url">commons-user@jakarta.apache.org</systemitem> mailing list.
       Instructions for joining the user mailing list can be found in <link
-      linkend="jakartackbk-CHP-1-SECT-2">Recipe 1.2</link>. Note that as
+      linkend="lang-sect-mailinglist">Recipe 1.2</link>. Note that as
       Jakarta Commons HttpClient becomes Jakarta HttpClient, the commons-user
       mailing list may stop being the place to ask questions about Jakarta
       HttpClient. Investigate the current status of HttpClient before joining
       these mailing lists.</para>
 
       <para>For information on obtaining the source code for Commons
-      HttpClient, see <link linkend="http-webdav-SECT-2">Recipe
+      HttpClient, see <link linkend="http-webdav-sect-httpclient-sourcecode">Recipe
       11.2</link>.</para>
     </sect2>
   </sect1>
@@ -210,7 +210,7 @@
 
       <para>Download the source distribution of Jakarta HttpClient 3.0.
       Following the steps outlined in <link
-      linkend="jakartackbk-CHP-1-SECT-3">Recipe 1.3</link>, download "Commons
+      linkend="lang-sect-sourcecode">Recipe 1.3</link>, download "Commons
       HttpClient 3.0" instead of Commons Lang. The HttpClient source
       archive—<filename
       moreinfo="none">commons-httpclient-3.0-src.zip—</filename>contains a
@@ -276,7 +276,7 @@
       <title>See Also</title>
 
       <para>For information on obtaining the binary distribution for Jakarta
-      HttpClient, see <link linkend="http-webdav-SECT-1">Recipe
+      HttpClient, see <link linkend="http-webdav-sect-obtaining-httpclient">Recipe
       11.1</link>.</para>
     </sect2>
   </sect1>
@@ -2474,7 +2474,7 @@ content length is not known
 
       <para>HttpClient handles SSL automatically, if it can verify the
       authenticity of a certificate against an authority; this is why this
-      recipe is so similar to <link linkend="http-webdav-SECT-3">Recipe
+      recipe is so similar to <link linkend="http-webdav-sect-get">Recipe
       11.3</link>. The example in this recipe only works if you are dealing
       with a site that has a certificate signed by a well-known authority. The
       Java Runtime Environment (JRE) keeps track of the signatures of all the

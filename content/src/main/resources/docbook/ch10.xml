@@ -119,12 +119,12 @@ page at <systemitem role="url" moreinfo="none">http://jakarta.apache.org/commons
 have questions about using Commons IO, please feel free to join the
 <systemitem role="url" moreinfo="none">commons-user@jakarta.apache.org</systemitem>
 mailing list. Instructions for joining the user mailing list can be
-found in <link linkend="jakartackbk-CHP-1-SECT-2">Recipe 1.2</link>.</para>
+found in <link linkend="lang-sect-mailinglist">Recipe 1.2</link>.</para>
          </sect2>
       </sect1>
-      <sect1 id="io-network-SECT-2" label="10.2" role="Recipe">
+      <sect1 id="io-network-sect-copying" label="10.2" role="Recipe">
          <title>Copying Streams, byte[ ], Readers, and Writers</title>
-         <sect2 id="io-network-SECT-2.1">
+         <sect2 id="io-network-sect-copying.1">
             <title>Problem</title>
             <para>You need to copy a stream, <literal moreinfo="none">byte[]</literal>,
 <literal moreinfo="none">Reader</literal>, <indexterm id="io-network-ITERM-3029" significance="normal">
@@ -160,7 +160,7 @@ from an <literal moreinfo="none">InputStream</literal> or <literal moreinfo="non
 to a <literal moreinfo="none">Writer</literal>, or you need to copy a
 <literal moreinfo="none">String</literal> to an <literal moreinfo="none">OutputStream</literal>.</para>
          </sect2>
-         <sect2 id="io-network-SECT-2.2">
+         <sect2 id="io-network-sect-copying.2">
             <title>Solution</title>
             <para>Use <literal moreinfo="none">CopyUtils</literal> from Commons IO to copy the contents
 of an <literal moreinfo="none">InputStream</literal>, <literal moreinfo="none">Reader</literal>,
@@ -186,7 +186,7 @@ an <literal moreinfo="none">InputStream</literal>, which is copied to a
 <literal moreinfo="none">FileWriter</literal> using <literal moreinfo="none">CopyUtils.copy(
 )</literal>.</para>
          </sect2>
-         <sect2 id="io-network-SECT-2.3">
+         <sect2 id="io-network-sect-copying.3">
             <title>Discussion</title>
             <para>If you need to copy information from a <literal moreinfo="none">Reader</literal> or
 <literal moreinfo="none">InputStream</literal> to a <literal moreinfo="none">String</literal>, use
@@ -218,9 +218,9 @@ to the <literal moreinfo="none">copy( )</literal> method. When using
 <literal moreinfo="none">copy( )</literal>.</para>
          </sect2>
       </sect1>
-      <sect1 id="io-network-SECT-3" label="10.3" role="Recipe">
+      <sect1 id="io-network-sect-closing" label="10.3" role="Recipe">
          <title>Closing Streams, Readers, and Writers</title>
-         <sect2 id="io-network-SECT-3.1">
+         <sect2 id="io-network-sect-closing.1">
             <title>Problem</title>
             <para>You need to close an <indexterm class="startofrange" id="io-network-ITERM-3037" significance="normal">
                   <primary>Commons
@@ -258,7 +258,7 @@ IO</secondary>
 <literal moreinfo="none">Writer</literal>, and you want to avoid catching an
 <literal moreinfo="none">IOException</literal> in a <literal moreinfo="none">finally</literal> block.</para>
          </sect2>
-         <sect2 id="io-network-SECT-3.2">
+         <sect2 id="io-network-sect-closing.2">
             <title>Solution</title>
             <para>Use <literal moreinfo="none">IOUtils.closeQuietly()</literal>
                <indexterm id="io-network-ITERM-3044" significance="normal">
@@ -305,7 +305,7 @@ try {
     IOUtils.closeQuietly( reader );
 }</programlisting>
          </sect2>
-         <sect2 id="io-network-SECT-3.3">
+         <sect2 id="io-network-sect-closing.3">
             <title>Discussion</title>
             <para>It is always a good idea to close streams, readers, and writers in
 <literal moreinfo="none">finally</literal> blocks because you can guarantee that a
@@ -435,10 +435,10 @@ swallows any <literal moreinfo="none">IOException</literal> that may be thrown
                <indexterm class="endofrange" startref="io-network-ITERM-3043" id="io-network-ITERM-3059" significance="normal"/>in
 the process of closing a stream or reader.</para>
          </sect2>
-         <sect2 id="io-network-SECT-3.4">
+         <sect2 id="io-network-sect-closing.4">
             <title>See Also</title>
             <para>This recipe used <literal moreinfo="none">CopyUtils</literal>, which was demonstrated
-in <link linkend="io-network-SECT-2">Recipe 10.2</link>.</para>
+in <link linkend="io-network-sect-copying">Recipe 10.2</link>.</para>
          </sect2>
       </sect1>
       <sect1 id="io-network-SECT-4" label="10.4" role="Recipe">
@@ -1869,7 +1869,7 @@ relevant header—such as <filename moreinfo="none">Subject</filename> and
             <para>This recipe used <literal moreinfo="none">IOUtils.toString( )</literal> and
 <literal moreinfo="none">IOUtils.closeQuietly( )</literal> to copy and close a
 <literal moreinfo="none">Reader</literal> for each email message. These methods are
-described in detail in  <link linkend="io-network-SECT-2">Recipe 10.2</link> and <link linkend="io-network-SECT-3">Recipe 10.3</link>.</para>
+described in detail in  <link linkend="io-network-sect-copying">Recipe 10.2</link> and <link linkend="io-network-sect-closing">Recipe 10.3</link>.</para>
             <para>For a good overview of SMTP and POP3 from the perspective of a
 FreeBSD administrator, take a look at Dru Lavigne's
 article "Understanding E-Mail" from

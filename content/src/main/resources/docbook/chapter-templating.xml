@@ -314,7 +314,7 @@ There are a few things I would like to tell you.
       <para>If you have questions about how to use Jakarta Commons JEXL, you
       can join the <systemitem moreinfo="none"
       role="url">commons-user@jakarta.apache.org</systemitem> mailing list.
-      Refer to <link linkend="jakartackbk-CHP-1-SECT-2">Recipe 1.2</link> for
+      Refer to <link linkend="lang-sect-mailinglist">Recipe 1.2</link> for
       instructions on joining the Commons User mailing list.</para>
 
       <para>For more information about the Java Community Process, see the JCP
@@ -1021,7 +1021,7 @@ while( ballsIter.hasNext( ) ) {
       <para>If you have questions about how to use Jakarta Velocity, you can
       join the <systemitem moreinfo="none"
       role="url">velocity-user@jakarta.apache.org</systemitem> mailing list.
-      Refer to <link linkend="jakartackbk-CHP-1-SECT-2">Recipe 1.2</link> for
+      Refer to <link linkend="lang-sect-mailinglist">Recipe 1.2</link> for
       instructions on joining a user mailing list. To join the Velocity user
       mailing list, see the Velocity section of the Jakarta mailing lists page
       (<systemitem moreinfo="none"
@@ -1045,7 +1045,7 @@ while( ballsIter.hasNext( ) ) {
       <para>Use Jakarta Velocity and store your template in the filesystem.
       Jakarta Velocity is a straightforward templating engine with a
       lightweight syntax similar to the expression language introduced in
-      <link linkend="templating-SECT-2">Recipe 9.2</link>. The
+      <link linkend="templating-sect-using-exp-lang">Recipe 9.2</link>. The
       following Velocity template is used to create an email:</para>
 
       <programlisting format="linespecific" id="I_9_tt364">#set( $customer = $subscription.customer )
@@ -1154,7 +1154,7 @@ http://www.scienceworld.com/renew?cust=22324</programlisting>
       moreinfo="none">${bean.getProperty( )}</literal>; Velocity can handle
       both bean properties and methods. In addition to the basic expression
       syntax, Velocity also supports a number of directives and control loops,
-      which are explored in <link linkend="templating-SECT-7">Recipe
+      which are explored in <link linkend="templating-sect-writing-templates-loops">Recipe
       9.7</link></para>
 
       <para>The one directive used in the previous example is <literal

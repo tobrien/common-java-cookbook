@@ -89,7 +89,7 @@
       the <systemitem moreinfo="none"
       role="url">commons-user@jakarta.apache.org</systemitem> mailing list.
       Instructions for joining the user mailing list can be found in <link
-      linkend="jakartackbk-CHP-1-SECT-2">Recipe 1.2</link>. For information on
+      linkend="lang-sect-mailinglist">Recipe 1.2</link>. For information on
       obtaining the source code for Commons Collections, see <link
       linkend="functors-SECT-2">Recipe 4.2</link>.</para>
     </sect2>
@@ -878,7 +878,7 @@ Unique Medal: bronze</programlisting>
       <para>The building blocks for <literal
       moreinfo="none">UniqueFilterIterator</literal> have already been
       introduced. <literal moreinfo="none">FilterIterator</literal> was
-      introduced in <link linkend="collections-SECT-4">Recipe
+      introduced in <link linkend="collections-sect-filtering">Recipe
       5.4</link>, and <literal moreinfo="none">UniquePredicate</literal> is a
       <literal moreinfo="none">Predicate</literal> that keeps track of objects
       it has evaluated in a <literal moreinfo="none">HashSet</literal>. A
@@ -2724,7 +2724,7 @@ Value retrieved for 'iL': Illinois</programlisting>
       would be just as easy to decorate a <literal
       moreinfo="none">Map</literal> with a <literal
       moreinfo="none">Transformer</literal> object to provide case
-      insensitivity. <link linkend="collections-SECT-16">Recipe
+      insensitivity. <link linkend="collections-sect-obtaining6">Recipe
       5.16</link> discusses the use of a <literal
       moreinfo="none">Transformer</literal> to <indexterm class="endofrange"
       id="collections-ITERM-2577" significance="normal"
@@ -3945,7 +3945,7 @@ Key: Susan, Value: nasuS</programlisting>
       a cache populated on demand, and it also demonstrates the <literal
       moreinfo="none">LRUMap</literal>—a fixed-size implementation of the
       <literal moreinfo="none">Map</literal> introduced in <link
-      linkend="collections-SECT-17">Recipe 5.17</link>.</para>
+      linkend="collections-sect-obtaining7">Recipe 5.17</link>.</para>
 
       <example id="collections-EX-17" label="5-17">
         <title>Example using a LazyMap</title>
@@ -4116,7 +4116,7 @@ public class StockQuoteTransformer implements Transformer {
       startref="collections-ITERM-2640"></indexterm> see <link
       linkend="http-webdav">Chapter 11</link>. For more information
       about the <literal moreinfo="none">LRUMap</literal>, see <link
-      linkend="collections-SECT-17">Recipe 5.17</link>.</para>
+      linkend="collections-sect-obtaining7">Recipe 5.17</link>.</para>
     </sect2>
   </sect1>
 

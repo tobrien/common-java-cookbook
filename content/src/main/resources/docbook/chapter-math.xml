@@ -24,7 +24,7 @@
     found in Commons Lang. This includes a class that represents fractions,
     finding the minimum and maximum values in an array, representing a range
     of numbers, and convenient ways to retrieve different random variables.
-    Commons Lang was introduced in <link linkend="jakartackbk-CHP-1">Chapter
+    Commons Lang was introduced in <link linkend="lang">Chapter
     1</link>, and instructions for downloading and installing Commons Lang can
     be found in <link linkend="lang-sect-obtaining">Recipe 1.1</link>.
     The remainder of this chapter deals with Jakarta Commons Math. Recipes
@@ -32,7 +32,7 @@
     univariate statistics, solving a system of linear equations, and
     establishing a relationship between two independent variables.
     Instructions for downloading and installing Commons Math can be found in
-    <link linkend="math-SECT-5">Recipe 8.5</link>.</para>
+    <link linkend="math-sect-obtaining-math">Recipe 8.5</link>.</para>
   </sect1>
 
   <sect1 id="math-sect-fractions" label="8.1" role="Recipe">
@@ -809,7 +809,7 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
       Commons Math depends on Commons Collections 3.0, Commons Lang 2.0, and
       Commons Logging 1.0.3. To obtain these dependencies, see <link
       linkend="lang-sect-obtaining">Recipe 1.1</link>, <link
-      linkend="collections-SECT-1">Recipe 5.1</link>, and <link
+      linkend="collections-sect-obtaining">Recipe 5.1</link>, and <link
       linkend="app-infra-sect-obtaining-logging">Recipe 7.9</link>.</para>
 
       <warning id="math-NOTE-63" role="ora">
@@ -1802,7 +1802,7 @@ Completed 10000 in 47 seconds.</programlisting>
       <para>The previous example used a method that sleeps for a random number
       of milliseconds between 1 and 10, and this value is selected using the
       <literal moreinfo="none">RandomUtils</literal> class described in <link
-      linkend="math-SECT-4">Recipe 8.4</link>. It is easy to
+      linkend="math-sect-ran-vars">Recipe 8.4</link>. It is easy to
       predict how long this process is going to take because, on average, each
       method call is going to sleep for five milliseconds. The <literal
       moreinfo="none">ProcessEstimator</literal> is inaccurate when the amount
@@ -1825,7 +1825,7 @@ Completed 10000 in 47 seconds.</programlisting>
       <para>This recipe refers to the <literal
       moreinfo="none">StopWatch</literal> class from Commons Lang. For more
       information about the <literal moreinfo="none">StopWatch</literal>
-      class, see <link linkend="lang-sect-obtaining9">Recipe
+      class, see <link linkend="lang-sect-measure-time">Recipe
       1.19</link>.</para>
     </sect2>
   </sect1>

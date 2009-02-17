@@ -502,7 +502,7 @@ public class SimpleBean {
 
       <para>If you have questions about how to use Commons BeanUtils, you can
       join the <email>commons-user@jakarta.apache.org</email> mailing list.
-      Refer to <link linkend="jakartackbk-CHP-1-SECT-2">Recipe 1.2</link> for
+      Refer to <link linkend="lang-sect-mailinglist">Recipe 1.2</link> for
       instructions on joining the Commons-user mailing list.</para>
     </sect2>
   </sect1>
@@ -571,7 +571,7 @@ public class SimpleBean {
       <para>Most Commons components follow a similar convention for the layout
       of binary and source distributions. For more information about the
       layout of the BeanUtils source distribution, see <link
-      linkend="jakartackbk-CHP-1-SECT-3">Recipe 1.3</link>.</para>
+      linkend="lang-sect-sourcecode">Recipe 1.3</link>.</para>
 
       <para>For information on obtaining the binary distribution for Commons
       BeanUtils, see <link linkend="beans-SECT-2">Recipe

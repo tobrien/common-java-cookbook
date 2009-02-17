@@ -8,11 +8,11 @@
     <title>Introduction</title>
 
     <para>This chapter introduces utilities that augment the <indexterm
-        id="jakartackbk-CHP-1-ITERM-1715" significance="normal">
+        id="lang-ITERM-1715" significance="normal">
         <primary>Java 2 Standard Edition</primary>
 
         <see>J2SE</see>
-      </indexterm>Java 2 Standard <indexterm id="jakartackbk-CHP-1-ITERM-1716"
+      </indexterm>Java 2 Standard <indexterm id="lang-ITERM-1716"
         significance="normal">
         <primary>J2SE (Java 2 Standard Edition)</primary>
       </indexterm>Edition (J2SE), providing classes and utilities that make
@@ -30,13 +30,13 @@
     chapter and continue on to more advanced topics in this text. String
     manipulation, date truncation, and <literal moreinfo="none">toString(
     )</literal> methods do not inspire the sense of mystery and genius one
-    feels when working with <indexterm id="jakartackbk-CHP-1-ITERM-1717"
+    feels when working with <indexterm id="lang-ITERM-1717"
         significance="normal">
         <primary>Extensible Markup Language</primary>
 
         <see>XML</see>
       </indexterm>Extensible Markup Language (XML) or<indexterm
-        id="jakartackbk-CHP-1-ITERM-1718" significance="normal">
+        id="lang-ITERM-1718" significance="normal">
         <primary>XML (Extensible Markup Language)</primary>
       </indexterm> an open source text-to-speech engine. But, even if you are
     the most fluent speaker of Java, there are lessons to be learned from the
@@ -46,22 +46,22 @@
     interesting problems to be solved, and building <literal
     moreinfo="none">hashcode()</literal> functions is not one of them.</para>
 
-    <sidebar id="jakartackbk-CHP-1-SIDEBAR-1">
+    <sidebar id="lang-SIDEBAR-1">
       <title>The Advent of Tiger</title>
 
-      <para>With the release of <indexterm id="jakartackbk-CHP-1-ITERM-1719"
+      <para>With the release of <indexterm id="lang-ITERM-1719"
           significance="normal">
           <primary>Tiger</primary>
         </indexterm>Tiger (the codename for Java 1.5), some of these utilities
       are duplicated or superseded. Those of you who are stuck with 1.4 for a
       few more months will find some of the supplements in this chapter
       helpful, regardless of the availability of a new <indexterm
-          id="jakartackbk-CHP-1-ITERM-1720" significance="normal">
+          id="lang-ITERM-1720" significance="normal">
           <primary>Java Virtual Machine</primary>
 
           <see>JVM</see>
         </indexterm>Java Virtual Machine (JVM). Even if<indexterm
-          id="jakartackbk-CHP-1-ITERM-1721" significance="normal">
+          id="lang-ITERM-1721" significance="normal">
           <primary>JVM (Java Virtual Machine)</primary>
         </indexterm> you are using Java 1.5, the recipes in this chapter will
       still be relevant. A few classes in many Jakarta Commons projects have
@@ -79,12 +79,12 @@
       <title>Problem</title>
 
       <para>You want to use <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1722" significance="normal">
+          id="lang-ITERM-1722" significance="normal">
           <primary>Commons Lang</primary>
 
           <secondary>downloading</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1723" significance="normal">
+          id="lang-ITERM-1723" significance="normal">
           <primary>downloading</primary>
 
           <secondary>Commons Lang</secondary>
@@ -158,12 +158,12 @@
   ...other dependencies...
 &lt;/dependencies&gt;</programlisting>
 
-      <para>The <indexterm id="jakartackbk-CHP-1-ITERM-1724"
+      <para>The <indexterm id="lang-ITERM-1724"
           significance="normal">
           <primary>Commons Lang</primary>
 
           <secondary>library</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1725"
+        </indexterm> <indexterm id="lang-ITERM-1725"
           significance="normal">
           <primary>libraries</primary>
 
@@ -174,7 +174,7 @@
       visit the Jakarta Commons Lang web site at <systemitem moreinfo="none"
       role="url">http://jakarta.apache.org/commons/lang/</systemitem>.</para>
 
-      <tip id="jakartackbk-CHP-1-NOTE-42" role="ora">
+      <tip id="lang-NOTE-42" role="ora">
         <para>At the time of writing, the most recent version of the Commons
         Lang component was Version 2.0. If there is a more recent version of
         Commons Lang available, use the latest version. Although not a
@@ -192,11 +192,11 @@
       <title>See Also</title>
 
       <para>If you are having an issue<indexterm class="endofrange"
-      id="jakartackbk-CHP-1-ITERM-1726" significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1722"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1727"
+      id="lang-ITERM-1726" significance="normal"
+      startref="lang-ITERM-1722"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1727"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1723"></indexterm> with one of the
+      startref="lang-ITERM-1723"></indexterm> with one of the
       utilities in Commons Lang, see <link
       linkend="lang-sect-mailinglist">Recipe 1.2</link> on joining the
       Commons-user mailing list. If you are looking for the source code, see
@@ -214,14 +214,14 @@
       <title>Problem</title>
 
       <para>You want to ask a question about a<indexterm
-          id="jakartackbk-CHP-1-ITERM-1728" significance="normal">
+          id="lang-ITERM-1728" significance="normal">
           <primary>Commons Lang</primary>
 
           <secondary>mailing lists</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1729"
+        </indexterm> <indexterm id="lang-ITERM-1729"
           significance="normal">
           <primary>mailing lists</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1730"
+        </indexterm> <indexterm id="lang-ITERM-1730"
           significance="normal">
           <primary>lists</primary>
 
@@ -243,14 +243,14 @@
       <title>Discussion</title>
 
       <para>Before you join this mailing<indexterm
-          id="jakartackbk-CHP-1-ITERM-1731" significance="normal">
+          id="lang-ITERM-1731" significance="normal">
           <primary>resources</primary>
 
           <secondary>mailing lists</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1732"
+        </indexterm> <indexterm id="lang-ITERM-1732"
           significance="normal">
           <primary>troubleshooting mailing lists</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1733"
+        </indexterm> <indexterm id="lang-ITERM-1733"
           significance="normal">
           <primary>joining mailing lists</primary>
         </indexterm> list, take a moment to familiarize yourself with the
@@ -298,25 +298,25 @@
     <sect2>
       <title>Problem</title>
 
-      <para>You want to view the <indexterm id="jakartackbk-CHP-1-ITERM-1734"
+      <para>You want to view the <indexterm id="lang-ITERM-1734"
           significance="normal">
           <primary>Commons Lang</primary>
 
           <secondary>source code</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1735"
+        </indexterm> <indexterm id="lang-ITERM-1735"
           significance="normal">
           <primary>source code</primary>
 
           <secondary>Commons Lang</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1736"
+        </indexterm> <indexterm id="lang-ITERM-1736"
           significance="normal">
           <primary>code</primary>
 
           <secondary>Commons Lang</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1737"
+        </indexterm> <indexterm id="lang-ITERM-1737"
           significance="normal">
           <primary>viewing source code</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1738"
+        </indexterm> <indexterm id="lang-ITERM-1738"
           significance="normal">
           <primary>downloading</primary>
 
@@ -341,15 +341,15 @@
       <title>Discussion</title>
 
       <para>The <filename moreinfo="none">commons-lang-2.0-src</filename>
-      <indexterm id="jakartackbk-CHP-1-ITERM-1739" significance="normal">
+      <indexterm id="lang-ITERM-1739" significance="normal">
           <primary>commons-lang-2.0-src directory</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1740"
+        </indexterm> <indexterm id="lang-ITERM-1740"
           significance="normal">
           <primary>directories</primary>
 
           <secondary>commons-lang-2.0-src</secondary>
         </indexterm> directory will contain <indexterm
-          id="jakartackbk-CHP-1-ITERM-1741" significance="normal">
+          id="lang-ITERM-1741" significance="normal">
           <primary>subdirectories</primary>
 
           <seealso>directories</seealso>
@@ -360,16 +360,16 @@
           <term><filename moreinfo="none">build.xml</filename></term>
 
           <listitem>
-            <para>An Apache Ant<indexterm id="jakartackbk-CHP-1-ITERM-1742"
+            <para>An Apache Ant<indexterm id="lang-ITERM-1742"
                 significance="normal">
                 <primary>files</primary>
-              </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1743"
+              </indexterm> <indexterm id="lang-ITERM-1743"
                 significance="normal">
                 <primary>build.xml</primary>
-              </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1744"
+              </indexterm> <indexterm id="lang-ITERM-1744"
                 significance="normal">
                 <primary>src/java subdirectory</primary>
-              </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1745"
+              </indexterm> <indexterm id="lang-ITERM-1745"
                 significance="normal">
                 <primary>subdirectories</primary>
 
@@ -394,10 +394,10 @@
           <term><filename moreinfo="none">src/test</filename></term>
 
           <listitem>
-            <para>This <indexterm id="jakartackbk-CHP-1-ITERM-1746"
+            <para>This <indexterm id="lang-ITERM-1746"
                 significance="normal">
                 <primary>src/test subdirectory</primary>
-              </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1747"
+              </indexterm> <indexterm id="lang-ITERM-1747"
                 significance="normal">
                 <primary>subdirectories</primary>
 
@@ -448,26 +448,26 @@
       <title>Solution</title>
 
       <para>Use the Commons Lang<indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1748" significance="normal">
+          id="lang-ITERM-1748" significance="normal">
           <primary>Commons Lang</primary>
 
           <secondary>toString( ) methods</secondary>
 
           <tertiary>automation</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1749" significance="normal">
+          id="lang-ITERM-1749" significance="normal">
           <primary>toString( ) methods</primary>
 
           <secondary>automation</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1750" significance="normal">
+          id="lang-ITERM-1750" significance="normal">
           <primary>methods</primary>
 
           <secondary>toString( )</secondary>
 
           <tertiary>automation</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1751" significance="normal">
+          id="lang-ITERM-1751" significance="normal">
           <primary>automation</primary>
 
           <secondary>toString( ) methods</secondary>
@@ -477,7 +477,7 @@
       moreinfo="none">ToStringBuilder</literal> to create <literal
       moreinfo="none">toString()</literal> methods. The following code is an
       example of a <literal moreinfo="none">toString( )</literal> method,
-      which uses a <indexterm id="jakartackbk-CHP-1-ITERM-1752"
+      which uses a <indexterm id="lang-ITERM-1752"
           significance="normal">
           <primary>reflection builders</primary>
         </indexterm>reflection builder:</para>
@@ -500,12 +500,12 @@ public void toString( ) {
       moreinfo="none">dateOfBirth</literal>, <literal
       moreinfo="none">moneyRaised</literal>, and <literal
       moreinfo="none">homeState</literal>. <link
-      linkend="jakartackbk-CHP-1-EX-1">Example 1-1</link> shows the <literal
+      linkend="lang-EX-1">Example 1-1</link> shows the <literal
       moreinfo="none">PoliticalCandidate</literal> class using a <literal
       moreinfo="none">ReflectionToStringBuilder</literal>; the getter and
       setter methods have been omitted for brevity.</para>
 
-      <example id="jakartackbk-CHP-1-EX-1" label="1-1">
+      <example id="lang-EX-1" label="1-1">
         <title>The PoliticalCandidate class using
         ReflectionToStringBuilder</title>
 
@@ -534,18 +534,18 @@ public class PoliticalCandidate {
       object model becomes a chore (usually a forgotten one). Commons Lang
       includes a fairly simple utility designed to automate this chore using
       reflection. The <literal moreinfo="none">ToStringBuilder</literal>
-      <indexterm id="jakartackbk-CHP-1-ITERM-1753" significance="normal">
+      <indexterm id="lang-ITERM-1753" significance="normal">
           <primary>ToStringBuilder class</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1754"
+        </indexterm> <indexterm id="lang-ITERM-1754"
           significance="normal">
           <primary>classes</primary>
 
           <secondary>ToStringBuilder</secondary>
         </indexterm> class and its extension, <literal
       moreinfo="none">ReflectionToStringBuilder</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1755" significance="normal">
+          id="lang-ITERM-1755" significance="normal">
           <primary>ReflectionToStringBuilder class</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1756"
+        </indexterm> <indexterm id="lang-ITERM-1756"
           significance="normal">
           <primary>classes</primary>
 
@@ -555,7 +555,7 @@ public class PoliticalCandidate {
       <literal moreinfo="none">ReflectionToStringBuilder</literal> reflects
       any future changes that are made to the object model. The following code
       demonstrates the output of a string <indexterm
-          id="jakartackbk-CHP-1-ITERM-1757" significance="normal">
+          id="lang-ITERM-1757" significance="normal">
           <primary>strings</primary>
 
           <secondary>built via reflection</secondary>
@@ -591,7 +591,7 @@ System.out.println( candidate );</programlisting>
      state=\com.discursive.jccook.lang.builders.State@87816d
          [abbreviation=VA,name=Virginia]]</programlisting>
 
-      <tip id="jakartackbk-CHP-1-NOTE-43" role="ora">
+      <tip id="lang-NOTE-43" role="ora">
         <para>As in other cases in this book, I've applied a minimal amount of
         formatting to the output so that it fits on the printed page. Your
         results will be the same in terms of content but will be all on one
@@ -608,22 +608,22 @@ System.out.println( candidate );</programlisting>
       the <literal moreinfo="none">ReflectionToStringBuilder</literal>, you
       are assured that the message printed out will be accurate; the
       alternative is to have a message that may or may not <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1758"
+      class="endofrange" id="lang-ITERM-1758"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1748"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1759"
+      startref="lang-ITERM-1748"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1759"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1749"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1760"
+      startref="lang-ITERM-1749"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1760"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1750"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1761"
+      startref="lang-ITERM-1750"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1761"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1751"></indexterm>be relevant—trusting
+      startref="lang-ITERM-1751"></indexterm>be relevant—trusting
       developers to keep <literal moreinfo="none">toString( )</literal>
       methods updated manually.</para>
 
-      <warning id="jakartackbk-CHP-1-NOTE-44" role="ora">
+      <warning id="lang-NOTE-44" role="ora">
         <para>This utility uses the class <literal
         moreinfo="none">AccessibleObject</literal> in the J2SE reflection
         package to bypass access modifiers and access private member variables
@@ -654,26 +654,26 @@ System.out.println( candidate );</programlisting>
 
       <para>You need to automate <literal moreinfo="none">toString(
       )</literal> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1762" significance="normal">
+          id="lang-ITERM-1762" significance="normal">
           <primary>Commons Lang</primary>
 
           <secondary>toString( ) methods</secondary>
 
           <tertiary>customization</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1763" significance="normal">
+          id="lang-ITERM-1763" significance="normal">
           <primary>toString( ) methods</primary>
 
           <secondary>customization</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1764" significance="normal">
+          id="lang-ITERM-1764" significance="normal">
           <primary>methods</primary>
 
           <secondary>toString( )</secondary>
 
           <tertiary>customization</tertiary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1765" significance="normal">
+          id="lang-ITERM-1765" significance="normal">
           <primary>customization</primary>
 
           <secondary>toString( ) methods</secondary>
@@ -688,32 +688,32 @@ System.out.println( candidate );</programlisting>
       moreinfo="none">ReflectionToStringBuilder</literal>, Commons Lang
       provides for customization via the <literal
       moreinfo="none">ToStringBuilder</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1766" significance="normal">
+          id="lang-ITERM-1766" significance="normal">
           <primary>ToStringBuilder class</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1767"
+        </indexterm> <indexterm id="lang-ITERM-1767"
           significance="normal">
           <primary>customization</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1768"
+        </indexterm> <indexterm id="lang-ITERM-1768"
           significance="normal">
           <primary>classes</primary>
 
           <secondary>ToStringBuilder</secondary>
 
           <tertiary>customization</tertiary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1769"
+        </indexterm> <indexterm id="lang-ITERM-1769"
           significance="normal">
           <primary>customization</primary>
 
           <secondary>ToStringBuilder class</secondary>
         </indexterm> and <literal moreinfo="none">ToStringStyle</literal>
-      <indexterm id="jakartackbk-CHP-1-ITERM-1770" significance="normal">
+      <indexterm id="lang-ITERM-1770" significance="normal">
           <primary>ToStringStyle class customization</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1771"
+        </indexterm> <indexterm id="lang-ITERM-1771"
           significance="normal">
           <primary>classes</primary>
 
           <secondary>ToStringStyle</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1772"
+        </indexterm> <indexterm id="lang-ITERM-1772"
           significance="normal">
           <primary>customization</primary>
 
@@ -748,7 +748,7 @@ public String toString( ) {
   firstName=Thomas
 ]</programlisting>
 
-      <tip id="jakartackbk-CHP-1-NOTE-46" role="ora">
+      <tip id="lang-NOTE-46" role="ora">
         <para>Unlike the output shown in <link
         linkend="lang-sect-automate-tostring">Recipe 1.4</link>, this output
         is shown <emphasis>exactly</emphasis> as it appears on your
@@ -783,35 +783,35 @@ public String toString( ) {
       which lets you specify the properties you want included in the output.
       To customize the contents of a <literal
       moreinfo="none">ToStringBuilder</literal>, you must manually add
-      <indexterm id="jakartackbk-CHP-1-ITERM-1773" significance="normal">
+      <indexterm id="lang-ITERM-1773" significance="normal">
           <primary>adding</primary>
 
           <secondary>properties</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1774"
+        </indexterm> <indexterm id="lang-ITERM-1774"
           significance="normal">
           <primary>properties</primary>
 
           <secondary>adding</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1775"
+        </indexterm> <indexterm id="lang-ITERM-1775"
           significance="normal">
           <primary>instances</primary>
 
           <secondary>properties, adding</secondary>
         </indexterm>each property to an instance of a builder. The <literal
       moreinfo="none">append( )</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1776" significance="normal">
+          id="lang-ITERM-1776" significance="normal">
           <primary>append( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1777"
+        </indexterm> <indexterm id="lang-ITERM-1777"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>append( )</secondary>
         </indexterm> method accepts all primitives, objects, and arrays. <link
-      linkend="jakartackbk-CHP-1-TABLE-1">Table 1-1</link> summarizes the
+      linkend="lang-TABLE-1">Table 1-1</link> summarizes the
       variations of <literal moreinfo="none">append( )</literal> for integer
       primitives and objects.</para>
 
-      <table id="jakartackbk-CHP-1-TABLE-1" label="1-1">
+      <table id="lang-TABLE-1" label="1-1">
         <title>Variations of ToStringBuilder append( )</title>
 
         <tgroup cols="2">
@@ -890,15 +890,15 @@ public String toString( ) {
       <para>The <literal moreinfo="none">ToStringStyle</literal> class
       provides a mechanism to customize the output of a <literal
       moreinfo="none">ToStringBuilder</literal>, and this class contains a few
-      <indexterm id="jakartackbk-CHP-1-ITERM-1778" significance="normal">
+      <indexterm id="lang-ITERM-1778" significance="normal">
           <primary>built-in styles</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1779"
+        </indexterm> <indexterm id="lang-ITERM-1779"
           significance="normal">
           <primary>ToStringBuilder class</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1780"
+        </indexterm> <indexterm id="lang-ITERM-1780"
           significance="normal">
           <primary>styles</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1781"
+        </indexterm> <indexterm id="lang-ITERM-1781"
           significance="normal">
           <primary>classes</primary>
 
@@ -970,17 +970,17 @@ PoliticalCandidate@1cd2e5f[lastName=Jefferson,firstName=Thomas]</programlisting>
       way to print this out to a log. Automate your <literal
       moreinfo="none">toString( )</literal> method, and your error messages
       will be more <indexterm class="endofrange"
-      id="jakartackbk-CHP-1-ITERM-1782" significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1762"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1783"
+      id="lang-ITERM-1782" significance="normal"
+      startref="lang-ITERM-1762"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1783"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1763"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1784"
+      startref="lang-ITERM-1763"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1784"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1764"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1785"
+      startref="lang-ITERM-1764"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1785"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1765"></indexterm>meaningful.</para>
+      startref="lang-ITERM-1765"></indexterm>meaningful.</para>
     </sect2>
   </sect1>
 
@@ -991,42 +991,42 @@ PoliticalCandidate@1cd2e5f[lastName=Jefferson,firstName=Thomas]</programlisting>
       <title>Problem</title>
 
       <para>You need a way to automatically<indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1786" significance="normal">
+          id="lang-ITERM-1786" significance="normal">
           <primary>Commons Lang</primary>
 
           <secondary>hashcode( ) method</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1787" significance="normal">
+          id="lang-ITERM-1787" significance="normal">
           <primary>hashcode( ) method automation</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1788" significance="normal">
+          id="lang-ITERM-1788" significance="normal">
           <primary>methods</primary>
 
           <secondary>hashcode( ) automation</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1789" significance="normal">
+          id="lang-ITERM-1789" significance="normal">
           <primary>automation</primary>
 
           <secondary>hashcode( ) method</secondary>
         </indexterm> implement <literal moreinfo="none">equals()</literal> and
-      <indexterm class="startofrange" id="jakartackbk-CHP-1-ITERM-1790"
+      <indexterm class="startofrange" id="lang-ITERM-1790"
           significance="normal">
           <primary>Commons Lang</primary>
 
           <secondary>equals( ) method</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1791" significance="normal">
+          id="lang-ITERM-1791" significance="normal">
           <primary>automation</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1792" significance="normal">
+          id="lang-ITERM-1792" significance="normal">
           <primary>equals( ) method automation</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1793" significance="normal">
+          id="lang-ITERM-1793" significance="normal">
           <primary>methods</primary>
 
           <secondary>equals( ) automation</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1794" significance="normal">
+          id="lang-ITERM-1794" significance="normal">
           <primary>automation</primary>
 
           <secondary>equals( ) method</secondary>
@@ -1038,17 +1038,17 @@ PoliticalCandidate@1cd2e5f[lastName=Jefferson,firstName=Thomas]</programlisting>
       <title>Solution</title>
 
       <para>Commons Lang <literal moreinfo="none">EqualsBuilder</literal>
-      <indexterm id="jakartackbk-CHP-1-ITERM-1795" significance="normal">
+      <indexterm id="lang-ITERM-1795" significance="normal">
           <primary>EqualsBuilder class</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1796"
+        </indexterm> <indexterm id="lang-ITERM-1796"
           significance="normal">
           <primary>classes</primary>
 
           <secondary>EqualsBuilder</secondary>
         </indexterm> and <literal moreinfo="none">HashCodeBuilder</literal>
-      <indexterm id="jakartackbk-CHP-1-ITERM-1797" significance="normal">
+      <indexterm id="lang-ITERM-1797" significance="normal">
           <primary>HashCodeBuilder class</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1798"
+        </indexterm> <indexterm id="lang-ITERM-1798"
           significance="normal">
           <primary>classes</primary>
 
@@ -1056,12 +1056,12 @@ PoliticalCandidate@1cd2e5f[lastName=Jefferson,firstName=Thomas]</programlisting>
         </indexterm> provide methods to automate both the <literal
       moreinfo="none">equals( )</literal> and <literal
       moreinfo="none">hashCode( )</literal>. <link
-      linkend="jakartackbk-CHP-1-EX-2">Example 1-2</link> briefly demonstrates
+      linkend="lang-EX-2">Example 1-2</link> briefly demonstrates
       these two builders using the <literal
       moreinfo="none">PoliticalCandidate</literal> bean from the previous two
       recipes.</para>
 
-      <example id="jakartackbk-CHP-1-EX-2" label="1-2">
+      <example id="lang-EX-2" label="1-2">
         <title>Automating hashCode( ) and equals( )</title>
 
         <programlisting format="linespecific">import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -1106,7 +1106,7 @@ public class PoliticalCandidate {
       as an offset when creating a hash code; both numbers should be odd,
       nonzero, and prime. The <literal
       moreinfo="none">HashCodeBuilder</literal> in <link
-      linkend="jakartackbk-CHP-1-EX-2">Example 1-2</link> is configured to use
+      linkend="lang-EX-2">Example 1-2</link> is configured to use
       the <literal moreinfo="none">firstName</literal> and the <literal
       moreinfo="none">lastName</literal> of the <literal
       moreinfo="none">PoliticalCandidate</literal> object; therefore, two
@@ -1161,11 +1161,11 @@ Is array2 equal to array3? false</programlisting>
     return EqualsBuilder.reflectionEquals(this, o);
 }</programlisting>
 
-      <warning id="jakartackbk-CHP-1-NOTE-47" role="ora">
+      <warning id="lang-NOTE-47" role="ora">
         <para>Be careful when using reflection to automate <literal
         moreinfo="none">hashCode()</literal> and <literal
         moreinfo="none">equals( )</literal>, you may get more than you
-        bargained for. In <link linkend="jakartackbk-CHP-1-EX-2">Example
+        bargained for. In <link linkend="lang-EX-2">Example
         1-2</link>, a candidate is uniquely identified by first and last name;
         if this bean were mapped to a table in a relational database, <literal
         moreinfo="none">firstName</literal> and <literal
@@ -1187,36 +1187,36 @@ Is array2 equal to array3? false</programlisting>
         <literal moreinfo="none">equals()</literal> function should return
         true if two <literal moreinfo="none">PoliticalCandidate</literal>
         objects have<indexterm class="endofrange"
-        id="jakartackbk-CHP-1-ITERM-1799" significance="normal"
-        startref="jakartackbk-CHP-1-ITERM-1786"></indexterm> <indexterm
-        class="endofrange" id="jakartackbk-CHP-1-ITERM-1800"
+        id="lang-ITERM-1799" significance="normal"
+        startref="lang-ITERM-1786"></indexterm> <indexterm
+        class="endofrange" id="lang-ITERM-1800"
         significance="normal"
-        startref="jakartackbk-CHP-1-ITERM-1791"></indexterm> <indexterm
-        class="endofrange" id="jakartackbk-CHP-1-ITERM-1801"
+        startref="lang-ITERM-1791"></indexterm> <indexterm
+        class="endofrange" id="lang-ITERM-1801"
         significance="normal"
-        startref="jakartackbk-CHP-1-ITERM-1787"></indexterm> <indexterm
-        class="endofrange" id="jakartackbk-CHP-1-ITERM-1802"
+        startref="lang-ITERM-1787"></indexterm> <indexterm
+        class="endofrange" id="lang-ITERM-1802"
         significance="normal"
-        startref="jakartackbk-CHP-1-ITERM-1788"></indexterm> <indexterm
-        class="endofrange" id="jakartackbk-CHP-1-ITERM-1803"
+        startref="lang-ITERM-1788"></indexterm> <indexterm
+        class="endofrange" id="lang-ITERM-1803"
         significance="normal"
-        startref="jakartackbk-CHP-1-ITERM-1789"></indexterm> identical first
-        <indexterm class="endofrange" id="jakartackbk-CHP-1-ITERM-1804"
+        startref="lang-ITERM-1789"></indexterm> identical first
+        <indexterm class="endofrange" id="lang-ITERM-1804"
         significance="normal"
-        startref="jakartackbk-CHP-1-ITERM-1790"></indexterm> <indexterm
-        class="endofrange" id="jakartackbk-CHP-1-ITERM-1805"
+        startref="lang-ITERM-1790"></indexterm> <indexterm
+        class="endofrange" id="lang-ITERM-1805"
         significance="normal"
-        startref="jakartackbk-CHP-1-ITERM-1792"></indexterm> <indexterm
-        class="endofrange" id="jakartackbk-CHP-1-ITERM-1806"
+        startref="lang-ITERM-1792"></indexterm> <indexterm
+        class="endofrange" id="lang-ITERM-1806"
         significance="normal"
-        startref="jakartackbk-CHP-1-ITERM-1793"></indexterm> <indexterm
-        class="endofrange" id="jakartackbk-CHP-1-ITERM-1807"
+        startref="lang-ITERM-1793"></indexterm> <indexterm
+        class="endofrange" id="lang-ITERM-1807"
         significance="normal"
-        startref="jakartackbk-CHP-1-ITERM-1794"></indexterm>and last names,
+        startref="lang-ITERM-1794"></indexterm>and last names,
         and the hash code for two equal objects should be identical. The
         <literal moreinfo="none">hashCode( )</literal> and <literal
         moreinfo="none">equals()</literal> in <link
-        linkend="jakartackbk-CHP-1-EX-2">Example 1-2</link> are written to
+        linkend="lang-EX-2">Example 1-2</link> are written to
         only take into account the <literal
         moreinfo="none">firstName</literal> and <literal
         moreinfo="none">lastName</literal> properties.</para>
@@ -1232,23 +1232,23 @@ Is array2 equal to array3? false</programlisting>
 
       <para>You need a quick way to implement <literal
       moreinfo="none">compareTo( )</literal> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1808" significance="normal">
+          id="lang-ITERM-1808" significance="normal">
           <primary>Commons Lang</primary>
 
           <secondary>compareTo( ) method</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1809" significance="normal">
+          id="lang-ITERM-1809" significance="normal">
           <primary>automation</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1810" significance="normal">
+          id="lang-ITERM-1810" significance="normal">
           <primary>compareTo( ) method, automation</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1811" significance="normal">
+          id="lang-ITERM-1811" significance="normal">
           <primary>methods</primary>
 
           <secondary>compareTo( ) automation</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1812" significance="normal">
+          id="lang-ITERM-1812" significance="normal">
           <primary>automation</primary>
 
           <secondary>compareTo( ) method</secondary>
@@ -1261,9 +1261,9 @@ Is array2 equal to array3? false</programlisting>
       <para>Commons Lang <literal moreinfo="none">CompareToBuilder</literal>
       provides a builder for <literal moreinfo="none">compareTo( )</literal>
       methods. <literal moreinfo="none">CompareToBuilder</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1813" significance="normal">
+          id="lang-ITERM-1813" significance="normal">
           <primary>CompareToBuilder class</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1814"
+        </indexterm> <indexterm id="lang-ITERM-1814"
           significance="normal">
           <primary>classes</primary>
 
@@ -1290,22 +1290,22 @@ public int compareTo(Object o) {
       <para><literal moreinfo="none">CompareToBuilder.reflectionCompare(
       )</literal> takes two objects and compares the non-static, nontransient
       member variables of these objects. In <link
-      linkend="jakartackbk-CHP-1-EX-2">Example 1-2</link>, the comparison
+      linkend="lang-EX-2">Example 1-2</link>, the comparison
       involves the name properties of two <literal
       moreinfo="none">PoliticalCandidate</literal> objects from <link
-      linkend="jakartackbk-CHP-1-EX-3">Example 1-3</link>, which are
+      linkend="lang-EX-3">Example 1-3</link>, which are
       considered equal if both <literal moreinfo="none">firstName</literal>
       and <literal moreinfo="none">lastName</literal> are equal. <literal
       moreinfo="none">reflectionCompare( )</literal> ignores static fields and
-      transients; therefore, in <link linkend="jakartackbk-CHP-1-EX-3">Example
+      transients; therefore, in <link linkend="lang-EX-3">Example
       1-3</link>, <literal moreinfo="none">averageAge</literal> and <literal
       moreinfo="none">fullName</literal> do not contribute to the automated
       comparison.</para>
 
-      <example id="jakartackbk-CHP-1-EX-3" label="1-3">
+      <example id="lang-EX-3" label="1-3">
         <title>Implementing compareTo( ) using a reflection builder</title>
 
-        <indexterm id="jakartackbk-CHP-1-ITERM-1815" significance="normal">
+        <indexterm id="lang-ITERM-1815" significance="normal">
           <primary>reflection builders</primary>
 
           <secondary>compareTo( ) method</secondary>
@@ -1338,9 +1338,9 @@ public int compareTo(Object o) {
       comparisons plays a key role when a comparison involves multiple member
       variables; this order is not specified when using the <literal
       moreinfo="none">reflectionCompare()</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1816" significance="normal">
+          id="lang-ITERM-1816" significance="normal">
           <primary>reflectionCompare( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1817"
+        </indexterm> <indexterm id="lang-ITERM-1817"
           significance="normal">
           <primary>methods</primary>
 
@@ -1361,16 +1361,16 @@ public int compareTo(Object o) {
       last property "pushed" onto the <literal
       moreinfo="none">CompareToBuilder</literal> is the first property to be
       compared. Objects are compared by last name, and first name is used as a
-      "tiebreaker." <link linkend="jakartackbk-CHP-1-EX-4">Example 1-4</link>
+      "tiebreaker." <link linkend="lang-EX-4">Example 1-4</link>
       will compare two <literal moreinfo="none">PoliticalCandidate</literal>
       objects by <literal moreinfo="none">lastName</literal>, falling back to
       <literal moreinfo="none">firstName</literal> only if the <literal
       moreinfo="none">lastName</literal> values were equal.</para>
 
-      <example id="jakartackbk-CHP-1-EX-4" label="1-4">
+      <example id="lang-EX-4" label="1-4">
         <title>Customizing a compareTo( ) method with CompareToBuilder</title>
 
-        <indexterm id="jakartackbk-CHP-1-ITERM-1818" significance="normal">
+        <indexterm id="lang-ITERM-1818" significance="normal">
           <primary>customization</primary>
 
           <secondary>compareTo( ) method</secondary>
@@ -1413,21 +1413,21 @@ public int compareTo(Object o) {
       moreinfo="none">Comparator</literal> object. The Jakarta Commons
       Collections project contains a number of supplements to the <literal
       moreinfo="none">Comparator</literal> interface, such <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1819"
+      class="endofrange" id="lang-ITERM-1819"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1808"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1820"
+      startref="lang-ITERM-1808"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1820"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1809"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1821"
+      startref="lang-ITERM-1809"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1821"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1810"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1822"
+      startref="lang-ITERM-1810"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1822"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1811"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1823"
+      startref="lang-ITERM-1811"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1823"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1812"></indexterm>as utilities to
+      startref="lang-ITERM-1812"></indexterm>as utilities to
       reverse and chain comparators. <literal
       moreinfo="none">Comparator</literal> utilities are discussed in <link
       linkend="functors">Chapter 4</link>.</para>
@@ -1447,19 +1447,19 @@ public int compareTo(Object o) {
       <title>Solution</title>
 
       <para>Use <literal moreinfo="none">ArrayUtils.toString()</literal>
-      <indexterm id="jakartackbk-CHP-1-ITERM-1824" significance="normal">
+      <indexterm id="lang-ITERM-1824" significance="normal">
           <primary>ArrayUtils.toString( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1825"
+        </indexterm> <indexterm id="lang-ITERM-1825"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>ArrayUtils.toString( )</secondary>
         </indexterm> to print the contents<indexterm
-          id="jakartackbk-CHP-1-ITERM-1826" significance="normal">
+          id="lang-ITERM-1826" significance="normal">
           <primary>printing</primary>
 
           <secondary>arrays</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1827"
+        </indexterm> <indexterm id="lang-ITERM-1827"
           significance="normal">
           <primary>arrays</primary>
 
@@ -1523,21 +1523,21 @@ System.out.println( ArrayUtils.toString( list.toArray( ) ) );</programlisting>
       <title>Problem</title>
 
       <para>You need to reverse and clone the <indexterm
-          id="jakartackbk-CHP-1-ITERM-1828" significance="normal">
+          id="lang-ITERM-1828" significance="normal">
           <primary>cloning</primary>
 
           <secondary>arrays</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1829"
+        </indexterm> <indexterm id="lang-ITERM-1829"
           significance="normal">
           <primary>arrays</primary>
 
           <secondary>cloning</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1830"
+        </indexterm> <indexterm id="lang-ITERM-1830"
           significance="normal">
           <primary>reversing</primary>
 
           <secondary>arrays</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1831"
+        </indexterm> <indexterm id="lang-ITERM-1831"
           significance="normal">
           <primary>arrays</primary>
 
@@ -1549,28 +1549,28 @@ System.out.println( ArrayUtils.toString( list.toArray( ) ) );</programlisting>
       <title>Solution</title>
 
       <para>Use <literal moreinfo="none">ArrayUtils.clone()</literal>
-      <indexterm id="jakartackbk-CHP-1-ITERM-1832" significance="normal">
+      <indexterm id="lang-ITERM-1832" significance="normal">
           <primary>ArrayUtils.clone( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1833"
+        </indexterm> <indexterm id="lang-ITERM-1833"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>ArrayUtils.clone</secondary>
         </indexterm> and <literal
       moreinfo="none">ArrayUtils.reverse()</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1834" significance="normal">
+          id="lang-ITERM-1834" significance="normal">
           <primary>ArrayUtils.reverse( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1835"
+        </indexterm> <indexterm id="lang-ITERM-1835"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>ArrayUtils.reverse( )</secondary>
         </indexterm> methods from Commons Lang. <link
-      linkend="jakartackbk-CHP-1-EX-5">Example 1-5</link> demonstrates the
+      linkend="lang-EX-5">Example 1-5</link> demonstrates the
       reversal and cloning of a primitive array full of <literal
       moreinfo="none">long</literal> primitives.</para>
 
-      <example id="jakartackbk-CHP-1-EX-5" label="1-5">
+      <example id="lang-EX-5" label="1-5">
         <title>Cloning and reversing a primitive array with ArrayUtils</title>
 
         <programlisting format="linespecific">import org.apache.commons.lang.ArrayUtils;
@@ -1595,7 +1595,7 @@ Reversed: { 6, 5, 3, 2, 3, 1 }</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>In <link linkend="jakartackbk-CHP-1-EX-5">Example 1-5</link>,
+      <para>In <link linkend="lang-EX-5">Example 1-5</link>,
       <literal moreinfo="none">clone( )</literal> returns a reference to a new
       array, and <literal moreinfo="none">reverse( )</literal> operates on the
       array reference supplied as a parameter. It is important to realize that
@@ -1609,8 +1609,8 @@ Reversed: { 6, 5, 3, 2, 3, 1 }</programlisting>
       bear a striking resemblance to the previous example.</para>
 
       <para>The only difference between Examples <link
-      linkend="jakartackbk-CHP-1-EX-6">Example 1-6</link> and <link
-      linkend="jakartackbk-CHP-1-EX-5">Example 1-5</link> is the type of array
+      linkend="lang-EX-6">Example 1-6</link> and <link
+      linkend="lang-EX-5">Example 1-5</link> is the type of array
       being cloned and reversed. Again, <literal
       moreinfo="none">ArrayUtils.toString( )</literal> is used to print out
       the contents of both the original and the reverse array:</para>
@@ -1618,7 +1618,7 @@ Reversed: { 6, 5, 3, 2, 3, 1 }</programlisting>
       <programlisting format="linespecific" id="I_1_tt25">Original: { 3, 56, 233 }
 Reversed: { 233, 56, 3 }</programlisting>
 
-      <example id="jakartackbk-CHP-1-EX-6" label="1-6">
+      <example id="lang-EX-6" label="1-6">
         <title>Cloning and reversing an Object[ ] with ArrayUtils</title>
 
         <programlisting format="linespecific">Long[] array = new Long[] { new Long(3), new Long(56), new Long(233) };
@@ -1649,9 +1649,9 @@ for( int i = 0; i &lt; temperature.length; i++ ) {
 
       <para>Another option is the use of the <literal
       moreinfo="none">Collections.reverse()</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1836" significance="normal">
+          id="lang-ITERM-1836" significance="normal">
           <primary>Collections.reverse( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1837"
+        </indexterm> <indexterm id="lang-ITERM-1837"
           significance="normal">
           <primary>methods</primary>
 
@@ -1663,7 +1663,7 @@ for( int i = 0; i &lt; temperature.length; i++ ) {
       <literal moreinfo="none">double</literal> primitives, and you wanted to
       take advantage of the <literal moreinfo="none">Collections</literal>
       class, you would need to convert your double array to a list. Without
-      Java 1.5's <indexterm id="jakartackbk-CHP-1-ITERM-1838"
+      Java 1.5's <indexterm id="lang-ITERM-1838"
           significance="normal">
           <primary>autoboxing</primary>
         </indexterm>autoboxing feature, a <literal
@@ -1725,24 +1725,24 @@ long[] cloned = (long[]) temps.clone( );</programlisting>
       <title>Problem</title>
 
       <para>You need a way to convert an<indexterm
-          id="jakartackbk-CHP-1-ITERM-1839" significance="normal">
+          id="lang-ITERM-1839" significance="normal">
           <primary>conversion</primary>
 
           <secondary>object arrays to primitive arrays</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1840"
+        </indexterm> <indexterm id="lang-ITERM-1840"
           significance="normal">
           <primary>arrays</primary>
 
           <secondary>conversion</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1841"
+        </indexterm> <indexterm id="lang-ITERM-1841"
           significance="normal">
           <primary>objects</primary>
 
           <secondary>conversion</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1842"
+        </indexterm> <indexterm id="lang-ITERM-1842"
           significance="normal">
           <primary>primitive array conversion</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1843"
+        </indexterm> <indexterm id="lang-ITERM-1843"
           significance="normal">
           <primary>translation, arrays</primary>
         </indexterm> object array to a primitive array.</para>
@@ -1752,18 +1752,18 @@ long[] cloned = (long[]) temps.clone( );</programlisting>
       <title>Solution</title>
 
       <para>Use <literal moreinfo="none">ArrayUtils.toObject()</literal>
-      <indexterm id="jakartackbk-CHP-1-ITERM-1844" significance="normal">
+      <indexterm id="lang-ITERM-1844" significance="normal">
           <primary>ArrayUtils.toObject( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1845"
+        </indexterm> <indexterm id="lang-ITERM-1845"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>ArrayUtils.toObject( )</secondary>
         </indexterm> and <literal
       moreinfo="none">ArrayUtils.toPrimitive()</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1846" significance="normal">
+          id="lang-ITERM-1846" significance="normal">
           <primary>ArrayUtils.toPrimitive( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1847"
+        </indexterm> <indexterm id="lang-ITERM-1847"
           significance="normal">
           <primary>methods</primary>
 
@@ -1796,9 +1796,9 @@ double[] doublePrimitives = ArrayUtils.toPrimitive( doubleObject );</programlist
       existing system uses an array of double primitives, and you need to
       "step up" from a primitive array to an object array in order to pass a
       parameter to the <literal moreinfo="none">complexCalculation()</literal>
-      <indexterm id="jakartackbk-CHP-1-ITERM-1848" significance="normal">
+      <indexterm id="lang-ITERM-1848" significance="normal">
           <primary>complexCalculation( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1849"
+        </indexterm> <indexterm id="lang-ITERM-1849"
           significance="normal">
           <primary>methods</primary>
 
@@ -1844,12 +1844,12 @@ double[] result =
 
       <para><literal moreinfo="none">ArrayUtils</literal> offers various
       static methods to transform between primitive and object arrays. Tables
-      <link linkend="jakartackbk-CHP-1-TABLE-2">Table 1-2</link> and <link
-      linkend="jakartackbk-CHP-1-TABLE-3">Table 1-3</link> summarize both the
+      <link linkend="lang-TABLE-2">Table 1-2</link> and <link
+      linkend="lang-TABLE-3">Table 1-3</link> summarize both the
       <literal moreinfo="none">toObject( )</literal> and <literal
       moreinfo="none">toPrimitive()</literal> methods.</para>
 
-      <table id="jakartackbk-CHP-1-TABLE-2" label="1-2">
+      <table id="lang-TABLE-2" label="1-2">
         <title>The various flavors of ArrayUtils.toObject( )</title>
 
         <tgroup cols="2">
@@ -1925,7 +1925,7 @@ double[] result =
         </tgroup>
       </table>
 
-      <table id="jakartackbk-CHP-1-TABLE-3" label="1-3">
+      <table id="lang-TABLE-3" label="1-3">
         <title>The various flavors of ArrayUtils.toPrimitive( )</title>
 
         <tgroup cols="2">
@@ -2006,7 +2006,7 @@ double[] result =
       <title>See Also</title>
 
       <para>Java 1.5 has added a feature called <indexterm
-          id="jakartackbk-CHP-1-ITERM-1850" significance="normal">
+          id="lang-ITERM-1850" significance="normal">
           <primary>autoboxing</primary>
         </indexterm>autoboxing, which provides for automatic conversions
       between primitives and objects. For more information about autoboxing,
@@ -2022,26 +2022,26 @@ double[] result =
       <title>Problem</title>
 
       <para>You need to test an array to<indexterm
-          id="jakartackbk-CHP-1-ITERM-1851" significance="normal">
+          id="lang-ITERM-1851" significance="normal">
           <primary>searching</primary>
 
           <secondary>arrays</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1852"
+        </indexterm> <indexterm id="lang-ITERM-1852"
           significance="normal">
           <primary>arrays</primary>
 
           <secondary>searching</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1853"
+        </indexterm> <indexterm id="lang-ITERM-1853"
           significance="normal">
           <primary>testing</primary>
 
           <secondary>arrays</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1854"
+        </indexterm> <indexterm id="lang-ITERM-1854"
           significance="normal">
           <primary>arrays</primary>
 
           <secondary>testing</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1855"
+        </indexterm> <indexterm id="lang-ITERM-1855"
           significance="normal">
           <primary>indexes</primary>
 
@@ -2054,9 +2054,9 @@ double[] result =
       <title>Solution</title>
 
       <para>Use <literal moreinfo="none">ArrayUtils.contains()</literal>
-      <indexterm id="jakartackbk-CHP-1-ITERM-1856" significance="normal">
+      <indexterm id="lang-ITERM-1856" significance="normal">
           <primary>ArrayUtils.contains( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1857"
+        </indexterm> <indexterm id="lang-ITERM-1857"
           significance="normal">
           <primary>methods</primary>
 
@@ -2064,9 +2064,9 @@ double[] result =
         </indexterm> to see if an array contains a specified element, and use
       <literal moreinfo="none">ArrayUtils.indexOf( )</literal> or <literal
       moreinfo="none">ArrayUtils.lastIndexOf( )</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1858" significance="normal">
+          id="lang-ITERM-1858" significance="normal">
           <primary>ArrayUtils.lastIndexOf( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1859"
+        </indexterm> <indexterm id="lang-ITERM-1859"
           significance="normal">
           <primary>methods</primary>
 
@@ -2118,12 +2118,12 @@ Last Index of 'Red'? 4</programlisting>
       <literal moreinfo="none">ArrayUtils.lastIndexOf( )</literal> take an
       optional third parameter that controls where an element search begins.
       In the next example, you are searching an array of double primitives for
-      the value -9999. <link linkend="jakartackbk-CHP-1-EX-7">Example
+      the value -9999. <link linkend="lang-EX-7">Example
       1-7</link> demonstrates how to establish that the value is contained
       within an array and how to locate the index for each matching
       element.</para>
 
-      <example id="jakartackbk-CHP-1-EX-7" label="1-7">
+      <example id="lang-EX-7" label="1-7">
         <title>Searching an array using ArrayUtils.contains( ) and
         ArrayUtils.indexOf( )</title>
 
@@ -2189,14 +2189,14 @@ for( int i = 0; i &lt; temps.length; i++ ) {
       <title>Problem</title>
 
       <para>You need to create a <literal moreinfo="none">Map</literal> from
-      a<indexterm id="jakartackbk-CHP-1-ITERM-1860" significance="normal">
+      a<indexterm id="lang-ITERM-1860" significance="normal">
           <primary>mapping</primary>
 
           <secondary>multidimensional arrays</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1861"
+        </indexterm> <indexterm id="lang-ITERM-1861"
           significance="normal">
           <primary>multidimensional arrays, mapping</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1862"
+        </indexterm> <indexterm id="lang-ITERM-1862"
           significance="normal">
           <primary>arrays</primary>
 
@@ -2208,24 +2208,24 @@ for( int i = 0; i &lt; temps.length; i++ ) {
       <title>Solution</title>
 
       <para>Use <literal moreinfo="none">ArrayUtils.toMap()</literal>
-      <indexterm id="jakartackbk-CHP-1-ITERM-1863" significance="normal">
+      <indexterm id="lang-ITERM-1863" significance="normal">
           <primary>ArrayUtils.toMap( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1864"
+        </indexterm> <indexterm id="lang-ITERM-1864"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>ArrayUtils.toMap( )</secondary>
         </indexterm> to create a <literal moreinfo="none">Map</literal> from a
       two-dimensional array (<literal moreinfo="none">Object[][]</literal>).
-      <link linkend="jakartackbk-CHP-1-EX-8">Example 1-8</link> demonstrates
+      <link linkend="lang-EX-8">Example 1-8</link> demonstrates
       the creation of such a <literal moreinfo="none">Map</literal>. <link
-      linkend="jakartackbk-CHP-1-EX-8">Example 1-8</link> takes an <literal
+      linkend="lang-EX-8">Example 1-8</link> takes an <literal
       moreinfo="none">Object[][]</literal> representing atomic symbols and
       atomic weights and turns it into a <literal
       moreinfo="none">Map</literal> retrieving the atomic weight for
       hydrogen.</para>
 
-      <example id="jakartackbk-CHP-1-EX-8" label="1-8">
+      <example id="lang-EX-8" label="1-8">
         <title>Creating a Map from an Object[ ][ ]</title>
 
         <programlisting format="linespecific">import org.apache.commons.lang.ArrayUtils;
@@ -2257,17 +2257,17 @@ Double hydrogenWeight = map.get( "H" );</programlisting>
       moreinfo="none">Map</literal>, an <literal
       moreinfo="none">Object[][]</literal> is created and then passed to
       <literal moreinfo="none">ArrayUtils.toMap()</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1865" significance="normal">
+          id="lang-ITERM-1865" significance="normal">
           <primary>ArrayUtils.toMap( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1866"
+        </indexterm> <indexterm id="lang-ITERM-1866"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>ArraysUtils.toMap( )</secondary>
         </indexterm>. The <literal moreinfo="none">toMap()</literal>
-      <indexterm id="jakartackbk-CHP-1-ITERM-1867" significance="normal">
+      <indexterm id="lang-ITERM-1867" significance="normal">
           <primary>toMap( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1868"
+        </indexterm> <indexterm id="lang-ITERM-1868"
           significance="normal">
           <primary>methods</primary>
 
@@ -2309,12 +2309,12 @@ Double hydrogenWeight = map.get( "H" );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to format a<indexterm id="jakartackbk-CHP-1-ITERM-1869"
+      <para>You need to format a<indexterm id="lang-ITERM-1869"
           significance="normal">
           <primary>formatting</primary>
 
           <secondary>dates</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1870"
+        </indexterm> <indexterm id="lang-ITERM-1870"
           significance="normal">
           <primary>dates</primary>
 
@@ -2389,10 +2389,10 @@ String output = formatter.format( new Date( ) );
       variations on the full ISO 8601 date format; there is a format to show
       only the time, a format to show only the date, and others, as well as
       the standard format for displaying dates in Simple Mail Transfer
-      Protocol (SMTP). (See <link linkend="jakartackbk-CHP-1-TABLE-4">Table
+      Protocol (SMTP). (See <link linkend="lang-TABLE-4">Table
       1-4</link>.)</para>
 
-      <table id="jakartackbk-CHP-1-TABLE-4" label="1-4">
+      <table id="lang-TABLE-4" label="1-4">
         <title>Static date/time formats in DateFormatUtils</title>
 
         <tgroup cols="2">
@@ -2522,9 +2522,9 @@ String output = formatter.format( new Date( ) );
 
       <para>For more information about nonthread-safe implementations of
       <literal moreinfo="none">SimpleDateFormat</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1871" significance="normal">
+          id="lang-ITERM-1871" significance="normal">
           <primary>SimpleDateFormat class</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1872"
+        </indexterm> <indexterm id="lang-ITERM-1872"
           significance="normal">
           <primary>classes</primary>
 
@@ -2551,37 +2551,37 @@ String output = formatter.format( new Date( ) );
       <title>Problem</title>
 
       <para>You need to round a date to the<indexterm
-          id="jakartackbk-CHP-1-ITERM-1873" significance="normal">
+          id="lang-ITERM-1873" significance="normal">
           <primary>dates</primary>
 
           <secondary>rounding</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1874"
+        </indexterm> <indexterm id="lang-ITERM-1874"
           significance="normal">
           <primary>rounding dates</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1875"
+        </indexterm> <indexterm id="lang-ITERM-1875"
           significance="normal">
           <primary>seconds, rounding</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1876"
+        </indexterm> <indexterm id="lang-ITERM-1876"
           significance="normal">
           <primary>minutes</primary>
 
           <secondary>rounding</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1877"
+        </indexterm> <indexterm id="lang-ITERM-1877"
           significance="normal">
           <primary>hours</primary>
 
           <secondary>rounding</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1878"
+        </indexterm> <indexterm id="lang-ITERM-1878"
           significance="normal">
           <primary>days</primary>
 
           <secondary>rounding</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1879"
+        </indexterm> <indexterm id="lang-ITERM-1879"
           significance="normal">
           <primary>months</primary>
 
           <secondary>rounding</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1880"
+        </indexterm> <indexterm id="lang-ITERM-1880"
           significance="normal">
           <primary>years, rounding</primary>
         </indexterm> nearest second, minute, hour, day, month, or year.</para>
@@ -2594,9 +2594,9 @@ String output = formatter.format( new Date( ) );
       moreinfo="none">Date</literal> objects to the nearest <literal
       moreinfo="none">Calendar</literal> field. <literal
       moreinfo="none">DateUtils.round()</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1881" significance="normal">
+          id="lang-ITERM-1881" significance="normal">
           <primary>DateUtils.round( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1882"
+        </indexterm> <indexterm id="lang-ITERM-1882"
           significance="normal">
           <primary>methods</primary>
 
@@ -2763,7 +2763,7 @@ DateUtils.SEMI_MONTH ) );</programlisting>
       moreinfo="none">Date</literal> and <literal
       moreinfo="none">Calendar</literal> object, the more you will curse the
       J2SE. If your frustration is boiling over, take a look at<indexterm
-          id="jakartackbk-CHP-1-ITERM-1883" significance="normal">
+          id="lang-ITERM-1883" significance="normal">
           <primary>Joda</primary>
         </indexterm> Joda. Joda contains an entire package devoted to date,
       time, and duration formatting, and it is not based on the <literal
@@ -2780,10 +2780,10 @@ DateUtils.SEMI_MONTH ) );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to truncate a<indexterm id="jakartackbk-CHP-1-ITERM-1884"
+      <para>You need to truncate a<indexterm id="lang-ITERM-1884"
           significance="normal">
           <primary>truncating dates</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1885"
+        </indexterm> <indexterm id="lang-ITERM-1885"
           significance="normal">
           <primary>dates</primary>
 
@@ -2795,14 +2795,14 @@ DateUtils.SEMI_MONTH ) );</programlisting>
       <title>Solution</title>
 
       <para>Use <literal moreinfo="none">DateUtils.truncate()</literal>
-      <indexterm id="jakartackbk-CHP-1-ITERM-1886" significance="normal">
+      <indexterm id="lang-ITERM-1886" significance="normal">
           <primary>DateUtils.truncate( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1887"
+        </indexterm> <indexterm id="lang-ITERM-1887"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>DateUtils.truncate( )</secondary>
-        </indexterm> to throw out<indexterm id="jakartackbk-CHP-1-ITERM-1888"
+        </indexterm> to throw out<indexterm id="lang-ITERM-1888"
           significance="normal">
           <primary>fields, truncating date objects</primary>
         </indexterm> all fields less significant than the specified field.
@@ -2810,38 +2810,38 @@ DateUtils.SEMI_MONTH ) );</programlisting>
       <literal moreinfo="none">Calendar.MONTH</literal> field, <literal
       moreinfo="none">DateUtils.truncate( )</literal> will return a <literal
       moreinfo="none">Date</literal> object set to the first instance of the
-      month. The <indexterm id="jakartackbk-CHP-1-ITERM-1889"
+      month. The <indexterm id="lang-ITERM-1889"
           significance="normal">
           <primary>days</primary>
 
           <secondary>truncating</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1890"
+        </indexterm> <indexterm id="lang-ITERM-1890"
           significance="normal">
           <primary>hours</primary>
 
           <secondary>truncating</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1891"
+        </indexterm> <indexterm id="lang-ITERM-1891"
           significance="normal">
           <primary>minutes</primary>
 
           <secondary>truncating</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1892"
+        </indexterm> <indexterm id="lang-ITERM-1892"
           significance="normal">
           <primary>seconds, truncating</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1893"
+        </indexterm> <indexterm id="lang-ITERM-1893"
           significance="normal">
           <primary>months</primary>
 
           <secondary>truncating</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1894"
+        </indexterm> <indexterm id="lang-ITERM-1894"
           significance="normal">
           <primary>milliseconds, truncating</primary>
         </indexterm>day, hour, minute, second, and millisecond field will each
       contain the minimum possible value for that field. <link
-      linkend="jakartackbk-CHP-1-EX-9">Example 1-9</link> truncates a date at
+      linkend="lang-EX-9">Example 1-9</link> truncates a date at
       the month field and the hour field.</para>
 
-      <example id="jakartackbk-CHP-1-EX-9" label="1-9">
+      <example id="lang-EX-9" label="1-9">
         <title>Truncating a Date object at Calendar.MONTH</title>
 
         <programlisting format="linespecific">import org.apache.commons.lang.time.DateUtils;
@@ -2908,10 +2908,10 @@ Truncated Hour: 2004-03-28T13:00:00</programlisting>
       <title>Problem</title>
 
       <para>You need an Enum, but<indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1895" significance="normal">
+          id="lang-ITERM-1895" significance="normal">
           <primary>enums, creating</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1896" significance="normal">
+          id="lang-ITERM-1896" significance="normal">
           <primary>formatting</primary>
 
           <secondary>enums</secondary>
@@ -2926,13 +2926,13 @@ Truncated Hour: 2004-03-28T13:00:00</programlisting>
       moreinfo="none">ValuedEnum</literal>, and <literal
       moreinfo="none">EnumUtils</literal> to create an enum "type," which
       approximates the new language feature. <link
-      linkend="jakartackbk-CHP-1-EX-10">Example 1-10</link> extends Enum,
+      linkend="lang-EX-10">Example 1-10</link> extends Enum,
       providing three flavors: <literal
       moreinfo="none">Flavor.CHOCOLATE</literal>, <literal
       moreinfo="none">Flavor.VANILLA</literal>, and <literal
       moreinfo="none">Flavor.STRAWBERRY</literal>.</para>
 
-      <example id="jakartackbk-CHP-1-EX-10" label="1-10">
+      <example id="lang-EX-10" label="1-10">
         <title>Defining a Flavor enumeration by extending Enum</title>
 
         <programlisting format="linespecific">import java.util.*;
@@ -2991,7 +2991,7 @@ System.out.println( ArrayUtils.toString( flavors.toString( ) ) );
       part name and a numeric part code. This voice part is a coded type; it
       needs both a name and a code, and a straightforward design is achieved
       by extending <literal moreinfo="none">ValuedEnum</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1897" significance="normal">
+          id="lang-ITERM-1897" significance="normal">
           <primary>ValuedEnum, extending</primary>
         </indexterm>. <literal moreinfo="none">ValuedEnum</literal> is an
       <literal moreinfo="none">Enum</literal> that keeps track of a numeric
@@ -2999,9 +2999,9 @@ System.out.println( ArrayUtils.toString( flavors.toString( ) ) );
       moreinfo="none">PartEnum</literal> extends <literal
       moreinfo="none">ValuedEnum</literal> to store static instances of the
       four possible voice parts: soprano, alto, tenor, and bass. (See <link
-      linkend="jakartackbk-CHP-1-EX-11">Example 1-11</link>.)</para>
+      linkend="lang-EX-11">Example 1-11</link>.)</para>
 
-      <example id="jakartackbk-CHP-1-EX-11" label="1-11">
+      <example id="lang-EX-11" label="1-11">
         <title>Extending ValuedEnum to create an enum</title>
 
         <programlisting format="linespecific">import java.util.*;
@@ -3048,9 +3048,9 @@ public final class PartEnum extends ValuedEnum {
       moreinfo="none">PartEnum</literal>; four instances of <literal
       moreinfo="none">PartEnum</literal> are created as public static final
       constants, and a name is assigned to every part. (See <link
-      linkend="jakartackbk-CHP-1-EX-12">Example 1-12</link>.)</para>
+      linkend="lang-EX-12">Example 1-12</link>.)</para>
 
-      <example id="jakartackbk-CHP-1-EX-12" label="1-12">
+      <example id="lang-EX-12" label="1-12">
         <title>Vocalist bean with a PartEnum</title>
 
         <programlisting format="linespecific">public class Vocalist {
@@ -3096,7 +3096,7 @@ while( parts.hasNext( ) ) {
       <para>Using Enum types becomes especially important if an object has
       multiple classifications. If you were creating an object to track a
       person, you could easily end up with two overlapping classifications. In
-      <link linkend="jakartackbk-CHP-1-EX-13">Example 1-13</link>, both
+      <link linkend="lang-EX-13">Example 1-13</link>, both
       <literal moreinfo="none">jobStatus</literal> and <literal
       moreinfo="none">gender</literal> can be <literal
       moreinfo="none">UNKNOWN</literal>, and the valid options for both
@@ -3104,15 +3104,15 @@ while( parts.hasNext( ) ) {
       moreinfo="none">gender</literal> are defined as public static <literal
       moreinfo="none">int</literal> variables.</para>
 
-      <example id="jakartackbk-CHP-1-EX-13" label="1-13">
+      <example id="lang-EX-13" label="1-13">
         <title>Using public static final constants for category
         information</title>
 
-        <indexterm id="jakartackbk-CHP-1-ITERM-1898" significance="normal">
+        <indexterm id="lang-ITERM-1898" significance="normal">
           <primary>public static final constants</primary>
         </indexterm>
 
-        <indexterm id="jakartackbk-CHP-1-ITERM-1899" significance="normal">
+        <indexterm id="lang-ITERM-1899" significance="normal">
           <primary>constants</primary>
 
           <secondary>public static final</secondary>
@@ -3170,9 +3170,9 @@ while( parts.hasNext( ) ) {
       conceptual boundary in the mind of the programmer; no logical separation
       is achieved, and there is still no way to guarantee that a bean property
       will have a valid value. (See <link
-      linkend="jakartackbk-CHP-1-EX-14">Example 1-14</link>.)</para>
+      linkend="lang-EX-14">Example 1-14</link>.)</para>
 
-      <example id="jakartackbk-CHP-1-EX-14" label="1-14">
+      <example id="lang-EX-14" label="1-14">
         <title>Simplifying with ValueEnum</title>
 
         <programlisting format="linespecific">public class Person {
@@ -3194,12 +3194,12 @@ while( parts.hasNext( ) ) {
       mish-mash of public static constants. If you find yourself frequently
       creating static variables to reflect categories or types, enums are the
       solution. And, if you haven't upgraded to Java 1.5, use<indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1900"
+      class="endofrange" id="lang-ITERM-1900"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1895"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1901"
+      startref="lang-ITERM-1895"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1901"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1896"></indexterm> Commons Lang
+      startref="lang-ITERM-1896"></indexterm> Commons Lang
       <literal moreinfo="none">Enum</literal> and <literal
       moreinfo="none">ValuedEnum</literal>.</para>
     </sect2>
@@ -3221,18 +3221,18 @@ while( parts.hasNext( ) ) {
       <title>Problem</title>
 
       <para>You need to generate numeric<indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1902" significance="normal">
+          id="lang-ITERM-1902" significance="normal">
           <primary>numeric identifiers</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1903" significance="normal">
+          id="lang-ITERM-1903" significance="normal">
           <primary>alphanumeric identifiers</primary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1904" significance="normal">
+          id="lang-ITERM-1904" significance="normal">
           <primary>identifiers</primary>
 
           <secondary>generating</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1905" significance="normal">
+          id="lang-ITERM-1905" significance="normal">
           <primary>LongIdentifierFactory</primary>
         </indexterm> and alphanumeric identifiers.</para>
     </sect2>
@@ -3243,11 +3243,11 @@ while( parts.hasNext( ) ) {
       <para>Use <literal moreinfo="none">IdentifierUtils</literal> to create
       an <literal moreinfo="none">IdentifierFactory</literal> with both
       numeric and alphanumeric identifiers. <link
-      linkend="jakartackbk-CHP-1-EX-15">Example 1-15</link> demonstrates the
+      linkend="lang-EX-15">Example 1-15</link> demonstrates the
       use of a <literal moreinfo="none">LongIdentifierFactory</literal> to
       create unique numeric identifiers.</para>
 
-      <example id="jakartackbk-CHP-1-EX-15" label="1-15">
+      <example id="lang-EX-15" label="1-15">
         <title>Using a LongIdentifierFactory to create unique numeric
         identifiers</title>
 
@@ -3263,7 +3263,7 @@ for( int i = 0; i &lt; 10; i++ ) {
       </example>
 
       <para>This code will create 10 <indexterm
-          id="jakartackbk-CHP-1-ITERM-1906" significance="normal">
+          id="lang-ITERM-1906" significance="normal">
           <primary>unique numeric identifiers</primary>
         </indexterm>unique numeric identifiers and print them out on one line,
       producing the following output:</para>
@@ -3274,16 +3274,16 @@ for( int i = 0; i &lt; 10; i++ ) {
     <sect2>
       <title>Discussion</title>
 
-      <para>If you need a <indexterm id="jakartackbk-CHP-1-ITERM-1907"
+      <para>If you need a <indexterm id="lang-ITERM-1907"
           significance="normal">
           <primary>unique alphanumeric identifiers</primary>
         </indexterm>unique alphanumeric identifier, create a <literal
       moreinfo="none">StringIdentifierFactory</literal>. This factory is
       created by calling the <literal
       moreinfo="none">stringAlphanumericIdentifierFactory( )</literal>
-      <indexterm id="jakartackbk-CHP-1-ITERM-1908" significance="normal">
+      <indexterm id="lang-ITERM-1908" significance="normal">
           <primary>stringAlphanumericIdentifierFactory( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1909"
+        </indexterm> <indexterm id="lang-ITERM-1909"
           significance="normal">
           <primary>methods</primary>
 
@@ -3292,13 +3292,13 @@ for( int i = 0; i &lt; 10; i++ ) {
       it reaches a maximum value. The second parameter to this method
       specifies the length of the alphanumeric identifier; in this case, a
       length of four is specified. (See <link
-      linkend="jakartackbk-CHP-1-EX-16">Example 1-16</link>.)</para>
+      linkend="lang-EX-16">Example 1-16</link>.)</para>
 
-      <example id="jakartackbk-CHP-1-EX-16" label="1-16">
+      <example id="lang-EX-16" label="1-16">
         <title>Using an IdentifierGenerator to create unique alphanumeric
         identifiers</title>
 
-        <indexterm id="jakartackbk-CHP-1-ITERM-1910" significance="normal">
+        <indexterm id="lang-ITERM-1910" significance="normal">
           <primary>IdentifierGenerator</primary>
         </indexterm>
 
@@ -3331,16 +3331,16 @@ for( int i = 0; i &lt; 10; i++ ) {
 
       <para>If you do not feel like instantiating your own instance of a
       generator, <literal moreinfo="none">IdentifierUtils</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1911" significance="normal">
+          id="lang-ITERM-1911" significance="normal">
           <primary>IdentifierUtils</primary>
         </indexterm> contains static methods to access three static identifier
       factories: <literal moreinfo="none">LONG_IDENTIFIER_FACTORY</literal>,
       <literal moreinfo="none">STRING_NUMERIC_IDENTIFIER_FACTORY</literal>,
       and <literal
       moreinfo="none">STRING_ALPHANUMERIC_IDENTIFIER_FACTORY</literal>. (See
-      <link linkend="jakartackbk-CHP-1-EX-17">Example 1-17</link>.)</para>
+      <link linkend="lang-EX-17">Example 1-17</link>.)</para>
 
-      <example id="jakartackbk-CHP-1-EX-17" label="1-17">
+      <example id="lang-EX-17" label="1-17">
         <title>Static generators on IdentifierUtils</title>
 
         <programlisting format="linespecific">import org.apache.commons.lang.util.IdentifierUtils;
@@ -3357,9 +3357,9 @@ String idAlpha = IdentifierUtils.nextStringAlphanumericIdentifier( );</programli
 
       <para>The <literal
       moreinfo="none">nextStringNumericIdentifier()</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1912" significance="normal">
+          id="lang-ITERM-1912" significance="normal">
           <primary>nextStringNumericIdentifier( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1913"
+        </indexterm> <indexterm id="lang-ITERM-1913"
           significance="normal">
           <primary>methods</primary>
 
@@ -3370,7 +3370,7 @@ String idAlpha = IdentifierUtils.nextStringAlphanumericIdentifier( );</programli
       wrapping alphanumeric generator that creates strings of length
       15.</para>
 
-      <warning id="jakartackbk-CHP-1-NOTE-49" role="ora">
+      <warning id="lang-NOTE-49" role="ora">
         <para>This recipe demonstrates the use of the identifier generation
         utilities available in Commons Lang. Ongoing development of <literal
         moreinfo="none">IdentifierUtils</literal> and <literal
@@ -3385,19 +3385,19 @@ String idAlpha = IdentifierUtils.nextStringAlphanumericIdentifier( );</programli
       <para>The examples in this recipe provide a simple mechanism to create
       unique identifiers within a single JVM; the problem of generating truly
       unique identifiers across multiple systems is a job for the <indexterm
-          id="jakartackbk-CHP-1-ITERM-1914" significance="normal">
+          id="lang-ITERM-1914" significance="normal">
           <primary>Universal Unique Identifier</primary>
 
           <see>UUID</see>
-        </indexterm>Universal<indexterm id="jakartackbk-CHP-1-ITERM-1915"
+        </indexterm>Universal<indexterm id="lang-ITERM-1915"
           significance="normal">
           <primary>UUID (Universal Unique Identifier)</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1916"
+        </indexterm> <indexterm id="lang-ITERM-1916"
           significance="normal">
           <primary>identifiers</primary>
 
           <secondary>UUID</secondary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1917"
+        </indexterm> <indexterm id="lang-ITERM-1917"
           significance="normal">
           <primary>values</primary>
 
@@ -3411,32 +3411,32 @@ String idAlpha = IdentifierUtils.nextStringAlphanumericIdentifier( );</programli
       role="url">http://jakarta.apache.org/commons/sandbox/id</systemitem>.</para>
 
       <para>The J2SE contains a class that can create a unique identifier
-      across every JVM: a <indexterm id="jakartackbk-CHP-1-ITERM-1918"
+      across every JVM: a <indexterm id="lang-ITERM-1918"
           significance="normal">
           <primary>VMID (Virtual Machine Identifier)</primary>
         </indexterm>Virtual Machine Identifier (VMID). For more<indexterm
-          id="jakartackbk-CHP-1-ITERM-1919" significance="normal">
+          id="lang-ITERM-1919" significance="normal">
           <primary>Virtual Machine Identifier</primary>
 
           <see>VMID</see>
         </indexterm> information about this class, which is associated with
-      <indexterm id="jakartackbk-CHP-1-ITERM-1920" significance="normal">
+      <indexterm id="lang-ITERM-1920" significance="normal">
           <primary>remote method invocation (RMI)</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1921"
+        </indexterm> <indexterm id="lang-ITERM-1921"
           significance="normal">
           <primary>RMI (remote method invocation)</primary>
         </indexterm>remote method<indexterm class="endofrange"
-      id="jakartackbk-CHP-1-ITERM-1922" significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1902"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1923"
+      id="lang-ITERM-1922" significance="normal"
+      startref="lang-ITERM-1902"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1923"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1903"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1924"
+      startref="lang-ITERM-1903"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1924"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1904"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1925"
+      startref="lang-ITERM-1904"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1925"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1905"></indexterm> invocation (RMI),
+      startref="lang-ITERM-1905"></indexterm> invocation (RMI),
       see the Javadoc at <systemitem moreinfo="none"
       role="url">http://java.sun.com/j2se/1.4.2/docs/api/java/rmi/dgc/VMID.html</systemitem>.</para>
     </sect2>
@@ -3449,17 +3449,17 @@ String idAlpha = IdentifierUtils.nextStringAlphanumericIdentifier( );</programli
       <title>Problem</title>
 
       <para>You need to validate parameters <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1926" significance="normal">
+          id="lang-ITERM-1926" significance="normal">
           <primary>parameters</primary>
 
           <secondary>validation</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1927" significance="normal">
+          id="lang-ITERM-1927" significance="normal">
           <primary>validation</primary>
 
           <secondary>parameters</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1928" significance="normal">
+          id="lang-ITERM-1928" significance="normal">
           <primary>testing</primary>
 
           <secondary>parameters</secondary>
@@ -3474,11 +3474,11 @@ String idAlpha = IdentifierUtils.nextStringAlphanumericIdentifier( );</programli
       parameters. <literal moreinfo="none">Validate</literal> can check for
       empty or <literal moreinfo="none">null</literal> parameters, as well as
       evaluate any logical conditions. <link
-      linkend="jakartackbk-CHP-1-EX-18">Example 1-18</link> demonstrates the
+      linkend="lang-EX-18">Example 1-18</link> demonstrates the
       use of <literal moreinfo="none">Validate</literal> to perform a few
       simple validations.</para>
 
-      <example id="jakartackbk-CHP-1-EX-18" label="1-18">
+      <example id="lang-EX-18" label="1-18">
         <title>Using Validate to perform simple validations</title>
 
         <programlisting format="linespecific">import org.apache.commons.lang.Validate;
@@ -3509,10 +3509,10 @@ public doSomething( int param1, Object[] param2, Collection param3 ) {
       moreinfo="none">null</literal> or empty, and <literal
       moreinfo="none">Validate.isTrue( )</literal> takes a logical expression
       that must evaluate to true. <link
-      linkend="jakartackbk-CHP-1-TABLE-5">Table 1-5</link> lists a number of
+      linkend="lang-TABLE-5">Table 1-5</link> lists a number of
       static methods of <literal moreinfo="none">Validate</literal>.</para>
 
-      <table id="jakartackbk-CHP-1-TABLE-5" label="1-5">
+      <table id="lang-TABLE-5" label="1-5">
         <title>Available static methods on Validate</title>
 
         <tgroup cols="2">
@@ -3622,9 +3622,9 @@ public doSomething( int param1, Object[] param2, Collection param3 ) {
       moreinfo="none">d)</literal> returns true if the number falls within the
       defined range—<literal moreinfo="none">if x &lt;= rangeMax &amp;&amp; x
       &gt;= rangeMin</literal>. (See <link
-      linkend="jakartackbk-CHP-1-EX-19">Example 1-19</link>.)</para>
+      linkend="lang-EX-19">Example 1-19</link>.)</para>
 
-      <example id="jakartackbk-CHP-1-EX-19" label="1-19">
+      <example id="lang-EX-19" label="1-19">
         <title>Using the Validator and the DoubleRange to validate method
         parameters</title>
 
@@ -3707,15 +3707,15 @@ public double elevation( double latitude,
       measure test coverage. More information about JCoverage is available at
       <systemitem moreinfo="none"
       role="url">http://www.jcoverage.com/</systemitem>. For more information
-      <indexterm class="endofrange" id="jakartackbk-CHP-1-ITERM-1929"
+      <indexterm class="endofrange" id="lang-ITERM-1929"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1926"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1930"
+      startref="lang-ITERM-1926"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1930"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1927"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1931"
+      startref="lang-ITERM-1927"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1931"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1928"></indexterm>about JUnit, go to
+      startref="lang-ITERM-1928"></indexterm>about JUnit, go to
       <systemitem moreinfo="none"
       role="url">http://www.junit.org/</systemitem>.</para>
     </sect2>
@@ -3728,12 +3728,12 @@ public double elevation( double latitude,
       <title>Problem</title>
 
       <para>You need to determine how much<indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1932" significance="normal">
+          id="lang-ITERM-1932" significance="normal">
           <primary>measuring</primary>
 
           <secondary>time</secondary>
         </indexterm> <indexterm class="startofrange"
-          id="jakartackbk-CHP-1-ITERM-1933" significance="normal">
+          id="lang-ITERM-1933" significance="normal">
           <primary>time, measuring</primary>
         </indexterm> time has elapsed during the execution of a block of
       code.</para>
@@ -3743,14 +3743,14 @@ public double elevation( double latitude,
       <title>Solution</title>
 
       <para>Use <literal moreinfo="none">StopWatch</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1934" significance="normal">
+          id="lang-ITERM-1934" significance="normal">
           <primary>StopWatch</primary>
         </indexterm> to measure the time it takes to execute a section of
-      code. <link linkend="jakartackbk-CHP-1-EX-20">Example 1-20</link>
+      code. <link linkend="lang-EX-20">Example 1-20</link>
       demonstrates the use of this class to measure the time it takes to
       perform simple arithmetic operations.</para>
 
-      <example id="jakartackbk-CHP-1-EX-20" label="1-20">
+      <example id="lang-EX-20" label="1-20">
         <title>Using StopWatch to measure time</title>
 
         <programlisting format="linespecific">import org.apache.commons.lang.time.StopWatch;
@@ -3799,9 +3799,9 @@ It takes 1992 milliseconds.</programlisting>
       time to zero. When a <literal moreinfo="none">StopWatch</literal> is
       "split" the clock continues to tick, but every call to <literal
       moreinfo="none">StopWatch.getTime()</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1935" significance="normal">
+          id="lang-ITERM-1935" significance="normal">
           <primary>StopWatch.getTime( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1936"
+        </indexterm> <indexterm id="lang-ITERM-1936"
           significance="normal">
           <primary>methods</primary>
 
@@ -3815,9 +3815,9 @@ It takes 1992 milliseconds.</programlisting>
       clock continues to count seconds. Once you split a <literal
       moreinfo="none">StopWatch</literal>, you will need to invoke the
       <literal moreinfo="none">StopWatch.unsplit( )</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1937" significance="normal">
+          id="lang-ITERM-1937" significance="normal">
           <primary>StopWatch.unsplit( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1938"
+        </indexterm> <indexterm id="lang-ITERM-1938"
           significance="normal">
           <primary>methods</primary>
 
@@ -3825,11 +3825,11 @@ It takes 1992 milliseconds.</programlisting>
         </indexterm> method to measure the total time elapsed since the clock
       was started.</para>
 
-      <para><link linkend="jakartackbk-CHP-1-EX-21">Example 1-21</link>
+      <para><link linkend="lang-EX-21">Example 1-21</link>
       demonstrates the <literal moreinfo="none">split()</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1939" significance="normal">
+          id="lang-ITERM-1939" significance="normal">
           <primary>split( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1940"
+        </indexterm> <indexterm id="lang-ITERM-1940"
           significance="normal">
           <primary>methods</primary>
 
@@ -3841,18 +3841,18 @@ It takes 1992 milliseconds.</programlisting>
       will return one second. After three seconds, the <literal
       moreinfo="none">unsplit( )</literal> method is invoked, and calling
       <literal moreinfo="none">getTime( )</literal> <indexterm
-          id="jakartackbk-CHP-1-ITERM-1941" significance="normal">
+          id="lang-ITERM-1941" significance="normal">
           <primary>getTime( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1942"
+        </indexterm> <indexterm id="lang-ITERM-1942"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>getTime( )</secondary>
         </indexterm> returns three seconds. <link
-      linkend="jakartackbk-CHP-1-FIG-1">Figure 1-1</link> shows a timeline for
+      linkend="lang-FIG-1">Figure 1-1</link> shows a timeline for
       this example.</para>
 
-      <figure float="0" id="jakartackbk-CHP-1-FIG-1" label="1-1">
+      <figure float="0" id="lang-FIG-1" label="1-1">
         <title>Timeline of StopWatch.split( ) and unsplit( )</title>
 
         <mediaobject id="I_1_tt48">
@@ -3868,7 +3868,7 @@ It takes 1992 milliseconds.</programlisting>
         </mediaobject>
       </figure>
 
-      <example id="jakartackbk-CHP-1-EX-21" label="1-21">
+      <example id="lang-EX-21" label="1-21">
         <title>Using the StopWatch.split( ) and StopWatch.unsplit( )
         methods</title>
 
@@ -3915,9 +3915,9 @@ Time after 3 sec: 3004</programlisting>
       moreinfo="none">clock.start( )</literal> and <literal
       moreinfo="none">clock.stop()</literal> are more apparent than <literal
       moreinfo="none">long time1 = System.currentTimeMillis( )</literal>
-      <indexterm id="jakartackbk-CHP-1-ITERM-1943" significance="normal">
+      <indexterm id="lang-ITERM-1943" significance="normal">
           <primary>System.currentTimeMillis( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1944"
+        </indexterm> <indexterm id="lang-ITERM-1944"
           significance="normal">
           <primary>methods</primary>
 
@@ -3925,19 +3925,19 @@ Time after 3 sec: 3004</programlisting>
         </indexterm> and <literal moreinfo="none">long time2</literal>
       <literal moreinfo="none">= System.currentTimeMillis( )</literal>. And,
       for the same reasons, <literal moreinfo="none">clock.getTime()</literal>
-      <indexterm id="jakartackbk-CHP-1-ITERM-1945" significance="normal">
+      <indexterm id="lang-ITERM-1945" significance="normal">
           <primary>clock.getTime( ) method</primary>
-        </indexterm> <indexterm id="jakartackbk-CHP-1-ITERM-1946"
+        </indexterm> <indexterm id="lang-ITERM-1946"
           significance="normal">
           <primary>methods</primary>
 
           <secondary>clockgetTime( )</secondary>
         </indexterm> conveys a stronger message <indexterm class="endofrange"
-      id="jakartackbk-CHP-1-ITERM-1947" significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1932"></indexterm> <indexterm
-      class="endofrange" id="jakartackbk-CHP-1-ITERM-1948"
+      id="lang-ITERM-1947" significance="normal"
+      startref="lang-ITERM-1932"></indexterm> <indexterm
+      class="endofrange" id="lang-ITERM-1948"
       significance="normal"
-      startref="jakartackbk-CHP-1-ITERM-1933"></indexterm>than <literal
+      startref="lang-ITERM-1933"></indexterm>than <literal
       moreinfo="none">long timeElapsed = time2</literal> <literal
       moreinfo="none">- time1</literal>.</para>
     </sect2>

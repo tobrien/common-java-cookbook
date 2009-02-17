@@ -166,7 +166,7 @@
       the <systemitem moreinfo="none"
       role="url">commons-user@jakarta.apache.org</systemitem> mailing list.
       Instructions for joining the user mailing list can be found in <link
-      linkend="jakartackbk-CHP-1-SECT-2">Recipe 1.2</link>. For information on
+      linkend="lang-sect-mailinglist">Recipe 1.2</link>. For information on
       obtaining the source code for Commons Collections, see <link
       linkend="functors-SECT-2">Recipe 4.2</link>.</para>
     </sect2>
@@ -214,7 +214,7 @@
       <para>Download the source from <systemitem moreinfo="none"
       role="url">http://jakarta.apache.org/site/sourceindex.cgi</systemitem>.
       Following the same procedure outlined in <link
-      linkend="jakartackbk-CHP-1-SECT-3">Recipe 1.3</link>, download a file
+      linkend="lang-sect-sourcecode">Recipe 1.3</link>, download a file
       named <filename
       moreinfo="none">commons-collections-3.0-src.zip</filename> (or <filename
       moreinfo="none">commons-collections-3.0-src.tar.gz</filename>); once you
@@ -229,7 +229,7 @@
       <para>Most Commons components follow a similar convention for the layout
       of binary and source distributions. For more information about the
       layout of the Collections source distribution, see <link
-      linkend="jakartackbk-CHP-1-SECT-3">Recipe 1.3</link>. For information on
+      linkend="lang-sect-sourcecode">Recipe 1.3</link>. For information on
       obtaining the binary distribution for Commons Collections, see <link
       linkend="functors-SECT-1">Recipe 4.1</link>.</para>
     </sect2>

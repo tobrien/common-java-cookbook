@@ -296,10 +296,10 @@ while( teamIterator.hasNext( ) ) {
       <para>Commons JXPath can also be used to reference objects at a specific
       index in a <literal moreinfo="none">List</literal> or an array, or
       objects by a known key in a <literal moreinfo="none">Map</literal>.
-      <link linkend="searching-filtering-SECT-4">Recipe 12.4</link>
+      <link linkend="searching-filtering-sect-complex-graphs">Recipe 12.4</link>
       demonstrates how to use JXPath to reference items in a <literal
       moreinfo="none">Map</literal>, and <link
-      linkend="searching-filtering-SECT-3">Recipe 12.3</link>
+      linkend="searching-filtering-sect-search-simple">Recipe 12.3</link>
       demonstrates<indexterm class="endofrange"
       id="searching-filtering-ITERM-3375" significance="normal"
       startref="searching-filtering-ITERM-3370"></indexterm> <indexterm
@@ -513,7 +513,7 @@ Person: Tom Russell, age: 35</programlisting>
       <literal moreinfo="none">Collection</literal> that satisfy a <literal
       moreinfo="none">Predicate</literal>. For more information about using
       <literal moreinfo="none">Predicate</literal> objects to filter
-      collections, refer to <link linkend="collections-SECT-4">Recipe
+      collections, refer to <link linkend="collections-sect-filtering">Recipe
       5.4</link>.</para>
     </sect2>
   </sect1>
@@ -1287,8 +1287,8 @@ public class PlayIndexer {
 
       <para>Sure, you've created a Lucene index, but how would you search it?
       The index created in this recipe can be searched with Lucene using
-      techniques described in <link linkend="searching-filtering-SECT-7">Recipe
-      12.7</link> and <link linkend="searching-filtering-SECT-8">Recipe
+      techniques described in <link linkend="searching-filtering-sect-searching-term">Recipe
+      12.7</link> and <link linkend="searching-filtering-sect-freq-terms">Recipe
       12.8</link>.</para>
 
       <para>If you are indexing a huge database of English documents, consider
