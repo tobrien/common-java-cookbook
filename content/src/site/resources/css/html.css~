@@ -348,9 +348,10 @@ div.preface, div.chapter, div.titlepage, div.index {
   line-height:1.5em;
 }
 
+
+
 p {
   margin-bottom: 20px;
-  width: 600px;
 }
 
 div.figure p.title {
