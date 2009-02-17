@@ -1,0 +1,39 @@
+<planets>
+	
+  <planet name="Venus" mass="4.869e+24" radius="6051.8">
+    <orbit distance="108200000" period="224.701"/>
+    <atmosphere meanTemp="482" pressure="92">
+    	<component symbol="CO2" percentage="96"/>
+    	<component symbol="N" percentage="3"/>
+    	<component percentage="1"/>
+    </atmosphere>
+  </planet>
+
+  <planet name="Mars" mass="6.421e+23" radius="3397.2">
+    <orbit distance="227940000" period="686.98"/>
+    <atmosphere meanTemp="-63" pressure="0.007">
+    	<component symbol="CO2" percentage="95.32"/>
+    	<component symbol="N2" percentage="2.7"/>
+    	<component symbol="Ar" percentage="1.6"/>
+    </atmosphere>
+    <moon>Phobos</moon>
+    <moon>Deimos</moon>
+  </planet>
+
+  <planet name="Saturn" mass="5.688e+26" radius="60268">
+    <orbit distance="1429400000" period="29.458" velocity="9.67" 
+    	      eccentricity="0.0560" inclination="2.488"/>
+    <atmosphere meanTemp="-125" pressure="1.4">
+    	<component symbol="H" percentage="97"/>
+    	<component symbol="He" percentage="3"/>
+    </atmosphere>
+    <moon>Pan</moon>
+    <moon>Atlas</moon>
+    <moon>Prometheus</moon>
+    <moon>Pandora</moon>
+    <moon>Epimetheus</moon>
+    <moon>Janus</moon>
+    <moon>Mimas</moon>
+  </planet>
+  
+</planets>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE digester-rules PUBLIC 
+        "-//Jakarta Apache //DTD digester-rules XML V1.0//EN" 
+        "http://jakarta.apache.org/commons/digester/dtds/digester-rules.dtd">
+
+<digester-rules>
+  <pattern value="*/add">
+    <object-create-rule classname="xml.scripting.AddOperation"/>
+	<set-next-rule methodname="add" paramtype="java.lang.Object"/>
+	<set-properties-rule/>
+  </pattern>
+  <pattern value="*/subtract">
+    <object-create-rule classname="xml.scripting.SubtractOperation"/>
+	<set-next-rule methodname="add" paramtype="java.lang.Object"/>
+	<set-properties-rule/>
+  </pattern>
+</digester-rules>

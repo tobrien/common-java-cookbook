@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<operations xmlns="http://discursive.com/textmanip">
+  <reverse/>
+  <lower/>
+  <replace search="z" replace="d"/>
+  <replace search="q" replace="o"/>
+</operations>

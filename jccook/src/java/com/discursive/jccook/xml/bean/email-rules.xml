@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE digester-rules PUBLIC 
+        "-//Jakarta Apache //DTD digester-rules XML V1.0//EN" 
+        "http://jakarta.apache.org/commons/digester/dtds/digester-rules.dtd">
+
+<digester-rules>
+  <pattern value="email">
+    <object-create-rule classname="com.discursive.jccook.xml.bean.Email"/>
+	<set-next-rule methodname="add" paramtype="java.lang.Object"/>
+	<set-properties-rule/>
+    <bean-property-setter-rule pattern="subject"/>
+    <bean-property-setter-rule pattern="priority"/>
+    <bean-property-setter-rule pattern="message"/>
+  </pattern>
+</digester-rules>

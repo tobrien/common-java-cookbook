@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE digester-rules PUBLIC 
+        "-//Jakarta Apache //DTD digester-rules XML V1.0//EN" 
+        "http://jakarta.apache.org/commons/digester/dtds/digester-rules.dtd">
+
+<digester-rules>
+  <pattern value="plays/play">
+    <object-create-rule classname="com.discursive.jccook.xml.bean.Play"/>
+	<set-next-rule methodname="add" paramtype="java.lang.Object"/>
+	<set-properties-rule/>
+    <bean-property-setter-rule pattern="name"/>
+    <bean-property-setter-rule pattern="summary"/>
+    <bean-property-setter-rule pattern="author"/>
+    <pattern value="characters/character">
+      <object-create-rule classname="com.discursive.jccook.xml.bean.Character"/>
+      <set-next-rule methodname="addCharacter" paramtype="com.discursive.jccook.xml.bean.Character"/>
+      <set-properties-rule/>
+      <bean-property-setter-rule pattern="name"/>
+      <bean-property-setter-rule pattern="description"/>
+    </pattern>
+  </pattern>
+</digester-rules>

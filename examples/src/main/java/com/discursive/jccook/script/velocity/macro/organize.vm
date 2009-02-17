@@ -1,0 +1,34 @@
+#set( $volunteer = $appointment.volunteer )
+#set( $location = $appointment.location )
+#set( $org = $appointment.organization )
+
+#macro( name $object )$!object.firstName $!object.lastName#end
+
+#macro( address $object )
+$!object.address.street1
+$!object.address.street2
+$!object.address.city, $!object.address.state $!object.address.zipcode
+#end
+
+#name( $volunteer ),
+
+Thank you for volunteering to help serve food at the $location.name 
+next week.  This email is a reminder that you are scheduled to help out from $appointment.startTime to 
+$appointment.endTime on $appointment.date.  The address of the shelter is:
+
+#address( $location )	
+
+If you need directions to the shelter click the following URL:
+
+	${org.baseUrl}directions?location=${location.id}
+
+Also, if you are unable to help out on $appointment.date, please let us know by sending an 
+email to ${org.email} or by filling out the form at this URL:
+
+	${org.baseUrl}planschange?appointment=${appointment.id}
+
+Thanks again,
+
+#name( $org.president )
+
+#address( $org )

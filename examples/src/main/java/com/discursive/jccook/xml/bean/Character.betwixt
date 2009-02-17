@@ -1,0 +1,6 @@
+<info primitiveTypes="element">
+  <element name="play">
+    <attribute name="protagonist" property="protagonist"/>
+    <addDefaults/>
+  </element>
+</info>

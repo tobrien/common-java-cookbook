@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<operations xmlns="http://discursive.com/textmanip">
+  <email to="tobrien@discursive.com"
+         from="root@discursive.com">
+    <replace search="o" replace="q"/>
+    <replace search="d" replace="z"/>
+    <lower/>
+    <reverse/>
+  </email>
+</operations>

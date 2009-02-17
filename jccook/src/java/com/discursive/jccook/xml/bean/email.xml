@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<email to="${email.to}" from="ceo@xyzblah.com">
+  <subject>Purchase Confirmation: ${order.id}</subject>
+  <priority>High</priority>
+  <message>
+	Dear ${user.name}, we appreciate your business. As CEO
+	of Big Software Company, Inc., I would like to
+	personally thank you for helping us become filthy rich.
+	Your purchase of ${product.name} helped me purchase an 
+	even larger boat for myself.  Thanks again.
+  </message>
+</email>

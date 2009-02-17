@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE digester-rules PUBLIC 
+        "-//Jakarta Apache //DTD digester-rules XML V1.0//EN" 
+        "http://jakarta.apache.org/commons/digester/dtds/digester-rules.dtd">
+
+<digester-rules>
+  <pattern value="PLAY">
+    <object-create-rule classname="com.discursive.jccook.xml.bardsearch.model.Play"/>
+	<set-next-rule methodname="add" paramtype="java.lang.Object"/>
+    <bean-property-setter-rule pattern="TITLE" propertyname="title"/>
+    <bean-property-setter-rule pattern="SCNDESCR" propertyname="scene"/>
+    <bean-property-setter-rule pattern="PLAYSUBT" propertyname="subTitle"/>
+    <pattern value="ACT">
+      <object-create-rule classname="com.discursive.jccook.xml.bardsearch.model.Act"/>
+      <set-next-rule methodname="addAct" paramtype="com.discursive.jccook.xml.bardsearch.model.Act"/>
+      <bean-property-setter-rule pattern="TITLE" propertyname="title"/>
+      <pattern value="PROLOGUE">
+        <object-create-rule classname="com.discursive.jccook.xml.bardsearch.model.Scene"/>
+        <set-next-rule methodname="addScene" paramtype="com.discursive.jccook.xml.bardsearch.model.Scene"/>
+        <bean-property-setter-rule pattern="TITLE" propertyname="title"/>
+       	<call-method-rule pattern="SPEECH/LINE" methodname="appendLine" paramtype="java.lang.String" paramcount="0"/>
+      </pattern>
+      <pattern value="SCENE">
+        <object-create-rule classname="com.discursive.jccook.xml.bardsearch.model.Scene"/>
+        <set-next-rule methodname="addScene" paramtype="com.discursive.jccook.xml.bardsearch.model.Scene"/>
+        <bean-property-setter-rule pattern="TITLE" propertyname="title"/>
+       	<call-method-rule pattern="SPEECH/LINE" methodname="appendLine" paramtype="java.lang.String" paramcount="0"/>
+      </pattern>
+    </pattern>
+  </pattern>
+</digester-rules>

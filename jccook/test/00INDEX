@@ -1,0 +1,122 @@
+** Here are some schematic diagrams of the Commodore 64.
+
+cartridges/
+  Commodore 64 cartridges
+
+drives/
+  Disk drives
+
+firmware/
+  System firmware
+
+manual-html/
+  Commodore 64 Service Manual in HTML format.
+
+manual/
+  Service Manual, Model C64 Computer, Feb. 1985  PN-314001-02
+
+sx-64/
+  The portable variant of the Commodore 64
+
+250469-rev.A-left.gif
+250469-rev.A-right.gif
+250469-rev.B-right.gif
+  Commodore 64c rev.A and rev.B (new design).  The 64c boards have the
+  following texts: PCB ASSY NO. 250469 and PCB NO. 252311 REV.A (or B on
+  newer boards).  The difference between the two revisions is in the Gate
+  Array chip: The one in rev.B includes COLOR RAM.  That is why only the
+  right half of the schematic diagram differs.  The REV.A schematics
+  also has the part number 252312.
+
+251138-1of2.gif
+251138-2of2.gif
+  Commodore 64 schematic diagram 251138 from the Service Manual
+
+251469-1of2.gif
+251469-2of2.gif
+  Commodore 64 schematic diagram 251469 from the Service Manual
+
+252278-1.gif
+252278-2.gif
+  Commodore 64 schematic diagram 252278.  This seems to be an intermediate
+  cost-reduced version, with 64kb×4 memory chips but small ROMs.
+
+252312-left.gif
+252312-right.gif
+  A bit better scan of the 250469 REV.A, with 8 levels of gray.
+
+326100.png
+  Commodore MAX Machine schematic diagram (also known as "VICKIE", VIC-10
+  and VC-10).  The original was very noisy; the contrast was improved after
+  scanning.  In the scanning process, the top left and bottom right corners
+  were omitted by mistake.  The bottom right corner has been augmented.
+
+326106-1of2.gif
+326106-2of2.gif
+  Commodore 64 schematic diagram 326106 from the Service Manual
+
+c64-cassette-io.gif
+  A block diagram of the Commodore 64 cassette I/O circuitry.  Taken from the
+  SAMS C64 Troubleshooting Guide.
+
+c64-powersupply.gif
+  A block diagram of the Commodore 64 internal power supply (how the
+  +12V, +9V and TOD clock signals are generated from the 9V AC input).
+  Taken from the SAMS C64 Troubleshooting Guide.
+
+c64-r1.chips.gif
+  A chip location diagram of the first C64 board revision.  Assy number
+  unknown, or maybe 251138.  Taken from the SAMS C64 Troubleshooting Guide.
+
+c64-video.gif
+  A block diagram of the video circuitry in the first C64 board revision.
+  Taken from the SAMS C64 Troubleshooting Guide.
+
+c64bus.gif
+  A block diagram of the bus signals in the C64.
+
+c64extps.gif
+  Commodore 64 Power Supply, part no. 902503-02, input 116V 60Hz 40W.
+  This is the North American power supply that can be taken apart.
+  The schematic was drawn by William Levak.  According to him, the
+  transistor and the 300 ohm resistor can be removed and replaced with a
+  standard +5V 750mA voltage regulator, which is much more reliable.
+
+ciasid.gif
+  CIA and SID pinouts and general data
+
+cpupla.gif
+  6510 and PLA pinouts and general data
+
+mem.gif
+  2048k*8 SRAM pinout and general data.  VIA pinout.
+
+modulator-251025.gif
+  Modulator schematic 251025 from the Service Manual
+modulator-251696.gif
+  Modulator schematic 251696 from the Service Manual
+
+prg-cpu-left.gif
+prg-cpu-right.gif
+prg-vic-left.gif
+prg-vic-right.gif
+  Commodore 64 schematic diagram, scanned with 360 DPI, 2 colours.
+  This seems to be the same (buggy) schematic that was published in the
+  Commodore 64 Programmer's Reference Guide, but has been partially
+  translated into German.
+
+  The vic part contains the ROMs, SIDs, Video Controller, RAMs,
+  Address-decoding, Expansion Port and User Port.
+
+  The cpu part contains the Port elements (CIA), CPU, AC-Adaptor, Timer,
+  Port Layout
+
+  All resistors are 0.25W ±5% and all capacitors are in µF, unless otherwise
+  stated.
+
+ultimax.gif
+  Commodore VIC-10, a.k.a. UltiMax a.k.a. "Vickie" schematic diagram, drawn
+  by Ruud Baltissen.  For more information on this extremely rare machine,
+  see <URL:http://www.funet.fi/pub/cbm/html/c64/ultimax.html>.
+  See also 326100.png.
+
