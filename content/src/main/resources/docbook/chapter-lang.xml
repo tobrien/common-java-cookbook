@@ -55,14 +55,14 @@
       2004, Java has had another major release (Java 6) and we are currently
       expecting the release of Java 7. This version of the book has phased out
       some of the recipes that duplicate Java 5 behavior. I hate to say this
-      because I know that there is some poor dev still saddled with supporting
-      some legacy 1.3 application... we're pulling the plug on the recipes
-      that were aimed at people still using 1.4. </para>
+      because I know that there is still some poor developer saddled with
+      supporting some legacy 1.3 application... we're pulling the plug on the
+      recipes that were aimed at people still using 1.4.</para>
     </sidebar>
   </sect1>
 
   <sect1 id="lang-sect-obtaining" label="1.1" role="Recipe">
-    <title>Using Commons Lang</title>
+    <title>Depending on Commons Lang</title>
 
     <sect2>
       <title>Problem</title>
@@ -85,326 +85,30 @@
     <sect2>
       <title>Solution</title>
 
-      <para>To download the latest version of Commons Lang, follow these
-      steps:</para>
+      <para>To use Commons Lang in a Maven 2 project, add the following
+      dependency to your project's <filename>pom.xml</filename>:</para>
 
-      <orderedlist continuation="restarts" inheritnum="ignore">
-        <listitem>
-          <para>In a web browser, open the URL <ulink
-          url="http://jakarta.apache.org/site/binindex.cgi">http://jakarta.apache.org/site/binindex.cgi</ulink>.
-          This URL will select a mirror, and generate a page with links to
-          download binary distributions from an Apache mirror.</para>
-        </listitem>
+      <example>
+        <title>Adding a Dependency on Commons Lang</title>
 
-        <listitem>
-          <para>Find the Commons Lang project section. If you search for the
-          term "Commons Lang," you will find a section that provides a link to
-          download the latest binary release of Commons Lang.</para>
-        </listitem>
-
-        <listitem>
-          <para>Click on either the <filename moreinfo="none">2.0
-          zip</filename> or <filename moreinfo="none">2.0 tar.gz</filename>
-          (depending on your platform) to download Commons Lang 2.0.</para>
-        </listitem>
-
-        <listitem>
-          <para>Unzip or untar the binary distribution. This will create a
-          directory named <filename
-          moreinfo="none">commons-lang-2.0</filename>. The <filename
-          moreinfo="none">commons-lang-2.0</filename> directory should now
-          contain a Java Archive (JAR) file, <filename
-          moreinfo="none">commons-lang-2.0.jar</filename>.</para>
-        </listitem>
-
-        <listitem>
-          <para>Copy or add <filename
-          moreinfo="none">commons-lang-2.0.jar</filename> to your
-          classpath.</para>
-        </listitem>
-      </orderedlist>
+        <programlisting>&lt;dependency&gt;
+  &lt;groupId&gt;commons-lang&lt;/groupId&gt;
+  &lt;artifactId&gt;commons-lang&lt;/artifactId&gt;
+  &lt;version&gt;2.4&lt;/version&gt;
+&lt;/dependency&gt;  </programlisting>
+      </example>
     </sect2>
 
     <sect2>
       <title>Discussion</title>
 
-      <para>Step #5 varies based on your development environment. If you are
-      working with Apache Ant as a build tool, you will need to make sure that
-      your classpath includes the Commons Lang JAR. If you are using an
-      Integrated Development Environment (IDE) like Eclipse, you will need to
-      copy this JAR to a directory in your project, and alter your project's
-      preferences to add Commons Lang 2.0 to the "Java Build Path." If you are
-      using Maven as a build tool, add the following dependency to the
-      dependencies section of your <filename
-      moreinfo="none">project.xml</filename>:</para>
-
-      <programlisting format="linespecific" id="I_1_tt4">&lt;dependencies&gt;
-  &lt;dependency&gt;
-    &lt;id&gt;commons-lang&lt;/id&gt;
-    &lt;version&gt;2.0&lt;/version&gt;
-  &lt;/dependency&gt;
-
-  ...other dependencies...
-&lt;/dependencies&gt;</programlisting>
-
-      <para>The <indexterm id="lang-ITERM-1724" significance="normal">
-          <primary>Commons Lang</primary>
-
-          <secondary>library</secondary>
-        </indexterm> <indexterm id="lang-ITERM-1725" significance="normal">
-          <primary>libraries</primary>
-
-          <secondary>Commons Lang</secondary>
-        </indexterm>Commons Lang library includes utilities for working with
-      dates, exceptions, arrays, enums, and more. It is one of the most widely
-      used libraries in open source Java. To learn more about Commons Lang,
-      visit the Jakarta Commons Lang web site at <ulink
-      url="http://jakarta.apache.org/commons/lang/">http://jakarta.apache.org/commons/lang/</ulink>.</para>
-
-      <tip id="lang-NOTE-42" role="ora">
-        <para>At the time of writing, the most recent version of the Commons
-        Lang component was Version 2.0. If there is a more recent version of
-        Commons Lang available, use the latest version. Although not a
-        guarantee or a promise, most Jakarta Commons components strive for
-        backward compatibility. If an interface has been altered or
-        functionality removed, it will be noted in the release notes for a
-        newer version. If you are going to use a different version of the
-        Commons Lang component with the recipes in this chapter, make sure to
-        read the release notes, which are stored in the file <filename
-        moreinfo="none">RELEASE-NOTES.txt</filename>.</para>
-      </tip>
-    </sect2>
-
-    <sect2>
-      <title>See Also</title>
-
-      <para>If you are having an issue<indexterm class="endofrange"
-      id="lang-ITERM-1726" significance="normal"
-      startref="lang-ITERM-1722"></indexterm> <indexterm class="endofrange"
-      id="lang-ITERM-1727" significance="normal"
-      startref="lang-ITERM-1723"></indexterm> with one of the utilities in
-      Commons Lang, see <link linkend="lang-sect-mailinglist">Recipe
-      1.2</link> on joining the Commons-user mailing list. If you are looking
-      for the source code, see <link linkend="lang-sect-sourcecode">Recipe
-      1.3</link> on obtaining the source code for Commons Lang. You can also
-      visit the Commons Lang web site at <ulink
-      url="http://jakarta.apache.org/commons/lang">http://jakarta.apache.org/commons/lang</ulink>.</para>
-    </sect2>
-  </sect1>
-
-  <sect1 id="lang-sect-mailinglist" label="1.2" role="Recipe">
-    <title>Joining the Commons-User Mailing List</title>
-
-    <sect2>
-      <title>Problem</title>
-
-      <para>You want to ask a question about a<indexterm id="lang-ITERM-1728"
-          significance="normal">
-          <primary>Commons Lang</primary>
-
-          <secondary>mailing lists</secondary>
-        </indexterm> <indexterm id="lang-ITERM-1729" significance="normal">
-          <primary>mailing lists</primary>
-        </indexterm> <indexterm id="lang-ITERM-1730" significance="normal">
-          <primary>lists</primary>
-
-          <secondary>mailing</secondary>
-        </indexterm> component in Jakarta Commons.</para>
-    </sect2>
-
-    <sect2>
-      <title>Solution</title>
-
-      <para>Join the <ulink
-      url="commons-user@jakarta.apache.org">commons-user@jakarta.apache.org</ulink>
-      mailing list, and ask your question. This mailing list is full of
-      Commons users, and it is a good place to discuss any problems you've had
-      with a particular utility in the Jakarta Commons.</para>
-    </sect2>
-
-    <sect2>
-      <title>Discussion</title>
-
-      <para>Before you join this mailing<indexterm id="lang-ITERM-1731"
-          significance="normal">
-          <primary>resources</primary>
-
-          <secondary>mailing lists</secondary>
-        </indexterm> <indexterm id="lang-ITERM-1732" significance="normal">
-          <primary>troubleshooting mailing lists</primary>
-        </indexterm> <indexterm id="lang-ITERM-1733" significance="normal">
-          <primary>joining mailing lists</primary>
-        </indexterm> list, take a moment to familiarize yourself with the
-      mailing list guidelines available at <ulink
-      url="http://jakarta.apache.org/site/mail.html">http://jakarta.apache.org/site/mail.html</ulink>.
-      Once you have read these guidelines, you can find information about
-      joining this mailing list at <ulink
-      url="http://jakarta.apache.org/site/mail2.html#Commons">http://jakarta.apache.org/site/mail2.html#Commons</ulink>.</para>
-
-      <para>The Jakarta Commons-user mailing list is a place for users of all
-      Commons components to ask questions of other users and Commons
-      developers. This mailing list has a high volume of messages, and
-      subscribers should prefix all subjects with the component you are
-      discussing. In the case of Commons Lang, make sure your email subject
-      starts with <literal moreinfo="none">[lang]</literal> before sending a
-      message to the Commons-user mailing list; otherwise, your email may be
-      ignored.</para>
-
-      <para>If you have a question or a comment, you will save yourself time
-      and trouble if you search the archives of the Commons-user mailing list
-      (<ulink
-      url="http://www.mail-archive.com/commons-user@jakarta.apache.org/">http://www.mail-archive.com/commons-user@jakarta.apache.org/</ulink>)
-      for related discussions. The archives of this mailing list are a great
-      place to look if you are having problems with a particular Commons
-      component. Try not to ask a question that has already been asked and
-      answered in a previous discussion, and remember that the Apache Software
-      Foundation (ASF) is a volunteer organization—members of the community
-      will gladly assist you if you provide enough information. And, don't be
-      shy. If you know the answer to someone's question, you don't have to ask
-      for anyone's permission to actively participate.</para>
-    </sect2>
-
-    <sect2>
-      <title>See Also</title>
-
-      <para>The Commons-user mailing list archive is also available from the
-      Eyebrowse list archive at <ulink
-      url="http://nagoya.apache.org/eyebrowse/SummarizeList?listId=15">http://nagoya.apache.org/eyebrowse/SummarizeList?listId=15</ulink>.</para>
-    </sect2>
-  </sect1>
-
-  <sect1 id="lang-sect-sourcecode" label="1.3" role="Recipe">
-    <title>Getting the Commons Lang Source Code</title>
-
-    <sect2>
-      <title>Problem</title>
-
-      <para>You want to view the <indexterm id="lang-ITERM-1734"
-          significance="normal">
-          <primary>Commons Lang</primary>
-
-          <secondary>source code</secondary>
-        </indexterm> <indexterm id="lang-ITERM-1735" significance="normal">
-          <primary>source code</primary>
-
-          <secondary>Commons Lang</secondary>
-        </indexterm> <indexterm id="lang-ITERM-1736" significance="normal">
-          <primary>code</primary>
-
-          <secondary>Commons Lang</secondary>
-        </indexterm> <indexterm id="lang-ITERM-1737" significance="normal">
-          <primary>viewing source code</primary>
-        </indexterm> <indexterm id="lang-ITERM-1738" significance="normal">
-          <primary>downloading</primary>
-
-          <secondary>Commons Lang</secondary>
-        </indexterm>source code for the Commons Lang project.</para>
-    </sect2>
-
-    <sect2>
-      <title>Solution</title>
-
-      <para>Download the source code from <ulink
-      url="http://jakarta.apache.org/site/sourceindex.cgi">http://jakarta.apache.org/site/sourceindex.cgi</ulink>.
-      Following the same procedure as outlined in <link
-      linkend="lang-sect-obtaining">Recipe 1.1</link>, you can download a file
-      named <filename moreinfo="none">commons-lang-2.0-src.zip</filename> (or
-      <filename moreinfo="none">commons-lang-2.0-src.tar.gz</filename>). Once
-      you unzip this file, you will have the source to Commons Lang in
-      <filename moreinfo="none">./commons-lang-2.0-src</filename>.</para>
-    </sect2>
-
-    <sect2>
-      <title>Discussion</title>
-
-      <para>The <filename moreinfo="none">commons-lang-2.0-src</filename>
-      <indexterm id="lang-ITERM-1739" significance="normal">
-          <primary>commons-lang-2.0-src directory</primary>
-        </indexterm> <indexterm id="lang-ITERM-1740" significance="normal">
-          <primary>directories</primary>
-
-          <secondary>commons-lang-2.0-src</secondary>
-        </indexterm> directory will contain <indexterm id="lang-ITERM-1741"
-          significance="normal">
-          <primary>subdirectories</primary>
-
-          <seealso>directories</seealso>
-        </indexterm>the following:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term><filename moreinfo="none">build.xml</filename></term>
-
-          <listitem>
-            <para>An Apache Ant<indexterm id="lang-ITERM-1742"
-                significance="normal">
-                <primary>files</primary>
-              </indexterm> <indexterm id="lang-ITERM-1743"
-                significance="normal">
-                <primary>build.xml</primary>
-              </indexterm> <indexterm id="lang-ITERM-1744"
-                significance="normal">
-                <primary>src/java subdirectory</primary>
-              </indexterm> <indexterm id="lang-ITERM-1745"
-                significance="normal">
-                <primary>subdirectories</primary>
-
-                <secondary>src/java</secondary>
-              </indexterm> build file, which you can use to compile the
-            source. If Ant is installed, you can compile or test by running
-            <literal moreinfo="none">ant compile</literal> or <literal
-            moreinfo="none">ant test</literal>.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term><filename moreinfo="none">src/java</filename></term>
-
-          <listitem>
-            <para>This subdirectory contains the source for the classes in
-            Commons Lang.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term><filename moreinfo="none">src/test</filename></term>
-
-          <listitem>
-            <para>This <indexterm id="lang-ITERM-1746" significance="normal">
-                <primary>src/test subdirectory</primary>
-              </indexterm> <indexterm id="lang-ITERM-1747"
-                significance="normal">
-                <primary>subdirectories</primary>
-
-                <secondary>src/test</secondary>
-              </indexterm>subdirectory contains unit tests for the Commons
-            Lang project. Each <filename moreinfo="none">*Test.java</filename>
-            file is an extension of JUnit <literal
-            moreinfo="none">TestCase</literal> class.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </sect2>
-
-    <sect2>
-      <title>See Also</title>
-
-      <para>For more information about Apache Ant, see the Ant project page at
-      <ulink url="http://ant.apache.org">http://ant.apache.org</ulink>. Also
-      see Chapter 3 in the <emphasis>Java Extreme Programming
-      Cookbook</emphasis> by Eric M. Burke and Brian M. Coyner
-      (O'Reilly).</para>
-
-      <para>The unit tests in this source distribution use the JUnit testing
-      framework. For more information about JUnit, see the JUnit project page
-      at <ulink url="http://www.junit.org">http://www.junit.org</ulink>. Also
-      see Chapter 4 in the <emphasis>Java Extreme Programming
-      Cookbook</emphasis> by Burke and Coyner.</para>
-
-      <para>See <link linkend="lang-sect-obtaining">Recipe 1.1</link> for
-      information about obtaining the binary distribution for Commons Lang,
-      and see the Commons Lang web site at <ulink
-      url="http://jakarta.apache.org/commons/lang">http://jakarta.apache.org/commons/lang</ulink>.</para>
+      <para>If you are not sure what this means, I'd suggest reading <ulink
+      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
+      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      do is add the dependency <varname>groupId</varname>,
+      <varname>artifactId</varname>, and <varname>version</varname> to your
+      project's dependencies. Once you do this, Maven 2 will download the
+      dependency and make it available on your project's classpath.</para>
     </sect2>
   </sect1>
 
