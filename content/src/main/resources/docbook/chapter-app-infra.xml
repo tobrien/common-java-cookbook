@@ -13,7 +13,7 @@
     and XML documents, Commons Logging, and Log4J.</para>
   </sect1>
 
-  <sect1 id="lang-sect-obtaining" label="1.1" role="Recipe">
+  <sect1 id="app-infra-sect-obtaining" label="1.1" role="Recipe">
     <title>Depending on Commons CLI</title>
 
     <sect2>
@@ -529,7 +529,7 @@ For more instructions, see our website at: http://www.blah123.org</programlistin
     </sect2>
   </sect1>
 
-  <sect1 id="lang-sect-obtaining-comfiguration" label="1.1" role="Recipe">
+  <sect1 id="app-infra-sect-obtaining-comfiguration" label="1.1" role="Recipe">
     <title>Depending on Commons Configuration</title>
 
     <sect2>
