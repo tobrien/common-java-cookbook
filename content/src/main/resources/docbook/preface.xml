@@ -482,8 +482,8 @@ digester.doSomething( );</programlisting>
     projects to leave Jakarta was Apache Ant, and other projects such as
     Maven, Struts, and Log4j followed suit. This new, more nimble approach to
     the structure of collaborative software development avoids the creation of
-    multiple management layers between project participants and the PMC.
-    </para>
+    multiple management layers between project participants and the
+    PMC.</para>
 
     <para>In the past few years (2004-2009), Apache has made way for a new
     generation of projects that have set the standard for open source,

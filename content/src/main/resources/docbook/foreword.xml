@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <preface id="foreword">
   <title>Foreword: ${project.version}</title>
 
@@ -13,9 +13,10 @@
 
   <para>Tim O'Brien, Discursive</para>
 
-  <para><ulink url="mailto:tobrien@discursive.com">tobrien@discursive.com</ulink></para>
+  <para><ulink
+  url="mailto:tobrien@discursive.com">tobrien@discursive.com</ulink></para>
 
-  <para>Feb 15, 2009</para>
+  <para>February 20, 2009</para>
 
   <para>Edition: ${project.version}</para>
 </preface>

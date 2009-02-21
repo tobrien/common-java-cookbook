@@ -14,14 +14,14 @@
         significance="normal">
         <primary>J2SE (Java 2 Standard Edition)</primary>
       </indexterm>Edition (J2SE), providing classes and utilities that make
-    some of the more mundane programming tasks more straightforward. Jakarta
-    Commons Lang is a collection of useful supplements to the J2SE. This
-    package fills gaps present in the standard Java API and provides a number
-    of simple, time-saving utility classes. Sun's Javadoc for the <literal
+    some of the more mundane programming tasks more straightforward. Commons
+    Lang is a collection of useful supplements to the J2SE. This package fills
+    gaps present in the standard Java API and provides a number of simple,
+    time-saving utility classes. Sun's Javadoc for the <literal
     moreinfo="none">java.lang</literal> package in the J2SE states that the
     package "provides classes that are fundamental to the design of the Java
-    programming language." In the same vein, Jakarta Commons Lang provides
-    classes that augment the fundamental design of the Java programming
+    programming language." In the same vein, Commons Lang provides classes
+    that augment the fundamental design of the Java programming
     language.</para>
 
     <para>You may be tempted to skip the simple recipes presented in this
@@ -1050,8 +1050,8 @@ public int compareTo(Object o) {
 
       <para>Instead of capturing comparison logic in a <literal
       moreinfo="none">compareTo()</literal> method, consider using a <literal
-      moreinfo="none">Comparator</literal> object. The Jakarta Commons
-      Collections project contains a number of supplements to the <literal
+      moreinfo="none">Comparator</literal> object. The Commons Collections
+      project contains a number of supplements to the <literal
       moreinfo="none">Comparator</literal> interface, such <indexterm
       class="endofrange" id="lang-ITERM-1819" significance="normal"
       startref="lang-ITERM-1808"></indexterm> <indexterm class="endofrange"
@@ -2115,10 +2115,10 @@ String output = formatter.format( new Date( ) );
 
       <para>Java date and time classes have a number of issues—concurrency
       issues with date formatting being "only the tip of the iceberg." An
-      active member of the Jakarta Commons Community, Stephen Colebourne, has
-      taken time to create a clean room reimplementation of a date and time
-      API. For more information about Joda, take a look at the Joda project
-      page (<ulink
+      active member of the Commons community, Stephen Colebourne, has taken
+      time to create a clean room reimplementation of a date and time API. For
+      more information about Joda, take a look at the Joda project page
+      (<ulink
       url="http://www.joda.org/)">http://www.joda.org/)</ulink>.</para>
 
       <para>For more information about the ISO date and time standards, see
