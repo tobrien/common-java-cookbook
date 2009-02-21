@@ -14,14 +14,14 @@
     implementations addressing different needs for different applications.
     Despite the additions and improvements, there are still gaps in the Java's
     Collections API—functionality that is addressed by a supplemental library,
-    Jakarta Commons Collections. Most of the features introduced in Jakarta
-    Commons Collections are easily anticipated extensions of the Java 2
-    platform: a reversible <literal moreinfo="none">Comparator</literal> or a
-    <literal moreinfo="none">Bag</literal> interface, for example. Other
-    concepts in Commons Collections are innovative additions to the
-    J2SE—predicated collections, self-validating collections, set operations,
-    and lazy collections using transformers. Commons Collections 3.0 also
-    introduces the concept of functors (see <link linkend="functors">Chapter
+    Commons Collections. Most of the features introduced in Commons
+    Collections are easily anticipated extensions of the Java 2 platform: a
+    reversible <literal moreinfo="none">Comparator</literal> or a <literal
+    moreinfo="none">Bag</literal> interface, for example. Other concepts in
+    Commons Collections are innovative additions to the J2SE—predicated
+    collections, self-validating collections, set operations, and lazy
+    collections using transformers. Commons Collections 3.0 also introduces
+    the concept of functors (see <link linkend="functors">Chapter
     4</link>).</para>
 
     <para>Java 5.0 (a.k.a. Tiger) has introduced a number of new language
@@ -41,7 +41,7 @@
     <sect2>
       <title>Problem</title>
 
-      <para>You need to use Jakarta <indexterm id="collections-ITERM-2412"
+      <para>You need to use <indexterm id="collections-ITERM-2412"
           significance="normal">
           <primary>Commons Collections</primary>
 
@@ -99,8 +99,7 @@
 
       <para>For more information about the Commons Collections project, see
       the project page at <ulink
-      url="http://commons.apache.org/collections">http://commons.apache.org/collections</ulink>.
-      </para>
+      url="http://commons.apache.org/collections">http://commons.apache.org/collections</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -480,7 +479,7 @@ Modified List: {A,B,G,H,E,F}</programlisting>
       <literal moreinfo="none">ArrayIterator</literal> and <literal
       moreinfo="none">ObjectArrayIterator</literal>. See the Commons
       Collections project page at <ulink
-      url="http://jakarta.apache.org/commons/collections">http://jakarta.apache.org/commons/collections</ulink>
+      url="http://commons.apache.org/collections">http://commons.apache.org/collections</ulink>
       for more information about these <literal
       moreinfo="none">Iterator</literal> implementations.</para>
     </sect2>
@@ -1337,7 +1336,7 @@ Inventory after Transactions
     <sect2>
       <title>Solution</title>
 
-      <para>Use <literal moreinfo="none">Buffer</literal> from Jakarta Commons
+      <para>Use <literal moreinfo="none">Buffer</literal> from Commons
       Collections. A <firstterm>buffer</firstterm> is an object that is
       defined by the algorithm used for element removal. <literal
       moreinfo="none">Buffer</literal> objects can be priority queues, staging
@@ -1483,31 +1482,30 @@ try {
     <sect2>
       <title>See Also</title>
 
-      <para>A <literal moreinfo="none">Buffer</literal> in Jakarta Commons
-      Collections is analogous to a <literal moreinfo="none">Queue</literal>
-      in Java 5.0. The <literal moreinfo="none">Queue</literal> interface is
-      accompanied by a number of interfaces that provide almost identical
-      behavior to the <literal moreinfo="none">Buffer</literal> interface as
-      defined in Jakarta Commons Collections 3.0. <literal
-      moreinfo="none">Queue</literal> contains some new methods, <literal
-      moreinfo="none">offer( )</literal> and <literal moreinfo="none">peek(
-      )</literal>, which perform the same functions as <literal
-      moreinfo="none">add( )</literal> and <literal moreinfo="none">remove(
-      )</literal>, with one difference: these new methods return <literal
-      moreinfo="none">false</literal> if there is any problem adding an object
-      to a <literal moreinfo="none">Queue</literal>. More information about
-      queues and other changes to the Collections framework in Java 5.0
-      <indexterm class="endofrange" id="collections-ITERM-2498"
-      significance="normal" startref="collections-ITERM-2489"></indexterm>
-      <indexterm class="endofrange" id="collections-ITERM-2499"
-      significance="normal" startref="collections-ITERM-2490"></indexterm>
-      <indexterm class="endofrange" id="collections-ITERM-2500"
-      significance="normal" startref="collections-ITERM-2491"></indexterm>
-      <indexterm class="endofrange" id="collections-ITERM-2501"
-      significance="normal" startref="collections-ITERM-2492"></indexterm>
-      <indexterm class="endofrange" id="collections-ITERM-2502"
-      significance="normal" startref="collections-ITERM-2493"></indexterm>are
-      available at: <ulink
+      <para>A <literal moreinfo="none">Buffer</literal> in Commons Collections
+      is analogous to a <literal moreinfo="none">Queue</literal> in Java 5.0.
+      The <literal moreinfo="none">Queue</literal> interface is accompanied by
+      a number of interfaces that provide almost identical behavior to the
+      <literal moreinfo="none">Buffer</literal> interface as defined in
+      Commons Collections 3.0. <literal moreinfo="none">Queue</literal>
+      contains some new methods, <literal moreinfo="none">offer( )</literal>
+      and <literal moreinfo="none">peek( )</literal>, which perform the same
+      functions as <literal moreinfo="none">add( )</literal> and <literal
+      moreinfo="none">remove( )</literal>, with one difference: these new
+      methods return <literal moreinfo="none">false</literal> if there is any
+      problem adding an object to a <literal moreinfo="none">Queue</literal>.
+      More information about queues and other changes to the Collections
+      framework in Java 5.0 <indexterm class="endofrange"
+      id="collections-ITERM-2498" significance="normal"
+      startref="collections-ITERM-2489"></indexterm> <indexterm
+      class="endofrange" id="collections-ITERM-2499" significance="normal"
+      startref="collections-ITERM-2490"></indexterm> <indexterm
+      class="endofrange" id="collections-ITERM-2500" significance="normal"
+      startref="collections-ITERM-2491"></indexterm> <indexterm
+      class="endofrange" id="collections-ITERM-2501" significance="normal"
+      startref="collections-ITERM-2492"></indexterm> <indexterm
+      class="endofrange" id="collections-ITERM-2502" significance="normal"
+      startref="collections-ITERM-2493"></indexterm>are available at: <ulink
       url="http://java.sun.com/j2se/1.5.0/docs/guide/collections/changes5.html">http://java.sun.com/j2se/1.5.0/docs/guide/collections/changes5.html</ulink>.</para>
     </sect2>
   </sect1>
@@ -1788,17 +1786,16 @@ Patient: John Doe 1</programlisting>
     <sect2>
       <title>See Also</title>
 
-      <para>A <literal moreinfo="none">PriorityBuffer</literal> in Jakarta
-      <indexterm class="endofrange" id="collections-ITERM-2512"
-      significance="normal" startref="collections-ITERM-2503"></indexterm>
-      <indexterm class="endofrange" id="collections-ITERM-2513"
-      significance="normal" startref="collections-ITERM-2504"></indexterm>
-      <indexterm class="endofrange" id="collections-ITERM-2514"
-      significance="normal" startref="collections-ITERM-2505"></indexterm>
-      <indexterm class="endofrange" id="collections-ITERM-2515"
-      significance="normal" startref="collections-ITERM-2506"></indexterm>
-      <indexterm class="endofrange" id="collections-ITERM-2516"
-      significance="normal"
+      <para>A <literal moreinfo="none">PriorityBuffer</literal> in <indexterm
+      class="endofrange" id="collections-ITERM-2512" significance="normal"
+      startref="collections-ITERM-2503"></indexterm> <indexterm
+      class="endofrange" id="collections-ITERM-2513" significance="normal"
+      startref="collections-ITERM-2504"></indexterm> <indexterm
+      class="endofrange" id="collections-ITERM-2514" significance="normal"
+      startref="collections-ITERM-2505"></indexterm> <indexterm
+      class="endofrange" id="collections-ITERM-2515" significance="normal"
+      startref="collections-ITERM-2506"></indexterm> <indexterm
+      class="endofrange" id="collections-ITERM-2516" significance="normal"
       startref="collections-ITERM-2507"></indexterm>Commons Collections is
       analogous to a <literal moreinfo="none">PriorityQueue</literal> in Java
       5.0. For information about <literal
@@ -2076,8 +2073,8 @@ published.add( newsStory );</programlisting>
     <sect2>
       <title>See Also</title>
 
-      <para>A <literal moreinfo="none">BlockingBuffer</literal> in Jakarta
-      Commons Collections is analogous to a <literal
+      <para>A <literal moreinfo="none">BlockingBuffer</literal> in Commons
+      Collections is analogous to a <literal
       moreinfo="none">BlockingQueue</literal> in Java 5.0. A <literal
       moreinfo="none">BlockingQueue</literal> in Java 5.0 has an important
       feature that is missing in Commons Collections 3.0 implementation of
@@ -3411,9 +3408,9 @@ list.add( new Integer(4) );</programlisting>
 
       <para><literal moreinfo="none">PredicatedList</literal> and <literal
       moreinfo="none">PredicatedMap</literal> are not the only <literal
-      moreinfo="none">Collection</literal> decorators available in the Jakarta
-      Commons Collections. Any <literal moreinfo="none">Collection</literal>
-      interface in the following list can be decorated with a <literal
+      moreinfo="none">Collection</literal> decorators available in the Commons
+      Collections. Any <literal moreinfo="none">Collection</literal> interface
+      in the following list can be decorated with a <literal
       moreinfo="none">Predicate</literal>.</para>
 
       <itemizedlist>
@@ -3463,9 +3460,9 @@ list.add( new Integer(4) );</programlisting>
         </listitem>
       </itemizedlist>
 
-      <para>For more information about these utilities, see the Jakarta
-      Commons Collections project page at <ulink
-      url="http://jakarta.apache.org/commons/collections">http://jakarta.apache.org/commons/collections</ulink>.</para>
+      <para>For more information about these utilities, see the Commons
+      Collections project page at <ulink
+      url="http://commons.apache.org/collections">http://commons.apache.org/collections</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -3673,7 +3670,7 @@ Transformed: -10, 0, 10, 20, 30, 40, 50, 60</programlisting>
       about the various implementations of <literal
       moreinfo="none">Transformer</literal>, see the Commons Collections
       project (<ulink
-      url="http://jakarta.apache.org/commons/collections">http://jakarta.apache.org/commons/collections</ulink>).</para>
+      url="http://commons.apache.org/collections">http://commons.apache.org/collections</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -3768,21 +3765,6 @@ Float msPrice2 = (Float) cache.get( "MSFT" );
       holds 100 news stories, and, when a new story is added, the <literal
       moreinfo="none">LRUMap</literal> evicts the stalest story in the
       <literal moreinfo="none">Map</literal>.</para>
-    </sect2>
-
-    <sect2>
-      <title>See Also</title>
-
-      <para>The <literal moreinfo="none">LRUMap</literal> is an ideal solution
-      for a cache, but, if your application needs to make heavy use of
-      caching, take a look at the following open source cache
-      implementations—OSCache or JCS. For more information about OSCache, see
-      the OpenSymphony OSCache project page (<ulink
-      url="http://www.opensymphony.com/oscache/">http://www.opensymphony.com/oscache/</ulink>).
-      The Java Caching System (JCS) was an offshoot of the Jakarta Turbine
-      project; for more information about JCS, see the JCS project page
-      (<ulink
-      url="http://jakarta.apache.org/turbine/jcs/">http://jakarta.apache.org/turbine/jcs/</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -3960,7 +3942,7 @@ public class LazyMapExample {
 
       <para>The <literal moreinfo="none">Transformer</literal> in <link
       linkend="collections-EX-17">Example 5-17</link> is an object that takes
-      a string and hits a URL using Jakarta HttpClient—a utility introduced in
+      a string and hits a URL using Apache HttpClient—a utility introduced in
       <link linkend="http-webdav">Chapter 11</link>. Every time a new symbol
       is encountered, this <literal moreinfo="none">Transformer</literal>
       creates another thread with a timeout and hits a "quote server" that is
@@ -4046,14 +4028,14 @@ public class StockQuoteTransformer implements Transformer {
       moreinfo="none">LazyMap</literal> and to write a <literal
       moreinfo="none">Transformer</literal> that can fetch a piece of data
       from another server, not that the <literal
-      moreinfo="none">StockQuoteTransformer</literal> uses Jakarta
+      moreinfo="none">StockQuoteTransformer</literal> uses Apache
       HttpClient.</para>
     </sect2>
 
     <sect2>
       <title>See Also</title>
 
-      <para>For more information about Jakarta HttpClient,<indexterm
+      <para>For more information about Apache HttpClient,<indexterm
       class="endofrange" id="collections-ITERM-2644" significance="normal"
       startref="collections-ITERM-2636"></indexterm> <indexterm
       class="endofrange" id="collections-ITERM-2645" significance="normal"

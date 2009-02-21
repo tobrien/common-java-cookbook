@@ -102,7 +102,7 @@ public class SimpleBean {
     <sect2>
       <title>Problem</title>
 
-      <para>You want to use Jakarta <indexterm id="beans-ITERM-2124"
+      <para>You want to use <indexterm id="beans-ITERM-2124"
           significance="normal">
           <primary>Commons BeanUtils</primary>
 
@@ -163,7 +163,7 @@ public class SimpleBean {
       and straightforward, and, as such, you will find that it is one of the
       most widely used and distributed libraries in open source Java. Along
       with Commons Lang and Commons Collections, Commons BeanUtils is part of
-      the core of Jakarta Commons. Unless specified otherwise, every utility
+      the core of Apache Commons. Unless specified otherwise, every utility
       mentioned in this chapter is from Commons BeanUtils.</para>
 
       <sidebar id="beans-SIDEBAR-1">
@@ -190,7 +190,7 @@ public class SimpleBean {
         moreinfo="none">BeanUtils</literal>, <literal
         moreinfo="none">PropertyUtils</literal>, and <literal
         moreinfo="none">ConvertUtils</literal> classes to populate and
-        manipulate beans. Refactoring BeanUtils from Struts has created new
+        manipulate beans. Refactoring BeanUtils from Struts created new
         possibilities of reuse throughout the Jakarta project and the larger
         open source Java community.</para>
       </sidebar>
@@ -392,10 +392,10 @@ try {
       templating system or an expression language interpreter; you may need to
       access an arbitrary property of an arbitrary object known only at
       runtime. The ability to retrieve the value of a bean property by name
-      lies at the heart of a number of important tools, such as Struts,
-      Jakarta Velocity, Jakarta Commons JEXL, and utilities from Jakarta
-      Commons Collections. Accessing bean properties by name is an appropriate
-      solution for a system that needs a high level of flexibility.</para>
+      lies at the heart of a number of important tools, such as Struts, Apache
+      Velocity, Commons JEXL, and utilities from Commons Collections.
+      Accessing bean properties by name is an appropriate solution for a
+      system that needs a high level of flexibility.</para>
     </sect2>
 
     <sect2>
@@ -415,10 +415,10 @@ try {
       significance="normal" startref="beans-ITERM-2140"></indexterm>
       <indexterm class="endofrange" id="beans-ITERM-2152"
       significance="normal" startref="beans-ITERM-2141"></indexterm> mentions
-      Struts, a web application MVC framework. For more information about the
-      Struts project, see <ulink
-      url="http://jakarta.apache.org/struts">http://jakarta.apache.org/struts</ulink>.
-      Jakarta Velocity and Jakarta Commons JEXL are discussed in <link
+      Apache Struts, a web application MVC framework. For more information
+      about the Struts project, see <ulink
+      url="http://struts.apache.org">http://struts.apache.org/</ulink>. Apache
+      Velocity and Commons JEXL are discussed in <link
       linkend="templating">Chapter 9</link>, and Commons Collections is
       discussed in <link linkend="collections">Chapter 5</link>.</para>
     </sect2>
@@ -1191,7 +1191,7 @@ List chapters = new ArrayList( );
 chapters.add( chapter );
 
 Book book = new Book( );
-book.setName( "Jakarta Commons Cookbook" );
+book.setName( "Common Java Cookbook" );
 book.setAuthor( "Dude" );
 book.setChapters( chapters );
 
@@ -2121,7 +2121,7 @@ Predicate eitherABC =
       <link linkend="functors-sect-simple-pred">Recipe 4.7</link>. For more
       information about using predicates, see <link linkend="functors">Chapter
       4</link> and the Commons Collections project site at <ulink
-      url="http://jakarta.apache.org/commons/collections">http://jakarta.apache.org/commons/collections</ulink>.</para>
+      url="http://commons.apache.org/collections">http://commons.apache.org/collections</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -2840,7 +2840,7 @@ public class ReadAge {
       <title>See Also</title>
 
       <para>The BeanUtils Javadoc is available at <ulink
-      url="http://jakarta.apache.org/commons/beanutils/api/index.html">http://jakarta.apache.org/commons/beanutils/api/index.html</ulink>.</para>
+      url="http://commons.apache.org/beanutils/api/index.html">http://commons.apache.org/beanutils/api/index.html</ulink>.</para>
     </sect2>
   </sect1>
 </chapter>

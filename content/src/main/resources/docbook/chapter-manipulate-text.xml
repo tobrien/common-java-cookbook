@@ -1618,7 +1618,6 @@ while( lineReader.ready( ) ) {
       <para><link linkend="searching-filtering">Chapter 12</link> contains a
       number of recipes devoted to searching and filtering content. If you are
       creating a system that needs to search a large collection of documents,
-
       consider using Apache Lucene (<ulink
       url="http://lucene.apache.org">http://lucene.apache.org/</ulink>) to
       index your content.</para>
@@ -2165,9 +2164,9 @@ distance(Steve, Stereo): 3</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Use Jakarta Commons Codec's <literal
-      moreinfo="none">Soundex</literal>. Supply a surname or a word, and
-      <literal moreinfo="none">Soundex</literal> will produce a phonetic
+      <para>Use Commons Codec's <literal moreinfo="none">Soundex</literal>.
+      Supply a surname or a word, and <literal
+      moreinfo="none">Soundex</literal> will produce a phonetic
       encoding:</para>
 
       <programlisting format="linespecific" id="I_2_tt110">// Required import declaration

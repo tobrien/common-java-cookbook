@@ -47,10 +47,9 @@
     moreinfo="none">Predicate</literal> objects used to model a digital logic
     circuit.</para>
 
-    <para>Jakarta Commons Collections 3.0 introduces a set of functor
-    interfaces in the <literal
-    moreinfo="none">org.apache.commons.collections</literal> package: <literal
-    moreinfo="none">Predicate</literal>, <literal
+    <para>Commons Collections 3.0 introduced a set of functor interfaces in
+    the <literal moreinfo="none">org.apache.commons.collections</literal>
+    package: <literal moreinfo="none">Predicate</literal>, <literal
     moreinfo="none">Transformer</literal>, <literal
     moreinfo="none">Factory</literal>, and <literal
     moreinfo="none">Closure</literal> objects. <literal
@@ -62,7 +61,7 @@
     moreinfo="none">Factory</literal> objects create objects. The powerful
     part of functors isn't that Commons Collections has introduced a few new
     interfaces—the power is only evident once you realize how they can be used
-    in concert with other Jakarta Commons utilities such as Commons BeanUtils
+    in concert with other Apache Commons utilities such as Commons BeanUtils
     and Commons Collections. <link linkend="collections">Chapter 5</link>
     makes heavy use of the functors introduced in this chapter, and <link
     linkend="beans">Chapter 3</link> discusses a <literal
@@ -77,16 +76,8 @@
     use <literal moreinfo="none">Iterator</literal> objects with <literal
     moreinfo="none">Collections</literal>, recipes involving <literal
     moreinfo="none">Iterator</literal> objects are in the next chapter, which
-    covers Java Collections. Functors, part of Commons Collections, are
-    somewhat misplaced, and, even as this chapter is written, a Commons
-    Functor project is being finalized in the Jakarta Commons Sandbox. By the
-    time you read this chapter, the Commons Functor project may have been
-    released. This book assumes that you are using the functors available in
-    the 3.0 release of Commons Collections. The Commons Functor release
-    contains a number of changes and improvements to the set of functors
-    introduced in Commons Collections 3.0, and, when possible, the See Also
-    sections in each recipe discuss the relevant class or interface in the
-    fast-developing Commons Functor project.</para>
+    covers Java Collections. This book assumes that you are using the functors
+    available in the 3.x release of Commons Collections. </para>
   </sect1>
 
   <sect1 id="functors-sect-obtaining" label="4.1" role="Recipe">
@@ -95,7 +86,7 @@
     <sect2>
       <title>Problem</title>
 
-      <para>You need to use Jakarta <indexterm id="functors-ITERM-2291"
+      <para>You need to use <indexterm id="functors-ITERM-2291"
           significance="normal">
           <primary>Commons Collections</primary>
 
@@ -152,7 +143,7 @@
       moreinfo="none">Bag</literal> and <literal
       moreinfo="none">Buffer</literal>. Commons Collections is as widely used
       as Commons BeanUtils and Commons Lang, and with these two projects, it
-      forms the core of the Jakarta Commons components.</para>
+      forms the core of the Apache Commons components.</para>
     </sect2>
 
     <sect2>
@@ -721,7 +712,7 @@ nullLowComparator.compare( null, null );</programlisting>
       <title>Solution</title>
 
       <para>Use <literal moreinfo="none">FixedOrderComparator</literal> in
-      Jakarta Commons Collections. When using <literal
+      Commons Collections. When using <literal
       moreinfo="none">FixedOrderComparator</literal>, you supply an array of
       objects in a sorted order and the <literal
       moreinfo="none">Comparator</literal> returns comparison results based on
@@ -1526,13 +1517,13 @@ if( launchDecision.evaluate( stats ) ) {
       <para>The real Space Shuttle Launch Team has the outrageously complex
       job of monitoring and controlling every aspect of launching a
       spacecraft, and I'm sure that NASA doesn't implement the <literal
-      moreinfo="none">Predicate</literal> interface from Jakarta Commons
-      Collections. While it isn't related to the topic of open source Java
-      programming, it is a fascinatingly complex piece of software that
-      maintains a shuttle launch. It is written in something called high-order
-      assembly language/shuttle (HAL/S). If you are interested in learning
-      more about one of the most complex pieces of software, take a look at
-      NASA's Space Shuttle Launch Team website at <ulink
+      moreinfo="none">Predicate</literal> interface from Commons Collections.
+      While it isn't related to the topic of open source Java programming, it
+      is a fascinatingly complex piece of software that maintains a shuttle
+      launch. It is written in something called high-order assembly
+      language/shuttle (HAL/S). If you are interested in learning more about
+      one of the most complex pieces of software, take a look at NASA's Space
+      Shuttle Launch Team website at <ulink
       url="http://science.ksc.nasa.gov/shuttle/countdown/launch-team.html">http://science.ksc.nasa.gov/shuttle/countdown/launch-team.html</ulink>.
       (Besides, I'm sure you are amused that NASA controls spacecraft with an
       assembly language known as HAL.)</para>
@@ -2021,19 +2012,6 @@ Status after transformation: Pat T., Soldier</programlisting>
         </mediaobject>
       </figure>
     </sect2>
-
-    <sect2>
-      <title>See Also</title>
-
-      <para>Jakarta Commons Functor in the Commons Sandbox expands on the
-      initial functors introduced in Commons Collections, introducing a
-      <literal moreinfo="none">UnaryFunction</literal> object that provides a
-      simple interface equivalent to <literal
-      moreinfo="none">Transformer</literal>. For more information about
-      <literal moreinfo="none">UnaryFunction</literal>, see the Commons
-      Functor page at <ulink
-      url="http://jakarta.apache.org/commons/sandbox/functor">http://jakarta.apache.org/commons/sandbox/functor</ulink>.</para>
-    </sect2>
   </sect1>
 
   <sect1 id="functors-sect-create-chain" label="4.11" role="Recipe">
@@ -2161,28 +2139,6 @@ Result: 3401</programlisting>
           </imageobject>
         </mediaobject>
       </figure>
-    </sect2>
-
-    <sect2>
-      <title>See Also</title>
-
-      <para>Jakarta Commons Functor in the Commons Sandbox introduces a
-      <literal moreinfo="none">UnaryFunction</literal> interface that provides
-      an interface equivalent to <literal
-      moreinfo="none">Transformer</literal>, and multiple <literal
-      moreinfo="none">UnaryFunction</literal> instances can be chained
-      together using the <literal
-      moreinfo="none">CompositeUnaryFunction</literal> <indexterm
-          id="functors-ITERM-2383" significance="normal">
-          <primary>CompositeUnaryFunction class</primary>
-        </indexterm> <indexterm id="functors-ITERM-2384" significance="normal">
-          <primary>classes</primary>
-
-          <secondary>CompositeUnaryFunction</secondary>
-        </indexterm> class. For more information about <literal
-      moreinfo="none">CompositeUnaryFunction</literal>, see the Commons
-      Functor page at <ulink
-      url="http://jakarta.apache.org/commons/sandbox/functor">http://jakarta.apache.org/commons/sandbox/functor</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -2354,30 +2310,6 @@ Transform of 4 = 12</programlisting>
         </mediaobject>
       </figure>
     </sect2>
-
-    <sect2>
-      <title>See Also</title>
-
-      <para>Jakarta Commons Functor in the Commons Sandbox introduces a
-      <literal moreinfo="none">UnaryFunction</literal> interface that provides
-      an interface equivalent to <literal
-      moreinfo="none">Transformer</literal>. A <literal
-      moreinfo="none">UnaryFunction</literal> can be predicated with a
-      <literal moreinfo="none">UnaryPredicate</literal> object via the
-      <literal moreinfo="none">ConditionalUnaryFunction</literal> class. For
-      more information about <literal moreinfo="none">UnaryPredicate</literal>
-      <indexterm class="endofrange" id="functors-ITERM-2390"
-      significance="normal" startref="functors-ITERM-2385"></indexterm>
-      <indexterm class="endofrange" id="functors-ITERM-2391"
-      significance="normal" startref="functors-ITERM-2386"></indexterm>
-      <indexterm class="endofrange" id="functors-ITERM-2392"
-      significance="normal" startref="functors-ITERM-2387"></indexterm>
-      <indexterm class="endofrange" id="functors-ITERM-2393"
-      significance="normal" startref="functors-ITERM-2388"></indexterm> and
-      <literal moreinfo="none">ConditionalUnaryFunction</literal>, see the
-      Commons Functor page at <ulink
-      url="http://jakarta.apache.org/commons/sandbox/functor">http://jakarta.apache.org/commons/sandbox/functor</ulink>.</para>
-    </sect2>
   </sect1>
 
   <sect1 id="functors-sect-writing-closure" label="4.13" role="Recipe">
@@ -2463,19 +2395,6 @@ Shoes after 3 discounts: Fancy Shoes for $87.48</programlisting>
       <literal moreinfo="none">Closure</literal> implementations that can be
       used to chain and combine <literal moreinfo="none">Closure</literal>
       instances.</para>
-    </sect2>
-
-    <sect2>
-      <title>See Also</title>
-
-      <para>Jakarta Commons Functor in the Commons Sandbox expands on the
-      initial functors introduced in Commons Collections, introducing a
-      <literal moreinfo="none">UnaryProcedure</literal> object that provides a
-      simple interface equivalent to <literal
-      moreinfo="none">Closure</literal>. For more information about <literal
-      moreinfo="none">UnaryProcedure</literal>, see the Commons Functor page
-      at <ulink
-      url="http://jakarta.apache.org/commons/sandbox/functor">http://jakarta.apache.org/commons/sandbox/functor</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -2577,21 +2496,6 @@ Shuttle before preLaunch: Shuttle Endeavour is fueled and is ready for reentry.<
       different; the same object is passed to each <literal
       moreinfo="none">Closure</literal> in sequence like a car moving through
       a factory assembly line.</para>
-    </sect2>
-
-    <sect2>
-      <title>See Also</title>
-
-      <para>Jakarta Commons Functor in the Commons Sandbox introduces a
-      <literal moreinfo="none">UnaryProcedure</literal> interface that is
-      equivalent to <literal moreinfo="none">Closure</literal>. Two or more
-      <literal moreinfo="none">UnaryProcedure</literal> instances can be
-      chained together using the <literal
-      moreinfo="none">CompositeUnaryProcedure</literal> class. For more
-      information about <literal
-      moreinfo="none">CompositeUnaryProcedure</literal>, see the Commons
-      Functor page at <ulink
-      url="http://jakarta.apache.org/commons/sandbox/functor">http://jakarta.apache.org/commons/sandbox/functor</ulink>.</para>
     </sect2>
   </sect1>
 
