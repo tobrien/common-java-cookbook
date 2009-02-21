@@ -1622,11 +1622,6 @@ while( lineReader.ready( ) ) {
       consider using Apache Lucene (<ulink
       url="http://lucene.apache.org">http://lucene.apache.org/</ulink>) to
       index your content.</para>
-=======
-      consider using Jakarta Lucene (<ulink
-      url="http://jakarta.apache.org/lucene">http://jakarta.apache.org/lucene</ulink>)
-      to index your content.</para>
->>>>>>> feaa74708fc3a36b56ee3c7e8e910461e825d10f:content/src/main/resources/docbook/chapter-manipulate-text.xml
     </sect2>
   </sect1>
 
