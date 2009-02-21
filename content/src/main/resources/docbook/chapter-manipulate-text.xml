@@ -31,7 +31,11 @@
     gaps.</para>
 
     <para>The recipes in this chapter deal with a collection of static methods
+<<<<<<< HEAD:content/src/main/resources/docbook/chapter-manipulate-text.xml
     on two classes in Commons Lang—<literal
+=======
+    on two classes in Jakarta Commons Lang—<literal
+>>>>>>> feaa74708fc3a36b56ee3c7e8e910461e825d10f:content/src/main/resources/docbook/chapter-manipulate-text.xml
     moreinfo="none">StringUtils</literal> and <literal
     moreinfo="none">WordUtils</literal>. Some of the methods on <literal
     moreinfo="none">StringUtils</literal> have been made obsolete by changes
@@ -1468,9 +1472,15 @@ boolean t4val =
       moreinfo="none">NumberFormatException</literal>s or <literal
       moreinfo="none">NullPointerException</literal>s. An application should
       be able to gracefully handle the most nonsensical input without missing
+<<<<<<< HEAD:content/src/main/resources/docbook/chapter-manipulate-text.xml
       a beat, and prompt the user for a valid input. Tools such as Commons
       Validator provide a framework to validate the contents of a JavaBean,
       but at a much lower level, the <literal
+=======
+      a beat, and prompt the user for a valid input. Tools such as Jakarta
+      Commons Validator provide a framework to validate the contents of a
+      JavaBean, but at a much lower level, the <literal
+>>>>>>> feaa74708fc3a36b56ee3c7e8e910461e825d10f:content/src/main/resources/docbook/chapter-manipulate-text.xml
       moreinfo="none">StringUtils</literal> class in Commons Lang provides
       some useful utilities for examining the contents of a string.</para>
 
@@ -1618,9 +1628,15 @@ while( lineReader.ready( ) ) {
       <para><link linkend="searching-filtering">Chapter 12</link> contains a
       number of recipes devoted to searching and filtering content. If you are
       creating a system that needs to search a large collection of documents,
+<<<<<<< HEAD:content/src/main/resources/docbook/chapter-manipulate-text.xml
       consider using Apache Lucene (<ulink
       url="http://lucene.apache.org">http://lucene.apache.org/</ulink>) to
       index your content.</para>
+=======
+      consider using Jakarta Lucene (<ulink
+      url="http://jakarta.apache.org/lucene">http://jakarta.apache.org/lucene</ulink>)
+      to index your content.</para>
+>>>>>>> feaa74708fc3a36b56ee3c7e8e910461e825d10f:content/src/main/resources/docbook/chapter-manipulate-text.xml
     </sect2>
   </sect1>
 
@@ -2061,7 +2077,11 @@ distance(Steve, Stereo): 3</programlisting>
     <sect2>
       <title>Solution</title>
 
+<<<<<<< HEAD:content/src/main/resources/docbook/chapter-manipulate-text.xml
       <para>To use Commons Codec in a Maven 2 project, add the following
+=======
+      <para>To use Commons Codec 1.3 in a Maven 2 project, add the following
+>>>>>>> feaa74708fc3a36b56ee3c7e8e910461e825d10f:content/src/main/resources/docbook/chapter-manipulate-text.xml
       dependency to your project's <filename>pom.xml</filename>:</para>
 
       <example>
@@ -2073,6 +2093,17 @@ distance(Steve, Stereo): 3</programlisting>
   &lt;version&gt;1.3&lt;/version&gt;
 &lt;/dependency&gt;  </programlisting>
       </example>
+<<<<<<< HEAD:content/src/main/resources/docbook/chapter-manipulate-text.xml
+=======
+
+      <para>If you are not sure what this means, I'd suggest reading <ulink
+      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
+      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      do is add the dependency <varname>groupId</varname>,
+      <varname>artifactId</varname>, and <varname>version</varname> to your
+      project's dependencies. Once you do this, Maven 2 will download the
+      dependency and make it available on your project's classpath.</para>
+>>>>>>> feaa74708fc3a36b56ee3c7e8e910461e825d10f:content/src/main/resources/docbook/chapter-manipulate-text.xml
     </sect2>
 
     <sect2>
@@ -2099,8 +2130,13 @@ distance(Steve, Stereo): 3</programlisting>
     <sect2>
       <title>See Also</title>
 
+<<<<<<< HEAD:content/src/main/resources/docbook/chapter-manipulate-text.xml
       <para>To learn more about Commons Codec, visit the Commons Codec project
       at <ulink
+=======
+      <para>To learn more about Commons Codec, visit the Jakarta Commons Codec
+      web site at <ulink
+>>>>>>> feaa74708fc3a36b56ee3c7e8e910461e825d10f:content/src/main/resources/docbook/chapter-manipulate-text.xml
       url="http://commons.apache.org/codec/">http://commons.apache.org/codec/</ulink>.</para>
     </sect2>
   </sect1>

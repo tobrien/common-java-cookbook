@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.discursive.cjcook</groupId>
     <artifactId>book</artifactId>
-    <version>0.11</version>
+    <version>0.13-SNAPSHOT</version>
   </parent>
   <artifactId>content</artifactId>
   <packaging>jar</packaging>
@@ -55,7 +55,7 @@
 	      </dependency>
 	    </dependencies>
         <executions>
-          <execution>
+<!--          <execution>
             <id>generate-pdf</id>
             <phase>compile</phase>
             <goals>
@@ -75,7 +75,7 @@
                 </copy>
               </postProcess>
             </configuration>
-          </execution>
+          </execution> -->
           <execution>
             <id>generate-html</id>
             <phase>compile</phase>

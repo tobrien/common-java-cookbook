@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <chapter id="http-webdav" label="11">
   <title>HTTP and WebDAV</title>
 
@@ -9,16 +9,20 @@
         <primary>Hypertext Transfer Protocol</primary>
 
         <see>HTTP</see>
-      </indexterm>Hypertext Transfer <indexterm id="http-webdav-ITERM-3196" significance="normal">
+      </indexterm>Hypertext Transfer <indexterm id="http-webdav-ITERM-3196"
+        significance="normal">
         <primary>HTTP (Hypertext Transfer Protocol)</primary>
       </indexterm>Protocol (HTTP) is ubiquitous; this protocol is at the core
-    of important technologies such as the <indexterm id="http-webdav-ITERM-3197" significance="normal">
+    of important technologies such as the <indexterm
+        id="http-webdav-ITERM-3197" significance="normal">
         <primary>World Wide Web (WWW)</primary>
-      </indexterm>World Wide Web (WWW), the <indexterm id="http-webdav-ITERM-3198" significance="normal">
+      </indexterm>World Wide Web (WWW), the <indexterm
+        id="http-webdav-ITERM-3198" significance="normal">
         <primary>Simple Object Access Protocol</primary>
 
         <see>SOAP</see>
-      </indexterm>Simple Object Access Protocol (SOAP), <indexterm id="http-webdav-ITERM-3199" significance="normal">
+      </indexterm>Simple Object Access Protocol (SOAP), <indexterm
+        id="http-webdav-ITERM-3199" significance="normal">
         <primary>SOAP (Simple Object Access Protocol)</primary>
       </indexterm>XML databases, content management systems, WebDAV, and, most
     importantly, iTunes. Much of the world's business is accomplished over
@@ -51,19 +55,23 @@
     <sect2>
       <title>Problem</title>
 
-      <para>You need to use <indexterm id="http-webdav-ITERM-3201" significance="normal">
+      <para>You need to use <indexterm id="http-webdav-ITERM-3201"
+          significance="normal">
           <primary>HTTP (Hypertext Transfer Protocol)</primary>
 
           <seealso>Jakarta HttpClient</seealso>
-        </indexterm>Jakarta HttpClient<indexterm id="http-webdav-ITERM-3202" significance="normal">
+        </indexterm>Jakarta HttpClient<indexterm id="http-webdav-ITERM-3202"
+          significance="normal">
           <primary>Jakarta HttpClient</primary>
 
           <secondary>downloading</secondary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3203" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3203"
+          significance="normal">
           <primary>downloading</primary>
 
           <secondary>Jakarta HttpClient</secondary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3204" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3204"
+          significance="normal">
           <primary>clients</primary>
 
           <secondary>Jakarta HttpClient</secondary>
@@ -76,174 +84,53 @@
     <sect2>
       <title>Solution</title>
 
-      <para>Download Jakarta HttpClient 3.0. Following the steps outlined in
-      <link linkend="lang-sect-obtaining">Recipe 1.1</link>, download
-      "Commons HttpClient 3.0" instead of Commons Lang. The HttpClient
-      archive&#x2014;<filename moreinfo="none">commons-httpclient-3.0.zip&#x2014;</filename>will contain a
-      file named <filename moreinfo="none">commons-httpclient-3.0.jar</filename>; place this JAR
-      file in your classpath, and you will be ready to use Jakarta
-      HttpClient.</para>
+      <para>To use Commons HttpClient 3.1 in a Maven 2 project, add the
+      following dependency to your project's
+      <filename>pom.xml</filename>:</para>
 
-      <para>Jakarta HttpClient depends on Jakarta Commons Logging, which can
-      be obtained from the same binary download page as HttpClient. To
-      download Commons Logging, see <link linkend="app-infra-sect-obtaining-logging">Recipe 7.9</link>. Jakarta HttpClient
-      also depends on Jakarta Commons Codec, which can also be obtained from
-      the same binary download page as HttpClient. To download Commons Codec,
-      see <link linkend="manipulate-text-sect-using-codec">Recipe 2.15</link>.</para>
+      <example>
+        <title>Adding a Dependency on Commons HttpClient</title>
+
+        <programlisting>    &lt;dependency&gt;
+      &lt;groupId&gt;commons-httpclient&lt;/groupId&gt;
+      &lt;artifactId&gt;commons-httpclient&lt;/artifactId&gt;
+      &lt;version&gt;3.1&lt;/version&gt;
+    &lt;/dependency&gt; </programlisting>
+      </example>
+
+      <para>If you are not sure what this means, I'd suggest reading <ulink
+      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
+      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      do is add the dependency <varname>groupId</varname>,
+      <varname>artifactId</varname>, and <varname>version</varname> to your
+      project's dependencies. Once you do this, Maven 2 will download the
+      dependency and make it available on your project's classpath.</para>
     </sect2>
 
     <sect2>
       <title>Discussion</title>
 
-      <para>Jakarta HttpClient is a client library for the HTTP protocol.
+      <para>Apache HttpClient is a client library for the HTTP protocol.
       HttpClient is very feature-rich, supporting all HTTP methods defined in
       RFC 2616 (Hypertext Transfer Protocol, HTTP/1.1). Jakarta HttpClient
       supports GET, POST, PUT, OPTIONS, HEAD, and DELETE using the command
       pattern; <literal moreinfo="none">HttpMethod</literal> objects are
-      instantiated and executed by an <literal moreinfo="none">HttpClient</literal> object that manages server
+      instantiated and executed by an <literal
+      moreinfo="none">HttpClient</literal> object that manages server
       interaction and state across multiple requests. HttpClient has support
       for various authentication mechanisms, including Basic, Digest, and NTLM
       authentication. HttpClient supports both HTTP and HTTPS, and the library
       can manage the complexity involved in using both schemes with an HTTP
       proxy. HttpClient can manage the state of a session, automatically
       keeping track of cookies across multiple requests.</para>
-
-      <para>If you have a Maven project that needs to use Jakarta HttpClient,
-      add a dependency on Jakarta HttpClient 3.0 with the following section in
-      <filename moreinfo="none">project.xml</filename>:</para>
-
-      <programlisting format="linespecific" id="I_11_tt433">&lt;dependencies&gt;
-  &lt;dependency&gt;
-    &lt;id&gt;httpclient&lt;/id&gt;
-    &lt;version&gt;3.0&lt;/version&gt;
-  &lt;/dependency&gt;
-
-  ....other dependencies...
-&lt;/dependencies&gt;</programlisting>
     </sect2>
 
     <sect2>
       <title>See Also</title>
 
-      <para>For more information about the Jakarta HttpClient project, see the
-      project page (<ulink url="http://jakarta.apache.org/commons/httpclient">http://jakarta.apache.org/commons/httpclient</ulink>).</para>
-
-      <tip id="http-webdav-NOTE-70" role="ora">
-        <para>The Jakarta Commons HttpClient recently voted itself out of the
-        Jakarta Commons and into Jakarta as a subproject. Be aware that the
-        URLs specified in this recipe may not be accurate after HttpClient
-        "graduates" from the Jakarta Commons.</para>
-      </tip>
-
-      <para>If you have questions about using HttpClient, please feel free to
-      join the <ulink url="commons-user@jakarta.apache.org">commons-user@jakarta.apache.org</ulink> mailing list.
-      Instructions for joining the user mailing list can be found in <link linkend="lang-sect-mailinglist">Recipe 1.2</link>. Note that as
-      Jakarta Commons HttpClient becomes Jakarta HttpClient, the commons-user
-      mailing list may stop being the place to ask questions about Jakarta
-      HttpClient. Investigate the current status of HttpClient before joining
-      these mailing lists.</para>
-
-      <para>For information on obtaining the source code for Commons
-      HttpClient, see <link linkend="http-webdav-sect-httpclient-sourcecode">Recipe
-      11.2</link>.</para>
-    </sect2>
-  </sect1>
-
-  <sect1 id="http-webdav-sect-httpclient-sourcecode" label="11.2" role="Recipe">
-    <title>Getting Jakarta HttpClient Source Code</title>
-
-    <sect2>
-      <title>Problem</title>
-
-      <para>You need the source code for the <indexterm id="http-webdav-ITERM-3205" significance="normal">
-          <primary>Jakarta HttpClient</primary>
-
-          <secondary>source code</secondary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3206" significance="normal">
-          <primary>source code</primary>
-
-          <secondary>Jakarta HttpClient</secondary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3207" significance="normal">
-          <primary>clients</primary>
-
-          <secondary>Jakarta HttpClient</secondary>
-
-          <tertiary>source code</tertiary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3208" significance="normal">
-          <primary>code</primary>
-
-          <secondary>Jakarta HttpClient</secondary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3209" significance="normal">
-          <primary>programming</primary>
-
-          <secondary>Jakarta HttpClient</secondary>
-        </indexterm>Jakarta HttpClient project.</para>
-    </sect2>
-
-    <sect2>
-      <title>Solution</title>
-
-      <para>Download the source distribution of Jakarta HttpClient 3.0.
-      Following the steps outlined in <link linkend="lang-sect-sourcecode">Recipe 1.3</link>, download "Commons
-      HttpClient 3.0" instead of Commons Lang. The HttpClient source
-      archive&#x2014;<filename moreinfo="none">commons-httpclient-3.0-src.zip&#x2014;</filename>contains a
-      directory named <filename moreinfo="none">src</filename>, which contains
-      the source for HttpClient<filename moreinfo="none">.</filename></para>
-    </sect2>
-
-    <sect2>
-      <title>Discussion</title>
-
-      <para>The <filename moreinfo="none">commons-httpclient-3.0-src</filename> directory will
-      contain the following:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term><filename moreinfo="none">build.xml</filename></term>
-
-          <listitem>
-            <para>An Apache Ant build file that you can use to compile the
-            source. If Ant is installed, you can compile or test by running
-            <literal moreinfo="none">ant compile</literal> or <literal moreinfo="none">ant test</literal>.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term><filename moreinfo="none">maven.xml</filename>, <filename moreinfo="none">project.xml</filename>, and <filename moreinfo="none">project.properties</filename></term>
-
-          <listitem>
-            <para>These three files are Maven project files. If Maven is
-            installed, you can compile or test by running <literal moreinfo="none">maven compile</literal> or <literal moreinfo="none">maven test</literal>.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term><filename moreinfo="none">src/java</filename></term>
-
-          <listitem>
-            <para>This subdirectory contains the source for the classes in
-            Jakarta HttpClient.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term><filename moreinfo="none">src/test</filename></term>
-
-          <listitem>
-            <para>This subdirectory contains unit tests for the Jakarta
-            HttpClient project. Each <filename moreinfo="none">*Test.java</filename> file is an extension of
-            JUnit <literal moreinfo="none">TestCase</literal> class.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </sect2>
-
-    <sect2>
-      <title>See Also</title>
-
-      <para>For information on obtaining the binary distribution for Jakarta
-      HttpClient, see <link linkend="http-webdav-sect-obtaining-httpclient">Recipe
-      11.1</link>.</para>
+      <para>For more information about the HttpClient 3.1 project, see the
+      project page (<ulink
+      url="http://hc.apache.org/httpclient-3.x/">http://hc.apache.org/httpclient-3.x/</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -253,19 +140,23 @@
     <sect2>
       <title>Problem</title>
 
-      <para>You need to retrieve information <indexterm id="http-webdav-ITERM-3210" significance="normal">
+      <para>You need to retrieve information <indexterm
+          id="http-webdav-ITERM-3210" significance="normal">
           <primary>Jakarta HttpClient</primary>
 
           <secondary>GET method</secondary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3211" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3211"
+          significance="normal">
           <primary>clients</primary>
 
           <secondary>Jakarta HttpClient</secondary>
 
           <tertiary>GET method</tertiary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3212" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3212"
+          significance="normal">
           <primary>GET method</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3213" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3213"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>GET</secondary>
@@ -275,18 +166,26 @@
     <sect2>
       <title>Solution</title>
 
-      <para>Create an instance of <literal moreinfo="none">HttpClient</literal> and use it to execute a <literal moreinfo="none">GetMethod</literal> <indexterm id="http-webdav-ITERM-3214" significance="normal">
+      <para>Create an instance of <literal
+      moreinfo="none">HttpClient</literal> and use it to execute a <literal
+      moreinfo="none">GetMethod</literal> <indexterm
+          id="http-webdav-ITERM-3214" significance="normal">
           <primary>objects</primary>
 
           <secondary>GetMethod</secondary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3215" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3215"
+          significance="normal">
           <primary>instances</primary>
 
           <secondary>HttpClient</secondary>
         </indexterm>object. Once the method has been executed, the response
-      body can be accessed as an <literal moreinfo="none">InputStream</literal>, <literal moreinfo="none">byte[]</literal>, or <literal moreinfo="none">String</literal>. The following example gets the
-      contents of <ulink url="http://www.discursive.com/jccook/">http://www.discursive.com/jccook/</ulink> and retrieves
-      the response body as a string:</para>
+      body can be accessed as an <literal
+      moreinfo="none">InputStream</literal>, <literal
+      moreinfo="none">byte[]</literal>, or <literal
+      moreinfo="none">String</literal>. The following example gets the
+      contents of <ulink
+      url="http://www.discursive.com/jccook/">http://www.discursive.com/jccook/</ulink>
+      and retrieves the response body as a string:</para>
 
       <programlisting format="linespecific" id="I_11_tt434">
                <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
@@ -314,8 +213,11 @@ HttpMethod method = <userinput moreinfo="none">new</userinput> GetMethod( url );
     method.recycle( );
 }</programlisting>
 
-      <para>This code retrieves the content of <ulink url="http://www.discursive.com/jccook">http://www.discursive.com/jccook</ulink> using the HTTP
-      GET method. If the response code is <literal moreinfo="none">HttpStatus.SC_OK</literal> or <literal moreinfo="none">200</literal>, the response is printed to the
+      <para>This code retrieves the content of <ulink
+      url="http://www.discursive.com/jccook">http://www.discursive.com/jccook</ulink>
+      using the HTTP GET method. If the response code is <literal
+      moreinfo="none">HttpStatus.SC_OK</literal> or <literal
+      moreinfo="none">200</literal>, the response is printed to the
       console:</para>
 
       <programlisting format="linespecific" id="I_11_tt435">&lt;html&gt;
@@ -332,23 +234,30 @@ HttpMethod method = <userinput moreinfo="none">new</userinput> GetMethod( url );
       <title>Discussion</title>
 
       <para>Note the exception handling involved in this example. Performing a
-      simple HTTP GET called for two catch blocks: <literal moreinfo="none">HttpException</literal> and <literal moreinfo="none">IOException</literal>. An <literal moreinfo="none">HttpException</literal> is thrown if there is a problem
-      relating to the HTTP protocol, and an <literal moreinfo="none">IOException</literal> is thrown if there is a problem
+      simple HTTP GET called for two catch blocks: <literal
+      moreinfo="none">HttpException</literal> and <literal
+      moreinfo="none">IOException</literal>. An <literal
+      moreinfo="none">HttpException</literal> is thrown if there is a problem
+      relating to the HTTP protocol, and an <literal
+      moreinfo="none">IOException</literal> is thrown if there is a problem
       with the network. Examples in this chapter omit the rigorous exception
       handling from the previous example; you can assume that every call to
       <literal moreinfo="none">execute()</literal> is surrounded by the
-      appropriate <literal moreinfo="none">try</literal>/<literal moreinfo="none">catch</literal> block.</para>
+      appropriate <literal moreinfo="none">try</literal>/<literal
+      moreinfo="none">catch</literal> block.</para>
 
       <para><literal moreinfo="none">GetMethod</literal> is an implementation
       of the <literal moreinfo="none">HttpMethod</literal> interface, which is
       executed by <literal moreinfo="none">HttpClient</literal>. The lifecycle
       of any <literal moreinfo="none">HttpMethod</literal> implementation is
       straightforward; an <literal moreinfo="none">HttpMethod</literal> is
-      created, executed by an instance of <literal moreinfo="none">HttpClient</literal>, and, once the response has been
+      created, executed by an instance of <literal
+      moreinfo="none">HttpClient</literal>, and, once the response has been
       examined, the connection is released and the method is recycled. When an
       <literal moreinfo="none">HttpMethod</literal> object is recycled by a
       call to <literal moreinfo="none">recycle( )</literal>, it is a signal to
-      the system that this specific <literal moreinfo="none">HttpMethod</literal> instance can be used again.
+      the system that this specific <literal
+      moreinfo="none">HttpMethod</literal> instance can be used again.
       <literal moreinfo="none">releaseConnection( )</literal> instructs
       <literal moreinfo="none">HttpClient</literal> to release the connection
       that is associated with an <literal moreinfo="none">HttpMethod</literal>
@@ -360,20 +269,31 @@ HttpMethod method = <userinput moreinfo="none">new</userinput> GetMethod( url );
       code from <literal moreinfo="none">method.getStatusCode( )</literal>.
       This method returns an <literal moreinfo="none">int</literal>, which
       will correspond to one of the <literal moreinfo="none">public static
-      final</literal> variables on <literal moreinfo="none">HttpStatus</literal>. Some of the more common status
-      codes on <literal moreinfo="none">HttpStatus</literal> are <literal moreinfo="none">SC_OK</literal> (200), <literal moreinfo="none">SC_NOT_FOUND</literal> (404), <literal moreinfo="none">SC_INTERNAL_SERVER_ERROR</literal> (500), <literal moreinfo="none">SC_MOVED_TEMPORARILY</literal> (302), and <literal moreinfo="none">SC_UNAUTHORIZED</literal> (401). For a full list of HTTP
-      status codes, see the Javadoc for <literal moreinfo="none">HttpStatus</literal>. When a server sends back a bad
+      final</literal> variables on <literal
+      moreinfo="none">HttpStatus</literal>. Some of the more common status
+      codes on <literal moreinfo="none">HttpStatus</literal> are <literal
+      moreinfo="none">SC_OK</literal> (200), <literal
+      moreinfo="none">SC_NOT_FOUND</literal> (404), <literal
+      moreinfo="none">SC_INTERNAL_SERVER_ERROR</literal> (500), <literal
+      moreinfo="none">SC_MOVED_TEMPORARILY</literal> (302), and <literal
+      moreinfo="none">SC_UNAUTHORIZED</literal> (401). For a full list of HTTP
+      status codes, see the Javadoc for <literal
+      moreinfo="none">HttpStatus</literal>. When a server sends back a bad
       HTTP status, it is sometimes accompanied by a short message. This
-      message can be read by calling <literal moreinfo="none">method.getStatusText( )</literal>.</para>
+      message can be read by calling <literal
+      moreinfo="none">method.getStatusText( )</literal>.</para>
     </sect2>
 
     <sect2>
       <title>See Also</title>
 
       <para>For a formal definition of the HTTP GET method, see Section 9.3 of
-      RFC 2616 at <ulink url="http://www.zvon.org/tmRFC/RFC2616/Output/index.html">http://www.zvon.org/tmRFC/RFC2616/Output/index.html</ulink>.</para>
+      RFC 2616 at <ulink
+      url="http://www.zvon.org/tmRFC/RFC2616/Output/index.html">http://www.zvon.org/tmRFC/RFC2616/Output/index.html</ulink>.</para>
 
-      <para>For a full list of HTTP status codes, see the <literal moreinfo="none">HttpStatus</literal> Javadoc at <ulink url="http://jakarta.apache.org/commons/httpclient/apidocs/index.html">http://jakarta.apache.org/commons/httpclient/apidocs/index.html</ulink>.</para>
+      <para>For a full list of HTTP status codes, see the <literal
+      moreinfo="none">HttpStatus</literal> Javadoc at <ulink
+      url="http://jakarta.apache.org/commons/httpclient/apidocs/index.html">http://jakarta.apache.org/commons/httpclient/apidocs/index.html</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -383,25 +303,30 @@ HttpMethod method = <userinput moreinfo="none">new</userinput> GetMethod( url );
     <sect2>
       <title>Problem</title>
 
-      <para>You need to send query<indexterm class="startofrange" id="http-webdav-ITERM-3216" significance="normal">
+      <para>You need to send query<indexterm class="startofrange"
+          id="http-webdav-ITERM-3216" significance="normal">
           <primary>Jakarta HttpClient</primary>
 
           <secondary>URLs, sending query parameters</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3217" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3217" significance="normal">
           <primary>URLs (uniform resource locators)</primary>
 
           <secondary>Jakarta HttpClient</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3218" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3218" significance="normal">
           <primary>clients</primary>
 
           <secondary>Jakarta HttpClient</secondary>
 
           <tertiary>sending query parameters</tertiary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3219" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3219" significance="normal">
           <primary>parameters</primary>
 
           <secondary>queries, sending</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3220" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3220" significance="normal">
           <primary>sending</primary>
 
           <secondary>query parameters</secondary>
@@ -411,8 +336,10 @@ HttpMethod method = <userinput moreinfo="none">new</userinput> GetMethod( url );
     <sect2>
       <title>Solution</title>
 
-      <para>Set the query string using the <literal moreinfo="none">setQueryString( )</literal> method on an instance of
-      <literal moreinfo="none">HttpMethod</literal>. Use <literal moreinfo="none">URIUtil</literal> to encode any text included in a URL.
+      <para>Set the query string using the <literal
+      moreinfo="none">setQueryString( )</literal> method on an instance of
+      <literal moreinfo="none">HttpMethod</literal>. Use <literal
+      moreinfo="none">URIUtil</literal> to encode any text included in a URL.
       The following example puts two parameters on the query string:</para>
 
       <programlisting format="linespecific" id="I_11_tt436">
@@ -465,18 +392,24 @@ blah:
     <sect2>
       <title>Discussion</title>
 
-      <para>In the previous example, <literal moreinfo="none">method.setQueryString()</literal> <indexterm id="http-webdav-ITERM-3221" significance="normal">
+      <para>In the previous example, <literal
+      moreinfo="none">method.setQueryString()</literal> <indexterm
+          id="http-webdav-ITERM-3221" significance="normal">
           <primary>method.setQueryString( ) method</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3222" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3222"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>method.setQueryString( )</secondary>
         </indexterm> is used to set the entire query string at once, but there
       is another alternative: setting the query string with an array of
       <literal moreinfo="none">NameValuePair</literal> objects. When a
-      <literal moreinfo="none">NameValuePair[]</literal> <indexterm id="http-webdav-ITERM-3223" significance="normal">
+      <literal moreinfo="none">NameValuePair[]</literal> <indexterm
+          id="http-webdav-ITERM-3223" significance="normal">
           <primary>NameValuePair</primary>
-        </indexterm> is passed to <literal moreinfo="none">method.setQueryString( )</literal>, the <literal moreinfo="none">HttpMethod</literal> then takes each pair and creates a
+        </indexterm> is passed to <literal
+      moreinfo="none">method.setQueryString( )</literal>, the <literal
+      moreinfo="none">HttpMethod</literal> then takes each pair and creates a
       series of parameters delimited by an ampersand. The approach encourages
       cleaner code because you are not concatenating strings to pass multiple
       parameters. The following example sets the same parameters used in the
@@ -497,13 +430,15 @@ System.out.println( "Response:\n " + method.getResponseBodyAsString( ) );
 method.releaseConnection( );</programlisting>
 
       <para>According to RFC 1738 (Uniform Resource Locators (URL)
-      specification) URLs can only contain alphanumeric characters, <literal moreinfo="none">[0-9a-zA-Z]</literal>, and a few other special
+      specification) URLs can only contain alphanumeric characters, <literal
+      moreinfo="none">[0-9a-zA-Z]</literal>, and a few other special
       characters. If you need to send a parameter with an unacceptable
       character in a URL, you will need to encode your string according to the
       standard defined in RFC 1738. <literal moreinfo="none">URIUtil</literal>
       exposes a method <literal moreinfo="none">encodeQuery( )</literal> that
       can be used to encode the value "O Reilly" in the previous example. The
-      following code demonstrates the use of <literal moreinfo="none">URIUtil</literal> to encode strings for inclusion in a
+      following code demonstrates the use of <literal
+      moreinfo="none">URIUtil</literal> to encode strings for inclusion in a
       URL:</para>
 
       <programlisting format="linespecific" id="I_11_tt439">String encoded1 = URIUtil.encodeQuery( "&lt;test&gt;=O'Connell" );
@@ -530,12 +465,25 @@ Decoded: Hello World?</programlisting>
       <para>In this example, <literal moreinfo="none">URLUtil</literal> was
       used to encode content passed in on the query string. This HttpClient
       team has recently moved some of the URL encoding and decoding logic to
-      the Jakarta Commons Codec project as a class named <literal moreinfo="none">URLCodec</literal>. For more information about <literal moreinfo="none">URLCodec</literal>, see the Jakarta Commons Codec
-      project page (<ulink url="http://jakarta.apache.org/codec">http://jakarta.apache.org/codec</ulink>).</para>
+      the Jakarta Commons Codec project as a class named <literal
+      moreinfo="none">URLCodec</literal>. For more information about <literal
+      moreinfo="none">URLCodec</literal>, see the Jakarta Commons Codec
+      project page (<ulink
+      url="http://jakarta.apache.org/codec">http://jakarta.apache.org/codec</ulink>).</para>
 
-      <para>RFC 1738 discusses the legal characters <indexterm class="endofrange" id="http-webdav-ITERM-3224" significance="normal" startref="http-webdav-ITERM-3216"/> <indexterm class="endofrange" id="http-webdav-ITERM-3225" significance="normal" startref="http-webdav-ITERM-3217"/> <indexterm class="endofrange" id="http-webdav-ITERM-3226" significance="normal" startref="http-webdav-ITERM-3218"/> <indexterm class="endofrange" id="http-webdav-ITERM-3227" significance="normal" startref="http-webdav-ITERM-3219"/> <indexterm class="endofrange" id="http-webdav-ITERM-3228" significance="normal" startref="http-webdav-ITERM-3220"/>for a URL and
-      defines a process for encoding other characters. RFC 1738 can be found
-      at <ulink url="http://www.zvon.org/tmRFC/RFC2616/Output/index.html">http://www.zvon.org/tmRFC/RFC2616/Output/index.html</ulink>.</para>
+      <para>RFC 1738 discusses the legal characters <indexterm
+      class="endofrange" id="http-webdav-ITERM-3224" significance="normal"
+      startref="http-webdav-ITERM-3216"></indexterm> <indexterm
+      class="endofrange" id="http-webdav-ITERM-3225" significance="normal"
+      startref="http-webdav-ITERM-3217"></indexterm> <indexterm
+      class="endofrange" id="http-webdav-ITERM-3226" significance="normal"
+      startref="http-webdav-ITERM-3218"></indexterm> <indexterm
+      class="endofrange" id="http-webdav-ITERM-3227" significance="normal"
+      startref="http-webdav-ITERM-3219"></indexterm> <indexterm
+      class="endofrange" id="http-webdav-ITERM-3228" significance="normal"
+      startref="http-webdav-ITERM-3220"></indexterm>for a URL and defines a
+      process for encoding other characters. RFC 1738 can be found at <ulink
+      url="http://www.zvon.org/tmRFC/RFC2616/Output/index.html">http://www.zvon.org/tmRFC/RFC2616/Output/index.html</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -545,23 +493,28 @@ Decoded: Hello World?</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to retrieve <indexterm class="startofrange" id="http-webdav-ITERM-3229" significance="normal">
+      <para>You need to retrieve <indexterm class="startofrange"
+          id="http-webdav-ITERM-3229" significance="normal">
           <primary>Jakarta HttpClient</primary>
 
           <secondary>GET method</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3230" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3230" significance="normal">
           <primary>clients</primary>
 
           <secondary>Jakarta HttpClient</secondary>
 
           <tertiary>GET method</tertiary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3231" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3231" significance="normal">
           <primary>GET method</primary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3232" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3232" significance="normal">
           <primary>methods</primary>
 
           <secondary>GET</secondary>
-        </indexterm>the same content <indexterm id="http-webdav-ITERM-3233" significance="normal">
+        </indexterm>the same content <indexterm id="http-webdav-ITERM-3233"
+          significance="normal">
           <primary>retrieving content (conditional GET method)</primary>
         </indexterm>more than once, and you would like to have the server only
       send the content if it has changed since the last request.</para>
@@ -571,12 +524,15 @@ Decoded: Hello World?</programlisting>
       <title>Solution</title>
 
       <para>Create a <literal moreinfo="none">GetMethod</literal> and set the
-      <filename moreinfo="none">If-None-Match</filename> and <filename moreinfo="none">If-Modified-Since</filename> headers; these two headers
+      <filename moreinfo="none">If-None-Match</filename> and <filename
+      moreinfo="none">If-Modified-Since</filename> headers; these two headers
       will instruct the server to refrain from sending content if the content
-      has not been altered since the last request. <link linkend="http-webdav-EX-1">Example 11-1</link> makes three
-      separate requests for the same URL (<ulink url="http://www.apache.org">http://www.apache.org</ulink>), and, because the content
-      remains static, it is only sent in the response body of the first
-      request.</para>
+      has not been altered since the last request. <link
+      linkend="http-webdav-EX-1">Example 11-1</link> makes three separate
+      requests for the same URL (<ulink
+      url="http://www.apache.org">http://www.apache.org</ulink>), and, because
+      the content remains static, it is only sent in the response body of the
+      first request.</para>
 
       <example id="http-webdav-EX-1" label="11-1">
         <title>Requesting information with a conditional GET</title>
@@ -597,7 +553,8 @@ Decoded: Hello World?</programlisting>
 
     <userinput moreinfo="none">public</userinput> 
                   <userinput moreinfo="none">static</userinput> 
-                  <userinput moreinfo="none">void</userinput> main(String[] args) <userinput moreinfo="none">throws</userinput> HttpException, IOException {
+                  <userinput moreinfo="none">void</userinput> main(String[] args) <userinput
+            moreinfo="none">throws</userinput> HttpException, IOException {
         ConditionalGetExample example = <userinput moreinfo="none">new</userinput> ConditionalGetExample( );
         example.start( );
     }
@@ -606,7 +563,8 @@ Decoded: Hello World?</programlisting>
     String lastModified = "";
     
     <userinput moreinfo="none">public</userinput> 
-                  <userinput moreinfo="none">void</userinput> start( ) <userinput moreinfo="none">throws</userinput> HttpException, IOException {
+                  <userinput moreinfo="none">void</userinput> start( ) <userinput
+            moreinfo="none">throws</userinput> HttpException, IOException {
 
         HttpClient client = <userinput moreinfo="none">new</userinput> HttpClient( );
         HttpMethod method = <userinput moreinfo="none">new</userinput> GetMethod("http://www.apache.org");
@@ -628,7 +586,8 @@ Decoded: Hello World?</programlisting>
     }
 
     <userinput moreinfo="none">private</userinput> 
-                  <userinput moreinfo="none">void</userinput> processResults(HttpMethod method) <userinput moreinfo="none">throws</userinput> HttpException {
+                  <userinput moreinfo="none">void</userinput> processResults(HttpMethod method) <userinput
+            moreinfo="none">throws</userinput> HttpException {
         <userinput moreinfo="none">if</userinput>(method.getStatusCode( ) == HttpStatus.SC_NOT_MODIFIED ) {
             System.out.println( "Content not modified since last request" );
         } <userinput moreinfo="none">else</userinput> {
@@ -653,14 +612,16 @@ Decoded: Hello World?</programlisting>
 }</programlisting>
       </example>
 
-      <para><link linkend="http-webdav-EX-1">Example 11-1</link>
-      requests the same page three times; the first request retrieves the
-      content, and the second and third requests contain the headers for a
-      conditional HTTP GET. Because the Apache homepage remains unchanged
-      throughout this example, the content of <ulink url="http://www.apache.org">http://www.apache.org</ulink> is retrieved only once.
-      This example uses the headers in the first response to populate the
-      <filename moreinfo="none">If-None-Match</filename> and <filename moreinfo="none">If-Modified-Since</filename> headers for the second and
-      third requests:</para>
+      <para><link linkend="http-webdav-EX-1">Example 11-1</link> requests the
+      same page three times; the first request retrieves the content, and the
+      second and third requests contain the headers for a conditional HTTP
+      GET. Because the Apache homepage remains unchanged throughout this
+      example, the content of <ulink
+      url="http://www.apache.org">http://www.apache.org</ulink> is retrieved
+      only once. This example uses the headers in the first response to
+      populate the <filename moreinfo="none">If-None-Match</filename> and
+      <filename moreinfo="none">If-Modified-Since</filename> headers for the
+      second and third requests:</para>
 
       <programlisting format="linespecific" id="I_11_tt441">Request 1. Get Method retrieved content.
 Entity Tag: "2da794a-2d0d-998ebc80"
@@ -681,8 +642,10 @@ Request 3. Content not modified since last request</programlisting>
       <programlisting format="linespecific" id="I_11_tt442">Last-Modified: Wed, 05 May 2004 02:51:59 GMT
 ETag: "a06d2-76-829811c0"</programlisting>
 
-      <para><link linkend="http-webdav-EX-1">Example 11-1</link> takes
-      the values of these two response headers and stores them in the <literal moreinfo="none">entityTag</literal> and <literal moreinfo="none">lastModified</literal> variables. When the next request
+      <para><link linkend="http-webdav-EX-1">Example 11-1</link> takes the
+      values of these two response headers and stores them in the <literal
+      moreinfo="none">entityTag</literal> and <literal
+      moreinfo="none">lastModified</literal> variables. When the next request
       is made, the values of these two variables are used to populate the
       conditional headers <filename moreinfo="none">If-None-Match</filename>
       and <filename moreinfo="none">If-Modified-Since</filename> in the
@@ -699,7 +662,8 @@ Host: www.apache.org</programlisting>
       to see if the resource has been modified. If the resource has been
       modified, the resource will have a different modified date and different
       entity tag value. If the resource has not been modified, the server will
-      respond to <literal moreinfo="none">HttpClient</literal> with a <literal moreinfo="none">304 Not Modified</literal> response code:</para>
+      respond to <literal moreinfo="none">HttpClient</literal> with a <literal
+      moreinfo="none">304 Not Modified</literal> response code:</para>
 
       <programlisting format="linespecific" id="I_11_tt444">HTTP/1.1 304 Not Modified
 Date: Sat, 15 May 2004 16:59:23 GMT
@@ -708,15 +672,19 @@ ETag: "2da7807-31a8-e1eeb400"
 Expires: Sun, 16 May 2004 16:59:23 GMT
 Cache-Control: max-age=86400</programlisting>
 
-      <para>The <filename moreinfo="none">ETag</filename> <indexterm id="http-webdav-ITERM-3234" significance="normal">
+      <para>The <filename moreinfo="none">ETag</filename> <indexterm
+          id="http-webdav-ITERM-3234" significance="normal">
           <primary>ETag headers</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3235" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3235"
+          significance="normal">
           <primary>headers</primary>
 
           <secondary>ETag</secondary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3236" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3236"
+          significance="normal">
           <primary>entity tags</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3237" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3237"
+          significance="normal">
           <primary>tags</primary>
 
           <secondary>entity</secondary>
@@ -736,12 +704,22 @@ Cache-Control: max-age=86400</programlisting>
       <title>See Also</title>
 
       <para>Entity tags (the <filename moreinfo="none">ETag</filename> header)
-      are described in sections 3.11 and 14.19 of RFC 2616 (<ulink url="http://www.zvon.org/tmRFC/RFC2616/Output/index.html">http://www.zvon.org/tmRFC/RFC2616/Output/index.html</ulink>).
+      are described in sections 3.11 and 14.19 of RFC 2616 (<ulink
+      url="http://www.zvon.org/tmRFC/RFC2616/Output/index.html">http://www.zvon.org/tmRFC/RFC2616/Output/index.html</ulink>).
       The Apache HTTPD server can be configured to use different file
       attributes when creating an <filename moreinfo="none">ETag</filename>
       header. For more information about configuring the Apache HTTPD
-      server<indexterm class="endofrange" id="http-webdav-ITERM-3238" significance="normal" startref="http-webdav-ITERM-3229"/> <indexterm class="endofrange" id="http-webdav-ITERM-3239" significance="normal" startref="http-webdav-ITERM-3230"/> <indexterm class="endofrange" id="http-webdav-ITERM-3240" significance="normal" startref="http-webdav-ITERM-3231"/> <indexterm class="endofrange" id="http-webdav-ITERM-3241" significance="normal" startref="http-webdav-ITERM-3232"/> via the <literal moreinfo="none">FileETag</literal> directive, see the documentation of
-      Apache's core features (<ulink url="http://httpd.apache.org/docs-2.0/mod/core.html#fileetag">http://httpd.apache.org/docs-2.0/mod/core.html#fileetag</ulink>).</para>
+      server<indexterm class="endofrange" id="http-webdav-ITERM-3238"
+      significance="normal" startref="http-webdav-ITERM-3229"></indexterm>
+      <indexterm class="endofrange" id="http-webdav-ITERM-3239"
+      significance="normal" startref="http-webdav-ITERM-3230"></indexterm>
+      <indexterm class="endofrange" id="http-webdav-ITERM-3240"
+      significance="normal" startref="http-webdav-ITERM-3231"></indexterm>
+      <indexterm class="endofrange" id="http-webdav-ITERM-3241"
+      significance="normal" startref="http-webdav-ITERM-3232"></indexterm> via
+      the <literal moreinfo="none">FileETag</literal> directive, see the
+      documentation of Apache's core features (<ulink
+      url="http://httpd.apache.org/docs-2.0/mod/core.html#fileetag">http://httpd.apache.org/docs-2.0/mod/core.html#fileetag</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -751,21 +729,26 @@ Cache-Control: max-age=86400</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to see the low-level communications <indexterm class="startofrange" id="http-webdav-ITERM-3242" significance="normal">
+      <para>You need to see the low-level communications <indexterm
+          class="startofrange" id="http-webdav-ITERM-3242"
+          significance="normal">
           <primary>Jakarta HttpClient</primary>
 
           <secondary>debugging</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3243" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3243" significance="normal">
           <primary>debugging</primary>
 
           <secondary>Jakarta HttpClient</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3244" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3244" significance="normal">
           <primary>clients</primary>
 
           <secondary>Jakarta HttpClient</secondary>
 
           <tertiary>debugging</tertiary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3245" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3245" significance="normal">
           <primary>servers</primary>
 
           <secondary>HTTP, debugging</secondary>
@@ -783,7 +766,9 @@ Cache-Control: max-age=86400</programlisting>
           <secondary>HttpClient</secondary>
         </indexterm>will produce debugging statements dealing with environment
       information, SSL configuration information, and the raw data sent to and
-      received from the server. The following example sets the four <literal moreinfo="none">System</literal> properties that control <literal moreinfo="none">HttpClient</literal> debugging output:</para>
+      received from the server. The following example sets the four <literal
+      moreinfo="none">System</literal> properties that control <literal
+      moreinfo="none">HttpClient</literal> debugging output:</para>
 
       <programlisting format="linespecific" id="I_11_tt445">
                <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
@@ -810,7 +795,8 @@ System.out.println( response );
 method.releaseConnection( );
 method.recycle( );</programlisting>
 
-      <para>This code executes a simple <literal moreinfo="none">GetMethod</literal> and produces the following debugging
+      <para>This code executes a simple <literal
+      moreinfo="none">GetMethod</literal> and produces the following debugging
       output, which contains environment information and a log of all data
       sent and received from the server:</para>
 
@@ -872,48 +858,71 @@ HttpMethodBase - -Should NOT close connection, using HTTP/1.1.
       <para>The ability to see the communications between a browser and a
       server is a great diagnostic tool, and, throughout this chapter, the
       wire protocol logging properties have been used to provide some insight
-      into the inner workings of <literal moreinfo="none">HttpClient</literal>. There were four <literal moreinfo="none">System</literal> properties set in the previous
+      into the inner workings of <literal
+      moreinfo="none">HttpClient</literal>. There were four <literal
+      moreinfo="none">System</literal> properties set in the previous
       example:</para>
 
       <variablelist>
         <varlistentry>
-          <term><literal moreinfo="none">org.apache.commons.logging.simplelog.log.httpclient.wire</literal></term>
+          <term><literal
+          moreinfo="none">org.apache.commons.logging.simplelog.log.httpclient.wire</literal></term>
 
           <listitem>
-            <para>Setting this property to <literal moreinfo="none">debug</literal> causes an <literal moreinfo="none">HttpClient</literal> instance to print out all
+            <para>Setting this property to <literal
+            moreinfo="none">debug</literal> causes an <literal
+            moreinfo="none">HttpClient</literal> instance to print out all
             traffic sent to and received from a web server.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term><literal moreinfo="none">org.apache.commons.logging.simplelog.log.org.apache.commons.httpclient</literal></term>
+          <term><literal
+          moreinfo="none">org.apache.commons.logging.simplelog.log.org.apache.commons.httpclient</literal></term>
 
           <listitem>
-            <para>Setting this property to <literal moreinfo="none">debug</literal> configures <literal moreinfo="none">HttpClient</literal> to print general debugging
+            <para>Setting this property to <literal
+            moreinfo="none">debug</literal> configures <literal
+            moreinfo="none">HttpClient</literal> to print general debugging
             information. In the previous example, every line starting with
-            <literal moreinfo="none">HttpClient</literal> or <literal moreinfo="none">HttpMethodBase</literal> is a debugging message
+            <literal moreinfo="none">HttpClient</literal> or <literal
+            moreinfo="none">HttpMethodBase</literal> is a debugging message
             configured by this setting.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term><literal moreinfo="none">org.apache.commons.logging.Log</literal></term>
+          <term><literal
+          moreinfo="none">org.apache.commons.logging.Log</literal></term>
 
           <listitem>
-            <para>Setting this property to <literal moreinfo="none">org.apache.commons.logging.impl.SimpleLog</literal>
+            <para>Setting this property to <literal
+            moreinfo="none">org.apache.commons.logging.impl.SimpleLog</literal>
             configures <literal moreinfo="none">HttpClient</literal> to log
             output to the console.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term><literal moreinfo="none">org.apache.commons.logging.simplelog.showdatetime</literal></term>
+          <term><literal
+          moreinfo="none">org.apache.commons.logging.simplelog.showdatetime</literal></term>
 
           <listitem>
             <para>Setting this to <literal moreinfo="none">true</literal> will
             cause the <literal moreinfo="none">SimpleLog</literal> to
-            <indexterm class="endofrange" id="http-webdav-ITERM-3247" significance="normal" startref="http-webdav-ITERM-3242"/> <indexterm class="endofrange" id="http-webdav-ITERM-3248" significance="normal" startref="http-webdav-ITERM-3243"/> <indexterm class="endofrange" id="http-webdav-ITERM-3249" significance="normal" startref="http-webdav-ITERM-3244"/> <indexterm class="endofrange" id="http-webdav-ITERM-3250" significance="normal" startref="http-webdav-ITERM-3245"/>print the
-            date and time for every message.</para>
+            <indexterm class="endofrange" id="http-webdav-ITERM-3247"
+            significance="normal"
+            startref="http-webdav-ITERM-3242"></indexterm> <indexterm
+            class="endofrange" id="http-webdav-ITERM-3248"
+            significance="normal"
+            startref="http-webdav-ITERM-3243"></indexterm> <indexterm
+            class="endofrange" id="http-webdav-ITERM-3249"
+            significance="normal"
+            startref="http-webdav-ITERM-3244"></indexterm> <indexterm
+            class="endofrange" id="http-webdav-ITERM-3250"
+            significance="normal"
+            startref="http-webdav-ITERM-3245"></indexterm>print the date and
+            time for every message.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -926,25 +935,31 @@ HttpMethodBase - -Should NOT close connection, using HTTP/1.1.
     <sect2>
       <title>Problem</title>
 
-      <para>You need to supply parameters to a<indexterm class="startofrange" id="http-webdav-ITERM-3251" significance="normal">
+      <para>You need to supply parameters to a<indexterm class="startofrange"
+          id="http-webdav-ITERM-3251" significance="normal">
           <primary>Jakarta HttpClient</primary>
 
           <secondary>HTTP POST requests</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3252" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3252" significance="normal">
           <primary>HTTP POST requests</primary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3253" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3253" significance="normal">
           <primary>clients</primary>
 
           <secondary>HTTP POST requests</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3254" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3254" significance="normal">
           <primary>parameters</primary>
 
           <secondary>HTTP POST requests</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3255" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3255" significance="normal">
           <primary>scripts</primary>
 
           <secondary>HTTP POST requests</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3256" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3256" significance="normal">
           <primary>servlets, HTTP POST requests</primary>
         </indexterm> script or servlet using HTTP POST.</para>
     </sect2>
@@ -953,26 +968,32 @@ HttpMethodBase - -Should NOT close connection, using HTTP/1.1.
       <title>Discussion</title>
 
       <para>Create a <literal moreinfo="none">PostMethod</literal> and call
-      <literal moreinfo="none">setParameter( )</literal> <indexterm id="http-webdav-ITERM-3257" significance="normal">
+      <literal moreinfo="none">setParameter( )</literal> <indexterm
+          id="http-webdav-ITERM-3257" significance="normal">
           <primary>setParameter( ) method</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3258" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3258"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>setParameter( )</secondary>
         </indexterm> or <literal moreinfo="none">addParameter()</literal>
       <indexterm id="http-webdav-ITERM-3259" significance="normal">
           <primary>addParameter( ) method</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3260" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3260"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>addParameter( )</secondary>
-        </indexterm> before you execute the method. The <literal moreinfo="none">PostMethod</literal> will send a request with a
-      <filename moreinfo="none">Content-Type</filename> header of <filename moreinfo="none">application/x-www-form-urlencoded</filename>, and the
+        </indexterm> before you execute the method. The <literal
+      moreinfo="none">PostMethod</literal> will send a request with a
+      <filename moreinfo="none">Content-Type</filename> header of <filename
+      moreinfo="none">application/x-www-form-urlencoded</filename>, and the
       parameters will be sent in the request body. The following example
       demonstrates the use of <literal moreinfo="none">PostMethod</literal>
       <indexterm id="http-webdav-ITERM-3261" significance="normal">
           <primary>PostMethod</primary>
-        </indexterm> to<indexterm id="http-webdav-ITERM-3262" significance="normal">
+        </indexterm> to<indexterm id="http-webdav-ITERM-3262"
+          significance="normal">
           <primary>sending</primary>
 
           <secondary>parameters</secondary>
@@ -1045,18 +1066,22 @@ test1=Hello+World&amp;test2=This+is+a+Form+Submission&amp;Blah=Whoop&amp;Blah=Wh
       fourth line states that the request body is exactly 72 bytes, and the
       <filename moreinfo="none">Content-Type</filename> header defines the
       request body as being a series of URL-encoded parameters. The parameters
-      are passed in one line as <filename moreinfo="none">name1=value1&amp;name2=value&amp;</filename>,
+      are passed in one line as <filename
+      moreinfo="none">name1=value1&amp;name2=value&amp;</filename>,
       etc.</para>
 
-      <para>There are a few ways to specify parameters on a <literal moreinfo="none">PostMethod</literal>. The most straightforward is to
+      <para>There are a few ways to specify parameters on a <literal
+      moreinfo="none">PostMethod</literal>. The most straightforward is to
       call <literal moreinfo="none">setParameter( )</literal> with two
-      strings: the parameter name and parameter value. <literal moreinfo="none">setParameter( )</literal> will replace any existing
+      strings: the parameter name and parameter value. <literal
+      moreinfo="none">setParameter( )</literal> will replace any existing
       parameter with the same name. If a parameter with the same name is
       already present in a <literal moreinfo="none">PostMethod</literal>,
       <literal moreinfo="none">addParameter( )</literal> will add another
       value to an existing parameter; <literal moreinfo="none">addParameter(
       )</literal> also accepts two strings: the name and value. Alternatively,
-      both methods can be called with a <literal moreinfo="none">NameValuePair</literal> object that encapsulates the
+      both methods can be called with a <literal
+      moreinfo="none">NameValuePair</literal> object that encapsulates the
       name and value of a parameter. The previous example sent two values for
       the parameter <filename moreinfo="none">Blah</filename>, which were both
       added using <literal moreinfo="none">addParameter( )</literal>. The
@@ -1068,7 +1093,8 @@ test1=Hello+World&amp;test2=This+is+a+Form+Submission&amp;Blah=Whoop&amp;Blah=Wh
       <title>See Also</title>
 
       <para>The POST method is defined in detail in Section 9.5 of RFC 2616
-      (<ulink url="http://www.zvon.org/tmRFC/RFC2616/Output/index.html">http://www.zvon.org/tmRFC/RFC2616/Output/index.html</ulink>).</para>
+      (<ulink
+      url="http://www.zvon.org/tmRFC/RFC2616/Output/index.html">http://www.zvon.org/tmRFC/RFC2616/Output/index.html</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -1078,11 +1104,13 @@ test1=Hello+World&amp;test2=This+is+a+Form+Submission&amp;Blah=Whoop&amp;Blah=Wh
     <sect2>
       <title>Problem</title>
 
-      <para>You need to send the data from<indexterm id="http-webdav-ITERM-3263" significance="normal">
+      <para>You need to send the data from<indexterm
+          id="http-webdav-ITERM-3263" significance="normal">
           <primary>sending</primary>
 
           <secondary>HTTP POST request files</secondary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3264" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3264"
+          significance="normal">
           <primary>files</primary>
 
           <secondary>HTTP POST requests</secondary>
@@ -1093,22 +1121,30 @@ test1=Hello+World&amp;test2=This+is+a+Form+Submission&amp;Blah=Whoop&amp;Blah=Wh
       <title>Solution</title>
 
       <para>Create a <literal moreinfo="none">PostMethod</literal>, create a
-      <literal moreinfo="none">File</literal> object, and call <literal moreinfo="none">setRequestBody( )</literal> <indexterm id="http-webdav-ITERM-3265" significance="normal">
+      <literal moreinfo="none">File</literal> object, and call <literal
+      moreinfo="none">setRequestBody( )</literal> <indexterm
+          id="http-webdav-ITERM-3265" significance="normal">
           <primary>setRequestBody( ) method</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3266" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3266"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>setRequestBody( )</secondary>
-        </indexterm> and <literal moreinfo="none">setRequestContentLength()</literal> <indexterm id="http-webdav-ITERM-3267" significance="normal">
+        </indexterm> and <literal
+      moreinfo="none">setRequestContentLength()</literal> <indexterm
+          id="http-webdav-ITERM-3267" significance="normal">
           <primary>setRequestContentLength( ) method</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3268" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3268"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>setRequestContentLength( )</secondary>
-        </indexterm> on the method before it is executed. The <literal moreinfo="none">PostMethod</literal> will send a request with a
+        </indexterm> on the method before it is executed. The <literal
+      moreinfo="none">PostMethod</literal> will send a request with a
       <filename moreinfo="none">Content-Length</filename> header, which
       reflects the size of the file sent in the request body. The following
-      example demonstrates the use of <literal moreinfo="none">PostMethod</literal> to send data from a file in a
+      example demonstrates the use of <literal
+      moreinfo="none">PostMethod</literal> to send data from a file in a
       request body:</para>
 
       <programlisting format="linespecific" id="I_11_tt450">
@@ -1143,27 +1179,39 @@ method.releaseConnection( );</programlisting>
       <title>Discussion</title>
 
       <para>This recipe sets the request body of an HTTP POST directly by
-      passing a <literal moreinfo="none">File</literal> object to <literal moreinfo="none">method.setRequestBody()</literal>. In addition to
-      accepting a <literal moreinfo="none">File</literal> object, <literal moreinfo="none">setRequestBody( )</literal> can accept an <literal moreinfo="none">InputStream</literal> or a <literal moreinfo="none">String</literal>. Any time a request body is populated,
+      passing a <literal moreinfo="none">File</literal> object to <literal
+      moreinfo="none">method.setRequestBody()</literal>. In addition to
+      accepting a <literal moreinfo="none">File</literal> object, <literal
+      moreinfo="none">setRequestBody( )</literal> can accept an <literal
+      moreinfo="none">InputStream</literal> or a <literal
+      moreinfo="none">String</literal>. Any time a request body is populated,
       the <filename moreinfo="none">Content-Length</filename> header must be
-      set to reflect the size of the request body by calling <literal moreinfo="none">method.setRequestContentLength( )</literal>. The
+      set to reflect the size of the request body by calling <literal
+      moreinfo="none">method.setRequestContentLength( )</literal>. The
       previous recipe sent parameters in an HTTP POST request body by calling
-      <literal moreinfo="none">setParameter( )</literal> and <literal moreinfo="none">addParameter()</literal>, and the <filename moreinfo="none">Content-Length</filename> and <filename moreinfo="none">Content-Type</filename> headers are automatically
-      populated when the method is executed. In this example, the <filename moreinfo="none">Content-Type</filename> header is not sent with the
+      <literal moreinfo="none">setParameter( )</literal> and <literal
+      moreinfo="none">addParameter()</literal>, and the <filename
+      moreinfo="none">Content-Length</filename> and <filename
+      moreinfo="none">Content-Type</filename> headers are automatically
+      populated when the method is executed. In this example, the <filename
+      moreinfo="none">Content-Type</filename> header is not sent with the
       request as the content can be any arbitrary textual or binary
       data.</para>
     </sect2>
   </sect1>
 
-  <sect1 id="http-webdav-sect-upload-multipart-post" label="11.9" role="Recipe">
+  <sect1 id="http-webdav-sect-upload-multipart-post" label="11.9"
+         role="Recipe">
     <title>Uploading Files with a Multipart POST</title>
 
     <sect2>
       <title>Problem</title>
 
-      <para>You need to upload a file or a<indexterm id="http-webdav-ITERM-3269" significance="normal">
+      <para>You need to upload a file or a<indexterm
+          id="http-webdav-ITERM-3269" significance="normal">
           <primary>uploading files</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3270" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3270"
+          significance="normal">
           <primary>files</primary>
 
           <secondary>uploading</secondary>
@@ -1175,9 +1223,14 @@ method.releaseConnection( );</programlisting>
 
       <para>Create a <literal moreinfo="none">MultipartPostMethod</literal>
       and add <literal moreinfo="none">File</literal> objects as parameters
-      using <literal moreinfo="none">addParameter( )</literal> and <literal moreinfo="none">addPart( )</literal>. The <literal moreinfo="none">MultipartPostMethod</literal> <indexterm id="http-webdav-ITERM-3271" significance="normal">
+      using <literal moreinfo="none">addParameter( )</literal> and <literal
+      moreinfo="none">addPart( )</literal>. The <literal
+      moreinfo="none">MultipartPostMethod</literal> <indexterm
+          id="http-webdav-ITERM-3271" significance="normal">
           <primary>MultipartPostMethod</primary>
-        </indexterm> creates a request with a <filename moreinfo="none">Content-Type</filename> header of <filename moreinfo="none">multipart/form-data</filename>, and each part is
+        </indexterm> creates a request with a <filename
+      moreinfo="none">Content-Type</filename> header of <filename
+      moreinfo="none">multipart/form-data</filename>, and each part is
       separated by a boundary. The following example sends two files in an
       HTTP multipart POST:</para>
 
@@ -1209,9 +1262,13 @@ method.releaseConnection( );</programlisting>
 
       <para>Two <literal moreinfo="none">File</literal> objects are added to
       the <literal moreinfo="none">MultipartPostMethod</literal> using two
-      different methods. The first method, <literal moreinfo="none">addParameter( )</literal>, adds a <literal moreinfo="none">File</literal> object and sets the file name to
+      different methods. The first method, <literal
+      moreinfo="none">addParameter( )</literal>, adds a <literal
+      moreinfo="none">File</literal> object and sets the file name to
       <filename moreinfo="none">test.txt</filename>. The second method,
-      <literal moreinfo="none">addPart()</literal>, adds a <literal moreinfo="none">FilePart</literal> object to the <literal moreinfo="none">MultipartPostMethod</literal>. Both files are sent in
+      <literal moreinfo="none">addPart()</literal>, adds a <literal
+      moreinfo="none">FilePart</literal> object to the <literal
+      moreinfo="none">MultipartPostMethod</literal>. Both files are sent in
       the request separated by a part boundary, and the script echoes the
       location and type of both files on the server:</para>
 
@@ -1230,18 +1287,28 @@ charset=ISO-8859-1}
       <para>Adding a part as a <literal moreinfo="none">FilePart</literal>
       <indexterm id="http-webdav-ITERM-3272" significance="normal">
           <primary>FilePart</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3273" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3273"
+          significance="normal">
           <primary>adding</primary>
 
           <secondary>parts</secondary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3274" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3274"
+          significance="normal">
           <primary>parts, adding</primary>
-        </indexterm> object allows you to specify the <indexterm id="http-webdav-ITERM-3275" significance="normal">
+        </indexterm> object allows you to specify the <indexterm
+          id="http-webdav-ITERM-3275" significance="normal">
           <primary>Multipurpose Internet Main Extensions (MIME)</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3276" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3276"
+          significance="normal">
           <primary>MIME (Multipurpose Internet Main Extensions)</primary>
         </indexterm>Multipurpose Internet Main Extensions (MIME) type and the
-      character set of the part. In this example, the <filename moreinfo="none">sample.txt</filename> file is added with a <filename moreinfo="none">text/plain</filename> MIME type and an <filename moreinfo="none">ISO-8859-1</filename> character set. If a <literal moreinfo="none">File</literal> is added to the method using <literal moreinfo="none">addParameter( )</literal> or <literal moreinfo="none">setParameter( )</literal>, it is sent with the default
+      character set of the part. In this example, the <filename
+      moreinfo="none">sample.txt</filename> file is added with a <filename
+      moreinfo="none">text/plain</filename> MIME type and an <filename
+      moreinfo="none">ISO-8859-1</filename> character set. If a <literal
+      moreinfo="none">File</literal> is added to the method using <literal
+      moreinfo="none">addParameter( )</literal> or <literal
+      moreinfo="none">setParameter( )</literal>, it is sent with the default
       <filename moreinfo="none">application/octet-stream</filename> type and
       the default <filename moreinfo="none">ISO-8859-1</filename> character
       set.</para>
@@ -1249,7 +1316,8 @@ charset=ISO-8859-1}
       <para>When <literal moreinfo="none">HttpClient</literal> executes the
       <literal moreinfo="none">MultipartPostMethod</literal> created in the
       previous example, the following request is sent to the server. The
-      <filename moreinfo="none">Content-Type</filename> header is <filename moreinfo="none">multipart/form-data</filename>, and an arbitrary
+      <filename moreinfo="none">Content-Type</filename> header is <filename
+      moreinfo="none">multipart/form-data</filename>, and an arbitrary
       <filename moreinfo="none">boundary</filename> is created to delineate
       multiple parts being sent in the request:</para>
 
@@ -1274,7 +1342,8 @@ Content-Transfer-Encoding: binary
 This is a sample
 ------------------314159265358979323846--</programlisting>
 
-      <para>Each part contains a <filename moreinfo="none">Content-Disposition</filename> header to name the part
+      <para>Each part contains a <filename
+      moreinfo="none">Content-Disposition</filename> header to name the part
       and a <filename moreinfo="none">Content-Type</filename> header to
       classify the part with a MIME type and character set.</para>
     </sect2>
@@ -1283,10 +1352,12 @@ This is a sample
       <title>See Also</title>
 
       <para>RFC 1867 (form-based file upload in HTML defines a multipart POST)
-      can be found at <ulink url="http://www.zvon.org/tmRFC/RFC1867/Output/index.html">http://www.zvon.org/tmRFC/RFC1867/Output/index.html</ulink>.
+      can be found at <ulink
+      url="http://www.zvon.org/tmRFC/RFC1867/Output/index.html">http://www.zvon.org/tmRFC/RFC1867/Output/index.html</ulink>.
       Each part is sent using MIME, which is described in RFC 2045,
       Multipurpose Internet Mail Extensions (MIME) Part One: Format of
-      Internet Message Bodies (<ulink url="http://www.zvon.org/tmRFC/RF2045/Output/index.html">http://www.zvon.org/tmRFC/RF2045/Output/index.html</ulink>).</para>
+      Internet Message Bodies (<ulink
+      url="http://www.zvon.org/tmRFC/RF2045/Output/index.html">http://www.zvon.org/tmRFC/RF2045/Output/index.html</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -1296,15 +1367,18 @@ This is a sample
     <sect2>
       <title>Problem</title>
 
-      <para>You need to access information<indexterm class="startofrange" id="http-webdav-ITERM-3277" significance="normal">
+      <para>You need to access information<indexterm class="startofrange"
+          id="http-webdav-ITERM-3277" significance="normal">
           <primary>Jakarta HttpClient</primary>
 
           <secondary>authentication</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3278" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3278" significance="normal">
           <primary>authentication</primary>
 
           <secondary>Jakarta HttpClient</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3279" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3279" significance="normal">
           <primary>clients</primary>
 
           <secondary>Jakarta HttpClient</secondary>
@@ -1316,22 +1390,32 @@ This is a sample
     <sect2>
       <title>Solution</title>
 
-      <para>Create a <literal moreinfo="none">UsernamePasswordCredentials</literal> <indexterm id="http-webdav-ITERM-3280" significance="normal">
+      <para>Create a <literal
+      moreinfo="none">UsernamePasswordCredentials</literal> <indexterm
+          id="http-webdav-ITERM-3280" significance="normal">
           <primary>UsernamePasswordCredentials object</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3281" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3281"
+          significance="normal">
           <primary>objects</primary>
 
           <secondary>UsernamePasswordCredentials</secondary>
-        </indexterm> object with a username and password. Add this <literal moreinfo="none">Credentials</literal> object to the instance of <literal moreinfo="none">HttpState</literal> associated with an <literal moreinfo="none">HttpClient</literal> object. <literal moreinfo="none">HttpClient</literal> will attempt to execute a message,
+        </indexterm> object with a username and password. Add this <literal
+      moreinfo="none">Credentials</literal> object to the instance of <literal
+      moreinfo="none">HttpState</literal> associated with an <literal
+      moreinfo="none">HttpClient</literal> object. <literal
+      moreinfo="none">HttpClient</literal> will attempt to execute a message,
       and the server will respond with <literal moreinfo="none">401</literal>
       response code; <literal moreinfo="none">HttpClient</literal> will then
-      retry the request with<indexterm id="http-webdav-ITERM-3282" significance="normal">
+      retry the request with<indexterm id="http-webdav-ITERM-3282"
+          significance="normal">
           <primary>authorization, headers</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3283" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3283"
+          significance="normal">
           <primary>headers</primary>
 
           <secondary>authorization</secondary>
-        </indexterm> the appropriate <filename moreinfo="none">Authorization</filename> header. The following example
+        </indexterm> the appropriate <filename
+      moreinfo="none">Authorization</filename> header. The following example
       uses a <literal moreinfo="none">UsernamePasswordCredentials</literal>
       object to access a protected resource:</para>
 
@@ -1360,9 +1444,12 @@ String response = method.getResponseBodyAsString( );
 System.out.println( response );
 method.releaseConnection( );</programlisting>
 
-      <para>This example executes a <literal moreinfo="none">GetMethod</literal>, the server requests <indexterm id="http-webdav-ITERM-3284" significance="normal">
+      <para>This example executes a <literal
+      moreinfo="none">GetMethod</literal>, the server requests <indexterm
+          id="http-webdav-ITERM-3284" significance="normal">
           <primary>credentials</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3285" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3285"
+          significance="normal">
           <primary>servers</primary>
 
           <secondary>authentication</secondary>
@@ -1382,8 +1469,12 @@ method.releaseConnection( );</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>The previous example added a <literal moreinfo="none">UsernamePasswordCredentials</literal> object to the
-      <literal moreinfo="none">HttpState</literal> with a <literal moreinfo="none">null</literal> authentication realm and a <literal moreinfo="none">null</literal> host; this makes the supplied <literal moreinfo="none">UsernamePasswordCredentials</literal> object the default
+      <para>The previous example added a <literal
+      moreinfo="none">UsernamePasswordCredentials</literal> object to the
+      <literal moreinfo="none">HttpState</literal> with a <literal
+      moreinfo="none">null</literal> authentication realm and a <literal
+      moreinfo="none">null</literal> host; this makes the supplied <literal
+      moreinfo="none">UsernamePasswordCredentials</literal> object the default
       instance to use for all authentication realms and hosts. The requests
       and responses created by this example demonstrate the inner-workings of
       <literal moreinfo="none">HttpClient</literal>, which sent the following
@@ -1394,15 +1485,20 @@ method.releaseConnection( );</programlisting>
 User-Agent: Jakarta Commons-HttpClient/3.0final
 Host: www.discursive.com</programlisting>
 
-      <para>The server then responds with a <literal moreinfo="none">401</literal> response code, telling the client that
-      authorization is required. The <filename moreinfo="none">WWW-Authenticate</filename> <indexterm id="http-webdav-ITERM-3286" significance="normal">
+      <para>The server then responds with a <literal
+      moreinfo="none">401</literal> response code, telling the client that
+      authorization is required. The <filename
+      moreinfo="none">WWW-Authenticate</filename> <indexterm
+          id="http-webdav-ITERM-3286" significance="normal">
           <primary>WWW-Authenticate header</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3287" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3287"
+          significance="normal">
           <primary>headers</primary>
 
           <secondary>WWW-Authenticate</secondary>
         </indexterm> header specifies that the server is expecting Basic
-      authentication, and the authentication realm is <filename moreinfo="none">jccook realm</filename>:</para>
+      authentication, and the authentication realm is <filename
+      moreinfo="none">jccook realm</filename>:</para>
 
       <programlisting format="linespecific" id="I_11_tt457">HTTP/1.1 401 Authorization Required
 Date: Fri, 14 May 2004 20:40:59 GMT
@@ -1417,8 +1513,10 @@ title&gt;401 Authorization Required&lt;/title&gt;
 .... error message ....</programlisting>
 
       <para>The server did not return the information needed, and another
-      request needs to be made, sending the credentials in an <filename moreinfo="none">Authorization</filename> request header. Since the
-      initial request was made with <filename moreinfo="none">HTTP/1.1</filename>, the connection is not closed after
+      request needs to be made, sending the credentials in an <filename
+      moreinfo="none">Authorization</filename> request header. Since the
+      initial request was made with <filename
+      moreinfo="none">HTTP/1.1</filename>, the connection is not closed after
       the response, and a second request will be sent over the same
       connection. This second request is the same as the first request except
       for an <filename moreinfo="none">Authorization</filename> header.
@@ -1433,7 +1531,8 @@ User-Agent: Jakarta Commons-HttpClient/3.0final
 Host: www.discursive.com
 Authorization: Basic dGVzdHVzZXI6Y3JhenlwYXNz</programlisting>
 
-      <para>Finally, the server replies with a <literal moreinfo="none">200</literal> response code and the content of the
+      <para>Finally, the server replies with a <literal
+      moreinfo="none">200</literal> response code and the content of the
       requested resource:</para>
 
       <programlisting format="linespecific" id="I_11_tt459">HTTP/1.1 200 OK
@@ -1461,9 +1560,12 @@ Content-Type: text/html; charset=UTF-8
       send credentials preemptively, obviating the need for the client to
       react to a <filename moreinfo="none">401</filename> response code. In
       other words, the <filename moreinfo="none">Authorization</filename>
-      header is supplied in the initial request. To configure <literal moreinfo="none">HttpClient</literal> to send credentials preemptively,
+      header is supplied in the initial request. To configure <literal
+      moreinfo="none">HttpClient</literal> to send credentials preemptively,
       retrieve an <literal moreinfo="none">HttpClientParams</literal> object
-      from <literal moreinfo="none">HttpClient</literal> via the <literal moreinfo="none">getParams( )</literal> method, and call <literal moreinfo="none">setAuthenticationPreemptive(true)</literal> as
+      from <literal moreinfo="none">HttpClient</literal> via the <literal
+      moreinfo="none">getParams( )</literal> method, and call <literal
+      moreinfo="none">setAuthenticationPreemptive(true)</literal> as
       follows:</para>
 
       <programlisting format="linespecific" id="I_11_tt460">HttpClientParams params = client.getParams( );
@@ -1472,7 +1574,8 @@ params.setAuthenticationPreemptive( <userinput moreinfo="none">true</userinput> 
 
       <warning id="http-webdav-NOTE-73" role="ora">
         <para>Basic authentication involves sending an unencrypted password in
-        the request. The value of the <filename moreinfo="none">Authorization</filename> header in the request is
+        the request. The value of the <filename
+        moreinfo="none">Authorization</filename> header in the request is
         simply <literal moreinfo="none">testuser:crazypass</literal> sent
         through a <literal moreinfo="none">Base64</literal> encoding utility.
         If you are working on a system that uses Basic authentication, make
@@ -1485,11 +1588,20 @@ params.setAuthenticationPreemptive( <userinput moreinfo="none">true</userinput> 
     <sect2>
       <title>See Also</title>
 
-      <para>If you want to convince someone that <indexterm class="endofrange" id="http-webdav-ITERM-3288" significance="normal" startref="http-webdav-ITERM-3277"/> <indexterm class="endofrange" id="http-webdav-ITERM-3289" significance="normal" startref="http-webdav-ITERM-3278"/> <indexterm class="endofrange" id="http-webdav-ITERM-3290" significance="normal" startref="http-webdav-ITERM-3279"/>using Basic
-      authentication without encryption is a bad idea, download the network
-      protocol analyzer Ethereal (<ulink url="http://www.ethereal.com/">http://www.ethereal.com/</ulink>), and capture some
-      network traffic. Identify an <filename moreinfo="none">Authorize</filename> header and run the value through a
-      Base64 decoder (<ulink url="http://www.securitystats.com/tools/base64.php">http://www.securitystats.com/tools/base64.php</ulink>).
+      <para>If you want to convince someone that <indexterm class="endofrange"
+      id="http-webdav-ITERM-3288" significance="normal"
+      startref="http-webdav-ITERM-3277"></indexterm> <indexterm
+      class="endofrange" id="http-webdav-ITERM-3289" significance="normal"
+      startref="http-webdav-ITERM-3278"></indexterm> <indexterm
+      class="endofrange" id="http-webdav-ITERM-3290" significance="normal"
+      startref="http-webdav-ITERM-3279"></indexterm>using Basic authentication
+      without encryption is a bad idea, download the network protocol analyzer
+      Ethereal (<ulink
+      url="http://www.ethereal.com/">http://www.ethereal.com/</ulink>), and
+      capture some network traffic. Identify an <filename
+      moreinfo="none">Authorize</filename> header and run the value through a
+      Base64 decoder (<ulink
+      url="http://www.securitystats.com/tools/base64.php">http://www.securitystats.com/tools/base64.php</ulink>).
       Create a custom T-shirt or coffee mug with your friend's username and
       password, and present it to him as a gift.</para>
     </sect2>
@@ -1508,18 +1620,22 @@ params.setAuthenticationPreemptive( <userinput moreinfo="none">true</userinput> 
     <sect2>
       <title>Solution</title>
 
-      <para>Create an instance of <literal moreinfo="none">NTCredentials</literal> with a username, password, host,
+      <para>Create an instance of <literal
+      moreinfo="none">NTCredentials</literal> with a username, password, host,
       and domain, and call <literal moreinfo="none">setCredentials()</literal>
       <indexterm id="http-webdav-ITERM-3291" significance="normal">
           <primary>setCredentials( ) method</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3292" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3292"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>setCredentials( )</secondary>
         </indexterm> on the <literal moreinfo="none">HttpState</literal>
-      associated with an instance of <literal moreinfo="none">HttpClient</literal>. The following example demonstrates
+      associated with an instance of <literal
+      moreinfo="none">HttpClient</literal>. The following example demonstrates
       the use of <literal moreinfo="none">NTCredentials</literal> to access a
-      resource on host <filename moreinfo="none">test.windowsmachine.com</filename>, which is on the
+      resource on host <filename
+      moreinfo="none">test.windowsmachine.com</filename>, which is on the
       domain <filename moreinfo="none">TESTDOM</filename>:</para>
 
       <programlisting format="linespecific" id="I_11_tt461">
@@ -1553,24 +1669,36 @@ method.releaseConnection( );</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>The parameters to the constructor of <literal moreinfo="none">NTCredentials</literal> are the username, the password,
+      <para>The parameters to the constructor of <literal
+      moreinfo="none">NTCredentials</literal> are the username, the password,
       a hostname, and a domain. The hostname is the name of the machine making
-      the request, and, in this case, the third parameter is <filename moreinfo="none">homecomputer</filename>. When this <literal moreinfo="none">Credential</literal> object is set in the <literal moreinfo="none">HttpState</literal> object, the first two parameters
-      specify the authentication realm and the host to apply a <literal moreinfo="none">Credential</literal> object to. The previous example
-      sets both the authentication realm and the host to <literal moreinfo="none">null</literal>; this makes the <literal moreinfo="none">NTCredentials</literal> <indexterm id="http-webdav-ITERM-3293" significance="normal">
+      the request, and, in this case, the third parameter is <filename
+      moreinfo="none">homecomputer</filename>. When this <literal
+      moreinfo="none">Credential</literal> object is set in the <literal
+      moreinfo="none">HttpState</literal> object, the first two parameters
+      specify the authentication realm and the host to apply a <literal
+      moreinfo="none">Credential</literal> object to. The previous example
+      sets both the authentication realm and the host to <literal
+      moreinfo="none">null</literal>; this makes the <literal
+      moreinfo="none">NTCredentials</literal> <indexterm
+          id="http-webdav-ITERM-3293" significance="normal">
           <primary>NTCredentials object</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3294" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3294"
+          significance="normal">
           <primary>objects</primary>
 
           <secondary>NTCredentials</secondary>
-        </indexterm> object the default <literal moreinfo="none">Credentials</literal> to use if there is no realm or
-      host specified. If we were using one instance of <literal moreinfo="none">HttpClient</literal> to connect to two different hosts
+        </indexterm> object the default <literal
+      moreinfo="none">Credentials</literal> to use if there is no realm or
+      host specified. If we were using one instance of <literal
+      moreinfo="none">HttpClient</literal> to connect to two different hosts
       with two different <literal moreinfo="none">NTCredentials</literal>
       objects, both <literal moreinfo="none">Credentials</literal> objects
       could be added to <literal moreinfo="none">HttpState</literal> with the
       following code:</para>
 
-      <programlisting format="linespecific" id="I_11_tt462">HttpClient client = <userinput moreinfo="none">new</userinput> HttpClient( );
+      <programlisting format="linespecific" id="I_11_tt462">HttpClient client = <userinput
+          moreinfo="none">new</userinput> HttpClient( );
 
 Credentials credentials1 =
 <userinput moreinfo="none">    new</userinput> NTCredentials( "testuser", "crazypass", 
@@ -1581,8 +1709,10 @@ Credentials credentials2 =
                        "homecomputer", "DIFFERENT_DOMAIN" );
 
 HttpState state = client.getState( );
-state( ).setCredentials( <userinput moreinfo="none">null</userinput>, <userinput moreinfo="none">"webmail.domain.biz"</userinput>, credentials1 );
-state( ).setCredentials( <userinput moreinfo="none">null</userinput>, <userinput moreinfo="none">"silly-iis-server.lame.net"</userinput>, credentials2 );
+state( ).setCredentials( <userinput moreinfo="none">null</userinput>, <userinput
+          moreinfo="none">"webmail.domain.biz"</userinput>, credentials1 );
+state( ).setCredentials( <userinput moreinfo="none">null</userinput>, <userinput
+          moreinfo="none">"silly-iis-server.lame.net"</userinput>, credentials2 );
 
 // Execute a request which uses credentials1
 String url = "http://webmail.domain.biz/exchange/";
@@ -1595,8 +1725,12 @@ HttpMethod method2 = <userinput moreinfo="none">new</userinput> GetMethod( url2 
 client.executeMethod( method2 );</programlisting>
 
       <para>The host <filename moreinfo="none">webmail.domain.biz</filename>
-      tries to authenticate the first request against the <filename moreinfo="none">TESTDOM</filename> domain, and the <filename moreinfo="none">silly-iis-server.lame.net</filename> host tries to
-      authenticate the second request against the <filename moreinfo="none">DIFFERENT_DOMAIN</filename> domain. Since the <literal moreinfo="none">HttpState</literal> is configured with two separate
+      tries to authenticate the first request against the <filename
+      moreinfo="none">TESTDOM</filename> domain, and the <filename
+      moreinfo="none">silly-iis-server.lame.net</filename> host tries to
+      authenticate the second request against the <filename
+      moreinfo="none">DIFFERENT_DOMAIN</filename> domain. Since the <literal
+      moreinfo="none">HttpState</literal> is configured with two separate
       <literal moreinfo="none">Credentials</literal> objects for different
       hosts, both requests are successfully authenticated.</para>
     </sect2>
@@ -1609,8 +1743,10 @@ client.executeMethod( method2 );</programlisting>
       this success is the openness of the protocol. Unfortunately, NTLM is
       proprietary and undocumented, and this is reason enough to avoid using
       it entirely. If you are stuck with NTLM and you want to learn more about
-      the protocol, it is described in excruciating detail at <ulink url="http://www.innovation.ch/java/ntlm.html">http://www.innovation.ch/java/ntlm.html</ulink> and
-      <ulink url="http://davenport.sourceforge.net/ntlm.html">http://davenport.sourceforge.net/ntlm.html</ulink>.</para>
+      the protocol, it is described in excruciating detail at <ulink
+      url="http://www.innovation.ch/java/ntlm.html">http://www.innovation.ch/java/ntlm.html</ulink>
+      and <ulink
+      url="http://davenport.sourceforge.net/ntlm.html">http://davenport.sourceforge.net/ntlm.html</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -1620,23 +1756,28 @@ client.executeMethod( method2 );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to work with <indexterm class="startofrange" id="http-webdav-ITERM-3295" significance="normal">
+      <para>You need to work with <indexterm class="startofrange"
+          id="http-webdav-ITERM-3295" significance="normal">
           <primary>Jakarta HttpClient</primary>
 
           <secondary>cookies</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3296" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3296" significance="normal">
           <primary>cookies, Jakarta HttpClient</primary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3297" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3297" significance="normal">
           <primary>clients</primary>
 
           <secondary>Jakarta HttpClient</secondary>
 
           <tertiary>cookies</tertiary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3298" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3298" significance="normal">
           <primary>tracking</primary>
 
           <secondary>cookies</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3299" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3299" significance="normal">
           <primary>servers</primary>
 
           <secondary>cookies</secondary>
@@ -1650,8 +1791,11 @@ client.executeMethod( method2 );</programlisting>
 
       <para><literal moreinfo="none">HttpClient</literal> handles cookies
       automatically. If you need to keep track of a cookie set by the server,
-      simply use the same instance of <literal moreinfo="none">HttpClient</literal> for each request in a session. If
-      you need to set a cookie, create an instance of <literal moreinfo="none">Cookie</literal>, and add it to <literal moreinfo="none">HttpState</literal>. The following example sends a
+      simply use the same instance of <literal
+      moreinfo="none">HttpClient</literal> for each request in a session. If
+      you need to set a cookie, create an instance of <literal
+      moreinfo="none">Cookie</literal>, and add it to <literal
+      moreinfo="none">HttpState</literal>. The following example sends a
       <literal moreinfo="none">Cookie</literal> to the server:</para>
 
       <programlisting format="linespecific" id="I_11_tt463">
@@ -1704,14 +1848,19 @@ Making Request with Cookie:
       <para>Cookies are used by a number of application servers to manage user
       sessions; <filename moreinfo="none">JSESSIONID</filename> cookies are
       used by most J2EE application servers and servlet containers to keep
-      track of a session. Because <literal moreinfo="none">HttpClient</literal> automatically handles cookies, if a
-      server sets a cookie, it will be added to the <literal moreinfo="none">HttpState</literal> instance associated with <literal moreinfo="none">HttpClient</literal>. If you need to get a list of
+      track of a session. Because <literal
+      moreinfo="none">HttpClient</literal> automatically handles cookies, if a
+      server sets a cookie, it will be added to the <literal
+      moreinfo="none">HttpState</literal> instance associated with <literal
+      moreinfo="none">HttpClient</literal>. If you need to get a list of
       cookies associated with an <literal moreinfo="none">HttpState</literal>,
       call <literal moreinfo="none">getCookies( )</literal> to obtain an array
       of <literal moreinfo="none">Cookie</literal> objects. The following code
       retrieves an array of <literal moreinfo="none">Cookie</literal> objects,
-      printing the <literal moreinfo="none">domain</literal>, <literal moreinfo="none">path</literal>, <literal moreinfo="none">name</literal>,
-      and <literal moreinfo="none">value</literal> of each <literal moreinfo="none">Cookie</literal>:</para>
+      printing the <literal moreinfo="none">domain</literal>, <literal
+      moreinfo="none">path</literal>, <literal moreinfo="none">name</literal>,
+      and <literal moreinfo="none">value</literal> of each <literal
+      moreinfo="none">Cookie</literal>:</para>
 
       <programlisting format="linespecific" id="I_11_tt465">HttpClient client = new HttpClient( );
 
@@ -1731,19 +1880,26 @@ for( int i = 0; i &lt; cookies; i++ ) {
       <para>There are two different approaches to cookies floating around the
       internet: <indexterm id="http-webdav-ITERM-3300" significance="normal">
           <primary>Netscape Draft Specification</primary>
-        </indexterm>Netscape Draft Specification and <indexterm id="http-webdav-ITERM-3301" significance="normal">
+        </indexterm>Netscape Draft Specification and <indexterm
+          id="http-webdav-ITERM-3301" significance="normal">
           <primary>RFC 2109</primary>
         </indexterm>RFC 2109. Some servers use the Netscape Draft and others
-      use RFC 2109; because of this, HttpClient offers a <literal moreinfo="none">COMPATIBILITY</literal> <indexterm id="http-webdav-ITERM-3302" significance="normal">
+      use RFC 2109; because of this, HttpClient offers a <literal
+      moreinfo="none">COMPATIBILITY</literal> <indexterm
+          id="http-webdav-ITERM-3302" significance="normal">
           <primary>COMPATIBILITY mode</primary>
         </indexterm> mode that should work with most servers. The default
-      cookie policy for HttpClient is the <literal moreinfo="none">RFC_2109</literal> policy. If you are having problems
-      with cookies, change the cookie policy to the <literal moreinfo="none">COMPATIBILITY</literal> policy, which is a public static
-      <literal moreinfo="none">int</literal> in the <literal moreinfo="none">CookiePolicy</literal> class. To change the cookie
+      cookie policy for HttpClient is the <literal
+      moreinfo="none">RFC_2109</literal> policy. If you are having problems
+      with cookies, change the cookie policy to the <literal
+      moreinfo="none">COMPATIBILITY</literal> policy, which is a public static
+      <literal moreinfo="none">int</literal> in the <literal
+      moreinfo="none">CookiePolicy</literal> class. To change the cookie
       policy, call <literal moreinfo="none">setCookiePolicy()</literal>
       <indexterm id="http-webdav-ITERM-3303" significance="normal">
           <primary>setCookiePolicy( ) method</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3304" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3304"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>setCookiePolicy( )</secondary>
@@ -1762,7 +1918,7 @@ client.getState( ).setCookiePolicy(CookiePolicy.NETSCAPE_DRAFT);
 // To use a RFC 2109 policy - this is the default
 client.getState( ).setCookiePolicy(CookiePolicy.RFC2109);</programlisting>
 
-      <para>There is also a third approach&#x2014;outlined in RFC 2965&#x2014;which
+      <para>There is also a third approach—outlined in RFC 2965—which
       supercedes RFC 2109. However, there is no code-level support for this
       third approach in commons yet.</para>
     </sect2>
@@ -1770,11 +1926,24 @@ client.getState( ).setCookiePolicy(CookiePolicy.RFC2109);</programlisting>
     <sect2>
       <title>See Also</title>
 
-      <para>The original cookie specification was <indexterm class="endofrange" id="http-webdav-ITERM-3305" significance="normal" startref="http-webdav-ITERM-3295"/> <indexterm class="endofrange" id="http-webdav-ITERM-3306" significance="normal" startref="http-webdav-ITERM-3296"/> <indexterm class="endofrange" id="http-webdav-ITERM-3307" significance="normal" startref="http-webdav-ITERM-3297"/> <indexterm class="endofrange" id="http-webdav-ITERM-3308" significance="normal" startref="http-webdav-ITERM-3298"/> <indexterm class="endofrange" id="http-webdav-ITERM-3309" significance="normal" startref="http-webdav-ITERM-3299"/>written by
-      Netscape, and it can be found at <ulink url="http://wp.netscape.com/newsref/std/cookie_spec.html">http://wp.netscape.com/newsref/std/cookie_spec.html</ulink>.
-      RFC 2109 (HTTP State Management Mechanism) is available at <ulink url="http://www.zvon.org/tmRFC/RFC2109/Output/">http://www.zvon.org/tmRFC/RFC2109/Output/</ulink>, and
-      the newer RFC 2965 (HTTP State Management Mechanism) can be found at
-      <ulink url="http://www.zvon.org/tmRFC/RFC2965/Output/">http://www.zvon.org/tmRFC/RFC2965/Output/</ulink>.
+      <para>The original cookie specification was <indexterm
+      class="endofrange" id="http-webdav-ITERM-3305" significance="normal"
+      startref="http-webdav-ITERM-3295"></indexterm> <indexterm
+      class="endofrange" id="http-webdav-ITERM-3306" significance="normal"
+      startref="http-webdav-ITERM-3296"></indexterm> <indexterm
+      class="endofrange" id="http-webdav-ITERM-3307" significance="normal"
+      startref="http-webdav-ITERM-3297"></indexterm> <indexterm
+      class="endofrange" id="http-webdav-ITERM-3308" significance="normal"
+      startref="http-webdav-ITERM-3298"></indexterm> <indexterm
+      class="endofrange" id="http-webdav-ITERM-3309" significance="normal"
+      startref="http-webdav-ITERM-3299"></indexterm>written by Netscape, and
+      it can be found at <ulink
+      url="http://wp.netscape.com/newsref/std/cookie_spec.html">http://wp.netscape.com/newsref/std/cookie_spec.html</ulink>.
+      RFC 2109 (HTTP State Management Mechanism) is available at <ulink
+      url="http://www.zvon.org/tmRFC/RFC2109/Output/">http://www.zvon.org/tmRFC/RFC2109/Output/</ulink>,
+      and the newer RFC 2965 (HTTP State Management Mechanism) can be found at
+      <ulink
+      url="http://www.zvon.org/tmRFC/RFC2965/Output/">http://www.zvon.org/tmRFC/RFC2965/Output/</ulink>.
       Currently, HttpClient does not support the RFC 2965 standard.</para>
     </sect2>
   </sect1>
@@ -1785,19 +1954,23 @@ client.getState( ).setCookiePolicy(CookiePolicy.RFC2109);</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to access a server that<indexterm class="startofrange" id="http-webdav-ITERM-3310" significance="normal">
+      <para>You need to access a server that<indexterm class="startofrange"
+          id="http-webdav-ITERM-3310" significance="normal">
           <primary>Jakarta HttpClient</primary>
 
           <secondary>redirects</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3311" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3311" significance="normal">
           <primary>redirects, Jakarta HttpClient</primary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3312" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3312" significance="normal">
           <primary>clients</primary>
 
           <secondary>Jakarta HttpClient</secondary>
 
           <tertiary>redirects</tertiary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3313" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3313" significance="normal">
           <primary>sending</primary>
 
           <secondary>redirects</secondary>
@@ -1811,13 +1984,16 @@ client.getState( ).setCookiePolicy(CookiePolicy.RFC2109);</programlisting>
       call, <literal moreinfo="none">setFollowRedirects(true)</literal>
       <indexterm id="http-webdav-ITERM-3314" significance="normal">
           <primary>setFollowRedirects( ) method</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3315" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3315"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>setFollowRedirects( )</secondary>
-        </indexterm> on the method; <literal moreinfo="none">HttpClient</literal> will take care of following any
+        </indexterm> on the method; <literal
+      moreinfo="none">HttpClient</literal> will take care of following any
       redirects a server may return in a response. The following example shows
-      what happens when a method requests a CGI script that returns a <literal moreinfo="none">302</literal> (moved temporarily) response code:</para>
+      what happens when a method requests a CGI script that returns a <literal
+      moreinfo="none">302</literal> (moved temporarily) response code:</para>
 
       <programlisting format="linespecific" id="I_11_tt467">
                <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
@@ -1850,15 +2026,18 @@ executeMethod(client, method);
     method.recycle( );
 }</programlisting>
 
-      <para>This example executes two <literal moreinfo="none">GetMethod</literal> instances; the first method is
+      <para>This example executes two <literal
+      moreinfo="none">GetMethod</literal> instances; the first method is
       configured <emphasis role="bold">not</emphasis> to follow redirects, and
       the second is configured to follow redirects. The first method is
       executed, and the server sends a <literal moreinfo="none">302</literal>
       response code. Since this method is not configured to follow redirects,
       <literal moreinfo="none">HttpClient</literal> does not make another
-      request. When the second method is executed, <literal moreinfo="none">HttpClient</literal> follows the initial redirect to a
+      request. When the second method is executed, <literal
+      moreinfo="none">HttpClient</literal> follows the initial redirect to a
       <filename moreinfo="none">redirect2.cgi</filename> script, which sends
-      another redirect to <filename moreinfo="none">/jccook/index.html</filename>:</para>
+      another redirect to <filename
+      moreinfo="none">/jccook/index.html</filename>:</para>
 
       <programlisting format="linespecific" id="I_11_tt468">Executing Method not following redirects: 
 0    INFO  [main] org.apache.commons.httpclient.HttpMethodBase     - Redirect 
@@ -1881,32 +2060,39 @@ Response Code: 200
       <title>Discussion</title>
 
       <para><literal moreinfo="none">HttpClient</literal> can handle any of
-      the following <indexterm id="http-webdav-ITERM-3316" significance="normal">
+      the following <indexterm id="http-webdav-ITERM-3316"
+          significance="normal">
           <primary>response codes, redirects</primary>
         </indexterm>response codes specifying a redirect:</para>
 
       <itemizedlist>
         <listitem>
-          <para>Status Code 302: <literal moreinfo="none">HttpStatus.SC_MOVED_TEMPORARILY</literal></para>
+          <para>Status Code 302: <literal
+          moreinfo="none">HttpStatus.SC_MOVED_TEMPORARILY</literal></para>
         </listitem>
 
         <listitem>
-          <para>Status Code 301: <literal moreinfo="none">HttpStatus.SC_MOVED_PERMANENTLY</literal></para>
+          <para>Status Code 301: <literal
+          moreinfo="none">HttpStatus.SC_MOVED_PERMANENTLY</literal></para>
         </listitem>
 
         <listitem>
-          <para>Status Code 303: <literal moreinfo="none">HttpStatus.SC_SEE_OTHER</literal></para>
+          <para>Status Code 303: <literal
+          moreinfo="none">HttpStatus.SC_SEE_OTHER</literal></para>
         </listitem>
 
         <listitem>
-          <para>Status Code 307: <literal moreinfo="none">HttpStatus.SC_TEMPORARY_REDIRECT</literal></para>
+          <para>Status Code 307: <literal
+          moreinfo="none">HttpStatus.SC_TEMPORARY_REDIRECT</literal></para>
         </listitem>
       </itemizedlist>
 
-      <para>When a response code is retrieved, <literal moreinfo="none">HttpClient</literal> sends another GET request for the
+      <para>When a response code is retrieved, <literal
+      moreinfo="none">HttpClient</literal> sends another GET request for the
       resource specified in the <filename moreinfo="none">Location</filename>
       header. The following code is the first request sent by a method
-      configured to<indexterm id="http-webdav-ITERM-3317" significance="normal">
+      configured to<indexterm id="http-webdav-ITERM-3317"
+          significance="normal">
           <primary>configuration</primary>
 
           <secondary>redirects</secondary>
@@ -1916,18 +2102,23 @@ Response Code: 200
 User-Agent: Jakarta Commons-HttpClient/3.0final
 Host: www.discursive.com</programlisting>
 
-      <para>The <filename moreinfo="none">redirect.cgi</filename> <indexterm id="http-webdav-ITERM-3318" significance="normal">
+      <para>The <filename moreinfo="none">redirect.cgi</filename> <indexterm
+          id="http-webdav-ITERM-3318" significance="normal">
           <primary>scripts</primary>
 
           <secondary>redirect.cgi</secondary>
         </indexterm> script will then send a <literal moreinfo="none">302
-      Moved</literal> response, supplying a <filename moreinfo="none">Location</filename> <indexterm id="http-webdav-ITERM-3319" significance="normal">
+      Moved</literal> response, supplying a <filename
+      moreinfo="none">Location</filename> <indexterm
+          id="http-webdav-ITERM-3319" significance="normal">
           <primary>Location headers</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3320" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3320"
+          significance="normal">
           <primary>headers</primary>
 
           <secondary>Location</secondary>
-        </indexterm> header that points to <filename moreinfo="none">redirect2.cgi</filename>:</para>
+        </indexterm> header that points to <filename
+      moreinfo="none">redirect2.cgi</filename>:</para>
 
       <programlisting format="linespecific" id="I_11_tt470">HTTP/1.1 302 Moved
 Date: Sat, 15 May 2004 19:30:49 GMT
@@ -1944,7 +2135,8 @@ User-Agent: Jakarta Commons-HttpClient/3.0final
 Host: www.discursive.com</programlisting>
 
       <para>The <filename moreinfo="none">redirect2.cgi</filename> is
-      configured to send a redirect for <filename moreinfo="none">/jccook/index.html</filename>, and the response to the
+      configured to send a redirect for <filename
+      moreinfo="none">/jccook/index.html</filename>, and the response to the
       previous request does just that:</para>
 
       <programlisting format="linespecific" id="I_11_tt472">HTTP/1.1 302 Moved
@@ -1956,14 +2148,24 @@ Content-Type: text/plain; charset=UTF-8</programlisting>
 
       <para>How <literal moreinfo="none">HttpClient</literal> handles redirect
       responses can be further customized by three configurable parameters on
-      <literal moreinfo="none">HttpClient</literal>. <literal moreinfo="none">REJECT_RELATIVE_REDIRECT</literal> causes <literal moreinfo="none">HttpClient</literal> to throw an exception if a server
+      <literal moreinfo="none">HttpClient</literal>. <literal
+      moreinfo="none">REJECT_RELATIVE_REDIRECT</literal> causes <literal
+      moreinfo="none">HttpClient</literal> to throw an exception if a server
       sends a <filename moreinfo="none">Location</filename> header with a
-      relative URL; for instance, if the <filename moreinfo="none">redirect.cgi</filename> script returns a <filename moreinfo="none">Location</filename> header of <filename moreinfo="none">../index.html</filename>, the redirection causes an
+      relative URL; for instance, if the <filename
+      moreinfo="none">redirect.cgi</filename> script returns a <filename
+      moreinfo="none">Location</filename> header of <filename
+      moreinfo="none">../index.html</filename>, the redirection causes an
       exception if <literal moreinfo="none">REJECT_RELATIVE_REDIRECT</literal>
-      is set to <literal moreinfo="none">true</literal>. If <literal moreinfo="none">ALLOW_CIRCULAR_REDIRECTS</literal> is set to <literal moreinfo="none">true</literal>, <literal moreinfo="none">HttpClient</literal> throws an exception if a series of
-      redirects includes the same resources more than once. <literal moreinfo="none">MAX_REDIRECTS</literal> allows you to specify a maximum
+      is set to <literal moreinfo="none">true</literal>. If <literal
+      moreinfo="none">ALLOW_CIRCULAR_REDIRECTS</literal> is set to <literal
+      moreinfo="none">true</literal>, <literal
+      moreinfo="none">HttpClient</literal> throws an exception if a series of
+      redirects includes the same resources more than once. <literal
+      moreinfo="none">MAX_REDIRECTS</literal> allows you to specify a maximum
       number of redirects to follow. The following example sets all three
-      parameters on an instance of <literal moreinfo="none">HttpClientParams</literal> associated with an instance
+      parameters on an instance of <literal
+      moreinfo="none">HttpClientParams</literal> associated with an instance
       of <literal moreinfo="none">HttpClient</literal>:</para>
 
       <programlisting format="linespecific" id="I_11_tt473">HttpClient client = new HttpClient( );
@@ -1977,25 +2179,42 @@ params.setIntParameter( HttpClientParams.MAX_REDIRECTS, 10 );</programlisting>
     <sect2>
       <title>See Also</title>
 
-      <para>For more information on how <literal moreinfo="none">HttpClient</literal> <indexterm class="endofrange" id="http-webdav-ITERM-3321" significance="normal" startref="http-webdav-ITERM-3310"/> <indexterm class="endofrange" id="http-webdav-ITERM-3322" significance="normal" startref="http-webdav-ITERM-3311"/> <indexterm class="endofrange" id="http-webdav-ITERM-3323" significance="normal" startref="http-webdav-ITERM-3312"/> <indexterm class="endofrange" id="http-webdav-ITERM-3324" significance="normal" startref="http-webdav-ITERM-3313"/> handles
-      redirection, take a look at the source for the<indexterm id="http-webdav-ITERM-3325" significance="normal">
+      <para>For more information on how <literal
+      moreinfo="none">HttpClient</literal> <indexterm class="endofrange"
+      id="http-webdav-ITERM-3321" significance="normal"
+      startref="http-webdav-ITERM-3310"></indexterm> <indexterm
+      class="endofrange" id="http-webdav-ITERM-3322" significance="normal"
+      startref="http-webdav-ITERM-3311"></indexterm> <indexterm
+      class="endofrange" id="http-webdav-ITERM-3323" significance="normal"
+      startref="http-webdav-ITERM-3312"></indexterm> <indexterm
+      class="endofrange" id="http-webdav-ITERM-3324" significance="normal"
+      startref="http-webdav-ITERM-3313"></indexterm> handles redirection, take
+      a look at the source for the<indexterm id="http-webdav-ITERM-3325"
+          significance="normal">
           <primary>HttpMethodDirector</primary>
         </indexterm> <literal moreinfo="none">HttpMethodDirector</literal>.
-      The <literal moreinfo="none">isRedirectNeeded()</literal> <indexterm id="http-webdav-ITERM-3326" significance="normal">
+      The <literal moreinfo="none">isRedirectNeeded()</literal> <indexterm
+          id="http-webdav-ITERM-3326" significance="normal">
           <primary>isRedirectNeeded( ) method</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3327" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3327"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>isRedirectNeeded( )</secondary>
-        </indexterm> and <literal moreinfo="none">processRedirectResponse()</literal> <indexterm id="http-webdav-ITERM-3328" significance="normal">
+        </indexterm> and <literal
+      moreinfo="none">processRedirectResponse()</literal> <indexterm
+          id="http-webdav-ITERM-3328" significance="normal">
           <primary>processRedirectResponse( ) method</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3329" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3329"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>processRedirectResponse( )</secondary>
         </indexterm> methods handle redirection, and the source for this class
-      can be viewed using ViewCVS (<ulink url="http://cvs.apache.org/viewcvs.cgi/jakarta-commons/httpclient/src/java/">http://cvs.apache.org/viewcvs.cgi/jakarta-commons/httpclient/src/java/</ulink>).
-      Navigate to the <literal moreinfo="none">org.apache.commons.httpclient</literal> package and
+      can be viewed using ViewCVS (<ulink
+      url="http://cvs.apache.org/viewcvs.cgi/jakarta-commons/httpclient/src/java/">http://cvs.apache.org/viewcvs.cgi/jakarta-commons/httpclient/src/java/</ulink>).
+      Navigate to the <literal
+      moreinfo="none">org.apache.commons.httpclient</literal> package and
       click on <literal moreinfo="none">HttpMethodDirector</literal>.</para>
     </sect2>
   </sect1>
@@ -2006,19 +2225,23 @@ params.setIntParameter( HttpClientParams.MAX_REDIRECTS, 10 );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to execute a <indexterm id="http-webdav-ITERM-3330" significance="normal">
+      <para>You need to execute a <indexterm id="http-webdav-ITERM-3330"
+          significance="normal">
           <primary>Jakarta HttpClient</primary>
 
           <secondary>SSL</secondary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3331" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3331"
+          significance="normal">
           <primary>SSL (Secure Sockets Layer)</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3332" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3332"
+          significance="normal">
           <primary>clients</primary>
 
           <secondary>Jakarta HttpClient</secondary>
 
           <tertiary>SSL</tertiary>
-        </indexterm>method using HTTP over <indexterm id="http-webdav-ITERM-3333" significance="normal">
+        </indexterm>method using HTTP over <indexterm
+          id="http-webdav-ITERM-3333" significance="normal">
           <primary>Secure Sockets Layer</primary>
 
           <see>SSL</see>
@@ -2031,7 +2254,8 @@ params.setIntParameter( HttpClientParams.MAX_REDIRECTS, 10 );</programlisting>
       <para>If you are working with a server that has a certificate signed by
       a certificate authority included in the Java Secure Socket Extension
       (JSSE), <literal moreinfo="none">HttpClient</literal> automatically
-      handles HTTP over SSL; just use a URL that <indexterm id="http-webdav-ITERM-3334" significance="normal">
+      handles HTTP over SSL; just use a URL that <indexterm
+          id="http-webdav-ITERM-3334" significance="normal">
           <primary>URLs (uniform resource locators)</primary>
 
           <secondary>SSL</secondary>
@@ -2057,7 +2281,8 @@ System.out.println( response );
 method.releaseConnection( );
 method.recycle( );</programlisting>
 
-      <para>This example executes a simple <literal moreinfo="none">GetMethod</literal> constructed with a URL starting with
+      <para>This example executes a simple <literal
+      moreinfo="none">GetMethod</literal> constructed with a URL starting with
       <filename moreinfo="none">https</filename>. The output of this example
       is:</para>
 
@@ -2081,8 +2306,12 @@ content length is not known
       11.3</link>. The example in this recipe only works if you are dealing
       with a site that has a certificate signed by a well-known authority. The
       Java Runtime Environment (JRE) keeps track of the signatures of all the
-      known certificate authorities in a file named <filename moreinfo="none">cacerts</filename>. <filename moreinfo="none">cacerts</filename> can be found in <filename moreinfo="none">${JAVA_HOME}/jre/lib/security/cacerts</filename>; it is
-      an archive that has a default password of <literal moreinfo="none">changeit</literal>. For a list of certificate
+      known certificate authorities in a file named <filename
+      moreinfo="none">cacerts</filename>. <filename
+      moreinfo="none">cacerts</filename> can be found in <filename
+      moreinfo="none">${JAVA_HOME}/jre/lib/security/cacerts</filename>; it is
+      an archive that has a default password of <literal
+      moreinfo="none">changeit</literal>. For a list of certificate
       authorities in Java, execute the following command line and supply the
       default password:</para>
 
@@ -2090,7 +2319,8 @@ content length is not known
 
       <para>The list will contain certificate fingerprints for Thawte,
       Entrust, Verisign, and other commercial certificate authorities. If you
-      wish to use the JSSE without having to write your own <literal moreinfo="none">ProtocolSocketFactory</literal>, you need to obtain a
+      wish to use the JSSE without having to write your own <literal
+      moreinfo="none">ProtocolSocketFactory</literal>, you need to obtain a
       certificate signed by an authority.</para>
     </sect2>
 
@@ -2108,19 +2338,23 @@ content length is not known
     <sect2>
       <title>Problem</title>
 
-      <para>You need to work with a server <indexterm id="http-webdav-ITERM-3335" significance="normal">
+      <para>You need to work with a server <indexterm
+          id="http-webdav-ITERM-3335" significance="normal">
           <primary>Jakarta HttpClient</primary>
 
           <secondary>self-signed certificates</secondary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3336" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3336"
+          significance="normal">
           <primary>self-signed certificates</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3337" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3337"
+          significance="normal">
           <primary>clients</primary>
 
           <secondary>Jakarta HttpClient</secondary>
 
           <tertiary>self-signed certificates</tertiary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3338" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3338"
+          significance="normal">
           <primary>certificates, self-signed</primary>
         </indexterm>that is using a self-signed certificate.</para>
     </sect2>
@@ -2128,10 +2362,14 @@ content length is not known
     <sect2>
       <title>Solution</title>
 
-      <para>Provide a custom <literal moreinfo="none">SSLProtocolSocketFactory</literal> <indexterm id="http-webdav-ITERM-3339" significance="normal">
+      <para>Provide a custom <literal
+      moreinfo="none">SSLProtocolSocketFactory</literal> <indexterm
+          id="http-webdav-ITERM-3339" significance="normal">
           <primary>SSLProtocolSocketFactory</primary>
         </indexterm> that is configured to trust your self-signed certificate.
-      A sample implementation of <literal moreinfo="none">SSLProtocolSocketFactory</literal> named <literal moreinfo="none">EasySSLProtocolSocketFactory</literal> is available via
+      A sample implementation of <literal
+      moreinfo="none">SSLProtocolSocketFactory</literal> named <literal
+      moreinfo="none">EasySSLProtocolSocketFactory</literal> is available via
       HttpClient's CVS repository, and the following example uses it to trust
       a self-signed certificate:</para>
 
@@ -2169,11 +2407,14 @@ method.recycle( );</programlisting>
 
       <para><literal moreinfo="none">EasySSLProtocolSocketFactory</literal>
       and <literal moreinfo="none">EasyX509TrustManager</literal> can be
-      obtained from HttpClient's CVS in the <filename moreinfo="none">src/contrib</filename> directory. If you do not want to
+      obtained from HttpClient's CVS in the <filename
+      moreinfo="none">src/contrib</filename> directory. If you do not want to
       checkout the source code from CVS, you can also obtain these two classes
       from ViewCVS on <filename moreinfo="none">cvs.apache.org</filename>.
-      HttpClient's CVS repository can be accessed at <ulink url="http://cvs.apache.org/viewcvs.cgi/jakarta-commons/httpclient/">http://cvs.apache.org/viewcvs.cgi/jakarta-commons/httpclient/</ulink>,
-      and the two classes are in the <filename moreinfo="none">src/contrib/org/apache/commons/httpclient/contrib/ssl</filename>
+      HttpClient's CVS repository can be accessed at <ulink
+      url="http://cvs.apache.org/viewcvs.cgi/jakarta-commons/httpclient/">http://cvs.apache.org/viewcvs.cgi/jakarta-commons/httpclient/</ulink>,
+      and the two classes are in the <filename
+      moreinfo="none">src/contrib/org/apache/commons/httpclient/contrib/ssl</filename>
       directory. To use these classes, you must integrate them into your own
       project, customizing the behavior of these classes as you see
       fit.</para>
@@ -2181,22 +2422,30 @@ method.recycle( );</programlisting>
       <para><literal moreinfo="none">EasySSLProtocolSocketFactory</literal>
       uses the <literal moreinfo="none">EasyX509TrustManager</literal> to
       validate a certificate. To customize the criteria for certificate
-      acceptance and alter the implementation of <literal moreinfo="none">EasyX509TrustManager</literal>. For example, if you only
+      acceptance and alter the implementation of <literal
+      moreinfo="none">EasyX509TrustManager</literal>. For example, if you only
       want to accept a certificate from a specific hostname, change the
-      implementation of the <literal moreinfo="none">isServerTrusted()</literal> method in <literal moreinfo="none">EasyX509TrustManager</literal>.</para>
+      implementation of the <literal
+      moreinfo="none">isServerTrusted()</literal> method in <literal
+      moreinfo="none">EasyX509TrustManager</literal>.</para>
     </sect2>
 
     <sect2>
       <title>See Also</title>
 
-      <para>In the same package as <literal moreinfo="none">EasySSLProtocolSocketFactory</literal> and <literal moreinfo="none">EasyX509TrustManager</literal> is an implementation of
+      <para>In the same package as <literal
+      moreinfo="none">EasySSLProtocolSocketFactory</literal> and <literal
+      moreinfo="none">EasyX509TrustManager</literal> is an implementation of
       <literal moreinfo="none">SSLProtocolSocketFactory</literal> named
       <literal moreinfo="none">StrictSSLProtocolSocketFactory</literal>, which
       makes sure that the hostname of the SSL server matches the hostname of
       the SSL certificate. For more information, go to HttpClient's CVS
-      repository (<ulink url="http://cvs.apache.org/viewcvs.cgi/jakarta-commons/httpclient/">http://cvs.apache.org/viewcvs.cgi/jakarta-commons/httpclient/</ulink>)
-      and download <literal moreinfo="none">StrictSSLProtocolSocketFactory</literal> from this
-      <filename moreinfo="none">src/contrib/org/apache/commons/httpclient/contrib/ssl</filename>
+      repository (<ulink
+      url="http://cvs.apache.org/viewcvs.cgi/jakarta-commons/httpclient/">http://cvs.apache.org/viewcvs.cgi/jakarta-commons/httpclient/</ulink>)
+      and download <literal
+      moreinfo="none">StrictSSLProtocolSocketFactory</literal> from this
+      <filename
+      moreinfo="none">src/contrib/org/apache/commons/httpclient/contrib/ssl</filename>
       directory.</para>
     </sect2>
   </sect1>
@@ -2204,21 +2453,32 @@ method.recycle( );</programlisting>
   <sect1 id="http-webdav-sect-obtaining-slide" label="11.16" role="Recipe">
     <title>Obtaining Jakarta Slide</title>
 
+    <warning>
+      <para>Slide has died. While this section remains in the book, you should
+      know that it will soon be replaced with a section devoted to <ulink
+      url="http://jackrabbit.apache.org/">Apache Jackrabbit</ulink>: the
+      successor to Jakarta Slide.</para>
+    </warning>
+
     <sect2>
       <title>Problem</title>
 
       <para>You need to use Jakarta Slide to access a Web-based Distributed
-      Authoring and Versioning (<indexterm id="http-webdav-ITERM-3340" significance="normal">
+      Authoring and Versioning (<indexterm id="http-webdav-ITERM-3340"
+          significance="normal">
           <primary>WebDav</primary>
 
           <secondary>Jakarta Slide, downloading</secondary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3341" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3341"
+          significance="normal">
           <primary>downloading</primary>
 
           <secondary>Jakarta Slide</secondary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3342" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3342"
+          significance="normal">
           <primary>Jakarta Slide, downloading</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3343" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3343"
+          significance="normal">
           <primary>clients</primary>
 
           <secondary>WebDav</secondary>
@@ -2228,24 +2488,26 @@ method.recycle( );</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Download the Jakarta Slide 2.0 WebDAV client, and place <indexterm id="http-webdav-ITERM-3344" significance="normal">
-          <primary>Slide</primary>
+      <para>To use Jakarta Slide 2.1 in a Maven 2 project, add the following
+      dependency to your project's <filename>pom.xml</filename>:</para>
 
-          <see>Jakarta Slide</see>
-        </indexterm>the appropriate JAR<filename moreinfo="none">
-      </filename>files<filename moreinfo="none"> </filename>in your project's
-      classpath. Following the steps outlined in <link linkend="lang-sect-obtaining">Recipe 1.1</link>, download Jakarta
-      Slide 2.0&#x2014;<filename moreinfo="none">2.0 client zip&#x2014;</filename>instead of
-      Commons Lang.</para>
+      <example>
+        <title>Adding a Dependency on Commons Collections</title>
 
-      <para>Jakarta Slide 2.0 WebDAV client depends on Jakarta Commons Logging
-      and Jakarta HttpClient. These dependencies are included in the binary
-      distribution, and once you unpack the archive, they should be available
-      in the <filename moreinfo="none">lib</filename> directory. The archive
-      <filename moreinfo="none">jakarta-slide-webdavclient-bin-2.0.zip</filename> will
-      contain a JAR file named <filename moreinfo="none">jakarta-slide-webdavclient-2.0.jar</filename>; add this
-      JAR and the dependencies to your classpath, and you will be ready to use
-      Jakarta Slide to access WebDAV resources.</para>
+        <programlisting>    &lt;dependency&gt;
+        &lt;groupId&gt;slide&lt;/groupId&gt;
+        &lt;artifactId&gt;slide-webdavlib&lt;/artifactId&gt;
+        &lt;version&gt;2.1&lt;/version&gt;
+    &lt;/dependency&gt;  </programlisting>
+      </example>
+
+      <para>If you are not sure what this means, I'd suggest reading <ulink
+      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
+      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      do is add the dependency <varname>groupId</varname>,
+      <varname>artifactId</varname>, and <varname>version</varname> to your
+      project's dependencies. Once you do this, Maven 2 will download the
+      dependency and make it available on your project's classpath.</para>
     </sect2>
 
     <sect2>
@@ -2262,21 +2524,27 @@ method.recycle( );</programlisting>
       of a number of distributed version control and content management
       systems.</para>
 
-      <para>Jakarta Slide extends Jakarta HttpClient implementing <literal moreinfo="none">HttpMethod</literal> for the methods introduced by the
-      WebDAV protocol. For example, the <literal moreinfo="none">LockMethod</literal> in the <literal moreinfo="none">org.apache.webdav.lib.methods</literal> package is an
+      <para>Jakarta Slide extends Jakarta HttpClient implementing <literal
+      moreinfo="none">HttpMethod</literal> for the methods introduced by the
+      WebDAV protocol. For example, the <literal
+      moreinfo="none">LockMethod</literal> in the <literal
+      moreinfo="none">org.apache.webdav.lib.methods</literal> package is an
       instance of <literal moreinfo="none">HttpMethod</literal> from Jakarta
       HttpClient, and just as WebDAV is an extension of HTTP/1.1, Jakarta
       Slide is an extension of Jakarta HttpClient. When dealing with
       authentication, cookie management, or redirects, you can configure
       Jakarta Slide the same way you would configure Jakarta HttpClient; to
-      use Slide, you must create an instance of <literal moreinfo="none">HttpClient</literal>.</para>
+      use Slide, you must create an instance of <literal
+      moreinfo="none">HttpClient</literal>.</para>
     </sect2>
 
     <sect2>
       <title>See Also</title>
 
-      <para>For more information about the Jakarta Slide project, see the
-      project page at <ulink url="http://jakarta.apache.org/slide">http://jakarta.apache.org/slide</ulink>.</para>
+      <para>For more information about the Jakarta Slide project... don't even
+      bother. The slide project expired years ago. Please don't learn more
+      about Slide just wait until this book is updated with content about
+      Apache Jackrabbit. Sorry.</para>
 
       <para>It is far beyond the scope of this book to fully describe WebDAV,
       and attempting to do so in one or two recipes would not do it justice.
@@ -2286,22 +2554,27 @@ method.recycle( );</programlisting>
 
       <itemizedlist>
         <listitem>
-          <para>RFC 2518 (HTTP Extensions for Distributed Authoring&#x2014;WEBDAV) at
-          <ulink url="http://www.zvon.org/tmRFC/RFC2518/Output/index.html">http://www.zvon.org/tmRFC/RFC2518/Output/index.html</ulink>.</para>
+          <para>RFC 2518 (HTTP Extensions for Distributed Authoring—WEBDAV) at
+          <ulink
+          url="http://www.zvon.org/tmRFC/RFC2518/Output/index.html">http://www.zvon.org/tmRFC/RFC2518/Output/index.html</ulink>.</para>
         </listitem>
 
         <listitem>
-          <para><ulink url="http://www.webdav.org">http://www.webdav.org</ulink> is a hub for the
-          WebDAV community. If you are interested in learning about WebDAV and
-          a number of related specifications, see <ulink url="http://www.webdav.org/specs/">http://www.webdav.org/specs/</ulink>. For a list of
-          software products that support WebDAV, see <ulink url="http://www.webdav.org/projects/">http://www.webdav.org/projects/</ulink>.</para>
+          <para><ulink
+          url="http://www.webdav.org">http://www.webdav.org</ulink> is a hub
+          for the WebDAV community. If you are interested in learning about
+          WebDAV and a number of related specifications, see <ulink
+          url="http://www.webdav.org/specs/">http://www.webdav.org/specs/</ulink>.
+          For a list of software products that support WebDAV, see <ulink
+          url="http://www.webdav.org/projects/">http://www.webdav.org/projects/</ulink>.</para>
         </listitem>
 
         <listitem>
           <para>Subversion is a great replacement for CVS from the Tigris
           community. You can configure Apache 2.0 to expose a Subversion
           repository via the WebDAV/DeltaV protocol using mod_dav_svn. For
-          more information about Subversion and mod_dav_svn, see <ulink url="http://subversion.tigris.org">http://subversion.tigris.org</ulink>
+          more information about Subversion and mod_dav_svn, see <ulink
+          url="http://subversion.tigris.org">http://subversion.tigris.org</ulink>
           or <emphasis>Version Control with Subversion</emphasis> by Ben
           Collins-Sussman, Brian W. Fitzpatrick, and C. Michael Pilato
           (O'Reilly).</para>
@@ -2311,36 +2584,49 @@ method.recycle( );</programlisting>
       <para>If you would like to set up your own WebDAV resource, I recommend
       installing the Apache HTTP Server with mod_dav. More information about
       installing "The Number One HTTP Server on the Internet" can be found at
-      <ulink url="http://httpd.apache.org/">http://httpd.apache.org/</ulink>. Information about
-      configuring mod_dav can be found at <ulink url="http://httpd.apache.org/docs-2.0/mod/mod_dav.html">http://httpd.apache.org/docs-2.0/mod/mod_dav.html</ulink>.
+      <ulink url="http://httpd.apache.org/">http://httpd.apache.org/</ulink>.
+      Information about configuring mod_dav can be found at <ulink
+      url="http://httpd.apache.org/docs-2.0/mod/mod_dav.html">http://httpd.apache.org/docs-2.0/mod/mod_dav.html</ulink>.
       The Jakarta Tomcat 5.0 distribution is bundled with a web application
       that exposes a resource using a WebDAV servlet. To download and install
-      Jakarta Tomcat 5.0, see <ulink url="http://jakarta.apache.org/tomcat/">http://jakarta.apache.org/tomcat/</ulink>.</para>
+      Jakarta Tomcat 5.0, see <ulink
+      url="http://jakarta.apache.org/tomcat/">http://jakarta.apache.org/tomcat/</ulink>.</para>
     </sect2>
   </sect1>
 
   <sect1 id="http-webdav-sect-webdav" label="11.17" role="Recipe">
     <title>Connecting to WebDAV Resources</title>
 
+    <warning>
+      <para>Slide has died. While this section remains in the book, you should
+      know that it will soon be replaced with a section devoted to <ulink
+      url="http://jackrabbit.apache.org/">Apache Jackrabbit</ulink>: the
+      successor to Jakarta Slide.</para>
+    </warning>
+
     <sect2>
       <title>Problem</title>
 
-      <para>You need to connect to a <indexterm class="startofrange" id="http-webdav-ITERM-3345" significance="normal">
+      <para>You need to connect to a <indexterm class="startofrange"
+          id="http-webdav-ITERM-3345" significance="normal">
           <primary>WebDav</primary>
 
           <secondary>connections</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3346" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3346" significance="normal">
           <primary>connections</primary>
 
           <secondary>WebDav</secondary>
-        </indexterm> <indexterm class="startofrange" id="http-webdav-ITERM-3347" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="http-webdav-ITERM-3347" significance="normal">
           <primary>resources</primary>
 
           <secondary>WebDav</secondary>
 
           <tertiary>connections</tertiary>
         </indexterm>WebDAV resource and list the contents of a collection. As
-      with most WebDAV resources, you need to supply <indexterm id="http-webdav-ITERM-3348" significance="normal">
+      with most WebDAV resources, you need to supply <indexterm
+          id="http-webdav-ITERM-3348" significance="normal">
           <primary>authentication</primary>
 
           <secondary>WebDav</secondary>
@@ -2350,11 +2636,15 @@ method.recycle( );</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Create an instance of <literal moreinfo="none">WebdavResource</literal>, passing in a URL and a
+      <para>Create an instance of <literal
+      moreinfo="none">WebdavResource</literal>, passing in a URL and a
       <literal moreinfo="none">UsernamePasswordCredential</literal> object.
-      List the contents of a WebDAV collection by calling the <literal moreinfo="none">listWebdavResources()</literal> <indexterm id="http-webdav-ITERM-3349" significance="normal">
+      List the contents of a WebDAV collection by calling the <literal
+      moreinfo="none">listWebdavResources()</literal> <indexterm
+          id="http-webdav-ITERM-3349" significance="normal">
           <primary>listWebdavResources( ) method</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3350" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3350"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>listWebdavResources( )</secondary>
@@ -2406,7 +2696,8 @@ System.out.println( "-----------------------------------------" +
 }</programlisting>
 
       <para>The program connects to a WebDAV resource using the credentials
-      supplied to the constructor of <literal moreinfo="none">WebdavResource</literal>. It lists the contents of a
+      supplied to the constructor of <literal
+      moreinfo="none">WebdavResource</literal>. It lists the contents of a
       collection and produces the following output:</para>
 
       <programlisting format="linespecific" id="I_11_tt480">type  name           size    type                   modified
@@ -2420,31 +2711,53 @@ dir   test           0       httpd/unix-directory   5/6/04 12:01 AM</programlist
       <title>Discussion</title>
 
       <para>Jakarta Slide is built on top of Jakarta HttpClient, but you will
-      notice that this recipe did not involve the execution of an <literal moreinfo="none">HttpMethod</literal>. This is because <literal moreinfo="none">WebdavResource</literal> manages the complexity of
-      working with an instance of <literal moreinfo="none">HttpClient</literal> behind the scenes. The only trace
-      of <literal moreinfo="none">HttpClient</literal> is the <literal moreinfo="none">UsernamePasswordCredentials</literal> object that is
-      passed to the constructor of <literal moreinfo="none">WebdavResource</literal>. Because Jakarta Slide is built
+      notice that this recipe did not involve the execution of an <literal
+      moreinfo="none">HttpMethod</literal>. This is because <literal
+      moreinfo="none">WebdavResource</literal> manages the complexity of
+      working with an instance of <literal
+      moreinfo="none">HttpClient</literal> behind the scenes. The only trace
+      of <literal moreinfo="none">HttpClient</literal> is the <literal
+      moreinfo="none">UsernamePasswordCredentials</literal> object that is
+      passed to the constructor of <literal
+      moreinfo="none">WebdavResource</literal>. Because Jakarta Slide is built
       on top of Jakarta HttpClient, almost any feature of Jakarta HttpClient
       translates directly to Jakarta Slide. If you need to access a WebDAV
       repository over SSL with a self-signed certificate, or if you need to
-      alter the cookie policy, you can use <indexterm class="endofrange" id="http-webdav-ITERM-3351" significance="normal" startref="http-webdav-ITERM-3345"/> <indexterm class="endofrange" id="http-webdav-ITERM-3352" significance="normal" startref="http-webdav-ITERM-3346"/> <indexterm class="endofrange" id="http-webdav-ITERM-3353" significance="normal" startref="http-webdav-ITERM-3347"/>the same facilities
-      that are available to you when you are using <literal moreinfo="none">HttpClient</literal> directly.</para>
+      alter the cookie policy, you can use <indexterm class="endofrange"
+      id="http-webdav-ITERM-3351" significance="normal"
+      startref="http-webdav-ITERM-3345"></indexterm> <indexterm
+      class="endofrange" id="http-webdav-ITERM-3352" significance="normal"
+      startref="http-webdav-ITERM-3346"></indexterm> <indexterm
+      class="endofrange" id="http-webdav-ITERM-3353" significance="normal"
+      startref="http-webdav-ITERM-3347"></indexterm>the same facilities that
+      are available to you when you are using <literal
+      moreinfo="none">HttpClient</literal> directly.</para>
     </sect2>
   </sect1>
 
   <sect1 id="http-webdav-sect-modify-webdav" label="11.18" role="Recipe">
     <title>Modifying a WebDAV Resource</title>
 
+    <warning>
+      <para>Slide has died. While this section remains in the book, you should
+      know that it will soon be replaced with a section devoted to <ulink
+      url="http://jackrabbit.apache.org/">Apache Jackrabbit</ulink>: the
+      successor to Jakarta Slide.</para>
+    </warning>
+
     <sect2>
       <title>Problem</title>
 
-      <para>You need to modify a<indexterm id="http-webdav-ITERM-3354" significance="normal">
+      <para>You need to modify a<indexterm id="http-webdav-ITERM-3354"
+          significance="normal">
           <primary>WebDav</primary>
 
           <secondary>modifying</secondary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3355" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3355"
+          significance="normal">
           <primary>modifying WebDav</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3356" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3356"
+          significance="normal">
           <primary>resources</primary>
 
           <secondary>WebDav</secondary>
@@ -2456,24 +2769,31 @@ dir   test           0       httpd/unix-directory   5/6/04 12:01 AM</programlist
     <sect2>
       <title>Solution</title>
 
-      <para>Use the <literal moreinfo="none">putMethod( )</literal> <indexterm id="http-webdav-ITERM-3357" significance="normal">
+      <para>Use the <literal moreinfo="none">putMethod( )</literal> <indexterm
+          id="http-webdav-ITERM-3357" significance="normal">
           <primary>putMethod( ) method</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3358" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3358"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>putMethod( )</secondary>
         </indexterm> on <literal moreinfo="none">WebdavResource</literal>, and
       be sure to lock and unlock the resource before and after modification.
-      The following example demonstrates the use of <literal moreinfo="none">lockMethod( )</literal> <indexterm id="http-webdav-ITERM-3359" significance="normal">
+      The following example demonstrates the use of <literal
+      moreinfo="none">lockMethod( )</literal> <indexterm
+          id="http-webdav-ITERM-3359" significance="normal">
           <primary>lockMethod( ) method</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3360" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3360"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>lockMethod( )</secondary>
         </indexterm>, <literal moreinfo="none">putMethod( )</literal>, and
-      <literal moreinfo="none">unlockMethod( )</literal> <indexterm id="http-webdav-ITERM-3361" significance="normal">
+      <literal moreinfo="none">unlockMethod( )</literal> <indexterm
+          id="http-webdav-ITERM-3361" significance="normal">
           <primary>unlockMethod( ) method</primary>
-        </indexterm> <indexterm id="http-webdav-ITERM-3362" significance="normal">
+        </indexterm> <indexterm id="http-webdav-ITERM-3362"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>unlockMethod( )</secondary>
@@ -2522,13 +2842,18 @@ resource.close( );</programlisting>
       and a timeout; the owner is the owner of the lock, and the timeout is
       the timeout of the lock in number of seconds. When locking a resource,
       the <literal moreinfo="none">lockMethod( )</literal> will return a
-      <literal moreinfo="none">boolean</literal> value: <literal moreinfo="none">true</literal> if the lock was granted and <literal moreinfo="none">false</literal> if the lock was not granted. The
+      <literal moreinfo="none">boolean</literal> value: <literal
+      moreinfo="none">true</literal> if the lock was granted and <literal
+      moreinfo="none">false</literal> if the lock was not granted. The
       <literal moreinfo="none">resource.putMethod( )</literal> was called with
       a <literal moreinfo="none">String</literal> object, but it can also be
-      invoked when a <literal moreinfo="none">byte[]</literal>, <literal moreinfo="none">InputStream</literal>, or <literal moreinfo="none">File</literal>. <literal moreinfo="none">putMethod(
+      invoked when a <literal moreinfo="none">byte[]</literal>, <literal
+      moreinfo="none">InputStream</literal>, or <literal
+      moreinfo="none">File</literal>. <literal moreinfo="none">putMethod(
       )</literal> returns a <literal moreinfo="none">boolean</literal> value:
       <literal moreinfo="none">true</literal> if the put was successful;
-      otherwise, <literal moreinfo="none">false</literal>. The <literal moreinfo="none">unlockMethod( )</literal> unlocks the resource and makes
+      otherwise, <literal moreinfo="none">false</literal>. The <literal
+      moreinfo="none">unlockMethod( )</literal> unlocks the resource and makes
       it available for other clients to lock, modify, and unlock.</para>
     </sect2>
 
@@ -2536,13 +2861,15 @@ resource.close( );</programlisting>
       <title>See Also</title>
 
       <para>Section 7 of RFC 2518 (HTTP Extensions for Distributed
-      Authoring&#x2014;WEBDAV) discusses the various types of write locks available
-      in WebDAV. This RFC is available at <ulink url="http://www.zvon.org/tmRFC/RFC2518/Output/chapter7.html">http://www.zvon.org/tmRFC/RFC2518/Output/chapter7.html</ulink>.</para>
+      Authoring—WEBDAV) discusses the various types of write locks available
+      in WebDAV. This RFC is available at <ulink
+      url="http://www.zvon.org/tmRFC/RFC2518/Output/chapter7.html">http://www.zvon.org/tmRFC/RFC2518/Output/chapter7.html</ulink>.</para>
 
       <para>The Slide recipes in this chapter are only meant as a brief
       introduction to WebDAV. If you would like to learn more about how to
       work with properties, create collections, and search a WebDAV
-      repository, please see the Jakarta Slide project page at <ulink url="http://jakarta.apache.org/slide">http://jakarta.apache.org/slide</ulink>.</para>
+      repository, please see the Jakarta Slide project page at <ulink
+      url="http://jakarta.apache.org/slide">http://jakarta.apache.org/slide</ulink>.</para>
     </sect2>
   </sect1>
 </chapter>

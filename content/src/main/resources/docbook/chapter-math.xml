@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <chapter id="math" label="8">
   <title>Math</title>
 
@@ -22,15 +22,15 @@
     found in Commons Lang. This includes a class that represents fractions,
     finding the minimum and maximum values in an array, representing a range
     of numbers, and convenient ways to retrieve different random variables.
-    Commons Lang was introduced in <link linkend="lang">Chapter
-    1</link>, and instructions for downloading and installing Commons Lang can
-    be found in <link linkend="lang-sect-obtaining">Recipe 1.1</link>.
-    The remainder of this chapter deals with Jakarta Commons Math. Recipes
-    involving Commons Math deal with complex numbers, the calculation of
-    univariate statistics, solving a system of linear equations, and
-    establishing a relationship between two independent variables.
-    Instructions for downloading and installing Commons Math can be found in
-    <link linkend="math-sect-obtaining-math">Recipe 8.5</link>.</para>
+    Commons Lang was introduced in <link linkend="lang">Chapter 1</link>, and
+    instructions for downloading and installing Commons Lang can be found in
+    <link linkend="lang-sect-obtaining">Recipe 1.1</link>. The remainder of
+    this chapter deals with Jakarta Commons Math. Recipes involving Commons
+    Math deal with complex numbers, the calculation of univariate statistics,
+    solving a system of linear equations, and establishing a relationship
+    between two independent variables. Instructions for downloading and
+    installing Commons Math can be found in <link
+    linkend="math-sect-obtaining-math">Recipe 8.5</link>.</para>
   </sect1>
 
   <sect1 id="math-sect-fractions" label="8.1" role="Recipe">
@@ -39,7 +39,8 @@
     <sect2>
       <title>Problem</title>
 
-      <para>You need to work with fractions<indexterm id="math-ITERM-2856" significance="normal">
+      <para>You need to work with fractions<indexterm id="math-ITERM-2856"
+          significance="normal">
           <primary>Commons Math</primary>
 
           <secondary>fractions</secondary>
@@ -68,8 +69,10 @@
     <sect2>
       <title>Solution</title>
 
-      <para>Use Jakarta Commons Lang's <literal moreinfo="none">Fraction</literal> class to parse and manipulate
-      fractions. The following code demonstrates the parsing of a <literal moreinfo="none">String</literal> containing a fraction:</para>
+      <para>Use Jakarta Commons Lang's <literal
+      moreinfo="none">Fraction</literal> class to parse and manipulate
+      fractions. The following code demonstrates the parsing of a <literal
+      moreinfo="none">String</literal> containing a fraction:</para>
 
       <programlisting format="linespecific" id="I_8_tt318">import org.apache.commons.lang.math.Fraction;
 
@@ -79,9 +82,12 @@ double value = fraction.doubleValue( );</programlisting>
 
       <para>The <literal moreinfo="none">String</literal> "23 31/37" is
       converted to a <literal moreinfo="none">double</literal> value of
-      <literal moreinfo="none">23.837837</literal>. A <literal moreinfo="none">Fraction</literal> object is created by calling the
+      <literal moreinfo="none">23.837837</literal>. A <literal
+      moreinfo="none">Fraction</literal> object is created by calling the
       <literal moreinfo="none">Fraction.getFraction( )</literal> method, and
-      <literal moreinfo="none">double</literal> value of the <literal moreinfo="none">Fraction</literal> object is obtained with <literal moreinfo="none">fraction.doubleValue( )</literal>.</para>
+      <literal moreinfo="none">double</literal> value of the <literal
+      moreinfo="none">Fraction</literal> object is obtained with <literal
+      moreinfo="none">fraction.doubleValue( )</literal>.</para>
     </sect2>
 
     <sect2>
@@ -90,8 +96,8 @@ double value = fraction.doubleValue( );</programlisting>
       <para>The <literal moreinfo="none">Fraction</literal> class provides a
       number of operations that can be used to simplify the following
       expression to an improper fraction. The following code evaluates the
-      expression in <link linkend="math-FIG-1">Figure 8-1</link>
-      using <literal moreinfo="none">Fraction</literal>:</para>
+      expression in <link linkend="math-FIG-1">Figure 8-1</link> using
+      <literal moreinfo="none">Fraction</literal>:</para>
 
       <programlisting format="linespecific" id="I_8_tt319">import org.apache.commons.lang.math.Fraction;
 
@@ -112,18 +118,26 @@ System.out.println( "as double: " + result.doubleValue( ) );</programlisting>
 
         <mediaobject id="I_8_tt320">
           <imageobject role="print">
-            <imagedata depth="93" fileref="figs/print/jccb_0801.pdf" format="PDF" width="163"/>
+            <imagedata depth="93" fileref="figs/print/jccb_0801.pdf"
+                       format="PDF" width="163" />
           </imageobject>
 
           <imageobject role="web">
-            <imagedata depth="93" fileref="figs/web/jccb_0801.png" format="PNG" width="163"/>
+            <imagedata depth="93" fileref="figs/web/jccb_0801.png"
+                       format="PNG" width="163" />
           </imageobject>
         </mediaobject>
       </figure>
 
-      <para>The previous example creates an instance of <literal moreinfo="none">Fraction</literal> by calling the static <literal moreinfo="none">getFraction(int numerator, int denominator)</literal>
+      <para>The previous example creates an instance of <literal
+      moreinfo="none">Fraction</literal> by calling the static <literal
+      moreinfo="none">getFraction(int numerator, int denominator)</literal>
       method. Fraction objects are then multiplied and divided with the
-      <literal moreinfo="none">multiplyBy( )</literal> and <literal moreinfo="none">divideBy( )</literal> methods of <literal moreinfo="none">Fraction</literal>. And, the final call to <literal moreinfo="none">reduce( )</literal> reduces the <literal moreinfo="none">Fraction</literal> to the smallest possible denominator.
+      <literal moreinfo="none">multiplyBy( )</literal> and <literal
+      moreinfo="none">divideBy( )</literal> methods of <literal
+      moreinfo="none">Fraction</literal>. And, the final call to <literal
+      moreinfo="none">reduce( )</literal> reduces the <literal
+      moreinfo="none">Fraction</literal> to the smallest possible denominator.
       This example executes and prints the following output to the
       console:</para>
 
@@ -143,14 +157,21 @@ String properString = Fraction.getFraction(userInput).toProperString( );
 
       <warning id="math-NOTE-61" role="ora">
         <para><literal moreinfo="none">Fraction</literal> does not
-        automatically reduce contents, and it is important to call <literal moreinfo="none">reduce( )</literal> before performing any arithmetic
+        automatically reduce contents, and it is important to call <literal
+        moreinfo="none">reduce( )</literal> before performing any arithmetic
         with the <literal moreinfo="none">Fraction</literal> class to reduce
-        the risk of overflow. For example, <literal moreinfo="none">Fraction.getFraction( 10000, 100000 ).pow( 6
+        the risk of overflow. For example, <literal
+        moreinfo="none">Fraction.getFraction( 10000, 100000 ).pow( 6
         )</literal> should equal <literal moreinfo="none">1.0E-6</literal>,
         but, because <literal moreinfo="none">Fraction</literal> simply
         multiplies each numerator and denominator without reducing the
-        fraction, the result of this statement will be <literal moreinfo="none">1.0</literal>. When raised to the power of <literal moreinfo="none">6</literal>, the <literal moreinfo="none">Fraction</literal> object quickly becomes <literal moreinfo="none">Fraction.getFraction(Integer.MAX_VALUE,
-        Integer.MAX_VALUE)</literal> or <literal moreinfo="none">1.0</literal>. Call <literal moreinfo="none">reduce(
+        fraction, the result of this statement will be <literal
+        moreinfo="none">1.0</literal>. When raised to the power of <literal
+        moreinfo="none">6</literal>, the <literal
+        moreinfo="none">Fraction</literal> object quickly becomes <literal
+        moreinfo="none">Fraction.getFraction(Integer.MAX_VALUE,
+        Integer.MAX_VALUE)</literal> or <literal
+        moreinfo="none">1.0</literal>. Call <literal moreinfo="none">reduce(
         )</literal> <indexterm id="math-ITERM-2861" significance="normal">
             <primary>reduce( ) method</primary>
           </indexterm> <indexterm id="math-ITERM-2862" significance="normal">
@@ -161,8 +182,9 @@ String properString = Fraction.getFraction(userInput).toProperString( );
         <literal moreinfo="none">Fraction</literal> class.</para>
       </warning>
 
-      <para><link linkend="math-TABLE-1">Table 8-1</link> lists a
-      sampling of methods available on the <literal moreinfo="none">Fraction</literal> class.</para>
+      <para><link linkend="math-TABLE-1">Table 8-1</link> lists a sampling of
+      methods available on the <literal moreinfo="none">Fraction</literal>
+      class.</para>
 
       <table id="math-TABLE-1" label="8-1">
         <title>Methods on Commons Lang Fraction</title>
@@ -174,9 +196,9 @@ String properString = Fraction.getFraction(userInput).toProperString( );
         </indexterm>
 
         <tgroup cols="2">
-          <colspec colname="col1" colnum="1"/>
+          <colspec colname="col1" colnum="1" />
 
-          <colspec colname="col2" colnum="2"/>
+          <colspec colname="col2" colnum="2" />
 
           <thead>
             <row>
@@ -191,14 +213,16 @@ String properString = Fraction.getFraction(userInput).toProperString( );
               <entry><para> <literal moreinfo="none">abs( )</literal>
               </para></entry>
 
-              <entry><para>Returns the absolute value of a <literal moreinfo="none">Fraction</literal> </para></entry>
+              <entry><para>Returns the absolute value of a <literal
+              moreinfo="none">Fraction</literal> </para></entry>
             </row>
 
             <row>
               <entry><para> <literal moreinfo="none">add(Fraction
               fraction)</literal> </para></entry>
 
-              <entry><para>Adds two <literal moreinfo="none">Fraction</literal> objects
+              <entry><para>Adds two <literal
+              moreinfo="none">Fraction</literal> objects
               together</para></entry>
             </row>
 
@@ -206,21 +230,24 @@ String properString = Fraction.getFraction(userInput).toProperString( );
               <entry><para> <literal moreinfo="none">subtract(Fraction
               fraction)</literal> </para></entry>
 
-              <entry><para>Subtracts the parameter from the current <literal moreinfo="none">Fraction</literal> </para></entry>
+              <entry><para>Subtracts the parameter from the current <literal
+              moreinfo="none">Fraction</literal> </para></entry>
             </row>
 
             <row>
               <entry><para> <literal moreinfo="none">multiplyBy(Fraction
               fraction)</literal> </para></entry>
 
-              <entry><para>Multiplies the parameter by the current <literal moreinfo="none">Fraction</literal> </para></entry>
+              <entry><para>Multiplies the parameter by the current <literal
+              moreinfo="none">Fraction</literal> </para></entry>
             </row>
 
             <row>
               <entry><para> <literal moreinfo="none">divideBy(Fraction
               fraction)</literal> </para></entry>
 
-              <entry><para>Divides the current <literal moreinfo="none">Fraction</literal> by the
+              <entry><para>Divides the current <literal
+              moreinfo="none">Fraction</literal> by the
               parameter</para></entry>
             </row>
 
@@ -228,7 +255,8 @@ String properString = Fraction.getFraction(userInput).toProperString( );
               <entry><para> <literal moreinfo="none">reduce( )</literal>
               </para></entry>
 
-              <entry><para>Reduces the <literal moreinfo="none">Fraction</literal> to the smallest
+              <entry><para>Reduces the <literal
+              moreinfo="none">Fraction</literal> to the smallest
               denominator</para></entry>
             </row>
 
@@ -236,7 +264,8 @@ String properString = Fraction.getFraction(userInput).toProperString( );
               <entry><para> <literal moreinfo="none">negate( )</literal>
               </para></entry>
 
-              <entry><para>Returns -1 * <literal moreinfo="none">Fraction</literal> </para></entry>
+              <entry><para>Returns -1 * <literal
+              moreinfo="none">Fraction</literal> </para></entry>
             </row>
 
             <row>
@@ -278,7 +307,8 @@ String properString = Fraction.getFraction(userInput).toProperString( );
               <entry><para> <literal moreinfo="none">pow( )</literal>
               </para></entry>
 
-              <entry><para>Raises a <literal moreinfo="none">Fraction</literal> to the specified
+              <entry><para>Raises a <literal
+              moreinfo="none">Fraction</literal> to the specified
               power</para></entry>
             </row>
           </tbody>
@@ -289,7 +319,8 @@ String properString = Fraction.getFraction(userInput).toProperString( );
     <sect2>
       <title>See Also</title>
 
-      <para>For more information about downloading Commons Lang, see <link linkend="lang-sect-obtaining">Recipe 1.1</link>.</para>
+      <para>For more information about downloading Commons Lang, see <link
+      linkend="lang-sect-obtaining">Recipe 1.1</link>.</para>
     </sect2>
   </sect1>
 
@@ -300,7 +331,12 @@ String properString = Fraction.getFraction(userInput).toProperString( );
       <title>Problem</title>
 
       <para>You need to retrieve the maximum and minimum values from a
-      <literal moreinfo="none">double[]</literal>, <literal moreinfo="none">float[]</literal>, <literal moreinfo="none">long[]</literal>, <literal moreinfo="none">int[]</literal>, <literal moreinfo="none">short[]</literal>, or <literal moreinfo="none">byte[]</literal>.</para>
+      <literal moreinfo="none">double[]</literal>, <literal
+      moreinfo="none">float[]</literal>, <literal
+      moreinfo="none">long[]</literal>, <literal
+      moreinfo="none">int[]</literal>, <literal
+      moreinfo="none">short[]</literal>, or <literal
+      moreinfo="none">byte[]</literal>.</para>
     </sect2>
 
     <sect2>
@@ -309,7 +345,8 @@ String properString = Fraction.getFraction(userInput).toProperString( );
       <para>Use Commons Lang <literal moreinfo="none">NumberUtils.max(
       )</literal> and <literal moreinfo="none">NumberUtils.min( )</literal> to
       retrieve the minimum or maximum values from an array of primitives. The
-      following code retrieves the minimum and maximum values from a <literal moreinfo="none">double[]</literal>:</para>
+      following code retrieves the minimum and maximum values from a <literal
+      moreinfo="none">double[]</literal>:</para>
 
       <programlisting format="linespecific" id="I_8_tt323">import org.apache.commons.lang.math.NumberUtils;
 
@@ -322,11 +359,24 @@ double min = NumberUtils.min( array ); // returns -3.0</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para><literal moreinfo="none">NumberUtils.min( )</literal> and <literal moreinfo="none">NumberUtils.max()</literal> both accept <literal moreinfo="none">double[]</literal>, <literal moreinfo="none">float[]</literal>, <literal moreinfo="none">long[]</literal>, <literal moreinfo="none">int[]</literal>, <literal moreinfo="none">short[]</literal>, and <literal moreinfo="none">byte[]</literal>. If the array is empty or <literal moreinfo="none">null</literal>, both <literal moreinfo="none">NumberUtils.min( )</literal> and <literal moreinfo="none">NumberUtils.max( )</literal> will return an <literal moreinfo="none">IllegalArgumentException</literal>.</para>
+      <para><literal moreinfo="none">NumberUtils.min( )</literal> and <literal
+      moreinfo="none">NumberUtils.max()</literal> both accept <literal
+      moreinfo="none">double[]</literal>, <literal
+      moreinfo="none">float[]</literal>, <literal
+      moreinfo="none">long[]</literal>, <literal
+      moreinfo="none">int[]</literal>, <literal
+      moreinfo="none">short[]</literal>, and <literal
+      moreinfo="none">byte[]</literal>. If the array is empty or <literal
+      moreinfo="none">null</literal>, both <literal
+      moreinfo="none">NumberUtils.min( )</literal> and <literal
+      moreinfo="none">NumberUtils.max( )</literal> will return an <literal
+      moreinfo="none">IllegalArgumentException</literal>.</para>
 
       <para>Jakarta Commons Math also contains a class that can find the
-      minimum and maximum value in a <literal moreinfo="none">double[]</literal>. The following example uses the
-      <literal moreinfo="none">Max</literal> and <literal moreinfo="none">Min</literal> classes from Commons Math to evaluate a
+      minimum and maximum value in a <literal
+      moreinfo="none">double[]</literal>. The following example uses the
+      <literal moreinfo="none">Max</literal> and <literal
+      moreinfo="none">Min</literal> classes from Commons Math to evaluate a
       <literal moreinfo="none">double[]</literal>:</para>
 
       <programlisting format="linespecific" id="I_8_tt324">
@@ -353,7 +403,8 @@ double min = minimum.evaluate( array, 0, array.length );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to define a range<indexterm id="math-ITERM-2864" significance="normal">
+      <para>You need to define a range<indexterm id="math-ITERM-2864"
+          significance="normal">
           <primary>Commons Math</primary>
 
           <secondary>number ranges</secondary>
@@ -386,23 +437,29 @@ double min = minimum.evaluate( array, 0, array.length );</programlisting>
 
       <para>Use an implementation of <literal moreinfo="none">Range</literal>,
       an interface that defines a simple numerical range. There are a number
-      of different implementations for different types: <literal moreinfo="none">NumberRange</literal> <indexterm id="math-ITERM-2870" significance="normal">
+      of different implementations for different types: <literal
+      moreinfo="none">NumberRange</literal> <indexterm id="math-ITERM-2870"
+          significance="normal">
           <primary>NumberRange</primary>
         </indexterm>, <literal moreinfo="none">DoubleRange</literal>
       <indexterm id="math-ITERM-2871" significance="normal">
           <primary>DoubleRange</primary>
-        </indexterm>, <literal moreinfo="none">FloatRange</literal> <indexterm id="math-ITERM-2872" significance="normal">
+        </indexterm>, <literal moreinfo="none">FloatRange</literal> <indexterm
+          id="math-ITERM-2872" significance="normal">
           <primary>FloatRange</primary>
-        </indexterm>, <literal moreinfo="none">IntRange</literal> <indexterm id="math-ITERM-2873" significance="normal">
+        </indexterm>, <literal moreinfo="none">IntRange</literal> <indexterm
+          id="math-ITERM-2873" significance="normal">
           <primary>IntRange</primary>
         </indexterm>, and <literal moreinfo="none">LongRange</literal>
       <indexterm id="math-ITERM-2874" significance="normal">
           <primary>LongRange</primary>
-        </indexterm>. The following example demonstrates the use of <literal moreinfo="none">DoubleRange</literal> to verify that a variable is
+        </indexterm>. The following example demonstrates the use of <literal
+      moreinfo="none">DoubleRange</literal> to verify that a variable is
       within a valid range. A <literal moreinfo="none">DoubleRange</literal>
       is created with minimum and maximum values, and a value is tested by
       <literal moreinfo="none">DoubleRange</literal> using a method named
-      <literal moreinfo="none">containsDouble( )</literal> <indexterm id="math-ITERM-2875" significance="normal">
+      <literal moreinfo="none">containsDouble( )</literal> <indexterm
+          id="math-ITERM-2875" significance="normal">
           <primary>containsDouble( ) method</primary>
         </indexterm> <indexterm id="math-ITERM-2876" significance="normal">
           <primary>methods</primary>
@@ -424,14 +481,20 @@ double currentSpeed = getCurrentSpeed( );
     <sect2>
       <title>Discussion</title>
 
-      <para>Additionally, one can also test to see if another <literal moreinfo="none">Range</literal> is contained within a <literal moreinfo="none">Range</literal>, or if a <literal moreinfo="none">Range</literal> overlaps another <literal moreinfo="none">Range</literal>. The following example demonstrates the
-      use of <literal moreinfo="none">containsRange( )</literal> <indexterm id="math-ITERM-2877" significance="normal">
+      <para>Additionally, one can also test to see if another <literal
+      moreinfo="none">Range</literal> is contained within a <literal
+      moreinfo="none">Range</literal>, or if a <literal
+      moreinfo="none">Range</literal> overlaps another <literal
+      moreinfo="none">Range</literal>. The following example demonstrates the
+      use of <literal moreinfo="none">containsRange( )</literal> <indexterm
+          id="math-ITERM-2877" significance="normal">
           <primary>containsRange( ) method</primary>
         </indexterm> <indexterm id="math-ITERM-2878" significance="normal">
           <primary>methods</primary>
 
           <secondary>containsRange( )</secondary>
-        </indexterm> to determine if a <literal moreinfo="none">Range</literal> is entirely contained within another
+        </indexterm> to determine if a <literal
+      moreinfo="none">Range</literal> is entirely contained within another
       <literal moreinfo="none">Range</literal>:</para>
 
       <programlisting format="linespecific" id="I_8_tt326">import org.apache.commons.lang.math.Range;
@@ -451,13 +514,25 @@ if( !recordRange.containsRange( todayTemp ) ) {
     System.out.println( "Today is a record temperature day!" );
 }</programlisting>
 
-      <para>The previous code creates a <literal moreinfo="none">Range</literal>, <literal moreinfo="none">recordRange</literal>, from the record high and low
-      temperatures. It then creates <literal moreinfo="none">daysRange</literal>, which is a <literal moreinfo="none">Range</literal> of the current day's high and low
+      <para>The previous code creates a <literal
+      moreinfo="none">Range</literal>, <literal
+      moreinfo="none">recordRange</literal>, from the record high and low
+      temperatures. It then creates <literal
+      moreinfo="none">daysRange</literal>, which is a <literal
+      moreinfo="none">Range</literal> of the current day's high and low
       temperatures. If <literal moreinfo="none">dayRange</literal> is not
-      entirely contained within the <literal moreinfo="none">recordRange</literal>, then the current day contains a
-      record temperature and <literal moreinfo="none">recordRange.containsRange(daysRange)</literal> will
-      return <literal moreinfo="none">false</literal>. <literal moreinfo="none">containsRange( )</literal> returns <literal moreinfo="none">true</literal> if every value in the containing range
-      occurs in the contained range, and <literal moreinfo="none">overlapsRange( )</literal> returns <literal moreinfo="none">true</literal> if two <literal moreinfo="none">Range</literal> objects share any common value. <literal moreinfo="none">NumberUtils</literal> is used to retrieve the maximum
+      entirely contained within the <literal
+      moreinfo="none">recordRange</literal>, then the current day contains a
+      record temperature and <literal
+      moreinfo="none">recordRange.containsRange(daysRange)</literal> will
+      return <literal moreinfo="none">false</literal>. <literal
+      moreinfo="none">containsRange( )</literal> returns <literal
+      moreinfo="none">true</literal> if every value in the containing range
+      occurs in the contained range, and <literal
+      moreinfo="none">overlapsRange( )</literal> returns <literal
+      moreinfo="none">true</literal> if two <literal
+      moreinfo="none">Range</literal> objects share any common value. <literal
+      moreinfo="none">NumberUtils</literal> is used to retrieve the maximum
       and minimum values from the <literal moreinfo="none">todayTemp</literal>
       array.</para>
 
@@ -496,9 +571,16 @@ System.out.println( "The substance is in a " + state + " state." );
 // If the temperature is a temperate 293 K, this line would print 
 // "The Gold is in a solid state."</programlisting>
 
-      <para>The ranges in this example overlap; the <literal moreinfo="none">solid</literal> range ends at <literal moreinfo="none">melting</literal>, and the <literal moreinfo="none">liquid</literal> range begins at <literal moreinfo="none">melting</literal>. Because each <literal moreinfo="none">Range</literal> is tested in a defined order, each
+      <para>The ranges in this example overlap; the <literal
+      moreinfo="none">solid</literal> range ends at <literal
+      moreinfo="none">melting</literal>, and the <literal
+      moreinfo="none">liquid</literal> range begins at <literal
+      moreinfo="none">melting</literal>. Because each <literal
+      moreinfo="none">Range</literal> is tested in a defined order, each
       <literal moreinfo="none">Range</literal> object in this example is
-      lower- and upper-bound inclusive. If the <literal moreinfo="none">temp</literal> variable has the same value as <literal moreinfo="none">melting</literal>, the program will indicate solid
+      lower- and upper-bound inclusive. If the <literal
+      moreinfo="none">temp</literal> variable has the same value as <literal
+      moreinfo="none">melting</literal>, the program will indicate solid
       state, and if the <literal moreinfo="none">temp</literal> variable has
       the same value as <literal moreinfo="none">boiling</literal>, this
       program will signify the <literal moreinfo="none">liquid</literal>
@@ -508,7 +590,8 @@ System.out.println( "The substance is in a " + state + " state." );
     <sect2>
       <title>See Also</title>
 
-      <para>For more information about downloading Commons Lang, see <link linkend="lang-sect-obtaining">Recipe 1.1</link>.</para>
+      <para>For more information about downloading Commons Lang, see <link
+      linkend="lang-sect-obtaining">Recipe 1.1</link>.</para>
     </sect2>
   </sect1>
 
@@ -518,7 +601,9 @@ System.out.println( "The substance is in a " + state + " state." );
     <sect2>
       <title>Problem</title>
 
-      <para>J2SE 1.4 includes a <literal moreinfo="none">java.lang.Math</literal> <indexterm id="math-ITERM-2879" significance="normal">
+      <para>J2SE 1.4 includes a <literal
+      moreinfo="none">java.lang.Math</literal> <indexterm id="math-ITERM-2879"
+          significance="normal">
           <primary>java.lang.Math class</primary>
         </indexterm> <indexterm id="math-ITERM-2880" significance="normal">
           <primary>classes</primary>
@@ -550,17 +635,28 @@ System.out.println( "The substance is in a " + state + " state." );
           <primary>variables</primary>
 
           <secondary>random</secondary>
-        </indexterm> class that provides a mechanism to get a random <literal moreinfo="none">double</literal> value between <literal moreinfo="none">0.0</literal> and <literal moreinfo="none">1.0</literal>, but you need to create random <literal moreinfo="none">boolean</literal> values, or random <literal moreinfo="none">int</literal> variables between zero and a specified
+        </indexterm> class that provides a mechanism to get a random <literal
+      moreinfo="none">double</literal> value between <literal
+      moreinfo="none">0.0</literal> and <literal
+      moreinfo="none">1.0</literal>, but you need to create random <literal
+      moreinfo="none">boolean</literal> values, or random <literal
+      moreinfo="none">int</literal> variables between zero and a specified
       number.</para>
     </sect2>
 
     <sect2>
       <title>Solution</title>
 
-      <para>Generate random variables with Commons Lang <literal moreinfo="none">RandomUtils</literal>, which provides a mechanism to
-      generate random <literal moreinfo="none">int</literal>, <literal moreinfo="none">long</literal>, <literal moreinfo="none">float</literal>, <literal moreinfo="none">double</literal>, and <literal moreinfo="none">boolean</literal> variables. The following code
+      <para>Generate random variables with Commons Lang <literal
+      moreinfo="none">RandomUtils</literal>, which provides a mechanism to
+      generate random <literal moreinfo="none">int</literal>, <literal
+      moreinfo="none">long</literal>, <literal
+      moreinfo="none">float</literal>, <literal
+      moreinfo="none">double</literal>, and <literal
+      moreinfo="none">boolean</literal> variables. The following code
       generates a random integer between zero and the value specified in the
-      parameter to <literal moreinfo="none">nextInt( )</literal> <indexterm id="math-ITERM-2887" significance="normal">
+      parameter to <literal moreinfo="none">nextInt( )</literal> <indexterm
+          id="math-ITERM-2887" significance="normal">
           <primary>nextInt( ) method</primary>
         </indexterm> <indexterm id="math-ITERM-2888" significance="normal">
           <primary>methods</primary>
@@ -574,7 +670,9 @@ System.out.println( "The substance is in a " + state + " state." );
 int maxVal = 30;
 int randomInt = RandomUtils.nextInt( maxVal );</programlisting>
 
-      <para>Or, if your application needs a random <literal moreinfo="none">boolean</literal> <indexterm id="math-ITERM-2889" significance="normal">
+      <para>Or, if your application needs a random <literal
+      moreinfo="none">boolean</literal> <indexterm id="math-ITERM-2889"
+          significance="normal">
           <primary>Boolean variables</primary>
         </indexterm> <indexterm id="math-ITERM-2890" significance="normal">
           <primary>variables</primary>
@@ -591,7 +689,9 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>A frequent argument for not using a utility like <literal moreinfo="none">RandomUtils</literal> <indexterm id="math-ITERM-2891" significance="normal">
+      <para>A frequent argument for not using a utility like <literal
+      moreinfo="none">RandomUtils</literal> <indexterm id="math-ITERM-2891"
+          significance="normal">
           <primary>RandomUtils</primary>
         </indexterm> <indexterm id="math-ITERM-2892" significance="normal">
           <primary>tools</primary>
@@ -608,12 +708,17 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
       <programlisting format="linespecific" id="I_8_tt330">int randomInt = (int) Math.floor( (Math.random( ) * (double) maxVal) );</programlisting>
 
       <para>While this statement may seem straightforward, it does contain a
-      conceptual complexity not present in <literal moreinfo="none">RandomUtils.nextInt(maxVal)</literal>. <literal moreinfo="none">RandomUtils.nextInt(maxVal)</literal> is a simple
-      statement: "I need a random integer between 0 and <literal moreinfo="none">maxVal</literal>"; the statement without <literal moreinfo="none">RandomUtils</literal> is translated to a more complex
+      conceptual complexity not present in <literal
+      moreinfo="none">RandomUtils.nextInt(maxVal)</literal>. <literal
+      moreinfo="none">RandomUtils.nextInt(maxVal)</literal> is a simple
+      statement: "I need a random integer between 0 and <literal
+      moreinfo="none">maxVal</literal>"; the statement without <literal
+      moreinfo="none">RandomUtils</literal> is translated to a more complex
       statement:</para>
 
       <blockquote>
-        <para>I'm going to take a random <literal moreinfo="none">double</literal> between 0.0 and 1.0, and multiply
+        <para>I'm going to take a random <literal
+        moreinfo="none">double</literal> between 0.0 and 1.0, and multiply
         this number by <literal moreinfo="none">maxVal</literal>, which has
         been cast to a <literal moreinfo="none">double</literal>. This result
         should be a random <literal moreinfo="none">double</literal> between
@@ -625,7 +730,9 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
       <para>While the previous statement does achieve the same task as
       <literal moreinfo="none">RandomUtils</literal>, it does so by rolling-up
       multiple statements into a single line of code: two casts, a call to
-      <literal moreinfo="none">floor( )</literal>, a call to <literal moreinfo="none">random()</literal> <indexterm id="math-ITERM-2894" significance="normal">
+      <literal moreinfo="none">floor( )</literal>, a call to <literal
+      moreinfo="none">random()</literal> <indexterm id="math-ITERM-2894"
+          significance="normal">
           <primary>random( ) method</primary>
         </indexterm> <indexterm id="math-ITERM-2895" significance="normal">
           <primary>methods</primary>
@@ -646,20 +753,34 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to use Jakarta Commons Math to work with complex numbers,
+      <para>You need to use Commons Math to work with complex numbers,
       matrices, statistics, or linear equations.</para>
     </sect2>
 
     <sect2>
       <title>Solution</title>
 
-      <para>Download Jakarta Commons Math and put the necessary JAR files in
-      your classpath. Because Commons Math has not yet been released, you will
-      need to download the latest nightly snapshot of Commons Math from
-      <ulink url="http://cvs.apache.org/builds/jakarta-commons/nightly/commons-math/">http://cvs.apache.org/builds/jakarta-commons/nightly/commons-math/</ulink>.
-      Once you have downloaded the latest nightly build, uncompress the
-      distribution, and place the <filename moreinfo="none">commons-math-1.0-RC1.jar</filename> file in your
-      classpath.</para>
+      <para>To use Commons Math in a Maven 2 project, add the following
+      dependency to your project's <filename>pom.xml</filename>:</para>
+
+      <example>
+        <title>Adding a Dependency on Commons Math</title>
+
+        <programlisting>    &lt;dependency&gt;
+        &lt;groupId&gt;commons-math&lt;/groupId&gt;
+        &lt;artifactId&gt;commons-math&lt;/artifactId&gt;
+        &lt;version&gt;1.2&lt;/version&gt;
+    &lt;/dependency&gt;
+</programlisting>
+      </example>
+
+      <para>If you are not sure what this means, I'd suggest reading <ulink
+      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
+      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      do is add the dependency <varname>groupId</varname>,
+      <varname>artifactId</varname>, and <varname>version</varname> to your
+      project's dependencies. Once you do this, Maven 2 will download the
+      dependency and make it available on your project's classpath.</para>
     </sect2>
 
     <sect2>
@@ -670,15 +791,7 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
       provides classes to work with complex numbers, utilities to calculate
       statistics, a matrix implementation, special functions, continued
       fractions, root-finding, interpolation, and bivariate regression.
-      Commons Math depends on Commons Collections 3.0, Commons Lang 2.0, and
-      Commons Logging 1.0.3. To obtain these dependencies, see <link linkend="lang-sect-obtaining">Recipe 1.1</link>, <link linkend="collections-sect-obtaining">Recipe 5.1</link>, and <link linkend="app-infra-sect-obtaining-logging">Recipe 7.9</link>.</para>
-
-      <warning id="math-NOTE-63" role="ora">
-        <para>By the time this book is published, Commons Math 1.0 may be
-        released. Make sure you look at the Commons Math project page
-        (<ulink url="http://jakarta.apache.org/commons/math">http://jakarta.apache.org/commons/math</ulink>) and
-        check for a release before downloading.</para>
-      </warning>
+      </para>
 
       <para>While the previous four recipes demonstrated classes and utilities
       available in Jakarta Commons Lang, the next five recipes demonstrate
@@ -692,14 +805,8 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
     <sect2>
       <title>See Also</title>
 
-      <para>Commons Math is a relatively new math library primarily motivated
-      by licensing and community issues; all established math libraries were
-      covered under a GPL or LGPL license. The Jakarta Commons community saw
-      an opportunity to create a library, and through the hard work of a few
-      dedicated developers in Commons, a very useful math library will soon be
-      released. That being said, if you need a more mature math library, and
-      your project can use LGPL components, look at the Colt Distribution from
-      CERN (<ulink url="http://hoschek.home.cern.ch/hoschek/colt/">http://hoschek.home.cern.ch/hoschek/colt/</ulink>).</para>
+      <para>For more information about the Commons Math project, see <ulink
+      url="http://commons.apache.org/math/">http://commons.apache.org/math/</ulink>.</para>
 
       <para>For the authoritative cookbook of mathematics, pick up a copy of
       <emphasis>Numerical Recipes in C++</emphasis> or <emphasis>Numerical
@@ -707,10 +814,12 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
       tomes contain a huge library of code and examples, but be forewarned,
       the mathematics will quickly intimidate the faint of math. More
       information about this indispensable text can be found at the Numerical
-      Recipes website (<ulink url="http://www.nr.com/">http://www.nr.com/</ulink>). Unlike all the components
-      described throughout this book, the code and examples from both of these
-      books is covered under a very restrictive license described at
-      <ulink url="http://www.numerical-recipes.com/infotop.html#distinfo">http://www.numerical-recipes.com/infotop.html#distinfo</ulink>.</para>
+      Recipes website (<ulink
+      url="http://www.nr.com/">http://www.nr.com/</ulink>). Unlike all the
+      components described throughout this book, the code and examples from
+      both of these books is covered under a very restrictive license
+      described at <ulink
+      url="http://www.numerical-recipes.com/infotop.html#distinfo">http://www.numerical-recipes.com/infotop.html#distinfo</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -720,7 +829,8 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to calculate <indexterm id="math-ITERM-2896" significance="normal">
+      <para>You need to calculate <indexterm id="math-ITERM-2896"
+          significance="normal">
           <primary>Commons Math</primary>
 
           <secondary>univariate statistic calculations</secondary>
@@ -753,7 +863,8 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Use Commons Math's<indexterm id="math-ITERM-2902" significance="normal">
+      <para>Use Commons Math's<indexterm id="math-ITERM-2902"
+          significance="normal">
           <primary>StatUtils</primary>
         </indexterm> <indexterm id="math-ITERM-2903" significance="normal">
           <primary>tools</primary>
@@ -764,7 +875,8 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
 
           <secondary>StatUtils</secondary>
         </indexterm> <literal moreinfo="none">StatUtils</literal> to calculate
-      simple univariate statistics. The following example uses <literal moreinfo="none">StatUtils</literal> to calculate simple statistics for a
+      simple univariate statistics. The following example uses <literal
+      moreinfo="none">StatUtils</literal> to calculate simple statistics for a
       <literal moreinfo="none">double[]</literal>:</para>
 
       <programlisting format="linespecific" id="I_8_tt331">import org.apache.commons.math.stat.StatUtils;
@@ -793,9 +905,12 @@ variance: 68.25500000000001</programlisting>
       <title>Discussion</title>
 
       <para><literal moreinfo="none">StatUtils</literal> delegates these
-      calculations to functors in the <literal moreinfo="none">org.apache.commons.math.stat.univariate.moment</literal>,
-      <literal moreinfo="none">org.apache.commons.math.stat.univariate.rank</literal>,
-      and <literal moreinfo="none">org.apache.commons.math.stat.univariate.summary</literal>
+      calculations to functors in the <literal
+      moreinfo="none">org.apache.commons.math.stat.univariate.moment</literal>,
+      <literal
+      moreinfo="none">org.apache.commons.math.stat.univariate.rank</literal>,
+      and <literal
+      moreinfo="none">org.apache.commons.math.stat.univariate.summary</literal>
       packages. The following example uses the individual classes from these
       packages to recreate the previous example, and it adds some measures not
       available in <literal moreinfo="none">StatUtil</literal>:</para>
@@ -852,8 +967,9 @@ kurtosis: 4.102348153299074</programlisting>
       <title>See Also</title>
 
       <para>If you need a formal definition of a specific moment, rank, or
-      summary, see MathWorld (<ulink url="http://mathworld.wolfram.com">http://mathworld.wolfram.com</ulink>), an invaluable
-      mathematical reference site from Wolfram, the makers of
+      summary, see MathWorld (<ulink
+      url="http://mathworld.wolfram.com">http://mathworld.wolfram.com</ulink>),
+      an invaluable mathematical reference site from Wolfram, the makers of
       Mathematica.</para>
     </sect2>
   </sect1>
@@ -864,7 +980,8 @@ kurtosis: 4.102348153299074</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to find the values of x,<indexterm id="math-ITERM-2905" significance="normal">
+      <para>You need to find the values of x,<indexterm id="math-ITERM-2905"
+          significance="normal">
           <primary>Commons Math</primary>
 
           <secondary>linear equations</secondary>
@@ -889,19 +1006,20 @@ kurtosis: 4.102348153299074</programlisting>
         </indexterm> <indexterm id="math-ITERM-2910" significance="normal">
           <primary>linear equations</primary>
         </indexterm> y, and z that satisfy the system of linear equations
-      shown in <link linkend="math-FIG-2">Figure
-      8-2</link>.</para>
+      shown in <link linkend="math-FIG-2">Figure 8-2</link>.</para>
 
       <figure float="0" id="math-FIG-2" label="8-2">
         <title>A system of linear equations</title>
 
         <mediaobject id="I_8_tt335">
           <imageobject role="print">
-            <imagedata depth="55" fileref="figs/print/jccb_0802.pdf" format="PDF" width="92"/>
+            <imagedata depth="55" fileref="figs/print/jccb_0802.pdf"
+                       format="PDF" width="92" />
           </imageobject>
 
           <imageobject role="web">
-            <imagedata depth="55" fileref="figs/web/jccb_0802.png" format="PNG" width="92"/>
+            <imagedata depth="55" fileref="figs/web/jccb_0802.png"
+                       format="PNG" width="92" />
           </imageobject>
         </mediaobject>
       </figure>
@@ -910,12 +1028,19 @@ kurtosis: 4.102348153299074</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Use the <literal moreinfo="none">RealMatrix</literal> <indexterm id="math-ITERM-2911" significance="normal">
+      <para>Use the <literal moreinfo="none">RealMatrix</literal> <indexterm
+          id="math-ITERM-2911" significance="normal">
           <primary>RealMatrix</primary>
         </indexterm> and <literal moreinfo="none">RealMatrixImpl</literal>
       from Commons Math. Represent this system of linear equations as matrices
-      in the <filename moreinfo="none">Ax=B</filename> form, as shown in <link linkend="math-FIG-3">Figure 8-3</link>. Place the
-      coefficients of <filename moreinfo="none">A</filename> in a <literal moreinfo="none">RealMatrix</literal>, and put <filename moreinfo="none">B</filename> in a <literal moreinfo="none">double[]</literal>. Call the <literal moreinfo="none">solve( )</literal> <indexterm id="math-ITERM-2912" significance="normal">
+      in the <filename moreinfo="none">Ax=B</filename> form, as shown in <link
+      linkend="math-FIG-3">Figure 8-3</link>. Place the coefficients of
+      <filename moreinfo="none">A</filename> in a <literal
+      moreinfo="none">RealMatrix</literal>, and put <filename
+      moreinfo="none">B</filename> in a <literal
+      moreinfo="none">double[]</literal>. Call the <literal
+      moreinfo="none">solve( )</literal> <indexterm id="math-ITERM-2912"
+          significance="normal">
           <primary>solve( ) method</primary>
         </indexterm> <indexterm id="math-ITERM-2913" significance="normal">
           <primary>methods</primary>
@@ -930,20 +1055,26 @@ kurtosis: 4.102348153299074</programlisting>
 
         <mediaobject id="I_8_tt336">
           <imageobject role="print">
-            <imagedata depth="53" fileref="figs/print/jccb_0803.pdf" format="PDF" width="139"/>
+            <imagedata depth="53" fileref="figs/print/jccb_0803.pdf"
+                       format="PDF" width="139" />
           </imageobject>
 
           <imageobject role="web">
-            <imagedata depth="53" fileref="figs/web/jccb_0803.png" format="PNG" width="139"/>
+            <imagedata depth="53" fileref="figs/web/jccb_0803.png"
+                       format="PNG" width="139" />
           </imageobject>
         </mediaobject>
       </figure>
 
-      <para>The following example takes the <indexterm id="math-ITERM-2914" significance="normal">
+      <para>The following example takes the <indexterm id="math-ITERM-2914"
+          significance="normal">
           <primary>coefficients</primary>
-        </indexterm>coefficients and <indexterm id="math-ITERM-2915" significance="normal">
+        </indexterm>coefficients and <indexterm id="math-ITERM-2915"
+          significance="normal">
           <primary>constants</primary>
-        </indexterm>constants from <link linkend="math-FIG-3">Figure 8-3</link> and uses a <literal moreinfo="none">RealMatrix</literal> to solve this system:</para>
+        </indexterm>constants from <link linkend="math-FIG-3">Figure
+      8-3</link> and uses a <literal moreinfo="none">RealMatrix</literal> to
+      solve this system:</para>
 
       <programlisting format="linespecific" id="I_8_tt337">import org.apache.commons.math.linear.RealMatrix;
 import org.apache.commons.math.linear.RealMatrixImpl;
@@ -962,7 +1093,9 @@ double[] answers = matrix.solve( values );
 System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlisting>
 
       <para>This example solves this system of equations and prints out the
-      values of x, y, and z using Commons Lang <literal moreinfo="none">ArrayUtils</literal> to print a <literal moreinfo="none">double[]</literal>:</para>
+      values of x, y, and z using Commons Lang <literal
+      moreinfo="none">ArrayUtils</literal> to print a <literal
+      moreinfo="none">double[]</literal>:</para>
 
       <programlisting format="linespecific" id="I_8_tt338">Answers: {400.4839095455532,-36.59139305646149,9.599731825759218}</programlisting>
 
@@ -973,31 +1106,47 @@ System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlist
     <sect2>
       <title>Discussion</title>
 
-      <para>To solve these equations, a <literal moreinfo="none">double[][]</literal> of coefficients is created to
-      represent a 3 3 matrix, and a <literal moreinfo="none">double[]</literal> of constants is created. The <literal moreinfo="none">RealMatrix</literal> interface is implemented by
+      <para>To solve these equations, a <literal
+      moreinfo="none">double[][]</literal> of coefficients is created to
+      represent a 3 3 matrix, and a <literal
+      moreinfo="none">double[]</literal> of constants is created. The <literal
+      moreinfo="none">RealMatrix</literal> interface is implemented by
       <literal moreinfo="none">RealMatrixImpl</literal>, which stores a matrix
       as a <literal moreinfo="none">double[][]</literal>; to populate this
-      <literal moreinfo="none">double[][]</literal>, pass the <literal moreinfo="none">double[][]</literal>, <literal moreinfo="none">coefficients</literal>, to the <literal moreinfo="none">setData( )</literal> method of <literal moreinfo="none">RealMatrixImpl</literal>. To solve the system, the
-      <literal moreinfo="none">values</literal> <literal moreinfo="none">double[]</literal> is passed to <literal moreinfo="none">matrix.solve( )</literal>, and a <literal moreinfo="none">double[]</literal> containing x, y, and z is
+      <literal moreinfo="none">double[][]</literal>, pass the <literal
+      moreinfo="none">double[][]</literal>, <literal
+      moreinfo="none">coefficients</literal>, to the <literal
+      moreinfo="none">setData( )</literal> method of <literal
+      moreinfo="none">RealMatrixImpl</literal>. To solve the system, the
+      <literal moreinfo="none">values</literal> <literal
+      moreinfo="none">double[]</literal> is passed to <literal
+      moreinfo="none">matrix.solve( )</literal>, and a <literal
+      moreinfo="none">double[]</literal> containing x, y, and z is
       returned.</para>
 
       <para>This method will not work for every matrix; there are systems of
       linear equations that are unsolvable. For example, if one attempts to
-      find values for the system of equations from <link linkend="math-FIG-4">Figure 8-4</link>, an <literal moreinfo="none">InvalidMatrixException</literal> will be thrown stating
+      find values for the system of equations from <link
+      linkend="math-FIG-4">Figure 8-4</link>, an <literal
+      moreinfo="none">InvalidMatrixException</literal> will be thrown stating
       that the matrix is singular. Additionally, if the number of rows in
       <filename moreinfo="none">B</filename> does not equal the number of
-      columns in <filename moreinfo="none">A</filename>, <literal moreinfo="none">solve()</literal> will throw an <literal moreinfo="none">InvalidMatrixException</literal>.</para>
+      columns in <filename moreinfo="none">A</filename>, <literal
+      moreinfo="none">solve()</literal> will throw an <literal
+      moreinfo="none">InvalidMatrixException</literal>.</para>
 
       <figure float="0" id="math-FIG-4" label="8-4">
         <title>An unsolvable system of equations</title>
 
         <mediaobject id="I_8_tt339">
           <imageobject role="print">
-            <imagedata depth="55" fileref="figs/print/jccb_0804.pdf" format="PDF" width="53"/>
+            <imagedata depth="55" fileref="figs/print/jccb_0804.pdf"
+                       format="PDF" width="53" />
           </imageobject>
 
           <imageobject role="web">
-            <imagedata depth="55" fileref="figs/web/jccb_0804.png" format="PNG" width="53"/>
+            <imagedata depth="55" fileref="figs/web/jccb_0804.png"
+                       format="PNG" width="53" />
           </imageobject>
         </mediaobject>
       </figure>
@@ -1007,12 +1156,13 @@ System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlist
       <title>See Also</title>
 
       <para>For more information about solving systems of linear equations
-      (or, for that matter, information about anything), see Wikipedia
-      (<ulink url="http://en.wikipedia.org/wiki/System_of_linear_equations">http://en.wikipedia.org/wiki/System_of_linear_equations</ulink>).
+      (or, for that matter, information about anything), see Wikipedia (<ulink
+      url="http://en.wikipedia.org/wiki/System_of_linear_equations">http://en.wikipedia.org/wiki/System_of_linear_equations</ulink>).
       <literal moreinfo="none">RealMatixImpl</literal> uses a process known as
       LU decomposition to solve this system of equations. For more information
-      about LU decomposition, see the JavaDoc for the <literal moreinfo="none">org.apache.commons.math.linear</literal> package
-      (<ulink url="http://jakarta.apache.org/commons/math/apidocs/index.html">http://jakarta.apache.org/commons/math/apidocs/index.html</ulink>).</para>
+      about LU decomposition, see the JavaDoc for the <literal
+      moreinfo="none">org.apache.commons.math.linear</literal> package (<ulink
+      url="http://jakarta.apache.org/commons/math/apidocs/index.html">http://jakarta.apache.org/commons/math/apidocs/index.html</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -1022,49 +1172,58 @@ System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlist
     <sect2>
       <title>Problem</title>
 
-      <para>You need to perform arithmetic<indexterm class="startofrange" id="math-ITERM-2916" significance="normal">
+      <para>You need to perform arithmetic<indexterm class="startofrange"
+          id="math-ITERM-2916" significance="normal">
           <primary>Commons Math</primary>
 
           <secondary>complex numbers</secondary>
-        </indexterm> <indexterm class="startofrange" id="math-ITERM-2917" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="math-ITERM-2917"
+          significance="normal">
           <primary>math</primary>
 
           <secondary>complex numbers</secondary>
-        </indexterm> <indexterm class="startofrange" id="math-ITERM-2918" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="math-ITERM-2918"
+          significance="normal">
           <primary>applications</primary>
 
           <secondary>math</secondary>
 
           <tertiary>complex numbers</tertiary>
-        </indexterm> <indexterm class="startofrange" id="math-ITERM-2919" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="math-ITERM-2919"
+          significance="normal">
           <primary>documents</primary>
 
           <secondary>math</secondary>
 
           <tertiary>complex numbers</tertiary>
-        </indexterm> <indexterm class="startofrange" id="math-ITERM-2920" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="math-ITERM-2920"
+          significance="normal">
           <primary>complex numbers</primary>
-        </indexterm> <indexterm class="startofrange" id="math-ITERM-2921" significance="normal">
+        </indexterm> <indexterm class="startofrange" id="math-ITERM-2921"
+          significance="normal">
           <primary>objects</primary>
 
           <secondary>complex numbers</secondary>
         </indexterm> with complex numbers. For example, given the complex
-      numbers <filename moreinfo="none">A</filename>, <filename moreinfo="none">B</filename>, <filename moreinfo="none">C</filename>,
+      numbers <filename moreinfo="none">A</filename>, <filename
+      moreinfo="none">B</filename>, <filename moreinfo="none">C</filename>,
       and <filename moreinfo="none">E</filename> and two equations shown in
-      <link linkend="math-FIG-5">Figure 8-5</link>, you need to
-      find the real part of <filename moreinfo="none">F</filename> and the
-      imaginary part of <filename moreinfo="none">D</filename>.</para>
+      <link linkend="math-FIG-5">Figure 8-5</link>, you need to find the real
+      part of <filename moreinfo="none">F</filename> and the imaginary part of
+      <filename moreinfo="none">D</filename>.</para>
 
       <figure float="0" id="math-FIG-5" label="8-5">
         <title>Expressions evaluated with the Complex object</title>
 
         <mediaobject id="I_8_tt340">
           <imageobject role="print">
-            <imagedata depth="55" fileref="figs/print/jccb_0805.pdf" format="PDF" width="81"/>
+            <imagedata depth="55" fileref="figs/print/jccb_0805.pdf"
+                       format="PDF" width="81" />
           </imageobject>
 
           <imageobject role="web">
-            <imagedata depth="55" fileref="figs/web/jccb_0805.png" format="PNG" width="81"/>
+            <imagedata depth="55" fileref="figs/web/jccb_0805.png"
+                       format="PNG" width="81" />
           </imageobject>
         </mediaobject>
       </figure>
@@ -1076,16 +1235,20 @@ System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlist
       <para>Use Commons Math <literal moreinfo="none">Complex</literal> and
       <literal moreinfo="none">ComplexMath</literal> classes to represent
       complex numbers and perform arithmetic using complex numbers. Use the
-      <literal moreinfo="none">ComplexFormat</literal> <indexterm id="math-ITERM-2922" significance="normal">
+      <literal moreinfo="none">ComplexFormat</literal> <indexterm
+          id="math-ITERM-2922" significance="normal">
           <primary>ComplexFormat class</primary>
         </indexterm> <indexterm id="math-ITERM-2923" significance="normal">
           <primary>classes</primary>
 
           <secondary>ComplexFormat</secondary>
         </indexterm> class to print the real and imaginary parts of a complex
-      number. The following example demonstrates the use of the <literal moreinfo="none">Complex</literal> class to calculate <filename moreinfo="none">D</filename> and <filename moreinfo="none">F</filename>
-      from <link linkend="math-FIG-5">Figure 8-5</link> using
-      arbitrary values for <filename moreinfo="none">A</filename>, <filename moreinfo="none">B</filename>, <filename moreinfo="none">C</filename>,
+      number. The following example demonstrates the use of the <literal
+      moreinfo="none">Complex</literal> class to calculate <filename
+      moreinfo="none">D</filename> and <filename moreinfo="none">F</filename>
+      from <link linkend="math-FIG-5">Figure 8-5</link> using arbitrary values
+      for <filename moreinfo="none">A</filename>, <filename
+      moreinfo="none">B</filename>, <filename moreinfo="none">C</filename>,
       and <filename moreinfo="none">E</filename>:</para>
 
       <programlisting format="linespecific" id="I_8_tt341">import org.apache.commons.math.complex.Complex;
@@ -1110,14 +1273,25 @@ double answer = realF / imD;
 System.out.println( "Answer Re(F)/Im(D): " + 
         NumberFormat.getInstance( ).format( answer ) );</programlisting>
 
-      <para>The variables <literal moreinfo="none">a</literal>, <literal moreinfo="none">b</literal>, <literal moreinfo="none">c</literal>, and
+      <para>The variables <literal moreinfo="none">a</literal>, <literal
+      moreinfo="none">b</literal>, <literal moreinfo="none">c</literal>, and
       <literal moreinfo="none">e</literal> are created using arbitrary values,
       and an intermediate <literal moreinfo="none">Complex</literal> object
-      <literal moreinfo="none">sum</literal> is calculated by adding <literal moreinfo="none">b</literal> to <literal moreinfo="none">a--a.add(b)</literal>. <literal moreinfo="none">d</literal> is calculated by dividing this intermediate
-      <literal moreinfo="none">sum</literal> by <literal moreinfo="none">c</literal>: <literal moreinfo="none">c.divide(sum)</literal>. <literal moreinfo="none">f</literal> is calculated by multiplying <literal moreinfo="none">e</literal> times the complex conjugate of <literal moreinfo="none">d</literal>: <literal moreinfo="none">e.multiply(
+      <literal moreinfo="none">sum</literal> is calculated by adding <literal
+      moreinfo="none">b</literal> to <literal
+      moreinfo="none">a--a.add(b)</literal>. <literal
+      moreinfo="none">d</literal> is calculated by dividing this intermediate
+      <literal moreinfo="none">sum</literal> by <literal
+      moreinfo="none">c</literal>: <literal
+      moreinfo="none">c.divide(sum)</literal>. <literal
+      moreinfo="none">f</literal> is calculated by multiplying <literal
+      moreinfo="none">e</literal> times the complex conjugate of <literal
+      moreinfo="none">d</literal>: <literal moreinfo="none">e.multiply(
       d.conjugate( ) )</literal>. The final answer is calculated by taking the
-      real part of <literal moreinfo="none">f</literal> (<literal moreinfo="none">f.getReal( )</literal>) and dividing that by the
-      imaginary part of <literal moreinfo="none">d</literal>: <literal moreinfo="none">d.getImaginary( )</literal>. The previous example
+      real part of <literal moreinfo="none">f</literal> (<literal
+      moreinfo="none">f.getReal( )</literal>) and dividing that by the
+      imaginary part of <literal moreinfo="none">d</literal>: <literal
+      moreinfo="none">d.getImaginary( )</literal>. The previous example
       performs complex arithmetic and prints the following to the
       console:</para>
 
@@ -1129,10 +1303,14 @@ Answer Re(F)/Im(D): 11.417</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>The previous example used the <literal moreinfo="none">ComplexFormat</literal> class to create a <literal moreinfo="none">String</literal> representation of a <literal moreinfo="none">Complex</literal> object. This class allows you to print
+      <para>The previous example used the <literal
+      moreinfo="none">ComplexFormat</literal> class to create a <literal
+      moreinfo="none">String</literal> representation of a <literal
+      moreinfo="none">Complex</literal> object. This class allows you to print
       out the complex number <filename moreinfo="none">N</filename> in the
       format <filename moreinfo="none">Re(N) + Im(N)i</filename>. This class
-      also has a constructor that takes a <literal moreinfo="none">String</literal> to use instead of "i." In electrical
+      also has a constructor that takes a <literal
+      moreinfo="none">String</literal> to use instead of "i." In electrical
       engineering, where "i" is frequently used to refer to current, complex
       impedance is represented using a "j" instead of an "i." To print a
       complex number using a "j", write the following code:</para>
@@ -1148,10 +1326,16 @@ System.out.println( "Impedance: " + format.format( impedance ) );</programlistin
 
       <para>The <literal moreinfo="none">Complex</literal> object contains
       simple arithmetic methods such as <literal moreinfo="none">add(
-      )</literal>, <literal moreinfo="none">subtract( )</literal>, <literal moreinfo="none">multiply( )</literal>, <literal moreinfo="none">divide()</literal>, <literal moreinfo="none">conjugate(
+      )</literal>, <literal moreinfo="none">subtract( )</literal>, <literal
+      moreinfo="none">multiply( )</literal>, <literal
+      moreinfo="none">divide()</literal>, <literal moreinfo="none">conjugate(
       )</literal>, and <literal moreinfo="none">negate( )</literal>. More
-      advanced methods are available as static methods on the <literal moreinfo="none">ComplexMath</literal> class. <literal moreinfo="none">ComplexMath</literal> includes trigonometric methods
-      such as <literal moreinfo="none">sin( )</literal>, <literal moreinfo="none">sinh( )</literal>, <literal moreinfo="none">cos()</literal>, and <literal moreinfo="none">tan(
+      advanced methods are available as static methods on the <literal
+      moreinfo="none">ComplexMath</literal> class. <literal
+      moreinfo="none">ComplexMath</literal> includes trigonometric methods
+      such as <literal moreinfo="none">sin( )</literal>, <literal
+      moreinfo="none">sinh( )</literal>, <literal
+      moreinfo="none">cos()</literal>, and <literal moreinfo="none">tan(
       )</literal>, as well as methods to calculate logarithms and to take the
       square root of a <literal moreinfo="none">Complex</literal>
       object.</para>
@@ -1160,8 +1344,10 @@ System.out.println( "Impedance: " + format.format( impedance ) );</programlistin
     <sect2>
       <title>See also</title>
 
-      <para>For more information about the <literal moreinfo="none">ComplexMath</literal> utility, see the Commons Math
-      JavaDoc at <ulink url="http://jakarta.apache.org/commons/math/apidocs/index.html">http://jakarta.apache.org/commons/math/apidocs/index.html</ulink>.</para>
+      <para>For more information about the <literal
+      moreinfo="none">ComplexMath</literal> utility, see the Commons Math
+      JavaDoc at <ulink
+      url="http://jakarta.apache.org/commons/math/apidocs/index.html">http://jakarta.apache.org/commons/math/apidocs/index.html</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -1180,7 +1366,8 @@ System.out.println( "Impedance: " + format.format( impedance ) );</programlistin
     <sect2>
       <title>Solution</title>
 
-      <para>Add data points to an instance of Commons Math <literal moreinfo="none">SimpleRegression</literal>. This class will calculate
+      <para>Add data points to an instance of Commons Math <literal
+      moreinfo="none">SimpleRegression</literal>. This class will calculate
       the slope, slope confidence, and a measure of relatedness known as
       R-square. The <literal moreinfo="none">SimpleRegression</literal> class
       performs a least squares regression with one independent variable;
@@ -1216,8 +1403,10 @@ System.out.println( "Slope Confidence: " + sr.getSlopeConfidenceInterval( ) );
 // Print RSquare a measure of relatedness
 System.out.println( "RSquare: " + sr.getRSquare( ) );</programlisting>
 
-      <para>This example passes six data points to <literal moreinfo="none">SimpleRegression</literal> and prints the slope, number
-      of data points, and R-square from <literal moreinfo="none">SimpleRegression</literal>:</para>
+      <para>This example passes six data points to <literal
+      moreinfo="none">SimpleRegression</literal> and prints the slope, number
+      of data points, and R-square from <literal
+      moreinfo="none">SimpleRegression</literal>:</para>
 
       <programlisting format="linespecific" id="I_8_tt346">Intercept: 0.238
 N: 6
@@ -1237,16 +1426,21 @@ RSquare: 0.985</programlisting>
           <primary>methods</primary>
 
           <secondary>getR( )</secondary>
-        </indexterm> <literal moreinfo="none">getR( )</literal> on <literal moreinfo="none">SimpleRegression</literal> <indexterm id="math-ITERM-2926" significance="normal">
+        </indexterm> <literal moreinfo="none">getR( )</literal> on <literal
+      moreinfo="none">SimpleRegression</literal> <indexterm
+          id="math-ITERM-2926" significance="normal">
           <primary>SimpleRegression</primary>
         </indexterm>. R-square is a determination of correlation between two
-      series of numbers. The parameters to the <literal moreinfo="none">addData()</literal> <indexterm id="math-ITERM-2927" significance="normal">
+      series of numbers. The parameters to the <literal
+      moreinfo="none">addData()</literal> <indexterm id="math-ITERM-2927"
+          significance="normal">
           <primary>addData( ) method</primary>
         </indexterm> <indexterm id="math-ITERM-2928" significance="normal">
           <primary>methods</primary>
 
           <secondary>addData( )</secondary>
-        </indexterm> method of <literal moreinfo="none">SimpleRegression</literal> are a corresponding x and y
+        </indexterm> method of <literal
+      moreinfo="none">SimpleRegression</literal> are a corresponding x and y
       value in two sets of data. If R-square is 1.0, the model shows that as x
       increases linearly, y increases linearly. In the previous example,
       R-square is 0.98, and this demonstrates that the (x,y) data points added
@@ -1271,7 +1465,8 @@ sr.addData( 50, 500 );
 // Print RSquare a measure of relatedness
 System.out.println( "RSquare: " + sr.getRSquare( ) );</programlisting>
 
-      <para>The data points added to this <literal moreinfo="none">SimpleRegression</literal> are all over the map; x and y
+      <para>The data points added to this <literal
+      moreinfo="none">SimpleRegression</literal> are all over the map; x and y
       are unrelated, and the R-square value for this set of data points is
       very close to zero:</para>
 
@@ -1292,9 +1487,11 @@ RSquare: 0.02</programlisting>
 
       <para>For more information about least squares, the technique used by
       <literal moreinfo="none">SimpleRegression</literal>, see Wikipedia
-      (<ulink url="http://en.wikipedia.org/wiki/Least_squares">http://en.wikipedia.org/wiki/Least_squares</ulink>).
+      (<ulink
+      url="http://en.wikipedia.org/wiki/Least_squares">http://en.wikipedia.org/wiki/Least_squares</ulink>).
       More information about R and R-square can also be found on Wikipedia
-      (<ulink url="http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient">http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient</ulink>).</para>
+      (<ulink
+      url="http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient">http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -1312,9 +1509,14 @@ RSquare: 0.02</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Use Commons Math's <literal moreinfo="none">SimpleRegression</literal> <indexterm id="math-ITERM-2929" significance="normal">
+      <para>Use Commons Math's <literal
+      moreinfo="none">SimpleRegression</literal> <indexterm
+          id="math-ITERM-2929" significance="normal">
           <primary>SimpleRegression</primary>
-        </indexterm> and Commons Lang's <literal moreinfo="none">StopWatch</literal> to create a <literal moreinfo="none">ProcessEstimator</literal> <indexterm id="math-ITERM-2930" significance="normal">
+        </indexterm> and Commons Lang's <literal
+      moreinfo="none">StopWatch</literal> to create a <literal
+      moreinfo="none">ProcessEstimator</literal> <indexterm
+          id="math-ITERM-2930" significance="normal">
           <primary>ProcessEstimator class</primary>
         </indexterm> <indexterm id="math-ITERM-2931" significance="normal">
           <primary>classes</primary>
@@ -1326,9 +1528,13 @@ RSquare: 0.02</programlisting>
       program will be finished. Your program needs to process a number of
       records, and this program could take a few hours to finish. You would
       like to provide some feedback, and, if you are confident that each
-      record will take roughly the same amount of time, you can use <literal moreinfo="none">SimpleRegression</literal>'s slope and intercept to
-      estimate the time when all records will be processed. <link linkend="math-EX-1">Example 8-1</link> defines the <literal moreinfo="none">ProcessEstimator</literal> class that combines the power
-      of <literal moreinfo="none">StopWatch</literal> and <literal moreinfo="none">ProcessEstimator</literal> to estimate the time
+      record will take roughly the same amount of time, you can use <literal
+      moreinfo="none">SimpleRegression</literal>'s slope and intercept to
+      estimate the time when all records will be processed. <link
+      linkend="math-EX-1">Example 8-1</link> defines the <literal
+      moreinfo="none">ProcessEstimator</literal> class that combines the power
+      of <literal moreinfo="none">StopWatch</literal> and <literal
+      moreinfo="none">ProcessEstimator</literal> to estimate the time
       remaining in a process.</para>
 
       <example id="math-EX-1" label="8-1">
@@ -1404,18 +1610,21 @@ public class ProcessEstimator {
       rate to measure progress. With 10,000 records to process and a sample of
       100, the <literal moreinfo="none">SimpleRegression</literal> will add a
       data point of units remaining versus time elapsed after every 100
-      records. As the program continues to execute, <literal moreinfo="none">projectedTimeRemaining( )</literal> will return an
+      records. As the program continues to execute, <literal
+      moreinfo="none">projectedTimeRemaining( )</literal> will return an
       updated estimation of time remaining by retrieving the y-intercept from
       <literal moreinfo="none">SimpleRegression</literal> and subtracting the
-      time already spent in execution. The y-intercept from <literal moreinfo="none">SimpleRegression</literal> represents the y value when x
+      time already spent in execution. The y-intercept from <literal
+      moreinfo="none">SimpleRegression</literal> represents the y value when x
       equals zero, where x is the number of records remaining; as x decreases,
       y increases, and y represents the total time elapsed to process all
       records.</para>
 
       <para>The <literal moreinfo="none">ProcessEstimationExample</literal> in
-      <link linkend="math-EX-2">Example 8-2</link> uses the
-      <literal moreinfo="none">ProcessEstimator</literal> to estimate the time
-      remaining while calling the <literal moreinfo="none">performLengthyProcess( )</literal> method 10,000
+      <link linkend="math-EX-2">Example 8-2</link> uses the <literal
+      moreinfo="none">ProcessEstimator</literal> to estimate the time
+      remaining while calling the <literal
+      moreinfo="none">performLengthyProcess( )</literal> method 10,000
       times.</para>
 
       <example id="math-EX-2" label="8-2">
@@ -1479,9 +1688,20 @@ public class ProcessEstimationExample {
       )</literal> causes <literal moreinfo="none">ProcessEstimator</literal>
       to update <literal moreinfo="none">SimpleRegression</literal> with the
       number of records remaining and the amount of time spent so far. After
-      every <indexterm class="endofrange" id="math-ITERM-2933" significance="normal" startref="math-ITERM-2916"/> <indexterm class="endofrange" id="math-ITERM-2934" significance="normal" startref="math-ITERM-2917"/> <indexterm class="endofrange" id="math-ITERM-2935" significance="normal" startref="math-ITERM-2918"/> <indexterm class="endofrange" id="math-ITERM-2936" significance="normal" startref="math-ITERM-2919"/> <indexterm class="endofrange" id="math-ITERM-2937" significance="normal" startref="math-ITERM-2920"/> <indexterm class="endofrange" id="math-ITERM-2938" significance="normal" startref="math-ITERM-2921"/>1000th call to
-      <literal moreinfo="none">performLengthyProcess( )</literal>, a status
-      message is printed to the console as follows:</para>
+      every <indexterm class="endofrange" id="math-ITERM-2933"
+      significance="normal" startref="math-ITERM-2916"></indexterm> <indexterm
+      class="endofrange" id="math-ITERM-2934" significance="normal"
+      startref="math-ITERM-2917"></indexterm> <indexterm class="endofrange"
+      id="math-ITERM-2935" significance="normal"
+      startref="math-ITERM-2918"></indexterm> <indexterm class="endofrange"
+      id="math-ITERM-2936" significance="normal"
+      startref="math-ITERM-2919"></indexterm> <indexterm class="endofrange"
+      id="math-ITERM-2937" significance="normal"
+      startref="math-ITERM-2920"></indexterm> <indexterm class="endofrange"
+      id="math-ITERM-2938" significance="normal"
+      startref="math-ITERM-2921"></indexterm>1000th call to <literal
+      moreinfo="none">performLengthyProcess( )</literal>, a status message is
+      printed to the console as follows:</para>
 
       <programlisting format="linespecific" id="I_8_tt349">Completed: 0 of 10000
     Time Spent: 0 sec, Time Remaining: 0 sec
@@ -1507,7 +1727,8 @@ Completed 10000 in 47 seconds.</programlisting>
 
       <para>As shown above, the output periodically displays the amount of
       time you can expect the program to continue executing. Initially, there
-      is no data to make a prediction with, so the <literal moreinfo="none">ProcessEstimator</literal> returns zero seconds, but, as
+      is no data to make a prediction with, so the <literal
+      moreinfo="none">ProcessEstimator</literal> returns zero seconds, but, as
       the program executes the <literal moreinfo="none">performLengthyProcess(
       )</literal> method 10,000 times, a meaningful time remaining is
       produced.</para>
@@ -1518,9 +1739,11 @@ Completed 10000 in 47 seconds.</programlisting>
 
       <para>The previous example used a method that sleeps for a random number
       of milliseconds between 1 and 10, and this value is selected using the
-      <literal moreinfo="none">RandomUtils</literal> class described in <link linkend="math-sect-ran-vars">Recipe 8.4</link>. It is easy to
-      predict how long this process is going to take because, on average, each
-      method call is going to sleep for five milliseconds. The <literal moreinfo="none">ProcessEstimator</literal> is inaccurate when the amount
+      <literal moreinfo="none">RandomUtils</literal> class described in <link
+      linkend="math-sect-ran-vars">Recipe 8.4</link>. It is easy to predict
+      how long this process is going to take because, on average, each method
+      call is going to sleep for five milliseconds. The <literal
+      moreinfo="none">ProcessEstimator</literal> is inaccurate when the amount
       of time to process each record takes a steadily increasing or decreasing
       amount of time, or if there is a block of records that takes
       substantially more or less time to process. If the amount of time to
@@ -1529,14 +1752,16 @@ Completed 10000 in 47 seconds.</programlisting>
       <literal moreinfo="none">ProcessEstimator</literal> uses a linear model,
       <literal moreinfo="none">SimpleRegression</literal>, a nonconstant
       execution time will produce inaccurate predictions for time remaining.
-      If you are using the <literal moreinfo="none">ProcessEstimator</literal>, make sure that it takes
+      If you are using the <literal
+      moreinfo="none">ProcessEstimator</literal>, make sure that it takes
       roughly the same amount of time to process each record.</para>
     </sect2>
 
     <sect2>
       <title>See Also</title>
 
-      <para>This recipe refers to the <literal moreinfo="none">StopWatch</literal> class from Commons Lang. For more
+      <para>This recipe refers to the <literal
+      moreinfo="none">StopWatch</literal> class from Commons Lang. For more
       information about the <literal moreinfo="none">StopWatch</literal>
       class, see <link linkend="lang-sect-measure-time">Recipe
       1.19</link>.</para>
