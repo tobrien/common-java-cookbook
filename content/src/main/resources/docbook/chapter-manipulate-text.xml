@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <chapter id="manipulate-text" label="2">
   <title>Manipulating Text</title>
 
@@ -9,14 +9,16 @@
     (XML) came to town. Java's text manipulation capabilities have only
     recently received some badly overdue attention, with the addition of
     regular expressions and numerous improvements in Java 1.5. Despite the
-    improvements, using Java to<indexterm id="manipulate-text-ITERM-1949" significance="normal">
+    improvements, using Java to<indexterm id="manipulate-text-ITERM-1949"
+        significance="normal">
         <primary>plain text</primary>
 
         <seealso>text</seealso>
-      </indexterm> manipulate <indexterm id="manipulate-text-ITERM-1950" significance="normal">
+      </indexterm> manipulate <indexterm id="manipulate-text-ITERM-1950"
+        significance="normal">
         <primary>plain text</primary>
       </indexterm>plain text can inspire frustration. Hand a developer a
-    fixed-length text file format to parse, and you will hear the groans&#x2014;"Why
+    fixed-length text file format to parse, and you will hear the groans—"Why
     can't we use something `modern' like XML? I don't want to parse text." And
     while parsing and manipulating text may not build you a sexy resume, there
     is still a need to work with text in any program. For every snazzy XML
@@ -29,11 +31,16 @@
     gaps.</para>
 
     <para>The recipes in this chapter deal with a collection of static methods
-    on two classes in Jakarta Commons Lang&#x2014;<literal moreinfo="none">StringUtils</literal> and <literal moreinfo="none">WordUtils</literal>. Some of the methods on <literal moreinfo="none">StringUtils</literal> have been made obsolete by changes
+    on two classes in Jakarta Commons Lang—<literal
+    moreinfo="none">StringUtils</literal> and <literal
+    moreinfo="none">WordUtils</literal>. Some of the methods on <literal
+    moreinfo="none">StringUtils</literal> have been made obsolete by changes
     introduced in Java 1.4 and Java 1.5, but, regardless, there are times when
     you will want to split a string without regular expressions. Using
     <literal moreinfo="none">StringUtils.chomp( )</literal> achieves more
-    readable logic than writing the equivalent logic using the <literal moreinfo="none">String.indexOf( )</literal> and <literal moreinfo="none">String.substring()</literal> methods. These recipes will
+    readable logic than writing the equivalent logic using the <literal
+    moreinfo="none">String.indexOf( )</literal> and <literal
+    moreinfo="none">String.substring()</literal> methods. These recipes will
     not change the basic architecture of a system with new, groundbreaking
     technology, but they are valuable "shortcuts" whose benefits will add up
     over time. Simple solutions to common tasks will save minutes of coding
@@ -42,11 +49,12 @@
     an indispensable supplement to the Java language.</para>
 
     <para>Read the recipes in this chapter, and take some time to read the
-    Javadoc for <literal moreinfo="none">StringUtils</literal> and <literal moreinfo="none">WordUtils</literal>. These utility classes provide some
+    Javadoc for <literal moreinfo="none">StringUtils</literal> and <literal
+    moreinfo="none">WordUtils</literal>. These utility classes provide some
     common string operations missing in Java, and they are simple and
     well-documented. These utilities are so simple that, throughout this
     chapter, you will notice recipes without a Discussion or See Also
-    section&#x2014;it's just not needed! These simple recipes have relevance to all
+    section—it's just not needed! These simple recipes have relevance to all
     skill levels; even if you are an experienced developer, you may be
     surprised at what Commons Lang string manipulation has to offer.</para>
   </sect1>
@@ -57,35 +65,44 @@
     <sect2>
       <title>Problem</title>
 
-      <para>You want the ability to use <literal moreinfo="none">StringUtils</literal> <indexterm id="manipulate-text-ITERM-1951" significance="normal">
+      <para>You want the ability to use <literal
+      moreinfo="none">StringUtils</literal> <indexterm
+          id="manipulate-text-ITERM-1951" significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>configuration</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1952" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1952"
+          significance="normal">
           <primary>classes</primary>
 
           <secondary>StringUtils</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1953" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1953"
+          significance="normal">
           <primary>WordUtils class</primary>
 
           <secondary>configuration</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1954" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1954"
+          significance="normal">
           <primary>classes</primary>
 
           <secondary>WordUtils</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1955" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1955"
+          significance="normal">
           <primary>configuration</primary>
 
           <secondary>WordUtils class</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1956" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1956"
+          significance="normal">
           <primary>configuration</primary>
 
           <secondary>StringUtils class</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1957" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1957"
+          significance="normal">
           <primary>text</primary>
 
           <secondary>WordUtils class</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1958" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1958"
+          significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
@@ -105,7 +122,10 @@
       <title>Discussion</title>
 
       <para>This chapter focuses on a very small subset of the Commons Lang
-      project&#x2014;<literal moreinfo="none">StringUtils</literal> and <literal moreinfo="none">WordUtils</literal>. To use either <literal moreinfo="none">StringUtils</literal> or <literal moreinfo="none">WordUtils</literal> in a Java class, add the following
+      project—<literal moreinfo="none">StringUtils</literal> and <literal
+      moreinfo="none">WordUtils</literal>. To use either <literal
+      moreinfo="none">StringUtils</literal> or <literal
+      moreinfo="none">WordUtils</literal> in a Java class, add the following
       lines to your import statements:</para>
 
       <programlisting format="linespecific" id="I_2_tt50">import org.apache.commons.lang.StringUtils;
@@ -113,17 +133,10 @@ import org.apache.commons.lang.WordUtils;</programlisting>
 
       <para>Recipes that use <literal moreinfo="none">StringUtils</literal>
       and <literal moreinfo="none">WordUtils</literal> in this chapter will
-      omit these import statements in code fragments. When <literal moreinfo="none">StringUtils</literal> or <literal moreinfo="none">WordUtils</literal> appears in an example, assume that
+      omit these import statements in code fragments. When <literal
+      moreinfo="none">StringUtils</literal> or <literal
+      moreinfo="none">WordUtils</literal> appears in an example, assume that
       it has already been imported.</para>
-    </sect2>
-
-    <sect2>
-      <title>See Also</title>
-
-      <para>If you have questions about these utilities, join the Jakarta
-      Commons User mailing list; see <link linkend="lang-sect-mailinglist">Recipe 1.2</link>. To download the
-      source for Commons Lang, see <link linkend="lang-sect-sourcecode">Recipe
-      1.3</link>.</para>
     </sect2>
   </sect1>
 
@@ -133,29 +146,35 @@ import org.apache.commons.lang.WordUtils;</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to test for an empty or<indexterm class="startofrange" id="manipulate-text-ITERM-1959" significance="normal">
+      <para>You need to test for an empty or<indexterm class="startofrange"
+          id="manipulate-text-ITERM-1959" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>testing empty strings</tertiary>
-        </indexterm> <indexterm class="startofrange" id="manipulate-text-ITERM-1960" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="manipulate-text-ITERM-1960" significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>testing empty strings</tertiary>
-        </indexterm> <indexterm class="startofrange" id="manipulate-text-ITERM-1961" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="manipulate-text-ITERM-1961" significance="normal">
           <primary>testing</primary>
 
           <secondary>empty strings</secondary>
-        </indexterm> <indexterm class="startofrange" id="manipulate-text-ITERM-1962" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="manipulate-text-ITERM-1962" significance="normal">
           <primary>empty strings, testing</primary>
-        </indexterm> <indexterm class="startofrange" id="manipulate-text-ITERM-1963" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="manipulate-text-ITERM-1963" significance="normal">
           <primary>strings</primary>
 
           <secondary>empty, testing</secondary>
-        </indexterm> <indexterm class="startofrange" id="manipulate-text-ITERM-1964" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="manipulate-text-ITERM-1964" significance="normal">
           <primary>null strings, testing</primary>
         </indexterm> <literal moreinfo="none">null</literal> string.</para>
     </sect2>
@@ -166,14 +185,16 @@ import org.apache.commons.lang.WordUtils;</programlisting>
       <para>Use <literal moreinfo="none">StringUtils.isBlank()</literal>
       <indexterm id="manipulate-text-ITERM-1965" significance="normal">
           <primary>StringUtils.isBlank( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1966" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1966"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>StringUtils.isBlank( )</secondary>
         </indexterm>. This method will return true if it is supplied with an
       empty, zero length, or whitespace-only string. This method gracefully
       handles a <literal moreinfo="none">null</literal> input by returning
-      true. The following example demonstrates <literal moreinfo="none">isBlank( )</literal> with four strings:</para>
+      true. The following example demonstrates <literal
+      moreinfo="none">isBlank( )</literal> with four strings:</para>
 
       <programlisting format="linespecific" id="I_2_tt51">String test = "";
 String test2 = "\n\n\t";
@@ -197,11 +218,15 @@ test4 blank? false</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>Checking for nonblank strings is just as easy; <literal moreinfo="none">StringUtils.isNotBlank( )</literal> will return the
+      <para>Checking for nonblank strings is just as easy; <literal
+      moreinfo="none">StringUtils.isNotBlank( )</literal> will return the
       compliment of <literal moreinfo="none">isBlank( )</literal>. If a string
-      is empty, contains only whitespace, or is <literal moreinfo="none">null</literal>, the <literal moreinfo="none">StringUtils.isNotBlank( )</literal> method will return
+      is empty, contains only whitespace, or is <literal
+      moreinfo="none">null</literal>, the <literal
+      moreinfo="none">StringUtils.isNotBlank( )</literal> method will return
       false. This method comes in handy when a process expects a certain
-      string to have content, and it gracefully handles a <literal moreinfo="none">null</literal> input by returning false:</para>
+      string to have content, and it gracefully handles a <literal
+      moreinfo="none">null</literal> input by returning false:</para>
 
       <programlisting format="linespecific" id="I_2_tt53">String test = "\t\t";
 String test2 = "Test";
@@ -217,7 +242,9 @@ test2 is not blank? true</programlisting>
 
       <para>Another method to test for an empty string is to "trim" a string
       to <literal moreinfo="none">null</literal> if it contains only
-      whitespace, and then test to see if the trimmed result is <literal moreinfo="none">null</literal>. Use <literal moreinfo="none">StringUtils.trimToNull( )</literal> to transform empty
+      whitespace, and then test to see if the trimmed result is <literal
+      moreinfo="none">null</literal>. Use <literal
+      moreinfo="none">StringUtils.trimToNull( )</literal> to transform empty
       strings to <literal moreinfo="none">null</literal>. This method handles
       a <literal moreinfo="none">null</literal> parameter value by returning
       <literal moreinfo="none">null</literal>.</para>
@@ -231,7 +258,8 @@ System.out.println( "test2 trimToNull: " + StringUtils.trimToNull( test2 ) );
 System.out.println( "test3 trimToNull: " + StringUtils.trimToNull( test3 ) );</programlisting>
 
       <para>This produces the following output, which shows that a string
-      containing only whitespace is trimmed to <literal moreinfo="none">null</literal>:</para>
+      containing only whitespace is trimmed to <literal
+      moreinfo="none">null</literal>:</para>
 
       <programlisting format="linespecific" id="I_2_tt56">test1 trimToNull: null
 test2 trimToNull: Test
@@ -249,25 +277,38 @@ test3 trimToNull: null</programlisting>
         // Do something
 }</programlisting>
 
-      <para>The code above can be rewritten with one call to <literal moreinfo="none">StringUtils.isNotBlank( )</literal>:</para>
+      <para>The code above can be rewritten with one call to <literal
+      moreinfo="none">StringUtils.isNotBlank( )</literal>:</para>
 
       <programlisting format="linespecific" id="I_2_tt58">if( StringUtils.isNotBlank( variable ) ) {
     // Do something
 }</programlisting>
 
-      <para>It is good practice to avoid using <literal moreinfo="none">null</literal> whenever possible; code that uses
+      <para>It is good practice to avoid using <literal
+      moreinfo="none">null</literal> whenever possible; code that uses
       <literal moreinfo="none">null</literal> to signify emptiness or an error
       condition is harder to maintain and more likely to throw a nasty
       <literal moreinfo="none">NullPointerException</literal>. Worse yet are
       methods that return a <literal moreinfo="none">null</literal> whenever a
-      problem occurs or an exception is thrown. While <literal moreinfo="none">trimToNull()</literal> can accomplish the goal, it does
+      problem occurs or an exception is thrown. While <literal
+      moreinfo="none">trimToNull()</literal> can accomplish the goal, it does
       increase the occurrence of <literal moreinfo="none">null</literal>s in
-      code; <indexterm class="endofrange" id="manipulate-text-ITERM-1967" significance="normal" startref="manipulate-text-ITERM-1959"/>
-      <indexterm class="endofrange" id="manipulate-text-ITERM-1968" significance="normal" startref="manipulate-text-ITERM-1960"/>
-      <indexterm class="endofrange" id="manipulate-text-ITERM-1969" significance="normal" startref="manipulate-text-ITERM-1961"/>
-      <indexterm class="endofrange" id="manipulate-text-ITERM-1970" significance="normal" startref="manipulate-text-ITERM-1962"/>
-      <indexterm class="endofrange" id="manipulate-text-ITERM-1971" significance="normal" startref="manipulate-text-ITERM-1963"/>
-      <indexterm class="endofrange" id="manipulate-text-ITERM-1972" significance="normal" startref="manipulate-text-ITERM-1964"/>use <literal moreinfo="none">isBlank( )</literal> and <literal moreinfo="none">isNotBlank( )</literal> to excise dangerous <literal moreinfo="none">null</literal>s from your code.</para>
+      code; <indexterm class="endofrange" id="manipulate-text-ITERM-1967"
+      significance="normal" startref="manipulate-text-ITERM-1959"></indexterm>
+      <indexterm class="endofrange" id="manipulate-text-ITERM-1968"
+      significance="normal" startref="manipulate-text-ITERM-1960"></indexterm>
+      <indexterm class="endofrange" id="manipulate-text-ITERM-1969"
+      significance="normal" startref="manipulate-text-ITERM-1961"></indexterm>
+      <indexterm class="endofrange" id="manipulate-text-ITERM-1970"
+      significance="normal" startref="manipulate-text-ITERM-1962"></indexterm>
+      <indexterm class="endofrange" id="manipulate-text-ITERM-1971"
+      significance="normal" startref="manipulate-text-ITERM-1963"></indexterm>
+      <indexterm class="endofrange" id="manipulate-text-ITERM-1972"
+      significance="normal"
+      startref="manipulate-text-ITERM-1964"></indexterm>use <literal
+      moreinfo="none">isBlank( )</literal> and <literal
+      moreinfo="none">isNotBlank( )</literal> to excise dangerous <literal
+      moreinfo="none">null</literal>s from your code.</para>
     </sect2>
   </sect1>
 
@@ -286,29 +327,35 @@ test3 trimToNull: null</programlisting>
       <para>Use <literal moreinfo="none">StringUtils.abbreviate()</literal>
       <indexterm id="manipulate-text-ITERM-1973" significance="normal">
           <primary>StringUtils.abbreviate( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1974" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1974"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>StringUtils.abbreviate( )</secondary>
-        </indexterm>. Supply<indexterm id="manipulate-text-ITERM-1975" significance="normal">
+        </indexterm>. Supply<indexterm id="manipulate-text-ITERM-1975"
+          significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>abbreviating strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1976" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1976"
+          significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>abbreviating strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1977" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1977"
+          significance="normal">
           <primary>abbreviating strings</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1978" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1978"
+          significance="normal">
           <primary>strings</primary>
 
           <secondary>abbreviating</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1979" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1979"
+          significance="normal">
           <primary>characters</primary>
 
           <secondary>abbreviating</secondary>
@@ -348,13 +395,17 @@ System.out.println( "Subject2: " + messages2);</programlisting>
 
       <para>This simple example abbreviates the first message variable,
       <literal moreinfo="none">message</literal>, to "Who do you think...?"
-      The second message variable, <literal moreinfo="none">message2</literal>, is not affected by the abbreviation
-      because it is less than 40 characters long; <literal moreinfo="none">abbrev2</literal> will equal the contents of <literal moreinfo="none">message2</literal>.</para>
+      The second message variable, <literal
+      moreinfo="none">message2</literal>, is not affected by the abbreviation
+      because it is less than 40 characters long; <literal
+      moreinfo="none">abbrev2</literal> will equal the contents of <literal
+      moreinfo="none">message2</literal>.</para>
 
       <para><literal moreinfo="none">StringUtils.abbreviate( )</literal> can
       also abbreviate text at an offset within a string. If you are writing an
       application that searches for a given word and prints that word out in
-      context, you can use the <literal moreinfo="none">StringUtils.abbreviate( )</literal> method to print the
+      context, you can use the <literal
+      moreinfo="none">StringUtils.abbreviate( )</literal> method to print the
       context in which a word appears:</para>
 
       <programlisting format="linespecific" id="I_2_tt62">String message = "There was a palpable sense that the rest of the world " +
@@ -388,7 +439,9 @@ int width = 20 + message.length( );
       three characters will be ellipses.</para>
 
       <warning id="manipulate-text-NOTE-51" role="ora">
-        <para>If a width less than four is specified, <literal moreinfo="none">abbreviate()</literal> will throw an <literal moreinfo="none">IllegalArgumentException</literal>. A width less than
+        <para>If a width less than four is specified, <literal
+        moreinfo="none">abbreviate()</literal> will throw an <literal
+        moreinfo="none">IllegalArgumentException</literal>. A width less than
         four does not give the <literal moreinfo="none">abbreviate(
         )</literal> method enough room to print ellipses and content.</para>
       </warning>
@@ -401,27 +454,32 @@ int width = 20 + message.length( );
     <sect2>
       <title>Problem</title>
 
-      <para>You want to split a string on a<indexterm id="manipulate-text-ITERM-1980" significance="normal">
+      <para>You want to split a string on a<indexterm
+          id="manipulate-text-ITERM-1980" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>splitting strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1981" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1981"
+          significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>splitting strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1982" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1982"
+          significance="normal">
           <primary>splitting</primary>
 
           <secondary>strings</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1983" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1983"
+          significance="normal">
           <primary>strings</primary>
 
           <secondary>splitting</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1984" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1984"
+          significance="normal">
           <primary>characters</primary>
 
           <secondary>splitting</secondary>
@@ -434,7 +492,8 @@ int width = 20 + message.length( );
       <para>Use <literal moreinfo="none">StringUtils.split()</literal>
       <indexterm id="manipulate-text-ITERM-1985" significance="normal">
           <primary>StringUtils.split( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1986" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1986"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>StringUtils.split( )</secondary>
@@ -466,11 +525,14 @@ System.out.println( ArrayUtils.toString( array2 ) );</programlisting>
       function does not return empty strings for adjacent delimiters. A number
       of different delimiters can be specified by passing in a string with a
       space and a comma. This last example limited the number of tokens
-      returned by split with a third parameter to <literal moreinfo="none">StringUtils.split()</literal>. The <literal moreinfo="none">input2</literal> variable contains three possible
+      returned by split with a third parameter to <literal
+      moreinfo="none">StringUtils.split()</literal>. The <literal
+      moreinfo="none">input2</literal> variable contains three possible
       tokens, but the split function only returns an array of two
       elements.</para>
 
-      <para>The most recent version of J2SE 1.4 has a <literal moreinfo="none">String.split()</literal> method, but the lack of
+      <para>The most recent version of J2SE 1.4 has a <literal
+      moreinfo="none">String.split()</literal> method, but the lack of
       <literal moreinfo="none">split( )</literal> in previous versions was an
       annoyance. To split a string in the old days, one had to instantiate a
       <literal moreinfo="none">StringTokenizer</literal>, and iterate through
@@ -479,9 +541,11 @@ System.out.println( ArrayUtils.toString( array2 ) );</programlisting>
       use the <literal moreinfo="none">StringTokenizer</literal> class will
       tell you that programming without <literal moreinfo="none">split(
       )</literal> is time consuming and frustrating. If you are stuck with an
-      older Java Development Kit (JDK), <literal moreinfo="none">StringUtils</literal> adds a split function that returns
+      older Java Development Kit (JDK), <literal
+      moreinfo="none">StringUtils</literal> adds a split function that returns
       an <literal moreinfo="none">Object</literal> array. Keep this in mind
-      when you question the need for <literal moreinfo="none">StringUtils.split()</literal>; there are still
+      when you question the need for <literal
+      moreinfo="none">StringUtils.split()</literal>; there are still
       applications and platforms that do not have a stable 1.4 virtual
       machine.</para>
 
@@ -504,11 +568,13 @@ System.out.println( ArrayUtils.toString( tokens );</programlisting>
 
       <programlisting format="linespecific" id="I_2_tt67">{ "One", "", "Two", "Three", "", "Four", "Five" }</programlisting>
 
-      <para>The array the previous example returns has blanks; the <literal moreinfo="none">String.split( )</literal> method returns empty strings
+      <para>The array the previous example returns has blanks; the <literal
+      moreinfo="none">String.split( )</literal> method returns empty strings
       for adjacent delimiters. This example also uses a rather ugly regular
       expression involving brackets and single quotes. Don't get me wrong,
       regular expressions are a welcome addition in Java 1.4, but the same
-      requirements can be satisfied using <literal moreinfo="none">StringUtils.split(" .")</literal>&#x2014;a simpler way to split
+      requirements can be satisfied using <literal
+      moreinfo="none">StringUtils.split(" .")</literal>—a simpler way to split
       a piece of text.</para>
     </sect2>
 
@@ -517,7 +583,8 @@ System.out.println( ArrayUtils.toString( tokens );</programlisting>
 
       <para>Note the use of <literal moreinfo="none">ArrayUtils.toString(
       )</literal> in the solution section. See <link linkend="lang">Chapter
-      1</link> for more information about <literal moreinfo="none">ArrayUtils</literal> in Commons Lang.</para>
+      1</link> for more information about <literal
+      moreinfo="none">ArrayUtils</literal> in Commons Lang.</para>
     </sect2>
   </sect1>
 
@@ -527,27 +594,32 @@ System.out.println( ArrayUtils.toString( tokens );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You want to locate strings nested <indexterm id="manipulate-text-ITERM-1987" significance="normal">
+      <para>You want to locate strings nested <indexterm
+          id="manipulate-text-ITERM-1987" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>searching nested strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1988" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1988"
+          significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>searching nested strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1989" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1989"
+          significance="normal">
           <primary>searching</primary>
 
           <secondary>strings</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1990" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1990"
+          significance="normal">
           <primary>strings</primary>
 
           <secondary>searching</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1991" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1991"
+          significance="normal">
           <primary>nested strings, searching</primary>
         </indexterm>within other strings.</para>
     </sect2>
@@ -584,13 +656,18 @@ System.out.println( "Title: " + title );</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>In the Solution section, the <literal moreinfo="none">substringBetween()</literal> <indexterm id="manipulate-text-ITERM-1992" significance="normal">
+      <para>In the Solution section, the <literal
+      moreinfo="none">substringBetween()</literal> <indexterm
+          id="manipulate-text-ITERM-1992" significance="normal">
           <primary>substringBetween( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1993" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1993"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>substringBetween( )</secondary>
-        </indexterm> method returns the first string between the <literal moreinfo="none">open</literal> and <literal moreinfo="none">close</literal> strings&#x2014;the title of an HTML document.
+        </indexterm> method returns the first string between the <literal
+      moreinfo="none">open</literal> and <literal
+      moreinfo="none">close</literal> strings—the title of an HTML document.
       The previous example only contained one nested element, but what happens
       when a string contains multiple elements nested in the same two strings?
       In the following example, three variables are extracted from a string
@@ -616,7 +693,8 @@ System.out.println( "Variables: " + variables + ", Sum: " + sum );</programlisti
 
       <para>After each number is extracted from the curly braces, the system
       finds the index of the next comma and reduces the size of the string to
-      search for the next call to <literal moreinfo="none">StringUtils</literal>.</para>
+      search for the next call to <literal
+      moreinfo="none">StringUtils</literal>.</para>
 
       <para><literal moreinfo="none">StringUtils.substringBetween( )</literal>
       can also find text that is delimited by the same character:</para>
@@ -631,61 +709,74 @@ String second = StringUtils.substringBetween( message, "BOUNDARY");</programlist
     </sect2>
   </sect1>
 
-  <sect1 id="manipulate-text-sect-stripping-trimming" label="2.6" role="Recipe">
+  <sect1 id="manipulate-text-sect-stripping-trimming" label="2.6"
+         role="Recipe">
     <title>Stripping and Trimming a String</title>
 
     <sect2>
       <title>Problem</title>
 
-      <para>You need to strip or trim a string<indexterm id="manipulate-text-ITERM-1994" significance="normal">
+      <para>You need to strip or trim a string<indexterm
+          id="manipulate-text-ITERM-1994" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>stripping strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1995" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1995"
+          significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>stripping strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1996" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1996"
+          significance="normal">
           <primary>stripping strings</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1997" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1997"
+          significance="normal">
           <primary>strings</primary>
 
           <secondary>stripping</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1998" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1998"
+          significance="normal">
           <primary>whitespace</primary>
 
           <secondary>stripping</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-1999" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-1999"
+          significance="normal">
           <primary>characters</primary>
 
           <secondary>stripping</secondary>
-        </indexterm> of extraneous <indexterm id="manipulate-text-ITERM-2000" significance="normal">
+        </indexterm> of extraneous <indexterm id="manipulate-text-ITERM-2000"
+          significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>trimming strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2001" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2001"
+          significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>trimming strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2002" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2002"
+          significance="normal">
           <primary>trimming strings</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2003" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2003"
+          significance="normal">
           <primary>strings</primary>
 
           <secondary>trimming</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2004" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2004"
+          significance="normal">
           <primary>whitespace</primary>
 
           <secondary>trimming</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2005" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2005"
+          significance="normal">
           <primary>characters</primary>
 
           <secondary>trimming</secondary>
@@ -696,9 +787,11 @@ String second = StringUtils.substringBetween( message, "BOUNDARY");</programlist
     <sect2>
       <title>Solution</title>
 
-      <para><literal moreinfo="none">StringUtils.trim()</literal> <indexterm id="manipulate-text-ITERM-2006" significance="normal">
+      <para><literal moreinfo="none">StringUtils.trim()</literal> <indexterm
+          id="manipulate-text-ITERM-2006" significance="normal">
           <primary>StringUtils.trim( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2007" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2007"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>StringUtils.trim( )</secondary>
@@ -714,7 +807,8 @@ String trimTest2 = StringUtils.trimToNull( test2 );
 System.out.println( trimTest1 );
 System.our.println( trimTest2 );</programlisting>
 
-      <para>This code produces the following result. The <literal moreinfo="none">test1</literal> variable is trimmed of leading and
+      <para>This code produces the following result. The <literal
+      moreinfo="none">test1</literal> variable is trimmed of leading and
       trailing whitespace, and the <literal moreinfo="none">test2</literal>
       variable is trimmed to <literal moreinfo="none">null</literal>:</para>
 
@@ -728,19 +822,32 @@ null</programlisting>
       <para>A <filename moreinfo="none">control character</filename>
       <indexterm id="manipulate-text-ITERM-2008" significance="normal">
           <primary>control characters</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2009" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2009"
+          significance="normal">
           <primary>characters</primary>
 
           <secondary>control</secondary>
         </indexterm> is defined as all characters below 32 on the ASCII
-      table&#x2014;everything from <literal moreinfo="none">0</literal> <literal moreinfo="none">(NUL)</literal> to <literal moreinfo="none">31</literal>
-      <literal moreinfo="none">(unit</literal> <literal moreinfo="none">separator)</literal>. <literal moreinfo="none">StringUtils.trim( )</literal> delegates to the <literal moreinfo="none">trim( )</literal> function on <literal moreinfo="none">String</literal> and gracefully handles <literal moreinfo="none">null</literal>. When you pass a <literal moreinfo="none">null</literal> to <literal moreinfo="none">StringUtils.trim( )</literal>, it returns a <literal moreinfo="none">null</literal>.</para>
+      table—everything from <literal moreinfo="none">0</literal> <literal
+      moreinfo="none">(NUL)</literal> to <literal moreinfo="none">31</literal>
+      <literal moreinfo="none">(unit</literal> <literal
+      moreinfo="none">separator)</literal>. <literal
+      moreinfo="none">StringUtils.trim( )</literal> delegates to the <literal
+      moreinfo="none">trim( )</literal> function on <literal
+      moreinfo="none">String</literal> and gracefully handles <literal
+      moreinfo="none">null</literal>. When you pass a <literal
+      moreinfo="none">null</literal> to <literal
+      moreinfo="none">StringUtils.trim( )</literal>, it returns a <literal
+      moreinfo="none">null</literal>.</para>
 
       <sect3>
         <title>Stripping a string</title>
 
         <para>If a string contains leading and trailing characters to be
-        removed, you can remove them with <literal moreinfo="none">StringUtils.strip( )</literal>. The <literal moreinfo="none">strip( )</literal> method differs from <literal moreinfo="none">trim( )</literal> in that you can specify a set of
+        removed, you can remove them with <literal
+        moreinfo="none">StringUtils.strip( )</literal>. The <literal
+        moreinfo="none">strip( )</literal> method differs from <literal
+        moreinfo="none">trim( )</literal> in that you can specify a set of
         characters to strip from the beginning and end of a string. In this
         example, dashes and asterisks are stripped from the start and end of a
         string:</para>
@@ -758,13 +865,16 @@ System.out.println( "Stripped: " + stripped )</programlisting>
       <sect3>
         <title>Trimming to null</title>
 
-        <para>Use <literal moreinfo="none">trimToNull( )</literal> <indexterm id="manipulate-text-ITERM-2010" significance="normal">
+        <para>Use <literal moreinfo="none">trimToNull( )</literal> <indexterm
+            id="manipulate-text-ITERM-2010" significance="normal">
             <primary>trimToNull( ) method</primary>
-          </indexterm> <indexterm id="manipulate-text-ITERM-2011" significance="normal">
+          </indexterm> <indexterm id="manipulate-text-ITERM-2011"
+            significance="normal">
             <primary>methods</primary>
 
             <secondary>trimToNull( )</secondary>
-          </indexterm> <indexterm id="manipulate-text-ITERM-2012" significance="normal">
+          </indexterm> <indexterm id="manipulate-text-ITERM-2012"
+            significance="normal">
             <primary>nulls</primary>
 
             <secondary>trimming to</secondary>
@@ -782,14 +892,18 @@ System.out.println( "Stripped: " + stripped )</programlisting>
 }</programlisting>
 
         <para>Using <literal moreinfo="none">StringUtils</literal> reduces
-        code complexity incrementally&#x2014;four or five lines of code at a time.
+        code complexity incrementally—four or five lines of code at a time.
         Testing for the absence or emptiness of a string usually entails
         checking to see if a string is empty or of zero length, and because a
         string could be <literal moreinfo="none">null</literal>, you always
         need to check for <literal moreinfo="none">null</literal> to avoid
         throwing a <literal moreinfo="none">NullPointerException</literal>. In
-        this last example, empty has the same meaning as <literal moreinfo="none">null</literal>&#x2014;the <literal moreinfo="none">StringUtils.trimToNull( )</literal> method takes a
-        string as a parameter, and if it is <literal moreinfo="none">null</literal> or empty, the method returns a <literal moreinfo="none">null</literal>.</para>
+        this last example, empty has the same meaning as <literal
+        moreinfo="none">null</literal>—the <literal
+        moreinfo="none">StringUtils.trimToNull( )</literal> method takes a
+        string as a parameter, and if it is <literal
+        moreinfo="none">null</literal> or empty, the method returns a <literal
+        moreinfo="none">null</literal>.</para>
       </sect3>
     </sect2>
   </sect1>
@@ -800,37 +914,46 @@ System.out.println( "Stripped: " + stripped )</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to remove a<indexterm id="manipulate-text-ITERM-2013" significance="normal">
+      <para>You need to remove a<indexterm id="manipulate-text-ITERM-2013"
+          significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>chomping strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2014" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2014"
+          significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>chomping strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2015" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2015"
+          significance="normal">
           <primary>chomping strings</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2016" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2016"
+          significance="normal">
           <primary>strings</primary>
 
           <secondary>chomping</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2017" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2017"
+          significance="normal">
           <primary>deleting</primary>
 
           <secondary>newlines</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2018" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2018"
+          significance="normal">
           <primary>newlines, deleting</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2019" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2019"
+          significance="normal">
           <primary>carriage returns, deleting</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2020" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2020"
+          significance="normal">
           <primary>deleting</primary>
 
           <secondary>carriage returns</secondary>
-        </indexterm> trailing <indexterm id="manipulate-text-ITERM-2021" significance="normal">
+        </indexterm> trailing <indexterm id="manipulate-text-ITERM-2021"
+          significance="normal">
           <primary>trailing newlines, deleting</primary>
         </indexterm>newline or carriage return from a string.</para>
     </sect2>
@@ -838,9 +961,11 @@ System.out.println( "Stripped: " + stripped )</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Use<indexterm id="manipulate-text-ITERM-2022" significance="normal">
+      <para>Use<indexterm id="manipulate-text-ITERM-2022"
+          significance="normal">
           <primary>StringUtils.chomp( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2023" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2023"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>StringUtils.chomp( )</secondary>
@@ -863,27 +988,32 @@ String chomped2 = StringUtils.chomp( input2 );
     <sect2>
       <title>Problem</title>
 
-      <para>You would like to print an <indexterm id="manipulate-text-ITERM-2024" significance="normal">
+      <para>You would like to print an <indexterm
+          id="manipulate-text-ITERM-2024" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>printing headers</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2025" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2025"
+          significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>printing headers</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2026" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2026"
+          significance="normal">
           <primary>headers</primary>
 
           <secondary>printing</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2027" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2027"
+          significance="normal">
           <primary>printing</primary>
 
           <secondary>headers</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2028" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2028"
+          significance="normal">
           <primary>emphasized headers, creating</primary>
         </indexterm>attention-grabbing header.</para>
     </sect2>
@@ -891,21 +1021,28 @@ String chomped2 = StringUtils.chomp( input2 );
     <sect2>
       <title>Solution</title>
 
-      <para>Combine the powers of <literal moreinfo="none">StringUtils.repeat()</literal> <indexterm id="manipulate-text-ITERM-2029" significance="normal">
+      <para>Combine the powers of <literal
+      moreinfo="none">StringUtils.repeat()</literal> <indexterm
+          id="manipulate-text-ITERM-2029" significance="normal">
           <primary>StringUtils.repeat( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2030" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2030"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>StringUtils.repeat( )</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2031" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2031"
+          significance="normal">
           <primary>StringUtils.center( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2032" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2032"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>StringUtils.center( )</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2033" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2033"
+          significance="normal">
           <primary>StringUtils.join( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2034" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2034"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>StringUtils.join( )</secondary>
@@ -924,7 +1061,8 @@ String chomped2 = StringUtils.chomp( input2 );
     return heading;
 }</programlisting>
 
-      <para>Here's the output of <literal moreinfo="none">createHeader("TEST")</literal>:</para>
+      <para>Here's the output of <literal
+      moreinfo="none">createHeader("TEST")</literal>:</para>
 
       <programlisting format="linespecific" id="I_2_tt80">******************************
 ************ TEST ************
@@ -935,11 +1073,13 @@ String chomped2 = StringUtils.chomp( input2 );
       <title>Discussion</title>
 
       <para>In the example, <literal moreinfo="none">StringUtils.repeat(
-      )</literal> creates the top and bottom rows with <literal moreinfo="none">StringUtils.repeat("*", 30)</literal>, creating a string
+      )</literal> creates the top and bottom rows with <literal
+      moreinfo="none">StringUtils.repeat("*", 30)</literal>, creating a string
       with 30 consecutive <literal moreinfo="none">*</literal> characters.
       Calling <literal moreinfo="none">StringUtils.center(title, width,
       "*")</literal> creates a middle line with the header title centered and
-      surrounded by <literal moreinfo="none">*</literal> characters. <literal moreinfo="none">StringUtils.join()</literal> joins the lines together
+      surrounded by <literal moreinfo="none">*</literal> characters. <literal
+      moreinfo="none">StringUtils.join()</literal> joins the lines together
       with the newline characters, and out pops a header.</para>
     </sect2>
   </sect1>
@@ -950,23 +1090,27 @@ String chomped2 = StringUtils.chomp( input2 );
     <sect2>
       <title>Problem</title>
 
-      <para>You need to reverse<indexterm id="manipulate-text-ITERM-2035" significance="normal">
+      <para>You need to reverse<indexterm id="manipulate-text-ITERM-2035"
+          significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>reversing strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2036" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2036"
+          significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>reversing strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2037" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2037"
+          significance="normal">
           <primary>reversing</primary>
 
           <secondary>strings</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2038" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2038"
+          significance="normal">
           <primary>strings</primary>
 
           <secondary>reversing</secondary>
@@ -976,9 +1120,11 @@ String chomped2 = StringUtils.chomp( input2 );
     <sect2>
       <title>Solution</title>
 
-      <para>Use<indexterm id="manipulate-text-ITERM-2039" significance="normal">
+      <para>Use<indexterm id="manipulate-text-ITERM-2039"
+          significance="normal">
           <primary>StringUtils.reverse( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2040" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2040"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>StringUtils.reverse( )</secondary>
@@ -1011,7 +1157,8 @@ Reverse: GCGCCCGTATATAAAGTTTCCCTTTGAAACCCTTTGGTTCCCTGCAA</programlisting>
       <title>Discussion</title>
 
       <para>Reversing a <literal moreinfo="none">String</literal> is easy, but
-      how would you rearrange the words in a sentence? <literal moreinfo="none">StringUtils.reverseDelimited( )</literal> can reverse a
+      how would you rearrange the words in a sentence? <literal
+      moreinfo="none">StringUtils.reverseDelimited( )</literal> can reverse a
       string of tokens delimited by a character, and a sentence is nothing
       more than a series of tokens separated by whitespace and punctuation. To
       reverse a simple sentence, chop off the final punctuation mark, and then
@@ -1039,7 +1186,8 @@ System.out.println( reversed );</programlisting>
 Susan am I.</programlisting>
 
       <para>Here, the order of the characters within each delimited token is
-      preserved. Notice that this example includes <literal moreinfo="none">StringUtils.chomp( )</literal> with two parameters, the
+      preserved. Notice that this example includes <literal
+      moreinfo="none">StringUtils.chomp( )</literal> with two parameters, the
       last specifying the character to chomp from the string. Instead of
       chomping a newline, in this example, the period is chomped off of the
       sentence before performing the delimited reversal.</para>
@@ -1052,25 +1200,31 @@ Susan am I.</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You want to wrap <indexterm id="manipulate-text-ITERM-2041" significance="normal">
+      <para>You want to wrap <indexterm id="manipulate-text-ITERM-2041"
+          significance="normal">
           <primary>text</primary>
 
           <secondary>wrapping</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2042" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2042"
+          significance="normal">
           <primary>WordUtils class</primary>
 
           <secondary>text, wrapping</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2043" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2043"
+          significance="normal">
           <primary>wrapping</primary>
 
           <secondary>words</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2044" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2044"
+          significance="normal">
           <primary>words</primary>
 
           <secondary>wrapping</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2045" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2045"
+          significance="normal">
           <primary>lines, formatting</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2046" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2046"
+          significance="normal">
           <primary>formatting</primary>
 
           <secondary>lines</secondary>
@@ -1082,7 +1236,8 @@ Susan am I.</programlisting>
       <title>Solution</title>
 
       <para>Use <literal moreinfo="none">WordUtils</literal> to wrap words.
-      Supply the number of columns and a line termination string, and <literal moreinfo="none">WordUtils</literal> will wrap text. The following
+      Supply the number of columns and a line termination string, and <literal
+      moreinfo="none">WordUtils</literal> will wrap text. The following
       example wraps a small string to 20 columns:</para>
 
       <programlisting format="linespecific" id="I_2_tt85">// Define original String
@@ -1106,13 +1261,17 @@ Five</programlisting>
       <title>Discussion</title>
 
       <para>When <literal moreinfo="none">WordUtils</literal> wraps a string,
-      it takes a user-supplied line termination sequence like <literal moreinfo="none">\n</literal> or <literal moreinfo="none">\r\n</literal>
+      it takes a user-supplied line termination sequence like <literal
+      moreinfo="none">\n</literal> or <literal moreinfo="none">\r\n</literal>
       and inserts this line termination sequence after a specified number of
       characters, without splitting a word. In the next example, if the user
       is using a hand-held device, the number of columns in the display is 40,
-      and a new line is represented by the sequence <literal moreinfo="none">\r\n</literal>. On a workstation, the number of
-      available columns is 80, and a new line is a single <literal moreinfo="none">\n</literal> character. The platform is available as the
-      System property <literal moreinfo="none">application.platform</literal>:</para>
+      and a new line is represented by the sequence <literal
+      moreinfo="none">\r\n</literal>. On a workstation, the number of
+      available columns is 80, and a new line is a single <literal
+      moreinfo="none">\n</literal> character. The platform is available as the
+      System property <literal
+      moreinfo="none">application.platform</literal>:</para>
 
       <programlisting format="linespecific" id="I_2_tt87">String message = "Four score and seven years ago, our fathers " +
                  "brought forth upon this continent a new nation: " +
@@ -1137,14 +1296,16 @@ if( platform.equals( "Handheld" ) ) {
 String wrappedString = 
     WordUtils.wrapText( message, cols, lineSeparator, true );</programlisting>
 
-      <para>Depending on the platform, the <literal moreinfo="none">wrappedString</literal> variable now holds the initial
+      <para>Depending on the platform, the <literal
+      moreinfo="none">wrappedString</literal> variable now holds the initial
       paragraph of the Gettysburg Address wrapped to fit either a 40-column
       handheld device or an application running on a workstation with an
       80-column display.</para>
 
       <para>To wrap text for presentation on the Web, use the line termination
       sequence <literal moreinfo="none">&lt;br/&gt;</literal> to add an HMTL
-      line break. The following example wraps text with <literal moreinfo="none">&lt;br/&gt;</literal>, and introduces an option to
+      line break. The following example wraps text with <literal
+      moreinfo="none">&lt;br/&gt;</literal>, and introduces an option to
       prevent <literal moreinfo="none">WordUtils</literal> from wrapping
       larger words:</para>
 
@@ -1157,7 +1318,8 @@ String wrappedString =
 String wrappedString = WordUtils.wrap( message, 40, "&lt;br/&gt;", false );</programlisting>
 
       <para>In this example, the Gettysburg Address is formatted to fit into
-      40 columns in an HTML document. The final parameter to the <literal moreinfo="none">WordUtils.wrap( )</literal> method tells the wrapping
+      40 columns in an HTML document. The final parameter to the <literal
+      moreinfo="none">WordUtils.wrap( )</literal> method tells the wrapping
       algorithm not to bother wrapping large words, such as the long URL at
       the end of the text. Wrapping a long word would prevent people from
       being able to copy this URL correctly.</para>
@@ -1170,23 +1332,27 @@ String wrappedString = WordUtils.wrap( message, 40, "&lt;br/&gt;", false );</pro
     <sect2>
       <title>Problem</title>
 
-      <para>You need to make sure a string<indexterm id="manipulate-text-ITERM-2047" significance="normal">
+      <para>You need to make sure a string<indexterm
+          id="manipulate-text-ITERM-2047" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>testing strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2048" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2048"
+          significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>testing strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2049" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2049"
+          significance="normal">
           <primary>testing</primary>
 
           <secondary>strings</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2050" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2050"
+          significance="normal">
           <primary>strings</primary>
 
           <secondary>testing</secondary>
@@ -1199,29 +1365,35 @@ String wrappedString = WordUtils.wrap( message, 40, "&lt;br/&gt;", false );</pro
 
       <para>Use the various <literal moreinfo="none">StringUtils</literal>
       methods to validate user input; <literal moreinfo="none">isNumeric(
-      )</literal> <indexterm id="manipulate-text-ITERM-2051" significance="normal">
+      )</literal> <indexterm id="manipulate-text-ITERM-2051"
+          significance="normal">
           <primary>isNumeric( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2052" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2052"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>isNumeric( )</secondary>
-        </indexterm>, <literal moreinfo="none">isAlpha()</literal> <indexterm id="manipulate-text-ITERM-2053" significance="normal">
+        </indexterm>, <literal moreinfo="none">isAlpha()</literal> <indexterm
+          id="manipulate-text-ITERM-2053" significance="normal">
           <primary>isAlpha( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2054" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2054"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>isAlpha( )</secondary>
         </indexterm>, <literal moreinfo="none">isAlphanumeric()</literal>
       <indexterm id="manipulate-text-ITERM-2055" significance="normal">
           <primary>isAlphanumeric( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2056" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2056"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>isAlphanumeric( )</secondary>
         </indexterm>, and <literal moreinfo="none">isAlphaSpace()</literal>
       <indexterm id="manipulate-text-ITERM-2057" significance="normal">
           <primary>isAlphaSpace( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2058" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2058"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>isAlphaSpace( )</secondary>
@@ -1292,11 +1464,14 @@ boolean t4val =
       name, you will want to make sure that the supplied name contains only
       letters and acceptable punctuation. An application with inadequate input
       validation will frequently fail, and produce unsightly stack traces
-      caused by either <literal moreinfo="none">NumberFormatException</literal>s or <literal moreinfo="none">NullPointerException</literal>s. An application should
+      caused by either <literal
+      moreinfo="none">NumberFormatException</literal>s or <literal
+      moreinfo="none">NullPointerException</literal>s. An application should
       be able to gracefully handle the most nonsensical input without missing
       a beat, and prompt the user for a valid input. Tools such as Jakarta
       Commons Validator provide a framework to validate the contents of a
-      JavaBean, but at a much lower level, the <literal moreinfo="none">StringUtils</literal> class in Commons Lang provides
+      JavaBean, but at a much lower level, the <literal
+      moreinfo="none">StringUtils</literal> class in Commons Lang provides
       some useful utilities for examining the contents of a string.</para>
 
       <para>Input forms frequently need to validate a user's name. In this
@@ -1315,8 +1490,10 @@ String name2Temp = StringUtils.replaceChars( name1, punctuation, "");
 boolean t1val = StringUtils.isAlpha( name1Temp ); // returns true
 boolean t2val = StringUtils.isAlpha( name2Temp ); // returns false</programlisting>
 
-      <para>"Tim O'Reilly" is a valid name, but you need to use the <literal moreinfo="none">StringUtils.replaceChars( )</literal> method to throw
-      out punctuation before you can pass both of the names to the <literal moreinfo="none">StringUtils.isAlpha( )</literal> method. "Mr.
+      <para>"Tim O'Reilly" is a valid name, but you need to use the <literal
+      moreinfo="none">StringUtils.replaceChars( )</literal> method to throw
+      out punctuation before you can pass both of the names to the <literal
+      moreinfo="none">StringUtils.isAlpha( )</literal> method. "Mr.
       Mason-Dixon!" is not a valid name, because an exclamation point is not
       on the list of valid name punctuation. As an Irishman, I encourage you
       to always check your name validation with names like "O'Toole" or
@@ -1327,35 +1504,41 @@ boolean t2val = StringUtils.isAlpha( name2Temp ); // returns false</programlisti
       to change your name, and it is a quick way to alienate your customers. I
       cannot begin to tell you how many web sites have shown me a nasty Open
       Database Connectivity (ODBC) error page or stack trace after I've told
-      them my last name&#x2014;it is frustrating.</para>
+      them my last name—it is frustrating.</para>
     </sect2>
   </sect1>
 
-  <sect1 id="manipulate-text-sect-measuring-frequency" label="2.12" role="Recipe">
+  <sect1 id="manipulate-text-sect-measuring-frequency" label="2.12"
+         role="Recipe">
     <title>Measuring the Frequency of a String</title>
 
     <sect2>
       <title>Problem</title>
 
-      <para>You need to find out how many times a<indexterm id="manipulate-text-ITERM-2059" significance="normal">
+      <para>You need to find out how many times a<indexterm
+          id="manipulate-text-ITERM-2059" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>measuring string frequency</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2060" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2060"
+          significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>measuring string frequency</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2061" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2061"
+          significance="normal">
           <primary>strings</primary>
 
           <secondary>measuring frequency</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2062" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2062"
+          significance="normal">
           <primary>frequency, measuring strings</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2063" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2063"
+          significance="normal">
           <primary>measuring</primary>
 
           <secondary>frequency of strings</secondary>
@@ -1368,7 +1551,8 @@ boolean t2val = StringUtils.isAlpha( name2Temp ); // returns false</programlisti
       <para><literal moreinfo="none">StringUtils.countMatches()</literal>
       <indexterm id="manipulate-text-ITERM-2064" significance="normal">
           <primary>StringUtils.countMatches( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2065" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2065"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>StringUtils.countMatches( )</secondary>
@@ -1389,7 +1573,8 @@ int numFutility = StringUtils.countMatches( manuscript, "futility" );</programli
 
       <para>Converting the entire string to lowercase ensures that all
       occurrences of the word "futility" are counted, regardless of
-      capitalization. This code executes and <literal moreinfo="none">numFutility</literal> will contain the number of
+      capitalization. This code executes and <literal
+      moreinfo="none">numFutility</literal> will contain the number of
       occurrences of the word "futility."</para>
     </sect2>
 
@@ -1433,8 +1618,9 @@ while( lineReader.ready( ) ) {
       <para><link linkend="searching-filtering">Chapter 12</link> contains a
       number of recipes devoted to searching and filtering content. If you are
       creating a system that needs to search a large collection of documents,
-      consider using Jakarta Lucene (<ulink url="http://jakarta.apache.org/lucene">http://jakarta.apache.org/lucene</ulink>) to index your
-      content.</para>
+      consider using Jakarta Lucene (<ulink
+      url="http://jakarta.apache.org/lucene">http://jakarta.apache.org/lucene</ulink>)
+      to index your content.</para>
     </sect2>
   </sect1>
 
@@ -1444,32 +1630,40 @@ while( lineReader.ready( ) ) {
     <sect2>
       <title>Problem</title>
 
-      <para>You need to parse a string containing <indexterm class="startofrange" id="manipulate-text-ITERM-2066" significance="normal">
+      <para>You need to parse a string containing <indexterm
+          class="startofrange" id="manipulate-text-ITERM-2066"
+          significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>parsing strings</tertiary>
-        </indexterm> <indexterm class="startofrange" id="manipulate-text-ITERM-2067" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="manipulate-text-ITERM-2067" significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>parsing strings</tertiary>
-        </indexterm> <indexterm class="startofrange" id="manipulate-text-ITERM-2068" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="manipulate-text-ITERM-2068" significance="normal">
           <primary>parsing</primary>
 
           <secondary>strings</secondary>
-        </indexterm> <indexterm class="startofrange" id="manipulate-text-ITERM-2069" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="manipulate-text-ITERM-2069" significance="normal">
           <primary>strings</primary>
 
           <secondary>parsing</secondary>
-        </indexterm> <indexterm class="startofrange" id="manipulate-text-ITERM-2070" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="manipulate-text-ITERM-2070" significance="normal">
           <primary>formatting</primary>
 
           <secondary>strings, parsing</secondary>
-        </indexterm>control characters and the delimiters <literal moreinfo="none">(</literal>, <literal moreinfo="none">[</literal>,
-      <literal moreinfo="none">)</literal>, <literal moreinfo="none">]</literal>, and ,.</para>
+        </indexterm>control characters and the delimiters <literal
+      moreinfo="none">(</literal>, <literal moreinfo="none">[</literal>,
+      <literal moreinfo="none">)</literal>, <literal
+      moreinfo="none">]</literal>, and ,.</para>
     </sect2>
 
     <sect2>
@@ -1478,7 +1672,8 @@ while( lineReader.ready( ) ) {
       <para>Use variations of <literal moreinfo="none">substring()</literal>
       <indexterm id="manipulate-text-ITERM-2071" significance="normal">
           <primary>substring( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2072" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2072"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>substring( )</secondary>
@@ -1576,7 +1771,12 @@ Example:
  \(SOT)Baseball[BOS,SEA] (24,22)\(ETX)
  \(SOT)Basketball[CHI,NYC] (29,5)\(ETX)</programlisting>
 
-      <para>The following example parses this feed using <literal moreinfo="none">StringUtils</literal> methods <literal moreinfo="none">trim( )</literal>, <literal moreinfo="none">substringBetween( )</literal>, and <literal moreinfo="none">substringBefore( )</literal>. The <literal moreinfo="none">boxScore</literal> variable holds a test string to
+      <para>The following example parses this feed using <literal
+      moreinfo="none">StringUtils</literal> methods <literal
+      moreinfo="none">trim( )</literal>, <literal
+      moreinfo="none">substringBetween( )</literal>, and <literal
+      moreinfo="none">substringBefore( )</literal>. The <literal
+      moreinfo="none">boxScore</literal> variable holds a test string to
       parse, and, once parsed, this code prints out the game score:</para>
 
       <programlisting format="linespecific" id="I_2_tt100">// Create a formatted string to parse - get this from a feed
@@ -1605,12 +1805,16 @@ out.println( "\t" + team2 + "\t" + score2 );</programlisting>
  CHI 69
  BOS 75</programlisting>
 
-      <para>In the previous example, <literal moreinfo="none">StringUtils.trim( )</literal> rids the text of the
-      <literal moreinfo="none">SOT</literal> and <literal moreinfo="none">ETX</literal> control characters. <literal moreinfo="none">StringUtils.substringBefore( )</literal> then reads the
-      sport name&#x2014;"Basketball"&#x2014;and <literal moreinfo="none">substringBetween(
+      <para>In the previous example, <literal
+      moreinfo="none">StringUtils.trim( )</literal> rids the text of the
+      <literal moreinfo="none">SOT</literal> and <literal
+      moreinfo="none">ETX</literal> control characters. <literal
+      moreinfo="none">StringUtils.substringBefore( )</literal> then reads the
+      sport name—"Basketball"—and <literal moreinfo="none">substringBetween(
       )</literal> is used to retrieve the teams and scores.</para>
 
-      <para>At first glance, the value of these <literal moreinfo="none">substring( )</literal> variations is not obvious. The
+      <para>At first glance, the value of these <literal
+      moreinfo="none">substring( )</literal> variations is not obvious. The
       previous example parsed this simple formatted string using three static
       methods on <literal moreinfo="none">StringUtils</literal>, but how
       difficult would it have been to implement this parsing without the aid
@@ -1639,13 +1843,15 @@ String score2 = boxScore.substring( secondComma + 1, secondParen );</programlist
       <para>This parses the string in a similar number of lines, but the code
       is less straightforward and much more difficult to maintain. Instead of
       simply calling a <literal moreinfo="none">substringBetween( )</literal>
-      method, the previous example calls <literal moreinfo="none">String.indexOf( )</literal> and performs arithmetic with
+      method, the previous example calls <literal
+      moreinfo="none">String.indexOf( )</literal> and performs arithmetic with
       an index while calling <literal moreinfo="none">String.substring(
       )</literal>. Additionally, the <literal moreinfo="none">substring(
       )</literal> methods on <literal moreinfo="none">StringUtils</literal>
       are <literal moreinfo="none">null</literal>-safe; the Java 1.4 example
       could throw a <literal moreinfo="none">NullPointerException</literal> if
-      <literal moreinfo="none">boxScore</literal> was <literal moreinfo="none">null</literal>.</para>
+      <literal moreinfo="none">boxScore</literal> was <literal
+      moreinfo="none">null</literal>.</para>
 
       <para><literal moreinfo="none">String.trim( )</literal> has the same
       behavior as <literal moreinfo="none">StringUtils.trim( )</literal>,
@@ -1655,12 +1861,18 @@ String score2 = boxScore.substring( secondComma + 1, secondParen );</programlist
       method, but the <literal moreinfo="none">StringUtils.trim( )</literal>
       method can gracefully handle a <literal moreinfo="none">null</literal>
       input. If a <literal moreinfo="none">null</literal> value is passed to
-      <indexterm class="endofrange" id="manipulate-text-ITERM-2073" significance="normal" startref="manipulate-text-ITERM-2066"/>
-      <indexterm class="endofrange" id="manipulate-text-ITERM-2074" significance="normal" startref="manipulate-text-ITERM-2067"/>
-      <indexterm class="endofrange" id="manipulate-text-ITERM-2075" significance="normal" startref="manipulate-text-ITERM-2068"/>
-      <indexterm class="endofrange" id="manipulate-text-ITERM-2076" significance="normal" startref="manipulate-text-ITERM-2069"/>
-      <indexterm class="endofrange" id="manipulate-text-ITERM-2077" significance="normal" startref="manipulate-text-ITERM-2070"/>
-      <literal moreinfo="none">StringUtils.trim()</literal>, a <literal moreinfo="none">null</literal> value is returned.</para>
+      <indexterm class="endofrange" id="manipulate-text-ITERM-2073"
+      significance="normal" startref="manipulate-text-ITERM-2066"></indexterm>
+      <indexterm class="endofrange" id="manipulate-text-ITERM-2074"
+      significance="normal" startref="manipulate-text-ITERM-2067"></indexterm>
+      <indexterm class="endofrange" id="manipulate-text-ITERM-2075"
+      significance="normal" startref="manipulate-text-ITERM-2068"></indexterm>
+      <indexterm class="endofrange" id="manipulate-text-ITERM-2076"
+      significance="normal" startref="manipulate-text-ITERM-2069"></indexterm>
+      <indexterm class="endofrange" id="manipulate-text-ITERM-2077"
+      significance="normal" startref="manipulate-text-ITERM-2070"></indexterm>
+      <literal moreinfo="none">StringUtils.trim()</literal>, a <literal
+      moreinfo="none">null</literal> value is returned.</para>
     </sect2>
   </sect1>
 
@@ -1670,27 +1882,32 @@ String score2 = boxScore.substring( secondComma + 1, secondParen );</programlist
     <sect2>
       <title>Problem</title>
 
-      <para>Your application needs to compare<indexterm id="manipulate-text-ITERM-2078" significance="normal">
+      <para>Your application needs to compare<indexterm
+          id="manipulate-text-ITERM-2078" significance="normal">
           <primary>text</primary>
 
           <secondary>StringUtils class</secondary>
 
           <tertiary>comparing strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2079" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2079"
+          significance="normal">
           <primary>StringUtils class</primary>
 
           <secondary>text</secondary>
 
           <tertiary>comparing strings</tertiary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2080" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2080"
+          significance="normal">
           <primary>comparing</primary>
 
           <secondary>strings</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2081" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2081"
+          significance="normal">
           <primary>strings</primary>
 
           <secondary>comparing</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2082" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2082"
+          significance="normal">
           <primary>printing</primary>
 
           <secondary>strings</secondary>
@@ -1704,8 +1921,10 @@ String score2 = boxScore.substring( secondComma + 1, secondParen );</programlist
       <literal moreinfo="none">StringUtils.indexOfDifference( )</literal>, and
       <literal moreinfo="none">StringUtils.getLevenshteinDistance(
       )</literal>. <literal moreinfo="none">StringUtils.difference(
-      )</literal> prints out the difference between two strings, <literal moreinfo="none">StringUtils.indexOfDifference( )</literal> returns the
-      index at which two strings begin to differ, and <literal moreinfo="none">StringUtils.getLevenshteinDistance( )</literal> returns
+      )</literal> prints out the difference between two strings, <literal
+      moreinfo="none">StringUtils.indexOfDifference( )</literal> returns the
+      index at which two strings begin to differ, and <literal
+      moreinfo="none">StringUtils.getLevenshteinDistance( )</literal> returns
       the "edit distance" between two strings. The following example
       demonstrates all three of these methods:</para>
 
@@ -1731,7 +1950,8 @@ Diff Index: 3</programlisting>
       <para><literal moreinfo="none">StringUtils.difference()</literal>
       <indexterm id="manipulate-text-ITERM-2083" significance="normal">
           <primary>StringUtils.difference( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2084" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2084"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>StringUtils.difference( )</secondary>
@@ -1740,11 +1960,13 @@ Diff Index: 3</programlisting>
       <literal moreinfo="none">StringUtils.indexOfDifference()</literal>
       <indexterm id="manipulate-text-ITERM-2085" significance="normal">
           <primary>StringUtils.indexOfDifference( ) method</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2086" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2086"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>StringUtils.indexOfDifference( )</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2087" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2087"
+          significance="normal">
           <primary>indexes</primary>
 
           <secondary>comparing</secondary>
@@ -1786,11 +2008,12 @@ index(...,...) = 17</programlisting>
       <para>The Levenshtein distance is calculated as the number of
       insertions, deletions, and replacements it takes to get from one string
       to another. The distance between "Boat" and "Coat" is a one letter
-      replacement, and the distance between "Remember" and "Alamo" is 8&#x2014;five
+      replacement, and the distance between "Remember" and "Alamo" is 8—five
       letter replacements and three deletions. Levenshtein distance is also
       known as the <filename moreinfo="none">edit distance</filename>, which
       is the number of changes one needs to make to a string to get from
-      string A to string B. The following example demonstrates the <literal moreinfo="none">getLevenshteinDistance( )</literal> method:</para>
+      string A to string B. The following example demonstrates the <literal
+      moreinfo="none">getLevenshteinDistance( )</literal> method:</para>
 
       <programlisting format="linespecific" id="I_2_tt107">int distance1 = 
     StringUtils.getLevenshteinDistance( "Boat", "Coat" );
@@ -1816,9 +2039,10 @@ distance(Steve, Stereo): 3</programlisting>
 
       <para>The Levenshtein distance has a number of different applications,
       including pattern recognition and correcting spelling mistakes. For more
-      information about the Levenshtein distance, see <ulink url="http://www.merriampark.com/ld.htm">http://www.merriampark.com/ld.htm</ulink>, which
-      explains the algorithm and provides links to implementations of this
-      algorithm in 15 different languages.</para>
+      information about the Levenshtein distance, see <ulink
+      url="http://www.merriampark.com/ld.htm">http://www.merriampark.com/ld.htm</ulink>,
+      which explains the algorithm and provides links to implementations of
+      this algorithm in 15 different languages.</para>
     </sect2>
   </sect1>
 
@@ -1828,7 +2052,8 @@ distance(Steve, Stereo): 3</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You want to use <indexterm id="manipulate-text-ITERM-2088" significance="normal">
+      <para>You want to use <indexterm id="manipulate-text-ITERM-2088"
+          significance="normal">
           <primary>Commons Codec</primary>
         </indexterm>Commons Codec.</para>
     </sect2>
@@ -1836,96 +2061,55 @@ distance(Steve, Stereo): 3</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>You must download the latest version of Jakarta Commons Codec, and
-      place the Commons Codec JAR<filename moreinfo="none"> </filename>in your
-      project's classpath. Follow the steps outlined in <link linkend="lang-sect-obtaining">Recipe 1.1</link>, downloading Commons
-      Codec 1.2 instead of Commons Lang.</para>
+      <para>To use Commons Codec 1.3 in a Maven 2 project, add the following
+      dependency to your project's <filename>pom.xml</filename>:</para>
+
+      <example>
+        <title>Adding a Dependency on Commons Codec</title>
+
+        <programlisting>&lt;dependency&gt;
+  &lt;groupId&gt;commons-codec&lt;/groupId&gt;
+  &lt;artifactId&gt;commons-codec&lt;/artifactId&gt;
+  &lt;version&gt;1.3&lt;/version&gt;
+&lt;/dependency&gt;  </programlisting>
+      </example>
+
+      <para>If you are not sure what this means, I'd suggest reading <ulink
+      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
+      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      do is add the dependency <varname>groupId</varname>,
+      <varname>artifactId</varname>, and <varname>version</varname> to your
+      project's dependencies. Once you do this, Maven 2 will download the
+      dependency and make it available on your project's classpath.</para>
     </sect2>
 
     <sect2>
       <title>Discussion</title>
 
-      <para>The <indexterm id="manipulate-text-ITERM-2089" significance="normal">
+      <para>The <indexterm id="manipulate-text-ITERM-2089"
+          significance="normal">
           <primary>libraries</primary>
 
           <secondary>Commons Codec</secondary>
         </indexterm>Commons Codec library is a small library, which includes
-      encoders and decoders for common encoding algorithms, such as <literal moreinfo="none">Hex</literal>, <literal moreinfo="none">Base64</literal>; and phonetic encoders, such as
-      <literal moreinfo="none">Metaphone</literal>, <literal moreinfo="none">DoubleMetaphone</literal>, and <literal moreinfo="none">Soundex</literal>. This tiny component was created to
-      provide a definitive implementation of <literal moreinfo="none">Base64</literal> and <literal moreinfo="none">Hex</literal>, encouraging reuse and reducing the amount
+      encoders and decoders for common encoding algorithms, such as <literal
+      moreinfo="none">Hex</literal>, <literal
+      moreinfo="none">Base64</literal>; and phonetic encoders, such as
+      <literal moreinfo="none">Metaphone</literal>, <literal
+      moreinfo="none">DoubleMetaphone</literal>, and <literal
+      moreinfo="none">Soundex</literal>. This tiny component was created to
+      provide a definitive implementation of <literal
+      moreinfo="none">Base64</literal> and <literal
+      moreinfo="none">Hex</literal>, encouraging reuse and reducing the amount
       of code duplication between various Apache projects.</para>
-
-      <para>If you have a Maven project that needs to use Commons Codec, add a
-      dependency on Commons Codec 1.2 with the following section in <filename moreinfo="none">project.xml</filename>:</para>
-
-      <programlisting format="linespecific" id="I_2_tt109">&lt;dependencies&gt;
-  &lt;dependency&gt;
-    &lt;id&gt;commons-codec&lt;/id&gt;
-    &lt;version&gt;1.2&lt;/version&gt;
-  &lt;/dependency&gt;
-
-  ....other dependencies...
-&lt;/dependencies&gt;</programlisting>
     </sect2>
 
     <sect2>
       <title>See Also</title>
 
-      <para>For information on obtaining the source code for Commons Codec,
-      see <link linkend="manipulate-text-sect-codec-sourcecode">Recipe
-      2.16</link>. To learn more about Commons Codec, visit the Jakarta
-      Commons Codec web site at <ulink url="http://jakarta.apache.org/commons/codec/">http://jakarta.apache.org/commons/codec/</ulink>.</para>
-    </sect2>
-  </sect1>
-
-  <sect1 id="manipulate-text-sect-codec-sourcecode" label="2.16" role="Recipe">
-    <title>Getting the Commons Codec Source Code</title>
-
-    <sect2>
-      <title>Problem</title>
-
-      <para>You want the source code for the <indexterm id="manipulate-text-ITERM-2090" significance="normal">
-          <primary>Commons Codec</primary>
-
-          <secondary>source code</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2091" significance="normal">
-          <primary>code</primary>
-
-          <secondary>Commons Codec</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2092" significance="normal">
-          <primary>source code</primary>
-
-          <secondary>Commons Codec</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2093" significance="normal">
-          <primary>programming</primary>
-
-          <secondary>Commons Codec</secondary>
-        </indexterm>Commons Codec project.</para>
-    </sect2>
-
-    <sect2>
-      <title>Solution</title>
-
-      <para>Download the source from <ulink url="http://jakarta.apache.org/site/sourceindex.cgi">http://jakarta.apache.org/site/sourceindex.cgi</ulink>.
-      Follow the same procedure as outlined in <link linkend="lang-sect-obtaining">Recipe 1.1</link>. Download a file named
-      <filename moreinfo="none">commons-codec-1.2-src.zip</filename> (or
-      <filename moreinfo="none">commons-lang-1.2-src.tar.gz</filename>), and
-      once you unzip this file, you will have the source to Commons Codec in
-      <filename moreinfo="none">./commons-codec-1.2-src/src</filename>.</para>
-    </sect2>
-
-    <sect2>
-      <title>See Also</title>
-
-      <para>Most Commons components follow a similar convention for the layout
-      of binary and source distributions. For more information about the
-      contents layout of the Codec source distribution, see <link linkend="lang-sect-sourcecode">Recipe 1.3</link>.</para>
-
-      <para>For information on obtaining the binary <indexterm id="manipulate-text-ITERM-2094" significance="normal">
-          <primary>words</primary>
-
-          <seealso>text</seealso>
-        </indexterm>distribution for Commons Codec, see <link linkend="manipulate-text-sect-using-codec">Recipe 2.15</link>.</para>
+      <para>To learn more about Commons Codec, visit the Jakarta Commons Codec
+      web site at <ulink
+      url="http://commons.apache.org/codec/">http://commons.apache.org/codec/</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -1935,33 +2119,41 @@ distance(Steve, Stereo): 3</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need the<indexterm id="manipulate-text-ITERM-2095" significance="normal">
+      <para>You need the<indexterm id="manipulate-text-ITERM-2095"
+          significance="normal">
           <primary>Commons Codec</primary>
 
           <secondary>Soundex</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2096" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2096"
+          significance="normal">
           <primary>Soundex</primary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2097" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2097"
+          significance="normal">
           <primary>code</primary>
 
           <secondary>Soundex</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2098" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2098"
+          significance="normal">
           <primary>source code</primary>
 
           <secondary>Soundex</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2099" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2099"
+          significance="normal">
           <primary>programming</primary>
 
           <secondary>Soundex</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2100" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2100"
+          significance="normal">
           <primary>calculations</primary>
 
           <secondary>Soundex</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2101" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2101"
+          significance="normal">
           <primary>names</primary>
 
           <secondary>Soundex</secondary>
-        </indexterm> <indexterm id="manipulate-text-ITERM-2102" significance="normal">
+        </indexterm> <indexterm id="manipulate-text-ITERM-2102"
+          significance="normal">
           <primary>words</primary>
 
           <secondary>Soundex</secondary>
@@ -1972,7 +2164,8 @@ distance(Steve, Stereo): 3</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Use Jakarta Commons Codec's <literal moreinfo="none">Soundex</literal>. Supply a surname or a word, and
+      <para>Use Jakarta Commons Codec's <literal
+      moreinfo="none">Soundex</literal>. Supply a surname or a word, and
       <literal moreinfo="none">Soundex</literal> will produce a phonetic
       encoding:</para>
 
@@ -2006,43 +2199,56 @@ O'Bryan soundex: O165</programlisting>
       such as "O'Bryan," "O'Brien," and "O'Brian," all being common variants
       of the Irish surname, are given the same encoding: "O165." The 1
       corresponds to the B, the 6 corresponds to the R, and the 5 corresponds
-      to the N; vowels are discarded from a string before the <literal moreinfo="none">Soundex</literal> code is generated.</para>
+      to the N; vowels are discarded from a string before the <literal
+      moreinfo="none">Soundex</literal> code is generated.</para>
 
       <para>The <literal moreinfo="none">Soundex</literal> algorithm can be
-      used in a number of situations, but <literal moreinfo="none">Soundex</literal> is usually associated with surnames,
+      used in a number of situations, but <literal
+      moreinfo="none">Soundex</literal> is usually associated with surnames,
       as the United States historical census records are indexed using
       <literal moreinfo="none">Soundex</literal>. In addition to the role
-      <literal moreinfo="none">Soundex</literal> plays in the census, <literal moreinfo="none">Soundex</literal> is also used in the health care
+      <literal moreinfo="none">Soundex</literal> plays in the census, <literal
+      moreinfo="none">Soundex</literal> is also used in the health care
       industry to index medical records and report statistics to the
       government. A system to access individual records should allow a user to
       search for a person by the <literal moreinfo="none">Soundex</literal>
       code of a surname. If a user types in the name "Boswell" to search for a
       patient in a hospital, the search result should include patients named
-      "Buswell" and "Baswol;" you can use <literal moreinfo="none">Soundex</literal> to provide this capability if an
+      "Buswell" and "Baswol;" you can use <literal
+      moreinfo="none">Soundex</literal> to provide this capability if an
       application needs to locate individuals by the sound of a
       surname.</para>
 
       <para>The <literal moreinfo="none">Soundex</literal> of a word or name
       can also be used as a primitive method to find out if two small words
-      rhyme. Commons Codec contains other phonetic encodings, such as <literal moreinfo="none">RefinedSoundex</literal>, <literal moreinfo="none">Metaphone</literal>, and <literal moreinfo="none">DoubleMetaphone</literal>. All of these alternatives
-      solve similar problems&#x2014;capturing the <firstterm>phonemes</firstterm> or
+      rhyme. Commons Codec contains other phonetic encodings, such as <literal
+      moreinfo="none">RefinedSoundex</literal>, <literal
+      moreinfo="none">Metaphone</literal>, and <literal
+      moreinfo="none">DoubleMetaphone</literal>. All of these alternatives
+      solve similar problems—capturing the <firstterm>phonemes</firstterm> or
       sounds contained in a word.</para>
     </sect2>
 
     <sect2>
       <title>See Also</title>
 
-      <para>For more information on the <literal moreinfo="none">Soundex</literal> encoding, take a look at the
+      <para>For more information on the <literal
+      moreinfo="none">Soundex</literal> encoding, take a look at the
       Dictionary of Algorithms and Data Structures at the National Institute
-      of Standards and Technology (NIST), <ulink url="http://www.nist.gov/dads/HTML/soundex.html">http://www.nist.gov/dads/HTML/soundex.html</ulink>.
-      There you will find links to a C implementation of the <literal moreinfo="none">Soundex</literal> algorithm.</para>
+      of Standards and Technology (NIST), <ulink
+      url="http://www.nist.gov/dads/HTML/soundex.html">http://www.nist.gov/dads/HTML/soundex.html</ulink>.
+      There you will find links to a C implementation of the <literal
+      moreinfo="none">Soundex</literal> algorithm.</para>
 
-      <para>For more information about alternatives to <literal moreinfo="none">Soundex</literal> encoding, read "The Double Metaphone
-      Search Algorithm" by Lawrence Philips (<ulink url="http://www.cuj.com/documents/s=8038/cuj0006philips/">http://www.cuj.com/documents/s=8038/cuj0006philips/</ulink>).
+      <para>For more information about alternatives to <literal
+      moreinfo="none">Soundex</literal> encoding, read "The Double Metaphone
+      Search Algorithm" by Lawrence Philips (<ulink
+      url="http://www.cuj.com/documents/s=8038/cuj0006philips/">http://www.cuj.com/documents/s=8038/cuj0006philips/</ulink>).
       Or take a look at one of Lawrence Philips's original Metaphone algorithm
-      implementations at <ulink url="http://aspell.sourceforge.net/metaphone/">http://aspell.sourceforge.net/metaphone/</ulink>. Both
-      the Metaphone and Double Metaphone algorithms capture the sound of an
-      English word; implementations of these algorithms are available in
+      implementations at <ulink
+      url="http://aspell.sourceforge.net/metaphone/">http://aspell.sourceforge.net/metaphone/</ulink>.
+      Both the Metaphone and Double Metaphone algorithms capture the sound of
+      an English word; implementations of these algorithms are available in
       Commons Codec as <literal moreinfo="none">Metaphone</literal> and
       <literal moreinfo="none">DoubleMetaphone</literal>.</para>
     </sect2>

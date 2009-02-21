@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <chapter id="io-network" label="10">
   <title>I/O and Networking</title>
 
@@ -10,30 +10,41 @@
     to an <literal moreinfo="none">OutputStream</literal>, you've probably
     wondered why Java goes out of its way to make things difficult. Java I/O
     is not a terribly complex subject, but it does have a knack for turning
-    simpler tasks into complex nests of heavily wrapped <literal moreinfo="none">Reader</literal>s and streams. Jakarta Commons IO fills a
+    simpler tasks into complex nests of heavily wrapped <literal
+    moreinfo="none">Reader</literal>s and streams. Jakarta Commons IO fills a
     few gaps in Java's I/O and networking capabilities by providing utilities
     and methods to copy streams, copy files, touch files, recursively delete
     directories, and safely close <literal moreinfo="none">Reader</literal>s
-    and streams. If you are working with <literal moreinfo="none">Reader</literal>, <literal moreinfo="none">Writer</literal>, <literal moreinfo="none">InputStream</literal>, or <literal moreinfo="none">OutputStream</literal>, you should take a look at <literal moreinfo="none">IOUtils</literal> and <literal moreinfo="none">CopyUtils</literal>; they may save you a few lines of
+    and streams. If you are working with <literal
+    moreinfo="none">Reader</literal>, <literal
+    moreinfo="none">Writer</literal>, <literal
+    moreinfo="none">InputStream</literal>, or <literal
+    moreinfo="none">OutputStream</literal>, you should take a look at <literal
+    moreinfo="none">IOUtils</literal> and <literal
+    moreinfo="none">CopyUtils</literal>; they may save you a few lines of
     tedious code.</para>
 
-    <para>Commons IO also provides a set of simple <literal moreinfo="none">FilenameFilter</literal> implementations, which can be
+    <para>Commons IO also provides a set of simple <literal
+    moreinfo="none">FilenameFilter</literal> implementations, which can be
     used to selectively list files or directories. In addition to Commons IO's
     <literal moreinfo="none">FilenameFilter</literal> implementations, Jakarta
-    ORO's <literal moreinfo="none">GlobFilenameFilter</literal> and <literal moreinfo="none">Perl5FilenameFilter</literal> are presented to introduce
+    ORO's <literal moreinfo="none">GlobFilenameFilter</literal> and <literal
+    moreinfo="none">Perl5FilenameFilter</literal> are presented to introduce
     you to more complex filters involving expressions. ORO is a subproject of
     Jakarta that provides support for Perl 5 regular expressions and glob
     expressions. A glob expression is commonly used when listing files in a
-    directory; for example, the expression, <filename moreinfo="none">*.xml</filename>, is a glob expression that matches every
+    directory; for example, the expression, <filename
+    moreinfo="none">*.xml</filename>, is a glob expression that matches every
     file that ends in <filename moreinfo="none">.xml</filename>. While Java
     1.4 provides support for regular expressions, there are subtle differences
     between the regular expression syntax supported by Java 1.4 and the
     regular expression syntax supported in Perl 5. You can learn more about
     the differences between Perl5 regular expressions supported by ORO and
     regular expressions supported by Java 1.4 by reading the ORO project page
-    at <ulink url="http://jakarta.apache.org/oro">http://jakarta.apache.org/oro</ulink>. Take a look at
-    Jakarta ORO if your application needs to work with globs and complex
-    regular expressions.</para>
+    at <ulink
+    url="http://jakarta.apache.org/oro">http://jakarta.apache.org/oro</ulink>.
+    Take a look at Jakarta ORO if your application needs to work with globs
+    and complex regular expressions.</para>
 
     <para>Commons Net contains simple clients for common protocols, such as
     FTP, POP3, and SMTP. Using Commons Net, you can retrieve or transfer files
@@ -43,7 +54,8 @@
     amount of complexity and overhead that might not make sense for an
     application sending a simple email message. Commons Net provides a
     lightweight SMTP client, which can be used to send a simple email message
-    in a few lines of code without introducing the complexity of <literal moreinfo="none">javax.mail</literal>. Commons Net also contains a very
+    in a few lines of code without introducing the complexity of <literal
+    moreinfo="none">javax.mail</literal>. Commons Net also contains a very
     straightforward POP3 client, which can be used to check a POP mailbox for
     incoming messages. In addition to FTP, POP, and SMTP, Commons Net contains
     simple clients for Trivial File Transfer Protocol (TFTP), Telnet, Finger,
@@ -56,15 +68,18 @@
     <sect2>
       <title>Problem</title>
 
-      <para>You need to use Jakarta<indexterm id="io-network-ITERM-3026" significance="normal">
+      <para>You need to use Jakarta<indexterm id="io-network-ITERM-3026"
+          significance="normal">
           <primary>Commons IO</primary>
 
           <secondary>downloading</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3027" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3027"
+          significance="normal">
           <primary>downloading</primary>
 
           <secondary>Commons IO</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3028" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3028"
+          significance="normal">
           <primary>I/O</primary>
 
           <secondary>Commons IO</secondary>
@@ -76,10 +91,27 @@
     <sect2>
       <title>Solution</title>
 
-      <para>You must download the latest version of Commons IO, and place the
-      Commons IO JAR<filename moreinfo="none"> </filename>in your project's
-      classpath. Following the steps outlined in <link linkend="lang-sect-obtaining">Recipe 1.1</link>, download Commons
-      IO 1.0 instead of Commons Lang.</para>
+      <para>To use Commons IO in a Maven 2 project, add the following
+      dependency to your project's <filename>pom.xml</filename>:</para>
+
+      <example>
+        <title>Adding a Dependency on Commons IO</title>
+
+        <programlisting>    &lt;dependency&gt;
+        &lt;groupId&gt;commons-io&lt;/groupId&gt;
+        &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
+        &lt;version&gt;1.4&lt;/version&gt;
+    &lt;/dependency&gt;
+</programlisting>
+      </example>
+
+      <para>If you are not sure what this means, I'd suggest reading <ulink
+      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
+      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      do is add the dependency <varname>groupId</varname>,
+      <varname>artifactId</varname>, and <varname>version</varname> to your
+      project's dependencies. Once you do this, Maven 2 will download the
+      dependency and make it available on your project's classpath.</para>
     </sect2>
 
     <sect2>
@@ -87,33 +119,26 @@
 
       <para>Commons IO contains a few utilities for simplifying a number of
       common I/O tasks. <literal moreinfo="none">CopyUtils</literal> and
-      <literal moreinfo="none">IOUtils</literal> in the <literal moreinfo="none">org.apache.commons.io</literal> package provide a suite
-      of static utility methods for working with streams and readers. <literal moreinfo="none">org.apache.commons.io.FileUtils</literal> provides
-      static utility methods to help with common <literal moreinfo="none">File</literal> operations, such as touching a file,
-      recursive deletion of directories, and reading files. The <literal moreinfo="none">org.apache.commons.io.filefilter</literal> package
-      contains implementations of <literal moreinfo="none">FilenameFilter</literal>, such as <literal moreinfo="none">SuffixFileFilter</literal>, which accepts files with a
+      <literal moreinfo="none">IOUtils</literal> in the <literal
+      moreinfo="none">org.apache.commons.io</literal> package provide a suite
+      of static utility methods for working with streams and readers. <literal
+      moreinfo="none">org.apache.commons.io.FileUtils</literal> provides
+      static utility methods to help with common <literal
+      moreinfo="none">File</literal> operations, such as touching a file,
+      recursive deletion of directories, and reading files. The <literal
+      moreinfo="none">org.apache.commons.io.filefilter</literal> package
+      contains implementations of <literal
+      moreinfo="none">FilenameFilter</literal>, such as <literal
+      moreinfo="none">SuffixFileFilter</literal>, which accepts files with a
       specified name suffix.</para>
-
-      <para>If you have a Maven project, which needs to use Commons IO, add a
-      dependency on Commons IO 1.0 with the following section in <filename moreinfo="none">project.xml</filename>:</para>
-
-      <programlisting format="linespecific" id="I_10_tt398">&lt;dependencies&gt;
-  &lt;dependency&gt;
-    &lt;id&gt;commons-io&lt;/id&gt;
-    &lt;version&gt;1.0&lt;/version&gt;
-  &lt;/dependency&gt;
-  ....other dependencies...
-&lt;/dependencies&gt;</programlisting>
     </sect2>
 
     <sect2>
       <title>See Also</title>
 
       <para>For more information about the Commons IO project, see the project
-      page at <ulink url="http://jakarta.apache.org/commons/io">http://jakarta.apache.org/commons/io</ulink>. If you
-      have questions about using Commons IO, please feel free to join the
-      <ulink url="commons-user@jakarta.apache.org">commons-user@jakarta.apache.org</ulink> mailing list.
-      Instructions for joining the user mailing list can be found in <link linkend="lang-sect-mailinglist">Recipe 1.2</link>.</para>
+      page at <ulink
+      url="http://commons.apache.org/io">http://commons.apache.org/io</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -123,43 +148,64 @@
     <sect2>
       <title>Problem</title>
 
-      <para>You need to copy a stream, <literal moreinfo="none">byte[]</literal>, <literal moreinfo="none">Reader</literal>, <indexterm id="io-network-ITERM-3029" significance="normal">
+      <para>You need to copy a stream, <literal
+      moreinfo="none">byte[]</literal>, <literal
+      moreinfo="none">Reader</literal>, <indexterm id="io-network-ITERM-3029"
+          significance="normal">
           <primary>Commons IO</primary>
 
           <secondary>CopyUtils</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3030" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3030"
+          significance="normal">
           <primary>CopyUtils</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3031" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3031"
+          significance="normal">
           <primary>I/O</primary>
 
           <secondary>CopyUtils</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3032" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3032"
+          significance="normal">
           <primary>streams</primary>
 
           <secondary>copying</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3033" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3033"
+          significance="normal">
           <primary>readers</primary>
 
           <secondary>copying</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3034" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3034"
+          significance="normal">
           <primary>writers</primary>
 
           <secondary>copying</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3035" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3035"
+          significance="normal">
           <primary>strings</primary>
 
           <secondary>copying</secondary>
         </indexterm>or <literal moreinfo="none">Writer</literal>. For example,
-      you need to copy the content from an <literal moreinfo="none">InputStream</literal> or <literal moreinfo="none">Reader</literal> to a <literal moreinfo="none">Writer</literal>, or you need to copy a <literal moreinfo="none">String</literal> to an <literal moreinfo="none">OutputStream</literal>.</para>
+      you need to copy the content from an <literal
+      moreinfo="none">InputStream</literal> or <literal
+      moreinfo="none">Reader</literal> to a <literal
+      moreinfo="none">Writer</literal>, or you need to copy a <literal
+      moreinfo="none">String</literal> to an <literal
+      moreinfo="none">OutputStream</literal>.</para>
     </sect2>
 
     <sect2>
       <title>Solution</title>
 
       <para>Use <literal moreinfo="none">CopyUtils</literal> from Commons IO
-      to copy the contents of an <literal moreinfo="none">InputStream</literal>, <literal moreinfo="none">Reader</literal>, <literal moreinfo="none">byte[]</literal>, or <literal moreinfo="none">String</literal> to an <literal moreinfo="none">OutputStream</literal> or a <literal moreinfo="none">Writer</literal>. The following code demonstrates the
+      to copy the contents of an <literal
+      moreinfo="none">InputStream</literal>, <literal
+      moreinfo="none">Reader</literal>, <literal
+      moreinfo="none">byte[]</literal>, or <literal
+      moreinfo="none">String</literal> to an <literal
+      moreinfo="none">OutputStream</literal> or a <literal
+      moreinfo="none">Writer</literal>. The following code demonstrates the
       use of <literal moreinfo="none">CopyUtils</literal> to copy between an
-      <literal moreinfo="none">InputStream</literal> and a <literal moreinfo="none">Writer</literal>:</para>
+      <literal moreinfo="none">InputStream</literal> and a <literal
+      moreinfo="none">Writer</literal>:</para>
 
       <programlisting format="linespecific" id="I_10_tt399">import org.apache.commons.io.CopyUtils;
 
@@ -174,14 +220,23 @@ try {
     System.out.println( "Error copying data" );
 }</programlisting>
 
-      <para>The previous example reads <filename moreinfo="none">test.resource</filename> using an <literal moreinfo="none">InputStream</literal>, which is copied to a <literal moreinfo="none">FileWriter</literal> using <literal moreinfo="none">CopyUtils.copy( )</literal>.</para>
+      <para>The previous example reads <filename
+      moreinfo="none">test.resource</filename> using an <literal
+      moreinfo="none">InputStream</literal>, which is copied to a <literal
+      moreinfo="none">FileWriter</literal> using <literal
+      moreinfo="none">CopyUtils.copy( )</literal>.</para>
     </sect2>
 
     <sect2>
       <title>Discussion</title>
 
-      <para>If you need to copy information from a <literal moreinfo="none">Reader</literal> or <literal moreinfo="none">InputStream</literal> to a <literal moreinfo="none">String</literal>, use <literal moreinfo="none">IOUtils.toString( )</literal>. The following example
-      opens an <literal moreinfo="none">InputStream</literal> <indexterm id="io-network-ITERM-3036" significance="normal">
+      <para>If you need to copy information from a <literal
+      moreinfo="none">Reader</literal> or <literal
+      moreinfo="none">InputStream</literal> to a <literal
+      moreinfo="none">String</literal>, use <literal
+      moreinfo="none">IOUtils.toString( )</literal>. The following example
+      opens an <literal moreinfo="none">InputStream</literal> <indexterm
+          id="io-network-ITERM-3036" significance="normal">
           <primary>InputStream</primary>
         </indexterm> from a <literal moreinfo="none">URL</literal> and copies
       the contents to a <literal moreinfo="none">String</literal>:</para>
@@ -202,7 +257,11 @@ try {
       <emphasis>not</emphasis> need to supply buffered streams or readers to
       the <literal moreinfo="none">copy( )</literal> method. When using
       <literal moreinfo="none">CopyUtils.copy( )</literal>, make sure to
-      <literal moreinfo="none">flush( )</literal> and <literal moreinfo="none">close( )</literal> any streams, <literal moreinfo="none">Readers</literal>, or <literal moreinfo="none">Writers</literal> passed to <literal moreinfo="none">copy( )</literal>.</para>
+      <literal moreinfo="none">flush( )</literal> and <literal
+      moreinfo="none">close( )</literal> any streams, <literal
+      moreinfo="none">Readers</literal>, or <literal
+      moreinfo="none">Writers</literal> passed to <literal
+      moreinfo="none">copy( )</literal>.</para>
     </sect2>
   </sect1>
 
@@ -212,36 +271,47 @@ try {
     <sect2>
       <title>Problem</title>
 
-      <para>You need to close an <indexterm class="startofrange" id="io-network-ITERM-3037" significance="normal">
+      <para>You need to close an <indexterm class="startofrange"
+          id="io-network-ITERM-3037" significance="normal">
           <primary>Commons IO</primary>
 
           <secondary>closing</secondary>
-        </indexterm> <indexterm class="startofrange" id="io-network-ITERM-3038" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="io-network-ITERM-3038" significance="normal">
           <primary>closing, Commons IO</primary>
-        </indexterm> <indexterm class="startofrange" id="io-network-ITERM-3039" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="io-network-ITERM-3039" significance="normal">
           <primary>I/O</primary>
 
           <secondary>Commons IO</secondary>
 
           <tertiary>closing</tertiary>
-        </indexterm> <indexterm class="startofrange" id="io-network-ITERM-3040" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="io-network-ITERM-3040" significance="normal">
           <primary>streams</primary>
 
           <secondary>closing</secondary>
-        </indexterm> <indexterm class="startofrange" id="io-network-ITERM-3041" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="io-network-ITERM-3041" significance="normal">
           <primary>readers</primary>
 
           <secondary>closing</secondary>
-        </indexterm> <indexterm class="startofrange" id="io-network-ITERM-3042" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="io-network-ITERM-3042" significance="normal">
           <primary>writers</primary>
 
           <secondary>closing</secondary>
-        </indexterm> <indexterm class="startofrange" id="io-network-ITERM-3043" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="io-network-ITERM-3043" significance="normal">
           <primary>strings</primary>
 
           <secondary>closing</secondary>
-        </indexterm> <literal moreinfo="none">InputStream</literal>, <literal moreinfo="none">OutputStream</literal>, <literal moreinfo="none">Reader</literal>, or <literal moreinfo="none">Writer</literal>, and you want to avoid catching an
-      <literal moreinfo="none">IOException</literal> in a <literal moreinfo="none">finally</literal> block.</para>
+        </indexterm> <literal moreinfo="none">InputStream</literal>, <literal
+      moreinfo="none">OutputStream</literal>, <literal
+      moreinfo="none">Reader</literal>, or <literal
+      moreinfo="none">Writer</literal>, and you want to avoid catching an
+      <literal moreinfo="none">IOException</literal> in a <literal
+      moreinfo="none">finally</literal> block.</para>
     </sect2>
 
     <sect2>
@@ -250,19 +320,31 @@ try {
       <para>Use <literal moreinfo="none">IOUtils.closeQuietly()</literal>
       <indexterm id="io-network-ITERM-3044" significance="normal">
           <primary>IOUtils.closeQuietly( ) methods</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3045" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3045"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>IOUtils.closeQuietly( )</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3046" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3046"
+          significance="normal">
           <primary>blocks, finally</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3047" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3047"
+          significance="normal">
           <primary>exceptions, finally block</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3048" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3048"
+          significance="normal">
           <primary>finally block</primary>
-        </indexterm> to close an <literal moreinfo="none">InputStream</literal>, <literal moreinfo="none">OutputStream</literal>, <literal moreinfo="none">Reader</literal>, or <literal moreinfo="none">Writer</literal> without having to test for <literal moreinfo="none">null</literal> or deal with an <literal moreinfo="none">IOException</literal>. The following code demonstrates
+        </indexterm> to close an <literal
+      moreinfo="none">InputStream</literal>, <literal
+      moreinfo="none">OutputStream</literal>, <literal
+      moreinfo="none">Reader</literal>, or <literal
+      moreinfo="none">Writer</literal> without having to test for <literal
+      moreinfo="none">null</literal> or deal with an <literal
+      moreinfo="none">IOException</literal>. The following code demonstrates
       the use of <literal moreinfo="none">closeQuietly( )</literal> to avoid a
-      nasty <literal moreinfo="none">try</literal>/<literal moreinfo="none">catch</literal> within a <literal moreinfo="none">finally</literal> block:</para>
+      nasty <literal moreinfo="none">try</literal>/<literal
+      moreinfo="none">catch</literal> within a <literal
+      moreinfo="none">finally</literal> block:</para>
 
       <programlisting format="linespecific" id="I_10_tt401">import org.apache.commons.io.IOUtils
 import org.apache.commons.io.CopyUtils
@@ -290,17 +372,25 @@ try {
       is thrown. A call to <literal moreinfo="none">close( )</literal>
       <indexterm id="io-network-ITERM-3049" significance="normal">
           <primary>close( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3050" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3050"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>close( )</secondary>
         </indexterm> releases resources associated with the stream, but
       because <literal moreinfo="none">close( )</literal> can throw an
-      <literal moreinfo="none">IOException</literal> <indexterm id="io-network-ITERM-3051" significance="normal">
+      <literal moreinfo="none">IOException</literal> <indexterm
+          id="io-network-ITERM-3051" significance="normal">
           <primary>IOException, finally blocks</primary>
-        </indexterm>, you need to either surround your call to <literal moreinfo="none">close( )</literal> with a <literal moreinfo="none">try</literal>/<literal moreinfo="none">catch</literal>
-      block, or declare that your method throws an <literal moreinfo="none">IOException</literal>. This problem is best illustrated
-      by the following code, which closes a <literal moreinfo="none">Reader</literal> and <literal moreinfo="none">Writer</literal> without the help of <literal moreinfo="none">IOUtils</literal>:</para>
+        </indexterm>, you need to either surround your call to <literal
+      moreinfo="none">close( )</literal> with a <literal
+      moreinfo="none">try</literal>/<literal moreinfo="none">catch</literal>
+      block, or declare that your method throws an <literal
+      moreinfo="none">IOException</literal>. This problem is best illustrated
+      by the following code, which closes a <literal
+      moreinfo="none">Reader</literal> and <literal
+      moreinfo="none">Writer</literal> without the help of <literal
+      moreinfo="none">IOUtils</literal>:</para>
 
       <programlisting format="linespecific" id="I_10_tt402">Reader reader = null;
 Writer writer = null;
@@ -332,14 +422,21 @@ try {
 }</programlisting>
 
       <para>The code within the <literal moreinfo="none">finally</literal>
-      block is as tedious to read as it is to write. To avoid a <literal moreinfo="none">NullPointerException</literal> <indexterm id="io-network-ITERM-3052" significance="normal">
+      block is as tedious to read as it is to write. To avoid a <literal
+      moreinfo="none">NullPointerException</literal> <indexterm
+          id="io-network-ITERM-3052" significance="normal">
           <primary>NullPointerException</primary>
         </indexterm>, both the <literal moreinfo="none">Reader</literal> and
       <literal moreinfo="none">Writer</literal> need to be compared with
-      <literal moreinfo="none">null</literal>, and both <literal moreinfo="none">Reader</literal> and <literal moreinfo="none">Writer</literal> need separate <literal moreinfo="none">try</literal>/<literal moreinfo="none">catch</literal>
-      blocks to avoid a situation where a <literal moreinfo="none">Writer</literal> remains open because of a problem
+      <literal moreinfo="none">null</literal>, and both <literal
+      moreinfo="none">Reader</literal> and <literal
+      moreinfo="none">Writer</literal> need separate <literal
+      moreinfo="none">try</literal>/<literal moreinfo="none">catch</literal>
+      blocks to avoid a situation where a <literal
+      moreinfo="none">Writer</literal> remains open because of a problem
       closing the <literal moreinfo="none">Reader</literal>. Another variation
-      on this theme is to surround the entire example with a single <literal moreinfo="none">try</literal>/<literal moreinfo="none">catch</literal>
+      on this theme is to surround the entire example with a single <literal
+      moreinfo="none">try</literal>/<literal moreinfo="none">catch</literal>
       for <literal moreinfo="none">IOException</literal>:</para>
 
       <programlisting format="linespecific" id="I_10_tt403">try {
@@ -365,60 +462,102 @@ try {
     System.out.println( "There was an I/O exception." );
 }</programlisting>
 
-      <para>While this looks manageable, the <literal moreinfo="none">try</literal>/<literal moreinfo="none">catch</literal>
+      <para>While this looks manageable, the <literal
+      moreinfo="none">try</literal>/<literal moreinfo="none">catch</literal>
       for <literal moreinfo="none">IOException</literal> has been expanded to
       cover the entire example, just to avoid catching an exception in a
       <literal moreinfo="none">finally</literal> block. In the previous
       sample, when an <literal moreinfo="none">IOException</literal> was
       thrown, the exception was handled within a few lines of its origin,
       making it easier to provide meaningful context in an exception message.
-      Expanding the scope of a <literal moreinfo="none">try</literal>/<literal moreinfo="none">catch</literal> block and introducing a nested <literal moreinfo="none">try</literal>/<literal moreinfo="none">catch</literal>/<literal moreinfo="none">finally</literal> is an overly complex solution for what
-      should be a relatively straightforward task&#x2014;closing a <literal moreinfo="none">Reader</literal> and a <literal moreinfo="none">Writer</literal>. There is a more subtle problem with
-      this second approach, as well; if an <literal moreinfo="none">IOException</literal> is thrown by <literal moreinfo="none">reader.close( )</literal> in the <literal moreinfo="none">finally</literal> block, <literal moreinfo="none">writer.close( )</literal> may never be executed&#x2014;a
+      Expanding the scope of a <literal moreinfo="none">try</literal>/<literal
+      moreinfo="none">catch</literal> block and introducing a nested <literal
+      moreinfo="none">try</literal>/<literal
+      moreinfo="none">catch</literal>/<literal
+      moreinfo="none">finally</literal> is an overly complex solution for what
+      should be a relatively straightforward task—closing a <literal
+      moreinfo="none">Reader</literal> and a <literal
+      moreinfo="none">Writer</literal>. There is a more subtle problem with
+      this second approach, as well; if an <literal
+      moreinfo="none">IOException</literal> is thrown by <literal
+      moreinfo="none">reader.close( )</literal> in the <literal
+      moreinfo="none">finally</literal> block, <literal
+      moreinfo="none">writer.close( )</literal> may never be executed—a
       possible resource leak.</para>
 
       <para><literal moreinfo="none">IOUtils.closeQuietly( )</literal> allows
       you to ignore this dilemma entirely if you accept the assumption that a
       problem closing a stream can be safely ignored. If there is a problem
-      closing an <literal moreinfo="none">InputStream</literal>, <literal moreinfo="none">OutputStream</literal>, <literal moreinfo="none">Reader</literal>, or <literal moreinfo="none">Writer</literal>, it is unlikely that you will be able
-      to take any corrective action in a <literal moreinfo="none">finally</literal> block. <literal moreinfo="none">IOUtils.closeQuietly()</literal> takes a reference to an
-      <literal moreinfo="none">InputStream</literal>, <literal moreinfo="none">OutputStream</literal>, <literal moreinfo="none">Reader</literal>, or <literal moreinfo="none">Writer</literal>, tests for <literal moreinfo="none">null</literal>, and swallows any <literal moreinfo="none">IOException</literal> that may be thrown <indexterm class="endofrange" id="io-network-ITERM-3053" significance="normal" startref="io-network-ITERM-3037"/> <indexterm class="endofrange" id="io-network-ITERM-3054" significance="normal" startref="io-network-ITERM-3038"/> <indexterm class="endofrange" id="io-network-ITERM-3055" significance="normal" startref="io-network-ITERM-3039"/> <indexterm class="endofrange" id="io-network-ITERM-3056" significance="normal" startref="io-network-ITERM-3040"/> <indexterm class="endofrange" id="io-network-ITERM-3057" significance="normal" startref="io-network-ITERM-3041"/> <indexterm class="endofrange" id="io-network-ITERM-3058" significance="normal" startref="io-network-ITERM-3042"/> <indexterm class="endofrange" id="io-network-ITERM-3059" significance="normal" startref="io-network-ITERM-3043"/>in the process of
-      closing a stream or reader.</para>
+      closing an <literal moreinfo="none">InputStream</literal>, <literal
+      moreinfo="none">OutputStream</literal>, <literal
+      moreinfo="none">Reader</literal>, or <literal
+      moreinfo="none">Writer</literal>, it is unlikely that you will be able
+      to take any corrective action in a <literal
+      moreinfo="none">finally</literal> block. <literal
+      moreinfo="none">IOUtils.closeQuietly()</literal> takes a reference to an
+      <literal moreinfo="none">InputStream</literal>, <literal
+      moreinfo="none">OutputStream</literal>, <literal
+      moreinfo="none">Reader</literal>, or <literal
+      moreinfo="none">Writer</literal>, tests for <literal
+      moreinfo="none">null</literal>, and swallows any <literal
+      moreinfo="none">IOException</literal> that may be thrown <indexterm
+      class="endofrange" id="io-network-ITERM-3053" significance="normal"
+      startref="io-network-ITERM-3037"></indexterm> <indexterm
+      class="endofrange" id="io-network-ITERM-3054" significance="normal"
+      startref="io-network-ITERM-3038"></indexterm> <indexterm
+      class="endofrange" id="io-network-ITERM-3055" significance="normal"
+      startref="io-network-ITERM-3039"></indexterm> <indexterm
+      class="endofrange" id="io-network-ITERM-3056" significance="normal"
+      startref="io-network-ITERM-3040"></indexterm> <indexterm
+      class="endofrange" id="io-network-ITERM-3057" significance="normal"
+      startref="io-network-ITERM-3041"></indexterm> <indexterm
+      class="endofrange" id="io-network-ITERM-3058" significance="normal"
+      startref="io-network-ITERM-3042"></indexterm> <indexterm
+      class="endofrange" id="io-network-ITERM-3059" significance="normal"
+      startref="io-network-ITERM-3043"></indexterm>in the process of closing a
+      stream or reader.</para>
     </sect2>
 
     <sect2>
       <title>See Also</title>
 
       <para>This recipe used <literal moreinfo="none">CopyUtils</literal>,
-      which was demonstrated in <link linkend="io-network-sect-copying">Recipe 10.2</link>.</para>
+      which was demonstrated in <link linkend="io-network-sect-copying">Recipe
+      10.2</link>.</para>
     </sect2>
   </sect1>
 
-  <sect1 id="io-network-sect-printing-human-readable" label="10.4" role="Recipe">
+  <sect1 id="io-network-sect-printing-human-readable" label="10.4"
+         role="Recipe">
     <title>Printing a Human-Readable File Size</title>
 
     <sect2>
       <title>Problem</title>
 
-      <para>You need to display <indexterm id="io-network-ITERM-3060" significance="normal">
+      <para>You need to display <indexterm id="io-network-ITERM-3060"
+          significance="normal">
           <primary>Commons IO</primary>
 
           <secondary>printing</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3061" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3061"
+          significance="normal">
           <primary>printing</primary>
 
           <secondary>Commons IO</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3062" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3062"
+          significance="normal">
           <primary>I/O</primary>
 
           <secondary>Commons IO</secondary>
 
           <tertiary>printing</tertiary>
-        </indexterm> <indexterm id="io-network-ITERM-3063" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3063"
+          significance="normal">
           <primary>sizing</primary>
 
           <secondary>print files</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3064" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3064"
+          significance="normal">
           <primary>human-readable file size, printing</primary>
         </indexterm>the size of a file in kilobytes, megabytes, or gigabytes.
       Instead of displaying file sizes as 1,073,741,824 bytes, you want an
@@ -428,15 +567,20 @@ try {
     <sect2>
       <title>Solution</title>
 
-      <para>Use <literal moreinfo="none">FileUtils.byteCountToDisplaySize()</literal> <indexterm id="io-network-ITERM-3065" significance="normal">
+      <para>Use <literal
+      moreinfo="none">FileUtils.byteCountToDisplaySize()</literal> <indexterm
+          id="io-network-ITERM-3065" significance="normal">
           <primary>FileUtils.byteCountToDisplaySize( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3066" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3066"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>FileUtils.byteCountToDisplaySize( )</secondary>
         </indexterm> to produce a <literal moreinfo="none">String</literal>
       containing an approximate, human-readable size. The following code
-      passes the number of bytes in the file <filename moreinfo="none">project.xml</filename> to <literal moreinfo="none">FileUtils.byteCountToDisplaySize( )</literal>:</para>
+      passes the number of bytes in the file <filename
+      moreinfo="none">project.xml</filename> to <literal
+      moreinfo="none">FileUtils.byteCountToDisplaySize( )</literal>:</para>
 
       <programlisting format="linespecific" id="I_10_tt404">import org.apache.commons.io.FileUtils;
 
@@ -451,7 +595,8 @@ try {
     System.out.println( "Error reading file length." );
 }</programlisting>
 
-      <para>This code prints out the number of bytes in the <filename moreinfo="none">project.xml</filename> file, and the human-readable size
+      <para>This code prints out the number of bytes in the <filename
+      moreinfo="none">project.xml</filename> file, and the human-readable size
       "2 KB":</para>
 
       <programlisting format="linespecific" id="I_10_tt405">File: project.xml
@@ -463,19 +608,26 @@ try {
       <title>Discussion</title>
 
       <para><literal moreinfo="none">FileUtils</literal> contains three static
-      variables&#x2014;<literal moreinfo="none">FileUtils.ONE_KB</literal>, <literal moreinfo="none">FileUtils.ONE_MB</literal>, and <literal moreinfo="none">FileUtils.ONE_GB</literal>&#x2014;which represent the number of
-      bytes in a kilobyte, megabyte, and gigabyte. <literal moreinfo="none">FileUtils.byteCountToDisplaySize( )</literal> divides
+      variables—<literal moreinfo="none">FileUtils.ONE_KB</literal>, <literal
+      moreinfo="none">FileUtils.ONE_MB</literal>, and <literal
+      moreinfo="none">FileUtils.ONE_GB</literal>—which represent the number of
+      bytes in a kilobyte, megabyte, and gigabyte. <literal
+      moreinfo="none">FileUtils.byteCountToDisplaySize( )</literal> divides
       the number of bytes by each constant until it finds a constant that can
       divide the number of bytes, discarding the remainder to create a
       human-readable value. For example, the value 2,123,022 is divided by
       <literal moreinfo="none">FileUtils.ONE_GB</literal>, which returns a
-      value of less than 1.0. The value is then divided by <literal moreinfo="none">FileUtils.ONE_MB</literal>, which returns 2&#x2014;the value
+      value of less than 1.0. The value is then divided by <literal
+      moreinfo="none">FileUtils.ONE_MB</literal>, which returns 2—the value
       used in the human-readable size "2 MB."</para>
 
       <warning id="io-network-NOTE-68" role="ora">
         <para><literal moreinfo="none">FileUtils.byteCountToDisplaySize(
         )</literal> will not round the size of a file; a 2.9 MB file will have
-        a display size of 2 MB. The byte count is divided by <literal moreinfo="none">ONE_KB</literal>, <literal moreinfo="none">ONE_MB</literal>, or <literal moreinfo="none">ONE_GB</literal>, and the remainder is
+        a display size of 2 MB. The byte count is divided by <literal
+        moreinfo="none">ONE_KB</literal>, <literal
+        moreinfo="none">ONE_MB</literal>, or <literal
+        moreinfo="none">ONE_GB</literal>, and the remainder is
         discarded.</para>
       </warning>
     </sect2>
@@ -487,33 +639,40 @@ try {
     <sect2>
       <title>Problem</title>
 
-      <para>You need to copy a file <indexterm id="io-network-ITERM-3067" significance="normal">
+      <para>You need to copy a file <indexterm id="io-network-ITERM-3067"
+          significance="normal">
           <primary>Commons IO</primary>
 
           <secondary>copying files</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3068" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3068"
+          significance="normal">
           <primary>copying</primary>
 
           <secondary>files</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3069" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3069"
+          significance="normal">
           <primary>I/O</primary>
 
           <secondary>Commons IO</secondary>
 
           <tertiary>copying files</tertiary>
-        </indexterm> <indexterm id="io-network-ITERM-3070" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3070"
+          significance="normal">
           <primary>files</primary>
 
           <secondary>copying</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3071" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3071"
+          significance="normal">
           <primary>strings</primary>
 
           <secondary>copying</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3072" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3072"
+          significance="normal">
           <primary>URLs (uniform resource locators)</primary>
 
           <secondary>copying</secondary>
-        </indexterm>to another file, or you need to copy a <indexterm id="io-network-ITERM-3073" significance="normal">
+        </indexterm>to another file, or you need to copy a <indexterm
+          id="io-network-ITERM-3073" significance="normal">
           <primary>uniform resource locators</primary>
 
           <see>URLs</see>
@@ -526,17 +685,23 @@ try {
       <para>Use <literal moreinfo="none">FileUtils.copyFile()</literal>
       <indexterm id="io-network-ITERM-3074" significance="normal">
           <primary>FileUtils.copyFile( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3075" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3075"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>FileUtils.copyFile( )</secondary>
-        </indexterm> and <literal moreinfo="none">FileUtils.copyFileToDirectory()</literal> <indexterm id="io-network-ITERM-3076" significance="normal">
+        </indexterm> and <literal
+      moreinfo="none">FileUtils.copyFileToDirectory()</literal> <indexterm
+          id="io-network-ITERM-3076" significance="normal">
           <primary>FileUtils.copyFileToDirectory( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3077" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3077"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>FileUtils.copyFileToDirectory( )</secondary>
-        </indexterm>. The following code copies the file <filename moreinfo="none">test.dat</filename> to <filename moreinfo="none">test.dat.bak</filename>:</para>
+        </indexterm>. The following code copies the file <filename
+      moreinfo="none">test.dat</filename> to <filename
+      moreinfo="none">test.dat.bak</filename>:</para>
 
       <programlisting format="linespecific" id="I_10_tt406">import org.apache.commons.io.FileUtils;
 
@@ -549,8 +714,11 @@ try {
     System.out.println( "Problem copying file." );
 }</programlisting>
 
-      <para>You may also use <literal moreinfo="none">FileUtils.copyFileToDirectory( )</literal> to copy a
-      file to a directory. The following code copies the file <filename moreinfo="none">test.dat</filename> to the directory <filename moreinfo="none">./temp</filename>:</para>
+      <para>You may also use <literal
+      moreinfo="none">FileUtils.copyFileToDirectory( )</literal> to copy a
+      file to a directory. The following code copies the file <filename
+      moreinfo="none">test.dat</filename> to the directory <filename
+      moreinfo="none">./temp</filename>:</para>
 
       <programlisting format="linespecific" id="I_10_tt407">try {
     File src = new File( "test.dat" );
@@ -565,8 +733,13 @@ try {
     <sect2>
       <title>Discussion</title>
 
-      <para>Quite often you need to write the contents of a <literal moreinfo="none">String</literal> to a file. <literal moreinfo="none">FileUtils.writeStringToFile( )</literal> provides a
-      quick way to write textual content stored in a <literal moreinfo="none">String</literal> to a <literal moreinfo="none">File</literal>, without opening a <literal moreinfo="none">Writer</literal>. The following code writes the contents
+      <para>Quite often you need to write the contents of a <literal
+      moreinfo="none">String</literal> to a file. <literal
+      moreinfo="none">FileUtils.writeStringToFile( )</literal> provides a
+      quick way to write textual content stored in a <literal
+      moreinfo="none">String</literal> to a <literal
+      moreinfo="none">File</literal>, without opening a <literal
+      moreinfo="none">Writer</literal>. The following code writes the contents
       of the <literal moreinfo="none">data String</literal> to the file
       <filename moreinfo="none">temp.tmp</filename>:</para>
 
@@ -577,9 +750,14 @@ try {
   FileUtils.writeStringToFile( dest, string, ? );
 }</programlisting>
 
-      <para>Another common task is storing the contents of a <literal moreinfo="none">URL</literal> in a <literal moreinfo="none">File</literal>. <literal moreinfo="none">FileUtils.copyURLToFile( )</literal> takes a <literal moreinfo="none">URL</literal> object and stores the contents in a file.
+      <para>Another common task is storing the contents of a <literal
+      moreinfo="none">URL</literal> in a <literal
+      moreinfo="none">File</literal>. <literal
+      moreinfo="none">FileUtils.copyURLToFile( )</literal> takes a <literal
+      moreinfo="none">URL</literal> object and stores the contents in a file.
       The following code stores the contents of the <emphasis>New York
-      Times</emphasis> front page in a file <filename moreinfo="none">times.html</filename>:</para>
+      Times</emphasis> front page in a file <filename
+      moreinfo="none">times.html</filename>:</para>
 
       <programlisting format="linespecific" id="I_10_tt409">try {
     URL src = new URL( "http://www.nytimes.com" );
@@ -598,27 +776,32 @@ try {
     <sect2>
       <title>Problem</title>
 
-      <para>You need to delete a directory and <indexterm id="io-network-ITERM-3078" significance="normal">
+      <para>You need to delete a directory and <indexterm
+          id="io-network-ITERM-3078" significance="normal">
           <primary>Commons IO</primary>
 
           <secondary>deleting directories</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3079" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3079"
+          significance="normal">
           <primary>deleting</primary>
 
           <secondary>directories</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3080" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3080"
+          significance="normal">
           <primary>I/O</primary>
 
           <secondary>Commons IO</secondary>
 
           <tertiary>deleting directories</tertiary>
-        </indexterm> <indexterm id="io-network-ITERM-3081" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3081"
+          significance="normal">
           <primary>directories</primary>
 
           <secondary>deleting</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3082" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3082"
+          significance="normal">
           <primary>recursive deletes, directories</primary>
-        </indexterm>everything it contains. You need a recursive delete&#x2014;the
+        </indexterm>everything it contains. You need a recursive delete—the
       equivalent of a Unix <literal moreinfo="none">rm -r</literal>.</para>
     </sect2>
 
@@ -628,7 +811,8 @@ try {
       <para>Use <literal moreinfo="none">FileUtils.deleteDirectory()</literal>
       <indexterm id="io-network-ITERM-3083" significance="normal">
           <primary>FileUtils.deleteDirectory( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3084" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3084"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>FileUtils.deleteDirectory( )</secondary>
@@ -645,7 +829,8 @@ try {
     System.out.println( "Error deleting directory." );
 }</programlisting>
 
-      <para>This code will delete every file and directory in the <filename moreinfo="none">temp</filename> directory and, once the directory is
+      <para>This code will delete every file and directory in the <filename
+      moreinfo="none">temp</filename> directory and, once the directory is
       empty, <literal moreinfo="none">deleteDirectory( )</literal> will remove
       the <filename moreinfo="none">temp</filename> directory itself.</para>
     </sect2>
@@ -653,16 +838,20 @@ try {
     <sect2>
       <title>Discussion</title>
 
-      <para>You can also "clean" a directory with the <literal moreinfo="none">cleanDirectory()</literal> <indexterm id="io-network-ITERM-3085" significance="normal">
+      <para>You can also "clean" a directory with the <literal
+      moreinfo="none">cleanDirectory()</literal> <indexterm
+          id="io-network-ITERM-3085" significance="normal">
           <primary>cleanDirectory( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3086" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3086"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>cleanDirectory( )</secondary>
         </indexterm> method. When cleaning a directory, the contents of the
       directory are erased, but the directory itself is not deleted. The
       following example cleans the <filename moreinfo="none">temp</filename>
-      directory, emptying it of all files and <indexterm id="io-network-ITERM-3087" significance="normal">
+      directory, emptying it of all files and <indexterm
+          id="io-network-ITERM-3087" significance="normal">
           <primary>subdirectories</primary>
 
           <secondary>cleaning</secondary>
@@ -685,21 +874,25 @@ try {
     <sect2>
       <title>Problem</title>
 
-      <para>You need to know the size of <indexterm id="io-network-ITERM-3088" significance="normal">
+      <para>You need to know the size of <indexterm id="io-network-ITERM-3088"
+          significance="normal">
           <primary>Commons IO</primary>
 
           <secondary>sizing directories</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3089" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3089"
+          significance="normal">
           <primary>sizing</primary>
 
           <secondary>directories</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3090" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3090"
+          significance="normal">
           <primary>I/O</primary>
 
           <secondary>Commons IO</secondary>
 
           <tertiary>sizing directories</tertiary>
-        </indexterm> <indexterm id="io-network-ITERM-3091" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3091"
+          significance="normal">
           <primary>directories</primary>
 
           <secondary>sizing</secondary>
@@ -711,20 +904,24 @@ try {
 
       <para>Use the<indexterm id="io-network-ITERM-3092" significance="normal">
           <primary>FileUtils.sizeOfDirectory( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3093" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3093"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>FileUtils.sizeOfDirectory( )</secondary>
         </indexterm> <literal moreinfo="none">sizeOfDirectory( )</literal>
       method on <literal moreinfo="none">FileUtils</literal>. The following
-      example returns the size of the <filename moreinfo="none">temp</filename> directory:</para>
+      example returns the size of the <filename
+      moreinfo="none">temp</filename> directory:</para>
 
       <programlisting format="linespecific" id="I_10_tt412">File dir = new File( "temp" );
 long dirSize = FileUtils.sizeOfDirectory( );</programlisting>
 
       <para>If <filename moreinfo="none">temp</filename> contains a number
       files, <literal moreinfo="none">FileUtils.sizeOfDirectory( )</literal>
-      will return the sum of the size of every file in <filename moreinfo="none">temp</filename>. If <filename moreinfo="none">temp</filename> contains subdirectories, this method
+      will return the sum of the size of every file in <filename
+      moreinfo="none">temp</filename>. If <filename
+      moreinfo="none">temp</filename> contains subdirectories, this method
       will recursively call <literal moreinfo="none">sizeOfDirectory(
       )</literal> on each subdirectory to obtain the size of each
       subdirectory, and it will return the sum of these sizes.</para>
@@ -737,44 +934,56 @@ long dirSize = FileUtils.sizeOfDirectory( );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to perform the <indexterm id="io-network-ITERM-3094" significance="normal">
+      <para>You need to perform the <indexterm id="io-network-ITERM-3094"
+          significance="normal">
           <primary>Commons IO</primary>
 
           <secondary>timestamps</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3095" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3095"
+          significance="normal">
           <primary>timestamps</primary>
 
           <secondary>Commons IO</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3096" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3096"
+          significance="normal">
           <primary>I/O</primary>
 
           <secondary>Commons IO</secondary>
 
           <tertiary>timestamps</tertiary>
-        </indexterm> <indexterm id="io-network-ITERM-3097" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3097"
+          significance="normal">
           <primary>updating timestamps</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3098" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3098"
+          significance="normal">
           <primary>timestamps</primary>
 
           <secondary>updating</secondary>
-        </indexterm>equivalent of the Unix <literal moreinfo="none">touch</literal> command; you want to create a file or
+        </indexterm>equivalent of the Unix <literal
+      moreinfo="none">touch</literal> command; you want to create a file or
       update a file's modified timestamp.</para>
     </sect2>
 
     <sect2>
       <title>Solution</title>
 
-      <para>Use the <literal moreinfo="none">touch()</literal> <indexterm id="io-network-ITERM-3099" significance="normal">
+      <para>Use the <literal moreinfo="none">touch()</literal> <indexterm
+          id="io-network-ITERM-3099" significance="normal">
           <primary>FileUtils.touch( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3100" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3100"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>FileUtils.touch( )</secondary>
         </indexterm> method from <literal moreinfo="none">FileUtils</literal>.
-      To use <literal moreinfo="none">touch( )</literal>, pass it a <literal moreinfo="none">File</literal> object; if the <literal moreinfo="none">File</literal> does not exist, <literal moreinfo="none">touch( )</literal> will create a new file. If the file
+      To use <literal moreinfo="none">touch( )</literal>, pass it a <literal
+      moreinfo="none">File</literal> object; if the <literal
+      moreinfo="none">File</literal> does not exist, <literal
+      moreinfo="none">touch( )</literal> will create a new file. If the file
       exists, the timestamp of the file will be updated to the current time.
       The following code demonstrates the <literal moreinfo="none">touch(
-      )</literal> method on the file <filename moreinfo="none">testFile.txt</filename>:</para>
+      )</literal> method on the file <filename
+      moreinfo="none">testFile.txt</filename>:</para>
 
       <programlisting format="linespecific" id="I_10_tt413">import org.apache.commons.io.FileUtils;
 
@@ -789,8 +998,11 @@ try {
 }</programlisting>
 
       <para>If <filename moreinfo="none">testFile.txt</filename> does not
-      exist, the file will be created by the call to <literal moreinfo="none">touch( )</literal>. If <filename moreinfo="none">testFile.txt</filename> does exist, the last modified
-      timestamp will be updated to the current time after the call to <literal moreinfo="none">touch( )</literal>.</para>
+      exist, the file will be created by the call to <literal
+      moreinfo="none">touch( )</literal>. If <filename
+      moreinfo="none">testFile.txt</filename> does exist, the last modified
+      timestamp will be updated to the current time after the call to <literal
+      moreinfo="none">touch( )</literal>.</para>
     </sect2>
   </sect1>
 
@@ -800,29 +1012,35 @@ try {
     <sect2>
       <title>Problem</title>
 
-      <para>You need to select all the files<indexterm id="io-network-ITERM-3101" significance="normal">
+      <para>You need to select all the files<indexterm
+          id="io-network-ITERM-3101" significance="normal">
           <primary>Commons IO</primary>
 
           <secondary>filtering files</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3102" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3102"
+          significance="normal">
           <primary>filtering</primary>
 
           <secondary>files</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3103" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3103"
+          significance="normal">
           <primary>I/O</primary>
 
           <secondary>Commons IO</secondary>
 
           <tertiary>filtering files</tertiary>
-        </indexterm> <indexterm id="io-network-ITERM-3104" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3104"
+          significance="normal">
           <primary>files</primary>
 
           <secondary>filtering</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3105" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3105"
+          significance="normal">
           <primary>directories</primary>
 
           <secondary>filtering</secondary>
-        </indexterm> in a directory ending in <filename moreinfo="none">.xml</filename>, or you need to select only files (not
+        </indexterm> in a directory ending in <filename
+      moreinfo="none">.xml</filename>, or you need to select only files (not
       subdirectories) contained in a directory. In other words, you need to
       filter a list of files.</para>
     </sect2>
@@ -830,11 +1048,17 @@ try {
     <sect2>
       <title>Solution</title>
 
-      <para>Use one of the many implementations of <literal moreinfo="none">IOFileFilter</literal> <indexterm id="io-network-ITERM-3106" significance="normal">
+      <para>Use one of the many implementations of <literal
+      moreinfo="none">IOFileFilter</literal> <indexterm
+          id="io-network-ITERM-3106" significance="normal">
           <primary>IOFileFilter</primary>
-        </indexterm> in the <literal moreinfo="none">org.apache.commons.io.filefilter</literal> package. This
-      package contains various implementations of <literal moreinfo="none">FileFilter</literal> and <literal moreinfo="none">FilenameFilter</literal>, which can be used to filter
-      the contents of a directory. The following example uses <literal moreinfo="none">SuffixFileFilter</literal> to return an array of
+        </indexterm> in the <literal
+      moreinfo="none">org.apache.commons.io.filefilter</literal> package. This
+      package contains various implementations of <literal
+      moreinfo="none">FileFilter</literal> and <literal
+      moreinfo="none">FilenameFilter</literal>, which can be used to filter
+      the contents of a directory. The following example uses <literal
+      moreinfo="none">SuffixFileFilter</literal> to return an array of
       filenames that end in <filename moreinfo="none">.xml</filename>:</para>
 
       <programlisting format="linespecific" id="I_10_tt414">import java.io.FilenameFilter;
@@ -847,8 +1071,10 @@ String[] xmlFiles = rootDir.list( fileFilter );
 System.out.println( "*** XML Files" );
 System.out.println( ArrayUtils.toString( xmlFiles ) );</programlisting>
 
-      <para>This code searches for all files ending in <filename moreinfo="none">.xml</filename> in the current directory. Running this
-      in the root of the example project matches one file, <filename moreinfo="none">project.xml</filename>, producing the following
+      <para>This code searches for all files ending in <filename
+      moreinfo="none">.xml</filename> in the current directory. Running this
+      in the root of the example project matches one file, <filename
+      moreinfo="none">project.xml</filename>, producing the following
       output:</para>
 
       <programlisting format="linespecific" id="I_10_tt415">*** XML Files
@@ -858,14 +1084,26 @@ System.out.println( ArrayUtils.toString( xmlFiles ) );</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>The <literal moreinfo="none">org.apache.commons.io.filefilter</literal> <indexterm id="io-network-ITERM-3107" significance="normal">
+      <para>The <literal
+      moreinfo="none">org.apache.commons.io.filefilter</literal> <indexterm
+          id="io-network-ITERM-3107" significance="normal">
           <primary>org.apache.commons.io.filefilter package</primary>
-        </indexterm> package contains a number of implementations of <literal moreinfo="none">FilenameFilter</literal> and <literal moreinfo="none">FileFilter</literal>. <literal moreinfo="none">PrefixFileFilter</literal> and <literal moreinfo="none">SuffixFileFilter</literal> let you match files and
-      directories by a prefix or suffix. <literal moreinfo="none">NameFileFilter</literal> matches a file or a directory
-      to a specific name. <literal moreinfo="none">DirectoryFileFilter</literal> accepts only directories.
-      <literal moreinfo="none">AndFileFilter</literal>, <literal moreinfo="none">OrFileFilter</literal>, and <literal moreinfo="none">NotFileFilter</literal> allow for the logical
+        </indexterm> package contains a number of implementations of <literal
+      moreinfo="none">FilenameFilter</literal> and <literal
+      moreinfo="none">FileFilter</literal>. <literal
+      moreinfo="none">PrefixFileFilter</literal> and <literal
+      moreinfo="none">SuffixFileFilter</literal> let you match files and
+      directories by a prefix or suffix. <literal
+      moreinfo="none">NameFileFilter</literal> matches a file or a directory
+      to a specific name. <literal
+      moreinfo="none">DirectoryFileFilter</literal> accepts only directories.
+      <literal moreinfo="none">AndFileFilter</literal>, <literal
+      moreinfo="none">OrFileFilter</literal>, and <literal
+      moreinfo="none">NotFileFilter</literal> allow for the logical
       combination of filters. The following example uses a combination of the
-      file filters in this package to list <filename moreinfo="none">.htm</filename> or <filename moreinfo="none">.html</filename> files in a directory:</para>
+      file filters in this package to list <filename
+      moreinfo="none">.htm</filename> or <filename
+      moreinfo="none">.html</filename> files in a directory:</para>
 
       <programlisting format="linespecific" id="I_10_tt416">import org.apache.commons.io.filefilter.AndFileFilter;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
@@ -885,56 +1123,77 @@ String[] htmlFiles = rootDir.list(fileFilter);
 System.out.println( "*** HTML Files" );
 System.out.println( ArrayUtils.toString( htmlFiles ) );</programlisting>
 
-      <para>This example combines two <literal moreinfo="none">SuffixFileFilter</literal> <indexterm id="io-network-ITERM-3108" significance="normal">
+      <para>This example combines two <literal
+      moreinfo="none">SuffixFileFilter</literal> <indexterm
+          id="io-network-ITERM-3108" significance="normal">
           <primary>SuffixFileFilter instances</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3109" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3109"
+          significance="normal">
           <primary>instances</primary>
 
           <secondary>SuffixFileFilter</secondary>
-        </indexterm> instances in an <literal moreinfo="none">OrFileFilter</literal> to match <filename moreinfo="none">.htm</filename> or <filename moreinfo="none">.html</filename> files. Wrapping a <literal moreinfo="none">DirectoryFileFilter</literal> with a <literal moreinfo="none">NotFileFilter</literal> creates a filter that will
+        </indexterm> instances in an <literal
+      moreinfo="none">OrFileFilter</literal> to match <filename
+      moreinfo="none">.htm</filename> or <filename
+      moreinfo="none">.html</filename> files. Wrapping a <literal
+      moreinfo="none">DirectoryFileFilter</literal> with a <literal
+      moreinfo="none">NotFileFilter</literal> creates a filter that will
       accept files and reject directories. Combining these two filters in an
       <literal moreinfo="none">AndFileFilter</literal> creates a filter to
-      list files with either suffix. Every filter defined in the <literal moreinfo="none">org.apache.commons.io.filefilter</literal> package is an
+      list files with either suffix. Every filter defined in the <literal
+      moreinfo="none">org.apache.commons.io.filefilter</literal> package is an
       implementation of the <literal moreinfo="none">IOFileFilter</literal>,
-      which implements both the <literal moreinfo="none">java.io.FileFilter</literal> and <literal moreinfo="none">java.io.FilenameFilter</literal> interfaces.</para>
+      which implements both the <literal
+      moreinfo="none">java.io.FileFilter</literal> and <literal
+      moreinfo="none">java.io.FilenameFilter</literal> interfaces.</para>
     </sect2>
   </sect1>
 
-  <sect1 id="io-network-sect-measuring-stream-traffic" label="10.10" role="Recipe">
+  <sect1 id="io-network-sect-measuring-stream-traffic" label="10.10"
+         role="Recipe">
     <title>Measuring Stream Traffic</title>
 
     <sect2>
       <title>Problem</title>
 
-      <para>You need to keep track <indexterm id="io-network-ITERM-3110" significance="normal">
+      <para>You need to keep track <indexterm id="io-network-ITERM-3110"
+          significance="normal">
           <primary>Commons IO</primary>
 
           <secondary>tracking traffic</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3111" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3111"
+          significance="normal">
           <primary>tracking</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3112" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3112"
+          significance="normal">
           <primary>traffic</primary>
 
           <secondary>Commons IO</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3113" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3113"
+          significance="normal">
           <primary>I/O</primary>
 
           <secondary>Commons IO</secondary>
 
           <tertiary>tracking traffic</tertiary>
-        </indexterm> <indexterm id="io-network-ITERM-3114" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3114"
+          significance="normal">
           <primary>traffic</primary>
 
           <secondary>tracking</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3115" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3115"
+          significance="normal">
           <primary>streams</primary>
 
           <secondary>tracking</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3116" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3116"
+          significance="normal">
           <primary>measuring</primary>
 
           <secondary>stream traffic</secondary>
-        </indexterm>of the number of bytes read from an <literal moreinfo="none">InputStream</literal> or written to an <literal moreinfo="none">OutputStream</literal>.</para>
+        </indexterm>of the number of bytes read from an <literal
+      moreinfo="none">InputStream</literal> or written to an <literal
+      moreinfo="none">OutputStream</literal>.</para>
     </sect2>
 
     <sect2>
@@ -943,11 +1202,16 @@ System.out.println( ArrayUtils.toString( htmlFiles ) );</programlisting>
       <para>Use a <literal moreinfo="none">CountingInputStream</literal>
       <indexterm id="io-network-ITERM-3117" significance="normal">
           <primary>CountingInputStream</primary>
-        </indexterm> or <literal moreinfo="none">CountingOutputStream</literal> <indexterm id="io-network-ITERM-3118" significance="normal">
+        </indexterm> or <literal
+      moreinfo="none">CountingOutputStream</literal> <indexterm
+          id="io-network-ITERM-3118" significance="normal">
           <primary>CountingOutputStream</primary>
         </indexterm> to keep track of the number of bytes written to a stream.
-      The following example uses a <literal moreinfo="none">CountingOutputStream</literal> to keep track of the
-      number of bytes written to a <literal moreinfo="none">FileOutputStream</literal> <indexterm id="io-network-ITERM-3119" significance="normal">
+      The following example uses a <literal
+      moreinfo="none">CountingOutputStream</literal> to keep track of the
+      number of bytes written to a <literal
+      moreinfo="none">FileOutputStream</literal> <indexterm
+          id="io-network-ITERM-3119" significance="normal">
           <primary>FileOutputStream</primary>
         </indexterm>:</para>
 
@@ -973,7 +1237,9 @@ if( countStream != null ) {
     System.out.println( "Wrote " + bytesWritten + " bytes to test.dat" );
 }</programlisting>
 
-      <para>This previous example wrapped a <literal moreinfo="none">FileOutputStream</literal> with a <literal moreinfo="none">CountingOutputStream</literal>, producing the following
+      <para>This previous example wrapped a <literal
+      moreinfo="none">FileOutputStream</literal> with a <literal
+      moreinfo="none">CountingOutputStream</literal>, producing the following
       console output:</para>
 
       <programlisting format="linespecific" id="I_10_tt418">Wrote 5 bytes to test.dat</programlisting>
@@ -983,8 +1249,10 @@ if( countStream != null ) {
       <title>Discussion</title>
 
       <para><literal moreinfo="none">CountingInputStream</literal> wraps an
-      <literal moreinfo="none">InputStream</literal> and <literal moreinfo="none">getCount( )</literal> provides a running tally of total
-      bytes read. The following example demonstrates <literal moreinfo="none">CountingInputStream</literal>:</para>
+      <literal moreinfo="none">InputStream</literal> and <literal
+      moreinfo="none">getCount( )</literal> provides a running tally of total
+      bytes read. The following example demonstrates <literal
+      moreinfo="none">CountingInputStream</literal>:</para>
 
       <programlisting format="linespecific" id="I_10_tt419">import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.output.CountingOutputStream;
@@ -1016,23 +1284,28 @@ if( countStream != null ) {
     <sect2>
       <title>Problem</title>
 
-      <para>You need to send the same output <indexterm id="io-network-ITERM-3120" significance="normal">
+      <para>You need to send the same output <indexterm
+          id="io-network-ITERM-3120" significance="normal">
           <primary>Commons IO</primary>
 
           <secondary>splitting OutputStreams</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3121" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3121"
+          significance="normal">
           <primary>splitting</primary>
 
           <secondary>OutputStreamsCommons IO</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3122" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3122"
+          significance="normal">
           <primary>I/O</primary>
 
           <secondary>Commons IO</secondary>
 
           <tertiary>splitting OutputSteams</tertiary>
-        </indexterm> <indexterm id="io-network-ITERM-3123" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3123"
+          significance="normal">
           <primary>OutputStreams, splitting</primary>
-        </indexterm>to two <literal moreinfo="none">OutputStream</literal>s.</para>
+        </indexterm>to two <literal
+      moreinfo="none">OutputStream</literal>s.</para>
     </sect2>
 
     <sect2>
@@ -1040,15 +1313,22 @@ if( countStream != null ) {
 
       <para>Use <indexterm id="io-network-ITERM-3124" significance="normal">
           <primary>Commons IO TeeOutputStream</primary>
-        </indexterm>Commons IO <literal moreinfo="none">TeeOutputStream</literal> to send the same data to two
+        </indexterm>Commons IO <literal
+      moreinfo="none">TeeOutputStream</literal> to send the same data to two
       instances of <literal moreinfo="none">OutputStream</literal>. When data
       is written to a <literal moreinfo="none">TeeOutputStream</literal>
       <indexterm id="io-network-ITERM-3125" significance="normal">
           <primary>TeeOutputStream</primary>
-        </indexterm>, that data is sent to the two instances of <literal moreinfo="none">OutputStream</literal> passed to its constructor. The
-      following example demonstrates the use of <literal moreinfo="none">TeeOutputStream</literal> to write the same <literal moreinfo="none">String</literal> to two instances of <literal moreinfo="none">FileOutputStream</literal> <indexterm id="io-network-ITERM-3126" significance="normal">
+        </indexterm>, that data is sent to the two instances of <literal
+      moreinfo="none">OutputStream</literal> passed to its constructor. The
+      following example demonstrates the use of <literal
+      moreinfo="none">TeeOutputStream</literal> to write the same <literal
+      moreinfo="none">String</literal> to two instances of <literal
+      moreinfo="none">FileOutputStream</literal> <indexterm
+          id="io-network-ITERM-3126" significance="normal">
           <primary>FileOutputStream</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3127" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3127"
+          significance="normal">
           <primary>instances</primary>
 
           <secondary>FileOutputStream</secondary>
@@ -1074,9 +1354,12 @@ try {
     IOUtils.closeQuietly( outStream );
 }</programlisting>
 
-      <para>Flushing or closing a <literal moreinfo="none">TeeOutputStream</literal> will flush or close both of
+      <para>Flushing or closing a <literal
+      moreinfo="none">TeeOutputStream</literal> will flush or close both of
       the <literal moreinfo="none">OutputStream</literal> instances it
-      contains. After this example is executed, two files, <filename moreinfo="none">split1.txt</filename> and <filename moreinfo="none">split2.txt</filename>, will contain the same
+      contains. After this example is executed, two files, <filename
+      moreinfo="none">split1.txt</filename> and <filename
+      moreinfo="none">split2.txt</filename>, will contain the same
       text.</para>
     </sect2>
   </sect1>
@@ -1087,27 +1370,32 @@ try {
     <sect2>
       <title>Problem</title>
 
-      <para>You need to use <indexterm id="io-network-ITERM-3128" significance="normal">
+      <para>You need to use <indexterm id="io-network-ITERM-3128"
+          significance="normal">
           <primary>Jakarta ORO</primary>
 
           <secondary>downloading</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3129" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3129"
+          significance="normal">
           <primary>downloading</primary>
 
           <secondary>Jakarta ORO</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3130" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3130"
+          significance="normal">
           <primary>files</primary>
 
           <secondary>Jakarta ORO</secondary>
 
           <tertiary>downloading</tertiary>
-        </indexterm> <indexterm id="io-network-ITERM-3131" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3131"
+          significance="normal">
           <primary>searching</primary>
 
           <secondary>Jakarta ORO</secondary>
 
           <tertiary>downloading</tertiary>
-        </indexterm>Jakarta ORO to finds files by<indexterm id="io-network-ITERM-3132" significance="normal">
+        </indexterm>Jakarta ORO to finds files by<indexterm
+          id="io-network-ITERM-3132" significance="normal">
           <primary>ORO</primary>
 
           <see>Jakarta ORO</see>
@@ -1117,10 +1405,27 @@ try {
     <sect2>
       <title>Solution</title>
 
-      <para>Download Jakarta ORO 2.0.8 from <ulink url="http://jakarta.apache.org/site/binindex.cgi">http://jakarta.apache.org/site/binindex.cgi</ulink>.
-      Once you have downloaded and uncompressed the archive distribution,
-      place the <filename moreinfo="none">jakarta-oro-2.0.8.jar</filename> in
-      your classpath.</para>
+      <para>To use Jakarta ORO in a Maven 2 project, add the following
+      dependency to your project's <filename>pom.xml</filename>:</para>
+
+      <example>
+        <title>Adding a Dependency on Commons ORO</title>
+
+        <programlisting>    &lt;dependency&gt;
+      &lt;groupId&gt;oro&lt;/groupId&gt;
+      &lt;artifactId&gt;oro&lt;/artifactId&gt;
+      &lt;version&gt;2.0.8&lt;/version&gt;
+    &lt;/dependency&gt;
+</programlisting>
+      </example>
+
+      <para>If you are not sure what this means, I'd suggest reading <ulink
+      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
+      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      do is add the dependency <varname>groupId</varname>,
+      <varname>artifactId</varname>, and <varname>version</varname> to your
+      project's dependencies. Once you do this, Maven 2 will download the
+      dependency and make it available on your project's classpath.</para>
     </sect2>
 
     <sect2>
@@ -1134,27 +1439,18 @@ try {
       regular expressions in Java. Now that Java 1.4 supports regular
       expressions, ORO still remains relevant for developers who need specific
       support for Perl5 extended regular expressions.</para>
-
-      <para>If you have a Maven project that needs to use Jakarta ORO, add a
-      dependency on Jakarta ORO 2.0.8 with the following section in <filename moreinfo="none">project.xml</filename>:</para>
-
-      <programlisting format="linespecific" id="I_10_tt421">&lt;dependencies&gt;
-  &lt;dependency&gt;
-    &lt;id&gt;oro&lt;/id&gt;
-    &lt;version&gt;2.0.8&lt;/version&gt;
-  &lt;/dependency&gt;
-  ....other dependencies...
-&lt;/dependencies&gt;</programlisting>
     </sect2>
 
     <sect2>
       <title>See Also</title>
 
       <para>For more information about ORO, see the Jakarta ORO project at
-      <ulink url="http://jakarta.apache.org/oro">http://jakarta.apache.org/oro</ulink>. For more
-      information about the regular expression syntax supported by Jakarta
-      ORO, see the package summary for the <literal moreinfo="none">org.apache.oro.test.regex</literal> package at
-      <ulink url="http://jakarta.apache.org/oro/api/org/apache/oro/text/regex/package-summary.html">http://jakarta.apache.org/oro/api/org/apache/oro/text/regex/package-summary.html</ulink>.</para>
+      <ulink
+      url="http://jakarta.apache.org/oro">http://jakarta.apache.org/oro</ulink>.
+      For more information about the regular expression syntax supported by
+      Jakarta ORO, see the package summary for the <literal
+      moreinfo="none">org.apache.oro.test.regex</literal> package at <ulink
+      url="http://jakarta.apache.org/oro/api/org/apache/oro/text/regex/package-summary.html">http://jakarta.apache.org/oro/api/org/apache/oro/text/regex/package-summary.html</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -1164,33 +1460,40 @@ try {
     <sect2>
       <title>Problem</title>
 
-      <para>You need to get a list<indexterm id="io-network-ITERM-3133" significance="normal">
+      <para>You need to get a list<indexterm id="io-network-ITERM-3133"
+          significance="normal">
           <primary>Jakarta ORO</primary>
 
           <secondary>listing files</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3134" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3134"
+          significance="normal">
           <primary>lists</primary>
 
           <secondary>files</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3135" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3135"
+          significance="normal">
           <primary>files</primary>
 
           <secondary>Jakarta ORO</secondary>
 
           <tertiary>listing</tertiary>
-        </indexterm> <indexterm id="io-network-ITERM-3136" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3136"
+          significance="normal">
           <primary>searching</primary>
 
           <secondary>Jakarta ORO</secondary>
 
           <tertiary>listing files</tertiary>
-        </indexterm> <indexterm id="io-network-ITERM-3137" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3137"
+          significance="normal">
           <primary>globs</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3138" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3138"
+          significance="normal">
           <primary>expressions</primary>
 
           <secondary>files, listing</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3139" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3139"
+          significance="normal">
           <primary>regular expressions</primary>
         </indexterm> of files that match either a glob or regular
       expression.</para>
@@ -1206,7 +1509,9 @@ try {
       <indexterm id="io-network-ITERM-3141" significance="normal">
           <primary>GlobFilenameFilter</primary>
         </indexterm> from Jakarta ORO to select all files matching an
-      expression. Both of these classes implement the <literal moreinfo="none">FileFilter</literal> and <literal moreinfo="none">FilenameFilter</literal> interface, and both can be
+      expression. Both of these classes implement the <literal
+      moreinfo="none">FileFilter</literal> and <literal
+      moreinfo="none">FilenameFilter</literal> interface, and both can be
       passed to the <literal moreinfo="none">listFiles( )</literal> method on
       a <literal moreinfo="none">File</literal> object. The following example
       uses <literal moreinfo="none">GlobFilenameFilter</literal> to list XML
@@ -1222,9 +1527,11 @@ File[] xmlFiles = dataDir.listFiles( xmlFilter );</programlisting>
       <para>To find all files matching a Perl regular expression, use the
       <literal moreinfo="none">Perl5FilenameFilter</literal>. The following
       example returns files starting with "dev" and ending with ".tld" by
-      passing a regular expression to the constructor of <literal moreinfo="none">Perl5FilenameFilter</literal>:</para>
+      passing a regular expression to the constructor of <literal
+      moreinfo="none">Perl5FilenameFilter</literal>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt423">File dataDir = <userinput moreinfo="none">new</userinput> File("./dataDir");
+      <programlisting format="linespecific" id="I_10_tt423">File dataDir = <userinput
+          moreinfo="none">new</userinput> File("./dataDir");
 FilenameFilter regexFilter = <userinput moreinfo="none">new</userinput> Perl5FilenameFilter( "^dev.*.tld$" );
 File[] tldFiles = dataDir.listFiles( regexFilter );</programlisting>
     </sect2>
@@ -1236,15 +1543,18 @@ File[] tldFiles = dataDir.listFiles( regexFilter );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to use <indexterm id="io-network-ITERM-3142" significance="normal">
+      <para>You need to use <indexterm id="io-network-ITERM-3142"
+          significance="normal">
           <primary>Commons Net</primary>
 
           <secondary>downloading</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3143" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3143"
+          significance="normal">
           <primary>downloading</primary>
 
           <secondary>Commons Net</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3144" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3144"
+          significance="normal">
           <primary>clients</primary>
 
           <secondary>Commons Net</secondary>
@@ -1257,10 +1567,27 @@ File[] tldFiles = dataDir.listFiles( regexFilter );</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Download the latest version of Commons Net, and place the Commons
-      Net JAR<filename moreinfo="none"> </filename>in your project's
-      classpath. Following the steps outlined in <link linkend="lang-sect-obtaining">Recipe 1.1</link>, download Commons
-      Net 1.2.2 instead of Commons Lang.</para>
+      <para>To use Commons Net in a Maven 2 project, add the following
+      dependency to your project's <filename>pom.xml</filename>:</para>
+
+      <example>
+        <title>Adding a Dependency on Commons Net</title>
+
+        <programlisting>    &lt;dependency&gt;
+        &lt;groupId&gt;commons-net&lt;/groupId&gt;
+        &lt;artifactId&gt;commons-net&lt;/artifactId&gt;
+        &lt;version&gt;2.0&lt;/version&gt;
+    &lt;/dependency&gt;
+</programlisting>
+      </example>
+
+      <para>If you are not sure what this means, I'd suggest reading <ulink
+      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
+      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      do is add the dependency <varname>groupId</varname>,
+      <varname>artifactId</varname>, and <varname>version</varname> to your
+      project's dependencies. Once you do this, Maven 2 will download the
+      dependency and make it available on your project's classpath.</para>
     </sect2>
 
     <sect2>
@@ -1273,26 +1600,17 @@ File[] tldFiles = dataDir.listFiles( regexFilter );</programlisting>
       the <literal moreinfo="none">org.apache.commons.net.ftp</literal>
       package, including <literal moreinfo="none">FTPClient</literal> and
       <literal moreinfo="none">FTPFile</literal>; and SMTP is supported by
-      classes in the <literal moreinfo="none">org.apache.commons.net.smtp</literal> package, including
+      classes in the <literal
+      moreinfo="none">org.apache.commons.net.smtp</literal> package, including
       <literal moreinfo="none">SMTPClient</literal>.</para>
-
-      <para>If you have a Maven project that needs to use Commons Net, add a
-      dependency on Commons Net 1.2.2 with the following section in <filename moreinfo="none">project.xml</filename>:</para>
-
-      <programlisting format="linespecific" id="I_10_tt424">&lt;dependencies&gt;
-  &lt;dependency&gt;
-    &lt;id&gt;commons-net&lt;/id&gt;
-    &lt;version&gt;1.2.2&lt;/version&gt;
-  &lt;/dependency&gt;
-  ....other dependencies...
-&lt;/dependencies&gt;</programlisting>
     </sect2>
 
     <sect2>
       <title>See Also</title>
 
       <para>For more information about Commons Net, see the Commons Net
-      project page at <ulink url="http://jakarta.apache.org/commons/net">http://jakarta.apache.org/commons/net</ulink>.</para>
+      project page at <ulink
+      url="http://commons.apache.org/net">http://commons.apache.org/net</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -1302,17 +1620,21 @@ File[] tldFiles = dataDir.listFiles( regexFilter );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to write a<indexterm id="io-network-ITERM-3145" significance="normal">
+      <para>You need to write a<indexterm id="io-network-ITERM-3145"
+          significance="normal">
           <primary>File Transfer Protocol</primary>
 
           <see>FTP</see>
-        </indexterm> program to interact<indexterm class="startofrange" id="io-network-ITERM-3146" significance="normal">
+        </indexterm> program to interact<indexterm class="startofrange"
+          id="io-network-ITERM-3146" significance="normal">
           <primary>Commons Net</primary>
 
           <secondary>FTP</secondary>
-        </indexterm> <indexterm class="startofrange" id="io-network-ITERM-3147" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="io-network-ITERM-3147" significance="normal">
           <primary>FTP (File Transfer Protocol)</primary>
-        </indexterm> <indexterm class="startofrange" id="io-network-ITERM-3148" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="io-network-ITERM-3148" significance="normal">
           <primary>clients</primary>
 
           <secondary>Commons Net</secondary>
@@ -1361,31 +1683,47 @@ try {
     }
 }</programlisting>
 
-      <para>In the previous example, an instance of <literal moreinfo="none">FTPClient</literal> is created; the example then logs on
-      to <filename moreinfo="none">ftp.ibibio.org</filename> as <filename moreinfo="none">anonymous&#x2014;</filename>with no password&#x2014;using the <literal moreinfo="none">connect( )</literal> <indexterm id="io-network-ITERM-3150" significance="normal">
+      <para>In the previous example, an instance of <literal
+      moreinfo="none">FTPClient</literal> is created; the example then logs on
+      to <filename moreinfo="none">ftp.ibibio.org</filename> as <filename
+      moreinfo="none">anonymous—</filename>with no password—using the <literal
+      moreinfo="none">connect( )</literal> <indexterm
+          id="io-network-ITERM-3150" significance="normal">
           <primary>connect( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3151" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3151"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>connect( )</secondary>
-        </indexterm> and <literal moreinfo="none">login()</literal> <indexterm id="io-network-ITERM-3152" significance="normal">
+        </indexterm> and <literal moreinfo="none">login()</literal> <indexterm
+          id="io-network-ITERM-3152" significance="normal">
           <primary>login( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3153" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3153"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>login( )</secondary>
         </indexterm> method on <literal moreinfo="none">FTPClient</literal>.
-      The full path to the remote file <filename moreinfo="none">c64bus.gif</filename> and an <literal moreinfo="none">OutputStream</literal> are passed to <literal moreinfo="none">retrieveFile()</literal> <indexterm id="io-network-ITERM-3154" significance="normal">
+      The full path to the remote file <filename
+      moreinfo="none">c64bus.gif</filename> and an <literal
+      moreinfo="none">OutputStream</literal> are passed to <literal
+      moreinfo="none">retrieveFile()</literal> <indexterm
+          id="io-network-ITERM-3154" significance="normal">
           <primary>retrieveFile( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3155" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3155"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>retrieveFile( )</secondary>
-        </indexterm>, which then transfers the contents of the <filename moreinfo="none">c64bus.gif</filename> to a local file. Once the file has
+        </indexterm>, which then transfers the contents of the <filename
+      moreinfo="none">c64bus.gif</filename> to a local file. Once the file has
       been retrieved, the <literal moreinfo="none">FTPClient</literal> is
-      disconnected from the server using the <literal moreinfo="none">disconnect( )</literal> <indexterm id="io-network-ITERM-3156" significance="normal">
+      disconnected from the server using the <literal
+      moreinfo="none">disconnect( )</literal> <indexterm
+          id="io-network-ITERM-3156" significance="normal">
           <primary>disconnect( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3157" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3157"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>disconnect( )</secondary>
@@ -1397,10 +1735,13 @@ try {
       <title>Discussion</title>
 
       <para><literal moreinfo="none">FTPClient</literal> can also be used to
-      list the contents of a directory by passing a directory to the <literal moreinfo="none">listFiles( )</literal> method. The following example
+      list the contents of a directory by passing a directory to the <literal
+      moreinfo="none">listFiles( )</literal> method. The following example
       uses <literal moreinfo="none">FTPClient</literal> to print the name and
-      size of every file in the <filename moreinfo="none">/pub/mirrors/apache/jakarta/ecs/binaries</filename>
-      directory on <filename moreinfo="none">ftp.ibiblio.org</filename>:</para>
+      size of every file in the <filename
+      moreinfo="none">/pub/mirrors/apache/jakarta/ecs/binaries</filename>
+      directory on <filename
+      moreinfo="none">ftp.ibiblio.org</filename>:</para>
 
       <programlisting format="linespecific" id="I_10_tt426">import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
@@ -1426,10 +1767,13 @@ for (int i = 0; i &lt; remoteFiles.length; i++) {
 }
 client.disconnect( );</programlisting>
 
-      <para>After connecting to <filename moreinfo="none">ftp.ibiblio.org</filename>, this example retrieves an
+      <para>After connecting to <filename
+      moreinfo="none">ftp.ibiblio.org</filename>, this example retrieves an
       array of <literal moreinfo="none">FTPFile</literal> objects using
-      <literal moreinfo="none">client.listFiles( )</literal>. Each <literal moreinfo="none">FTPFile</literal> object contains information describing
-      the remote file, and the name and size of each <literal moreinfo="none">FTPFile</literal> is printed to the console as
+      <literal moreinfo="none">client.listFiles( )</literal>. Each <literal
+      moreinfo="none">FTPFile</literal> object contains information describing
+      the remote file, and the name and size of each <literal
+      moreinfo="none">FTPFile</literal> is printed to the console as
       follows:</para>
 
       <programlisting format="linespecific" id="I_10_tt427">Files in /pub/mirrors/apache/jakarta/ecs/binaries
@@ -1446,26 +1790,38 @@ ecs-1.4.2.zip.md5:     33 bytes</programlisting>
     <sect2>
       <title>See Also</title>
 
-      <para>Commons Net also contains a <indexterm id="io-network-ITERM-3158" significance="normal">
+      <para>Commons Net also contains a <indexterm id="io-network-ITERM-3158"
+          significance="normal">
           <primary>Trivial File Transfer Protocol</primary>
 
           <see>TFTP</see>
-        </indexterm>Trivial File Transfer Protocol <indexterm id="io-network-ITERM-3159" significance="normal">
+        </indexterm>Trivial File Transfer Protocol <indexterm
+          id="io-network-ITERM-3159" significance="normal">
           <primary>clients</primary>
 
           <secondary>TFTP</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3160" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3160"
+          significance="normal">
           <primary>TFTP (Trivial File Transfer Protocol)</primary>
-        </indexterm>(TFTP) client: <literal moreinfo="none">org.apache.commons.net.tftp.TFTPClient</literal>. For
-      more information about TFTP client, see the Javadoc for <literal moreinfo="none">TFTPClient</literal> at <ulink url="http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/tftp/TFTPClient.html">http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/tftp/TFTPClient.html</ulink>.</para>
+        </indexterm>(TFTP) client: <literal
+      moreinfo="none">org.apache.commons.net.tftp.TFTPClient</literal>. For
+      more information about TFTP client, see the Javadoc for <literal
+      moreinfo="none">TFTPClient</literal> at <ulink
+      url="http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/tftp/TFTPClient.html">http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/tftp/TFTPClient.html</ulink>.</para>
 
       <para><literal moreinfo="none">FTPClient</literal> contains a number of
-      additional<indexterm class="endofrange" id="io-network-ITERM-3161" significance="normal" startref="io-network-ITERM-3146"/> <indexterm class="endofrange" id="io-network-ITERM-3162" significance="normal" startref="io-network-ITERM-3147"/> <indexterm class="endofrange" id="io-network-ITERM-3163" significance="normal" startref="io-network-ITERM-3148"/> features, such as
-      active and passive connection modes and the ability to append to remote
-      files, make remote directories, and put files on a remote FTP server.
-      For more information about <literal moreinfo="none">FTPClient</literal>,
-      see the <literal moreinfo="none">FTPClient</literal> Javadoc at
-      <ulink url="http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/ftp/FTPClient.html">http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/ftp/FTPClient.html</ulink>.</para>
+      additional<indexterm class="endofrange" id="io-network-ITERM-3161"
+      significance="normal" startref="io-network-ITERM-3146"></indexterm>
+      <indexterm class="endofrange" id="io-network-ITERM-3162"
+      significance="normal" startref="io-network-ITERM-3147"></indexterm>
+      <indexterm class="endofrange" id="io-network-ITERM-3163"
+      significance="normal" startref="io-network-ITERM-3148"></indexterm>
+      features, such as active and passive connection modes and the ability to
+      append to remote files, make remote directories, and put files on a
+      remote FTP server. For more information about <literal
+      moreinfo="none">FTPClient</literal>, see the <literal
+      moreinfo="none">FTPClient</literal> Javadoc at <ulink
+      url="http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/ftp/FTPClient.html">http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/ftp/FTPClient.html</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -1475,25 +1831,31 @@ ecs-1.4.2.zip.md5:     33 bytes</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to <indexterm id="io-network-ITERM-3164" significance="normal">
+      <para>You need to <indexterm id="io-network-ITERM-3164"
+          significance="normal">
           <primary>Simple Mail Transfer Protocol</primary>
 
           <see>SMTP</see>
-        </indexterm>send an<indexterm class="startofrange" id="io-network-ITERM-3165" significance="normal">
+        </indexterm>send an<indexterm class="startofrange"
+          id="io-network-ITERM-3165" significance="normal">
           <primary>Commons Net</primary>
 
           <secondary>SMTP</secondary>
-        </indexterm> <indexterm class="startofrange" id="io-network-ITERM-3166" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="io-network-ITERM-3166" significance="normal">
           <primary>SMTP (Simple Mail Transfer Protocol)</primary>
-        </indexterm> <indexterm class="startofrange" id="io-network-ITERM-3167" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="io-network-ITERM-3167" significance="normal">
           <primary>sending</primary>
 
           <secondary>email</secondary>
-        </indexterm> <indexterm class="startofrange" id="io-network-ITERM-3168" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="io-network-ITERM-3168" significance="normal">
           <primary>email</primary>
 
           <secondary>sending</secondary>
-        </indexterm> <indexterm class="startofrange" id="io-network-ITERM-3169" significance="normal">
+        </indexterm> <indexterm class="startofrange"
+          id="io-network-ITERM-3169" significance="normal">
           <primary>clients</primary>
 
           <secondary>SMTP</secondary>
@@ -1504,7 +1866,9 @@ ecs-1.4.2.zip.md5:     33 bytes</programlisting>
       <title>Solution</title>
 
       <para>Use <literal moreinfo="none">SMTPClient</literal> from Commons
-      Net. The following example sends a simple email to <filename moreinfo="none">somedude@aol.org</filename> from <filename moreinfo="none">tobrien@discursive.com</filename> via the SMTP server on
+      Net. The following example sends a simple email to <filename
+      moreinfo="none">somedude@aol.org</filename> from <filename
+      moreinfo="none">tobrien@discursive.com</filename> via the SMTP server on
       host <filename moreinfo="none">www.discursive.com</filename> using port
       25:</para>
 
@@ -1518,15 +1882,19 @@ client.sendSimpleMessage("tobrien@discursive.com",
 client.disconnect( );</programlisting>
 
       <para>This example sends a very simple email message to one recipient by
-      passing three arguments to <literal moreinfo="none">client.sendSimpleMessage()</literal> <indexterm id="io-network-ITERM-3170" significance="normal">
+      passing three arguments to <literal
+      moreinfo="none">client.sendSimpleMessage()</literal> <indexterm
+          id="io-network-ITERM-3170" significance="normal">
           <primary>client.sendSimpleMessage( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3171" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3171"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>client.sendSimpleMessage( )</secondary>
         </indexterm>: the sender's email address, the recipient's email
       address, and a message. If you are trying to send a simple email message
-      to multiple recipients, pass a <literal moreinfo="none">String[]</literal> containing each address as the second
+      to multiple recipients, pass a <literal
+      moreinfo="none">String[]</literal> containing each address as the second
       parameter to <literal moreinfo="none">sendSimpleMessage( )</literal>.
       The following example sends a simple email message to multiple
       recipients by passing a <literal moreinfo="none">String[]</literal> to
@@ -1552,7 +1920,8 @@ client.disconnect( );</programlisting>
 
       <para><indexterm id="io-network-ITERM-3172" significance="normal">
           <primary>Telnet</primary>
-        </indexterm>Telnet to port 25 of a SMTP server, <indexterm id="io-network-ITERM-3173" significance="normal">
+        </indexterm>Telnet to port 25 of a SMTP server, <indexterm
+          id="io-network-ITERM-3173" significance="normal">
           <primary>servers</primary>
 
           <secondary>SMTP</secondary>
@@ -1561,24 +1930,32 @@ client.disconnect( );</programlisting>
       )</literal> returns <literal moreinfo="none">true</literal> if the
       response code of the previously executed command is between 200 and 299;
       the value of the initial response code, 220, is equal to the public
-      static variable <literal moreinfo="none">SMTPReply.SERVICE_READY</literal>. The following example
-      uses <literal moreinfo="none">getReplyCode( )</literal> <indexterm id="io-network-ITERM-3174" significance="normal">
+      static variable <literal
+      moreinfo="none">SMTPReply.SERVICE_READY</literal>. The following example
+      uses <literal moreinfo="none">getReplyCode( )</literal> <indexterm
+          id="io-network-ITERM-3174" significance="normal">
           <primary>getReplyCode( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3175" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3175"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>getReplyCode( )</secondary>
-        </indexterm> and <literal moreinfo="none">SMTPReply.isPositiveCompletion()</literal> <indexterm id="io-network-ITERM-3176" significance="normal">
+        </indexterm> and <literal
+      moreinfo="none">SMTPReply.isPositiveCompletion()</literal> <indexterm
+          id="io-network-ITERM-3176" significance="normal">
           <primary>SMTPReply.isPositiveCompletion( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3177" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3177"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>SMTPReply.isPositiveCompletion( )</secondary>
-        </indexterm> to test the connection to<indexterm id="io-network-ITERM-3178" significance="normal">
+        </indexterm> to test the connection to<indexterm
+          id="io-network-ITERM-3178" significance="normal">
           <primary>connections</primary>
 
           <secondary>testing</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3179" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3179"
+          significance="normal">
           <primary>testing</primary>
 
           <secondary>connections</secondary>
@@ -1618,7 +1995,10 @@ client.disconnect( );</programlisting>
       )</literal>, the previous example sets a sender address and two
       recipient addresses using <literal moreinfo="none">setSender(
       )</literal> and <literal moreinfo="none">addRecipient()</literal>. The
-      message body is then written to a <literal moreinfo="none">Writer</literal> returned by <literal moreinfo="none">sendMessageData()</literal>. When the <literal moreinfo="none">Writer</literal> is closed, the message is sent by
+      message body is then written to a <literal
+      moreinfo="none">Writer</literal> returned by <literal
+      moreinfo="none">sendMessageData()</literal>. When the <literal
+      moreinfo="none">Writer</literal> is closed, the message is sent by
       calling <literal moreinfo="none">completePendingCommand()</literal>.
       <literal moreinfo="none">completePendingCommand( )</literal> returns
       <literal moreinfo="none">true</literal> if the message has been queued
@@ -1628,15 +2008,26 @@ client.disconnect( );</programlisting>
     <sect2>
       <title>See Also</title>
 
-      <para>JavaMail is the set of utilities contained in the <literal moreinfo="none">javax.mail</literal> package, and JavaMail is usually
+      <para>JavaMail is the set of utilities contained in the <literal
+      moreinfo="none">javax.mail</literal> package, and JavaMail is usually
       used in conjunction with the Java Activation Framework (JAF) to send
       email messages using SMTP. Commons Net does not aim to replace the
       JavaMail API, but it does provide a very straightforward alternative for
       sending email messages. For more information about JavaMail,
-      see<indexterm class="endofrange" id="io-network-ITERM-3180" significance="normal" startref="io-network-ITERM-3165"/> <indexterm class="endofrange" id="io-network-ITERM-3181" significance="normal" startref="io-network-ITERM-3166"/> <indexterm class="endofrange" id="io-network-ITERM-3182" significance="normal" startref="io-network-ITERM-3167"/> <indexterm class="endofrange" id="io-network-ITERM-3183" significance="normal" startref="io-network-ITERM-3168"/> <indexterm class="endofrange" id="io-network-ITERM-3184" significance="normal" startref="io-network-ITERM-3169"/> the JavaMail
-      product page at <ulink url="http://java.sun.com/products/javamail">http://java.sun.com/products/javamail</ulink>. For more
-      information about the JavaMail API, see Chapter 10, "JavaMail Best
-      Practices," in <emphasis>Java Enterprise Best Practices</emphasis>
+      see<indexterm class="endofrange" id="io-network-ITERM-3180"
+      significance="normal" startref="io-network-ITERM-3165"></indexterm>
+      <indexterm class="endofrange" id="io-network-ITERM-3181"
+      significance="normal" startref="io-network-ITERM-3166"></indexterm>
+      <indexterm class="endofrange" id="io-network-ITERM-3182"
+      significance="normal" startref="io-network-ITERM-3167"></indexterm>
+      <indexterm class="endofrange" id="io-network-ITERM-3183"
+      significance="normal" startref="io-network-ITERM-3168"></indexterm>
+      <indexterm class="endofrange" id="io-network-ITERM-3184"
+      significance="normal" startref="io-network-ITERM-3169"></indexterm> the
+      JavaMail product page at <ulink
+      url="http://java.sun.com/products/javamail">http://java.sun.com/products/javamail</ulink>.
+      For more information about the JavaMail API, see Chapter 10, "JavaMail
+      Best Practices," in <emphasis>Java Enterprise Best Practices</emphasis>
       (O'Reilly).</para>
     </sect2>
   </sect1>
@@ -1647,19 +2038,24 @@ client.disconnect( );</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to check a POP3 <indexterm id="io-network-ITERM-3185" significance="normal">
+      <para>You need to check a POP3 <indexterm id="io-network-ITERM-3185"
+          significance="normal">
           <primary>Commons Net</primary>
 
           <secondary>POP3</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3186" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3186"
+          significance="normal">
           <primary>POP3 (Post Office Protocol 3)</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3187" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3187"
+          significance="normal">
           <primary>mailboxes, POP3</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3188" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3188"
+          significance="normal">
           <primary>clients</primary>
 
           <secondary>POP3</secondary>
-        </indexterm> <indexterm id="io-network-ITERM-3189" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3189"
+          significance="normal">
           <primary>email</primary>
 
           <secondary>mailboxes</secondary>
@@ -1675,7 +2071,9 @@ client.disconnect( );</programlisting>
           <primary>servers</primary>
 
           <secondary>POP3</secondary>
-        </indexterm>POP3 server <filename moreinfo="none">www.discursive.com</filename>, logs in as <literal moreinfo="none">tobrien@discursive.com</literal>, and prints each
+        </indexterm>POP3 server <filename
+      moreinfo="none">www.discursive.com</filename>, logs in as <literal
+      moreinfo="none">tobrien@discursive.com</literal>, and prints each
       message in the mailbox:</para>
 
       <programlisting format="linespecific" id="I_10_tt431">import org.apache.commons.io.CopyUtils;
@@ -1699,21 +2097,30 @@ for (int i = 0; i &lt; messages.length; i++) {
 client.logout( );
 client.disconnect( );</programlisting>
 
-      <para>This example calls <literal moreinfo="none">client.listMessage()</literal> <indexterm id="io-network-ITERM-3191" significance="normal">
+      <para>This example calls <literal
+      moreinfo="none">client.listMessage()</literal> <indexterm
+          id="io-network-ITERM-3191" significance="normal">
           <primary>client.listMessage( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3192" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3192"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>client.listMessage( )</secondary>
-        </indexterm> to get an array of <literal moreinfo="none">POP3MessageInfo</literal> objects. Each message is
-      retrieved using the message number contained in each <literal moreinfo="none">POP3MessageInfo</literal>. To retrieve the contents of
-      an individual message, the message number is passed to <literal moreinfo="none">retrieveMessage()</literal> <indexterm id="io-network-ITERM-3193" significance="normal">
+        </indexterm> to get an array of <literal
+      moreinfo="none">POP3MessageInfo</literal> objects. Each message is
+      retrieved using the message number contained in each <literal
+      moreinfo="none">POP3MessageInfo</literal>. To retrieve the contents of
+      an individual message, the message number is passed to <literal
+      moreinfo="none">retrieveMessage()</literal> <indexterm
+          id="io-network-ITERM-3193" significance="normal">
           <primary>retrieveMessage( ) method</primary>
-        </indexterm> <indexterm id="io-network-ITERM-3194" significance="normal">
+        </indexterm> <indexterm id="io-network-ITERM-3194"
+          significance="normal">
           <primary>methods</primary>
 
           <secondary>retrieveMessage( )</secondary>
-        </indexterm>, which returns a <literal moreinfo="none">Reader</literal> from which the message body is read.
+        </indexterm>, which returns a <literal
+      moreinfo="none">Reader</literal> from which the message body is read.
       The previous example prints the contents of a POP3 mailbox, as shown
       below:</para>
 
@@ -1754,13 +2161,16 @@ Mr. Jerk Spammer
       <title>Discussion</title>
 
       <para>This example did not venture into the topic of parsing an email
-      message body. As shown above, the message read with <literal moreinfo="none">retrieveMessage( )</literal> is a raw message with SMTP
+      message body. As shown above, the message read with <literal
+      moreinfo="none">retrieveMessage( )</literal> is a raw message with SMTP
       headers containing the <filename moreinfo="none">Subject</filename>,
       <filename moreinfo="none">Message-ID</filename>, and other important
       pieces of data associated with a message. The body of a message is
       separated from a list of headers by a single blank, and if you are
       creating a mail client for a user, you will need to write a parser that
-      can extract a relevant header&#x2014;such as <filename moreinfo="none">Subject</filename> and <filename moreinfo="none">From</filename>&#x2014;from the raw email message.</para>
+      can extract a relevant header—such as <filename
+      moreinfo="none">Subject</filename> and <filename
+      moreinfo="none">From</filename>—from the raw email message.</para>
     </sect2>
 
     <sect2>
@@ -1768,12 +2178,16 @@ Mr. Jerk Spammer
 
       <para>This recipe used <literal moreinfo="none">IOUtils.toString(
       )</literal> and <literal moreinfo="none">IOUtils.closeQuietly(
-      )</literal> to copy and close a <literal moreinfo="none">Reader</literal> for each email message. These methods
-      are described in detail in <link linkend="io-network-sect-copying">Recipe 10.2</link> and <link linkend="io-network-sect-closing">Recipe 10.3</link>.</para>
+      )</literal> to copy and close a <literal
+      moreinfo="none">Reader</literal> for each email message. These methods
+      are described in detail in <link
+      linkend="io-network-sect-copying">Recipe 10.2</link> and <link
+      linkend="io-network-sect-closing">Recipe 10.3</link>.</para>
 
       <para>For a good overview of SMTP and POP3 from the perspective of a
       FreeBSD administrator, take a look at Dru Lavigne's article
-      "Understanding E-Mail" from OnLamp.com (<ulink url="http://www.onlamp.com/pub/a/bsd/2000/08/30/FreeBSD_Basics.html">http://www.onlamp.com/pub/a/bsd/2000/08/30/FreeBSD_Basics.html</ulink>).</para>
+      "Understanding E-Mail" from OnLamp.com (<ulink
+      url="http://www.onlamp.com/pub/a/bsd/2000/08/30/FreeBSD_Basics.html">http://www.onlamp.com/pub/a/bsd/2000/08/30/FreeBSD_Basics.html</ulink>).</para>
     </sect2>
   </sect1>
 </chapter>
