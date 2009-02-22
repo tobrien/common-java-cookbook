@@ -101,11 +101,10 @@
     <sect2>
       <title>Solution</title>
 
-      <para>Use the Jakarta Commons CLI to parse program arguments. Populate
-      an <literal moreinfo="none">Options</literal> object to configure
-      command-line parsing. Pass the <literal
-      moreinfo="none">Options</literal> class and a <literal
-      moreinfo="none">String[]</literal> of arguments to a <literal
+      <para>Use Commons CLI to parse program arguments. Populate an <literal
+      moreinfo="none">Options</literal> object to configure command-line
+      parsing. Pass the <literal moreinfo="none">Options</literal> class and a
+      <literal moreinfo="none">String[]</literal> of arguments to a <literal
       moreinfo="none">CommandLineParser</literal>, which parses and returns a
       <literal moreinfo="none">CommandLine</literal> object capturing the
       supplied options and parameters.</para>
@@ -351,8 +350,8 @@ options.addOption( helpOption );</programlisting>
       moreinfo="none">StringTokenizer</literal> and keeping track of all of
       the specified options that may or may not have parameters, this could
       involve 30 or 40 lines of code just to manage this validation process.
-      By using the Jakarta Commons CLI, you delegate this complexity and cut
-      down on the amount of code you need to maintain.</para>
+      By using Commons CLI, you delegate this complexity and cut down on the
+      amount of code you need to maintain.</para>
     </sect2>
 
     <sect2>
@@ -689,7 +688,7 @@ boolean correct = config.getBoolean("correct");</programlisting>
           <secondary>Commons Configuration</secondary>
         </indexterm> <literal moreinfo="none">Configuration</literal>
       interface, see the Commons Configuration JavaDoc at <ulink
-      url="http://jakarta.apache.org/commons/configuration/apidocs">http://jakarta.apache.org/commons/configuration/apidocs</ulink>.</para>
+      url="http://jakarta.apache.org/commons/configuration/apidocs">http://commons.apache.org/configuration/apidocs</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -1175,7 +1174,7 @@ Speed: 75</programlisting>
       For more information on accessing properties in a JNDI tree using
       Commons Configuration, see the "Configuration Overview" page on the
       Commons Configuration project site (<ulink
-      url="http://jakarta.apache.org/commons/configuration/overview.html">http://jakarta.apache.org/commons/configuration/overview.html</ulink>).</para>
+      url="http://jakarta.apache.org/commons/configuration/overview.html">http://commons.apache.org/configuration/overview.html</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -1247,8 +1246,7 @@ Speed: 75</programlisting>
       component like Commons BeanUtils or Commons Digester can write log
       messages to an abstracted <literal moreinfo="none">Log</literal>
       interface, and Commons Logging can deal with passing these log messages
-      to whichever logging framework is available. Commons Logging is used in
-      almost every Jakarta Commons component.</para>
+      to whichever logging framework is available.</para>
     </sect2>
 
     <sect2>
@@ -1275,7 +1273,7 @@ Speed: 75</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Write messages to the Jakarta Commons Logging <literal
+      <para>Write messages to the Commons Logging <literal
       moreinfo="none">Log</literal> <indexterm id="app-infra-ITERM-2830"
           significance="normal">
           <primary>Log interface</primary>
@@ -1325,10 +1323,9 @@ log.fatal( "This is fatal" );</programlisting>
       <para>The developers of a reusable library can rarely predict where and
       when such a library will be used, and since there are a number of
       logging frameworks currently available, it makes sense to use Commons
-      Logging when developing reusable components such as Jakarta Commons
-      components. When <literal
-      moreinfo="none">LogFactory.getInstance()</literal> <indexterm
-          id="app-infra-ITERM-2832" significance="normal">
+      Logging when developing reusable components such as Commons components.
+      When <literal moreinfo="none">LogFactory.getInstance()</literal>
+      <indexterm id="app-infra-ITERM-2832" significance="normal">
           <primary>LogFactory.getInstance( ) method</primary>
         </indexterm> <indexterm id="app-infra-ITERM-2833"
           significance="normal">
@@ -1457,7 +1454,7 @@ log.fatal( "This is fatal" );</programlisting>
       significance="normal"
       startref="app-infra-ITERM-2829"></indexterm>Commons Logging JavaDoc at
       <ulink
-      url="http://jakarta.apache.org/commons/logging/api/index.html">http://jakarta.apache.org/commons/logging/api/index.html</ulink>.</para>
+      url="http://jakarta.apache.org/commons/logging/api/index.html">http://commons.apache.org/logging/api/index.html</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -1530,16 +1527,17 @@ log.fatal( "This is fatal" );</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>Log4J (formerly known as Jakarta Log4J) is a highly configurable
-      logging framework providing hierarchical loggers, various log
-      destinations, and log formats. Messages are written to Log4J <literal
-      moreinfo="none">Logger</literal> objects, which represent a specific
-      category in a hierarchy of log categories; for example, the <filename
-      moreinfo="none">com.discursive.Blah</filename> category is a child of
-      the <filename moreinfo="none">com.discursive</filename> category. All
-      messages sent to a child category are sent to each ancestor in a tree of
-      <literal moreinfo="none">Logger</literal> categories. A category can be
-      assigned an <literal moreinfo="none">Appender</literal> and a <literal
+      <para>Apache Log4J (formerly known as Jakarta Log4J) is a highly
+      configurable logging framework providing hierarchical loggers, various
+      log destinations, and log formats. Messages are written to Log4J
+      <literal moreinfo="none">Logger</literal> objects, which represent a
+      specific category in a hierarchy of log categories; for example, the
+      <filename moreinfo="none">com.discursive.Blah</filename> category is a
+      child of the <filename moreinfo="none">com.discursive</filename>
+      category. All messages sent to a child category are sent to each
+      ancestor in a tree of <literal moreinfo="none">Logger</literal>
+      categories. A category can be assigned an <literal
+      moreinfo="none">Appender</literal> and a <literal
       moreinfo="none">Layout</literal>; an <literal
       moreinfo="none">Appender</literal> controls where a message is sent, and
       a <literal moreinfo="none">Layout</literal> defines the formatting and

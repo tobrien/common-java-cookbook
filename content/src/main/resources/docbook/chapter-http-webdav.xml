@@ -32,25 +32,20 @@
     program that needed to fetch a web page or interact with a servlet or CGI
     script. While the J2SE contains some rudimentary tools to communicate via
     HTTP, the feature set of <literal moreinfo="none">URLConnection</literal>
-    is somewhat limited. This chapter introduces Jakarta HttpClient, a set of
+    is somewhat limited. This chapter introduces Apache HttpClient, a set of
     utilities that simplifies the task of retrieving and sending information
     over HTTP.</para>
 
-    <para>Jakarta HttpClient grew up in the Jakarta Commons, and until April
-    2004 it was a Commons project. It has only recently graduated to a full
-    Jakarta project, and it is still visible as a part of the Jakarta Commons
-    subproject. This chapter refers to HttpClient as Jakarta HttpClient, but
-    you should be aware that most of the documentation and support still refer
-    to the project as Jakarta Commons HttpClient until the project has
-    successfully <indexterm id="http-webdav-ITERM-3200" significance="normal">
-        <primary>connections</primary>
-
-        <seealso>Jakarta HttpClient</seealso>
-      </indexterm>migrated out of the Jakarta Commons.</para>
+    <para>Apache HttpClient grew up in the Jakarta Commons, and until April
+    2004 it was a Commons project. It subsequently graduated to a full Jakarta
+    project, and as Jakarta was dismantled, it became an Apache top-level
+    project. This chapter refers to HttpClient as Apache HttpClient, but you
+    should be aware that most of the documentation and support still refer to
+    the project as Commons HttpClient.</para>
   </sect1>
 
   <sect1 id="http-webdav-sect-obtaining-httpclient" label="11.1" role="Recipe">
-    <title>Obtaining Jakarta HttpClient</title>
+    <title>Obtaining HttpClient</title>
 
     <sect2>
       <title>Problem</title>
@@ -59,22 +54,22 @@
           significance="normal">
           <primary>HTTP (Hypertext Transfer Protocol)</primary>
 
-          <seealso>Jakarta HttpClient</seealso>
-        </indexterm>Jakarta HttpClient<indexterm id="http-webdav-ITERM-3202"
+          <seealso> HttpClient</seealso>
+        </indexterm>Apache HttpClient<indexterm id="http-webdav-ITERM-3202"
           significance="normal">
-          <primary>Jakarta HttpClient</primary>
+          <primary> HttpClient</primary>
 
           <secondary>downloading</secondary>
         </indexterm> <indexterm id="http-webdav-ITERM-3203"
           significance="normal">
           <primary>downloading</primary>
 
-          <secondary>Jakarta HttpClient</secondary>
+          <secondary> HttpClient</secondary>
         </indexterm> <indexterm id="http-webdav-ITERM-3204"
           significance="normal">
           <primary>clients</primary>
 
-          <secondary>Jakarta HttpClient</secondary>
+          <secondary> HttpClient</secondary>
 
           <tertiary>downloading</tertiary>
         </indexterm> to write a program to interact with a server over
@@ -112,7 +107,7 @@
 
       <para>Apache HttpClient is a client library for the HTTP protocol.
       HttpClient is very feature-rich, supporting all HTTP methods defined in
-      RFC 2616 (Hypertext Transfer Protocol, HTTP/1.1). Jakarta HttpClient
+      RFC 2616 (Hypertext Transfer Protocol, HTTP/1.1). Apache HttpClient
       supports GET, POST, PUT, OPTIONS, HEAD, and DELETE using the command
       pattern; <literal moreinfo="none">HttpMethod</literal> objects are
       instantiated and executed by an <literal
@@ -142,14 +137,14 @@
 
       <para>You need to retrieve information <indexterm
           id="http-webdav-ITERM-3210" significance="normal">
-          <primary>Jakarta HttpClient</primary>
+          <primary> HttpClient</primary>
 
           <secondary>GET method</secondary>
         </indexterm> <indexterm id="http-webdav-ITERM-3211"
           significance="normal">
           <primary>clients</primary>
 
-          <secondary>Jakarta HttpClient</secondary>
+          <secondary> HttpClient</secondary>
 
           <tertiary>GET method</tertiary>
         </indexterm> <indexterm id="http-webdav-ITERM-3212"
@@ -293,7 +288,7 @@ HttpMethod method = <userinput moreinfo="none">new</userinput> GetMethod( url );
 
       <para>For a full list of HTTP status codes, see the <literal
       moreinfo="none">HttpStatus</literal> Javadoc at <ulink
-      url="http://jakarta.apache.org/commons/httpclient/apidocs/index.html">http://jakarta.apache.org/commons/httpclient/apidocs/index.html</ulink>.</para>
+      url="http://hc.apache.org/httpclient-3.x/apidocs/index.html">http://hc.apache.org/httpclient-3.x/apidocs/index.html</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -305,19 +300,19 @@ HttpMethod method = <userinput moreinfo="none">new</userinput> GetMethod( url );
 
       <para>You need to send query<indexterm class="startofrange"
           id="http-webdav-ITERM-3216" significance="normal">
-          <primary>Jakarta HttpClient</primary>
+          <primary> HttpClient</primary>
 
           <secondary>URLs, sending query parameters</secondary>
         </indexterm> <indexterm class="startofrange"
           id="http-webdav-ITERM-3217" significance="normal">
           <primary>URLs (uniform resource locators)</primary>
 
-          <secondary>Jakarta HttpClient</secondary>
+          <secondary> HttpClient</secondary>
         </indexterm> <indexterm class="startofrange"
           id="http-webdav-ITERM-3218" significance="normal">
           <primary>clients</primary>
 
-          <secondary>Jakarta HttpClient</secondary>
+          <secondary> HttpClient</secondary>
 
           <tertiary>sending query parameters</tertiary>
         </indexterm> <indexterm class="startofrange"
@@ -465,11 +460,11 @@ Decoded: Hello World?</programlisting>
       <para>In this example, <literal moreinfo="none">URLUtil</literal> was
       used to encode content passed in on the query string. This HttpClient
       team has recently moved some of the URL encoding and decoding logic to
-      the Jakarta Commons Codec project as a class named <literal
+      the Commons Codec project as a class named <literal
       moreinfo="none">URLCodec</literal>. For more information about <literal
-      moreinfo="none">URLCodec</literal>, see the Jakarta Commons Codec
-      project page (<ulink
-      url="http://jakarta.apache.org/codec">http://jakarta.apache.org/codec</ulink>).</para>
+      moreinfo="none">URLCodec</literal>, see the Commons Codec project page
+      (<ulink
+      url="http://jakarta.apache.org/codec">http://commons.apache.org/codec</ulink>).</para>
 
       <para>RFC 1738 discusses the legal characters <indexterm
       class="endofrange" id="http-webdav-ITERM-3224" significance="normal"
@@ -495,14 +490,14 @@ Decoded: Hello World?</programlisting>
 
       <para>You need to retrieve <indexterm class="startofrange"
           id="http-webdav-ITERM-3229" significance="normal">
-          <primary>Jakarta HttpClient</primary>
+          <primary>HttpClient</primary>
 
           <secondary>GET method</secondary>
         </indexterm> <indexterm class="startofrange"
           id="http-webdav-ITERM-3230" significance="normal">
           <primary>clients</primary>
 
-          <secondary>Jakarta HttpClient</secondary>
+          <secondary>HttpClient</secondary>
 
           <tertiary>GET method</tertiary>
         </indexterm> <indexterm class="startofrange"
@@ -732,19 +727,19 @@ Cache-Control: max-age=86400</programlisting>
       <para>You need to see the low-level communications <indexterm
           class="startofrange" id="http-webdav-ITERM-3242"
           significance="normal">
-          <primary>Jakarta HttpClient</primary>
+          <primary>HttpClient</primary>
 
           <secondary>debugging</secondary>
         </indexterm> <indexterm class="startofrange"
           id="http-webdav-ITERM-3243" significance="normal">
           <primary>debugging</primary>
 
-          <secondary>Jakarta HttpClient</secondary>
+          <secondary>HttpClient</secondary>
         </indexterm> <indexterm class="startofrange"
           id="http-webdav-ITERM-3244" significance="normal">
           <primary>clients</primary>
 
-          <secondary>Jakarta HttpClient</secondary>
+          <secondary>HttpClient</secondary>
 
           <tertiary>debugging</tertiary>
         </indexterm> <indexterm class="startofrange"
@@ -937,7 +932,7 @@ HttpMethodBase - -Should NOT close connection, using HTTP/1.1.
 
       <para>You need to supply parameters to a<indexterm class="startofrange"
           id="http-webdav-ITERM-3251" significance="normal">
-          <primary>Jakarta HttpClient</primary>
+          <primary>HttpClient</primary>
 
           <secondary>HTTP POST requests</secondary>
         </indexterm> <indexterm class="startofrange"
@@ -1369,19 +1364,19 @@ This is a sample
 
       <para>You need to access information<indexterm class="startofrange"
           id="http-webdav-ITERM-3277" significance="normal">
-          <primary>Jakarta HttpClient</primary>
+          <primary>HttpClient</primary>
 
           <secondary>authentication</secondary>
         </indexterm> <indexterm class="startofrange"
           id="http-webdav-ITERM-3278" significance="normal">
           <primary>authentication</primary>
 
-          <secondary>Jakarta HttpClient</secondary>
+          <secondary>HttpClient</secondary>
         </indexterm> <indexterm class="startofrange"
           id="http-webdav-ITERM-3279" significance="normal">
           <primary>clients</primary>
 
-          <secondary>Jakarta HttpClient</secondary>
+          <secondary>HttpClient</secondary>
 
           <tertiary>authentication</tertiary>
         </indexterm> protected by HTTP Basic Authentication.</para>
@@ -1758,17 +1753,17 @@ client.executeMethod( method2 );</programlisting>
 
       <para>You need to work with <indexterm class="startofrange"
           id="http-webdav-ITERM-3295" significance="normal">
-          <primary>Jakarta HttpClient</primary>
+          <primary>HttpClient</primary>
 
           <secondary>cookies</secondary>
         </indexterm> <indexterm class="startofrange"
           id="http-webdav-ITERM-3296" significance="normal">
-          <primary>cookies, Jakarta HttpClient</primary>
+          <primary>cookies, HttpClient</primary>
         </indexterm> <indexterm class="startofrange"
           id="http-webdav-ITERM-3297" significance="normal">
           <primary>clients</primary>
 
-          <secondary>Jakarta HttpClient</secondary>
+          <secondary>HttpClient</secondary>
 
           <tertiary>cookies</tertiary>
         </indexterm> <indexterm class="startofrange"
@@ -1956,17 +1951,17 @@ client.getState( ).setCookiePolicy(CookiePolicy.RFC2109);</programlisting>
 
       <para>You need to access a server that<indexterm class="startofrange"
           id="http-webdav-ITERM-3310" significance="normal">
-          <primary>Jakarta HttpClient</primary>
+          <primary>HttpClient</primary>
 
           <secondary>redirects</secondary>
         </indexterm> <indexterm class="startofrange"
           id="http-webdav-ITERM-3311" significance="normal">
-          <primary>redirects, Jakarta HttpClient</primary>
+          <primary>redirects, HttpClient</primary>
         </indexterm> <indexterm class="startofrange"
           id="http-webdav-ITERM-3312" significance="normal">
           <primary>clients</primary>
 
-          <secondary>Jakarta HttpClient</secondary>
+          <secondary>HttpClient</secondary>
 
           <tertiary>redirects</tertiary>
         </indexterm> <indexterm class="startofrange"
@@ -2227,7 +2222,7 @@ params.setIntParameter( HttpClientParams.MAX_REDIRECTS, 10 );</programlisting>
 
       <para>You need to execute a <indexterm id="http-webdav-ITERM-3330"
           significance="normal">
-          <primary>Jakarta HttpClient</primary>
+          <primary>HttpClient</primary>
 
           <secondary>SSL</secondary>
         </indexterm> <indexterm id="http-webdav-ITERM-3331"
@@ -2237,7 +2232,7 @@ params.setIntParameter( HttpClientParams.MAX_REDIRECTS, 10 );</programlisting>
           significance="normal">
           <primary>clients</primary>
 
-          <secondary>Jakarta HttpClient</secondary>
+          <secondary>HttpClient</secondary>
 
           <tertiary>SSL</tertiary>
         </indexterm>method using HTTP over <indexterm
@@ -2340,7 +2335,7 @@ content length is not known
 
       <para>You need to work with a server <indexterm
           id="http-webdav-ITERM-3335" significance="normal">
-          <primary>Jakarta HttpClient</primary>
+          <primary>HttpClient</primary>
 
           <secondary>self-signed certificates</secondary>
         </indexterm> <indexterm id="http-webdav-ITERM-3336"
@@ -2350,7 +2345,7 @@ content length is not known
           significance="normal">
           <primary>clients</primary>
 
-          <secondary>Jakarta HttpClient</secondary>
+          <secondary>HttpClient</secondary>
 
           <tertiary>self-signed certificates</tertiary>
         </indexterm> <indexterm id="http-webdav-ITERM-3338"
@@ -2418,6 +2413,8 @@ method.recycle( );</programlisting>
       directory. To use these classes, you must integrate them into your own
       project, customizing the behavior of these classes as you see
       fit.</para>
+
+      <!--TODO: You need to fix this to point to the SVN Repo for Http Client-->
 
       <para><literal moreinfo="none">EasySSLProtocolSocketFactory</literal>
       uses the <literal moreinfo="none">EasyX509TrustManager</literal> to

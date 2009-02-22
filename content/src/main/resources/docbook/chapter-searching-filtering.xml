@@ -8,9 +8,9 @@
     <para>XPath is a popular way to select nodes from an XML document. If you
     are working with a single XML document or a series of XML documents in an
     XML Database— such as Apache Xindice—XPath is used to query, address, and
-    filter XML content. Jakarta Commons JXPath allows you to use an XPath
-    query to address objects in a collection or properties of a bean. JXPath
-    is an unconventional application of an XML standard to Java objects, which
+    filter XML content. Commons JXPath allows you to use an XPath query to
+    address objects in a collection or properties of a bean. JXPath is an
+    unconventional application of an XML standard to Java objects, which
     allows you to quickly select objects from a <literal
     moreinfo="none">Collection</literal> without the need for an <literal
     moreinfo="none">Iterator</literal> and a comparison. For example, if you
@@ -27,14 +27,14 @@
 
     <para>A system will frequently need to search for and identify occurrences
     of text in a large set of documents. To accomplish this, you will use a
-    tool, such as Jakarta Lucene, to create a searchable index of terms. For
+    tool, such as Apache Lucene, to create a searchable index of terms. For
     example, if you've used an IDE, such as Eclipse, you may find yourself
     searching for all of the occurrences of the text "testVariable" in your
     workspace. Eclipse can quickly perform any number of complex searches, and
-    when it does, it is using Jakarta Lucene to index and search every file.
-    Jakarta Lucene is a very efficient search engine that can be used to
-    search a set of documents for terms and phrases and analyze the frequency
-    of terms within a set of documents. Lucene offers a complex query syntax,
+    when it does, it is using Apache Lucene to index and search every file.
+    Apache Lucene is a very efficient search engine that can be used to search
+    a set of documents for terms and phrases and analyze the frequency of
+    terms within a set of documents. Lucene offers a complex query syntax,
     which allows for compound queries and term matching using proximity and
     wildcards. This chapter combines Lucene with Commons Digester to create a
     tool to search a set of XML documents.</para>
@@ -47,7 +47,7 @@
     <sect2>
       <title>Problem</title>
 
-      <para>You need to use Jakarta Commons <indexterm
+      <para>You need to use Commons <indexterm
           id="searching-filtering-ITERM-3363" significance="normal">
           <primary>Commons JXPath</primary>
 
@@ -365,7 +365,7 @@ while( teamIterator.hasNext( ) ) {
     <sect2>
       <title>Solution</title>
 
-      <para>Use Jakarta Commons JXPath to select objects from a <literal
+      <para>Use Commons JXPath to select objects from a <literal
       moreinfo="none">Collection</literal> using predicates in XPath
       expressions. The <literal moreinfo="none">iterate( )</literal>
       <indexterm id="searching-filtering-ITERM-3385" significance="normal">
@@ -561,9 +561,9 @@ Person: Tom Russell, age: 35</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Use Jakarta Commons JXPath to select objects from a collection
-      using XPath queries. The following example uses Commons Digester to
-      parse an XML file into an object graph, and selects <literal
+      <para>Use Commons JXPath to select objects from a collection using XPath
+      queries. The following example uses Commons Digester to parse an XML
+      file into an object graph, and selects <literal
       moreinfo="none">Planet</literal> objects with a radius greater than
       5000:</para>
 
@@ -820,7 +820,7 @@ Moon: Mimas,           Planet: Saturn</programlisting>
       set properties using XPath expressions; for more information about using
       JXPath to access maps, collections, servlet contexts, and DOM/JDOM
       Documents, see the JXPath User's Guide (<ulink
-      url="http://jakarta.apache.org/commons/jxpath/users-guide.html">http://jakarta.apache.org/commons/jxpath/users-guide.html</ulink>).</para>
+      url="http://jakarta.apache.org/commons/jxpath/users-guide.html">http://commons.apache.org/jxpath/users-guide.html</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -833,31 +833,31 @@ Moon: Mimas,           Planet: Saturn</programlisting>
 
       <para>You need to use <indexterm id="searching-filtering-ITERM-3409"
           significance="normal">
-          <primary>Jakarta Lucene</primary>
+          <primary>Apache Lucene</primary>
 
           <secondary>downloading</secondary>
         </indexterm> <indexterm id="searching-filtering-ITERM-3410"
           significance="normal">
           <primary>downloading</primary>
 
-          <secondary>Jakarta Lucene</secondary>
+          <secondary>Apache Lucene</secondary>
         </indexterm> <indexterm id="searching-filtering-ITERM-3411"
           significance="normal">
           <primary>indexes</primary>
 
-          <secondary>Jakarta Lucene</secondary>
+          <secondary>Apache Lucene</secondary>
 
           <tertiary>downloading</tertiary>
         </indexterm> <indexterm id="searching-filtering-ITERM-3412"
           significance="normal">
           <primary>documents</primary>
 
-          <secondary>Jakarta Lucene</secondary>
+          <secondary>Apache Lucene</secondary>
         </indexterm>Lucene to <indexterm id="searching-filtering-ITERM-3413"
           significance="normal">
           <primary>Lucene</primary>
 
-          <see>Jakarta Lucene</see>
+          <see>Apache Lucene</see>
         </indexterm>create a searchable index of documents.</para>
     </sect2>
 
@@ -894,7 +894,7 @@ Moon: Mimas,           Planet: Saturn</programlisting>
           id="searching-filtering-ITERM-3414" significance="normal">
           <primary>searching</primary>
 
-          <seealso>Jakarta Lucene</seealso>
+          <seealso>Apache Lucene</seealso>
         </indexterm>search engine that can be used to index any information.
       Lucene maintains an index of <literal moreinfo="none">Document</literal>
       objects that can contain any number of fields, and this index can be
@@ -918,19 +918,19 @@ Moon: Mimas,           Planet: Saturn</programlisting>
 
       <para>You need to quickly search a <indexterm class="startofrange"
           id="searching-filtering-ITERM-3415" significance="normal">
-          <primary>Jakarta Lucene</primary>
+          <primary>Apache Lucene</primary>
 
           <secondary>XML documents</secondary>
         </indexterm> <indexterm class="startofrange"
           id="searching-filtering-ITERM-3416" significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
-          <secondary>Jakarta Lucene</secondary>
+          <secondary>Apache Lucene</secondary>
         </indexterm> <indexterm class="startofrange"
           id="searching-filtering-ITERM-3417" significance="normal">
           <primary>indexes</primary>
 
-          <secondary>Jakarta Lucene</secondary>
+          <secondary>Apache Lucene</secondary>
 
           <tertiary>XML documents</tertiary>
         </indexterm> <indexterm class="startofrange"
@@ -939,7 +939,7 @@ Moon: Mimas,           Planet: Saturn</programlisting>
 
           <secondary>XML</secondary>
 
-          <tertiary>Jakarta Lucene</tertiary>
+          <tertiary>Apache Lucene</tertiary>
         </indexterm>collection of XML documents, and, to do this, you need to
       create an index of terms keeping track of the context in which these
       terms appear.</para>
@@ -948,7 +948,7 @@ Moon: Mimas,           Planet: Saturn</programlisting>
     <sect2>
       <title>Solution</title>
 
-      <para>Use Jakarta Lucene and Jakarta Digester and create an index of
+      <para>Use Apache Lucene and Commons Digester and create an index of
       Lucene <literal moreinfo="none">Document</literal> objects for the
       lowest level of granularity you wish to search. For example, if you are
       attempting to search for speeches in a Shakespeare play that contain
@@ -1068,7 +1068,7 @@ logger.info( "Parsing Complete, Index Created");</programlisting>
       location for each term or phrase.</para>
 
       <example id="searching-filtering-EX-1" label="12-1">
-        <title>PlayIndexer using Commons Digester and Jakarta Lucene</title>
+        <title>PlayIndexer using Commons Digester and Apache Lucene</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.xml.bardsearch;
 
@@ -1308,14 +1308,12 @@ public class PlayIndexer {
       lists for these languages. For more information about these two
       implementations of <literal moreinfo="none">Analyzer</literal>, see the
       Lucene JavaDoc at <ulink
-      url="http://jakarta.apache.org/lucene/docs/api/index.html">http://jakarta.apache.org/lucene/docs/api/index.html</ulink>.
-      Analyzer implementations for French, Dutch, Chinese, and Czech can be
-      found in the Lucene Sandbox (<ulink
-      url="http://cvs.apache.org/viewcvs/jakarta-lucene-sandbox/contributions/analyzers/">http://cvs.apache.org/viewcvs/jakarta-lucene-sandbox/contributions/analyzers/</ulink>).</para>
+      url="http://lucene.apache.org/java/1_9_1/api/index.html">http://lucene.apache.org/java/1_9_1/api/index.html</ulink>.
+      </para>
 
-      <para>For more information about Jakarta Lucene, see the Lucene project
+      <para>For more information about Apache Lucene, see the Lucene project
       web site at <ulink
-      url="http://jakarta.apache.org/lucene">http://jakarta.apache.org/lucene</ulink>.</para>
+      url="http://jakarta.apache.org/lucene">http://lucene.apache.org/</ulink>.</para>
 
       <para>This recipe uses<indexterm class="endofrange"
       id="searching-filtering-ITERM-3429" significance="normal"
@@ -1345,24 +1343,24 @@ public class PlayIndexer {
       <para>You need to identify which documents in <indexterm
           class="startofrange" id="searching-filtering-ITERM-3433"
           significance="normal">
-          <primary>Jakarta Lucene</primary>
+          <primary>Apache Lucene</primary>
 
           <secondary>specific searches</secondary>
         </indexterm> <indexterm class="startofrange"
           id="searching-filtering-ITERM-3434" significance="normal">
-          <primary>specific searches, Jakarta Lucene</primary>
+          <primary>specific searches, Apache Lucene</primary>
         </indexterm> <indexterm class="startofrange"
           id="searching-filtering-ITERM-3435" significance="normal">
           <primary>indexes</primary>
 
-          <secondary>Jakarta Lucene</secondary>
+          <secondary>Apache Lucene</secondary>
 
           <tertiary>specific searches</tertiary>
         </indexterm> <indexterm class="startofrange"
           id="searching-filtering-ITERM-3436" significance="normal">
           <primary>documents</primary>
 
-          <secondary>Jakarta Lucene</secondary>
+          <secondary>Apache Lucene</secondary>
 
           <tertiary>specific searches</tertiary>
         </indexterm>a Lucene index contain specific terms or phrases.</para>
@@ -1539,7 +1537,7 @@ Score | Play   | Act     | Scene   | Speaker
       some<indexterm id="searching-filtering-ITERM-3441" significance="normal">
           <primary>queries</primary>
 
-          <secondary>Jakarta Lucene</secondary>
+          <secondary>Apache Lucene</secondary>
         </indexterm> possible Lucene queries and describes the results they
       would return.</para>
 
@@ -1627,26 +1625,6 @@ Score | Play    | Act     | Scene                           | Speaker
 31    | Hamlet  | ACT III | SCENE I.  A room in the castle. | HAMLET
 11    | Henry V | ACT IV  | SCENE III.  The English camp.   | KING HENRY V</programlisting>
     </sect2>
-
-    <sect2>
-      <title>See Also</title>
-
-      <para>Lucene is a capable search <indexterm class="endofrange"
-      id="searching-filtering-ITERM-3442" significance="normal"
-      startref="searching-filtering-ITERM-3433"></indexterm> <indexterm
-      class="endofrange" id="searching-filtering-ITERM-3443"
-      significance="normal"
-      startref="searching-filtering-ITERM-3434"></indexterm> <indexterm
-      class="endofrange" id="searching-filtering-ITERM-3444"
-      significance="normal"
-      startref="searching-filtering-ITERM-3435"></indexterm> <indexterm
-      class="endofrange" id="searching-filtering-ITERM-3445"
-      significance="normal"
-      startref="searching-filtering-ITERM-3436"></indexterm>engine with very
-      rich query syntax supporting fuzzy term matching and searching for terms
-      based on proximity. For more details on Lucene query syntax, see <ulink
-      url="http://jakarta.apache.org/lucene/docs/queryparsersyntax.html">http://jakarta.apache.org/lucene/docs/queryparsersyntax.html</ulink>.</para>
-    </sect2>
   </sect1>
 
   <sect1 id="searching-filtering-sect-freq-terms" label="12.8" role="Recipe">
@@ -1658,24 +1636,24 @@ Score | Play    | Act     | Scene                           | Speaker
       <para>You need to find the most frequently<indexterm
           class="startofrange" id="searching-filtering-ITERM-3446"
           significance="normal">
-          <primary>Jakarta Lucene</primary>
+          <primary>Apache Lucene</primary>
 
           <secondary>term frequency</secondary>
         </indexterm> <indexterm class="startofrange"
           id="searching-filtering-ITERM-3447" significance="normal">
-          <primary>term frequency, Jakarta Lucene</primary>
+          <primary>term frequency, Apache Lucene</primary>
         </indexterm> <indexterm class="startofrange"
           id="searching-filtering-ITERM-3448" significance="normal">
           <primary>indexes</primary>
 
-          <secondary>Jakarta Lucene</secondary>
+          <secondary>Apache Lucene</secondary>
 
           <tertiary>term frequency</tertiary>
         </indexterm> <indexterm class="startofrange"
           id="searching-filtering-ITERM-3449" significance="normal">
           <primary>documents</primary>
 
-          <secondary>Jakarta Lucene</secondary>
+          <secondary>Apache Lucene</secondary>
 
           <tertiary>term frequency</tertiary>
         </indexterm> used terms in a Lucene index.</para>
@@ -1684,7 +1662,7 @@ Score | Play    | Act     | Scene                           | Speaker
     <sect2>
       <title>Solution</title>
 
-      <para>Use Jakarta Lucene to index your documents and obtain a <literal
+      <para>Use Apache Lucene to index your documents and obtain a <literal
       moreinfo="none">TermEnum</literal> <indexterm
           id="searching-filtering-ITERM-3450" significance="normal">
           <primary>TermEnum object</primary>
@@ -1860,26 +1838,6 @@ Frequency | Term
 647 | thou
 632 | shall
 614 | lord</programlisting>
-    </sect2>
-
-    <sect2>
-      <title>See Also</title>
-
-      <para>There is an example of enumerating <indexterm class="endofrange"
-      id="searching-filtering-ITERM-3454" significance="normal"
-      startref="searching-filtering-ITERM-3446"></indexterm> <indexterm
-      class="endofrange" id="searching-filtering-ITERM-3455"
-      significance="normal"
-      startref="searching-filtering-ITERM-3447"></indexterm> <indexterm
-      class="endofrange" id="searching-filtering-ITERM-3456"
-      significance="normal"
-      startref="searching-filtering-ITERM-3448"></indexterm> <indexterm
-      class="endofrange" id="searching-filtering-ITERM-3457"
-      significance="normal"
-      startref="searching-filtering-ITERM-3449"></indexterm>term frequency in
-      the Jakarta Lucene Sandbox. To see this frequency analysis example, see
-      the "High Frequency Terms" example (<ulink
-      url="http://jakarta.apache.org/lucene/docs/lucene-sandbox/">http://jakarta.apache.org/lucene/docs/lucene-sandbox/</ulink>).</para>
     </sect2>
   </sect1>
 </chapter>

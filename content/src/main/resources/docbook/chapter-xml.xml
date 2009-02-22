@@ -12,7 +12,7 @@
     1998 redefined the way information is represented, stored, and exchanged,
     and it seems that a new standard involving XML is created every month:
     XSL, XML Query, XPointer, XPath, XLink, XHTML, SVG, MathML, XForms, XML
-    Encryption, SOAP, XML-RPC, WSDL, XML Schema, RelaxNG, TREX, and the list
+    Encryption, SOAP, XML-RPC, WSDL, XML Schema, RelaxNG, and the list
     continues. Such standards are accompanied by an almost endless series of
     standard APIs, such as SAX and DOM. To further complicate matters, Sun
     Microsystems has created a number of Java APIs to handle most everything
@@ -44,17 +44,17 @@
     <para>With almost a trillion different ways to parse or create a simple
     XML document, you can easily overlook a tool that might save days of
     programming time. Commons Digester, Commons Betwixt, Zeus, Quick, Apache
-    XMLBeans, JAXB, XStream, JiBX, Exolab Castor, and others are all projects
-    and products that deal with the simple task of serializing objects to XML
-    and unmarshalling XML to objects. This field is crowded, and a number of
-    these technologies have great promises and great flaws. Just as this
-    chapter was not written to convince you to abandon SAX and DOM, this
-    chapter was also not written to sell Digester or Betwixt over all other
-    options. If you don't like what you see in this chapter, there are a
-    variety of options, and while the abundance of choice is overwhelming,
-    open source is about having options and choices. This chapter introduces
-    you to two battle-tested options from Jakarta Commons—Jakarta Commons
-    Digester and Jakarta Commons Betwixt.</para>
+    XMLBeans, JAXB, XStream, JiBX, and others are all projects and products
+    that deal with the simple task of serializing objects to XML and
+    unmarshalling XML to objects. This field is crowded, and a number of these
+    technologies have great promises and great flaws. Just as this chapter was
+    not written to convince you to abandon SAX and DOM, this chapter was also
+    not written to sell Digester or Betwixt over all other options. If you
+    don't like what you see in this chapter, there are a variety of options,
+    and while the abundance of choice is overwhelming, open source is about
+    having options and choices. This chapter introduces you to two
+    battle-tested options from Apache Commons—Commons Digester and Commons
+    Betwixt.</para>
 
     <para>Commons Digester makes the task of parsing XML exceedingly
     straightforward; with the Digester in hand, you can map an XML document to
@@ -87,7 +87,7 @@
     <sect2>
       <title>Problem</title>
 
-      <para>You need to use Jakarta <indexterm id="xml-ITERM-2690"
+      <para>You need to use <indexterm id="xml-ITERM-2690"
           significance="normal">
           <primary>Commons Digester</primary>
 
@@ -133,18 +133,18 @@
     <sect2>
       <title>Discussion</title>
 
-      <para>Commons Digester started as a part of Jakarta Struts, and it was
-      moved to the Jakarta Commons project by way of the Commons Sandbox in
-      early 2001. Digester is the mechanism Struts uses to read XML
-      configuration; <filename moreinfo="none">struts-config.xml</filename> is
-      the main configuration point for Jakarta Struts, and it is converted to
-      a set of objects using the Digester. The Digester's most straightforward
-      application is the mapping of an XML document to a set of Java objects,
-      but, as shown in this chapter and <link
-      linkend="searching-filtering">Chapter 12</link>, Digester can also be
-      used to create a simple XML command language and search index. Digester
-      is a shortcut for creating a SAX parser. Almost anything you can do with
-      a SAX parser can be done with Jakarta Commons Digester.</para>
+      <para>Commons Digester started as a part of Struts, and it was moved to
+      the Commons project by way of the Commons Sandbox in early 2001.
+      Digester is the mechanism Struts uses to read XML configuration;
+      <filename moreinfo="none">struts-config.xml</filename> is the main
+      configuration point for Struts, and it is converted to a set of objects
+      using the Digester. The Digester's most straightforward application is
+      the mapping of an XML document to a set of Java objects, but, as shown
+      in this chapter and <link linkend="searching-filtering">Chapter
+      12</link>, Digester can also be used to create a simple XML command
+      language and search index. Digester is a shortcut for creating a SAX
+      parser. Almost anything you can do with a SAX parser can be done with
+      Commons Digester.</para>
     </sect2>
 
     <sect2>
@@ -473,7 +473,7 @@ rules.add( "plays/play/characters/character/description",
       startref="xml-ITERM-2696"></indexterm> XML rule sets can be found in the
       package document for <literal
       moreinfo="none">org.apache.commons.digester.xmlrules</literal> (<ulink
-      url="http://jakarta.apache.org/commons/digester/apidocs/index.html">http://jakarta.apache.org/commons/digester/apidocs/index.html</ulink>).</para>
+      url="http://commons.apache.org/digester/apidocs/index.html">http://commons.apache.org/digester/apidocs/index.html</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -722,7 +722,7 @@ System.out.println(page);</programlisting>
 
 &lt;!DOCTYPE digester-rules PUBLIC 
         "-//Jakarta Apache //DTD digester-rules XML V1.0//EN" 
-        "http://jakarta.apache.org/commons/digester/dtds/digester-rules.dtd"&gt;
+        "http://commons.apache.org/digester/dtds/digester-rules.dtd"&gt;
 
 &lt;digester-rules&gt;
   &lt;pattern value="*/page"&gt;
@@ -741,7 +741,7 @@ System.out.println(page);</programlisting>
 
 &lt;!DOCTYPE digester-rules PUBLIC 
         "-//Jakarta Apache //DTD digester-rules XML V1.0//EN" 
-        "http://jakarta.apache.org/commons/digester/dtds/digester-rules.dtd"&gt;
+        "http://commons.apache.org/digester/dtds/digester-rules.dtd"&gt;
 
 &lt;digester-rules&gt;
   &lt;pattern value="*/person"&gt;
@@ -768,7 +768,7 @@ System.out.println(page);</programlisting>
       moreinfo="none">Digester</literal>, refer to the Javadoc for the
       <literal moreinfo="none">org.apache.commons.digester</literal> package
       at <ulink
-      url="http://jakarta.apache.org/commons/digester/apidocs">http://jakarta.apache.org/commons/digester/apidocs</ulink>.</para>
+      url="http://jakarta.apache.org/commons/digester/apidocs">http://commons.apache.org/digester/apidocs</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -1132,16 +1132,6 @@ public class EmailRule extends Rule {
         </indexterm> to expand variable references in an XML document during a
       parse.</para>
 
-      <warning id="xml-NOTE-59" role="ora">
-        <para>This recipe explores a feature of Commons Digester—variable
-        substitution—which is available only with a prerelease version of
-        Digester, 1.6-dev. To follow the example in this recipe, you must
-        download a nightly snapshot distribution from <ulink
-        url="http://cvs.apache.org/builds/jakarta-commons/nightly/">http://cvs.apache.org/builds/jakarta-commons/nightly/</ulink>.
-        Use nightly distributions of Commons components at your own risk;
-        these distributions may contain unresolved bugs.</para>
-      </warning>
-
       <para>The following XML document contains four variable
       references—<filename moreinfo="none">${email.to}</filename>, <filename
       moreinfo="none">${order.id}</filename>, <filename
@@ -1287,7 +1277,7 @@ Email To: ldavid@hbo.com</programlisting>
       startref="xml-ITERM-2734"></indexterm> <indexterm class="endofrange"
       id="xml-ITERM-2742" significance="normal"
       startref="xml-ITERM-2735"></indexterm>for the Digester at <ulink
-      url="http://jakarta.apache.org/commons/digester/apidocs/index.html">http://jakarta.apache.org/commons/digester/apidocs/index.html</ulink>.</para>
+      url="http://jakarta.apache.org/commons/digester/apidocs/index.html">http://commons.apache.org/digester/apidocs/index.html</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -1297,7 +1287,7 @@ Email To: ldavid@hbo.com</programlisting>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to use Jakarta<indexterm id="xml-ITERM-2743"
+      <para>You need to use <indexterm id="xml-ITERM-2743"
           significance="normal">
           <primary>XML (Extensible Markup Language)</primary>
 
@@ -1832,7 +1822,7 @@ beanWriter.write( object );</programlisting>
       id="xml-ITERM-2774" significance="normal"
       startref="xml-ITERM-2767"></indexterm>customizations in Betwixt, see the
       "Binding Beans" section of the user guide at <ulink
-      url="http://jakarta.apache.org/commons/betwixt/guide/binding.html">http://jakarta.apache.org/commons/betwixt/guide/binding.html</ulink>.</para>
+      url="http://jakarta.apache.org/commons/betwixt/guide/binding.html">http://commons.apache.org/betwixt/guide/binding.html</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -1963,7 +1953,7 @@ Play play = (Play) beanReader.parse( customPlay );</programlisting>
       For more information about the algorithm Betwixt uses to recognize
       composite properties, see "Using Adder Methods for Composite Properties"
       in the Betwixt user guide (<ulink
-      url="http://jakarta.apache.org/commons/betwixt/guide/binding.html">http://jakarta.apache.org/commons/betwixt/guide/binding.html</ulink>).</para>
+      url="http://jakarta.apache.org/commons/betwixt/guide/binding.html">http://commons.apache.org/betwixt/guide/binding.html</ulink>).</para>
     </sect2>
 
     <sect2>
@@ -1971,7 +1961,7 @@ Play play = (Play) beanReader.parse( customPlay );</programlisting>
 
       <para>For more information about reading beans with Betwixt, see
       "Reading Beans" in the Betwixt user guide (<ulink
-      url="http://jakarta.apache.org/commons/betwixt/guide/reading.html">http://jakarta.apache.org/commons/betwixt/guide/reading.html</ulink>).</para>
+      url="http://jakarta.apache.org/commons/betwixt/guide/reading.html">http://commons.apache.org/betwixt/guide/reading.html</ulink>).</para>
     </sect2>
   </sect1>
 </chapter>

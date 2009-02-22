@@ -11,9 +11,9 @@
     wondered why Java goes out of its way to make things difficult. Java I/O
     is not a terribly complex subject, but it does have a knack for turning
     simpler tasks into complex nests of heavily wrapped <literal
-    moreinfo="none">Reader</literal>s and streams. Jakarta Commons IO fills a
-    few gaps in Java's I/O and networking capabilities by providing utilities
-    and methods to copy streams, copy files, touch files, recursively delete
+    moreinfo="none">Reader</literal>s and streams. Commons IO fills a few gaps
+    in Java's I/O and networking capabilities by providing utilities and
+    methods to copy streams, copy files, touch files, recursively delete
     directories, and safely close <literal moreinfo="none">Reader</literal>s
     and streams. If you are working with <literal
     moreinfo="none">Reader</literal>, <literal
@@ -68,7 +68,7 @@
     <sect2>
       <title>Problem</title>
 
-      <para>You need to use Jakarta<indexterm id="io-network-ITERM-3026"
+      <para>You need to use <indexterm id="io-network-ITERM-3026"
           significance="normal">
           <primary>Commons IO</primary>
 
@@ -1436,9 +1436,9 @@ try {
       <literal moreinfo="none">java.util.regex</literal> package and regular
       expression support in the <literal moreinfo="none">String</literal>
       class, Jakarta ORO and Jakarta RegExp gave developers a way to use
-      regular expressions in Java. Now that Java 1.4 supports regular
-      expressions, ORO still remains relevant for developers who need specific
-      support for Perl5 extended regular expressions.</para>
+      regular expressions in Java. Now that Java supports regular expressions,
+      ORO still remains relevant for developers who need specific support for
+      Perl5 extended regular expressions.</para>
     </sect2>
 
     <sect2>
@@ -1593,16 +1593,15 @@ File[] tldFiles = dataDir.listFiles( regexFilter );</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>Jakarta Commons Net contains some simple clients for commonly used
-      network protocols, such as FTP, TFTP, Telnet, NNTP, POP3, and SMTP.
-      Protocols are supported by collections of classes in packages dedicated
-      to these protocols. For example, FTP is supported by a set of classes in
-      the <literal moreinfo="none">org.apache.commons.net.ftp</literal>
-      package, including <literal moreinfo="none">FTPClient</literal> and
-      <literal moreinfo="none">FTPFile</literal>; and SMTP is supported by
-      classes in the <literal
-      moreinfo="none">org.apache.commons.net.smtp</literal> package, including
-      <literal moreinfo="none">SMTPClient</literal>.</para>
+      <para>Commons Net contains some simple clients for commonly used network
+      protocols, such as FTP, TFTP, Telnet, NNTP, POP3, and SMTP. Protocols
+      are supported by collections of classes in packages dedicated to these
+      protocols. For example, FTP is supported by a set of classes in the
+      <literal moreinfo="none">org.apache.commons.net.ftp</literal> package,
+      including <literal moreinfo="none">FTPClient</literal> and <literal
+      moreinfo="none">FTPFile</literal>; and SMTP is supported by classes in
+      the <literal moreinfo="none">org.apache.commons.net.smtp</literal>
+      package, including <literal moreinfo="none">SMTPClient</literal>.</para>
     </sect2>
 
     <sect2>
@@ -1807,7 +1806,7 @@ ecs-1.4.2.zip.md5:     33 bytes</programlisting>
       moreinfo="none">org.apache.commons.net.tftp.TFTPClient</literal>. For
       more information about TFTP client, see the Javadoc for <literal
       moreinfo="none">TFTPClient</literal> at <ulink
-      url="http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/tftp/TFTPClient.html">http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/tftp/TFTPClient.html</ulink>.</para>
+      url="http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/tftp/TFTPClient.html">http://commons.apache.org/net/apidocs/org/apache/commons/net/tftp/TFTPClient.html</ulink>.</para>
 
       <para><literal moreinfo="none">FTPClient</literal> contains a number of
       additional<indexterm class="endofrange" id="io-network-ITERM-3161"
@@ -1821,7 +1820,7 @@ ecs-1.4.2.zip.md5:     33 bytes</programlisting>
       remote FTP server. For more information about <literal
       moreinfo="none">FTPClient</literal>, see the <literal
       moreinfo="none">FTPClient</literal> Javadoc at <ulink
-      url="http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/ftp/FTPClient.html">http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/ftp/FTPClient.html</ulink>.</para>
+      url="http://jakarta.apache.org/commons/net/apidocs/org/apache/commons/net/ftp/FTPClient.html">http://commons.apache.org/net/apidocs/org/apache/commons/net/ftp/FTPClient.html</ulink>.</para>
     </sect2>
   </sect1>
 

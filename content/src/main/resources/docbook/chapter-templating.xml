@@ -21,7 +21,7 @@
     <literal moreinfo="none">Hello {0}, I speak {1}</literal>, can be
     parameterized using the <literal moreinfo="none">MessageFormat</literal>
     class. A more complex templating example is found in applications that use
-    Jakarta Velocity or FreeMarker to avoid mixing Java with HTML or textual
+    Apache Velocity or FreeMarker to avoid mixing Java with HTML or textual
     output. Throughout this spectrum of complexity, the concept of templating
     remains the same; a template with references to variables is merged with a
     context containing these variables. There are many ways to decouple the
@@ -29,13 +29,13 @@
     this chapter, you will have a range of options for different
     situations.</para>
 
-    <para>This chapter touches upon Jakarta Velocity, Jakarta Commons JEXL,
-    and a technology outside of the Apache Software Foundation named
-    FreeMarker. Templating engines are frequently used in web application, and
-    this chapter ends with instructions for integrating these engines into a
-    J2EE web application. Separating HTML or textual content into a separate
-    file allows you to give graphic designers and business users a larger role
-    in customizing and creating content for the enduser. With a templating
+    <para>This chapter touches upon Apache Velocity, Apache Commons JEXL, and
+    a technology outside of the Apache Software Foundation named FreeMarker.
+    Templating engines are frequently used in web application, and this
+    chapter ends with instructions for integrating these engines into a J2EE
+    web application. Separating HTML or textual content into a separate file
+    allows you to give graphic designers and business users a larger role in
+    customizing and creating content for the enduser. With a templating
     engine, you can dramatically reduce the time and effort it takes to make
     simple changes. But, by far, the largest benefit of a templating engine is
     that it allows programmers to do more programming and graphic designers to
@@ -73,11 +73,10 @@ System.out.println( "******************************" );</programlisting>
       <para>Consider another common problem: generating an XML document. There
       are seemingly thousands of ways to create an XML document: using DOM or
       JDOM to create a <literal moreinfo="none">Document</literal> object,
-      serializing an object with Jakarta Commons Betwixt, and using Exolab's
-      Castor are a few of these possibilities. Some of these techniques are
-      explained in <link linkend="xml">Chapter 6</link>, but here is an
-      example of how <emphasis role="bold">not</emphasis> to generate an XML
-      document:</para>
+      serializing an object with Commons Betwixt, and using Hibernate are a
+      few of these possibilities. Some of these techniques are explained in
+      <link linkend="xml">Chapter 6</link>, but here is an example of how
+      <emphasis role="bold">not</emphasis> to generate an XML document:</para>
 
       <programlisting format="linespecific" id="I_9_tt351">System.out.println("&lt;?xml version=\"1.0\"?&gt;");
 System.out.println("&lt;Config&gt;");
@@ -291,8 +290,8 @@ There are a few things I would like to tell you.
 
       <tip id="templating-NOTE-66" role="ora">
         <para>JEXL is similar to EL with one major difference. The JSP 2.0 EL
-        implementation project in Jakarta Commons, Commons EL, is covered by a
-        Java Specification Request (JSR), which was developed under the Java
+        implementation project in Commons, Commons EL, is covered by a Java
+        Specification Request (JSR), which was developed under the Java
         Community Process (JCP). Because of this, EL is bound to implement the
         JSP specification—no more and no less. On the other hand, JEXL is free
         to extend and improve upon the standard.</para>
@@ -452,8 +451,7 @@ System.out.println( message );</programlisting>
       called EL, which is an expression language you can use in JSTL tags and
       in JSP 2.0. In general, JEXL can do everything that JSP EL can do, and
       more. <link linkend="templating-TABLE-1">Table 9-1</link> lists
-      expressions that are valid in both JSP 2.0 EL and Jakarta Commons
-      JEXL.</para>
+      expressions that are valid in both JSP 2.0 EL and Commons JEXL.</para>
 
       <table id="templating-TABLE-1" label="9-1">
         <title>Simple Commons JEXL and JSP 2.0 EL expressions</title>
@@ -753,7 +751,7 @@ System.out.println( message );</programlisting>
 
       <para>For more information about Commons JEXL's improvements on JSP 2.0
       EL, see the Commons JEXL page (<ulink
-      url="http://jakarta.apache.org/commons/jexl/">http://jakarta.apache.org/commons/jexl/</ulink>).</para>
+      url="http://jakarta.apache.org/commons/jexl/">http://commons.apache.org/jexl/</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -940,23 +938,18 @@ while( ballsIter.hasNext( ) ) {
           id="templating-ITERM-2970" significance="normal">
           <primary>templating</primary>
 
-          <secondary>Jakarta Velocity, downloading</secondary>
+          <secondary>Velocity, downloading</secondary>
         </indexterm> <indexterm class="startofrange"
           id="templating-ITERM-2971" significance="normal">
           <primary>downloading</primary>
 
-          <secondary>Jakarta Velocity</secondary>
+          <secondary>Velocity</secondary>
         </indexterm> <indexterm class="startofrange"
           id="templating-ITERM-2972" significance="normal">
-          <primary>Jakarta Velocity, downloading</primary>
-        </indexterm>Velocity to create<indexterm id="templating-ITERM-2973"
-          significance="normal">
-          <primary>Velocity</primary>
-
-          <see>Jakarta Velocity</see>
-        </indexterm> templates that can reference variables and object
-      properties and contain limited conditional and iterative control
-      structures.</para>
+          <primary>Velocity, downloading</primary>
+        </indexterm>Velocity to create templates that can reference variables
+      and object properties and contain limited conditional and iterative
+      control structures.</para>
     </sect2>
 
     <sect2>
@@ -1006,10 +999,10 @@ while( ballsIter.hasNext( ) ) {
     <sect2>
       <title>Solution</title>
 
-      <para>Use Jakarta Velocity and store your template in the filesystem.
-      Jakarta Velocity is a straightforward templating engine with a
-      lightweight syntax similar to the expression language introduced in
-      <link linkend="templating-sect-using-exp-lang">Recipe 9.2</link>. The
+      <para>Use Velocity and store your template in the filesystem. Velocity
+      is a straightforward templating engine with a lightweight syntax similar
+      to the expression language introduced in <link
+      linkend="templating-sect-using-exp-lang">Recipe 9.2</link>. The
       following Velocity template is used to create an email:</para>
 
       <programlisting format="linespecific" id="I_9_tt364">#set( $customer = $subscription.customer )
@@ -1069,8 +1062,7 @@ System.out.println( writer.toString( ) );</programlisting>
       <filename moreinfo="none">renew.vm</filename>, and the following output
       is printed to the console:</para>
 
-      <programlisting format="linespecific" id="I_9_tt366">
-               <replaceable>Tim</replaceable>,
+      <programlisting format="linespecific" id="I_9_tt366"><replaceable>Tim</replaceable>,
 
 Your subscription to <replaceable>Science World </replaceable>expires on <replaceable>July 20, 2003</replaceable>.  If 
 you are interested in renewing your subscription, please click on the following 
@@ -1109,7 +1101,7 @@ http://www.scienceworld.com/renew?cust=22324</programlisting>
           significance="normal">
           <primary>syntax</primary>
 
-          <secondary>Jakarta Velocity</secondary>
+          <secondary>Velocity</secondary>
         </indexterm> very simple, and it is similar to the expression language
       used in JSP 2.0 EL and Commons JEXL. If you want to print out the value
       of a bean property, use <literal
@@ -1208,7 +1200,7 @@ http://www.scienceworld.com/renew?cust=22324</programlisting>
       configure logging, character encoding, and the behavior of directives.
       For more information about configuring Velocity, see "Velocity
       Configuration Key and Values" in the Velocity Developer's Guide (<ulink
-      url="http://jakarta.apache.org/velocity/developer-guide.html">http://jakarta.apache.org/velocity/developer-guide.html</ulink>).</para>
+      url="http://velocity.apache.org/engine/releases/velocity-1.6.1/user-guide.html">http://velocity.apache.org/engine/releases/velocity-1.6.1/user-guide.html</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -1405,7 +1397,7 @@ Rank  Code  Name                Passengers  US Domestic
       startref="templating-ITERM-2972"></indexterm> relational and logical
       operators supports by Velocity, see the Velocity Template Language (VTL)
       Reference Guide (<ulink
-      url="http://jakarta.apache.org/velocity/vtl-reference-guide.html">http://jakarta.apache.org/velocity/vtl-reference-guide.html</ulink>).</para>
+      url="http://velocity.apache.org/engine/releases/velocity-1.6.1/vtl-reference-guide.html">http://velocity.apache.org/engine/releases/velocity-1.6.1/vtl-reference-guide.html</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -1436,7 +1428,7 @@ Rank  Code  Name                Passengers  US Domestic
       both<indexterm id="templating-ITERM-2989" significance="normal">
           <primary>printing</primary>
 
-          <secondary>Jakarta Velocity</secondary>
+          <secondary> Velocity</secondary>
         </indexterm> names and addresses. Velocity macros are like subroutines
       that take a set of parameters and perform common tasks. In the following
       Velocity template, two macros, <literal moreinfo="none">#name</literal>
@@ -1656,7 +1648,7 @@ Jersey City, NJ 20213</programlisting>
       available to every Velocity template using the <literal
       moreinfo="none">velocimacro.library</literal> property. For more
       information, see the Velocity User Guide (<ulink
-      url="http://jakarta.apache.org/velocity/user-guide.html#Velocimacros">http://jakarta.apache.org/velocity/user-guide.html#Velocimacros</ulink>).</para>
+      url="http://velocity.apache.org/engine/releases/velocity-1.6.1/user-guide.html#Velocimacros">http://velocity.apache.org/engine/releases/velocity-1.6.1/user-guide.html#Velocimacros</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -1876,7 +1868,7 @@ engine.init( "conf/velocity.properties" );</programlisting>
       moreinfo="none">DateTool</literal>, <literal
       moreinfo="none">NumberTool</literal>, and <literal
       moreinfo="none">MathTool</literal> (<ulink
-      url="http://jakarta.apache.org/velocity/tools/index.html">http://jakarta.apache.org/velocity/tools/index.html</ulink>).</para>
+      url="http://velocity.apache.org/tools/releases/1.4/">http://velocity.apache.org/tools/releases/1.4/</ulink>).</para>
 
       <para>Velocity's simplicity can be both a blessing and a curse. In this
       last example, note that the student scores were all stored as integer
@@ -2202,7 +2194,7 @@ Your final grade has been submitted to the Registrar.  Have a great Summer!</pro
         may want to use a technology like Velocity that embraces simplicity.
         Open source communities benefit from healthy cross-pollination of
         ideas and competition, and FreeMarker was developed as an alternative
-        to Jakarta Velocity; they even have a feature comparison page (<ulink
+        to Apache Velocity; they even have a feature comparison page (<ulink
         url="http://www.freemarker.org/fmVsVel.html">http://www.freemarker.org/fmVsVel.html</ulink>).</para>
       </tip>
     </sect2>
@@ -2216,7 +2208,7 @@ Your final grade has been submitted to the Registrar.  Have a great Summer!</pro
       (<ulink
       url="http://www.freemarker.org/docs/index.html">http://www.freemarker.org/docs/index.html</ulink>).</para>
 
-      <para>If you are using Jakarta Velocity and wish to migrate your
+      <para>If you are using Apache Velocity and wish to migrate your
       templates to FreeMarker, the FreeMarker team has written a utility, code
       named "US Cavalry," which will automatically translate your VTL
       templates to FTL templates. To obtain "US Cavalry," see <ulink
@@ -2482,7 +2474,7 @@ System.out.println("output: \n" + writer.toString( ));</programlisting>
       moreinfo="none">VelocityViewServlet</literal> to render your Velocity
       templates. Download the latest version of the <literal
       moreinfo="none">VelocityView</literal> project from <ulink
-      url="http://jakarta.apache.org/site/binindex.cgi">http://jakarta.apache.org/site/binindex.cgi</ulink>;
+      url="http://velocity.apache.org/">http://velocity.apache.org/</ulink>;
       it is listed under "Velocity Tools 1.1." Put the velocity and
       velocity-tools jars in the <filename
       moreinfo="none">WEB-INF/lib</filename> directory, and configure your web
@@ -2568,8 +2560,8 @@ System.out.println("output: \n" + writer.toString( ));</programlisting>
           id="templating-ITERM-3012" significance="normal">
           <primary>VelocityStruts</primary>
         </indexterm>VelocityStruts, which provides tools to integrate Velocity
-      with Jakarta Struts. The VelocityStruts project has tools that duplicate
-      the functionality of the<indexterm id="templating-ITERM-3013"
+      with Struts. The VelocityStruts project has tools that duplicate the
+      functionality of the<indexterm id="templating-ITERM-3013"
           significance="normal">
           <primary>Struts JSP tag libraries</primary>
         </indexterm> Struts JSP tag libraries—a <literal
@@ -2587,7 +2579,7 @@ System.out.println("output: \n" + writer.toString( ));</programlisting>
       <literal moreinfo="none">Action</literal> to forward to a velocity
       template; configure the struts tools by following the directions on the
       VelocityStruts user guide (<ulink
-      url="http://jakarta.apache.org/velocity/tools/struts/userguide.html">http://jakarta.apache.org/velocity/tools/struts/userguide.html</ulink>).</para>
+      url="http://velocity.apache.org/tools/releases/1.4/struts/">http://velocity.apache.org/tools/releases/1.4/struts/</ulink>).</para>
     </sect2>
   </sect1>
 
@@ -2716,68 +2708,6 @@ System.out.println("output: \n" + writer.toString( ));</programlisting>
       which depends on JSP tag libraries. For more details about using
       FreeMarker with Struts, see "Using FreeMarker with Servlets" (<ulink
       url="http://fmpp.sourceforge.net/freemarker/pgui_misc_servlet.html">http://fmpp.sourceforge.net/freemarker/pgui_misc_servlet.html</ulink>).</para>
-    </sect2>
-  </sect1>
-
-  <sect1 id="templating-sect-templates-eclipse" label="9.15" role="Recipe">
-    <title>Writing Templates in Eclipse</title>
-
-    <sect2>
-      <title>Problem</title>
-
-      <para>You are writing a fair amount of <indexterm
-          id="templating-ITERM-3022" significance="normal">
-          <primary>templating</primary>
-
-          <secondary>Eclipse</secondary>
-        </indexterm> <indexterm id="templating-ITERM-3023"
-          significance="normal">
-          <primary>Eclipse</primary>
-        </indexterm> <indexterm id="templating-ITERM-3024"
-          significance="normal">
-          <primary>tools</primary>
-
-          <secondary>Eclipse</secondary>
-        </indexterm> <indexterm id="templating-ITERM-3025"
-          significance="normal">
-          <primary>utilities</primary>
-
-          <secondary>Eclipse</secondary>
-        </indexterm>Velocity and FreeMarker templates, and you are looking for
-      a tool that can do some syntax highlighting, validation, and code
-      completion.</para>
-    </sect2>
-
-    <sect2>
-      <title>Solution</title>
-
-      <para>If you are writing Velocity templates, use the Velocity UI for
-      Eclipse. To get this plug-in, point your Eclipse Update Manager at
-      <ulink
-      url="http://veloedit.sourceforge.net/updates/">http://veloedit.sourceforge.net/updates/</ulink>.</para>
-
-      <para>If you are writing FreeMarker templates, use the FreeMarker
-      Eclipse plug-in. To get this plug-in, point your Eclipse Update Manager
-      at <ulink
-      url="http://www.freemarker.org/eclipse/update">http://www.freemarker.org/eclipse/update</ulink>.</para>
-    </sect2>
-
-    <sect2>
-      <title>See Also</title>
-
-      <para>The FreeMarker project maintains templates, plug-ins, and modes
-      for Eclipse, Emacs, jEdit, KWrite, TextPad 4, and Vim. These tools are
-      described on the FreeMarker site at <ulink
-      url="http://freemarker.org/editors.html">http://freemarker.org/editors.html</ulink>.</para>
-
-      <para>The Velocity project has pointers to templates, plug-ins, and
-      modes for IntelliJ IDEA, Eclipse, UltraEdit, JEdit, TextPad, and Emacs.
-      These tools are described on the Velocity site at <ulink
-      url="http://jakarta.apache.org/velocity/devtools.html">http://jakarta.apache.org/velocity/devtools.html</ulink>.</para>
-
-      <para>For more information about Eclipse, see Steve Holzner's
-      <emphasis>Eclipse</emphasis> (O'Reilly) and <emphasis>Eclipse
-      Cookbook</emphasis> (O'Reilly).</para>
     </sect2>
   </sect1>
 </chapter>
