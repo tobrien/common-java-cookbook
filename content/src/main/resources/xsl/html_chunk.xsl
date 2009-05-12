@@ -333,7 +333,9 @@ var idcomments_post_url;
 
 
             <center>
-              Copyright ${copyright.year}. ${organization.name}. All Rights Reserved.
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/us/88x31.png" /></a><br /><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dc:title" rel="dc:type">Common Java Cookbook</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.discursive.com/books/cjcook" property="cc:attributionName" rel="cc:attributionURL">Tim O'Brien</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/">Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 United States License</a>.<br />Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.discursive.com/books/cjcook/reference/jakartackbk-PREFACE-1.html" rel="cc:morePermissions">http://www.discursive.com/books/cjcook/reference/jakartackbk-PREFACE-1.html</a>.
+
+              Copyright ${copyright.year}. ${organization.name}. Some Rights Reserved.
             </center>
 <script type="text/javascript">
   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
