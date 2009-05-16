@@ -5,12 +5,13 @@
     <artifactId>book</artifactId>
     <version>0.15-SNAPSHOT</version>
   </parent>
-  <artifactId>content</artifactId>
-  <packaging>jar</packaging>
+  <artifactId>cjcook-content</artifactId>
+  <packaging>docbook</packaging>
   <name>Common Java Cookbook</name>
   <description>A Common Cookbook for Java</description>
   <build>
-    <finalName>book</finalName>
+    <sourceDirectory>src/main/docbook</sourceDirectory>
+<!--    <testSourceDirectory>src/test/flex</testSourceDirectory> -->
     <resources>
       <resource>
         <directory>src/main/resources</directory>
@@ -33,6 +34,12 @@
     </resources>
     <plugins>
       <plugin>
+        <groupId>com.discursive.plugins</groupId>
+        <artifactId>docbook-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
         <version>2.3</version>
@@ -40,107 +47,6 @@
           <escapeString>\</escapeString>
           <encoding>UTF-8</encoding>
         </configuration>
-      </plugin>
-      <plugin>
-	    <groupId>com.agilejava.docbkx</groupId>
-	    <artifactId>docbkx-maven-plugin</artifactId>
-        <version>2.0.7</version>
-	    <dependencies>
-	      <dependency>
-	        <groupId>org.docbook</groupId>
-	        <artifactId>docbook-xml</artifactId>
-	        <version>4.5</version>
-	        <scope>system</scope>
-	        <systemPath>${basedir}/lib/docbook-4.5.jar</systemPath>
-	      </dependency>
-	    </dependencies>
-        <executions>
-<!--          <execution>
-            <id>generate-pdf</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>generate-pdf</goal>
-            </goals>
-            <configuration>
-              <imgSrcPath>${basedir}/target/classes/docbook/</imgSrcPath>
-              <foCustomization>${basedir}/target/classes/xsl/fopdf.xsl</foCustomization>
-              <postProcess>
-                <copy tofile="${project.build.directory}/site/pdf/cjcook.pdf">
-                  <fileset file="${project.build.directory}/docbkx/pdf/book.pdf" />
-                </copy>
-                <copy todir="${project.build.directory}/site/pdf/">
-                  <fileset dir="${project.build.directory}/docbkx/pdf">
-                    <include name="**/chapter-*.pdf" />
-                  </fileset>
-                </copy>
-              </postProcess>
-            </configuration>
-          </execution> -->
-          <execution>
-            <id>generate-html</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>generate-html</goal>
-            </goals>
-            <configuration>
-              <chunkedOutput>true</chunkedOutput>
-              <chunkSectionDepth>1</chunkSectionDepth>
-              <htmlCustomization>${basedir}/target/classes/xsl/html_chunk.xsl</htmlCustomization>
-              <postProcess>
-                <copy todir="${project.build.directory}/site/reference">
-                  <fileset dir="${project.build.directory}/docbkx/html" />
-                </copy>
-                <copy todir="${project.build.directory}/site">
-                  <fileset dir="${basedir}/src/site/resources" />
-                </copy>
-                <copy todir="${project.build.directory}/site/images">
-                  <fileset dir="${basedir}/target/classes/images" />
-                </copy>
-                <copy todir="${project.build.directory}/site">
-                  <fileset dir="src/site/resources" />
-                </copy>
-                <copy todir="${project.build.directory}/site/reference/figs/web">
-                  <fileset dir="target/classes/docbook/figs/web" />
-                </copy>
-              </postProcess>
-            </configuration>
-          </execution>
-        </executions>
-        <configuration>
-	      <sourceDirectory>${basedir}/target/classes/docbook</sourceDirectory>
-	      <includes>book.xml</includes>
-	      <xincludeSupported>true</xincludeSupported>
-	    </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>copy</id>
-            <phase>site</phase>
-            <goals>
-              <goal>copy</goal>
-            </goals>
-            <configuration>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>com.discursive.cjcook</groupId>
-                  <artifactId>examples</artifactId>
-                  <version>${project.version}</version>
-                  <classifier>src</classifier>
-                  <type>zip</type>
-                  <overWrite>true</overWrite>
-                  <outputDirectory>${basedir}/target/site</outputDirectory>
-                  <destFileName>cjcook-examples-${project.version}.zip</destFileName>
-                </artifactItem>
-              </artifactItems>
-<!--              <outputDirectory>${project.build.directory}/wars</outputDirectory>
-              <overWriteReleases>false</overWriteReleases>
-              <overWriteSnapshots>true</overWriteSnapshots> -->
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>
@@ -191,11 +97,11 @@
         </properties>
       </profile>
   </profiles>
-  <dependencies>
+<!--  <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>examples</artifactId>
       <version>${project.version}</version>
     </dependency>
-  </dependencies>
+  </dependencies> -->
 </project>
