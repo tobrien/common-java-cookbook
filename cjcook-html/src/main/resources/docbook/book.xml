@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<book id="cjcook">
+  <title>${book.title}</title>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bookinfo.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="copyright.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="foreword.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="preface.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-lang.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-manipulate-text.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-beans.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-functors.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-collections.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-xml.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-app-infra.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-math.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-templating.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-io-network.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-http-webdav.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-searching-filtering.xml"/>
+  <index/>
+</book>
