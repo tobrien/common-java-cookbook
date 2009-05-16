@@ -34,8 +34,10 @@
     </developer>
   </developers>
   <modules>
-    <module>content</module>
-    <module>examples</module>
+    <module>cjcook-content</module>
+    <module>cjcook-examples</module>
+    <module>cjcook-html</module>
+    <module>cjcook-pdf</module>
   </modules>
   <build>
     <plugins>
