@@ -4,21 +4,24 @@
 <preface id="foreword">
   <title>Foreword: ${project.version}</title>
 
-  <para>This is an early version of the second edition of Jakarta Commons
-  Cookbook. I'm updating the content, and you might experience some problems
-  with links between chapters and sections. Don't rely on any of the URLs in
-  this book just yet, I'm currently renaming all of the sections and chapters
-  so that every section has a reasonable URL. I'm also trying to find some
-  interesting ways to link to related O'Reilly content using the new O'Reilly
-  metadata interface that was just published by O'Reilly Labs. Stay
-  Tuned.</para>
+  <para>May 17, 2009 - I've had some great feedback after putting the book up
+  on the web site, in the last week, I've open sourced the book, and I'll be
+  slowly upgrading the book project infrastructure. Again, stay tuned.</para>
 
-  <para>Tim O'Brien, Discursive</para>
-
-  <para><ulink
-  url="mailto:tobrien@discursive.com">tobrien@discursive.com</ulink></para>
-
-  <para>February 20, 2009</para>
+  <para>Tim O'Brien, Discursive<ulink url="mailto:tobrien@discursive.com">
+  tobrien@discursive.com</ulink></para>
 
   <para>Edition: ${project.version}</para>
+
+  <para><emphasis>February 20, 2009 - </emphasis>This is an early version of
+  the second edition of Jakarta Commons Cookbook. I'm updating the content,
+  and you might experience some problems with links between chapters and
+  sections. Don't rely on any of the URLs in this book just yet, I'm currently
+  renaming all of the sections and chapters so that every section has a
+  reasonable URL. I'm also trying to find some interesting ways to link to
+  related O'Reilly content using the new O'Reilly metadata interface that was
+  just published by O'Reilly Labs. Stay Tuned.</para>
+
+  <para>Tim O'Brien, Discursive<ulink url="mailto:tobrien@discursive.com">
+  tobrien@discursive.com</ulink></para>
 </preface>
