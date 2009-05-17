@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.discursive.cjcook</groupId>
   <version>0.16-SNAPSHOT</version>
-  <artifactId>examples</artifactId>
+  <artifactId>cjcook-examples</artifactId>
   <packaging>jar</packaging>
   <name>Common Java Cookbook Examples</name>
   <description>Examples which accompany a Common Cookbook for Java</description>

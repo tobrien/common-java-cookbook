@@ -5,7 +5,7 @@
     <artifactId>book</artifactId>
     <version>0.15-SNAPSHOT</version>
   </parent>
-  <artifactId>content</artifactId>
+  <artifactId>cjcook-pdf</artifactId>
   <packaging>jar</packaging>
   <name>Common Java Cookbook</name>
   <description>A Common Cookbook for Java</description>
