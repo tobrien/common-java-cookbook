@@ -8,7 +8,7 @@
 	</parent>
 	<artifactId>cjcook-html</artifactId>
 	<packaging>jar</packaging>
-	<name>Common Java Cookbook</name>
+	<name>Common Java Cookbook Chunked HTML Output</name>
 	<description>A Common Cookbook for Java</description>
 	<build>
 		<resources>

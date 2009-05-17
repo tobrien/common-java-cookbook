@@ -8,7 +8,7 @@
 	</parent>
 	<artifactId>cjcook-pdf</artifactId>
 	<packaging>jar</packaging>
-	<name>Common Java Cookbook</name>
+	<name>Common Java Cookbook PDF</name>
 	<description>A Common Cookbook for Java</description>
 	<build>
 		<resources>

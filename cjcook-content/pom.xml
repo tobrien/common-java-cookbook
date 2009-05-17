@@ -7,7 +7,7 @@
   </parent>
   <artifactId>cjcook-content</artifactId>
   <packaging>jar</packaging>
-  <name>Common Java Cookbook</name>
+  <name>Common Java Cookbook DocBook XML Content</name>
   <description>A Common Cookbook for Java</description>
   <build>
     <sourceDirectory>src/main/docbook</sourceDirectory>

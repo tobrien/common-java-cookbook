@@ -6,20 +6,11 @@
 		<artifactId>book</artifactId>
 		<version>0.15-SNAPSHOT</version>
 	</parent>
-	<artifactId>cjcook-single-html</artifactId>
+	<artifactId>cjcook-eclipse</artifactId>
 	<packaging>jar</packaging>
-	<name>Common Java Cookbook Single HTML Page</name>
+	<name>Common Java Cookbook Eclipse Document</name>
 	<description>A Common Cookbook for Java</description>
 	<build>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-				<includes>
-					<include>html.xsl</include>
-				</includes>
-			</resource>
-		</resources>
 		<plugins>
 			<plugin>
 				<groupId>com.discursive.plugins</groupId>
@@ -49,27 +40,19 @@
 				</dependencies>
 				<executions>
 					<execution>
-						<id>generate-html</id>
+						<id>generate-eclipse</id>
 						<phase>compile</phase>
 						<goals>
-							<goal>generate-html</goal>
+							<goal>generate-eclipse</goal>
 						</goals>
 					</execution>
 				</executions>
 				<configuration>
-					<htmlCustomization>${basedir}/target/classes/html.xsl</htmlCustomization>
 					<sourceDirectory>${basedir}/target/docbook</sourceDirectory>
-					<targetDirectory>${basedir}/target/html</targetDirectory>
+					<targetDirectory>${basedir}/target/eclipse</targetDirectory>
 					<includes>book.xml</includes>
 					<xincludeSupported>true</xincludeSupported>
-					<postProcess>
-						<copy todir="${project.build.directory}/html/images">
-							<fileset dir="${basedir}/src/main/resources/images" />
-						</copy>
-						<copy todir="${project.build.directory}/html/figs/web">
-							<fileset dir="target/docbook/figs/web" />
-						</copy>
-					</postProcess>
+					<imgSrcPath>${basedir}/target/docbook/</imgSrcPath>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -95,15 +78,49 @@
 					</execution>
 				</executions>
 			</plugin>
+<!--			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<executions>
+				  <execution>
+				    <id>install-eclipse</id>
+				    <phase>install</phase>
+				    <goals>
+				    	<goal>install-file</goal>
+				    </goals>
+				    <configuration>
+				    	<file>${basedir}/target/book.pdf</file>
+				    	<groupId>${groupId}</groupId>
+				    	<artifactId>${artifactId}</artifactId>
+				    	<version>${version}</version>
+				    	<packaging>pdf</packaging>
+				    </configuration>
+				  </execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-				  <classesDirectory>${basedir}/target/html</classesDirectory>
-				</configuration>
-			</plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<executions>
+				  <execution>
+				    <id>deploy-pdf</id>
+				    <phase>deploy</phase>
+				    <goals>
+				    	<goal>deploy-file</goal>
+				    </goals>
+				    <configuration>
+				    	<file>${basedir}/target/book.pdf</file>
+				    	<groupId>${groupId}</groupId>
+				    	<artifactId>${artifactId}</artifactId>
+				    	<version>${version}</version>
+				    	<packaging>pdf</packaging>
+				    </configuration>
+				  </execution>
+				</executions>
+			</plugin> -->
 		</plugins>
 	</build>
+
 
 	<dependencies>
 		<dependency>
