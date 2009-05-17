@@ -16,18 +16,14 @@
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 				<includes>
-					<include>docbook/*.xml</include>
-					<include>xsl/html_chunk.xsl</include>
-					<include>xsl/fopdf.xsl</include>
+					<include>fopdf.xsl</include>
 				</includes>
 			</resource>
 			<resource>
 				<directory>src/main/resources</directory>
 				<filtering>false</filtering>
 				<excludes>
-					<exclude>docbook/*.xml</exclude>
-					<exclude>xsl/html_chunk.xsl</exclude>
-					<exclude>xsl/fopdf.xsl</exclude>
+					<exclude>fopdf.xsl</exclude>
 				</excludes>
 			</resource>
 		</resources>
