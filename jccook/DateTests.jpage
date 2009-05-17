@@ -1,7 +1,0 @@
-
-
-
-Date date = new Date();
-Date rounded = DateUtils.round( date, Calendar.ERA );
-
-System.out.println( rounded );

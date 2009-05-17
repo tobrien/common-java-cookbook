@@ -1,8 +1,0 @@
-<info primitiveTypes="element">
-  <element name="play">
-    <attribute name="genre" property="genre"/>
-    <attribute name="year" property="year"/>
-    <attribute name="language" property="language"/>
-    <addDefaults/>
-  </element>
-</info>
