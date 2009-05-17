@@ -99,6 +99,15 @@
         <div id="right-header">
           <h2>${book.title}</h2>
           <h4>Edition: ${project.version}</h4>
+          <h4>Current Page:
+<script>
+var idcomments_acct = 'b740285dedd2abc0ef4bab7566268471';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
+          </h4>
+          <h4><a href="http://www.discursive.com/books/cjcook/cjcook-examples-${project.version}.zip" onClick="javascript: pageTracker._trackPageview('/books/cjcook/cjcook-examples.zip'); ">Download Book Examples (ZIP)</a></h4>
         </div>
         <div style="clear:both;">
         </div>
@@ -313,9 +322,30 @@
                 </xsl:if>
             </div>
             <br/>
+
+<script>
+var idcomments_acct = 'b740285dedd2abc0ef4bab7566268471';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+
+
             <center>
-              Copyright ${copyright.year}. ${organization.name}. All Rights Reserved.
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/us/88x31.png" /></a><br /><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dc:title" rel="dc:type">Common Java Cookbook</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.discursive.com/books/cjcook" property="cc:attributionName" rel="cc:attributionURL">Tim O'Brien</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/">Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 United States License</a>.<br />Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.discursive.com/books/cjcook/reference/jakartackbk-PREFACE-1.html" rel="cc:morePermissions">http://www.discursive.com/books/cjcook/reference/jakartackbk-PREFACE-1.html</a>.
+
+              Copyright ${copyright.year}. ${organization.name}. Some Rights Reserved.
             </center>
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("${google.analytics.id}");
+pageTracker._trackPageview();
+</script>
+
         </xsl:if>
     </xsl:template>
     
