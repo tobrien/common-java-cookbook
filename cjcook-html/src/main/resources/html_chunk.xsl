@@ -107,7 +107,7 @@ var idcomments_post_url;
 </script>
 <script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
           </h4>
-          <h4><a href="http://www.discursive.com/books/cjcook/cjcook-examples-${project.version}.zip" onClick="javascript: pageTracker._trackPageview('/books/cjcook/cjcook-examples.zip'); ">Download Book Examples (ZIP)</a></h4>
+          <h4><a href="http://www.discursive.com/books/cjcook/cjcook-examples-${project.version}-src.zip" onClick="javascript: pageTracker._trackPageview('/books/cjcook/cjcook-examples.zip'); ">Download Book Examples (ZIP)</a></h4>
         </div>
         <div style="clear:both;">
         </div>
