@@ -450,7 +450,7 @@ digester.doSomething( );</programlisting>
     <title>Book Examples</title>
 
     <para>This book's examples can be downloaded from <ulink
-    url="http://www.discursive.com/books/cjcook/cjcook-examples-${project.version}.zip">http://www.discursive.com/books/cjcook/cjcook-examples-${project.version}.zip</ulink>.</para>
+    url="http://www.discursive.com/books/cjcook/cjcook-examples-${project.version}.zip">http://www.discursive.com/books/cjcook/cjcook-examples-${project.version}-src.zip</ulink>.</para>
 
     <!--TODO: You might want to expand upon this a bit, no?-->
   </sect1>
