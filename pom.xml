@@ -37,6 +37,7 @@
     <module>cjcook-content</module>
     <module>cjcook-examples</module>
     <module>cjcook-html</module>
+    <module>cjcook-single-html</module>
     <module>cjcook-pdf</module>
   </modules>
   <build>
