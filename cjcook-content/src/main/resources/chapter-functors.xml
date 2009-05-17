@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="functors" label="4">
   <title>Functors</title>
 
@@ -1104,12 +1106,6 @@ if( name instanceof Double ) ) {
 
       <table id="functors-TABLE-1" label="4-1">
         <title>Predicate implementations</title>
-
-        <indexterm id="functors-ITERM-2334" significance="normal">
-          <primary>implementation</primary>
-
-          <secondary>predicates</secondary>
-        </indexterm>
 
         <tgroup cols="2">
           <colspec colname="col1" colnum="1" />

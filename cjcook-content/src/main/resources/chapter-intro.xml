@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="intro" label="1">
       <title>Supplements to the Java 2 Platform</title>
       <sect1 id="ch01-2-fm2xml">

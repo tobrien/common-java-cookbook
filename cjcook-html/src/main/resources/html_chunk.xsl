@@ -13,13 +13,13 @@
     <xsl:param name="chunk.section.depth" select="2"/>
 	<xsl:param name="chunker.output.indent">yes</xsl:param>
     <xsl:param name="use.id.as.filename">1</xsl:param>
-    <xsl:param name="html.stylesheet">../css/html.css</xsl:param>
+    <xsl:param name="html.stylesheet">css/html.css</xsl:param>
     <!-- These extensions are required for table printing and other stuff -->
     <xsl:param name="use.extensions">1</xsl:param>
     <xsl:param name="tablecolumns.extension">0</xsl:param>
     <xsl:param name="callout.extensions">1</xsl:param>
-    <xsl:param name="callout.graphics.path">../images/callouts/</xsl:param>
-    <xsl:param name="admon.graphics.path">../images/</xsl:param>
+    <xsl:param name="callout.graphics.path">images/callouts/</xsl:param>
+    <xsl:param name="admon.graphics.path">images/</xsl:param>
     <xsl:param name="graphicsize.extension">0</xsl:param>
     <xsl:param name="ignore.image.scaling">1</xsl:param>
     <xsl:param name="highlight.source">1</xsl:param>
@@ -99,15 +99,6 @@
         <div id="right-header">
           <h2>${book.title}</h2>
           <h4>Edition: ${project.version}</h4>
-          <h4>Current Page:
-<script>
-var idcomments_acct = 'b740285dedd2abc0ef4bab7566268471';
-var idcomments_post_id;
-var idcomments_post_url;
-</script>
-<script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
-          </h4>
-          <h4><a href="http://www.discursive.com/books/cjcook/cjcook-examples-${project.version}.zip" onClick="javascript: pageTracker._trackPageview('/books/cjcook/cjcook-examples.zip'); ">Download Book Examples (ZIP)</a></h4>
         </div>
         <div style="clear:both;">
         </div>
@@ -322,28 +313,9 @@ var idcomments_post_url;
                 </xsl:if>
             </div>
             <br/>
-
-<script>
-var idcomments_acct = 'b740285dedd2abc0ef4bab7566268471';
-var idcomments_post_id;
-var idcomments_post_url;
-</script>
-<span id="IDCommentsPostTitle" style="display:none"></span>
-<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
-
-
             <center>
               Copyright ${copyright.year}. ${organization.name}. All Rights Reserved.
             </center>
-<script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("${google.analytics.id}");
-pageTracker._trackPageview();
-</script>
-
         </xsl:if>
     </xsl:template>
     

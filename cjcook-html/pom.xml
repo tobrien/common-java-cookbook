@@ -42,11 +42,9 @@
 				<version>2.0.7</version>
 				<dependencies>
 					<dependency>
-						<groupId>org.docbook</groupId>
+						<groupId>docbook</groupId>
 						<artifactId>docbook-xml</artifactId>
 						<version>4.5</version>
-						<scope>system</scope>
-						<systemPath>${basedir}/lib/docbook-4.5.jar</systemPath>
 					</dependency>
 				</dependencies>
 				<executions>
@@ -56,28 +54,24 @@
 						<goals>
 							<goal>generate-html</goal>
 						</goals>
-						<configuration>
-							<chunkedOutput>true</chunkedOutput>
-							<chunkSectionDepth>1</chunkSectionDepth>
-							<htmlCustomization>${basedir}/target/classes/html_chunk.xsl</htmlCustomization>
-							<postProcess>
-								<copy todir="${project.build.directory}/site/reference">
-									<fileset dir="${project.build.directory}/docbkx/html" />
-								</copy>
-								<copy todir="${project.build.directory}/site/images">
-									<fileset dir="${basedir}/target/classes/images" />
-								</copy>
-								<copy todir="${project.build.directory}/site/reference/figs/web">
-									<fileset dir="target/classes/docbook/figs/web" />
-								</copy>
-							</postProcess>
-						</configuration>
 					</execution>
 				</executions>
 				<configuration>
+					<htmlCustomization>${basedir}/target/classes/html_chunk.xsl</htmlCustomization>
 					<sourceDirectory>${basedir}/target/docbook</sourceDirectory>
+					<targetDirectory>${basedir}/target/html</targetDirectory>
 					<includes>book.xml</includes>
 					<xincludeSupported>true</xincludeSupported>
+					<chunkedOutput>true</chunkedOutput>
+					<chunkSectionDepth>1</chunkSectionDepth>
+					<postProcess>
+						<copy todir="${project.build.directory}/html/images">
+							<fileset dir="${basedir}/src/main/resources/images" />
+						</copy>
+						<copy todir="${project.build.directory}/html/figs/web">
+							<fileset dir="target/docbook/figs/web" />
+						</copy>
+					</postProcess>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -96,7 +90,6 @@
 									<groupId>${project.groupId}</groupId>
 									<artifactId>cjcook-content</artifactId>
 									<version>${project.version}</version>
-									<type>docbook</type>
 								</artifactItem>
 							</artifactItems>
 							<outputDirectory>${basedir}/target/docbook</outputDirectory>
@@ -104,61 +97,21 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+				  <classesDirectory>${basedir}/target/html</classesDirectory>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>2.0.1</version>
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>project-team</report>
-							<report>license</report>
-							<report>mailing-list</report>
-							<report>summary</report>
-							<report>cim</report>
-						</reports>
-					</reportSet>
-				</reportSets>
-			</plugin>
-		</plugins>
-	</reporting>
-	<profiles>
-		<profile>
-			<id>publish</id>
-			<distributionManagement>
-				<site>
-					<id>discursive-site</id>
-					<name>Discursive Site</name>
-					<url>scp://tobrien@mars.discursive.com/var/www/html/www.discursive.com/books/cjcook/</url>
-				</site>
-			</distributionManagement>
-			<properties>
-			</properties>
-		</profile>
-		<profile>
-			<id>stage</id>
-			<distributionManagement>
-				<site>
-					<id>discursive-site</id>
-					<name>Discursive Site</name>
-					<url>scp://tobrien@mars.discursive.com/var/www/html/www.discursive.com/books/cjcook-stage/</url>
-				</site>
-			</distributionManagement>
-			<properties>
-			</properties>
-		</profile>
-	</profiles>
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>cjcook-content</artifactId>
 			<version>${project.version}</version>
-			<type>docbook</type>
 		</dependency>
 	</dependencies>
 </project>
