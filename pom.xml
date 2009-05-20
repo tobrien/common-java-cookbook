@@ -52,6 +52,7 @@
           <autoVersionSubmodules>true</autoVersionSubmodules>
           <goals>clean compile install site-deploy</goals>
           <releaseProfiles>publish</releaseProfiles>
+	  <preparationGoals>clean install</preparationGoals>
           <useReleaseProfile>false</useReleaseProfile>
         </configuration>
 	  </plugin>
