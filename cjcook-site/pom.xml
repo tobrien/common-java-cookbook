@@ -13,7 +13,6 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>com.discursive.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
