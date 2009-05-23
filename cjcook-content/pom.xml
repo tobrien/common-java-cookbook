@@ -93,18 +93,6 @@
         </properties>
       </profile>
   </profiles>
-  <distributionManagement>
-  	<repository>
-  		<id>cjcook-releases</id>
-  		<name>Common Java Cookbook Release Repository</name>
-  		<url>https://dav.codehaus.org/repository/cjcook/</url>
-  	</repository>
-  	<snapshotRepository>
-  		<id>cjcook-snapshots</id>
-  		<name>Common Java Cookbook Snapshots Repository</name>
-  		<url>https://dav.codehaus.org/snapshots.repository/cjcook/</url>
-  	</snapshotRepository>
-  </distributionManagement>
 <!--  <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
