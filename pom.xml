@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.discursive.cjcook</groupId>
-  <artifactId>book</artifactId>
+  <artifactId>cjcook-parent</artifactId>
   <version>0.17-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Common Java Cookbook</name>
@@ -81,7 +81,6 @@
       </plugin>
     </plugins>
   </build>
-  
   <profiles>
     <profile>
       <id>publish</id>
@@ -112,15 +111,15 @@
 	<developerConnection>scm:git:git@github.com:tobrien/common-java-cookbook.git</developerConnection>	
   </scm>
   <distributionManagement>
-    <repository>
-      <id>local.repo</id>
-      <name>file repository to svn</name>
-      <url>file://${user.home}/mavenrepo</url>
+     <repository>
+      <id>cjcook-releases</id>
+      <name>Common Java Cookbook M2 Repository</name>
+      <url>dav:https://dav.codehaus.org/repository/cjcook/</url>
     </repository>
     <snapshotRepository>
-      <id>local.repo</id>
-      <name>file repository to svn</name>
-      <url>file://${user.home}/mavenreposnapshot</url>    
+      <id>cjcook-snapshots</id>
+      <name>Common Java Cookbook Snapshots M2 Repository</name>
+      <url>dav:https://dav.codehaus.org/snapshots.repository/cjcook/</url>
     </snapshotRepository>
   </distributionManagement>  
 </project>
