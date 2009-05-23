@@ -143,6 +143,11 @@
         </properties>
       </profile>
   </profiles>
+  <parent>
+  	<artifactId>cjcook-parent</artifactId>
+  	<groupId>com.discursive.cjcook</groupId>
+  	<version>0.17-SNAPSHOT</version>
+  </parent>
   <build>
     <plugins>
       <plugin>
