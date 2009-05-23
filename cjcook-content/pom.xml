@@ -10,7 +10,7 @@
   <name>Common Java Cookbook DocBook XML Content</name>
   <description>A Common Cookbook for Java</description>
   <build>
-    <sourceDirectory>src/main/docbook</sourceDirectory>
+    <sourceDirectory>src/main/resources</sourceDirectory>
 <!--    <testSourceDirectory>src/test/flex</testSourceDirectory> -->
     <resources>
       <resource>
@@ -34,6 +34,15 @@
         <artifactId>docbook-plugin</artifactId>
         <version>1.0-SNAPSHOT</version>
         <extensions>true</extensions>
+        <executions>
+        	<execution>
+        		<id>validate-chapters</id>
+        		<phase>test</phase>
+        		<goals>
+        			<goal>validate-chapter-ids</goal>
+        		</goals>
+        	</execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

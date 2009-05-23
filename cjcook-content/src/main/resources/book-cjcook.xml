@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book id="cjcook">
+  <title>${book.title}</title>
 <bookinfo>
   <isbn>9780596007065</isbn>
 
@@ -53,3 +55,21 @@
 
   <!--  offlinecontentlist to be filled in by sfmetafetch  -->
 </bookinfo>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="preface-copyright.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="preface-foreword.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="preface-cjcook-preface.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-lang.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-manipulate-text.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-beans.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-functors.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-collections.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-xml.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-app-infra.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-math.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-templating.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-io-network.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-http-webdav.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-searching-filtering.xml"/>
+  <index/>
+</book>

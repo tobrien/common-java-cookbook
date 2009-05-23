@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<preface id="jakartackbk-PREFACE-1" role="copyrightpg">
+<preface id="copyright" role="copyrightpg">
   <title>Copyright and License</title>
 
   <para>Copyright © ${copyright.year} ${organization.name}. Some rights
@@ -23,7 +23,7 @@
   or for damages resulting from the use of the information contained
   herein.</para>
 
-  <section>
+  <section id="copyright-sect-creative-commons">
     <title>Creative Commons BY-NC-ND 3.0 US License</title>
 
     <para><ulink
