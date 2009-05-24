@@ -65,7 +65,7 @@
 				<configuration>
 					<sourceDirectory>${basedir}/target/docbook</sourceDirectory>
 					<targetDirectory>${basedir}/target</targetDirectory>
-					<includes>book.xml</includes>
+					<includes>book-cjcook.xml</includes>
 					<xincludeSupported>true</xincludeSupported>
 					<imgSrcPath>${basedir}/target/docbook/</imgSrcPath>
 					<foCustomization>${basedir}/target/classes/fopdf.xsl</foCustomization>
@@ -104,7 +104,7 @@
 				    	<goal>install-file</goal>
 				    </goals>
 				    <configuration>
-				    	<file>${basedir}/target/book.pdf</file>
+				    	<file>${basedir}/target/book-cjcook.pdf</file>
 				    	<groupId>${groupId}</groupId>
 				    	<artifactId>${artifactId}</artifactId>
 				    	<version>${version}</version>
@@ -124,7 +124,7 @@
 				    	<goal>deploy-file</goal>
 				    </goals>
 				    <configuration>
-				    	<file>${basedir}/target/book.pdf</file>
+				    	<file>${basedir}/target/book-cjcook.pdf</file>
 				    	<groupId>${groupId}</groupId>
 				    	<artifactId>${artifactId}</artifactId>
 				    	<version>${version}</version>
