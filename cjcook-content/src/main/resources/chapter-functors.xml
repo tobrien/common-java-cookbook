@@ -115,7 +115,7 @@
       following dependency to your project's
       <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="functors-ex-add-depend-collections">
         <title>Adding a Dependency on Commons Collections</title>
 
         <programlisting>    &lt;dependency&gt;
@@ -227,7 +227,7 @@ int comparison = myComparator.compare( book1, book2 );
     <sect2>
       <title>Discussion</title>
 
-      <para><link linkend="functors-EX-1">Example 4-1</link> is an
+      <para><link linkend="functors-ex-1">Example 4-1</link> is an
       implementation of a <literal moreinfo="none">Comparator</literal> that
       is reversed using the <literal
       moreinfo="none">ReverseComparator</literal>. This <literal
@@ -239,7 +239,7 @@ int comparison = myComparator.compare( book1, book2 );
       in a list sorted alphabetically by book name and author name; if two
       books have the same name, they are sorted by author name.</para>
 
-      <example id="functors-EX-1" label="4-1">
+      <example id="functors-ex-1" label="4-1">
         <title>A Comparator that compares Book objects by name and
         author</title>
 
@@ -280,10 +280,10 @@ public class BookComparator implements Comparator {
 }</programlisting>
       </example>
 
-      <para><link linkend="functors-EX-2">Example 4-2</link> sorts an array of
+      <para><link linkend="functors-ex-2">Example 4-2</link> sorts an array of
       <literal moreinfo="none">Book</literal> objects in reverse order.</para>
 
-      <example id="functors-EX-2" label="4-2">
+      <example id="functors-ex-2" label="4-2">
         <title>Using ReverseComparator to sort Book objects</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.compare;
@@ -773,12 +773,12 @@ athlete2.getMedal( ) );</programlisting>
       moreinfo="none">FixedOrderComparator</literal> and a <literal
       moreinfo="none">BeanComparator</literal>; A <literal
       moreinfo="none">PlayingCard</literal> object, defined in <link
-      linkend="functors-EX-3">Example 4-3</link>, is sorted according to the
+      linkend="functors-ex-3">Example 4-3</link>, is sorted according to the
       order of two arrays—one for the face value of the <literal
       moreinfo="none">PlayingCard</literal> and one for the suit of the
       <literal moreinfo="none">PlayingCard</literal>.</para>
 
-      <example id="functors-EX-3" label="4-3">
+      <example id="functors-ex-3" label="4-3">
         <title>A bean representing a playing card</title>
 
         <programlisting format="linespecific">package org.discursive.jccook.collections.compare;
@@ -813,7 +813,7 @@ public class PlayingCard( ) {
 }</programlisting>
       </example>
 
-      <para><link linkend="functors-EX-4">Example 4-4</link> creates a
+      <para><link linkend="functors-ex-4">Example 4-4</link> creates a
       <literal moreinfo="none">ComparatorChain</literal> of <literal
       moreinfo="none">BeanComparators</literal>, which compares the <literal
       moreinfo="none">value</literal> and <literal
@@ -828,7 +828,7 @@ public class PlayingCard( ) {
       moreinfo="none">FixedOrderComparator</literal> with a <literal
       moreinfo="none">NullComparator</literal>.</para>
 
-      <example id="functors-EX-4" label="4-4">
+      <example id="functors-ex-4" label="4-4">
         <title>Combining FixedOrderComparator with BeanComparator,
         NullComparator, and ComparatorChain</title>
 
@@ -922,7 +922,7 @@ After sorting: 2S QS 4C JC JD 2H JOKER</programlisting>
       moreinfo="none">faceOrder</literal>. If a shuffled deck were used in the
       example, it would end up as a perfectly sorted deck of cards.</para>
 
-      <para><link linkend="functors-EX-4">Example 4-4</link> ties a number of
+      <para><link linkend="functors-ex-4">Example 4-4</link> ties a number of
       simple <literal moreinfo="none">Comparators</literal> together to
       perform a fairly complex sort. A <literal
       moreinfo="none">FixedOrderComparator</literal> is wrapped in a <literal
@@ -1398,13 +1398,13 @@ System.out.println("'B' Unique?: " + unique.evaluate("B"));</programlisting>
           <primary>methods</primary>
 
           <secondary>evaluate( )</secondary>
-        </indexterm> method. <link linkend="functors-EX-5">Example 4-5</link>
+        </indexterm> method. <link linkend="functors-ex-5">Example 4-5</link>
       is a simple <literal moreinfo="none">Predicate</literal> implementation
       that always returns <literal moreinfo="none">true</literal>; it is
       intended as a basic example of how to implement the <literal
       moreinfo="none">Predicate</literal> interface.</para>
 
-      <example id="functors-EX-5" label="4-5">
+      <example id="functors-ex-5" label="4-5">
         <title>A simple Predicate implementation</title>
 
         <programlisting format="linespecific">import org.apache.commons.collections.Predicate;
@@ -1434,7 +1434,7 @@ public class SimplePredicate implements Predicate {
       <para>To demonstrate the process of writing a fairly complex
       implementation of the <literal moreinfo="none">Predicate</literal>
       interface, a contrived example is developed in <link
-      linkend="functors-EX-6">Example 4-6</link>. Your application evaluates
+      linkend="functors-ex-6">Example 4-6</link>. Your application evaluates
       the condition of the space shuttle and makes a determination for
       launch—go or no go. Some of the criteria include the temperature of the
       launch pad, the status of the crew, and the presence (or absence) of
@@ -1443,7 +1443,7 @@ public class SimplePredicate implements Predicate {
       moreinfo="none">boolean</literal> decision. This decision is implemented
       in the <literal moreinfo="none">LaunchPredicate</literal> class.</para>
 
-      <example id="functors-EX-6" label="4-6">
+      <example id="functors-ex-6" label="4-6">
         <title>Implementing the Predicate interface</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.predicate;
@@ -1690,12 +1690,12 @@ XOR('Tim', not null, or Double?): true</programlisting>
       In the next example, a logic circuit will be used to demonstrate a
       complex hierarchy of <literal moreinfo="none">Predicate</literal>
       objects; a circuit diagram is drawn, and a series of predicates are
-      developed to model this circuit. <link linkend="functors-FIG-1">Figure
+      developed to model this circuit. <link linkend="functors-fig-1">Figure
       4-1</link> contains a logical expression that is implemented with
       digital logic and <literal moreinfo="none">Predicate</literal>
       objects.</para>
 
-      <figure float="0" id="functors-FIG-1" label="4-1">
+      <figure float="0" id="functors-fig-1" label="4-1">
         <title>Logical expression to be modeled with Predicate</title>
 
         <mediaobject id="I_4_tt179">
@@ -1713,10 +1713,10 @@ XOR('Tim', not null, or Double?): true</programlisting>
 
       <para>Assuming that every letter corresponds to a <literal
       moreinfo="none">boolean</literal> variable, this expression corresponds
-      to the circuit diagram in <link linkend="functors-FIG-2">Figure
+      to the circuit diagram in <link linkend="functors-fig-2">Figure
       4-2</link>. Each gate can be modeled as a composite <literal
       moreinfo="none">Predicate</literal>, and from <link
-      linkend="functors-FIG-2">Figure 4-2</link> it is clear that this example
+      linkend="functors-fig-2">Figure 4-2</link> it is clear that this example
       will include two <literal moreinfo="none">AndPredicates</literal>, an
       <literal moreinfo="none">OrPredicate</literal>, and a <literal
       moreinfo="none">NotPredicate</literal>. The "AND" gate is modeled with
@@ -1726,7 +1726,7 @@ XOR('Tim', not null, or Double?): true</programlisting>
       that is modeled with an <literal moreinfo="none">AllPredicate</literal>
       wrapped in a <literal moreinfo="none">NotPredicate</literal>.</para>
 
-      <figure float="0" id="functors-FIG-2" label="4-2">
+      <figure float="0" id="functors-fig-2" label="4-2">
         <title>Circuit representing logical expression</title>
 
         <mediaobject id="I_4_tt180">
@@ -1757,10 +1757,10 @@ XOR('Tim', not null, or Double?): true</programlisting>
         </indexterm> selects a <literal moreinfo="none">boolean</literal>
       value from a <literal moreinfo="none">Map</literal>, always returning
       the value of that input from the <literal moreinfo="none">Map</literal>
-      it evaluates. (See <link linkend="functors-EX-7">Example
+      it evaluates. (See <link linkend="functors-ex-7">Example
       4-7</link>.)</para>
 
-      <example id="functors-EX-7" label="4-7">
+      <example id="functors-ex-7" label="4-7">
         <title>InputPredicate: a predicate that selects an input from a
         Map</title>
 
@@ -1812,7 +1812,7 @@ public class InputPredicate implements Predicate {
           <primary>implementation</primary>
 
           <seealso>configuration</seealso>
-        </indexterm>the circuit. <link linkend="functors-EX-8">Example
+        </indexterm>the circuit. <link linkend="functors-ex-8">Example
       4-8</link> ties everything together, and the logic to create our
       circuit-modeling predicate has been confined to the <literal
       moreinfo="none">createPredicate()</literal> <indexterm
@@ -1824,7 +1824,7 @@ public class InputPredicate implements Predicate {
           <secondary>createPredicate( )</secondary>
         </indexterm> method.</para>
 
-      <example id="functors-EX-8" label="4-8">
+      <example id="functors-ex-8" label="4-8">
         <title>Implementing a multilevel composite Predicate</title>
 
         <indexterm id="functors-ITERM-2367" significance="normal">
@@ -1988,11 +1988,11 @@ Status after transformation: Pat T., Soldier</programlisting>
       of the <literal moreinfo="none">Transformer</literal> interface. The
       Javadoc for <literal moreinfo="none">Transformer</literal> expressly
       states, "The original object is left unchanged." <link
-      linkend="functors-FIG-3">Figure 4-3</link> illustrates the simple
+      linkend="functors-fig-3">Figure 4-3</link> illustrates the simple
       <literal moreinfo="none">joinArmy</literal> <literal
       moreinfo="none">Transformer</literal>.</para>
 
-      <figure float="0" id="functors-FIG-3" label="4-3">
+      <figure float="0" id="functors-fig-3" label="4-3">
         <title>Diagram of the joinArmy Transformer</title>
 
         <mediaobject id="I_4_tt183">
@@ -2116,11 +2116,11 @@ Result: 3401</programlisting>
       moreinfo="none">Transformer</literal>, but this simple example
       demonstrates the mechanics of creating a simple pipeline of
       transformations, one leading to another. <link
-      linkend="functors-FIG-4">Figure 4-4</link> illustrates the simple
+      linkend="functors-fig-4">Figure 4-4</link> illustrates the simple
       structure of this two-staged <literal
       moreinfo="none">ChainedTransformer</literal>.</para>
 
-      <figure float="0" id="functors-FIG-4" label="4-4">
+      <figure float="0" id="functors-fig-4" label="4-4">
         <title>A ChainedTransformer with two Transformers</title>
 
         <mediaobject id="I_4_tt186">
@@ -2185,12 +2185,12 @@ Result: 3401</programlisting>
       parameters: an array of <literal moreinfo="none">Predicate</literal>
       instances, an array of <literal moreinfo="none">Transformer</literal>
       instances, and a default <literal moreinfo="none">Transformer</literal>.
-      <link linkend="functors-EX-9">Example 4-9</link> uses a <literal
+      <link linkend="functors-ex-9">Example 4-9</link> uses a <literal
       moreinfo="none">SwitchTransformer</literal> to apply a different
       <literal moreinfo="none">Transformer</literal> implementation to odd and
       even numbers.</para>
 
-      <example id="functors-EX-9" label="4-9">
+      <example id="functors-ex-9" label="4-9">
         <title>Using a SwitchTransformer</title>
 
         <programlisting format="linespecific">Transformer oddTransform = new Transformer( ) {
@@ -2278,18 +2278,18 @@ Transform of 4 = 12</programlisting>
       moreinfo="none">SwitchTransformer</literal> passes the object being
       transformed to the third parameter—the default <literal
       moreinfo="none">Transformer</literal>. In <link
-      linkend="functors-EX-9">Example 4-9</link>, the default <literal
+      linkend="functors-ex-9">Example 4-9</link>, the default <literal
       moreinfo="none">Transformer</literal> was a <literal
       moreinfo="none">NOPTransformer</literal>, which is a <literal
       moreinfo="none">Transformer</literal> implementation that performs no
       transformation and returns the object passed to <literal
       moreinfo="none">transform()</literal>. <link
-      linkend="functors-FIG-5">Figure 4-5</link> illustrates the <literal
+      linkend="functors-fig-5">Figure 4-5</link> illustrates the <literal
       moreinfo="none">SwitchTransformer</literal> from the Solution; the two
       <literal moreinfo="none">Predicate</literal> instances correspond to two
       <literal moreinfo="none">Transformer</literal> instances.</para>
 
-      <figure float="0" id="functors-FIG-5" label="4-5">
+      <figure float="0" id="functors-fig-5" label="4-5">
         <title>A SwitchTransform with two Predicate instances, two Transformer
         instances, and a default Transformer</title>
 

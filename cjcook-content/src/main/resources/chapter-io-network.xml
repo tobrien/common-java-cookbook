@@ -96,7 +96,7 @@
       <para>To use Commons IO in a Maven 2 project, add the following
       dependency to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="io-network-ex-add-depend-io">
         <title>Adding a Dependency on Commons IO</title>
 
         <programlisting>    &lt;dependency&gt;
@@ -1410,7 +1410,7 @@ try {
       <para>To use Jakarta ORO in a Maven 2 project, add the following
       dependency to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="io-network-ex-add-depend-oro">
         <title>Adding a Dependency on Commons ORO</title>
 
         <programlisting>    &lt;dependency&gt;
@@ -1572,7 +1572,7 @@ File[] tldFiles = dataDir.listFiles( regexFilter );</programlisting>
       <para>To use Commons Net in a Maven 2 project, add the following
       dependency to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="io-network-ex-add-depend-net">
         <title>Adding a Dependency on Commons Net</title>
 
         <programlisting>    &lt;dependency&gt;

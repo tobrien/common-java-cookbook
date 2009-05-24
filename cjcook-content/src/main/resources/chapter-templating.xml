@@ -254,7 +254,7 @@ There are a few things I would like to tell you.
       <para>To use Commons JEXL in a Maven 2 project, add the following
       dependency to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="templating-ex-add-jexl-depend">
         <title>Adding a Dependency on Commons JEXL</title>
 
         <programlisting>&lt;dependency&gt;
@@ -960,7 +960,7 @@ while( ballsIter.hasNext( ) ) {
       <para>To use Velocity in a Maven 2 project, add the following dependency
       to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="templating-ex-add-depend-velocity">
         <title>Adding a Dependency on Velocity</title>
 
         <programlisting>    &lt;dependency&gt;
@@ -1917,7 +1917,7 @@ engine.init( "conf/velocity.properties" );</programlisting>
       <para>To use Freemarker in a Maven 2 project, add the following
       dependency to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="templating-ex-add-depend-beanutils">
         <title>Adding a Dependency on Commons BeanUtils</title>
 
         <programlisting>    &lt;dependency&gt;

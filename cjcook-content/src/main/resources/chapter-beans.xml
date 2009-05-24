@@ -51,7 +51,7 @@
     still relevant, but, when used in the context of this book, the term
     <filename moreinfo="none">bean</filename> is any object with a no-argument
     constructor, which encapsulates access to private member variables via
-    getter and setter methods. <link linkend="beans-EX-1">Example 3-1</link>
+    getter and setter methods. <link linkend="beans-ex-1">Example 3-1</link>
     defines a bean, <literal moreinfo="none">SimpleBean</literal> <indexterm
         id="beans-ITERM-2104" significance="normal">
         <primary>SimpleBean</primary>
@@ -59,7 +59,7 @@
     moreinfo="none">name1</literal> and <literal
     moreinfo="none">name2</literal>.</para>
 
-    <example id="beans-EX-1" label="3-1">
+    <example id="beans-ex-1" label="3-1">
       <title>Sample bean</title>
 
       <programlisting format="linespecific">package org.test.bean;
@@ -135,7 +135,7 @@ public class SimpleBean {
       <para>To use Commons BeanUtils in a Maven 2 project, add the following
       dependency to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="beans-ex-add-depend-beanutils">
         <title>Adding a Dependency on Commons BeanUtils</title>
 
         <programlisting>    &lt;dependency&gt;
@@ -303,11 +303,11 @@ System.out.println( name );</programlisting>
           <primary>write methods</primary>
         </indexterm>for the named property. The <literal
       moreinfo="none">Person</literal> bean in <link
-      linkend="beans-EX-4">Example 3-4</link> defines two simple bean
+      linkend="beans-ex-4">Example 3-4</link> defines two simple bean
       properties, <literal moreinfo="none">name</literal> and <literal
       moreinfo="none">favoriteColor</literal>.</para>
 
-      <example id="beans-EX-4" label="3-4">
+      <example id="beans-ex-4" label="3-4">
         <title>A Person bean with two simple properties</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.bean;
@@ -330,7 +330,7 @@ public class Person {
 }</programlisting>
       </example>
 
-      <para>The class defined in <link linkend="beans-EX-4">Example 3-4</link>
+      <para>The class defined in <link linkend="beans-ex-4">Example 3-4</link>
       is used in the following sample code, which creates a <literal
       moreinfo="none">Person</literal> object, sets the <literal
       moreinfo="none">name</literal> and <literal
@@ -516,12 +516,12 @@ Waldo Emerson".</programlisting>
       moreinfo="none">Book</literal> and the property <literal
       moreinfo="none">name</literal>, which is nested in the <literal
       moreinfo="none">author</literal> property. <link
-      linkend="beans-FIG-3">Figure 3-3</link> shows the <literal
+      linkend="beans-fig-3">Figure 3-3</link> shows the <literal
       moreinfo="none">Book</literal> and <literal
       moreinfo="none">Person</literal> beans that were used in the previous
       example.</para>
 
-      <figure float="0" id="beans-FIG-3" label="3-3">
+      <figure float="0" id="beans-fig-3" label="3-3">
         <title>Structure of two simple beans: Book and Person</title>
 
         <mediaobject id="I_3_tt118">
@@ -843,12 +843,12 @@ apartment.setRooms( rooms );
       moreinfo="none">getMappedProperty( )</literal> is the equivalent of
       calling <literal moreinfo="none">apartment.getRooms(
       ).get("Dining</literal> <literal moreinfo="none">Room")</literal>. <link
-      linkend="beans-FIG-4">Figure 3-4</link> illustrates the structure and
+      linkend="beans-fig-4">Figure 3-4</link> illustrates the structure and
       relationship of these two beans used, <literal
       moreinfo="none">Apartment</literal> and <literal
       moreinfo="none">Room</literal>.</para>
 
-      <figure float="0" id="beans-FIG-4" label="3-4">
+      <figure float="0" id="beans-fig-4" label="3-4">
         <title>Diagram of the Apartment and Room beans</title>
 
         <mediaobject id="I_3_tt125">
@@ -1041,13 +1041,13 @@ country.setRegions( regions );
 City city = (City) region.getCities( ).get("Richmond");
 Long population = city.getPopulation( );</programlisting>
 
-      <para><link linkend="beans-FIG-5">Figure 3-5</link> displays the
+      <para><link linkend="beans-fig-5">Figure 3-5</link> displays the
       structure of these three beans: <literal
       moreinfo="none">Country</literal>, <literal
       moreinfo="none">Region</literal>, and <literal
       moreinfo="none">City</literal>.</para>
 
-      <figure float="0" id="beans-FIG-5" label="3-5">
+      <figure float="0" id="beans-fig-5" label="3-5">
         <title>The Country, Region, and City beans</title>
 
         <mediaobject id="I_3_tt129">
@@ -1344,11 +1344,11 @@ while( countryIterator.hasNext( ) ) {
       the use of <literal moreinfo="none">BeanComparator</literal> with a
       custom <literal moreinfo="none">Comparator</literal> implementation.
       This example involves two objects shown in <link
-      linkend="beans-FIG-6">Figure 3-6</link>: <literal
+      linkend="beans-fig-6">Figure 3-6</link>: <literal
       moreinfo="none">ElectricVehicle</literal> and <literal
       moreinfo="none">Engine</literal>.</para>
 
-      <figure float="0" id="beans-FIG-6" label="3-6">
+      <figure float="0" id="beans-fig-6" label="3-6">
         <title>Objects involved in a sorting example</title>
 
         <mediaobject id="I_3_tt137">
@@ -1370,11 +1370,11 @@ while( countryIterator.hasNext( ) ) {
       gallon times the percentage of electric operation; an 80% electric
       hybrid vehicle is more efficient than a 25% electric hybrid vehicle with
       the same mileage because of reduced emissions. The code fragments shown
-      in <link linkend="beans-EX-5">Example 3-5</link> sort a collection of
+      in <link linkend="beans-ex-5">Example 3-5</link> sort a collection of
       beans by wrapping a custom <literal moreinfo="none">Comparator</literal>
       with a <literal moreinfo="none">BeanComparator</literal>.</para>
 
-      <example id="beans-EX-5" label="3-5">
+      <example id="beans-ex-5" label="3-5">
         <title>Decorating a Comparator with a BeanComparator</title>
 
         <programlisting format="linespecific">import java.util.*;
@@ -2421,13 +2421,13 @@ Property: Occupation, Value: Developer, Type: java.lang.String</programlisting>
         </tgroup>
       </table>
 
-      <para><link linkend="beans-EX-6">Example 3-6</link> demonstrates the use
+      <para><link linkend="beans-ex-6">Example 3-6</link> demonstrates the use
       of the methods listed above to manipulate and alter properties of a
       <literal moreinfo="none">Person</literal> bean. Remember, when you alter
       a <literal moreinfo="none">BeanMap</literal>, you are modifying the
       underlying bean.</para>
 
-      <example id="beans-EX-6" label="3-6">
+      <example id="beans-ex-6" label="3-6">
         <title>BeanMap methods getBean( ), setBean( ), getType( ),
         getReadMethod( ), and getWriteMethod( )</title>
 
@@ -2775,13 +2775,13 @@ person.setOccupation( "Salesman" );
       sets any properties on the relevant <literal
       moreinfo="none">ActionForm</literal>. Because the inner workings of
       Struts are outside the scope of this book, <link
-      linkend="beans-EX-7">Example 3-7</link> takes a <literal
+      linkend="beans-ex-7">Example 3-7</link> takes a <literal
       moreinfo="none">String</literal> input from <literal
       moreinfo="none">System.in</literal> and sets the <literal
       moreinfo="none">age</literal> property of <literal
       moreinfo="none">Person</literal>.</para>
 
-      <example id="beans-EX-7" label="3-7">
+      <example id="beans-ex-7" label="3-7">
         <title>Using BeanUtils to populate a bean from user input</title>
 
         <indexterm id="beans-ITERM-2287" significance="normal">

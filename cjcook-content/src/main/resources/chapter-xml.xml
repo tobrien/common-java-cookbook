@@ -112,7 +112,7 @@
       <para>To use Commons Digester in a Maven 2 project, add the following
       dependency to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="xml-ex-adding-depend">
         <title>Adding a Dependency on Commons Digester</title>
 
         <programlisting>    &lt;dependency&gt;
@@ -1320,7 +1320,7 @@ Email To: ldavid@hbo.com</programlisting>
       <para>To use Commons Betwixt in a Maven 2 project, add the following
       dependency to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="xml-ex-add-depend-betwixt">
         <title>Adding a Dependency on Commons Betwixt</title>
 
         <programlisting>    &lt;dependency&gt;

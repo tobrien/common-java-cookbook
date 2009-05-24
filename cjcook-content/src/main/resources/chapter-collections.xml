@@ -77,7 +77,7 @@
       following dependency to your project's
       <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="collections-ex-add-depend-collection">
         <title>Adding a Dependency on Commons Collections</title>
 
         <programlisting>    &lt;dependency&gt;
@@ -607,10 +607,10 @@ while( majorQuakes.hasMore( ) ) {
           <primary>beans</primary>
 
           <secondary>EarthQuake</secondary>
-        </indexterm> bean defined in <link linkend="collections-EX-1">Example
+        </indexterm> bean defined in <link linkend="collections-ex-1">Example
       5-1</link>.</para>
 
-      <example id="collections-EX-1" label="5-1">
+      <example id="collections-ex-1" label="5-1">
         <title>An EarthQuake bean</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.predicates;
@@ -645,10 +645,10 @@ public class EarthQuake {
       moreinfo="none">EarthQuake</literal> objects, returning <literal
       moreinfo="none">true</literal> if an earthquake satisfies the criteria
       for a major earthquake. The <literal moreinfo="none">Predicate</literal>
-      defined in <link linkend="collections-EX-2">Example 5-2</link>
+      defined in <link linkend="collections-ex-2">Example 5-2</link>
       encapsulates this decision logic.</para>
 
-      <example id="collections-EX-2" label="5-2">
+      <example id="collections-ex-2" label="5-2">
         <title>Major earthquake classification Predicate</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.predicates;
@@ -1028,11 +1028,11 @@ Counts: TEST1: 99, TEST2: 490</programlisting>
       are in stock, and a <literal moreinfo="none">Bag</literal> is
       appropriate because it allows you to keep track of the cardinality of an
       object in a <literal moreinfo="none">Collection</literal>. In <link
-      linkend="collections-EX-3">Example 5-3</link>, a record store tracks an
+      linkend="collections-ex-3">Example 5-3</link>, a record store tracks an
       inventory of albums, consisting of 200 Radiohead albums, 100 Kraftwerk
       albums, 500 Charlie Parker albums, and 900 ABBA albums.</para>
 
-      <example id="collections-EX-3" label="5-3">
+      <example id="collections-ex-3" label="5-3">
         <title>Using a Bag to track inventory</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.bag;
@@ -1205,7 +1205,7 @@ public class BagExample {
           <primary>methods</primary>
 
           <secondary>removeAll( )</secondary>
-        </indexterm>method. <link linkend="collections-EX-3">Example
+        </indexterm>method. <link linkend="collections-ex-3">Example
       5-3</link> prints the inventory before and after the three customer
       transactions, summarizing the result of each:</para>
 
@@ -1255,7 +1255,7 @@ Inventory after Transactions
       moreinfo="none">removeAll( )</literal> with three <literal
       moreinfo="none">Album</literal> objects will remove only the specified
       number of each <literal moreinfo="none">Album</literal> object. In <link
-      linkend="collections-EX-3">Example 5-3</link>, the <literal
+      linkend="collections-ex-3">Example 5-3</link>, the <literal
       moreinfo="none">checkout( )</literal> method uses <literal
       moreinfo="none">removeAll( )</literal> to remove albums from the
       inventory. A call to <literal moreinfo="none">containsAll( )</literal>
@@ -1263,7 +1263,7 @@ Inventory after Transactions
       moreinfo="none">Bag</literal> contains a number greater than or equal to
       the cardinality specified in the <literal
       moreinfo="none">Collection</literal>. In <link
-      linkend="collections-EX-3">Example 5-3</link>, the <literal
+      linkend="collections-ex-3">Example 5-3</link>, the <literal
       moreinfo="none">checkout( )</literal> method uses <literal
       moreinfo="none">containsAll( )</literal> to see if there is sufficient
       inventory to satisfy an order. These violations should not keep you from
@@ -1396,11 +1396,11 @@ value = (String) buffer.remove( );</programlisting>
         </indexterm> FIFO buffer has no size limit, and, as such, it could
       grow to a limitless size. In fact, if an application continued to fill
       an unbounded buffer, it would exhaust available memory. <link
-      linkend="collections-FIG-1">Figure 5-1</link> describes a FIFO buffer as
+      linkend="collections-fig-1">Figure 5-1</link> describes a FIFO buffer as
       a linear sequence of elements: items flow through this sequence from
       left to right.</para>
 
-      <figure float="0" id="collections-FIG-1" label="5-1">
+      <figure float="0" id="collections-fig-1" label="5-1">
         <title>A FIFO buffer</title>
 
         <mediaobject id="I_5_tt220">
@@ -1431,11 +1431,11 @@ value = (String) buffer.remove( );</programlisting>
       moreinfo="none">BufferOverflowException</literal> <indexterm
           id="collections-ITERM-2497" significance="normal">
           <primary>BufferOverflowException</primary>
-        </indexterm>. <link linkend="collections-EX-4">Example 5-4</link>
+        </indexterm>. <link linkend="collections-ex-4">Example 5-4</link>
       demonstrates the use of a bounded buffer with a maximum size limit of
       two.</para>
 
-      <example id="collections-EX-4" label="5-4">
+      <example id="collections-ex-4" label="5-4">
         <title>Using a BoundedFifoBuffer</title>
 
         <programlisting format="linespecific">import org.apache.commons.collections.Buffer;
@@ -1630,7 +1630,7 @@ Value: 1</programlisting>
       moreinfo="none">name</literal>, <literal
       moreinfo="none">severity</literal>, and <literal
       moreinfo="none">checkIn</literal> properties, which is defined in <link
-      linkend="collections-EX-5">Example 5-5</link>. A patient's severity is a
+      linkend="collections-ex-5">Example 5-5</link>. A patient's severity is a
       number from 0 to 10, 0 being the lowest severity and 10 being the
       highest. A critical patient would be assigned a priority of 10, and a
       patient with a bad cold would be assigned a severity of 0. A patient
@@ -1639,7 +1639,7 @@ Value: 1</programlisting>
       to determine priority when two patients have the same <literal
       moreinfo="none">severity</literal>.</para>
 
-      <example id="collections-EX-5" label="5-5">
+      <example id="collections-ex-5" label="5-5">
         <title>A Patient object</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.buffers;
@@ -1670,7 +1670,7 @@ public class Patient {
           <primary>Comparators</primary>
 
           <secondary>PatientPriorityComparator</secondary>
-        </indexterm>in <link linkend="collections-EX-6">Example 5-6</link>
+        </indexterm>in <link linkend="collections-ex-6">Example 5-6</link>
       prioritizes patients by severity of condition and time since check-in. A
       patient with a more severe condition takes priority over a patient with
       a less severe condition who has been waiting longer, and, if two
@@ -1681,7 +1681,7 @@ public class Patient {
       patient would be at the last index, and the least critical would be at
       the first index.</para>
 
-      <example id="collections-EX-6" label="5-6">
+      <example id="collections-ex-6" label="5-6">
         <title>A Comparator to sort Patient objects by priority</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.buffers;
@@ -1726,7 +1726,7 @@ public PatientPriorityComparator implements Comparator {
       moreinfo="none">Buffer</literal>; it takes care of the sorting and
       selecting on an as-needed basis.</para>
 
-      <para><link linkend="collections-EX-7">Example 5-7</link> adds three
+      <para><link linkend="collections-ex-7">Example 5-7</link> adds three
       <literal moreinfo="none">Patient</literal> objects to a <literal
       moreinfo="none">PriorityBuffer</literal>: John Doe 1 has an ear ache,
       John Doe 2 has a broken back, and Jane Doe 3 has a concussion. Both John
@@ -1735,7 +1735,7 @@ public PatientPriorityComparator implements Comparator {
       condition is not nearly as critical; therefore, his priority is much
       lower, and he is treated last.</para>
 
-      <example id="collections-EX-7" label="5-7">
+      <example id="collections-ex-7" label="5-7">
         <title>Using a prioritizing buffer</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.buffers;
@@ -1858,7 +1858,7 @@ Patient: John Doe 1</programlisting>
       demonstrated by an example that deals with multiple threads, and the
       following code uses a <literal moreinfo="none">Runnable</literal>
       implementation, <literal moreinfo="none">BufferListener</literal>, which
-      is defined in <link linkend="collections-EX-8">Example
+      is defined in <link linkend="collections-ex-8">Example
       5-8</link>:</para>
 
       <programlisting format="linespecific" id="I_5_tt224">import java.util.*;
@@ -1908,7 +1908,7 @@ buffer.add( "Goodbye, Y'all." );</programlisting>
       objects to be added to a <literal
       moreinfo="none">BlockingBuffer</literal>.</para>
 
-      <example id="collections-EX-8" label="5-8">
+      <example id="collections-ex-8" label="5-8">
         <title>A BufferListener constantly calling remove( )</title>
 
         <programlisting format="linespecific">public class BufferListener implements Runnable {
@@ -1947,9 +1947,9 @@ Goodbye, Y'all.</programlisting>
       Think of this pattern as a stepped waterfall; water automatically flows
       down the steps, and each step is a <literal
       moreinfo="none">Buffer</literal>. (See <link
-      linkend="collections-FIG-2">Figure 5-2</link>.)</para>
+      linkend="collections-fig-2">Figure 5-2</link>.)</para>
 
-      <figure float="0" id="collections-FIG-2" label="5-2">
+      <figure float="0" id="collections-fig-2" label="5-2">
         <title>Using a BlockingBuffer to create a pipeline</title>
 
         <mediaobject id="I_5_tt226">
@@ -2025,12 +2025,12 @@ published.add( newsStory );</programlisting>
       moreinfo="none">inbound</literal> and <literal
       moreinfo="none">outbound</literal>. The <literal
       moreinfo="none">Indexer</literal>, as shown in <link
-      linkend="collections-EX-9">Example 5-9</link>, continuously calls
+      linkend="collections-ex-9">Example 5-9</link>, continuously calls
       <literal moreinfo="none">remove( )</literal> on a <literal
       moreinfo="none">BlockingBuffer</literal> and waits until a story is
       available to process.</para>
 
-      <example id="collections-EX-9" label="5-9">
+      <example id="collections-ex-9" label="5-9">
         <title>An Indexer stage in a pipeline</title>
 
         <programlisting format="linespecific">public class Indexer implements Runnnable {
@@ -2206,7 +2206,7 @@ Key: TWO, Value: PICNIC. Value: Testimony</programlisting>
       <literal moreinfo="none">MultiMap</literal>, a specific key/value pair
       can be removed from a key's value collection. When removing a specific
       pair, the value is extracted from a key's value collection. <link
-      linkend="collections-EX-10">Example 5-10</link> demonstrates the use of
+      linkend="collections-ex-10">Example 5-10</link> demonstrates the use of
       a <literal moreinfo="none">MultiMap.remove()</literal> <indexterm
           id="collections-ITERM-2543" significance="normal">
           <primary>MultiMap.remove( ) method</primary>
@@ -2217,7 +2217,7 @@ Key: TWO, Value: PICNIC. Value: Testimony</programlisting>
           <secondary>MultiMap.remove( )</secondary>
         </indexterm> method.</para>
 
-      <example id="collections-EX-10" label="5-10">
+      <example id="collections-ex-10" label="5-10">
         <title>Using MultiMap.remove( )</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.map;
@@ -2391,7 +2391,7 @@ String illinoisName = bidiMap.get( "il" );</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>In <link linkend="collections-EX-11">Example 5-11</link>, a
+      <para>In <link linkend="collections-ex-11">Example 5-11</link>, a
       <literal moreinfo="none">BidiMap</literal> is used to store country
       names and country codes; an application stores ISO country codes and
       translates between ISO country codes and country names to present
@@ -2400,7 +2400,7 @@ String illinoisName = bidiMap.get( "il" );</programlisting>
       needs to be able to produce the country code for that country
       name—"United States" must be translated back to "us."</para>
 
-      <example id="collections-EX-11" label="5-11">
+      <example id="collections-ex-11" label="5-11">
         <title>Storing ISO country codes in a BidiMap</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.bidi;
@@ -2630,14 +2630,14 @@ String grade2 = (String) grades.get( "FLATT" );</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para><link linkend="collections-EX-12">Example 5-12</link> demonstrates
+      <para><link linkend="collections-ex-12">Example 5-12</link> demonstrates
       the use of <literal moreinfo="none">CaseInsensitiveMap</literal> to
       access state names by state abbreviations regardless of capitalization.
       This is useful when an application is requesting a state from a user in
       a form to capture an address. If a user enters "il," "IL," or "Il," you
       need to be able to return "Illinois."</para>
 
-      <example id="collections-EX-12" label="5-12">
+      <example id="collections-ex-12" label="5-12">
         <title>Using a CaseInsensitiveMap for U.S. states</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.insensitive;
@@ -2673,7 +2673,7 @@ public class CaseInsensitiveExample {
 }</programlisting>
       </example>
 
-      <para><link linkend="collections-EX-12">Example 5-12</link> populates a
+      <para><link linkend="collections-ex-12">Example 5-12</link> populates a
       <literal moreinfo="none">CaseInsensitiveMap</literal> with state
       abbreviations and state names, and it retrieves the state name for three
       different capitalizations of "IL": "iL," "IL," and "il." For all three
@@ -2871,13 +2871,13 @@ typedMap.put( "BLAH", "BLAH" );</programlisting>
       moreinfo="none">TypedList</literal> decorates and returns a <literal
       moreinfo="none">List</literal>, and <literal
       moreinfo="none">TypedSet</literal> decorates and returns a <literal
-      moreinfo="none">Set</literal>. <link linkend="collections-EX-13">Example
+      moreinfo="none">Set</literal>. <link linkend="collections-ex-13">Example
       5-13</link> demonstrates the use of the <literal
       moreinfo="none">TypedList</literal> decorator to return a <literal
       moreinfo="none">List</literal> instead of a <literal
       moreinfo="none">Collection</literal>.</para>
 
-      <example id="collections-EX-13" label="5-13">
+      <example id="collections-ex-13" label="5-13">
         <title>Using TypedList to decorate a list</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.typed;
@@ -2942,13 +2942,13 @@ public class TypedListExample {
       <literal moreinfo="none">null</literal> value for the value type. To
       create a <literal moreinfo="none">Map</literal> that only validates the
       type of the value, pass in a <literal moreinfo="none">null</literal> for
-      the key type. <link linkend="collections-EX-14">Example 5-14</link> uses
+      the key type. <link linkend="collections-ex-14">Example 5-14</link> uses
       <literal moreinfo="none">TypedMap.decorate( )</literal> to create a
       <literal moreinfo="none">Map</literal> that only accepts <literal
       moreinfo="none">String</literal> keys and <literal
       moreinfo="none">Number</literal> values.</para>
 
-      <example id="collections-EX-14" label="5-14">
+      <example id="collections-ex-14" label="5-14">
         <title>Decorating a map with TypedMap</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.typed;
@@ -3222,8 +3222,8 @@ try {
       and the coach. These two custom predicates (<literal
       moreinfo="none">ValidTeamPredicate</literal> and <literal
       moreinfo="none">ValidCoachPredicate)</literal> are defined in Examples
-      <link linkend="collections-EX-15">Example 5-15</link> and <link
-      linkend="collections-EX-16">Example 5-16</link>. These <literal
+      <link linkend="collections-ex-15">Example 5-15</link> and <link
+      linkend="collections-ex-16">Example 5-16</link>. These <literal
       moreinfo="none">Predicate</literal> objects are passed to the <literal
       moreinfo="none">PredicatedMap.decorate( )</literal> method to decorate a
       <literal moreinfo="none">Map</literal> with these conditions. The first
@@ -3233,7 +3233,7 @@ try {
       moreinfo="none">null</literal> <literal moreinfo="none">name</literal>
       property.</para>
 
-      <example id="collections-EX-15" label="5-15">
+      <example id="collections-ex-15" label="5-15">
         <title>A Predicate to validate a Team's name property</title>
 
         <indexterm id="collections-ITERM-2605" significance="normal">
@@ -3260,7 +3260,7 @@ public class ValidTeamPredicate implements Predicate {
 }</programlisting>
       </example>
 
-      <example id="collections-EX-16" label="5-16">
+      <example id="collections-ex-16" label="5-16">
         <title>Predicate to validate a Team's coach property</title>
 
         <programlisting format="linespecific">import org.apache.commons.collections.Predicate;
@@ -3288,7 +3288,7 @@ public class ValidCoachPredicate implements Predicate {
       moreinfo="none">null</literal>, and that the coach has a first and last
       name.</para>
 
-      <para>In <link linkend="collections-EX-16">Example 5-16</link>, a
+      <para>In <link linkend="collections-ex-16">Example 5-16</link>, a
       <literal moreinfo="none">Predicate</literal> is created by combining the
       <literal moreinfo="none">ValidTeamPredicate</literal> and <literal
       moreinfo="none">ValidCoachPredicate</literal> in an <literal
@@ -3880,14 +3880,14 @@ Key: Susan, Value: nasuS</programlisting>
       as a series of characters: "YHOO" represents the company Yahoo!, Inc.,
       and "TSC" represents TheStreet.com. If your system deals with a quote
       feed, use a <literal moreinfo="none">LazyMap</literal> to cache
-      frequently used entries. <link linkend="collections-EX-17">Example
+      frequently used entries. <link linkend="collections-ex-17">Example
       5-17</link> uses a <literal moreinfo="none">LazyMap</literal> to create
       a cache populated on demand, and it also demonstrates the <literal
       moreinfo="none">LRUMap</literal>—a fixed-size implementation of the
       <literal moreinfo="none">Map</literal> introduced in <link
       linkend="collections-sect-lru-cache">Recipe 5.17</link>.</para>
 
-      <example id="collections-EX-17" label="5-17">
+      <example id="collections-ex-17" label="5-17">
         <title>Example using a LazyMap</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.lazy;
@@ -3943,20 +3943,20 @@ public class LazyMapExample {
       </example>
 
       <para>The <literal moreinfo="none">Transformer</literal> in <link
-      linkend="collections-EX-17">Example 5-17</link> is an object that takes
+      linkend="collections-ex-17">Example 5-17</link> is an object that takes
       a string and hits a URL using Apache HttpClient—a utility introduced in
       <link linkend="http-webdav">Chapter 11</link>. Every time a new symbol
       is encountered, this <literal moreinfo="none">Transformer</literal>
       creates another thread with a timeout and hits a "quote server" that is
       configured to return the latest price for that company's symbol. <link
-      linkend="collections-EX-18">Example 5-18</link> defines a <literal
+      linkend="collections-ex-18">Example 5-18</link> defines a <literal
       moreinfo="none">StockQuoteTransformer</literal> <indexterm
           id="collections-ITERM-2643" significance="normal">
           <primary>StockQuoteTransformer</primary>
         </indexterm> that retrieves a quote by passing a stock symbol as a URL
       parameter.</para>
 
-      <example id="collections-EX-18" label="5-18">
+      <example id="collections-ex-18" label="5-18">
         <title>A StockQuoteTransformer</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.collections.lazy;
@@ -4317,11 +4317,11 @@ Cardinality Map:
           <primary>methods</primary>
 
           <secondary>subtract( )</secondary>
-        </indexterm>. <link linkend="collections-EX-19">Example 5-19</link>
+        </indexterm>. <link linkend="collections-ex-19">Example 5-19</link>
       demonstrates the use of these four methods with two <literal
       moreinfo="none">Collection</literal>s.</para>
 
-      <example id="collections-EX-19" label="5-19">
+      <example id="collections-ex-19" label="5-19">
         <title>Using CollectionUtils union( ), intersection( ), disjunction(
         ), and subtract( )</title>
 
@@ -4391,13 +4391,13 @@ Subtract: {1,2,2,2,3}</programlisting>
       <literal moreinfo="none">a</literal> and <literal
       moreinfo="none">b</literal>.</para>
 
-      <para><link linkend="collections-FIG-3">Figure 5-3</link> illustrates
+      <para><link linkend="collections-fig-3">Figure 5-3</link> illustrates
       each set operation with a Venn diagram. "A union B" is the combination
       of A and B, and "A intersection B" is the common overlap of A and B. "A
       subtract B" is all elements only in A, and "A disjunction B" is all
       elements in either A or B but not both.</para>
 
-      <figure float="0" id="collections-FIG-3" label="5-3">
+      <figure float="0" id="collections-fig-3" label="5-3">
         <title>Venn diagrams for four set operations in
         CollectionUtils</title>
 

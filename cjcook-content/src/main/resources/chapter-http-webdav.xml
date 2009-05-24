@@ -85,7 +85,7 @@
       following dependency to your project's
       <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="http-webdav-ex-add-depend-httpclient">
         <title>Adding a Dependency on Commons HttpClient</title>
 
         <programlisting>    &lt;dependency&gt;
@@ -525,13 +525,13 @@ Decoded: Hello World?</programlisting>
       moreinfo="none">If-Modified-Since</filename> headers; these two headers
       will instruct the server to refrain from sending content if the content
       has not been altered since the last request. <link
-      linkend="http-webdav-EX-1">Example 11-1</link> makes three separate
+      linkend="http-webdav-ex-1">Example 11-1</link> makes three separate
       requests for the same URL (<ulink
       url="http://www.apache.org">http://www.apache.org</ulink>), and, because
       the content remains static, it is only sent in the response body of the
       first request.</para>
 
-      <example id="http-webdav-EX-1" label="11-1">
+      <example id="http-webdav-ex-1" label="11-1">
         <title>Requesting information with a conditional GET</title>
 
         <programlisting format="linespecific">
@@ -609,7 +609,7 @@ Decoded: Hello World?</programlisting>
 }</programlisting>
       </example>
 
-      <para><link linkend="http-webdav-EX-1">Example 11-1</link> requests the
+      <para><link linkend="http-webdav-ex-1">Example 11-1</link> requests the
       same page three times; the first request retrieves the content, and the
       second and third requests contain the headers for a conditional HTTP
       GET. Because the Apache homepage remains unchanged throughout this
@@ -639,7 +639,7 @@ Request 3. Content not modified since last request</programlisting>
       <programlisting format="linespecific" id="I_11_tt442">Last-Modified: Wed, 05 May 2004 02:51:59 GMT
 ETag: "a06d2-76-829811c0"</programlisting>
 
-      <para><link linkend="http-webdav-EX-1">Example 11-1</link> takes the
+      <para><link linkend="http-webdav-ex-1">Example 11-1</link> takes the
       values of these two response headers and stores them in the <literal
       moreinfo="none">entityTag</literal> and <literal
       moreinfo="none">lastModified</literal> variables. When the next request
@@ -2490,8 +2490,8 @@ method.recycle( );</programlisting>
       <para>To use Jakarta Slide 2.1 in a Maven 2 project, add the following
       dependency to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
-        <title>Adding a Dependency on Commons Collections</title>
+      <example id="http-webdav-ex-slide">
+        <title>Adding a Dependency on Slide</title>
 
         <programlisting>    &lt;dependency&gt;
         &lt;groupId&gt;slide&lt;/groupId&gt;

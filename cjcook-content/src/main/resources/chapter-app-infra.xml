@@ -58,7 +58,7 @@
       <para>To use Commons CLI 1.1 in a Maven 2 project, add the following
       dependency to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="app-infra-ex-add-depend-cli">
         <title>Adding a Dependency on Commons CLI</title>
 
         <programlisting>&lt;dependency&gt;
@@ -413,7 +413,7 @@ options.addOption( helpOption );</programlisting>
 
           <secondary>HelpFormatter</secondary>
         </indexterm> and print a usage message. <link
-      linkend="app-infra-EX-1">Example 7-1</link> creates the same <literal
+      linkend="app-infra-ex-1">Example 7-1</link> creates the same <literal
       moreinfo="none">Options</literal> object from <link
       linkend="app-infra-sect-parsing-complex-cmdline">Recipe 7.3</link>. If
       the help option is specified, or if there is a problem parsing the
@@ -428,7 +428,7 @@ options.addOption( helpOption );</programlisting>
         </indexterm> method is called to print usage information to <literal
       moreinfo="none">System.out</literal>.</para>
 
-      <example id="app-infra-EX-1" label="7-1">
+      <example id="app-infra-ex-1" label="7-1">
         <title>Printing usage information with HelpFormatter</title>
 
         <programlisting format="linespecific"><userinput moreinfo="none">import org.apache.commons.cli.CommandLineParser;</userinput>
@@ -564,7 +564,7 @@ For more instructions, see our website at: http://www.blah123.org</programlistin
       following dependency to your project's
       <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="app-infra-ex-add-depend-configuration">
         <title>Adding a Dependency on Commons Configuration</title>
 
         <programlisting>&lt;dependency&gt;
@@ -977,14 +977,14 @@ int horsepower = config.getInt("horsepower");</programlisting>
       </table>
 
       <para>Properties are stored in three separate files shown in Examples
-      <link linkend="app-infra-EX-2">Example 7-2</link> (<filename
+      <link linkend="app-infra-ex-2">Example 7-2</link> (<filename
       moreinfo="none">global.properties</filename>), <link
-      linkend="app-infra-EX-3">Example 7-3</link> (<filename
+      linkend="app-infra-ex-3">Example 7-3</link> (<filename
       moreinfo="none">local.properties</filename>), and <link
-      linkend="app-infra-EX-4">Example 7-4</link> (<filename
+      linkend="app-infra-ex-4">Example 7-4</link> (<filename
       moreinfo="none">user.properties</filename>).</para>
 
-      <example id="app-infra-EX-2" label="7-2">
+      <example id="app-infra-ex-2" label="7-2">
         <title>global. properties</title>
 
         <indexterm id="app-infra-ITERM-2811" significance="normal">
@@ -1006,7 +1006,7 @@ speed=50
 name=Default User</programlisting>
       </example>
 
-      <example id="app-infra-EX-3" label="7-3">
+      <example id="app-infra-ex-3" label="7-3">
         <title>local .properties</title>
 
         <indexterm id="app-infra-ITERM-2813" significance="normal">
@@ -1024,7 +1024,7 @@ threads.max=30
 speed=55</programlisting>
       </example>
 
-      <example id="app-infra-EX-4" label="7-4">
+      <example id="app-infra-ex-4" label="7-4">
         <title>user. properties</title>
 
         <indexterm id="app-infra-ITERM-2815" significance="normal">
@@ -1219,7 +1219,7 @@ Speed: 75</programlisting>
       following dependency to your project's
       <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="app-infra-ex-add-depend-logging">
         <title>Adding a Dependency on Commons Logging</title>
 
         <programlisting>&lt;dependency&gt;
@@ -1501,7 +1501,7 @@ log.fatal( "This is fatal" );</programlisting>
       <para>To use Apache Log4J 1.2.15 in a Maven 2 project, add the following
       dependency to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="app-infra-ex-add-depend-log4j">
         <title>Adding a Dependency on Apache Log4J</title>
 
         <programlisting>&lt;dependency&gt;

@@ -98,7 +98,7 @@ double value = fraction.doubleValue( );</programlisting>
       <para>The <literal moreinfo="none">Fraction</literal> class provides a
       number of operations that can be used to simplify the following
       expression to an improper fraction. The following code evaluates the
-      expression in <link linkend="math-FIG-1">Figure 8-1</link> using
+      expression in <link linkend="math-fig-1">Figure 8-1</link> using
       <literal moreinfo="none">Fraction</literal>:</para>
 
       <programlisting format="linespecific" id="I_8_tt319">import org.apache.commons.lang.math.Fraction;
@@ -115,7 +115,7 @@ Fraction result = fraction.reduce( );
 System.out.println( "as Fraction: " + result.reduce( ).toString( ) );
 System.out.println( "as double: " + result.doubleValue( ) );</programlisting>
 
-      <figure float="0" id="math-FIG-1" label="8-1">
+      <figure float="0" id="math-fig-1" label="8-1">
         <title>Expression to be evaluated with Fraction</title>
 
         <mediaobject id="I_8_tt320">
@@ -764,7 +764,7 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
       <para>To use Commons Math in a Maven 2 project, add the following
       dependency to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="math-ex-add-depend-math">
         <title>Adding a Dependency on Commons Math</title>
 
         <programlisting>    &lt;dependency&gt;
@@ -1006,9 +1006,9 @@ kurtosis: 4.102348153299074</programlisting>
         </indexterm> <indexterm id="math-ITERM-2910" significance="normal">
           <primary>linear equations</primary>
         </indexterm> y, and z that satisfy the system of linear equations
-      shown in <link linkend="math-FIG-2">Figure 8-2</link>.</para>
+      shown in <link linkend="math-fig-2">Figure 8-2</link>.</para>
 
-      <figure float="0" id="math-FIG-2" label="8-2">
+      <figure float="0" id="math-fig-2" label="8-2">
         <title>A system of linear equations</title>
 
         <mediaobject id="I_8_tt335">
@@ -1034,7 +1034,7 @@ kurtosis: 4.102348153299074</programlisting>
         </indexterm> and <literal moreinfo="none">RealMatrixImpl</literal>
       from Commons Math. Represent this system of linear equations as matrices
       in the <filename moreinfo="none">Ax=B</filename> form, as shown in <link
-      linkend="math-FIG-3">Figure 8-3</link>. Place the coefficients of
+      linkend="math-fig-3">Figure 8-3</link>. Place the coefficients of
       <filename moreinfo="none">A</filename> in a <literal
       moreinfo="none">RealMatrix</literal>, and put <filename
       moreinfo="none">B</filename> in a <literal
@@ -1050,7 +1050,7 @@ kurtosis: 4.102348153299074</programlisting>
       to retrieve a <literal moreinfo="none">double[]</literal> of values for
       x, y, and z that satisfy this system of equations.</para>
 
-      <figure float="0" id="math-FIG-3" label="8-3">
+      <figure float="0" id="math-fig-3" label="8-3">
         <title>System of linear equations in Ax=B form</title>
 
         <mediaobject id="I_8_tt336">
@@ -1072,7 +1072,7 @@ kurtosis: 4.102348153299074</programlisting>
         </indexterm>coefficients and <indexterm id="math-ITERM-2915"
           significance="normal">
           <primary>constants</primary>
-        </indexterm>constants from <link linkend="math-FIG-3">Figure
+        </indexterm>constants from <link linkend="math-fig-3">Figure
       8-3</link> and uses a <literal moreinfo="none">RealMatrix</literal> to
       solve this system:</para>
 
@@ -1127,7 +1127,7 @@ System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlist
       <para>This method will not work for every matrix; there are systems of
       linear equations that are unsolvable. For example, if one attempts to
       find values for the system of equations from <link
-      linkend="math-FIG-4">Figure 8-4</link>, an <literal
+      linkend="math-fig-4">Figure 8-4</link>, an <literal
       moreinfo="none">InvalidMatrixException</literal> will be thrown stating
       that the matrix is singular. Additionally, if the number of rows in
       <filename moreinfo="none">B</filename> does not equal the number of
@@ -1135,7 +1135,7 @@ System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlist
       moreinfo="none">solve()</literal> will throw an <literal
       moreinfo="none">InvalidMatrixException</literal>.</para>
 
-      <figure float="0" id="math-FIG-4" label="8-4">
+      <figure float="0" id="math-fig-4" label="8-4">
         <title>An unsolvable system of equations</title>
 
         <mediaobject id="I_8_tt339">
@@ -1208,11 +1208,11 @@ System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlist
       numbers <filename moreinfo="none">A</filename>, <filename
       moreinfo="none">B</filename>, <filename moreinfo="none">C</filename>,
       and <filename moreinfo="none">E</filename> and two equations shown in
-      <link linkend="math-FIG-5">Figure 8-5</link>, you need to find the real
+      <link linkend="math-fig-5">Figure 8-5</link>, you need to find the real
       part of <filename moreinfo="none">F</filename> and the imaginary part of
       <filename moreinfo="none">D</filename>.</para>
 
-      <figure float="0" id="math-FIG-5" label="8-5">
+      <figure float="0" id="math-fig-5" label="8-5">
         <title>Expressions evaluated with the Complex object</title>
 
         <mediaobject id="I_8_tt340">
@@ -1246,7 +1246,7 @@ System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlist
       number. The following example demonstrates the use of the <literal
       moreinfo="none">Complex</literal> class to calculate <filename
       moreinfo="none">D</filename> and <filename moreinfo="none">F</filename>
-      from <link linkend="math-FIG-5">Figure 8-5</link> using arbitrary values
+      from <link linkend="math-fig-5">Figure 8-5</link> using arbitrary values
       for <filename moreinfo="none">A</filename>, <filename
       moreinfo="none">B</filename>, <filename moreinfo="none">C</filename>,
       and <filename moreinfo="none">E</filename>:</para>
@@ -1531,13 +1531,13 @@ RSquare: 0.02</programlisting>
       record will take roughly the same amount of time, you can use <literal
       moreinfo="none">SimpleRegression</literal>'s slope and intercept to
       estimate the time when all records will be processed. <link
-      linkend="math-EX-1">Example 8-1</link> defines the <literal
+      linkend="math-ex-1">Example 8-1</link> defines the <literal
       moreinfo="none">ProcessEstimator</literal> class that combines the power
       of <literal moreinfo="none">StopWatch</literal> and <literal
       moreinfo="none">ProcessEstimator</literal> to estimate the time
       remaining in a process.</para>
 
-      <example id="math-EX-1" label="8-1">
+      <example id="math-ex-1" label="8-1">
         <title>ProcessEstimator to estimate time of program execution</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.math.timeestimate;
@@ -1621,13 +1621,13 @@ public class ProcessEstimator {
       records.</para>
 
       <para>The <literal moreinfo="none">ProcessEstimationExample</literal> in
-      <link linkend="math-EX-2">Example 8-2</link> uses the <literal
+      <link linkend="math-ex-2">Example 8-2</link> uses the <literal
       moreinfo="none">ProcessEstimator</literal> to estimate the time
       remaining while calling the <literal
       moreinfo="none">performLengthyProcess( )</literal> method 10,000
       times.</para>
 
-      <example id="math-EX-2" label="8-2">
+      <example id="math-ex-2" label="8-2">
         <title>An example using the ProcessEstimator</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.math.timeestimate;

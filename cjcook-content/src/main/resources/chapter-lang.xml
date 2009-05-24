@@ -90,7 +90,7 @@
       <para>To use Commons Lang in a Maven 2 project, add the following
       dependency to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="lang-ex-add-depend-lang">
         <title>Adding a Dependency on Commons Lang</title>
 
         <programlisting>&lt;dependency&gt;
@@ -178,13 +178,13 @@ public void toString( ) {
       moreinfo="none">lastName</literal>, <literal
       moreinfo="none">dateOfBirth</literal>, <literal
       moreinfo="none">moneyRaised</literal>, and <literal
-      moreinfo="none">homeState</literal>. <link linkend="lang-EX-1">Example
+      moreinfo="none">homeState</literal>. <link linkend="lang-ex-1">Example
       1-1</link> shows the <literal
       moreinfo="none">PoliticalCandidate</literal> class using a <literal
       moreinfo="none">ReflectionToStringBuilder</literal>; the getter and
       setter methods have been omitted for brevity.</para>
 
-      <example id="lang-EX-1" label="1-1">
+      <example id="lang-ex-1" label="1-1">
         <title>The PoliticalCandidate class using
         ReflectionToStringBuilder</title>
 
@@ -711,12 +711,12 @@ PoliticalCandidate@1cd2e5f[lastName=Jefferson,firstName=Thomas]</programlisting>
           <secondary>HashCodeBuilder</secondary>
         </indexterm> provide methods to automate both the <literal
       moreinfo="none">equals( )</literal> and <literal
-      moreinfo="none">hashCode( )</literal>. <link linkend="lang-EX-2">Example
+      moreinfo="none">hashCode( )</literal>. <link linkend="lang-ex-2">Example
       1-2</link> briefly demonstrates these two builders using the <literal
       moreinfo="none">PoliticalCandidate</literal> bean from the previous two
       recipes.</para>
 
-      <example id="lang-EX-2" label="1-2">
+      <example id="lang-ex-2" label="1-2">
         <title>Automating hashCode( ) and equals( )</title>
 
         <programlisting format="linespecific">import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -761,7 +761,7 @@ public class PoliticalCandidate {
       as an offset when creating a hash code; both numbers should be odd,
       nonzero, and prime. The <literal
       moreinfo="none">HashCodeBuilder</literal> in <link
-      linkend="lang-EX-2">Example 1-2</link> is configured to use the <literal
+      linkend="lang-ex-2">Example 1-2</link> is configured to use the <literal
       moreinfo="none">firstName</literal> and the <literal
       moreinfo="none">lastName</literal> of the <literal
       moreinfo="none">PoliticalCandidate</literal> object; therefore, two
@@ -820,7 +820,7 @@ Is array2 equal to array3? false</programlisting>
         <para>Be careful when using reflection to automate <literal
         moreinfo="none">hashCode()</literal> and <literal
         moreinfo="none">equals( )</literal>, you may get more than you
-        bargained for. In <link linkend="lang-EX-2">Example 1-2</link>, a
+        bargained for. In <link linkend="lang-ex-2">Example 1-2</link>, a
         candidate is uniquely identified by first and last name; if this bean
         were mapped to a table in a relational database, <literal
         moreinfo="none">firstName</literal> and <literal
@@ -862,7 +862,7 @@ Is array2 equal to array3? false</programlisting>
         names, and the hash code for two equal objects should be identical.
         The <literal moreinfo="none">hashCode( )</literal> and <literal
         moreinfo="none">equals()</literal> in <link
-        linkend="lang-EX-2">Example 1-2</link> are written to only take into
+        linkend="lang-ex-2">Example 1-2</link> are written to only take into
         account the <literal moreinfo="none">firstName</literal> and <literal
         moreinfo="none">lastName</literal> properties.</para>
       </warning>
@@ -933,19 +933,19 @@ public int compareTo(Object o) {
 
       <para><literal moreinfo="none">CompareToBuilder.reflectionCompare(
       )</literal> takes two objects and compares the non-static, nontransient
-      member variables of these objects. In <link linkend="lang-EX-2">Example
+      member variables of these objects. In <link linkend="lang-ex-2">Example
       1-2</link>, the comparison involves the name properties of two <literal
       moreinfo="none">PoliticalCandidate</literal> objects from <link
-      linkend="lang-EX-3">Example 1-3</link>, which are considered equal if
+      linkend="lang-ex-3">Example 1-3</link>, which are considered equal if
       both <literal moreinfo="none">firstName</literal> and <literal
       moreinfo="none">lastName</literal> are equal. <literal
       moreinfo="none">reflectionCompare( )</literal> ignores static fields and
-      transients; therefore, in <link linkend="lang-EX-3">Example 1-3</link>,
+      transients; therefore, in <link linkend="lang-ex-3">Example 1-3</link>,
       <literal moreinfo="none">averageAge</literal> and <literal
       moreinfo="none">fullName</literal> do not contribute to the automated
       comparison.</para>
 
-      <example id="lang-EX-3" label="1-3">
+      <example id="lang-ex-3" label="1-3">
         <title>Implementing compareTo( ) using a reflection builder</title>
 
         <indexterm id="lang-ITERM-1815" significance="normal">
@@ -1003,13 +1003,13 @@ public int compareTo(Object o) {
       last property "pushed" onto the <literal
       moreinfo="none">CompareToBuilder</literal> is the first property to be
       compared. Objects are compared by last name, and first name is used as a
-      "tiebreaker." <link linkend="lang-EX-4">Example 1-4</link> will compare
+      "tiebreaker." <link linkend="lang-ex-4">Example 1-4</link> will compare
       two <literal moreinfo="none">PoliticalCandidate</literal> objects by
       <literal moreinfo="none">lastName</literal>, falling back to <literal
       moreinfo="none">firstName</literal> only if the <literal
       moreinfo="none">lastName</literal> values were equal.</para>
 
-      <example id="lang-EX-4" label="1-4">
+      <example id="lang-ex-4" label="1-4">
         <title>Customizing a compareTo( ) method with CompareToBuilder</title>
 
         <indexterm id="lang-ITERM-1818" significance="normal">
@@ -1195,11 +1195,11 @@ System.out.println( ArrayUtils.toString( list.toArray( ) ) );</programlisting>
 
           <secondary>ArrayUtils.reverse( )</secondary>
         </indexterm> methods from Commons Lang. <link
-      linkend="lang-EX-5">Example 1-5</link> demonstrates the reversal and
+      linkend="lang-ex-5">Example 1-5</link> demonstrates the reversal and
       cloning of a primitive array full of <literal
       moreinfo="none">long</literal> primitives.</para>
 
-      <example id="lang-EX-5" label="1-5">
+      <example id="lang-ex-5" label="1-5">
         <title>Cloning and reversing a primitive array with ArrayUtils</title>
 
         <programlisting format="linespecific">import org.apache.commons.lang.ArrayUtils;
@@ -1224,7 +1224,7 @@ Reversed: { 6, 5, 3, 2, 3, 1 }</programlisting>
     <sect2>
       <title>Discussion</title>
 
-      <para>In <link linkend="lang-EX-5">Example 1-5</link>, <literal
+      <para>In <link linkend="lang-ex-5">Example 1-5</link>, <literal
       moreinfo="none">clone( )</literal> returns a reference to a new array,
       and <literal moreinfo="none">reverse( )</literal> operates on the array
       reference supplied as a parameter. It is important to realize that while
@@ -1238,8 +1238,8 @@ Reversed: { 6, 5, 3, 2, 3, 1 }</programlisting>
       striking resemblance to the previous example.</para>
 
       <para>The only difference between Examples <link
-      linkend="lang-EX-6">Example 1-6</link> and <link
-      linkend="lang-EX-5">Example 1-5</link> is the type of array being cloned
+      linkend="lang-ex-6">Example 1-6</link> and <link
+      linkend="lang-ex-5">Example 1-5</link> is the type of array being cloned
       and reversed. Again, <literal moreinfo="none">ArrayUtils.toString(
       )</literal> is used to print out the contents of both the original and
       the reverse array:</para>
@@ -1247,7 +1247,7 @@ Reversed: { 6, 5, 3, 2, 3, 1 }</programlisting>
       <programlisting format="linespecific" id="I_1_tt25">Original: { 3, 56, 233 }
 Reversed: { 233, 56, 3 }</programlisting>
 
-      <example id="lang-EX-6" label="1-6">
+      <example id="lang-ex-6" label="1-6">
         <title>Cloning and reversing an Object[ ] with ArrayUtils</title>
 
         <programlisting format="linespecific">Long[] array = new Long[] { new Long(3), new Long(56), new Long(233) };
@@ -1732,11 +1732,11 @@ Last Index of 'Red'? 4</programlisting>
       <literal moreinfo="none">ArrayUtils.lastIndexOf( )</literal> take an
       optional third parameter that controls where an element search begins.
       In the next example, you are searching an array of double primitives for
-      the value -9999. <link linkend="lang-EX-7">Example 1-7</link>
+      the value -9999. <link linkend="lang-ex-7">Example 1-7</link>
       demonstrates how to establish that the value is contained within an
       array and how to locate the index for each matching element.</para>
 
-      <example id="lang-EX-7" label="1-7">
+      <example id="lang-ex-7" label="1-7">
         <title>Searching an array using ArrayUtils.contains( ) and
         ArrayUtils.indexOf( )</title>
 
@@ -1827,15 +1827,15 @@ for( int i = 0; i &lt; temps.length; i++ ) {
           <secondary>ArrayUtils.toMap( )</secondary>
         </indexterm> to create a <literal moreinfo="none">Map</literal> from a
       two-dimensional array (<literal moreinfo="none">Object[][]</literal>).
-      <link linkend="lang-EX-8">Example 1-8</link> demonstrates the creation
+      <link linkend="lang-ex-8">Example 1-8</link> demonstrates the creation
       of such a <literal moreinfo="none">Map</literal>. <link
-      linkend="lang-EX-8">Example 1-8</link> takes an <literal
+      linkend="lang-ex-8">Example 1-8</link> takes an <literal
       moreinfo="none">Object[][]</literal> representing atomic symbols and
       atomic weights and turns it into a <literal
       moreinfo="none">Map</literal> retrieving the atomic weight for
       hydrogen.</para>
 
-      <example id="lang-EX-8" label="1-8">
+      <example id="lang-ex-8" label="1-8">
         <title>Creating a Map from an Object[ ][ ]</title>
 
         <programlisting format="linespecific">import org.apache.commons.lang.ArrayUtils;
@@ -2428,10 +2428,10 @@ DateUtils.SEMI_MONTH ) );</programlisting>
           <primary>milliseconds, truncating</primary>
         </indexterm>day, hour, minute, second, and millisecond field will each
       contain the minimum possible value for that field. <link
-      linkend="lang-EX-9">Example 1-9</link> truncates a date at the month
+      linkend="lang-ex-9">Example 1-9</link> truncates a date at the month
       field and the hour field.</para>
 
-      <example id="lang-EX-9" label="1-9">
+      <example id="lang-ex-9" label="1-9">
         <title>Truncating a Date object at Calendar.MONTH</title>
 
         <programlisting format="linespecific">import org.apache.commons.lang.time.DateUtils;
@@ -2516,12 +2516,12 @@ Truncated Hour: 2004-03-28T13:00:00</programlisting>
       moreinfo="none">ValuedEnum</literal>, and <literal
       moreinfo="none">EnumUtils</literal> to create an enum "type," which
       approximates the new language feature. <link
-      linkend="lang-EX-10">Example 1-10</link> extends Enum, providing three
+      linkend="lang-ex-10">Example 1-10</link> extends Enum, providing three
       flavors: <literal moreinfo="none">Flavor.CHOCOLATE</literal>, <literal
       moreinfo="none">Flavor.VANILLA</literal>, and <literal
       moreinfo="none">Flavor.STRAWBERRY</literal>.</para>
 
-      <example id="lang-EX-10" label="1-10">
+      <example id="lang-ex-10" label="1-10">
         <title>Defining a Flavor enumeration by extending Enum</title>
 
         <programlisting format="linespecific">import java.util.*;
@@ -2588,9 +2588,9 @@ System.out.println( ArrayUtils.toString( flavors.toString( ) ) );
       moreinfo="none">PartEnum</literal> extends <literal
       moreinfo="none">ValuedEnum</literal> to store static instances of the
       four possible voice parts: soprano, alto, tenor, and bass. (See <link
-      linkend="lang-EX-11">Example 1-11</link>.)</para>
+      linkend="lang-ex-11">Example 1-11</link>.)</para>
 
-      <example id="lang-EX-11" label="1-11">
+      <example id="lang-ex-11" label="1-11">
         <title>Extending ValuedEnum to create an enum</title>
 
         <programlisting format="linespecific">import java.util.*;
@@ -2637,9 +2637,9 @@ public final class PartEnum extends ValuedEnum {
       moreinfo="none">PartEnum</literal>; four instances of <literal
       moreinfo="none">PartEnum</literal> are created as public static final
       constants, and a name is assigned to every part. (See <link
-      linkend="lang-EX-12">Example 1-12</link>.)</para>
+      linkend="lang-ex-12">Example 1-12</link>.)</para>
 
-      <example id="lang-EX-12" label="1-12">
+      <example id="lang-ex-12" label="1-12">
         <title>Vocalist bean with a PartEnum</title>
 
         <programlisting format="linespecific">public class Vocalist {
@@ -2685,7 +2685,7 @@ while( parts.hasNext( ) ) {
       <para>Using Enum types becomes especially important if an object has
       multiple classifications. If you were creating an object to track a
       person, you could easily end up with two overlapping classifications. In
-      <link linkend="lang-EX-13">Example 1-13</link>, both <literal
+      <link linkend="lang-ex-13">Example 1-13</link>, both <literal
       moreinfo="none">jobStatus</literal> and <literal
       moreinfo="none">gender</literal> can be <literal
       moreinfo="none">UNKNOWN</literal>, and the valid options for both
@@ -2693,7 +2693,7 @@ while( parts.hasNext( ) ) {
       moreinfo="none">gender</literal> are defined as public static <literal
       moreinfo="none">int</literal> variables.</para>
 
-      <example id="lang-EX-13" label="1-13">
+      <example id="lang-ex-13" label="1-13">
         <title>Using public static final constants for category
         information</title>
 
@@ -2758,10 +2758,10 @@ while( parts.hasNext( ) ) {
       moreinfo="none">jobStatus</literal> property. This solution only draws a
       conceptual boundary in the mind of the programmer; no logical separation
       is achieved, and there is still no way to guarantee that a bean property
-      will have a valid value. (See <link linkend="lang-EX-14">Example
+      will have a valid value. (See <link linkend="lang-ex-14">Example
       1-14</link>.)</para>
 
-      <example id="lang-EX-14" label="1-14">
+      <example id="lang-ex-14" label="1-14">
         <title>Simplifying with ValueEnum</title>
 
         <programlisting format="linespecific">public class Person {
@@ -2832,12 +2832,12 @@ while( parts.hasNext( ) ) {
       <para>Use <literal moreinfo="none">Validate</literal> to check method
       parameters. <literal moreinfo="none">Validate</literal> can check for
       empty or <literal moreinfo="none">null</literal> parameters, as well as
-      evaluate any logical conditions. <link linkend="lang-EX-18">Example
+      evaluate any logical conditions. <link linkend="lang-ex-18">Example
       1-18</link> demonstrates the use of <literal
       moreinfo="none">Validate</literal> to perform a few simple
       validations.</para>
 
-      <example id="lang-EX-18" label="1-18">
+      <example id="lang-ex-18" label="1-18">
         <title>Using Validate to perform simple validations</title>
 
         <programlisting format="linespecific">import org.apache.commons.lang.Validate;
@@ -2980,10 +2980,10 @@ public doSomething( int param1, Object[] param2, Collection param3 ) {
       moreinfo="none">DoubleRange.includesDouble(double</literal> <literal
       moreinfo="none">d)</literal> returns true if the number falls within the
       defined range—<literal moreinfo="none">if x &lt;= rangeMax &amp;&amp; x
-      &gt;= rangeMin</literal>. (See <link linkend="lang-EX-19">Example
+      &gt;= rangeMin</literal>. (See <link linkend="lang-ex-19">Example
       1-19</link>.)</para>
 
-      <example id="lang-EX-19" label="1-19">
+      <example id="lang-ex-19" label="1-19">
         <title>Using the Validator and the DoubleRange to validate method
         parameters</title>
 
@@ -3101,11 +3101,11 @@ public double elevation( double latitude,
           id="lang-ITERM-1934" significance="normal">
           <primary>StopWatch</primary>
         </indexterm> to measure the time it takes to execute a section of
-      code. <link linkend="lang-EX-20">Example 1-20</link> demonstrates the
+      code. <link linkend="lang-ex-20">Example 1-20</link> demonstrates the
       use of this class to measure the time it takes to perform simple
       arithmetic operations.</para>
 
-      <example id="lang-EX-20" label="1-20">
+      <example id="lang-ex-20" label="1-20">
         <title>Using StopWatch to measure time</title>
 
         <programlisting format="linespecific">import org.apache.commons.lang.time.StopWatch;
@@ -3178,7 +3178,7 @@ It takes 1992 milliseconds.</programlisting>
         </indexterm> method to measure the total time elapsed since the clock
       was started.</para>
 
-      <para><link linkend="lang-EX-21">Example 1-21</link> demonstrates the
+      <para><link linkend="lang-ex-21">Example 1-21</link> demonstrates the
       <literal moreinfo="none">split()</literal> <indexterm
           id="lang-ITERM-1939" significance="normal">
           <primary>split( ) method</primary>
@@ -3199,10 +3199,10 @@ It takes 1992 milliseconds.</programlisting>
           <primary>methods</primary>
 
           <secondary>getTime( )</secondary>
-        </indexterm> returns three seconds. <link linkend="lang-FIG-1">Figure
+        </indexterm> returns three seconds. <link linkend="lang-fig-1">Figure
       1-1</link> shows a timeline for this example.</para>
 
-      <figure float="0" id="lang-FIG-1" label="1-1">
+      <figure float="0" id="lang-fig-1" label="1-1">
         <title>Timeline of StopWatch.split( ) and unsplit( )</title>
 
         <mediaobject id="I_1_tt48">
@@ -3218,7 +3218,7 @@ It takes 1992 milliseconds.</programlisting>
         </mediaobject>
       </figure>
 
-      <example id="lang-EX-21" label="1-21">
+      <example id="lang-ex-21" label="1-21">
         <title>Using the StopWatch.split( ) and StopWatch.unsplit( )
         methods</title>
 

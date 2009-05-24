@@ -83,7 +83,7 @@
       <para>To use Commons JXPath in a Maven 2 project, add the following
       dependency to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="searching-filtering-ex-add-depend-jxpath">
         <title>Adding a Dependency on Commons JXPath</title>
 
         <programlisting>&lt;dependency&gt;
@@ -869,7 +869,7 @@ Moon: Mimas,           Planet: Saturn</programlisting>
       <para>To use Lucene in a Maven 2 project, add the following dependency
       to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="searching-filtering-ex-add-depend-lucene">
         <title>Adding a Dependency on Lucene</title>
 
         <programlisting>    &lt;dependency&gt;
@@ -1033,7 +1033,7 @@ writer.close( );
 logger.info( "Parsing Complete, Index Created");</programlisting>
 
       <para>The <literal moreinfo="none">PlayIndexer</literal> class, shown in
-      <link linkend="searching-filtering-EX-1">Example 12-1</link>, parses
+      <link linkend="searching-filtering-ex-1">Example 12-1</link>, parses
       each XML file and creates <literal moreinfo="none">Document</literal>
       objects that are written to an <literal
       moreinfo="none">IndexWriter</literal>. The <literal
@@ -1069,7 +1069,7 @@ logger.info( "Parsing Complete, Index Created");</programlisting>
       specific context of a speech, it will be possible to obtain a specific
       location for each term or phrase.</para>
 
-      <example id="searching-filtering-EX-1" label="12-1">
+      <example id="searching-filtering-ex-1" label="12-1">
         <title>PlayIndexer using Commons Digester and Apache Lucene</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.xml.bardsearch;
@@ -1150,12 +1150,12 @@ public class PlayIndexer {
 }</programlisting>
       </example>
 
-      <para><link linkend="searching-filtering-EX-1">Example 12-1</link> used
+      <para><link linkend="searching-filtering-ex-1">Example 12-1</link> used
       a Digester rule set defined in <link
-      linkend="searching-filtering-EX-2">Example 12-2</link>. This set of
+      linkend="searching-filtering-ex-2">Example 12-2</link>. This set of
       rules is designed to invoke a series of methods in a set sequence to
       populate the context variables for each speech. The Digester rules in
-      <link linkend="searching-filtering-EX-2">Example 12-2</link> never push
+      <link linkend="searching-filtering-ex-2">Example 12-2</link> never push
       or pop objects onto the digester stack; instead, the Digester is being
       used to populate variables and invoke methods on an object that creates
       Lucene <literal moreinfo="none">Document</literal> objects based on a
@@ -1166,7 +1166,7 @@ public class PlayIndexer {
       the underlying SAX parser and the <literal
       moreinfo="none">DigestContext</literal>.</para>
 
-      <example id="searching-filtering-EX-2" label="12-2">
+      <example id="searching-filtering-ex-2" label="12-2">
         <title>Digester rules for PlayIndexer</title>
 
         <programlisting format="linespecific">&lt;?xml version="1.0"?&gt;
@@ -1677,11 +1677,11 @@ Score | Play    | Act     | Scene                           | Speaker
       The frequency of a term is defined as the number of documents in which a
       specific term appears, and a <literal moreinfo="none">TermEnum</literal>
       object contains the frequency of every term in a set of documents. <link
-      linkend="searching-filtering-EX-3">Example 12-3</link> iterates over the
+      linkend="searching-filtering-ex-3">Example 12-3</link> iterates over the
       terms contained in <literal moreinfo="none">TermEnum</literal> returning
       every term that appears in more than 1,100 speeches.</para>
 
-      <example id="searching-filtering-EX-3" label="12-3">
+      <example id="searching-filtering-ex-3" label="12-3">
         <title>TermFreq finding the most frequent terms in an index</title>
 
         <programlisting format="linespecific">package com.discursive.jccook.xml.bardsearch;

@@ -2066,7 +2066,7 @@ distance(Steve, Stereo): 3</programlisting>
       <para>To use Commons Codec in a Maven 2 project, add the following
       dependency to your project's <filename>pom.xml</filename>:</para>
 
-      <example>
+      <example id="manipulate-text-ex-add-depend-codec">
         <title>Adding a Dependency on Commons Codec</title>
 
         <programlisting>&lt;dependency&gt;
