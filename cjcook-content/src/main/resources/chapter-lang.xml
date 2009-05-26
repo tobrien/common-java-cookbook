@@ -186,24 +186,10 @@ public void toString( ) {
         <title>The PoliticalCandidate class using
         ReflectionToStringBuilder</title>
 
-        <programlisting format="linespecific">import java.math.*;
-import java.util.*;
-import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+                        db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/reflect/PoliticalCandidate.java"
+                        db:excerpt="lang-ex-1"/>
 
-public class PoliticalCandidate {
-
-    private String lastName;
-    private String firstName;
-    private Date dateOfBirth;
-    private BigDecimal moneyRaised;
-    private State homeState;
-
-    // get/set methods are omitted for brevity...
-
-    public void toString( ) {
-        ReflectionToStringBuilder.toString( this );
-    }
-}</programlisting>
       </example>
 
       <para>The process of keeping the contents of a <literal

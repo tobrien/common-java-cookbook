@@ -18,7 +18,7 @@
  * ========================================================================
  */
 package com.discursive.jccook.lang.builders;
-
+// START lang-ex-1
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -126,8 +126,5 @@ public class PoliticalCandidate implements Comparable {
         return compare;
     }
 	
-    
-	
-
-
 }
+// END lang-ex-1
