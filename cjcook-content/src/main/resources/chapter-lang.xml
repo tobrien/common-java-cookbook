@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="lang" label="1" xmlns:db="http://discursive.com/plugins/docbook">
+<chapter id="lang" label="1">
   <title>Supplements to the Java 2 Platform</title>
 
   <sect1 id="lang-sect-intro">
@@ -95,7 +95,8 @@
 
         <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
                         db:file="cjcook-examples-${project.version}/pom.xml"
-                        db:xpath="//dependency[artifactId='commons-lang']"/>
+                        db:xpath="//dependency[artifactId='commons-lang']"
+                        xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
       </example>
     </sect2>
 
@@ -187,9 +188,9 @@ public void toString( ) {
         ReflectionToStringBuilder</title>
 
         <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+                        db:excerpt="lang-ex-1"
                         db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/reflect/PoliticalCandidate.java"
-                        db:excerpt="lang-ex-1"/>
-
+                        xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
       </example>
 
       <para>The process of keeping the contents of a <literal
@@ -222,23 +223,10 @@ public void toString( ) {
           <secondary>built via reflection</secondary>
         </indexterm>built via reflection:</para>
 
-      <programlisting format="linespecific" id="I_1_tt6">// Create a State
-State va = new State( "VA", "Virginia");
-
-// Create a Birth Date
-Calendar calendar = new GregorianCalendar( );
-calendar.set( Calendar.YEAR, 1743 );
-calendar.set( Calendar.MONTH, Calendar.APRIL );
-calendar.set( Calendar.DAY_OF_MONTH, 13 );
-Date dob = calendar.getTime( );
-
-BigDecimal moneyRaised = new BigDecimal( 293829292.93 );        
-
-// Create a Political Candidate
-PoliticalCandidate candidate = 
-    new PoliticalCandidate( "Jefferson", "Thomas", dob, moneyRaised, va );
-        
-System.out.println( candidate );</programlisting>
+        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+                        db:excerpt="lang-ex-sample-1"
+                        db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/reflect/PoliticalCandidate.java"
+                        xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
 
       <para>Assume that the <literal moreinfo="none">State</literal> object is
       another bean using the same <literal
