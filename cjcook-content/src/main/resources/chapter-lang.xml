@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="lang" label="1">
+<chapter id="lang" label="1" xmlns:db="http://discursive.com/plugins/docbook">
   <title>Supplements to the Java 2 Platform</title>
 
   <sect1 id="lang-sect-intro">
@@ -93,11 +93,9 @@
       <example id="lang-ex-add-depend-lang">
         <title>Adding a Dependency on Commons Lang</title>
 
-        <programlisting>&lt;dependency&gt;
-  &lt;groupId&gt;commons-lang&lt;/groupId&gt;
-  &lt;artifactId&gt;commons-lang&lt;/artifactId&gt;
-  &lt;version&gt;2.4&lt;/version&gt;
-&lt;/dependency&gt;  </programlisting>
+        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+                        db:file="cjcook-examples-${project.version}/pom.xml"
+                        db:xpath="//dependency[artifactId='commons-lang']"/>
       </example>
     </sect2>
 

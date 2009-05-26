@@ -1,0 +1,1601 @@
+[INFO] Scanning for projects...
+[WARNING] 
+	Profile with id: 'public-snaphsots' has not been activated.
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Common Java Cookbook DocBook XML Content
+[INFO]    task-segment: [test]
+[INFO] ------------------------------------------------------------------------
+[INFO] [enforcer:enforce {execution: enforce-versions}]
+[INFO] [docbook:example-process {execution: example-process}]
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_7_tt296
+Element: programlisting
+format:linespecific
+id:I_7_tt297
+Element: programlisting
+format:linespecific
+id:I_7_tt298
+Element: programlisting
+format:linespecific
+id:I_7_tt299
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_7_tt300
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_7_tt301
+Element: programlisting
+format:linespecific
+id:I_7_tt302
+Element: programlisting
+format:linespecific
+id:I_7_tt303
+Element: programlisting
+format:linespecific
+id:I_7_tt304
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_7_tt305
+Element: programlisting
+format:linespecific
+id:I_7_tt306
+Element: programlisting
+format:linespecific
+id:I_7_tt307
+Element: programlisting
+format:linespecific
+id:I_7_tt308
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_7_tt310
+Element: programlisting
+format:linespecific
+id:I_7_tt311
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_7_tt312
+Element: programlisting
+format:linespecific
+id:I_7_tt313
+Element: programlisting
+format:linespecific
+id:I_7_tt314
+Element: programlisting
+format:linespecific
+id:I_7_tt315
+Element: programlisting
+format:linespecific
+id:I_7_tt316
+Element: programlisting
+format:linespecific
+id:I_7_tt317
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_3_tt115
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_3_tt116
+Element: programlisting
+format:linespecific
+id:I_3_tt117
+Element: programlisting
+format:linespecific
+id:I_3_tt119
+Element: programlisting
+format:linespecific
+id:I_3_tt120
+Element: programlisting
+format:linespecific
+id:I_3_tt121
+Element: programlisting
+format:linespecific
+id:I_3_tt122
+Element: programlisting
+format:linespecific
+id:I_3_tt123
+Element: programlisting
+format:linespecific
+id:I_3_tt124
+Element: programlisting
+format:linespecific
+id:I_3_tt126
+Element: programlisting
+format:linespecific
+id:I_3_tt127
+Element: programlisting
+format:linespecific
+id:I_3_tt128
+Element: programlisting
+format:linespecific
+id:I_3_tt130
+Element: programlisting
+format:linespecific
+id:I_3_tt131
+Element: programlisting
+format:linespecific
+id:I_3_tt132
+Element: programlisting
+format:linespecific
+id:I_3_tt133
+Element: programlisting
+format:linespecific
+id:I_3_tt134
+Element: programlisting
+format:linespecific
+id:I_3_tt135
+Element: programlisting
+format:linespecific
+id:I_3_tt136
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_3_tt138
+Element: programlisting
+format:linespecific
+id:I_3_tt139
+Element: programlisting
+format:linespecific
+id:I_3_tt140
+Element: programlisting
+format:linespecific
+id:I_3_tt141
+Element: programlisting
+format:linespecific
+id:I_3_tt142
+Element: programlisting
+format:linespecific
+id:I_3_tt143
+Element: programlisting
+format:linespecific
+id:I_3_tt144
+Element: programlisting
+format:linespecific
+id:I_3_tt145
+Element: programlisting
+format:linespecific
+id:I_3_tt146
+Element: programlisting
+format:linespecific
+id:I_3_tt147
+Element: programlisting
+format:linespecific
+id:I_3_tt148
+Element: programlisting
+format:linespecific
+id:I_3_tt149
+Element: programlisting
+format:linespecific
+id:I_3_tt150
+Element: programlisting
+format:linespecific
+id:I_3_tt151
+Element: programlisting
+format:linespecific
+id:I_3_tt152
+Element: programlisting
+format:linespecific
+id:I_3_tt153
+Element: programlisting
+format:linespecific
+id:I_3_tt154
+Element: programlisting
+format:linespecific
+id:I_3_tt155
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_3_tt156
+Element: programlisting
+format:linespecific
+id:I_3_tt157
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_5_tt200
+Element: programlisting
+format:linespecific
+id:I_5_tt201
+Element: programlisting
+format:linespecific
+id:I_5_tt202
+Element: programlisting
+format:linespecific
+id:I_5_tt203
+Element: programlisting
+format:linespecific
+id:I_5_tt204
+Element: programlisting
+format:linespecific
+id:I_5_tt205
+Element: programlisting
+format:linespecific
+id:I_5_tt206
+Element: programlisting
+format:linespecific
+id:I_5_tt207
+Element: programlisting
+format:linespecific
+id:I_5_tt208
+Element: programlisting
+format:linespecific
+id:I_5_tt209
+Element: programlisting
+format:linespecific
+id:I_5_tt210
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_5_tt211
+Element: programlisting
+format:linespecific
+id:I_5_tt212
+Element: programlisting
+format:linespecific
+id:I_5_tt213
+Element: programlisting
+format:linespecific
+id:I_5_tt214
+Element: programlisting
+format:linespecific
+id:I_5_tt215
+Element: programlisting
+format:linespecific
+id:I_5_tt216
+Element: programlisting
+format:linespecific
+id:I_5_tt217
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_5_tt218
+Element: programlisting
+format:linespecific
+id:I_5_tt219
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_5_tt221
+Element: programlisting
+format:linespecific
+id:I_5_tt222
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_5_tt223
+Element: programlisting
+format:linespecific
+id:I_5_tt224
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_5_tt225
+Element: programlisting
+format:linespecific
+id:I_5_tt227
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_5_tt228
+Element: programlisting
+format:linespecific
+id:I_5_tt229
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_5_tt230
+Element: programlisting
+format:linespecific
+id:I_5_tt231
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_5_tt232
+Element: programlisting
+format:linespecific
+id:I_5_tt233
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_5_tt234
+Element: programlisting
+format:linespecific
+id:I_5_tt235
+Element: programlisting
+format:linespecific
+id:I_5_tt236
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_5_tt237
+Element: programlisting
+format:linespecific
+id:I_5_tt238
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_5_tt239
+Element: programlisting
+format:linespecific
+id:I_5_tt240
+Element: programlisting
+format:linespecific
+id:I_5_tt241
+Element: programlisting
+format:linespecific
+id:I_5_tt242
+Element: programlisting
+format:linespecific
+id:I_5_tt243
+Element: programlisting
+format:linespecific
+id:I_5_tt244
+Element: programlisting
+format:linespecific
+id:I_5_tt245
+Element: programlisting
+format:linespecific
+id:I_5_tt246
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_5_tt247
+Element: programlisting
+format:linespecific
+id:I_5_tt248
+Element: programlisting
+format:linespecific
+id:I_5_tt249
+Element: programlisting
+format:linespecific
+id:I_5_tt250
+Element: programlisting
+format:linespecific
+id:I_5_tt251
+Element: programlisting
+format:linespecific
+id:I_5_tt252
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_5_tt253
+Element: programlisting
+format:linespecific
+id:I_5_tt255
+Element: programlisting
+format:linespecific
+id:I_5_tt256
+Element: programlisting
+format:linespecific
+id:I_5_tt257
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_4_tt159
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_4_tt160
+Element: programlisting
+format:linespecific
+id:I_4_tt161
+Element: programlisting
+format:linespecific
+id:I_4_tt162
+Element: programlisting
+format:linespecific
+id:I_4_tt163
+Element: programlisting
+format:linespecific
+id:I_4_tt164
+Element: programlisting
+format:linespecific
+id:I_4_tt165
+Element: programlisting
+format:linespecific
+id:I_4_tt166
+Element: programlisting
+format:linespecific
+id:I_4_tt167
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_4_tt168
+Element: programlisting
+format:linespecific
+id:I_4_tt169
+Element: programlisting
+format:linespecific
+id:I_4_tt170
+Element: programlisting
+format:linespecific
+id:I_4_tt171
+Element: programlisting
+format:linespecific
+id:I_4_tt172
+Element: programlisting
+format:linespecific
+id:I_4_tt173
+Element: programlisting
+format:linespecific
+id:I_4_tt174
+Element: programlisting
+format:linespecific
+id:I_4_tt175
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_4_tt176
+Element: programlisting
+format:linespecific
+id:I_4_tt177
+Element: programlisting
+format:linespecific
+id:I_4_tt178
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_4_tt181
+Element: programlisting
+format:linespecific
+id:I_4_tt182
+Element: programlisting
+format:linespecific
+id:I_4_tt184
+Element: programlisting
+format:linespecific
+id:I_4_tt185
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_4_tt187
+Element: programlisting
+format:linespecific
+id:I_4_tt189
+Element: programlisting
+format:linespecific
+id:I_4_tt190
+Element: programlisting
+format:linespecific
+id:I_4_tt191
+Element: programlisting
+format:linespecific
+id:I_4_tt192
+Element: programlisting
+format:linespecific
+id:I_4_tt193
+Element: programlisting
+format:linespecific
+id:I_4_tt194
+Element: programlisting
+format:linespecific
+id:I_4_tt195
+Element: programlisting
+format:linespecific
+id:I_4_tt196
+Element: programlisting
+format:linespecific
+id:I_4_tt197
+Element: programlisting
+format:linespecific
+id:I_4_tt198
+Element: programlisting
+format:linespecific
+id:I_4_tt199
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_11_tt434
+Element: programlisting
+format:linespecific
+id:I_11_tt435
+Element: programlisting
+format:linespecific
+id:I_11_tt436
+Element: programlisting
+format:linespecific
+id:I_11_tt437
+Element: programlisting
+format:linespecific
+id:I_11_tt438
+Element: programlisting
+format:linespecific
+id:I_11_tt439
+Element: programlisting
+format:linespecific
+id:I_11_tt440
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_11_tt441
+Element: programlisting
+format:linespecific
+id:I_11_tt442
+Element: programlisting
+format:linespecific
+id:I_11_tt443
+Element: programlisting
+format:linespecific
+id:I_11_tt444
+Element: programlisting
+format:linespecific
+id:I_11_tt445
+Element: programlisting
+format:linespecific
+id:I_11_tt446
+Element: programlisting
+format:linespecific
+id:I_11_tt447
+Element: programlisting
+format:linespecific
+id:I_11_tt448
+Element: programlisting
+format:linespecific
+id:I_11_tt449
+Element: programlisting
+format:linespecific
+id:I_11_tt450
+Element: programlisting
+format:linespecific
+id:I_11_tt451
+Element: programlisting
+format:linespecific
+id:I_11_tt452
+Element: programlisting
+format:linespecific
+id:I_11_tt453
+Element: programlisting
+format:linespecific
+id:I_11_tt454
+Element: programlisting
+format:linespecific
+id:I_11_tt455
+Element: programlisting
+format:linespecific
+id:I_11_tt456
+Element: programlisting
+format:linespecific
+id:I_11_tt457
+Element: programlisting
+format:linespecific
+id:I_11_tt458
+Element: programlisting
+format:linespecific
+id:I_11_tt459
+Element: programlisting
+format:linespecific
+id:I_11_tt460
+Element: programlisting
+format:linespecific
+id:I_11_tt461
+Element: programlisting
+format:linespecific
+id:I_11_tt462
+Element: programlisting
+format:linespecific
+id:I_11_tt463
+Element: programlisting
+format:linespecific
+id:I_11_tt464
+Element: programlisting
+format:linespecific
+id:I_11_tt465
+Element: programlisting
+format:linespecific
+id:I_11_tt466
+Element: programlisting
+format:linespecific
+id:I_11_tt467
+Element: programlisting
+format:linespecific
+id:I_11_tt468
+Element: programlisting
+format:linespecific
+id:I_11_tt469
+Element: programlisting
+format:linespecific
+id:I_11_tt470
+Element: programlisting
+format:linespecific
+id:I_11_tt471
+Element: programlisting
+format:linespecific
+id:I_11_tt472
+Element: programlisting
+format:linespecific
+id:I_11_tt473
+Element: programlisting
+format:linespecific
+id:I_11_tt474
+Element: programlisting
+format:linespecific
+id:I_11_tt475
+Element: programlisting
+format:linespecific
+id:I_11_tt476
+Element: programlisting
+format:linespecific
+id:I_11_tt477
+Element: programlisting
+format:linespecific
+id:I_11_tt478
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_11_tt479
+Element: programlisting
+format:linespecific
+id:I_11_tt480
+Element: programlisting
+format:linespecific
+id:I_11_tt481
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_10_tt399
+Element: programlisting
+format:linespecific
+id:I_10_tt400
+Element: programlisting
+format:linespecific
+id:I_10_tt401
+Element: programlisting
+format:linespecific
+id:I_10_tt402
+Element: programlisting
+format:linespecific
+id:I_10_tt403
+Element: programlisting
+format:linespecific
+id:I_10_tt404
+Element: programlisting
+format:linespecific
+id:I_10_tt405
+Element: programlisting
+format:linespecific
+id:I_10_tt406
+Element: programlisting
+format:linespecific
+id:I_10_tt407
+Element: programlisting
+format:linespecific
+id:I_10_tt408
+Element: programlisting
+format:linespecific
+id:I_10_tt409
+Element: programlisting
+format:linespecific
+id:I_10_tt410
+Element: programlisting
+format:linespecific
+id:I_10_tt411
+Element: programlisting
+format:linespecific
+id:I_10_tt412
+Element: programlisting
+format:linespecific
+id:I_10_tt413
+Element: programlisting
+format:linespecific
+id:I_10_tt414
+Element: programlisting
+format:linespecific
+id:I_10_tt415
+Element: programlisting
+format:linespecific
+id:I_10_tt416
+Element: programlisting
+format:linespecific
+id:I_10_tt417
+Element: programlisting
+format:linespecific
+id:I_10_tt418
+Element: programlisting
+format:linespecific
+id:I_10_tt419
+Element: programlisting
+format:linespecific
+id:I_10_tt420
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_10_tt422
+Element: programlisting
+format:linespecific
+id:I_10_tt423
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_10_tt425
+Element: programlisting
+format:linespecific
+id:I_10_tt426
+Element: programlisting
+format:linespecific
+id:I_10_tt427
+Element: programlisting
+format:linespecific
+id:I_10_tt428
+Element: programlisting
+format:linespecific
+id:I_10_tt429
+Element: programlisting
+format:linespecific
+id:I_10_tt430
+Element: programlisting
+format:linespecific
+id:I_10_tt431
+Element: programlisting
+format:linespecific
+id:I_10_tt432
+Element: programlisting
+artifact:${project.groupId}:cjcook-examples:${project.version}:src:zip
+file:pom.xml
+xpath:/dependencies/dependency[artifactId='commons-lang']
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_1_tt5
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_1_tt6
+Element: programlisting
+format:linespecific
+id:I_1_tt7
+Element: programlisting
+format:linespecific
+id:I_1_tt8
+Element: programlisting
+format:linespecific
+id:I_1_tt9
+Element: programlisting
+format:linespecific
+id:I_1_tt10
+Element: programlisting
+format:linespecific
+id:I_1_tt11
+Element: programlisting
+format:linespecific
+id:I_1_tt12
+Element: programlisting
+format:linespecific
+id:I_1_tt13
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_1_tt14
+Element: programlisting
+format:linespecific
+id:I_1_tt15
+Element: programlisting
+format:linespecific
+id:I_1_tt16
+Element: programlisting
+format:linespecific
+id:I_1_tt17
+Element: programlisting
+format:linespecific
+id:I_1_tt18
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_1_tt19
+Element: programlisting
+format:linespecific
+id:I_1_tt20
+Element: programlisting
+format:linespecific
+id:I_1_tt21
+Element: programlisting
+format:linespecific
+id:I_1_tt22
+Element: programlisting
+format:linespecific
+id:I_1_tt23
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_1_tt24
+Element: programlisting
+format:linespecific
+id:I_1_tt25
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_1_tt26
+Element: programlisting
+format:linespecific
+id:I_1_tt27
+Element: programlisting
+format:linespecific
+id:I_1_tt28
+Element: programlisting
+format:linespecific
+id:I_1_tt29
+Element: programlisting
+format:linespecific
+id:I_1_tt30
+Element: programlisting
+format:linespecific
+id:I_1_tt31
+Element: programlisting
+format:linespecific
+id:I_1_tt32
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_1_tt33
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_1_tt34
+Element: programlisting
+format:linespecific
+id:I_1_tt35
+Element: programlisting
+format:linespecific
+id:I_1_tt36
+Element: programlisting
+format:linespecific
+id:I_1_tt37
+Element: programlisting
+format:linespecific
+id:I_1_tt38
+Element: programlisting
+format:linespecific
+id:I_1_tt39
+Element: programlisting
+format:linespecific
+id:I_1_tt40
+Element: programlisting
+format:linespecific
+id:I_1_tt41
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_1_tt42
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_1_tt43
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_1_tt44
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_1_tt47
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_1_tt49
+Element: programlisting
+format:linespecific
+id:I_2_tt50
+Element: programlisting
+format:linespecific
+id:I_2_tt51
+Element: programlisting
+format:linespecific
+id:I_2_tt52
+Element: programlisting
+format:linespecific
+id:I_2_tt53
+Element: programlisting
+format:linespecific
+id:I_2_tt54
+Element: programlisting
+format:linespecific
+id:I_2_tt55
+Element: programlisting
+format:linespecific
+id:I_2_tt56
+Element: programlisting
+format:linespecific
+id:I_2_tt57
+Element: programlisting
+format:linespecific
+id:I_2_tt58
+Element: programlisting
+format:linespecific
+id:I_2_tt59
+Element: programlisting
+format:linespecific
+id:I_2_tt60
+Element: programlisting
+format:linespecific
+id:I_2_tt61
+Element: programlisting
+format:linespecific
+id:I_2_tt62
+Element: programlisting
+format:linespecific
+id:I_2_tt63
+Element: programlisting
+format:linespecific
+id:I_2_tt64
+Element: programlisting
+format:linespecific
+id:I_2_tt65
+Element: programlisting
+format:linespecific
+id:I_2_tt66
+Element: programlisting
+format:linespecific
+id:I_2_tt67
+Element: programlisting
+format:linespecific
+id:I_2_tt68
+Element: programlisting
+format:linespecific
+id:I_2_tt69
+Element: programlisting
+format:linespecific
+id:I_2_tt70
+Element: programlisting
+format:linespecific
+id:I_2_tt71
+Element: programlisting
+format:linespecific
+id:I_2_tt72
+Element: programlisting
+format:linespecific
+id:I_2_tt73
+Element: programlisting
+format:linespecific
+id:I_2_tt74
+Element: programlisting
+format:linespecific
+id:I_2_tt75
+Element: programlisting
+format:linespecific
+id:I_2_tt76
+Element: programlisting
+format:linespecific
+id:I_2_tt77
+Element: programlisting
+format:linespecific
+id:I_2_tt78
+Element: programlisting
+format:linespecific
+id:I_2_tt79
+Element: programlisting
+format:linespecific
+id:I_2_tt80
+Element: programlisting
+format:linespecific
+id:I_2_tt81
+Element: programlisting
+format:linespecific
+id:I_2_tt82
+Element: programlisting
+format:linespecific
+id:I_2_tt83
+Element: programlisting
+format:linespecific
+id:I_2_tt84
+Element: programlisting
+format:linespecific
+id:I_2_tt85
+Element: programlisting
+format:linespecific
+id:I_2_tt86
+Element: programlisting
+format:linespecific
+id:I_2_tt87
+Element: programlisting
+format:linespecific
+id:I_2_tt88
+Element: programlisting
+format:linespecific
+id:I_2_tt89
+Element: programlisting
+format:linespecific
+id:I_2_tt90
+Element: programlisting
+format:linespecific
+id:I_2_tt91
+Element: programlisting
+format:linespecific
+id:I_2_tt92
+Element: programlisting
+format:linespecific
+id:I_2_tt93
+Element: programlisting
+format:linespecific
+id:I_2_tt94
+Element: programlisting
+format:linespecific
+id:I_2_tt95
+Element: programlisting
+format:linespecific
+id:I_2_tt96
+Element: programlisting
+format:linespecific
+id:I_2_tt97
+Element: programlisting
+format:linespecific
+id:I_2_tt98
+Element: programlisting
+format:linespecific
+id:I_2_tt99
+Element: programlisting
+format:linespecific
+id:I_2_tt100
+Element: programlisting
+format:linespecific
+id:I_2_tt101
+Element: programlisting
+format:linespecific
+id:I_2_tt102
+Element: programlisting
+format:linespecific
+id:I_2_tt103
+Element: programlisting
+format:linespecific
+id:I_2_tt104
+Element: programlisting
+format:linespecific
+id:I_2_tt105
+Element: programlisting
+format:linespecific
+id:I_2_tt106
+Element: programlisting
+format:linespecific
+id:I_2_tt107
+Element: programlisting
+format:linespecific
+id:I_2_tt108
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_2_tt110
+Element: programlisting
+format:linespecific
+id:I_2_tt111
+Element: programlisting
+format:linespecific
+id:I_8_tt318
+Element: programlisting
+format:linespecific
+id:I_8_tt319
+Element: programlisting
+format:linespecific
+id:I_8_tt321
+Element: programlisting
+format:linespecific
+id:I_8_tt322
+Element: programlisting
+format:linespecific
+id:I_8_tt323
+Element: programlisting
+format:linespecific
+id:I_8_tt324
+Element: programlisting
+format:linespecific
+id:I_8_tt325
+Element: programlisting
+format:linespecific
+id:I_8_tt326
+Element: programlisting
+format:linespecific
+id:I_8_tt327
+Element: programlisting
+format:linespecific
+id:I_8_tt328
+Element: programlisting
+format:linespecific
+id:I_8_tt329
+Element: programlisting
+format:linespecific
+id:I_8_tt330
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_8_tt331
+Element: programlisting
+format:linespecific
+id:I_8_tt332
+Element: programlisting
+format:linespecific
+id:I_8_tt333
+Element: programlisting
+format:linespecific
+id:I_8_tt334
+Element: programlisting
+format:linespecific
+id:I_8_tt337
+Element: programlisting
+format:linespecific
+id:I_8_tt338
+Element: programlisting
+format:linespecific
+id:I_8_tt341
+Element: programlisting
+format:linespecific
+id:I_8_tt342
+Element: programlisting
+format:linespecific
+id:I_8_tt343
+Element: programlisting
+format:linespecific
+id:I_8_tt344
+Element: programlisting
+format:linespecific
+id:I_8_tt345
+Element: programlisting
+format:linespecific
+id:I_8_tt346
+Element: programlisting
+format:linespecific
+id:I_8_tt347
+Element: programlisting
+format:linespecific
+id:I_8_tt348
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_8_tt349
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_12_tt483
+Element: programlisting
+format:linespecific
+id:I_12_tt484
+Element: programlisting
+format:linespecific
+id:I_12_tt485
+Element: programlisting
+format:linespecific
+id:I_12_tt486
+Element: programlisting
+format:linespecific
+id:I_12_tt487
+Element: programlisting
+format:linespecific
+id:I_12_tt488
+Element: programlisting
+format:linespecific
+id:I_12_tt489
+Element: programlisting
+format:linespecific
+id:I_12_tt490
+Element: programlisting
+format:linespecific
+id:I_12_tt491
+Element: programlisting
+format:linespecific
+id:I_12_tt492
+Element: programlisting
+format:linespecific
+id:I_12_tt493
+Element: programlisting
+format:linespecific
+id:I_12_tt494
+Element: programlisting
+format:linespecific
+id:I_12_tt495
+Element: programlisting
+format:linespecific
+id:I_12_tt496
+Element: programlisting
+format:linespecific
+id:I_12_tt497
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_12_tt499
+Element: programlisting
+format:linespecific
+id:I_12_tt500
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_12_tt501
+Element: programlisting
+format:linespecific
+id:I_12_tt502
+Element: programlisting
+format:linespecific
+id:I_12_tt503
+Element: programlisting
+format:linespecific
+id:I_12_tt504
+Element: programlisting
+format:linespecific
+id:I_12_tt505
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_12_tt506
+Element: programlisting
+format:linespecific
+id:I_12_tt507
+Element: programlisting
+format:linespecific
+id:I_9_tt350
+Element: programlisting
+format:linespecific
+id:I_9_tt351
+Element: programlisting
+format:linespecific
+id:I_9_tt352
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_9_tt354
+Element: programlisting
+format:linespecific
+id:I_9_tt355
+Element: programlisting
+format:linespecific
+id:I_9_tt356
+Element: programlisting
+format:linespecific
+id:I_9_tt357
+Element: programlisting
+format:linespecific
+id:I_9_tt358
+Element: programlisting
+format:linespecific
+id:I_9_tt359
+Element: programlisting
+format:linespecific
+id:I_9_tt360
+Element: programlisting
+format:linespecific
+id:I_9_tt361
+Element: programlisting
+format:linespecific
+id:I_9_tt362
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_9_tt364
+Element: programlisting
+format:linespecific
+id:I_9_tt365
+Element: programlisting
+format:linespecific
+id:I_9_tt366
+Element: programlisting
+format:linespecific
+id:I_9_tt367
+Element: programlisting
+format:linespecific
+id:I_9_tt368
+Element: programlisting
+format:linespecific
+id:I_9_tt369
+Element: programlisting
+format:linespecific
+id:I_9_tt370
+Element: programlisting
+format:linespecific
+id:I_9_tt371
+Element: programlisting
+format:linespecific
+id:I_9_tt372
+Element: programlisting
+format:linespecific
+id:I_9_tt373
+Element: programlisting
+format:linespecific
+id:I_9_tt374
+Element: programlisting
+format:linespecific
+id:I_9_tt375
+Element: programlisting
+format:linespecific
+id:I_9_tt376
+Element: programlisting
+format:linespecific
+id:I_9_tt377
+Element: programlisting
+format:linespecific
+id:I_9_tt378
+Element: programlisting
+format:linespecific
+id:I_9_tt379
+Element: programlisting
+format:linespecific
+id:I_9_tt380
+Element: programlisting
+format:linespecific
+id:I_9_tt381
+Element: programlisting
+format:linespecific
+id:I_9_tt382
+Element: programlisting
+format:linespecific
+id:I_9_tt383
+Element: programlisting
+format:linespecific
+id:I_9_tt384
+Element: programlisting
+format:linespecific
+id:I_9_tt385
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_9_tt387
+Element: programlisting
+format:linespecific
+id:I_9_tt388
+Element: programlisting
+format:linespecific
+id:I_9_tt389
+Element: programlisting
+format:linespecific
+id:I_9_tt390
+Element: programlisting
+format:linespecific
+id:I_9_tt391
+Element: programlisting
+format:linespecific
+id:I_9_tt392
+Element: programlisting
+format:linespecific
+id:I_9_tt393
+Element: programlisting
+format:linespecific
+id:I_9_tt394
+Element: programlisting
+format:linespecific
+id:I_9_tt395
+Element: programlisting
+format:linespecific
+id:I_9_tt396
+Element: programlisting
+format:linespecific
+id:I_9_tt397
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_6_tt259
+Element: programlisting
+format:linespecific
+id:I_6_tt260
+Element: programlisting
+format:linespecific
+id:I_6_tt261
+Element: programlisting
+format:linespecific
+id:I_6_tt262
+Element: programlisting
+format:linespecific
+id:I_6_tt263
+Element: programlisting
+format:linespecific
+id:I_6_tt264
+Element: programlisting
+format:linespecific
+id:I_6_tt265
+Element: programlisting
+format:linespecific
+id:I_6_tt266
+Element: programlisting
+format:linespecific
+id:I_6_tt267
+Element: programlisting
+format:linespecific
+id:I_6_tt268
+Element: programlisting
+format:linespecific
+id:I_6_tt269
+Element: programlisting
+format:linespecific
+id:I_6_tt270
+Element: programlisting
+format:linespecific
+id:I_6_tt271
+Element: programlisting
+format:linespecific
+id:I_6_tt272
+Element: programlisting
+format:linespecific
+id:I_6_tt273
+Element: programlisting
+format:linespecific
+id:I_6_tt274
+Element: programlisting
+format:linespecific
+id:I_6_tt275
+Element: programlisting
+format:linespecific
+id:I_6_tt276
+Element: programlisting
+format:linespecific
+id:I_6_tt277
+Element: programlisting
+format:linespecific
+id:I_6_tt278
+Element: programlisting
+format:linespecific
+id:I_6_tt279
+Element: programlisting
+format:linespecific
+id:I_6_tt280
+Element: programlisting
+format:linespecific
+id:I_6_tt281
+Element: programlisting
+format:linespecific
+Element: programlisting
+format:linespecific
+id:I_6_tt283
+Element: programlisting
+format:linespecific
+id:I_6_tt284
+Element: programlisting
+format:linespecific
+id:I_6_tt285
+Element: programlisting
+format:linespecific
+id:I_6_tt286
+Element: programlisting
+format:linespecific
+id:I_6_tt287
+Element: programlisting
+format:linespecific
+id:I_6_tt288
+Element: programlisting
+format:linespecific
+id:I_6_tt289
+Element: programlisting
+format:linespecific
+id:I_6_tt290
+Element: programlisting
+format:linespecific
+id:I_6_tt291
+Element: programlisting
+format:linespecific
+id:I_6_tt292
+Element: programlisting
+format:linespecific
+id:I_6_tt293
+Element: programlisting
+format:linespecific
+id:I_6_tt294
+Element: programlisting
+format:linespecific
+id:I_6_tt295
+Element: programlisting
+format:linespecific
+id:I__tt3
+[INFO] [resources:resources]
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 16 resources
+[INFO] Copying 44 resources
+[INFO] [compiler:compile]
+[INFO] Nothing to compile - all classes are up to date
+[INFO] [resources:testResources]
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/Tim/Library/Code/discursive/common-java-cookbook/cjcook-content/src/test/resources
+[INFO] [compiler:testCompile]
+[INFO] No sources to compile
+[INFO] [surefire:test]
+[INFO] No tests to run.
+[INFO] [docbook:validate-chapter-ids {execution: validate-chapters}]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1 minute 58 seconds
+[INFO] Finished at: Sun May 24 13:47:45 CDT 2009
+[INFO] Final Memory: 15M/30M
+[INFO] ------------------------------------------------------------------------

@@ -35,6 +35,7 @@
   </developers>
   <modules>
     <module>cjcook-content</module>
+    <module>cjcook-eclipse</module>
     <module>cjcook-examples</module>
     <module>cjcook-html</module>
     <module>cjcook-single-html</module>

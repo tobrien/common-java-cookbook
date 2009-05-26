@@ -42,6 +42,13 @@
         			<goal>validate-chapter-ids</goal>
         		</goals>
         	</execution>
+        	<execution>
+        		<id>inject-examples</id>
+        		<phase>process-classes</phase>
+        		<goals>
+        			<goal>inject-examples</goal>
+        		</goals>
+        	</execution>
         </executions>
       </plugin>
       <plugin>
@@ -102,11 +109,11 @@
         </properties>
       </profile>
   </profiles>
-<!--  <dependencies>
+  <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>examples</artifactId>
+      <artifactId>cjcook-examples</artifactId>
       <version>${project.version}</version>
     </dependency>
-  </dependencies> -->
+  </dependencies>
 </project>

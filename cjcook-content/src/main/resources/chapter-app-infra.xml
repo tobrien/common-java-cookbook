@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="app-infra" label="7">
+<chapter id="app-infra" label="7" xmlns:db="http://discursive.com/plugins/docbook">
   <title>Application Infrastructure</title>
 
   <sect1 id="app-infra-sect-intro">
@@ -61,11 +61,10 @@
       <example id="app-infra-ex-add-depend-cli">
         <title>Adding a Dependency on Commons CLI</title>
 
-        <programlisting>&lt;dependency&gt;
-  &lt;groupId&gt;commons-cli&lt;/groupId&gt;
-  &lt;artifactId&gt;commons-cli&lt;/artifactId&gt;
-  &lt;version&gt;1.1&lt;/version&gt;
-&lt;/dependency&gt;  </programlisting>
+        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+                        db:file="cjcook-examples-${project.version}/pom.xml"
+                        db:xpath="//dependency[artifactId='commons-cli']"/>
+
       </example>
     </sect2>
 
@@ -567,11 +566,9 @@ For more instructions, see our website at: http://www.blah123.org</programlistin
       <example id="app-infra-ex-add-depend-configuration">
         <title>Adding a Dependency on Commons Configuration</title>
 
-        <programlisting>&lt;dependency&gt;
-  &lt;groupId&gt;commons-configuration&lt;/groupId&gt;
-  &lt;artifactId&gt;commons-configuration&lt;/artifactId&gt;
-  &lt;version&gt;1.6&lt;/version&gt;
-&lt;/dependency&gt;  </programlisting>
+        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+                        db:file="cjcook-examples-${project.version}/pom.xml"
+                        db:xpath="//dependency[artifactId='commons-configuration']"/>
       </example>
     </sect2>
 
@@ -1222,11 +1219,10 @@ Speed: 75</programlisting>
       <example id="app-infra-ex-add-depend-logging">
         <title>Adding a Dependency on Commons Logging</title>
 
-        <programlisting>&lt;dependency&gt;
-  &lt;groupId&gt;commons-logging&lt;/groupId&gt;
-  &lt;artifactId&gt;commons-logging&lt;/artifactId&gt;
-  &lt;version&gt;1.0.4&lt;/version&gt;
-&lt;/dependency&gt;  </programlisting>
+        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+                        db:file="cjcook-examples-${project.version}/pom.xml"
+                        db:xpath="//dependency[artifactId='commons-logging']"/>
+
       </example>
     </sect2>
 
@@ -1504,25 +1500,9 @@ log.fatal( "This is fatal" );</programlisting>
       <example id="app-infra-ex-add-depend-log4j">
         <title>Adding a Dependency on Apache Log4J</title>
 
-        <programlisting>&lt;dependency&gt;
-  &lt;groupId&gt;log4j&lt;/groupId&gt;
-  &lt;artifactId&gt;log4j&lt;/artifactId&gt;
-  &lt;version&gt;1.2.15&lt;/version&gt;
-  &lt;exclusions&gt;
-    &lt;exclusion&gt;
-      &lt;groupId&gt;javax.jms&lt;/groupId&gt;
-      &lt;artifactId&gt;jms&lt;/artifactId&gt;
-    &lt;/exclusion&gt;
-    &lt;exclusion&gt;
-      &lt;groupId&gt;com.sun.jdmk&lt;/groupId&gt;
-      &lt;artifactId&gt;jmxtools&lt;/artifactId&gt;
-    &lt;/exclusion&gt;
-    &lt;exclusion&gt;
-      &lt;groupId&gt;com.sun.jmx&lt;/groupId&gt;
-      &lt;artifactId&gt;jmxri&lt;/artifactId&gt;
-    &lt;/exclusion&gt;
-  &lt;/exclusions&gt;
-&lt;/dependency&gt;</programlisting>
+        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+                        db:file="cjcook-examples-${project.version}/pom.xml"
+                        db:xpath="//dependency[artifactId='log4j']"/>
       </example>
     </sect2>
 
