@@ -49,6 +49,12 @@
         			<goal>inject-examples</goal>
         		</goals>
         	</execution>
+        	<execution>
+        		<id>wrappify</id>
+        		<goals>
+        			<goal>wrappify</goal>
+        		</goals>
+        	</execution>
         </executions>
       </plugin>
       <plugin>

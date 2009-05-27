@@ -160,11 +160,11 @@
           <primary>reflection builders</primary>
         </indexterm>reflection builder:</para>
 
-      <programlisting format="linespecific" id="I_1_tt5">import org.apache.commons.lang.builder.ToStringBuilder;
+        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+                        db:excerpt="lang_tostring_solution"
+                        db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/reflect/PoliticalCandidate.java"
+                        xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
 
-public void toString( ) {
-    ReflectionToStringBuilder.toString( this );
-}</programlisting>
     </sect2>
 
     <sect2>
@@ -223,22 +223,21 @@ public void toString( ) {
           <secondary>built via reflection</secondary>
         </indexterm>built via reflection:</para>
 
-        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
-                        db:excerpt="lang-ex-sample-1"
-                        db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/reflect/PoliticalCandidate.java"
-                        xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
+      <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+                      db:excerpt="lang-ex-sample-1"
+                      db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/reflect/PoliticalCandidate.java"
+                      xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
 
       <para>Assume that the <literal moreinfo="none">State</literal> object is
       another bean using the same <literal
       moreinfo="none">ReflectionToStringBuilder</literal>. The code above sets
       the properties of a bean and produces the following output:</para>
 
-      <programlisting format="linespecific" id="I_1_tt7">com.discursive.jccook.lang.builders.PoliticalCandidate@187aeca
-    [lastName=Jefferson,\firstName=Thomas,
-     dateOfBirth=Sat Apr 13 22:38:42 CST 1743,
-     moneyRaised=\293829292.930000007152557373046875,
-     state=\com.discursive.jccook.lang.builders.State@87816d
-         [abbreviation=VA,name=Virginia]]</programlisting>
+      <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:jar-with-dependencies:jar"
+                      db:main-class="com.discursive.jccook.lang.builders.reflect.PoliticalCandidate"
+                      db:type="exec"
+                      db:wrap="force"
+                      xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
 
       <tip id="lang-NOTE-43" role="ora">
         <para>As in other cases in this book, I've applied a minimal amount of
@@ -368,25 +367,20 @@ public void toString( ) {
       demonstrates a <literal moreinfo="none">toString( )</literal> method
       implementation that customizes both style and content:</para>
 
-      <programlisting format="linespecific" id="I_1_tt8">import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
-
-public String toString( ) {
-    return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-                   .append("lastName", lastName)
-                   .append("firstName", firstName)
-                   .toString( );
-}</programlisting>
+      <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+                      db:excerpt="lang_custom_tostring_solution"
+                      db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/customized/PoliticalCandidate.java"
+                      xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
 
       <para>Calling <literal moreinfo="none">toString( )</literal> on this
       object will produce the following output containing only the two
       properties specified as parameters to <literal moreinfo="none">append(
       )</literal>:</para>
 
-      <programlisting format="linespecific" id="I_1_tt9">com.discursive.jccook.lang.builders.PoliticalCandidate@1cd2e5f[
-  lastName=Jefferson
-  firstName=Thomas
-]</programlisting>
+      <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:jar-with-dependencies:jar"
+                      db:main-class="com.discursive.jccook.lang.builders.customized.PoliticalCandidate"
+                      db:type="exec"
+                      xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
 
       <tip id="lang-NOTE-46" role="ora">
         <para>Unlike the output shown in <link
@@ -691,37 +685,10 @@ PoliticalCandidate@1cd2e5f[lastName=Jefferson,firstName=Thomas]</programlisting>
       <example id="lang-ex-2" label="1-2">
         <title>Automating hashCode( ) and equals( )</title>
 
-        <programlisting format="linespecific">import org.apache.commons.lang.builder.HashCodeBuilder;
-import org.apache.commons.lang.builder.EqualsBuilder;
-
-public class PoliticalCandidate {
-
-    // Member variables - omitted for brevity
-
-    // Constructors - omitted for brevity
-
-    // get/set methods - omitted for brevity
-
-    // A hashCode which creates a hash from the two unique identifiers
-    public int hashCode( ) {
-        return new HashCodeBuilder(17, 37)
-                       .append(firstName)
-                       .append(lastName).toHashCode( );
-    }
-
-    // An equals which compares two unique identifiers
-    public boolean equals(Object o) {
-        boolean equals = false;
-        if ( o != null &amp;&amp; 
-            PoliticalCandidate.class.isAssignableFrom(o) ) {
-            PoliticalCandidate pc = (PoliticalCandidate) o;
-            equals = (new EqualsBuilder( )
-                       .append(firstName, ps.firstName)
-                       .append(lastName, ps.lastName)).isEquals( );
-        }
-        return equals;
-    }
-}</programlisting>
+      <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+                      db:excerpt="lang-ex-2"
+                      db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/equals/PoliticalCandidate.java"
+                      xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
       </example>
     </sect2>
 
@@ -926,25 +893,11 @@ public int compareTo(Object o) {
           <secondary>compareTo( ) method</secondary>
         </indexterm>
 
-        <programlisting format="linespecific">public class PoliticalCandidate {
+      <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+                      db:excerpt="lang-ex-3"
+                      db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/compare/PoliticalCandidate.java"
+                      xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
 
-    // Static variable
-    private static String averageAge;
-
-    // Member variables 
-    private String firstName;
-    private String lastName;
-    private transient String fullName;
-
-    // Constructors
-
-    // get/set methods
-
-    // Build a compareTo function from reflection 
-    public int compareTo(Object o) {
-        return CompareToBuilder.reflectionCompare(this, obj);
-    }
-}</programlisting>
       </example>
 
       <para>In addition to a comparison by reflection, the <literal
