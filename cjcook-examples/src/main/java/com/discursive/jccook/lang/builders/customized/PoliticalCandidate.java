@@ -17,17 +17,19 @@
  * 
  * ========================================================================
  */
-package com.discursive.jccook.lang.builders.reflect;
+package com.discursive.jccook.lang.builders.customized;
 
-// START lang-ex-1
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-// START lang_tostring_solution
-import org.apache.commons.lang.builder.ReflectionToStringBuilder;
-// OMIT lang_tostring_solution
+// START lang_custom_tostring_solution
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
+// OMIT lang_custom_tostring_solution
+
 import com.discursive.jccook.lang.builders.State;
 
 public class PoliticalCandidate {
@@ -51,14 +53,17 @@ public class PoliticalCandidate {
 	}
 
 	// get/set methods are omitted for brevity...
-// END OMIT lang_tostring_solution
-	public String toString() {
-		return ReflectionToStringBuilder.reflectionToString(this);
+// END OMIT lang_custom_tostring_solution
+	
+	public String toString( ) {
+	    return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
+	                   .append("lastName", lastName)
+	                   .append("firstName", firstName)
+	                   .toString( );
 	}
-// END lang_tostring_solution
-	// OMIT lang-ex-1
+	
+// END lang_custom_tostring_solution
 	public static void main(String[] args) {
-		// START lang-ex-sample-1
 		// Create a State
 		State va = new State("VA", "Virginia");
 
@@ -76,8 +81,5 @@ public class PoliticalCandidate {
 				"Thomas", dob, moneyRaised, va);
 
 		System.out.println(candidate);
-		// END lang-ex-sample-1
 	}
-	// END OMIT lang-ex-1
 }
-// END lang-ex-1
