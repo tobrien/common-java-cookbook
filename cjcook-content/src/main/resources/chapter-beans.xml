@@ -2599,12 +2599,6 @@ PropertyUtils.setProperty( politician, "votes", new Long( 50000000 ) );</program
       <table id="beans-TABLE-2" label="3-2">
         <title>Methods available on a DynaBean</title>
 
-        <indexterm id="beans-ITERM-2282" significance="normal">
-          <primary>methods</primary>
-
-          <secondary>DynaBean</secondary>
-        </indexterm>
-
         <tgroup cols="2">
           <colspec colname="col1" colnum="1" />
 
