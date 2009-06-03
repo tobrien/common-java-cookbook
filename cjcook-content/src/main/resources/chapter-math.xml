@@ -191,12 +191,6 @@ String properString = Fraction.getFraction(userInput).toProperString( );
       <table id="math-TABLE-1" label="8-1">
         <title>Methods on Commons Lang Fraction</title>
 
-        <indexterm id="math-ITERM-2863" significance="normal">
-          <primary>Commons Lang</primary>
-
-          <secondary>fractions</secondary>
-        </indexterm>
-
         <tgroup cols="2">
           <colspec colname="col1" colnum="1" />
 

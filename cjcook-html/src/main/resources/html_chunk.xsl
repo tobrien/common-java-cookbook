@@ -99,15 +99,9 @@
         <div id="right-header">
           <h2>${book.title}</h2>
           <h4>Edition: ${project.version}</h4>
-          <h4>Current Page:
-<script>
-var idcomments_acct = 'b740285dedd2abc0ef4bab7566268471';
-var idcomments_post_id;
-var idcomments_post_url;
-</script>
-<script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
+	  <h4><a href="http://www.discursive.com/books/cjcook/cjcook-pdf-${project.version}.pdf" onClick="javascript: pageTracker._trackPageview('/books/cjcook/cjcook-pdf.pdf'); ">Download PDF</a> or <a href="http://www.scribd.com/doc/16065335/The-Common-Java-Cookbook" onClick="javascript: pageTracker._trackPageview('/books/cjcook/cjcook-scribd'); ">Read on Scribd</a>
           </h4>
-          <h4><a href="http://www.discursive.com/books/cjcook/cjcook-examples-${project.version}-src.zip" onClick="javascript: pageTracker._trackPageview('/books/cjcook/cjcook-examples.zip'); ">Download Book Examples (ZIP)</a></h4>
+          <h4><a href="http://www.discursive.com/books/cjcook/cjcook-examples-${project.version}-src.zip" onClick="javascript: pageTracker._trackPageview('/books/cjcook/cjcook-examples.zip'); ">Download Examples (ZIP)</a></h4>
         </div>
         <div style="clear:both;">
         </div>

@@ -5,19 +5,6 @@
 	<xsl:import href="urn:docbkx:stylesheet" />
     <xsl:param name="graphicsize.extension" select="1"></xsl:param>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- These extensions are required for table printing and other stuff -->
     <xsl:param name="use.extensions">1</xsl:param>
     <xsl:param name="tablecolumns.extension">0</xsl:param>
@@ -60,10 +47,10 @@
     <xsl:param name="body.margin.bottom">0.4in</xsl:param>
     <xsl:param name="region.after.extent">0.3in</xsl:param>
 
-	<xsl:param name="page.margin.bottom" select="'0.5in'" />
-	<xsl:param name="page.margin.top" select="'0.5in'" />
-	<xsl:param name="page.margin.inner" select="'1in'" />
-	<xsl:param name="page.margin.outer" select="'1in'" />
+	<xsl:param name="page.margin.bottom" select="'0.2in'" />
+	<xsl:param name="page.margin.top" select="'0.2in'" />
+	<xsl:param name="page.margin.inner" select="'0.5in'" />
+	<xsl:param name="page.margin.outer" select="'0.5in'" />
 
     <!-- No intendation of Titles -->
     <xsl:param name="title.margin.left">0pc</xsl:param>
@@ -78,20 +65,20 @@
 
 
     <!-- Line height in body text -->
-    <xsl:param name="line-height">1.3</xsl:param>
+    <xsl:param name="line-height">1.4</xsl:param>
 
 	<xsl:param name="body.font.family" select="'serif'" />
-	<xsl:param name="body.font.master" select="'12'" />
-	<xsl:param name="body.font.small" select="'10'" />
+	<xsl:param name="body.font.master" select="'11'" />
+	<xsl:param name="body.font.small" select="'8'" />
 	<xsl:param name="dingbat.font.family" select="''" />
 	<xsl:param name="symbol.font.family" select="''" />
-	<xsl:param name="title.font.family" select="'serif'" />
+	<xsl:param name="title.font.family" select="'sans-serif'" />
 	<xsl:param name="monospace.font.family" select="'monospace'" />
 	<xsl:param name="double.sided" select="'0'" />
 
 	<xsl:attribute-set name="normal.para.spacing">
 		<xsl:attribute name="space-after.optimum">6pt</xsl:attribute>
-		<xsl:attribute name="space-before.optimum">3pt</xsl:attribute>
+		<xsl:attribute name="space-before.optimum">0pt</xsl:attribute>
 	</xsl:attribute-set>
 
 	<xsl:attribute-set name="component.title.properties">
@@ -121,59 +108,6 @@
 		###################################################
 	-->
 	<xsl:template name="book.titlepage.recto">
-		<fo:block>
-			<fo:table table-layout="fixed" width="175mm">
-				<fo:table-column column-width="175mm" />
-				<fo:table-body>
-					<fo:table-row>
-						<fo:table-cell text-align="center">
-							<fo:block>
-								<fo:external-graphic content-width="scale-to-fit" content-height="scale-to-fit" width="100mm"
-									src="${organization.logo}" />
-							</fo:block>
-							<fo:block font-family="Helvetica" font-size="22pt"
-								padding-before="10mm">
-                              ${book.title}
-							</fo:block>
-							<fo:block font-family="Helvetica" font-size="14pt"
-								padding="10mm">
-                              ${book.subtitle}
-							</fo:block>
-							<fo:block font-family="Helvetica" font-size="12pt"
-								padding="10mm">
-                              Edition: ${project.version}
-							</fo:block>
-						</fo:table-cell>
-					</fo:table-row>
-					<fo:table-row>
-						<fo:table-cell text-align="center">
-							<fo:block font-family="Helvetica" font-size="12pt"
-								padding="10mm">
-								<xsl:for-each select="bookinfo/authorgroup/author">
-									<xsl:if test="position() > 1">
-										<xsl:text>, </xsl:text>
-									</xsl:if>
-									<xsl:value-of select="firstname" />
-									<xsl:text> </xsl:text>
-									<xsl:value-of select="surname" />
-									<xsl:text> (</xsl:text>
-									<xsl:value-of select="affiliation" />
-									<xsl:text>)</xsl:text>
-								</xsl:for-each>
-							</fo:block>
-							<fo:block font-family="Helvetica" font-size="12pt"
-								padding="10mm">
-								<xsl:text>Copyright &#xA9; ${copyright.year}</xsl:text>
-							</fo:block>
-
-                            <fo:block font-family="Helvetica" font-size="10pt" padding="1mm">
-                                <xsl:value-of select="bookinfo/legalnotice"/>
-                            </fo:block>
-                        </fo:table-cell>
-                    </fo:table-row>
-                </fo:table-body>
-            </fo:table>
-        </fo:block>
     </xsl:template>
 
     <!-- Prevent blank pages in output -->

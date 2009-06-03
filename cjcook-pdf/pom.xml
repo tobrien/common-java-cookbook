@@ -33,6 +33,28 @@
 				<version>1.0-SNAPSHOT</version>
 				<extensions>true</extensions>
 			</plugin>
+      <plugin>
+	<groupId>org.codehaus.cjcook</groupId>
+	<artifactId>pdf-plugin</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<executions>
+	  <execution>
+	    <id>concat-pdfs</id>
+	    <phase>process-classes</phase>
+	    <goals>
+	      <goal>concatenate</goal>
+	    </goals>
+	    <configuration>
+	      <outputDir>${basedir}/target</outputDir>
+	      <outputFilename>cjcook-complete.pdf</outputFilename>
+	      <pdfs>
+		<pdf>${basedir}/src/main/resources/cjcook-book-cover.pdf</pdf>
+		<pdf>${basedir}/target/book-cjcook.pdf</pdf>
+	      </pdfs>	
+	    </configuration>
+	  </execution>
+	</executions>
+      </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -104,7 +126,7 @@
 				    	<goal>install-file</goal>
 				    </goals>
 				    <configuration>
-				    	<file>${basedir}/target/book-cjcook.pdf</file>
+				    	<file>${basedir}/target/cjcook-complete.pdf</file>
 				    	<groupId>${groupId}</groupId>
 				    	<artifactId>${artifactId}</artifactId>
 				    	<version>${version}</version>
