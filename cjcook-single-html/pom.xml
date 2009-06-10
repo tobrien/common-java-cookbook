@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>org.codehaus.cjcook</groupId>
 		<artifactId>cjcook-parent</artifactId>
-		<version>0.18</version>
+		<version>0.19-SNAPSHOT</version>
 	</parent>
 	<artifactId>cjcook-single-html</artifactId>
 	<packaging>jar</packaging>
