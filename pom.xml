@@ -76,7 +76,6 @@
                 <requireJavaVersion>
                   <version>[1.5.0,1.6.0)</version>
                 </requireJavaVersion>
-		<requirePluginVersions/>
               </rules>
             </configuration>
           </execution>
@@ -89,6 +88,26 @@
 	  <groupId>org.apache.maven.plugins</groupId>
 	  <artifactId>maven-install-plugin</artifactId>
 	  <version>2.2</version>
+	</plugin>
+	<plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-site-plugin</artifactId>
+	  <version>2.0-beta-7</version>
+	</plugin>
+	<plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-deploy-plugin</artifactId>
+	  <version>2.4</version>
+	</plugin>
+	<plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-clean-plugin</artifactId>
+	  <version>2.2</version>
+	</plugin>
+	<plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-release-plugin</artifactId>
+	  <version>2.0-beta-9-SNAPSHOT</version>
 	</plugin>
       </plugins>
     </pluginManagement>
