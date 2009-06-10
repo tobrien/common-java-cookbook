@@ -12,6 +12,7 @@
     <url>http://www.discursive.com</url>
   </organization>
   <properties>
+    <junit.version>3.8.1</junit.version>
     <book.title>Common Java Cookbook</book.title>
     <book.subtitle>A Common Cookbook for Java</book.subtitle>
     <organization.address>626 Grove St., Suite 201, Evanston, IL 60202</organization.address>
@@ -75,12 +76,22 @@
                 <requireJavaVersion>
                   <version>[1.5.0,1.6.0)</version>
                 </requireJavaVersion>
+		<requirePluginVersions/>
               </rules>
             </configuration>
           </execution>
         </executions> 
       </plugin>
     </plugins>
+    <pluginManagement>
+      <plugins>
+	<plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-install-plugin</artifactId>
+	  <version>2.2</version>
+	</plugin>
+      </plugins>
+    </pluginManagement>
   </build>
   <profiles>
     <profile>
@@ -123,4 +134,11 @@
       <url>dav:https://dav.codehaus.org/snapshots.repository/cjcook/</url>
     </snapshotRepository>
   </distributionManagement>  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+    </dependency>
+  </dependencies>
 </project>
