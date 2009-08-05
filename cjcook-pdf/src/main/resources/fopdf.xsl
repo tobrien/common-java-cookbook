@@ -11,8 +11,10 @@
     <xsl:param name="callout.extensions">1</xsl:param>
 
     <!-- FOP provide only PDF Bookmarks at the moment -->
-    <xsl:param name="fop.extensions">1</xsl:param>
+    <xsl:param name="fop1.extensions">1</xsl:param>
 
+    <xsl:param name="use.role.for.mediaobject">1</xsl:param>
+    <xsl:param name="preferred.mediaobject.role" select="'print'"/>
     <!--###################################################
                      Table Of Contents
    ################################################### -->
