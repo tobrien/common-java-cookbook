@@ -13,7 +13,6 @@
     <xsl:param name="chunk.section.depth" select="2"/>
 	<xsl:param name="chunker.output.indent">yes</xsl:param>
     <xsl:param name="use.id.as.filename">1</xsl:param>
-    <xsl:param name="html.stylesheet">css/html.css</xsl:param>
     <!-- These extensions are required for table printing and other stuff -->
     <xsl:param name="use.extensions">1</xsl:param>
     <xsl:param name="tablecolumns.extension">0</xsl:param>
@@ -22,7 +21,6 @@
     <xsl:param name="admon.graphics.path">images/</xsl:param>
     <xsl:param name="graphicsize.extension">0</xsl:param>
     <xsl:param name="ignore.image.scaling">1</xsl:param>
-    <xsl:param name="highlight.source">1</xsl:param>
     <!--###################################################
                       Table Of Contents
     ################################################### -->
@@ -62,26 +60,6 @@
     </xsl:param>
 
 
-    <xsl:template match="author" mode="titlepage.mode">
-        <xsl:if test="name(preceding-sibling::*[1]) = 'author'">
-            <xsl:text>, </xsl:text>
-        </xsl:if>
-        <span class="{name(.)}">
-            <xsl:call-template name="person.name"/> 
-            (<xsl:value-of select="affiliation"/>)
-            <xsl:apply-templates mode="titlepage.mode" select="./contrib"/>
-            <!--
-            <xsl:apply-templates mode="titlepage.mode" select="./affiliation"/>
-            -->
-        </span>
-    </xsl:template>
-    <xsl:template match="authorgroup" mode="titlepage.mode">
-        <div class="{name(.)}">
-            <h2>Authors</h2>
-            <p/>
-            <xsl:apply-templates mode="titlepage.mode"/>
-        </div>
-    </xsl:template>
     <!--###################################################
                      Headers and Footers
     ################################################### -->
@@ -89,25 +67,6 @@
 
     </xsl:template>
     <xsl:template name="user.header.navigation">
-
-      <div id="user-header">
-        <div id="logo">
-            <a href="${project.organization.url}" title="${project.organization.slogan}">
-                <img src="${organization.logo}" border="0"/>
-            </a>
-        </div>
-        <div id="right-header">
-          <h2>${book.title}</h2>
-          <h4>Edition: ${project.version}</h4>
-	  <h4><a href="http://www.discursive.com/books/cjcook/cjcook-pdf-${project.version}.pdf" onClick="javascript: pageTracker._trackPageview('/books/cjcook/cjcook-pdf.pdf'); ">Download PDF</a> or <a href="http://www.scribd.com/doc/16065335/The-Common-Java-Cookbook" onClick="javascript: pageTracker._trackPageview('/books/cjcook/cjcook-scribd'); ">Read on Scribd</a>
-          </h4>
-          <h4><a href="http://www.discursive.com/books/cjcook/cjcook-examples-${project.version}-src.zip" onClick="javascript: pageTracker._trackPageview('/books/cjcook/cjcook-examples.zip'); ">Download Examples (ZIP)</a></h4>
-        </div>
-        <div style="clear:both;">
-        </div>
-        <div id="left-sidebar">
-        </div>
-      </div>
     </xsl:template>
     <!-- no other header navigation (prev, next, etc.) -->
     <xsl:template name="header.navigation">
@@ -126,44 +85,38 @@
                                             and $nav.context != 'toc')
                                         or ($next and $navig.showtitles != 0)"/>
         <xsl:if test="$suppress.navigation = '0' and $suppress.footer.navigation = '0'">
-            <div class="navheader">
-                <xsl:if test="$row1 or $row2">
-                    <table width="100%" summary="Navigation header">
-                        <xsl:if test="$row1">
-                            <tr>
-                                <td width="40%" align="left">
-                                    <xsl:if test="count($prev)>0">
-                                        <a accesskey="p">
-                                            <xsl:attribute name="href">
-                                                <xsl:call-template name="href.target">
-                                                    <xsl:with-param name="object" select="$prev"/>
+          <xsl:if test="$row1 or $row2">
+            <xsl:if test="$row1">
+              <xsl:if test="count($prev)>0">
+                <div class="book_previous_link">
+                  <a accesskey="p">
+                  <xsl:attribute name="href">
+                    <xsl:call-template name="href.target">
+                       <xsl:with-param name="object" select="$prev"/>
                                                 </xsl:call-template>
                                             </xsl:attribute>
                                             <xsl:apply-templates select="$prev" mode="object.title.markup"/>
-                                        </a>
+                                        </a></div>
                                     </xsl:if>
-                                    <xsl:text>&#160;</xsl:text>
-                                </td>
-
-                                <td width="20%" align="center">
-                                    <xsl:choose>
+                                    <xsl:text> </xsl:text>
+                                                        <xsl:choose>
                                         <xsl:when test="$home != . or $nav.context = 'toc'">
-                                            <a accesskey="h">
+                                            <div class="book_home_link"><a accesskey="h">
                                                 <xsl:attribute name="href">
                                                     <xsl:call-template name="href.target">
                                                         <xsl:with-param name="object" select="$home"/>
                                                     </xsl:call-template>
                                                 </xsl:attribute>
-												TOC
-                                            </a>
+												Table of Contents
+                                            </a></div>
                                             <xsl:if test="$chunk.tocs.and.lots != 0 and $nav.context != 'toc'">
-                                                <xsl:text>&#160;|&#160;</xsl:text>
+                                                <xsl:text> | </xsl:text>
                                             </xsl:if>
                                         </xsl:when>
-                                        <xsl:otherwise>&#160;</xsl:otherwise>
+                                        <xsl:otherwise> </xsl:otherwise>
                                     </xsl:choose>
                                     <xsl:if test="$chunk.tocs.and.lots != 0 and $nav.context != 'toc'">
-                                        <a accesskey="t">
+                                        <div class="book_home_link"><a accesskey="t">
                                             <xsl:attribute name="href">
                                                 <xsl:apply-templates select="/*[1]" mode="recursive-chunk-filename">
                                                     <xsl:with-param name="recursive" select="true()"/>
@@ -171,31 +124,23 @@
                                                 <xsl:text>-toc</xsl:text>
                                                 <xsl:value-of select="$html.ext"/>
                                             </xsl:attribute>
-											TOC
-                                        </a>
+											Table of Contents
+                                        </a></div>
                                     </xsl:if>
-                                </td>
-                                <td width="40%" align="right">
-                                    <xsl:text>&#160;</xsl:text>
+                                    <xsl:text> </xsl:text>
                                     <xsl:if test="count($next)>0">
-                                        <a accesskey="n">
+                                        <div class="book_next_link"><a accesskey="n">
                                             <xsl:attribute name="href">
                                                 <xsl:call-template name="href.target">
                                                     <xsl:with-param name="object" select="$next"/>
                                                 </xsl:call-template>
                                             </xsl:attribute>
                                             <xsl:apply-templates select="$next" mode="object.title.markup"/>
-                                        </a>
+                                        </a></div>
                                     </xsl:if>
-                                </td>
-                            </tr>
                         </xsl:if>
-                    </table>
                 </xsl:if>
-            </div>
         </xsl:if>
-<!--      <xsl:variable name="codefile" select="document('includes/blogs-div.html',/)"/>
-      <xsl:value-of disable-output-escaping="yes" select="$codefile"/> -->
     </xsl:template>
     <xsl:param name="navig.showtitles">1</xsl:param>
     <xsl:template name="footer.navigation">
@@ -224,7 +169,7 @@
                             <tr>
                                 <td width="40%" align="left">
                                     <xsl:if test="count($prev)>0">
-                                        <a accesskey="p">
+                                        <div class="book_prev_link"><a accesskey="p">
                                             <xsl:attribute name="href">
                                                 <xsl:call-template name="href.target">
                                                     <xsl:with-param name="object" select="$prev"/>
@@ -233,7 +178,7 @@
                                             <xsl:call-template name="navig.content">
                                                 <xsl:with-param name="direction" select="'prev'"/>
                                             </xsl:call-template>
-                                        </a>
+                                        </a></div>
                                     </xsl:if>
                                     <xsl:text>&#160;</xsl:text>
                                 </td>
@@ -241,7 +186,7 @@
                                 <td width="20%" align="center">
                                     <xsl:choose>
                                         <xsl:when test="$home != . or $nav.context = 'toc'">
-                                            <a accesskey="h">
+                                            <div class="book_home_link"><a accesskey="h">
                                                 <xsl:attribute name="href">
                                                     <xsl:call-template name="href.target">
                                                         <xsl:with-param name="object" select="$home"/>
@@ -250,7 +195,7 @@
                                                 <xsl:call-template name="navig.content">
                                                     <xsl:with-param name="direction" select="'home'"/>
                                                 </xsl:call-template>
-                                            </a>
+                                            </a></div>
                                             <xsl:if test="$chunk.tocs.and.lots != 0 and $nav.context != 'toc'">
                                                 <xsl:text>&#160;|&#160;</xsl:text>
                                             </xsl:if>
@@ -258,7 +203,7 @@
                                         <xsl:otherwise>&#160;</xsl:otherwise>
                                     </xsl:choose>
                                     <xsl:if test="$chunk.tocs.and.lots != 0 and $nav.context != 'toc'">
-                                        <a accesskey="t">
+                                        <div id="book_home_link"><a accesskey="t">
                                             <xsl:attribute name="href">
                                                 <xsl:apply-templates select="/*[1]" mode="recursive-chunk-filename">
                                                     <xsl:with-param name="recursive" select="true()"/>
@@ -269,13 +214,13 @@
                                             <xsl:call-template name="gentext">
                                                 <xsl:with-param name="key" select="'nav-toc'"/>
                                             </xsl:call-template>
-                                        </a>
+                                        </a></div>
                                     </xsl:if>
                                 </td>
                                 <td width="40%" align="right">
                                     <xsl:text>&#160;</xsl:text>
                                     <xsl:if test="count($next)>0">
-                                        <a accesskey="n">
+                                        <div id="book_home_link"><a accesskey="n">
                                             <xsl:attribute name="href">
                                                 <xsl:call-template name="href.target">
                                                     <xsl:with-param name="object" select="$next"/>
@@ -284,7 +229,7 @@
                                             <xsl:call-template name="navig.content">
                                                 <xsl:with-param name="direction" select="'next'"/>
                                             </xsl:call-template>
-                                        </a>
+                                        </a></div>
                                     </xsl:if>
                                 </td>
                             </tr>
@@ -299,7 +244,7 @@
                                 </td>
                                 <td width="20%" align="center">
                                     <span style="color:white;font-size:90%;">
-                                        <a href="http://www.sonatype.com/"
+                                        <a href="${organization.url}"
                                            title="${organization.name}: ${organization.slogan}">Sponsored by ${organization.name}
                                         </a>
                                     </span>
@@ -316,39 +261,10 @@
                 </xsl:if>
             </div>
             <br/>
-
-<script>
-var idcomments_acct = 'b740285dedd2abc0ef4bab7566268471';
-var idcomments_post_id;
-var idcomments_post_url;
-</script>
-<span id="IDCommentsPostTitle" style="display:none"></span>
-<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
-
-
-            <center>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/us/88x31.png" /></a><br /><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dc:title" rel="dc:type">Common Java Cookbook</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.discursive.com/books/cjcook" property="cc:attributionName" rel="cc:attributionURL">Tim O'Brien</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/">Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 United States License</a>.<br />Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.discursive.com/books/cjcook/reference/jakartackbk-PREFACE-1.html" rel="cc:morePermissions">http://www.discursive.com/books/cjcook/reference/jakartackbk-PREFACE-1.html</a>.
-
-              Copyright ${copyright.year}. ${organization.name}. Some Rights Reserved.
-            </center>
-<script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("${google.analytics.id}");
-pageTracker._trackPageview();
-</script>
-
         </xsl:if>
     </xsl:template>
     
     
-    <!--  Getting Rid of the Body Attributes - TOB -->
-    <xsl:template name="body.attributes">
-    </xsl:template>
-    	
-    	
     <!-- Customizing Overall Chunk Output -->
     <xsl:template name="chunk-element-content">
   <xsl:param name="prev"/>
@@ -368,8 +284,6 @@ pageTracker._trackPageview();
 
     <body>
       <div id="frame">
-        <div id="forbg">
-      <xsl:call-template name="body.attributes"/>
       <xsl:call-template name="user.header.navigation"/>
 
       <xsl:call-template name="header.navigation">
@@ -391,7 +305,6 @@ pageTracker._trackPageview();
       </xsl:call-template>
 
       <xsl:call-template name="user.footer.navigation"/>
-        </div>
       </div>
     </body>
   </html>

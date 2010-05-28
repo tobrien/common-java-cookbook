@@ -32,7 +32,7 @@
       <plugin>
         <groupId>org.codehaus.cjcook</groupId>
         <artifactId>docbook-plugin</artifactId>
-        <version>1.0</version>
+        <version>1.2</version>
         <extensions>true</extensions>
         <executions>
         	<execution>
@@ -56,6 +56,9 @@
         		</goals>
         	</execution>
         </executions>
+        <configuration>
+            <doctypeSystem>http://mars.discursive.com/docbook/xml/4.5/docbookx.dtd</doctypeSystem>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
