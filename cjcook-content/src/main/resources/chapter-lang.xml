@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+"http://mars.discursive.com/docbook/xml/4.5/docbookx.dtd">
 <chapter id="lang" label="1">
   <title>Supplements to the Java 2 Platform</title>
 
@@ -160,11 +160,10 @@
           <primary>reflection builders</primary>
         </indexterm>reflection builder:</para>
 
-        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
-                        db:excerpt="lang_tostring_solution"
-                        db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/reflect/PoliticalCandidate.java"
-                        xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
-
+      <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+                      db:excerpt="lang_tostring_solution"
+                      db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/reflect/PoliticalCandidate.java"
+                      xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
     </sect2>
 
     <sect2>
@@ -235,8 +234,7 @@
 
       <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:jar-with-dependencies:jar"
                       db:main-class="com.discursive.jccook.lang.builders.reflect.PoliticalCandidate"
-                      db:type="exec"
-                      db:wrap="force"
+                      db:type="exec" db:wrap="force"
                       xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
 
       <tip id="lang-NOTE-43" role="ora">
@@ -685,10 +683,10 @@ PoliticalCandidate@1cd2e5f[lastName=Jefferson,firstName=Thomas]</programlisting>
       <example id="lang-ex-2" label="1-2">
         <title>Automating hashCode( ) and equals( )</title>
 
-      <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
-                      db:excerpt="lang-ex-2"
-                      db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/equals/PoliticalCandidate.java"
-                      xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
+        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+                        db:excerpt="lang-ex-2"
+                        db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/equals/PoliticalCandidate.java"
+                        xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
       </example>
     </sect2>
 
@@ -893,11 +891,10 @@ public int compareTo(Object o) {
           <secondary>compareTo( ) method</secondary>
         </indexterm>
 
-      <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
-                      db:excerpt="lang-ex-3"
-                      db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/compare/PoliticalCandidate.java"
-                      xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
-
+        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+                        db:excerpt="lang-ex-3"
+                        db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/compare/PoliticalCandidate.java"
+                        xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
       </example>
 
       <para>In addition to a comparison by reflection, the <literal
@@ -1488,59 +1485,59 @@ double[] result =
 
           <tbody>
             <row>
-              <entry><para> <literal moreinfo="none">Boolean[]</literal>
+              <entry><para> <literal moreinfo="none">boolean[]</literal>
               </para></entry>
 
               <entry><para> <literal moreinfo="none">ArrayUtils.toPrimitive(
-              boolean[] array )</literal> </para></entry>
+              Boolean[] array )</literal> </para></entry>
             </row>
 
             <row>
-              <entry><para> <literal moreinfo="none">Byte[]</literal>
+              <entry><para> <literal moreinfo="none">byte[]</literal>
               </para></entry>
 
               <entry><para> <literal moreinfo="none">ArrayUtils.toPrimitive(
-              byte[] array )</literal> </para></entry>
+              Byte[] array )</literal> </para></entry>
             </row>
 
             <row>
-              <entry><para> <literal moreinfo="none">Double[]</literal>
+              <entry><para> <literal moreinfo="none">double[]</literal>
               </para></entry>
 
               <entry><para> <literal moreinfo="none">ArrayUtils.toPrimitive(
-              double[] array )</literal> </para></entry>
+              Double[] array )</literal> </para></entry>
             </row>
 
             <row>
-              <entry><para> <literal moreinfo="none">Float[]</literal>
+              <entry><para> <literal moreinfo="none">float[]</literal>
               </para></entry>
 
               <entry><para> <literal moreinfo="none">ArrayUtils.toPrimitive(
-              float[] array )</literal> </para></entry>
+              Float[] array )</literal> </para></entry>
             </row>
 
             <row>
-              <entry><para> <literal moreinfo="none">Integer[]</literal>
+              <entry><para> <literal moreinfo="none">integer[]</literal>
               </para></entry>
 
               <entry><para> <literal moreinfo="none">ArrayUtils.toPrimitive(
-              integer[] array )</literal> </para></entry>
+              Integer[] array )</literal> </para></entry>
             </row>
 
             <row>
-              <entry><para> <literal moreinfo="none">Short[]</literal>
+              <entry><para> <literal moreinfo="none">short[]</literal>
               </para></entry>
 
               <entry><para> <literal moreinfo="none">ArrayUtils.toPrimitive(
-              short[] array )</literal> </para></entry>
+              Short[] array )</literal> </para></entry>
             </row>
 
             <row>
-              <entry><para> <literal moreinfo="none">Long[]</literal>
+              <entry><para> <literal moreinfo="none">long[]</literal>
               </para></entry>
 
               <entry><para> <literal moreinfo="none">ArrayUtils.toPrimitive(
-              long[] array )</literal> </para></entry>
+              Long[] array )</literal> </para></entry>
             </row>
           </tbody>
         </tgroup>
