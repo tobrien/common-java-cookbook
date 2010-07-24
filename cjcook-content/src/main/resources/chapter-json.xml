@@ -7,7 +7,75 @@
   <sect1 id="json-sect-intro">
     <title>Introduction</title>
 
-    <para>XML? Compared to JSON, XML is a pig.</para>
+    <para>What is JSON? Here's a formal definition of the JSON format from
+    <ulink url="http://www.json.org/">http://www.json.org</ulink>:</para>
+
+    <blockquote>
+      <para>"JSON (JavaScript Object Notation) is a lightweight
+      data-interchange format. It is easy for humans to read and write. It is
+      easy for machines to parse and generate. It is based on a subset of the
+      JavaScript Programming Language, Standard ECMA-262 3rd Edition -
+      December 1999. JSON is a text format that is completely language
+      independent but uses conventions that are familiar to programmers of the
+      C-family of languages, including C, C++, C#, Java, JavaScript, Perl,
+      Python, and many others. These properties make JSON an ideal
+      data-interchange language." - from <ulink
+      url="http://www.json.org/">http://www.json.org</ulink>.</para>
+    </blockquote>
+
+    <para>JSON is best explained by using an example. The following is an
+    example of data encoding in a JSON format:</para>
+
+    <programlisting>{
+  "person": {
+    "Gender": "male",
+    "FirstName": "Zach",
+    "LastName": "Anner",
+    "Occupation": "Television Host",
+    "Employer": "Harpo Productions, Inc.",
+    "Salary": 2330000
+   }
+}
+</programlisting>
+
+    <para>That same data could also be represented in XML:</para>
+
+    <programlisting>&lt;person gender="male"&gt;
+  &lt;firstName&gt;Zach&lt;/firstName&gt;
+  &lt;lastName&gt;Anner&lt;/lastName&gt;
+  &lt;occupation&gt;Television Host&lt;/occupation&gt;
+  &lt;employer&gt;Harpo Producitons, Inc.&lt;/employer&gt;
+  &lt;salary&gt;2330000&lt;/salary&gt;
+&lt;/person&gt;</programlisting>
+
+    <para>Just in this simple comparison, you can see that JSON isn't as
+    redundant as XML and it is a slightly more readable format. Many
+    developers have been moving to JSON from XML because they wanted to use a
+    lightweight alternative. JSON is generally easier to parse than XML, and
+    when you are parsing JSON, you don't have to worry about the often
+    confusing sea of standards that surround XML. </para>
+
+    <para>Don't get me wrong, XML is still an appropriate format for data in
+    many situations, but if you are trying to write a lightweight REST service
+    which needs to be consumed by a mobile device or a web browser, you often
+    want to make sure that the format you are sending down the wire can be
+    parsed with a minimum amount of ceremony. JSON is that format. If you are
+    building a REST service, producing data which needs to be consumed by a
+    mobile device like an iPhone, interacting with a 3rd party API like PayPal
+    or Google, or just looking for a simple way to store and communicate
+    structure data, JSON is something you should evaluate alongside
+    XML.</para>
+
+    <para>JSON can be parsed in every language, from Pike to C# to R to Ruby,
+    and, of course, Java. While there are a few options available for parsing
+    JSON in Java, this chapter focused on the JSON-lib library. The JSON-lib
+    library is available under the Apache Software License, Version 2.0, it is
+    built with Maven, and it readily available in the Maven Central
+    repository, and it is the most well documented of the Java JSON libraries
+    with a very <ulink url="http://json-lib.sourceforge.net/">well maintained
+    project website</ulink> built with Maven. This library is based on the
+    original org.json package maintained by Douglas Crockford, but it is
+    packaged into an library that is easy to use.</para>
   </sect1>
 
   <sect1 id="xml-sect-obtaining-digester" label="6.1" role="Recipe">
@@ -25,7 +93,7 @@
       <para>To use json-lib in a Maven 2 project, add the following dependency
       to your project's <filename>pom.xml</filename>:</para>
 
-      <example id="xml-ex-adding-depend">
+      <example id="json-ex-adding-depend">
         <title>Adding a Dependency on Commons Digester</title>
 
         <programlisting>    &lt;dependency&gt;
@@ -47,7 +115,7 @@
     </sect2>
   </sect1>
 
-  <sect1>
+  <sect1 id="json-sect-creating-json">
     <title>Creating JSON</title>
 
     <sect2>
@@ -62,7 +130,7 @@
       <para>Create a JSONObject and add elements to it as shown in the
       following class:</para>
 
-      <example>
+      <example id="json-ex-generating">
         <title>Generating JSON from Java</title>
 
         <programlisting>package com.discursive.answers;
@@ -121,7 +189,7 @@ public class GeneratingJson {
     </sect2>
   </sect1>
 
-  <sect1>
+  <sect1 id="json-sect-parsing-json">
     <title>Parsing JSON</title>
 
     <sect2>
@@ -143,7 +211,7 @@ public class GeneratingJson {
       <para>Load the resource from the classpath and parse this JSON as
       follows:</para>
 
-      <example>
+      <example id="json-ex-parsing">
         <title>Parsing JSON in Java</title>
 
         <programlisting>package com.discursive.answers;
@@ -189,7 +257,7 @@ public class JsonParsing {
     </sect2>
   </sect1>
 
-  <sect1>
+  <sect1 id="json-sect-convert-xml-json">
     <title>Converting XML to JSON</title>
 
     <sect2>
@@ -218,7 +286,7 @@ public class JsonParsing {
       commons-io, and xom. Here is the syntax for adding these dependencies to
       a Maven POM.</para>
 
-      <example>
+      <example id="json-ex-xml-json-depend">
         <title>Adding Dependencies to Parse XML and Generate JSON</title>
 
         <programlisting>&lt;dependency&gt;
@@ -247,7 +315,7 @@ public class JsonParsing {
       <para>Load the resource from the classpath and parse this XML into JSON
       as follows:</para>
 
-      <example>
+      <example id="json-ex-xml-json">
         <title>Converting XML to JSON</title>
 
         <programlisting>package com.discursive.answers;
@@ -290,7 +358,7 @@ public class ConvertXMLtoJSON {
     </sect2>
   </sect1>
 
-  <sect1>
+  <sect1 id="json-sect-convert-json-xml">
     <title>Converting JSON to XML</title>
 
     <sect2>
@@ -313,7 +381,7 @@ public class ConvertXMLtoJSON {
       commons-io, and xom. Here is the syntax for adding these dependencies to
       a Maven POM.</para>
 
-      <example>
+      <example id="json-ex-json-xml-depend">
         <title>Adding Dependencies to Parse JSON and Generate XML</title>
 
         <programlisting>&lt;dependency&gt;
@@ -342,7 +410,7 @@ public class ConvertXMLtoJSON {
       <para>Load the resource from the classpath and parse this XML into JSON
       as follows:</para>
 
-      <example>
+      <example id="json-ex-json-xml">
         <title>Converting JSON to XML</title>
 
         <programlisting>package com.discursive.answers;
@@ -391,7 +459,7 @@ public class ConvertJSONtoXML {
 
       <para>To get rid of the type hints, use this code instead:</para>
 
-      <example>
+      <example id="json-ex-type-hints">
         <title>Generating XML from JSON without Type Hints</title>
 
         <programlisting>package com.discursive.answers;
@@ -439,8 +507,8 @@ public class ConvertJSONtoXMLNoHints {
       <para>"o" isn't a very friendly root node name, is it? To change the
       root node name, use the following code:</para>
 
-      <example>
-        <title></title>
+      <example id="json-ex-root-name">
+        <title>Supplying a Root Name to the XMLSerializer</title>
 
         <programlisting>package com.discursive.answers;
 
