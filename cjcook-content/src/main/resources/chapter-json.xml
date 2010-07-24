@@ -127,7 +127,7 @@
       <figure float="0" id="json-fig-dependencies" label="13-1">
         <title>Transitive Dependencies for JSON-lib</title>
 
-        <mediaobject id="I_8_tt320">
+        <mediaobject>
           <imageobject role="print">
             <imagedata align="center"
                        fileref="figs/print/json-dependencies.pdf" format="PDF"
