@@ -96,12 +96,12 @@
       <example id="json-ex-adding-depend">
         <title>Adding a Dependency on Commons Digester</title>
 
-        <programlisting>    &lt;dependency&gt;
-      &lt;groupId&gt;net.sf.json-lib&lt;/groupId&gt;
-      &lt;artifactId&gt;json-lib&lt;/artifactId&gt;
-      &lt;version&gt;2.3&lt;/version&gt;
-      &lt;scope&gt;compile&lt;/scope&gt;
-    &lt;/dependency&gt;
+        <programlisting>&lt;dependency&gt;
+  &lt;groupId&gt;net.sf.json-lib&lt;/groupId&gt;
+  &lt;artifactId&gt;json-lib&lt;/artifactId&gt;
+  &lt;version&gt;2.3&lt;/version&gt;
+  &lt;scope&gt;compile&lt;/scope&gt;
+&lt;/dependency&gt;
 </programlisting>
       </example>
 
@@ -112,6 +112,38 @@
       <varname>artifactId</varname>, and <varname>version</varname> to your
       project's dependencies. Once you do this, Maven 2 will download the
       dependency and make it available on your project's classpath.</para>
+
+      <para>To use all of the features of JSON-lib, you will also need to
+      declare a dependency on Commons Lang 2.4 or higher, Commons BeanUtils
+      1.7.0 or higher, Commons Collections 3.2 or higher, Commons Logging
+      1.0.4 or higher, and ezmorph 1.0.6. If you are using Apache Maven to
+      manage your dependencies, these transitive dependencies will be
+      automatically added to your classpath. The Dependency Hierarchy for
+      JSON-lib in the m2eclipse plugin is shown in <xref
+      linkend="json-fig-dependencies" />.</para>
+
+      <figure float="0" id="json-fig-dependencies" label="13-1">
+        <title>Transitive Dependencies for JSON-lib</title>
+
+        <mediaobject id="I_8_tt320">
+          <imageobject role="print">
+            <imagedata align="center"
+                       fileref="figs/print/json-dependencies.pdf" format="PDF"
+                       scalefit="0" width="100%" />
+          </imageobject>
+
+          <imageobject role="web">
+            <imagedata fileref="figs/web/json-dependencies.png" format="PNG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>the JSON-lib project's home page can be found at <ulink
+      url="http://json-lib.sourceforge.net/">http://json-lib.sourceforge.net/</ulink>.</para>
     </sect2>
   </sect1>
 
@@ -127,22 +159,17 @@
     <sect2>
       <title>Solution</title>
 
-      <para>Create a JSONObject and add elements to it as shown in the
-      following class:</para>
+      <para>Create a <classname>JSONObject</classname> and add elements to it
+      as shown in the following class:</para>
 
       <example id="json-ex-generating">
         <title>Generating JSON from Java</title>
 
-        <programlisting>package com.discursive.answers;
-
-import java.io.InputStream;
+        <programlisting>package com.discursive.cjcook.json;
 
 import net.sf.json.JSONObject;
-import net.sf.json.JSONSerializer;
 
-import org.apache.commons.io.IOUtils;
-
-public class GeneratingJson {
+public class GeneratingJSON {
 
     public static void main(String[] args) throws Exception {
 
@@ -162,15 +189,18 @@ public class GeneratingJson {
         json.accumulate("passenger", "Thomas Jefferson");
         
         // Passing a number to toString() adds indentation
-        System.out.println( "JSON: " + json.toString(2) );
+        System.out.printf( "JSON: %s", json.toString(2) );
     }
-}</programlisting>
+}
+</programlisting>
       </example>
 
-      <para>The put() function adds an element the JSON object, you can put a
-      simple value like a String or a primitive, or you can add another
-      JSONObject. The accumulate() method collects values and assembles them
-      into a JSONArray.</para>
+      <para>The <methodname>put()</methodname> function adds an element the
+      JSON object, you can put a simple value like a
+      <classname>String</classname> or a primitive, or you can add another
+      <classname>JSONObject</classname>. The
+      <methodname>accumulate()</methodname> method collects values and
+      assembles them into a <classname>JSONArray</classname>.</para>
 
       <para>Running this example will produce the following JSON
       output:</para>
@@ -197,24 +227,28 @@ public class GeneratingJson {
 
       <para>You need to parse the following JSON.</para>
 
-      <programlisting>{'foo':'bar',
- 'coolness':2.0,
- 'altitude':39000,
- 'pilot':{'firstName':'Buzz',
-          'lastName':'Aldrin'},
- 'mission':'apollo 11'}</programlisting>
+      <programlisting>{
+  'foo':'bar',
+  'coolness':2.0,
+  'altitude':39000,
+  'pilot': {
+    'firstName':'Buzz',
+    'lastName':'Aldrin'
+   },
+   'mission':'apollo 11'
+}</programlisting>
     </sect2>
 
     <sect2>
       <title>Solution</title>
 
-      <para>Load the resource from the classpath and parse this JSON as
-      follows:</para>
+      <para>Load the resource from the classpath and parse this JSON as shown
+      in <xref linkend="json-ex-parsing" />.</para>
 
       <example id="json-ex-parsing">
         <title>Parsing JSON in Java</title>
 
-        <programlisting>package com.discursive.answers;
+        <programlisting>package com.discursive.cjcook.json;
 
 import java.io.InputStream;
 
@@ -223,11 +257,11 @@ import net.sf.json.JSONSerializer;
 
 import org.apache.commons.io.IOUtils;
 
-public class JsonParsing {
+public class ParsingJSON {
 
     public static void main(String[] args) throws Exception {
         InputStream is = 
-                JsonParsing.class.getResourceAsStream( "sample-json.txt");
+                ParsingJSON.class.getResourceAsStream( "sample-json.txt");
         String jsonTxt = IOUtils.toString( is );
         
         JSONObject json = (JSONObject) JSONSerializer.toJSON( jsonTxt );        
@@ -237,11 +271,12 @@ public class JsonParsing {
         String firstName = pilot.getString("firstName");
         String lastName = pilot.getString("lastName");
         
-        System.out.println( "Coolness: " + coolness );
-        System.out.println( "Altitude: " + altitude );
-        System.out.println( "Pilot: " + lastName );
+        System.out.printf( "Coolness: %f\n", coolness );
+        System.out.printf( "Altitude: %d\n", altitude );
+        System.out.printf( "Pilot: %s %s\n", firstName, lastName );
     }
-}</programlisting>
+}
+</programlisting>
       </example>
     </sect2>
 
@@ -290,26 +325,26 @@ public class JsonParsing {
         <title>Adding Dependencies to Parse XML and Generate JSON</title>
 
         <programlisting>&lt;dependency&gt;
-        &lt;groupId&gt;net.sf.json-lib&lt;/groupId&gt;
-        &lt;artifactId&gt;json-lib&lt;/artifactId&gt;
-        &lt;version&gt;2.3&lt;/version&gt;
-        &lt;type&gt;jar&lt;/type&gt;
-        &lt;classifier&gt;jdk15&lt;/classifier&gt;
-        &lt;scope&gt;compile&lt;/scope&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
-        &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
-        &lt;version&gt;1.3.2&lt;/version&gt;
-        &lt;type&gt;jar&lt;/type&gt;
-        &lt;scope&gt;compile&lt;/scope&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;xom&lt;/groupId&gt;
-        &lt;artifactId&gt;xom&lt;/artifactId&gt;
-        &lt;version&gt;1.1&lt;/version&gt;
-    &lt;/dependency&gt;
-  &lt;/dependencies&gt;</programlisting>
+  &lt;groupId&gt;net.sf.json-lib&lt;/groupId&gt;
+  &lt;artifactId&gt;json-lib&lt;/artifactId&gt;
+  &lt;version&gt;2.3&lt;/version&gt;
+  &lt;type&gt;jar&lt;/type&gt;
+  &lt;classifier&gt;jdk15&lt;/classifier&gt;
+  &lt;scope&gt;compile&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
+  &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
+  &lt;version&gt;1.3.2&lt;/version&gt;
+  &lt;type&gt;jar&lt;/type&gt;
+  &lt;scope&gt;compile&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;xom&lt;/groupId&gt;
+  &lt;artifactId&gt;xom&lt;/artifactId&gt;
+  &lt;version&gt;1.1&lt;/version&gt;
+&lt;/dependency&gt;
+</programlisting>
       </example>
 
       <para>Load the resource from the classpath and parse this XML into JSON
@@ -318,7 +353,7 @@ public class JsonParsing {
       <example id="json-ex-xml-json">
         <title>Converting XML to JSON</title>
 
-        <programlisting>package com.discursive.answers;
+        <programlisting>package com.discursive.cjcook.json;
 
 import java.io.InputStream;
 
@@ -329,16 +364,17 @@ import org.apache.commons.io.IOUtils;
 
 public class ConvertXMLtoJSON {
 
-        public static void main(String[] args) throws Exception {
-                InputStream is = 
-                        ConvertXMLtoJSON.class.getResourceAsStream("sample-xml.xml");
-                String xml = IOUtils.toString(is);
-                
-                XMLSerializer xmlSerializer = new XMLSerializer(); 
-                JSON json = xmlSerializer.read( xml );  
-                System.out.println( json.toString(2) );
-        }
-}</programlisting>
+  public static void main(String[] args) throws Exception {
+    InputStream is = ConvertXMLtoJSON.class
+        .getResourceAsStream("sample-xml.xml");
+    String xml = IOUtils.toString(is);
+
+    XMLSerializer xmlSerializer = new XMLSerializer();
+    JSON json = xmlSerializer.read(xml);
+    System.out.println(json.toString(2));
+  }
+}
+</programlisting>
       </example>
 
       <para>This should produce the following JSON output:</para>
@@ -385,25 +421,25 @@ public class ConvertXMLtoJSON {
         <title>Adding Dependencies to Parse JSON and Generate XML</title>
 
         <programlisting>&lt;dependency&gt;
-        &lt;groupId&gt;net.sf.json-lib&lt;/groupId&gt;
-        &lt;artifactId&gt;json-lib&lt;/artifactId&gt;
-        &lt;version&gt;2.3&lt;/version&gt;
-        &lt;type&gt;jar&lt;/type&gt;
-        &lt;classifier&gt;jdk15&lt;/classifier&gt;
-        &lt;scope&gt;compile&lt;/scope&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
-        &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
-        &lt;version&gt;1.3.2&lt;/version&gt;
-        &lt;type&gt;jar&lt;/type&gt;
-        &lt;scope&gt;compile&lt;/scope&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;xom&lt;/groupId&gt;
-        &lt;artifactId&gt;xom&lt;/artifactId&gt;
-        &lt;version&gt;1.1&lt;/version&gt;
-    &lt;/dependency&gt;
+  &lt;groupId&gt;net.sf.json-lib&lt;/groupId&gt;
+  &lt;artifactId&gt;json-lib&lt;/artifactId&gt;
+  &lt;version&gt;2.3&lt;/version&gt;
+  &lt;type&gt;jar&lt;/type&gt;
+  &lt;classifier&gt;jdk15&lt;/classifier&gt;
+  &lt;scope&gt;compile&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
+  &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
+  &lt;version&gt;1.3.2&lt;/version&gt;
+  &lt;type&gt;jar&lt;/type&gt;
+  &lt;scope&gt;compile&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;xom&lt;/groupId&gt;
+  &lt;artifactId&gt;xom&lt;/artifactId&gt;
+  &lt;version&gt;1.1&lt;/version&gt;
+&lt;/dependency&gt;
 </programlisting>
       </example>
 
@@ -413,30 +449,28 @@ public class ConvertXMLtoJSON {
       <example id="json-ex-json-xml">
         <title>Converting JSON to XML</title>
 
-        <programlisting>package com.discursive.answers;
+        <programlisting>package com.discursive.cjcook.json;
 
 import java.io.InputStream;
 
 import net.sf.json.JSON;
 import net.sf.json.JSONSerializer;
-import net.sf.json.xml.JSONTypes;
 import net.sf.json.xml.XMLSerializer;
 
 import org.apache.commons.io.IOUtils;
 
 public class ConvertJSONtoXML {
 
-        public static void main(String[] args) throws Exception {
-                InputStream is = 
-                        ConvertJSONtoXML.class.getResourceAsStream("sample-json.txt");
-                String jsonData = IOUtils.toString(is);
-                
-                XMLSerializer serializer = new XMLSerializer(); 
-                JSON json = JSONSerializer.toJSON( jsonData ); 
-                String xml = serializer.write( json );  
-                System.out.println(xml);                
-                
-        }
+  public static void main(String[] args) throws Exception {
+    InputStream is = ConvertJSONtoXML.class
+        .getResourceAsStream("sample-json.txt");
+    String jsonData = IOUtils.toString(is);
+
+    XMLSerializer serializer = new XMLSerializer();
+    JSON json = JSONSerializer.toJSON(jsonData);
+    String xml = serializer.write(json);
+    System.out.println(xml);
+  }
 }</programlisting>
       </example>
 
@@ -462,32 +496,31 @@ public class ConvertJSONtoXML {
       <example id="json-ex-type-hints">
         <title>Generating XML from JSON without Type Hints</title>
 
-        <programlisting>package com.discursive.answers;
+        <programlisting>package com.discursive.cjcook.json;
 
 import java.io.InputStream;
 
 import net.sf.json.JSON;
 import net.sf.json.JSONSerializer;
-import net.sf.json.xml.JSONTypes;
 import net.sf.json.xml.XMLSerializer;
 
 import org.apache.commons.io.IOUtils;
 
 public class ConvertJSONtoXMLNoHints {
 
-        public static void main(String[] args) throws Exception {
-                InputStream is = 
-                        ConvertJSONtoXMLNoHints.class.getResourceAsStream("sample-json.txt");
-                String jsonData = IOUtils.toString(is);
-                
-                XMLSerializer serializer = new XMLSerializer(); 
-                JSON json = JSONSerializer.toJSON( jsonData ); 
-                serializer.setTypeHintsEnabled(false);
-                String xml = serializer.write( json );  
-                System.out.println(xml);                
-                
-        }
-}</programlisting>
+  public static void main(String[] args) throws Exception {
+    InputStream is = ConvertJSONtoXMLNoHints.class
+        .getResourceAsStream("sample-json.txt");
+    String jsonData = IOUtils.toString(is);
+
+    XMLSerializer serializer = new XMLSerializer();
+    JSON json = JSONSerializer.toJSON(jsonData);
+    serializer.setTypeHintsEnabled(false);
+    String xml = serializer.write(json);
+    System.out.println(xml);
+  }
+}
+</programlisting>
       </example>
 
       <para>The previous class will produce the following XML without type
@@ -510,33 +543,32 @@ public class ConvertJSONtoXMLNoHints {
       <example id="json-ex-root-name">
         <title>Supplying a Root Name to the XMLSerializer</title>
 
-        <programlisting>package com.discursive.answers;
+        <programlisting>package com.discursive.cjcook.json;
 
 import java.io.InputStream;
 
 import net.sf.json.JSON;
 import net.sf.json.JSONSerializer;
-import net.sf.json.xml.JSONTypes;
 import net.sf.json.xml.XMLSerializer;
 
 import org.apache.commons.io.IOUtils;
 
 public class ConvertJSONtoXMLSetRoot {
 
-        public static void main(String[] args) throws Exception {
-                InputStream is = 
-                        ConvertJSONtoXMLNoHints.class.getResourceAsStream("sample-json.txt");
-                String jsonData = IOUtils.toString(is);
-                
-                XMLSerializer serializer = new XMLSerializer(); 
-                JSON json = JSONSerializer.toJSON( jsonData ); 
-                serializer.setRootName("SampleJSON");
-                serializer.setTypeHintsEnabled(false);
-                String xml = serializer.write( json );  
-                System.out.println(xml);                
-                
-        }
-}</programlisting>
+  public static void main(String[] args) throws Exception {
+    InputStream is = ConvertJSONtoXMLNoHints.class
+        .getResourceAsStream("sample-json.txt");
+    String jsonData = IOUtils.toString(is);
+
+    XMLSerializer serializer = new XMLSerializer();
+    JSON json = JSONSerializer.toJSON(jsonData);
+    serializer.setRootName("SampleJSON");
+    serializer.setTypeHintsEnabled(false);
+    String xml = serializer.write(json);
+    System.out.println(xml);
+  }
+}
+</programlisting>
       </example>
 
       <para>This previous class will produce the following XML:</para>
