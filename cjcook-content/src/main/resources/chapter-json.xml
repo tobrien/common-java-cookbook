@@ -53,24 +53,26 @@
     developers have been moving to JSON from XML because they wanted to use a
     lightweight alternative. JSON is generally easier to parse than XML, and
     when you are parsing JSON, you don't have to worry about the often
-    confusing sea of standards that surround XML. </para>
+    confusing sea of standards that surround XML.</para>
 
     <para>Don't get me wrong, XML is still an appropriate format for data in
     many situations, but if you are trying to write a lightweight REST service
     which needs to be consumed by a mobile device or a web browser, you often
     want to make sure that the format you are sending down the wire can be
-    parsed with a minimum amount of ceremony. JSON is that format. If you are
-    building a REST service, producing data which needs to be consumed by a
-    mobile device like an iPhone, interacting with a 3rd party API like PayPal
-    or Google, or just looking for a simple way to store and communicate
-    structure data, JSON is something you should evaluate alongside
+    parsed with a minimum amount of ceremony. JSON is that format, it is both
+    lightweight and widely embraced as a standard format. If you are building
+    a REST service, producing data which needs to be consumed by a mobile
+    device like an iPhone, interacting with a 3rd party API like PayPal or
+    Google, or just looking for a simple way to store and communicate
+    structured data, JSON is something you should evaluate alongside
     XML.</para>
 
     <para>JSON can be parsed in every language, from Pike to C# to R to Ruby,
     and, of course, Java. While there are a few options available for parsing
-    JSON in Java, this chapter focused on the JSON-lib library. The JSON-lib
-    library is available under the Apache Software License, Version 2.0, it is
-    built with Maven, and it readily available in the Maven Central
+    JSON in Java, this chapter is focused on the <ulink
+    url="http://json-lib.sourceforge.net/">JSON-lib</ulink> library. The
+    JSON-lib library is available under the Apache Software License, Version
+    2.0, it is built with Maven, and it readily available in the Maven Central
     repository, and it is the most well documented of the Java JSON libraries
     with a very <ulink url="http://json-lib.sourceforge.net/">well maintained
     project website</ulink> built with Maven. This library is based on the
