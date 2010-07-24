@@ -73,8 +73,12 @@
   <sect1 id="preface-sect-inside" role="">
     <title>What's Inside</title>
 
-    <para>This book covers components from Apache Commons, and a few projects
-    outside of the Apache Software Foundation. This book covers the following
+    <para>This book covers components from various open source projects and
+    communities. The initial version of this book focused almost solely on a
+    project then called "Jakarta Commons". The Jakarta Commons project has
+    since become the Apache Commons project, and while this book still focused
+    on a number of these components, it has started to extend its reach beyond
+    the utilities contained in Apache Commons. This book covers the following
     components:</para>
 
     <itemizedlist>
@@ -160,6 +164,10 @@
 
       <listitem>
         <para>Apache Slide</para>
+      </listitem>
+
+      <listitem>
+        <para>JSON-lib</para>
       </listitem>
     </itemizedlist>
 
@@ -316,6 +324,20 @@
           collections and object graphs. Apache Lucene is a fully functional
           search engine that can index any structured document. This chapter
           demonstrates the use of Lucene with Commons Digester.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><link linkend="json">Chapter 13</link>,
+        <citetitle>JSON</citetitle></term>
+
+        <listitem>
+          <para>Generating and parsing JSON data is increasingly important
+          with the explosion of REST services and the advent of NoSQL
+          databases like MongoDB, Cassandra, and CouchDB. It is often much
+          easier to generate and parse JSON data on a mobile platform, and as
+          Javascript becomes increasingly important as the web matures into a
+          real application platform... JSON is here to stay.</para>
         </listitem>
       </varlistentry>
     </variablelist>

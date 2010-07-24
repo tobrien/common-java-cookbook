@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://mars.discursive.com/docbook/xml/4.5/docbookx.dtd">
+<chapter id="json">
+  <title>JSON</title>
+
+  <sect1 id="json-sect-intro">
+    <title>Introduction</title>
+
+    <para>XML? Compared to JSON, XML is a pig.</para>
+  </sect1>
+
+  <sect1 id="xml-sect-obtaining-digester" label="6.1" role="Recipe">
+    <title>Obtaining JSON-lib</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to add a dependency on JSON-lib in a Java project.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>To use json-lib in a Maven 2 project, add the following dependency
+      to your project's <filename>pom.xml</filename>:</para>
+
+      <example id="xml-ex-adding-depend">
+        <title>Adding a Dependency on Commons Digester</title>
+
+        <programlisting>    &lt;dependency&gt;
+      &lt;groupId&gt;net.sf.json-lib&lt;/groupId&gt;
+      &lt;artifactId&gt;json-lib&lt;/artifactId&gt;
+      &lt;version&gt;2.3&lt;/version&gt;
+      &lt;scope&gt;compile&lt;/scope&gt;
+    &lt;/dependency&gt;
+</programlisting>
+      </example>
+
+      <para>If you are not sure what this means, I'd suggest reading <ulink
+      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
+      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      do is add the dependency <varname>groupId</varname>,
+      <varname>artifactId</varname>, and <varname>version</varname> to your
+      project's dependencies. Once you do this, Maven 2 will download the
+      dependency and make it available on your project's classpath.</para>
+    </sect2>
+  </sect1>
+
+  <sect1>
+    <title>Creating JSON</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to create some JSON.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Create a JSONObject and add elements to it as shown in the
+      following class:</para>
+
+      <example>
+        <title>Generating JSON from Java</title>
+
+        <programlisting>package com.discursive.answers;
+
+import java.io.InputStream;
+
+import net.sf.json.JSONObject;
+import net.sf.json.JSONSerializer;
+
+import org.apache.commons.io.IOUtils;
+
+public class GeneratingJson {
+
+    public static void main(String[] args) throws Exception {
+
+        JSONObject json = new JSONObject();
+        
+        // Put a simple element
+        json.put( "aircraft", "A320");
+        
+        // Add a JSON Object
+        JSONObject pilot = new JSONObject();
+        pilot.put( "firstName", "John");
+        pilot.put( "lastName", "Adams");
+        json.put( "pilot", pilot);
+
+        // Accumulate values in an array
+        json.accumulate("passenger", "George Washington");
+        json.accumulate("passenger", "Thomas Jefferson");
+        
+        // Passing a number to toString() adds indentation
+        System.out.println( "JSON: " + json.toString(2) );
+    }
+}</programlisting>
+      </example>
+
+      <para>The put() function adds an element the JSON object, you can put a
+      simple value like a String or a primitive, or you can add another
+      JSONObject. The accumulate() method collects values and assembles them
+      into a JSONArray.</para>
+
+      <para>Running this example will produce the following JSON
+      output:</para>
+
+      <programlisting>JSON: {
+  "aircraft": "A320",
+  "pilot":   {
+    "firstName": "John",
+    "lastName": "Adams"
+  },
+  "passenger":   [
+    "George Washington",
+    "Thomas Jefferson"
+  ]
+}</programlisting>
+    </sect2>
+  </sect1>
+
+  <sect1>
+    <title>Parsing JSON</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to parse the following JSON.</para>
+
+      <programlisting>{'foo':'bar',
+ 'coolness':2.0,
+ 'altitude':39000,
+ 'pilot':{'firstName':'Buzz',
+          'lastName':'Aldrin'},
+ 'mission':'apollo 11'}</programlisting>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Load the resource from the classpath and parse this JSON as
+      follows:</para>
+
+      <example>
+        <title>Parsing JSON in Java</title>
+
+        <programlisting>package com.discursive.answers;
+
+import java.io.InputStream;
+
+import net.sf.json.JSONObject;
+import net.sf.json.JSONSerializer;
+
+import org.apache.commons.io.IOUtils;
+
+public class JsonParsing {
+
+    public static void main(String[] args) throws Exception {
+        InputStream is = 
+                JsonParsing.class.getResourceAsStream( "sample-json.txt");
+        String jsonTxt = IOUtils.toString( is );
+        
+        JSONObject json = (JSONObject) JSONSerializer.toJSON( jsonTxt );        
+        double coolness = json.getDouble( "coolness" );
+        int altitude = json.getInt( "altitude" );
+        JSONObject pilot = json.getJSONObject("pilot");
+        String firstName = pilot.getString("firstName");
+        String lastName = pilot.getString("lastName");
+        
+        System.out.println( "Coolness: " + coolness );
+        System.out.println( "Altitude: " + altitude );
+        System.out.println( "Pilot: " + lastName );
+    }
+}</programlisting>
+      </example>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>Note that JSONSerializer returns a JSON object. This is a general
+      object which could be a JSONObject or a JSONArray depending on the JSON
+      you are trying to parse. In this example, since I know that the JSON is
+      a JSONObject, I can cast the result directly to a JSONObject. If you are
+      dealing with JSON that could return a JSONArray, you'll likely want to
+      check the type of the object that is returned by toJSON.</para>
+    </sect2>
+  </sect1>
+
+  <sect1>
+    <title>Converting XML to JSON</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to convert the following XML file to JSON:</para>
+
+      <programlisting>&lt;important-data certified="true" processed="true"&gt;
+  &lt;timestamp&gt;232423423423&lt;/timestamp&gt;
+  &lt;authors&gt;
+    &lt;author&gt;
+      &lt;firstName&gt;Tim&lt;/firstName&gt;
+      &lt;lastName&gt;Leary&lt;/lastName&gt;
+    &lt;/author&gt;
+  &lt;/authors&gt;
+  &lt;title&gt;Flashbacks&lt;/title&gt;
+  &lt;shippingWeight&gt;1.4 pounds&lt;/shippingWeight&gt;
+  &lt;isbn&gt;978-0874778700&lt;/isbn&gt;
+&lt;/important-data&gt;</programlisting>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>First you must add the following dependencies: json-lib,
+      commons-io, and xom. Here is the syntax for adding these dependencies to
+      a Maven POM.</para>
+
+      <example>
+        <title>Adding Dependencies to Parse XML and Generate JSON</title>
+
+        <programlisting>&lt;dependency&gt;
+        &lt;groupId&gt;net.sf.json-lib&lt;/groupId&gt;
+        &lt;artifactId&gt;json-lib&lt;/artifactId&gt;
+        &lt;version&gt;2.3&lt;/version&gt;
+        &lt;type&gt;jar&lt;/type&gt;
+        &lt;classifier&gt;jdk15&lt;/classifier&gt;
+        &lt;scope&gt;compile&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
+        &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
+        &lt;version&gt;1.3.2&lt;/version&gt;
+        &lt;type&gt;jar&lt;/type&gt;
+        &lt;scope&gt;compile&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;xom&lt;/groupId&gt;
+        &lt;artifactId&gt;xom&lt;/artifactId&gt;
+        &lt;version&gt;1.1&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;</programlisting>
+      </example>
+
+      <para>Load the resource from the classpath and parse this XML into JSON
+      as follows:</para>
+
+      <example>
+        <title>Converting XML to JSON</title>
+
+        <programlisting>package com.discursive.answers;
+
+import java.io.InputStream;
+
+import net.sf.json.JSON;
+import net.sf.json.xml.XMLSerializer;
+
+import org.apache.commons.io.IOUtils;
+
+public class ConvertXMLtoJSON {
+
+        public static void main(String[] args) throws Exception {
+                InputStream is = 
+                        ConvertXMLtoJSON.class.getResourceAsStream("sample-xml.xml");
+                String xml = IOUtils.toString(is);
+                
+                XMLSerializer xmlSerializer = new XMLSerializer(); 
+                JSON json = xmlSerializer.read( xml );  
+                System.out.println( json.toString(2) );
+        }
+}</programlisting>
+      </example>
+
+      <para>This should produce the following JSON output:</para>
+
+      <programlisting>{
+  "@certified": "true",
+  "@processed": "true",
+  "timestamp": "232423423423",
+  "authors": [  {
+    "firstName": "Tim",
+    "lastName": "Leary"
+  }],
+  "title": "Flashbacks",
+  "shippingWeight": "1.4 pounds",
+  "isbn": "978-0874778700"
+}</programlisting>
+    </sect2>
+  </sect1>
+
+  <sect1>
+    <title>Converting JSON to XML</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to convert the following JSON to XML:</para>
+
+      <programlisting>{'foo':'bar',
+ 'coolness':2.0,
+ 'altitude':39000,
+ 'pilot':{'firstName':'Buzz',
+          'lastName':'Aldrin'},
+ 'mission':'apollo 11'}</programlisting>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>First you must add the following dependencies: json-lib,
+      commons-io, and xom. Here is the syntax for adding these dependencies to
+      a Maven POM.</para>
+
+      <example>
+        <title>Adding Dependencies to Parse JSON and Generate XML</title>
+
+        <programlisting>&lt;dependency&gt;
+        &lt;groupId&gt;net.sf.json-lib&lt;/groupId&gt;
+        &lt;artifactId&gt;json-lib&lt;/artifactId&gt;
+        &lt;version&gt;2.3&lt;/version&gt;
+        &lt;type&gt;jar&lt;/type&gt;
+        &lt;classifier&gt;jdk15&lt;/classifier&gt;
+        &lt;scope&gt;compile&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
+        &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
+        &lt;version&gt;1.3.2&lt;/version&gt;
+        &lt;type&gt;jar&lt;/type&gt;
+        &lt;scope&gt;compile&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;xom&lt;/groupId&gt;
+        &lt;artifactId&gt;xom&lt;/artifactId&gt;
+        &lt;version&gt;1.1&lt;/version&gt;
+    &lt;/dependency&gt;
+</programlisting>
+      </example>
+
+      <para>Load the resource from the classpath and parse this XML into JSON
+      as follows:</para>
+
+      <example>
+        <title>Converting JSON to XML</title>
+
+        <programlisting>package com.discursive.answers;
+
+import java.io.InputStream;
+
+import net.sf.json.JSON;
+import net.sf.json.JSONSerializer;
+import net.sf.json.xml.JSONTypes;
+import net.sf.json.xml.XMLSerializer;
+
+import org.apache.commons.io.IOUtils;
+
+public class ConvertJSONtoXML {
+
+        public static void main(String[] args) throws Exception {
+                InputStream is = 
+                        ConvertJSONtoXML.class.getResourceAsStream("sample-json.txt");
+                String jsonData = IOUtils.toString(is);
+                
+                XMLSerializer serializer = new XMLSerializer(); 
+                JSON json = JSONSerializer.toJSON( jsonData ); 
+                String xml = serializer.write( json );  
+                System.out.println(xml);                
+                
+        }
+}</programlisting>
+      </example>
+
+      <para>This should produce the following XML output:</para>
+
+      <programlisting>&lt;o&gt;
+  &lt;altitude type="number"&gt;39000&lt;/altitude&gt;
+  &lt;coolness type="number"&gt;2.0&lt;/coolness&gt;
+  &lt;foo type="string"&gt;bar&lt;/foo&gt;
+  &lt;mission type="string"&gt;apollo 11&lt;/mission&gt;
+  &lt;pilot class="object"&gt;
+    &lt;firstName type="string"&gt;Buzz&lt;/firstName&gt;
+    &lt;lastName type="string"&gt;Aldrin&lt;/lastName&gt;
+  &lt;/pilot&gt;
+&lt;/o&gt;</programlisting>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>To get rid of the type hints, use this code instead:</para>
+
+      <example>
+        <title>Generating XML from JSON without Type Hints</title>
+
+        <programlisting>package com.discursive.answers;
+
+import java.io.InputStream;
+
+import net.sf.json.JSON;
+import net.sf.json.JSONSerializer;
+import net.sf.json.xml.JSONTypes;
+import net.sf.json.xml.XMLSerializer;
+
+import org.apache.commons.io.IOUtils;
+
+public class ConvertJSONtoXMLNoHints {
+
+        public static void main(String[] args) throws Exception {
+                InputStream is = 
+                        ConvertJSONtoXMLNoHints.class.getResourceAsStream("sample-json.txt");
+                String jsonData = IOUtils.toString(is);
+                
+                XMLSerializer serializer = new XMLSerializer(); 
+                JSON json = JSONSerializer.toJSON( jsonData ); 
+                serializer.setTypeHintsEnabled(false);
+                String xml = serializer.write( json );  
+                System.out.println(xml);                
+                
+        }
+}</programlisting>
+      </example>
+
+      <para>The previous class will produce the following XML without type
+      hints:</para>
+
+      <programlisting>&lt;o&gt;
+  &lt;altitude&gt;39000&lt;/altitude&gt;
+  &lt;coolness&gt;2.0&lt;/coolness&gt;
+  &lt;foo&gt;bar&lt;/foo&gt;
+  &lt;mission&gt;apollo 11&lt;/mission&gt;
+  &lt;pilot&gt;
+    &lt;firstName&gt;Buzz&lt;/firstName&gt;
+    &lt;lastName&gt;Aldrin&lt;/lastName&gt;
+  &lt;/pilot&gt;
+&lt;/o&gt;</programlisting>
+
+      <para>"o" isn't a very friendly root node name, is it? To change the
+      root node name, use the following code:</para>
+
+      <example>
+        <title></title>
+
+        <programlisting>package com.discursive.answers;
+
+import java.io.InputStream;
+
+import net.sf.json.JSON;
+import net.sf.json.JSONSerializer;
+import net.sf.json.xml.JSONTypes;
+import net.sf.json.xml.XMLSerializer;
+
+import org.apache.commons.io.IOUtils;
+
+public class ConvertJSONtoXMLSetRoot {
+
+        public static void main(String[] args) throws Exception {
+                InputStream is = 
+                        ConvertJSONtoXMLNoHints.class.getResourceAsStream("sample-json.txt");
+                String jsonData = IOUtils.toString(is);
+                
+                XMLSerializer serializer = new XMLSerializer(); 
+                JSON json = JSONSerializer.toJSON( jsonData ); 
+                serializer.setRootName("SampleJSON");
+                serializer.setTypeHintsEnabled(false);
+                String xml = serializer.write( json );  
+                System.out.println(xml);                
+                
+        }
+}</programlisting>
+      </example>
+
+      <para>This previous class will produce the following XML:</para>
+
+      <programlisting>&lt;SampleJSON&gt;
+  &lt;altitude&gt;39000&lt;/altitude&gt;
+  &lt;coolness&gt;2.0&lt;/coolness&gt;
+  &lt;foo&gt;bar&lt;/foo&gt;
+  &lt;mission&gt;apollo 11&lt;/mission&gt;
+  &lt;pilot&gt;
+    &lt;firstName&gt;Buzz&lt;/firstName&gt;
+    &lt;lastName&gt;Aldrin&lt;/lastName&gt;
+  &lt;/pilot&gt;
+&lt;/SampleJSON&gt;</programlisting>
+    </sect2>
+  </sect1>
+</chapter>
