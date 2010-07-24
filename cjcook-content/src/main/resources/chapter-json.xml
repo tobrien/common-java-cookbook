@@ -80,7 +80,7 @@
     packaged into an library that is easy to use.</para>
   </sect1>
 
-  <sect1 id="xml-sect-obtaining-digester" label="6.1" role="Recipe">
+  <sect1 id="json-sect-obtaining-jsonlib" label="6.1" role="Recipe">
     <title>Obtaining JSON-lib</title>
 
     <sect2>
