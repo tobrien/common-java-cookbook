@@ -80,7 +80,7 @@
     packaged into an library that is easy to use.</para>
   </sect1>
 
-  <sect1 id="json-sect-obtaining-jsonlib" label="6.1" role="Recipe">
+  <sect1 id="json-sect-obtaining-jsonlib" role="Recipe">
     <title>Obtaining JSON-lib</title>
 
     <sect2>
@@ -124,7 +124,7 @@
       JSON-lib in the m2eclipse plugin is shown in <xref
       linkend="json-fig-dependencies" />.</para>
 
-      <figure float="0" id="json-fig-dependencies" label="13-1">
+      <figure float="0" id="json-fig-dependencies">
         <title>Transitive Dependencies for JSON-lib</title>
 
         <mediaobject>
