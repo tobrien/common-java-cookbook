@@ -221,6 +221,28 @@ public class GeneratingJSON {
     </sect2>
   </sect1>
 
+  <sect1>
+    <title>Converting a Map to JSON</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to convert a Map to JSON.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1>
+    <title>Converting a Bean to JSON</title>
+
+    <para></para>
+  </sect1>
+
   <sect1 id="json-sect-parsing-json">
     <title>Parsing JSON</title>
 

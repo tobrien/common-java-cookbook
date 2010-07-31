@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://mars.discursive.com/docbook/xml/4.5/docbookx.dtd">
+<chapter id="proto">
+  <title>Protocol Buffers</title>
+
+  <sect1 id="proto-sect-intro">
+    <title>Introduction</title>
+
+    <para>If you developing "Internet"-scale systems that need to scale to
+    meet the ever increasing demands of millions (or billions) of customers,
+    there is a good chance that your production network includes clusters of
+    interconnected services all highly tuned to serve user requests in
+    milliseconds. This chapter focuses on a library from Google called
+    Protocol Buffers. </para>
+
+    <sect2>
+      <title>What is Protocol Buffers?</title>
+
+      <para>Protocol Buffers is a library that allows you to create a
+      lightweight textual or binary encoding of structured data. It is an open
+      source project created by Google and it is currently one of the most
+      efficient ways to encoding, transfer, and decode data in an application.
+      It takes into account versioning of data elements and provides libraries
+      to parse data in Java, C++, or Python. </para>
+    </sect2>
+
+    <sect2>
+      <title>The Evolution of Internet-scale Architecture</title>
+
+      <para>The necessity of binary formats makes sense if you look at the
+      progression of scalable systems in the last decade. Consider the
+      architecture of a system designed to handle traffic at a large-scale,
+      consumer-facing web in 2000 shown in <xref
+      linkend="proto-fig-old-system" />. Most web application design was still
+      focused on setting up clusters of application servers which would
+      communicate with a large backend database system or a cluster of
+      databases. When an organization needed to scale such an architecture it
+      would usually involve investing in more powerful hardware or starting to
+      invest in technology to cache data at the application server
+      layer.</para>
+
+      <para>In 2000, it was not uncommon for a large, national brand to invest
+      a few million dollars in hardware to run a public facing system. In the
+      beginning of the decade, your Internet-scale web applications likely ran
+      on a handful of Sun E4500s or E450s. In 2010, many large Internet-facing
+      web sites and services know very little about physical hardware and they
+      run application on tens, hundreds, or thousands of VMs.</para>
+
+      <figure float="0" id="proto-fig-old-system">
+        <title>Internet-scale Architecture from 2000</title>
+
+        <mediaobject>
+          <imageobject role="print">
+            <imagedata align="center"
+                       fileref="figs/print/proto-old-system.pdf" format="PDF"
+                       scalefit="0" width="100%" />
+          </imageobject>
+
+          <imageobject role="web">
+            <imagedata fileref="figs/web/proto-old-system.png" format="PNG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>An architecture which would have called for 15 expensive machines
+      in 2000, has morphed in an architecture which relies on hundreds of node
+      collaborating to create indexes. In 2000, your application likely read
+      from a database and nothing else. In 2010, your internet-scale
+      application uses NoSQL technologies such as Cassandra and solves complex
+      problems offline using massive, on-demand Hadoop clusters or Amazon AWS
+      to run Map/Reduce jobs.</para>
+
+      <para>In 2000, you didn't have to worry about protocols. Your web
+      servers communicated with your application servers using either AJP or
+      just acted as HTTP proxies, and your applications retrieve and stored
+      data in a database using a JDBC connection. In 2010, you are caching
+      objects in memory, you are creating massive lookup tables in a memcached
+      server to support sharding, and you are often looking to pass
+      information and messages between disparate systems in a heterogeneous,
+      polyglot architecture.</para>
+
+      <para>In summary, the typical internet-scale system in 2000 wasn't as
+      chatty. It wasn't nearly as distributed, and it didn't have to service
+      an exploding amount of traffic from always-connect mobile devices and
+      third-party systems calling APIs. In 2010, you will often find yourself
+      unable to scale a system by throwing more hardware at the problem.
+      Today, you achieve true scalability by focusing on efficient messaging
+      between subsystems and squeezing as much performance from your system as
+      possible.</para>
+
+      <figure float="0" id="proto-fig-modern-system">
+        <title>Internet-scale Architecture in 2010</title>
+
+        <mediaobject>
+          <imageobject role="print">
+            <imagedata align="center"
+                       fileref="figs/print/proto-modern-system.pdf"
+                       format="PDF" scalefit="0" width="100%" />
+          </imageobject>
+
+          <imageobject role="web">
+            <imagedata fileref="figs/web/proto-modern-system.png" format="PNG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </sect2>
+
+    <sect2>
+      <title>Google's Scalability Sauce: Polyglot Binary Format</title>
+
+      <para>When you need to figure out a way to process 2 TB of traffic data
+      during off hours across a thousand, general-purpose Linux boxes, you are
+      going to start thinking about the most efficient way to encode your
+      data. Enter Google's Protocol Buffers. Early in the last decade,
+      companies like Google, Amazon, and Yahoo realized that the path to
+      scalability involved the creation of massively parallel clusters of
+      general computing nodes and a move away from relational databases as a
+      persistence medium for internet-scale applications. While the number of
+      server's Google runs is a highly guarded secret, it has been reported
+      that Google's unit of construction is a stndard shipping container
+      containing 1200 servers with each data center in Google's global network
+      containing multiple containers<footnote>
+          <para>Stephen Shankland, "Google uncloaks once-secret server."
+          <emphasis>CNet News Business Tech</emphasis> [updated 1 April 2009;
+          cited 31 July 2010]. Available from <ulink
+          url="http://news.cnet.com/8301-1001_3-10209580-92.html">http://news.cnet.com/8301-1001_3-10209580-92.html</ulink></para>
+        </footnote>. Similarly, companies like Amazon and Apple also maintain
+      massive datacenters to handle this load.</para>
+
+      <para>More and more developers are starting take advantage of some of
+      the research that has enabled companies like Google and Amazon to
+      achieve what Alex Payne calls "Scalability in the Large". While Payne
+      was writing expresing his thoughts on Node.js, his statement about
+      Scalability as a Competitive advantage rings is relevant to a discussion
+      of the Protocol Buffers. Here is Payne on scalability as a "competitive
+      advantage":</para>
+
+      <blockquote>
+        <para>"When you’re operating at scale, pushing the needle means a
+        complex, coordinated dance of well-applied technologies, development
+        techniques, statistical analyses, intra-organizational communication,
+        judicious engineering management, speedy and reliable
+        operationalization of hardware and software, vigilant monitoring, and
+        so forth. Scaling is hard. So hard, in fact, that the ability to scale
+        is a deep competitive advantage of the sort that you can’t simply go
+        out and download, copy, purchase, or steal." - Alex Payne "Node and
+        Scaling in the Small vs Scaling in the Large"<footnote>
+            <para>Alex Payne, "Node and Scaling in the Small vs. Scaling in
+            the Large," <emphasis>Online Writing</emphasis>, <ulink
+            url="http://al3x.net/2010/07/27/node.html">http://al3x.net/2010/07/27/node.html</ulink>
+            (last visited 31 July 2010).</para>
+          </footnote></para>
+      </blockquote>
+
+      <para>Google's Protocol Buffers is just such a competitive advantage. It
+      is the fundamental messaging technology that allows Google to
+      efficiently process Petabytes of information in seconds. While you might
+      not be working on systems which require the same level of scalability,
+      you can benefit from Google's efforts to write systems that use the most
+      efficient data formats approaches to parsing data that will reduce
+      network bottlenecks. Clearly, this is not the "magic bullet" for
+      scalability at Google: the company employes a team of electrical
+      engineers to create custom hardward and scientists focused on power
+      consumption (and generation), but by releasing Protocol Buffers as open
+      source, Google has given away one of the "deep competitive advantages"
+      which allows it to reach the level of scaleability is has
+      attained.</para>
+    </sect2>
+  </sect1>
+</chapter>

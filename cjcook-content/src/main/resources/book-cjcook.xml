@@ -72,5 +72,6 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-http-webdav.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-searching-filtering.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-json.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter-proto.xml"/>
   <index/>
 </book>
