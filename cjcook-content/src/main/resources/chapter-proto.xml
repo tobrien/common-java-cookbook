@@ -7,45 +7,43 @@
   <sect1 id="proto-sect-intro">
     <title>Introduction</title>
 
-    <para>If you developing "Internet"-scale systems that need to scale to
-    meet the ever increasing demands of millions (or billions) of customers,
-    there is a good chance that your production network includes clusters of
-    interconnected services all highly tuned to serve user requests in
-    milliseconds. This chapter focuses on a library from Google called
-    Protocol Buffers. </para>
-
     <sect2>
       <title>What is Protocol Buffers?</title>
 
-      <para>Protocol Buffers is a library that allows you to create a
-      lightweight textual or binary encoding of structured data. It is an open
+      <para>Protocol Buffers is a library that allows you to encode structured
+      data. It is primarily used in data exchange and RPC calls. It is an open
       source project created by Google and it is currently one of the most
-      efficient ways to encoding, transfer, and decode data in an application.
+      efficient ways to encode, transfer, and decode data in an application.
       It takes into account versioning of data elements and provides libraries
-      to parse data in Java, C++, or Python. </para>
+      to parse data in Java, C++, or Python.</para>
+
+      <para>If you've been developing systems that encode data you've likely
+      been serializing and deserializing XML or JSON documents, and using
+      simple REST services or more complex SOAP services to enable
+      interoperability between components in a heterogeneous architecture.
+      Using a tool like protocol buffers to encode and decode data into
+      binary, only makes sense if you understand the motivation behind the
+      tool, the context in which it was created. The development of an
+      efficient binary protocol for data interchange makes sense if you look
+      at the progression of scalable systems in the last decade. </para>
     </sect2>
 
     <sect2>
       <title>The Evolution of Internet-scale Architecture</title>
 
-      <para>The necessity of binary formats makes sense if you look at the
-      progression of scalable systems in the last decade. Consider the
-      architecture of a system designed to handle traffic at a large-scale,
-      consumer-facing web in 2000 shown in <xref
-      linkend="proto-fig-old-system" />. Most web application design was still
-      focused on setting up clusters of application servers which would
-      communicate with a large backend database system or a cluster of
-      databases. When an organization needed to scale such an architecture it
-      would usually involve investing in more powerful hardware or starting to
-      invest in technology to cache data at the application server
-      layer.</para>
-
-      <para>In 2000, it was not uncommon for a large, national brand to invest
-      a few million dollars in hardware to run a public facing system. In the
-      beginning of the decade, your Internet-scale web applications likely ran
-      on a handful of Sun E4500s or E450s. In 2010, many large Internet-facing
-      web sites and services know very little about physical hardware and they
-      run application on tens, hundreds, or thousands of VMs.</para>
+      <para>Consider the architecture of a system designed to handle traffic
+      at a large-scale, consumer-facing web in the year 2000 as shown in <xref
+      linkend="proto-fig-old-system" />. Most large sites were still
+      implemented using multiple application servers communicating with large
+      relational databases. When an organization needed to scale such an
+      architecture it would usually involve investing in more powerful
+      hardware or starting to invest in technology to cache data at the
+      application server layer. If you needed to scale such an architecture,
+      you would scale horizontally by adding more application servers in
+      parallel and spending more money to acquire more and more horsepower for
+      your database server. The beginning of the last decade was all about
+      massive relational databases and a very straightforward "N-tiered"
+      approach to architecture.</para>
 
       <figure float="0" id="proto-fig-old-system">
         <title>Internet-scale Architecture from 2000</title>
@@ -63,31 +61,34 @@
         </mediaobject>
       </figure>
 
-      <para>An architecture which would have called for 15 expensive machines
-      in 2000, has morphed in an architecture which relies on hundreds of node
-      collaborating to create indexes. In 2000, your application likely read
-      from a database and nothing else. In 2010, your internet-scale
+      <para>Fast forward ten years, and we're in a completely different
+      technology landscape. An architecture which would have called for 15
+      very expensive machines in 2000, has morphed in an architecture which
+      relies on hundreds or thousands of low-cost servers as shown in <xref
+      linkend="proto-fig-modern-system" />. In 2000, your application likely
+      read from a database and nothing else. In 2010, your internet-scale
       application uses NoSQL technologies such as Cassandra and solves complex
       problems offline using massive, on-demand Hadoop clusters or Amazon AWS
       to run Map/Reduce jobs.</para>
 
       <para>In 2000, you didn't have to worry about protocols. Your web
       servers communicated with your application servers using either AJP or
-      just acted as HTTP proxies, and your applications retrieve and stored
+      just acted as HTTP proxies, and your applications retrieved and stored
       data in a database using a JDBC connection. In 2010, you are caching
       objects in memory, you are creating massive lookup tables in a memcached
       server to support sharding, and you are often looking to pass
-      information and messages between disparate systems in a heterogeneous,
-      polyglot architecture.</para>
+      information and messages between disparate systems in a heterogeneous
+      architecture.</para>
 
-      <para>In summary, the typical internet-scale system in 2000 wasn't as
-      chatty. It wasn't nearly as distributed, and it didn't have to service
-      an exploding amount of traffic from always-connect mobile devices and
-      third-party systems calling APIs. In 2010, you will often find yourself
-      unable to scale a system by throwing more hardware at the problem.
-      Today, you achieve true scalability by focusing on efficient messaging
-      between subsystems and squeezing as much performance from your system as
-      possible.</para>
+      <para>In summary, internet-scale architectures involve hundreds of
+      machines and are usually very data intensive. Compared to 2000, an
+      internet-scale application in 2010 has a lot more moving parts: more
+      caching, more communications, more activity. The other big difference
+      between the Internet-scale architecture of 2000 and 2010 is variety. In
+      2000, your entire architecture was on a single platform such as J2EE or
+      .NET. In 2010, your web application might be in Python while your
+      high-performance Map/Reduce cluster might execute Java code, and your
+      mobile applications are written in ObjectiveC. </para>
 
       <figure float="0" id="proto-fig-modern-system">
         <title>Internet-scale Architecture in 2010</title>
@@ -107,34 +108,23 @@
     </sect2>
 
     <sect2>
-      <title>Google's Scalability Sauce: Polyglot Binary Format</title>
+      <title>Google's Solution: Polyglot Binary Format</title>
 
-      <para>When you need to figure out a way to process 2 TB of traffic data
-      during off hours across a thousand, general-purpose Linux boxes, you are
-      going to start thinking about the most efficient way to encode your
-      data. Enter Google's Protocol Buffers. Early in the last decade,
-      companies like Google, Amazon, and Yahoo realized that the path to
-      scalability involved the creation of massively parallel clusters of
-      general computing nodes and a move away from relational databases as a
-      persistence medium for internet-scale applications. While the number of
-      server's Google runs is a highly guarded secret, it has been reported
-      that Google's unit of construction is a stndard shipping container
-      containing 1200 servers with each data center in Google's global network
-      containing multiple containers<footnote>
-          <para>Stephen Shankland, "Google uncloaks once-secret server."
-          <emphasis>CNet News Business Tech</emphasis> [updated 1 April 2009;
-          cited 31 July 2010]. Available from <ulink
-          url="http://news.cnet.com/8301-1001_3-10209580-92.html">http://news.cnet.com/8301-1001_3-10209580-92.html</ulink></para>
-        </footnote>. Similarly, companies like Amazon and Apple also maintain
-      massive datacenters to handle this load.</para>
+      <para>Given the transformation described in the previous section, what
+      do you do when you have thousands of servers, each running components
+      written in a handful of programming languages which need to parse
+      Terabytes of data in a few hours?</para>
+
+      <para>Google's answer: Protocol Buffers. </para>
+    </sect2>
+
+    <sect2>
+      <title>The Importance of Small Things</title>
 
       <para>More and more developers are starting take advantage of some of
       the research that has enabled companies like Google and Amazon to
-      achieve what Alex Payne calls "Scalability in the Large". While Payne
-      was writing expresing his thoughts on Node.js, his statement about
-      Scalability as a Competitive advantage rings is relevant to a discussion
-      of the Protocol Buffers. Here is Payne on scalability as a "competitive
-      advantage":</para>
+      achieve what Alex Payne calls "Scalability in the Large". Here is Payne
+      on scalability as a "competitive advantage":</para>
 
       <blockquote>
         <para>"When you’re operating at scale, pushing the needle means a
@@ -153,19 +143,239 @@
           </footnote></para>
       </blockquote>
 
-      <para>Google's Protocol Buffers is just such a competitive advantage. It
-      is the fundamental messaging technology that allows Google to
-      efficiently process Petabytes of information in seconds. While you might
-      not be working on systems which require the same level of scalability,
-      you can benefit from Google's efforts to write systems that use the most
-      efficient data formats approaches to parsing data that will reduce
-      network bottlenecks. Clearly, this is not the "magic bullet" for
-      scalability at Google: the company employes a team of electrical
-      engineers to create custom hardward and scientists focused on power
-      consumption (and generation), but by releasing Protocol Buffers as open
-      source, Google has given away one of the "deep competitive advantages"
-      which allows it to reach the level of scaleability is has
-      attained.</para>
+      <para>Google's Protocol Buffers might seem like an insignificant little
+      IDL tool, but it is an important part of Google's "competitive
+      advantage". It is one of the fundamental messaging technology that
+      allows Google to efficiently process Petabytes of information in
+      seconds. Coincidentally, Payne's former employer, Twitter, also uses
+      Protocol Buffers as a format in its Hadoop-based analytics work<footnote>
+          <para>http://www.slideshare.net/kevinweil/protocol-buffers-and-hadoop-at-twitter</para>
+        </footnote>.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="proto-sect-downloading">
+    <title>Downloading Protocol Buffers</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to download Protocol Buffers.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>If you are using a Mac OSX or a Linux machine, you should download
+      the full source distribution of Protocol Buffers and compile the tool
+      locally. If you are using a Windows machine, you can download a
+      precompiled version of the Protocol Buffers </para>
+
+      <para>To download Protocol Buffers, go to the Google Code project for
+      Protocol Buffers at <ulink
+      url="???">http://code.google.com/p/protobuf/</ulink>. Once you've loaded
+      this site in a browser, click on one of the featured downloads on the
+      right side of the page as shown in <xref
+      linkend="proto-fig-site" />.</para>
+
+      <figure float="0" id="proto-fig-site">
+        <title>Downloading Protocol Buffers Source</title>
+
+        <mediaobject>
+          <imageobject role="print">
+            <imagedata align="center" fileref="figs/print/proto-site.pdf"
+                       format="PDF" scalefit="0" width="100%" />
+          </imageobject>
+
+          <imageobject role="web">
+            <imagedata fileref="figs/web/proto-site.png" format="PNG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <sect3>
+        <title>Linux or Mac OSX Installation</title>
+
+        <para>Download the full source distribution for Protocol Buffers.
+        Click on the protobuf-2.0.3.tar.gz file shown in <xref
+        linkend="proto-fig-site" /> and save this file to your computer. Next,
+        proceed to the next section, <xref
+        linkend="proto-sect-compiling" />.</para>
+      </sect3>
+
+      <sect3>
+        <title>Windows Installation</title>
+
+        <para>On a Windows machine, download
+        <filename>protoc-2.3.0-win32.zip</filename> and unzip the archive.
+        This win32 distribution contains two files
+        <filename>README.txt</filename> and <filename>protoc.exe</filename>.
+        Unzip the archive and put the <filename>protoc.exe</filename> compiler
+        in your operating system's <varname>PATH</varname>.</para>
+
+        <screen>C:\Users\tobrien\Downloads:&gt; <command>unzip protoc-2.3.0-win32.zip</command> 
+Archive:  protoc-2.3.0-win32.zip
+  inflating: readme.txt              
+  inflating: protoc.exe </screen>
+      </sect3>
+    </sect2>
+  </sect1>
+
+  <sect1 id="proto-sect-compiling">
+    <title>Compiling Protocol Buffers</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You have downloaded the Protocol Buffers source distribution and
+      you need to compile the <filename>protoc</filename> compiler. </para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>If you've downloaded the Protocol Buffers source distribution to a
+      Mac OSX machine, you will need to install Apple Xcode. The Xcode is
+      packaged with a number of utilities including GCC. Apple's Xcode is
+      available from Apple here <ulink
+      url="http://developer.apple.com/technologies/tools/xcode.html">http://developer.apple.com/technologies/tools/xcode.html</ulink>.
+      </para>
+
+      <para>If you've downloaded the Protocol Buffers source distribution to a
+      Linux machine, you will need to install the GCC compiler and Make.
+      </para>
+
+      <note>
+        <para>If you are using Protocol Buffers on a Windows platform, you
+        should just download the binary distribution of the protoc.exe
+        compiler as shown in <xref linkend="proto-sect-downloading" />.</para>
+      </note>
+
+      <para>The source distribution can be configured, built, and installed
+      using the following sequence of commands:</para>
+
+      <screen>~/Downloads/protobuf-2.3.0 $ <command>./configure</command>
+checking build system type... i386-apple-darwin10.4.0
+checking host system type... i386-apple-darwin10.4.0
+checking target system type... i386-apple-darwin10.4.0
+...
+~/Downloads/protobuf-2.3.0 $ <command>make</command>
+make  all-recursive
+Making all in .
+make[2]: Nothing to be done for `all-am'.
+Making all in src
+~/Downloads/protobuf-2.3.0 $ <command>sudo make install</command>
+Password:
+Making install in .
+...
+</screen>
+
+      <para>First, run <command>./configure</command> to check your system for
+      required tools and libraries. Then run <command>make</command> to
+      compile the Protocol Buffers tool. Running make will take a few minutes.
+      After you have successfully compiled Protocol Buffers, install it by
+      running <command>make install</command>. Since installation requires
+      administrative privileges, run <command>sudo make install</command> to
+      run make as an administrative user.</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>To test that the Protocol Buffers compiler was successfully
+      installed, run <command>protoc --help</command>. Running this command
+      should produce the </para>
+
+      <screen>~ $ <command>protoc --help</command>
+Usage: protoc [OPTION] PROTO_FILES
+Parse PROTO_FILES and generate output based on the options given:
+  -IPATH, --proto_path=PATH   Specify the directory in which to search for
+                              imports.  May be specified multiple times;
+                              directories will be searched in order.  If not
+                              given, the current working directory is used.
+  --version                   Show version info and exit.
+  -h, --help                  Show this text and exit.
+  --encode=MESSAGE_TYPE       Read a text-format message of the given type
+                              from standard input and write it in binary
+                              to standard output.  The message type must
+                              be defined in PROTO_FILES or their imports.
+  --decode=MESSAGE_TYPE       Read a binary message of the given type from
+                              standard input and write it in text format
+                              to standard output.  The message type must
+                              be defined in PROTO_FILES or their imports.
+  --decode_raw                Read an arbitrary protocol message from
+                              standard input and write the raw tag/value
+                              pairs in text format to standard output.  No
+                              PROTO_FILES should be given when using this
+                              flag.
+  -oFILE,                     Writes a FileDescriptorSet (a protocol buffer,
+    --descriptor_set_out=FILE defined in descriptor.proto) containing all of
+                              the input files to FILE.
+  --include_imports           When using --descriptor_set_out, also include
+                              all dependencies of the input files in the
+                              set, so that the set is self-contained.
+  --error_format=FORMAT       Set the format in which to print errors.
+                              FORMAT may be 'gcc' (the default) or 'msvs'
+                              (Microsoft Visual Studio format).
+  --plugin=EXECUTABLE         Specifies a plugin executable to use.
+                              Normally, protoc searches the PATH for
+                              plugins, but you may specify additional
+                              executables not in the path using this flag.
+                              Additionally, EXECUTABLE may be of the form
+                              NAME=PATH, in which case the given plugin name
+                              is mapped to the given executable even if
+                              the executable's own name differs.
+  --cpp_out=OUT_DIR           Generate C++ header and source.
+  --java_out=OUT_DIR          Generate Java source file.
+  --python_out=OUT_DIR        Generate Python source file.</screen>
+    </sect2>
+  </sect1>
+
+  <sect1>
+    <title>Defining a Message Type</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to define a message type that will allow you to encode
+      data.</para>
+
+      <para>Assume that you are working for a new startup called Checkin which
+      is trying to create a system to track the status of every vehicle on the
+      road. They've signed a deal with a large car manufacturer to install a
+      mobile device which will communicate a car's status and position every
+      five minutes. Since you expect more than ten million registered vehicles
+      in the first year of operation, you want need to create a polling format
+      that is going to scale and leave some flexibility for future
+      changes.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Create a file called checkin.proto and define all of the message
+      types in this file using the protocol buffer language.</para>
+
+      <example>
+        <title>A Protocol Buffers Message Definition</title>
+
+        <programlisting>package com.discursive.cjcook.proto;
+message PositionData {
+  required uint32 vehicle_id = 1;
+  optional float latitude = 2;
+  optional float longitude = 3;
+  optional float altitude = 4 [default = 0];
+  optional int32 speed = 5;
+  optional uint64 timestamp = 6;
+  optional string status = 7;
+}
+</programlisting>
+      </example>
+
+      <para>To generate a Java class for this message type, run the protoc
+      compiler:</para>
+
+      <screen>~/projects/checking/src/main/java $ <command>protoc checkin.proto --java_out=.</command></screen>
     </sect2>
   </sect1>
 </chapter>

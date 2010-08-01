@@ -1,0 +1,10 @@
+package com.discursive.cjcook.proto;
+message PositionData {
+  required uint32 vehicle_id = 1;
+  optional float latitude = 2;
+  optional float longitude = 3;
+  optional float altitude = 4 [default = 0];
+  optional int32 speed = 5;
+  optional uint64 timestamp = 6;
+  optional string status = 7;
+}
