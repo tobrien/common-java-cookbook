@@ -1,4 +1,7 @@
-package com.discursive.cjcook.proto;
+package checkin;
+
+option java_package = "com.discursive.cjcook.proto";
+
 message PositionData {
   required uint32 vehicle_id = 1;
   optional float latitude = 2;

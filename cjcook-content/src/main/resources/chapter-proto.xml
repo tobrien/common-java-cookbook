@@ -353,8 +353,9 @@ Parse PROTO_FILES and generate output based on the options given:
     <sect2>
       <title>Solution</title>
 
-      <para>Create a file called checkin.proto and define all of the message
-      types in this file using the protocol buffer language.</para>
+      <para>Create a file called <filename>checkin.proto</filename> and define
+      all of the message types in this file using the protocol buffer
+      language.</para>
 
       <example>
         <title>A Protocol Buffers Message Definition</title>
@@ -372,10 +373,113 @@ message PositionData {
 </programlisting>
       </example>
 
-      <para>To generate a Java class for this message type, run the protoc
-      compiler:</para>
+      <para>To generate a Java class for this message type, run the
+      <command>protoc</command> compiler:</para>
 
       <screen>~/projects/checking/src/main/java $ <command>protoc checkin.proto --java_out=.</command></screen>
+
+      <para>Running the compiler against this definition will create a class
+      named <classname>Checkin</classname> in the package
+      <package>com.discursive.cjcook.proto</package>.</para>
+    </sect2>
+  </sect1>
+
+  <sect1>
+    <title>Measuring Protocol Buffers Performance</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to justify the use of Protocol Buffers and compare the
+      performance of generating and parsing a Protocl Buffer message to the
+      performance of XML.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para></para>
+
+      <example>
+        <title></title>
+
+        <programlisting>package com.discursive.cjcook.proto;
+
+import java.util.Date;
+
+import com.discursive.cjcook.proto.Checkin.PositionData;
+import com.google.protobuf.InvalidProtocolBufferException;
+
+public class CheckinTiming {
+
+  public static void main(String[] args) throws Exception {
+
+    int size = 3000000;
+
+    PositionData[] pArray = new PositionData[size];
+
+    long preCreate = (new Date()).getTime();
+    for( int i = 0; i &lt; size; i++ ) {
+      PositionData pData = PositionData.newBuilder()
+        .setVehicleId(1)
+        .setTimestamp( (new Date()).getTime() )
+        .setAltitude( 123.0f )
+        .setLatitude( 1.0f )
+        .setLongitude( 1.0f )
+        .setSpeed( 120 )
+        .build();
+      pArray[i] = pData;
+    }
+    long postCreate = (new Date()).getTime();
+    float createTime = 
+      ((float) (postCreate - preCreate) / 
+          (float) size ) * 1000 * 1000;
+
+    System.out.printf( "Create One PositionData %.0f ns\n", createTime);
+  
+    byte[][] encodedArray = new byte[size][];
+    long preEncode = (new Date()).getTime();
+    for( int i = 0; i &lt; size; i++ ) {
+      byte[] positionBArray = pArray[i].toByteArray();
+      encodedArray[i] = positionBArray;
+
+    }
+    long postEncode = (new Date()).getTime();
+    float encodeTime = 
+      ((float) (postEncode - preEncode) / 
+          (float) size ) * 1000 * 1000;
+    System.out.printf( "Encode One PositionData to byte[] %.0f ns\n", 
+                       encodeTime);
+
+    PositionData[] decodedArray = new PositionData[size];
+    long preDecode = (new Date()).getTime();
+    for( int i = 0; i &lt; size; i++) {
+      PositionData pData = PositionData.parseFrom( encodedArray[i] );
+      decodedArray[i] = pData;
+    }
+    long postDecode = (new Date()).getTime();
+    float decodeTime = 
+      ((float) (postDecode - preDecode) / 
+         (float) size ) * 1000 * 1000;
+    System.out.printf( "Decode One PositionData from byte[] %.0f ns\n", 
+                       decodeTime);
+  }
+}
+</programlisting>
+      </example>
+
+      <para>Running this simple test program generates the following
+      output:</para>
+
+      <screen>Create One PositionData 488 ns
+Encode One PositionData to byte[] 595 ns
+Decode One PositionData from byte[] 970 ns</screen>
+
+      <para>These numbers are going to vary on different platforms, but this
+      is the general ballpark for Protocol Buffer encoding and decoding
+      operations. Creating a Protocol Buffer message will take approximately
+      500 nanoseconds, encoding it to a byte array will take 500 ns, and
+      parsing the byte array will take about a microsecond.</para>
     </sect2>
   </sect1>
 </chapter>
