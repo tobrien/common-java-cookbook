@@ -430,7 +430,7 @@ message PositionData {
       <para>The following CheckingTest class uses the Checking class generated
       in <xref linkend="proto-sect-defining" />.</para>
 
-      <example>
+      <example id="proto-ex-encode-parse">
         <title>Encoding and Decoding a Protocol Buffers Message</title>
 
         <programlisting>package com.discursive.cjcook.proto;
@@ -468,6 +468,69 @@ public class CheckinTest {
 }
 </programlisting>
       </example>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>To create a message, you use a builder object which is specific to
+      your message type. The <classname>PositionData</classname> class is
+      defined as an inner class on <classname>Checkin</classname>, and the
+      <classname>Builder</classname> class is defined as an inner class on
+      <classname>PositionData</classname>. When you create a new builder using
+      the <methodname>PositionData.newBuilder()</methodname> call in you are
+      creating a new instance of the
+      <classname>PositionData.Builder</classname> class. This
+      <classname>Builder</classname> class is used to create a message by
+      chaining a number of method calls together like this:</para>
+
+      <programlisting>PositionData pData = PositionData.newBuilder()
+        .setVehicleId(1)
+        .setTimestamp((new Date()).getTime())
+        .setAltitude(0.0f)
+        .setLatitude(0.0f)
+        .setLongitude(0.0f)
+        .setSpeed(120)
+        .build();</programlisting>
+
+      <para>With the exception of the last call to
+      <methodname>build()</methodname>, each method call in this chain returns
+      a <classname>Builder</classname> object. The call to
+      <methodname>PositionData.newBuilder()</methodname> and all of the setter
+      methods on <classname>Builder</classname> can be chainged together and
+      terminated with a call to <methodname>build()</methodname> which will
+      return a <classname>PositionData</classname> message object.</para>
+
+      <para>The rest of this example is straightforward: to turn a
+      <classname>PositionData</classname> object into a byte array call the
+      instance method <methodname>toByteArray()</methodname>. The
+      <methodname>toByteArray()</methodname> method is not defined in the
+      <filename>Checkin.java</filename> class, it is defined in the
+      <classname>AbstractMessageLite</classname> class which is the parent of
+      the parent's parent (the <classname>PositionData</classname> class'
+      Great Grandmother). <classname>Checkin.PositionData</classname> extends
+      <classname>GeneratedMessage</classname> which extends
+      <classname>AbstractMessage</classname> which, in turn, extends
+      <classname>AbstractMessageLite</classname>. This top-level
+      <classname>AbstractMessageLite</classname> class implements the
+      <classname>MessageLite</classname> interface which contains all of the
+      methods to write a message to a <classname>byte[]</classname> or a
+      <classname>ByteString</classname>.</para>
+
+      <para>To parse the message from a <classname>byte[]</classname> back
+      into a <classname>PositionData</classname> object, call the static
+      method <methodname>parseFrom()</methodname> on
+      <classname>PositionData</classname>. This method will invoke a method on
+      the <classname>PositionData.Builder</classname> class. The builder class
+      follows a similar inheritance pattern to the
+      <classname>PositionData</classname> class. The
+      <classname>PositionData.Builder</classname> class extends the
+      <classname>GeneratedMessage.Builder</classname> class which extends the
+      <classname>AbstractMessage.Builder</classname> class which, in turn,
+      extends the <classname>AbstractMessageLite.Builder</classname> class.
+      This <classname>AbstractMessageLite.Builder</classname> class then
+      implements the <classname>MessageLite.Builder</classname> interface
+      which defines methods to create a builder and parse data.</para>
     </sect2>
   </sect1>
 
@@ -562,7 +625,11 @@ public class CheckinTiming {
       </example>
 
       <para>Running this simple test program generates the following
-      output:</para>
+      output<footnote>
+          <para>You results may vary. This particular performance test was run
+          with a 512 MB heap on a mid-level MacBook Pro with a 2.4 Ghz
+          processor in 2010.</para>
+        </footnote>:</para>
 
       <screen>Create One PositionData 488 ns
 Encode One PositionData to byte[] 595 ns
