@@ -555,7 +555,7 @@ public class CheckinTest {
       decodes these <classname>byte[]</classname> messages and stores the
       result in a new <classname>PositionData</classname> object.</para>
 
-      <example>
+      <example id="proto-ex-perform">
         <title>Measuring Average Execution Time for Protocol Buffers
         Operations</title>
 
