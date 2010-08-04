@@ -233,14 +233,121 @@ public class GeneratingJSON {
     <sect2>
       <title>Solution</title>
 
-      <para></para>
+      <para>That's easy. Since <classname>net.sf.json.JSONObject</classname>
+      implements the <classname>java.util.Map</classname> interface, all you
+      need to do is create a <classname>JSONObject</classname> and pass the
+      map to the <methodname>putAll()</methodname> method.</para>
+
+      <example id="json-ex-convert-map">
+        <title>Converting a Map to JSON</title>
+
+        <programlisting>package com.discursive.cjcook.json;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import net.sf.json.JSONObject;
+
+public class ConvertMaptoJSON {
+
+  public static void main(String[] args) throws Exception {
+    Map&lt;String, Object&gt; data = new HashMap&lt;String, Object&gt;();
+    data.put( "name", "Marshall Mathers" );
+    data.put( "age", 37 );
+    data.put( "city", "Detroit" );
+
+    JSONObject json = new JSONObject();
+    json.putAll( data );
+    System.out.printf( "JSON: %s", json.toString(2) );
+  }
+}
+</programlisting>
+      </example>
+
+      <para>Running the class shown in <xref linkend="json-ex-convert-map" />
+      produces the following output:</para>
+
+      <screen>JSON: {
+  "age": 37,
+  "name": "Marshall Mathers",
+  "city": "Detroit"
+}</screen>
     </sect2>
   </sect1>
 
   <sect1>
     <title>Converting a Bean to JSON</title>
 
-    <para></para>
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to convert a Java bean to JSON.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use the static <classname>JSONObject</classname> method
+      <methodname>fromObject()</methodname> to convert a Java bean to
+      JSON.</para>
+
+      <example id="json-ex-convert-bean">
+        <title>Converting a Bean to JSON</title>
+
+        <programlisting>package com.discursive.cjcook.json;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import net.sf.json.JSONObject;
+import net.sf.json.util.JSONBuilder;
+
+public class ConvertBeantoJSON {
+
+  public static void main(String[] args) throws Exception {
+    Person person = new Person("Marshall Mathers", 37, "Detroit");
+
+    JSONObject json = JSONObject.fromObject( person );
+    System.out.printf("JSON: %s", json.toString(2));
+  }
+}
+</programlisting>
+      </example>
+
+      <para>Where the Person class is a Java bean defined in the following
+      class:</para>
+
+      <programlisting>package com.discursive.cjcook.json;
+
+public class Person {
+
+  private String name;
+  private Integer age;
+  private String city;  
+
+  public Person() {} 
+  
+  public Person(String name, Integer age, String city) {
+    setName( name );
+    setAge( age );
+    setCity( city );
+  }
+
+  public String getName() { return name; }
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Integer getAge() { return age; }
+  public void setAge(Integer age) {
+    this.age = age;
+  }
+
+  public String getCity() { return city; }
+  public void setCity(String city) { this.city = city; }
+}
+</programlisting>
+    </sect2>
   </sect1>
 
   <sect1 id="json-sect-parsing-json">
@@ -607,6 +714,150 @@ public class ConvertJSONtoXMLSetRoot {
     &lt;lastName&gt;Aldrin&lt;/lastName&gt;
   &lt;/pilot&gt;
 &lt;/SampleJSON&gt;</programlisting>
+    </sect2>
+  </sect1>
+
+  <sect1>
+    <title>Measuring JSON Encoding and Parsing Performance</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to justify using JSON in a critical part of your
+      architecture. To prove that JSON is an acceptable approach, you will
+      need to supply average encoding and parsing times for JSON to and from a
+      Java bean.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use the following class to generate simple performance metrics for
+      JSON.</para>
+
+      <example>
+        <title>Mesuring the Performance of Simple JSON Operations</title>
+
+        <programlisting>package com.discursive.cjcook.json;
+
+import java.util.Date;
+
+import net.sf.json.JSONObject;
+
+public class JSONTiming {
+
+  public static void main(String[] arg) {
+
+    int size = 500000;
+
+    PositionData[] pArray = new PositionData[size];
+
+    long preCreate = (new Date()).getTime();
+    for (int i = 0; i &lt; size; i++) {
+      PositionData pData = new PositionData();
+      pData.setVehicleId(1);
+      pData.setTimestamp((new Date()).getTime());
+      pData.setAltitude(123.0f);
+      pData.setLatitude(1.0f);
+      pData.setLongitude(1.0f);
+      pData.setSpeed(120);
+      pArray[i] = pData;
+    }
+    long postCreate = (new Date()).getTime();
+    float createTime = ((float) (postCreate - preCreate) / (float) size) * 1000 * 1000;
+
+    System.out.printf("Create One PositionData %.0f nanoseconds\n",
+        createTime);
+
+    String[] encodedArray = new String[size];
+    long preEncode = (new Date()).getTime();
+    for (int i = 0; i &lt; size; i++) {
+      JSONObject obj = JSONObject.fromObject(pArray[i]);
+      String encoded = obj.toString();
+      encodedArray[i] = encoded;
+
+    }
+    long postEncode = (new Date()).getTime();
+    float encodeTime = ((float) (postEncode - preEncode) / (float) size) * 1000;
+    System.out.printf(
+        "Encode One PositionData to String %.0f microseconds\n",
+        encodeTime);
+
+    PositionData[] decodedArray = new PositionData[size];
+    long preDecode = (new Date()).getTime();
+    for (int i = 0; i &lt; size; i++) {
+      JSONObject obj = JSONObject.fromObject( encodedArray[i] );
+      PositionData pData = (PositionData) JSONObject.toBean(obj,
+          PositionData.class);
+      decodedArray[i] = pData;
+    }
+    long postDecode = (new Date()).getTime();
+    float decodeTime = ((float) (postDecode - preDecode) / (float) size) * 1000;
+    System.out.printf("Decode One PositionData from String %.0f microseconds\n",
+        decodeTime);
+  }
+}
+</programlisting>
+      </example>
+
+      <para>Where PositionData is a bean defined in the following
+      class:</para>
+
+      <programlisting>package com.discursive.cjcook.json;
+
+public class PositionData {
+
+  private Integer vehicleId;
+  private Float latitude;
+  private Float longitude;
+  private Float altitude;
+  private Integer speed;
+  private Long timestamp;
+  private String status;
+
+  public PositionData() {}
+
+  // Getters and Setters omitted for brevity
+}
+</programlisting>
+
+      <para>Running this test class will produce the following
+      results<footnote>
+          <para>...on a mid-level MacBook Pro running JDK 1.6 with a 2 GB
+          min/max heap. This performance test is by no means
+          scientific.</para>
+        </footnote>:</para>
+
+      <screen>Create One PositionData 1234 nanoseconds
+Encode One PositionData to String 30 microseconds
+Decode One PositionData from String 41 microseconds</screen>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>It takes about a microsecond to create an object and populate a
+      few properties. That first number doesn't reflect much beyond simple
+      object instantiation and a few setter methods. The interesting numbers
+      for JSON performance are the times to encode and decode JSON data to and
+      from String objects. Running half a million operations yields a number
+      of ~30 microseconds to encode a bean to a JSON string and ~41
+      microseconds to parse that string back into a bean instance.</para>
+
+      <para>Comparing these numbers to the performance measurements shown in
+      <xref linkend="proto-sect-performance" /> for a similar data element
+      encoded and decoded with Protocol Buffers. Protocol Buffers can encode
+      data 50x faster than json-lib, and it can decode data 42x faster than
+      json-lib. Granted, this isn't an apples to apples comparison. json-lib
+      is using reflection to scan the object for properties, and Protocol
+      Buffers is using an optimized approach to encoding and decoding.
+      json-lib is also storing data as a String where Protocol Buffers is
+      storing data in a seriously optimized binary format.</para>
+
+      <para>These performance numbers are certainly not scientific. They were
+      not created in a laboratory with a rigorous controls and isolated
+      hardware, but they are meant to give you an idea of the relative
+      performance of these different tools and parsing libraries.</para>
     </sect2>
   </sect1>
 </chapter>
