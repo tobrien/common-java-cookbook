@@ -735,7 +735,7 @@ public class ConvertJSONtoXMLSetRoot {
       <para>Use the following class to generate simple performance metrics for
       JSON.</para>
 
-      <example>
+      <example id="json-ex-performance">
         <title>Mesuring the Performance of Simple JSON Operations</title>
 
         <programlisting>package com.discursive.cjcook.json;
