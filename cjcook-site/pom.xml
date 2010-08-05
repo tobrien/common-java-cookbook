@@ -93,6 +93,24 @@
 	      <outputDirectory>${basedir}/target/site/</outputDirectory>
 	    </configuration>
 	  </execution>
+	  <execution>
+	    <id>copy-epub</id>
+	    <phase>site</phase>
+	    <goals>
+	      <goal>copy</goal>
+	    </goals>
+	    <configuration>
+	      <artifactItems>
+		<artifactItem>
+		  <groupId>${project.groupId}</groupId>
+		  <artifactId>cjcook-epub</artifactId>
+		  <version>${project.version}</version>
+		  <type>epub</type>
+		</artifactItem>
+	      </artifactItems>
+	      <outputDirectory>${basedir}/target/site/</outputDirectory>
+	    </configuration>
+	  </execution>
 	</executions>
       </plugin>
     </plugins>
