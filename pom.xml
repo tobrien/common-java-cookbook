@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.codehaus.cjcook</groupId>
   <artifactId>cjcook-parent</artifactId>
-  <version>0.22-SNAPSHOT</version>
+  <version>0.23-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Common Java Cookbook</name>
   <description>A Common Cookbook for Java</description>

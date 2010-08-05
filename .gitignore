@@ -6,3 +6,5 @@ pom.xml.releaseBackup
 *.bak
 .#*#
 #*#
+*.versionsBackup
+*.orig
