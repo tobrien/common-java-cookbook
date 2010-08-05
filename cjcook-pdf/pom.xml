@@ -3,7 +3,7 @@
     <parent>
         <groupId>org.codehaus.cjcook</groupId>
         <artifactId>cjcook-parent</artifactId>
-        <version>0.21</version>
+        <version>0.22</version>
     </parent>
     <artifactId>cjcook-pdf</artifactId>
     <packaging>jar</packaging>
@@ -553,6 +553,18 @@
 	                    <configuration>
 	                        <file>${basedir}/target/cjcook-chapter-math.pdf</file>
 	                        <artifactId>cjcook-chapter-math</artifactId>
+	                <packaging>pdf</packaging>
+	                    </configuration>
+	                </execution>
+	                <execution>
+	                    <id>install-chapter-proto-pdf</id>
+	                    <phase>install</phase>
+	                    <goals>
+	                        <goal>install-file</goal>
+	                    </goals>
+	                    <configuration>
+	                        <file>${basedir}/target/cjcook-chapter-proto.pdf</file>
+	                        <artifactId>cjcook-chapter-proto</artifactId>
 	                <packaging>pdf</packaging>
 	                    </configuration>
 	                </execution>
