@@ -21,6 +21,7 @@
     <copyright.year>2009</copyright.year>
     <google.analytics.id>UA-67332-11</google.analytics.id>
     <commons.site>http://commons.apache.org/</commons.site>
+    <docbkx-tools.version>2.0.11-SNAPSHOT</docbkx-tools.version>
   </properties>
   <developers>
     <developer>
@@ -40,6 +41,7 @@
     <module>cjcook-html</module>
     <module>cjcook-single-html</module>
     <module>cjcook-pdf</module>
+    <module>cjcook-epub</module>
     <module>cjcook-site</module>
   </modules>
   <build>
