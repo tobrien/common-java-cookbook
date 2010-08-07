@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.codehaus.cjcook</groupId>
+        <groupId>com.discursive.cjcook</groupId>
         <artifactId>cjcook-parent</artifactId>
         <version>0.23-SNAPSHOT</version>
     </parent>
@@ -272,6 +272,36 @@
 	                        </pdfs>	
 	                    </configuration>
 	                </execution>
+	                <execution>
+	                    <id>concat-pdf-guava-io</id>
+	                    <phase>process-classes</phase>
+	                    <goals>
+	                        <goal>concatenate</goal>
+	                    </goals>
+	                    <configuration>
+	                        <outputDir>${basedir}/target</outputDir>
+	                        <outputFilename>cjcook-chapter-guava-io.pdf</outputFilename>
+	                        <pdfs>
+		                        <pdf>${basedir}/src/main/resources/cjcook-guava-io-cover.pdf</pdf>
+		                        <pdf>${basedir}/target/chapter-guava-io.pdf</pdf>
+	                        </pdfs>	
+	                    </configuration>
+	                </execution>
+<!--	                <execution>
+	                    <id>concat-pdf-guava-conc</id>
+	                    <phase>process-classes</phase>
+	                    <goals>
+	                        <goal>concatenate</goal>
+	                    </goals>
+	                    <configuration>
+	                        <outputDir>${basedir}/target</outputDir>
+	                        <outputFilename>cjcook-chapter-guava-conc.pdf</outputFilename>
+	                        <pdfs>
+		                        <pdf>${basedir}/src/main/resources/cjcook-guava-conc-cover.pdf</pdf>
+		                        <pdf>${basedir}/target/chapter-guava-conc.pdf</pdf>
+	                        </pdfs>	
+	                    </configuration>
+	                </execution> -->
 	            </executions>
             </plugin>
             <plugin>
@@ -604,6 +634,30 @@
 	                <packaging>pdf</packaging>
 	                    </configuration>
 	                </execution>
+	                <execution>
+	                    <id>install-chapter-guava-io-pdf</id>
+	                    <phase>install</phase>
+	                    <goals>
+	                        <goal>install-file</goal>
+	                    </goals>
+	                    <configuration>
+	                        <file>${basedir}/target/cjcook-chapter-guava-io.pdf</file>
+	                        <artifactId>cjcook-chapter-guava-io</artifactId>
+	                <packaging>pdf</packaging>
+	                    </configuration>
+	                </execution>
+<!--	                <execution>
+	                    <id>install-chapter-guava-conc-pdf</id>
+	                    <phase>install</phase>
+	                    <goals>
+	                        <goal>install-file</goal>
+	                    </goals>
+	                    <configuration>
+	                        <file>${basedir}/target/cjcook-chapter-guava-conc.pdf</file>
+	                        <artifactId>cjcook-chapter-guava-conc</artifactId>
+	                <packaging>pdf</packaging>
+	                    </configuration>
+	                </execution> -->
 	            </executions>
 	            <configuration>
 	                <groupId>${groupId}</groupId>

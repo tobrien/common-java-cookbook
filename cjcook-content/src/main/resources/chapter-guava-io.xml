@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://mars.discursive.com/docbook/xml/4.5/docbookx.dtd">
+<chapter id="guava-io">
+  <title>Google Guava: I/O</title>
+
+  <sect1 id="guava-io-sect-intro">
+    <title>Introduction</title>
+
+    <sect2>
+      <title>What is Guava?</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-copying-inout">
+    <title>Copying and InputStream to an OutputStream</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>ByteStreams.copy</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-comparing-streams">
+    <title>Comparing Two Input Streams</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>ByteStreams.equal</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-calc-sum-stream">
+    <title>Calculating a Checksum for an InputStream</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>ByteStreams.getChecksum</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-calc-dig-stream">
+    <title>Calculating a Message Digest for an InputStream</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>ByteStreams.getDigest</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-concat-streams">
+    <title>Concatenating Multiple InputStreams</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>ByteStreams.join</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-concat-readers">
+    <title>Concatenating Multiple Readers</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Bytestreams.join</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-calc-stream-length">
+    <title>Calculating the Length of an InputStream</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>ByteStreams.length</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-byte-mem">
+    <title>Reading and Writing Byte Arrays to and from Memory</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>ByteStreams.newDataInput, ByteStreams.newDataOutput,
+      ByteArrayDataInput, ByteArrayDataOutput</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-slicing">
+    <title>Slicing (and Dicing) an InputStream</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>ByteStreams.slice</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-flush-close">
+    <title>Flushing and Closing Stream, Writer, or Reader (without the
+    Headache of Exception Handling)</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Closeables.close() and CloseablescloseQuietly(), flushable blah
+      blah</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-measuring">
+    <title>Measuring Amount of Data Written To and Read From a Stream</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>CountingInputStream and CountingOutputStream</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-buffering-file">
+    <title>Buffering Data to a File As Needed</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>FileBackedOutputStream</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>Talk about Norvig's table of relative performance</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-appending-text">
+    <title>Appending Text to Files</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.append</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-appending-bytes">
+    <title>Appending Bytes to Files</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.append</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-mkdir-p">
+    <title>Create Parent Directories (mkdir -p for Java)</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.createParentDirs</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-mktemp">
+    <title>Make a Temporary Directory</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.createTempDir</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-del-contents">
+    <title>Delete Everything in a Directory</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.deleteDirectoryContents</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-del-recurse">
+    <title>Recursively Delete Everything in a Directory (including
+    Subdirectories)</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.deleteRecursively</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-compare-files">
+    <title>Compare Two Files for Equality</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.equal</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-sum-file">
+    <title>Calculate the Checksum of a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.getChecksum</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-dig-file">
+    <title>Calculate the Digest of a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.getDigest</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-map">
+    <title>Map a File to Memory</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.map</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-move">
+    <title>Move a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.move</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-create-streams">
+    <title>Create New InputStreams and OutputStreams for a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.newInputStreamSupplier newOutputStreamSupplier</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-create-readers-writers">
+    <title>Create New Readers and Writers for a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.newReader and Writer, ReaderSupplier and
+      WriterSupplier</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-read-bytes">
+    <title>Read Bytes from a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.readBytes</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-read-text">
+    <title>Read Text from a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.readFirstLine, readLine</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-create-file">
+    <title>Create a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.touch</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-overwrite-file">
+    <title>Overwrite a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.write</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-convert-file-bytes">
+    <title>Convert a File to a Byte Array</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.toByteArray</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-limit-stream">
+    <title>Putting Limits on an InputStream</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>LimitInputStream</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-abyss">
+    <title>Discarding Bytes into the Abyss</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>NullOutputStream</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-filter-regexp">
+    <title>Filtering Files by Regular Expression</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>PatternFilenameFilter</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+</chapter>

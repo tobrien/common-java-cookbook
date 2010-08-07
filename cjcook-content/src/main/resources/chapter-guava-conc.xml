@@ -4,7 +4,7 @@
 <chapter id="guava-conc">
   <title>Google Guava: Concurrency</title>
 
-  <sect1 id="guava-conc">
+  <sect1 id="guava-conc-sect-intro">
     <title>Introduction</title>
 
     <sect2>

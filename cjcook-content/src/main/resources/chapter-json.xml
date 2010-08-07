@@ -102,6 +102,7 @@
   &lt;groupId&gt;net.sf.json-lib&lt;/groupId&gt;
   &lt;artifactId&gt;json-lib&lt;/artifactId&gt;
   &lt;version&gt;2.3&lt;/version&gt;
+  &lt;classifier&gt;jdk15&lt;/classifier&gt;
   &lt;scope&gt;compile&lt;/scope&gt;
 &lt;/dependency&gt;
 </programlisting>
