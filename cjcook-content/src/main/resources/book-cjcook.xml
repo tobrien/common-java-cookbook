@@ -119,5 +119,11 @@
   <xi:include href="chapter-proto.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 
+  <xi:include href="chapter-guava-io-net.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="chapter-guava-conc.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
   <index></index>
 </book>
