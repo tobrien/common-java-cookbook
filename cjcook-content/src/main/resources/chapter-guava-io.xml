@@ -12,7 +12,7 @@
 
       <para>Google Guava is a collection of simple core Java libraries used at
       Google. It is a collection of utility classes and static methods
-      reminiscent to the Apache Commons components discussed in previous
+      reminiscent of the Apache Commons components discussed in previous
       chapters.</para>
     </sect2>
   </sect1>
@@ -50,12 +50,6 @@
       <varname>artifactId</varname>, and <varname>version</varname> to your
       project's dependencies. Once you do this, Maven 2 will download the
       dependency and make it available on your project's classpath.</para>
-    </sect2>
-
-    <sect2>
-      <title>Discussion</title>
-
-      <para>Google Guava contains utilities, use 'em.</para>
     </sect2>
 
     <sect2>
@@ -342,7 +336,48 @@ public class JoinReaders {
 
       <para>If you are working with in-memory byte arrays, having to deal with
       IOException is a distraction. Use the ByteArrayDataInput and
-      ByteArrayDataOutput classes instead,</para>
+      ByteArrayDataOutput classes instead:</para>
+
+      <example>
+        <title>Using ByteArrayDataOutput and ByteArrayDataInput</title>
+
+        <programlisting>package com.discursive.cjcook.guava.io;
+
+import java.util.Date;
+
+import org.apache.commons.lang.math.RandomUtils;
+
+import com.discursive.cjcook.proto.Checkin.PositionData;
+import com.google.common.io.ByteArrayDataInput;
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
+
+public class ByteArrayExample {
+  public static void main(String[] args) throws Exception {
+    int size = 10000;
+    ByteArrayDataOutput byteOut = ByteStreams.newDataOutput();
+
+    for( int i = 0; i &lt; size; i++ ) {
+      byteOut.writeDouble( RandomUtils.nextDouble() );
+      byteOut.writeInt( RandomUtils.nextInt() );
+    }
+
+    ByteArrayDataInput input = ByteStreams.newDataInput( byteOut.toByteArray() );
+    for( int i = 0; i &lt; size; i++ ) {
+      input.readInt();
+      input.readDouble();
+    }
+  }
+}</programlisting>
+      </example>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>Here's an example of using a ByteArrayOutputStream to write data
+      encoded with Google's Protocol Buffers to an in-memory byte
+      array.</para>
 
       <example>
         <title>Writing Data with the ByteArrayDataOutput Class</title>
@@ -382,46 +417,11 @@ public class ByteArrayInputExample {
 
       <screen>10000 PositionData objects encoded into 260000 bytes</screen>
 
-      <para></para>
-
-      <example>
-        <title>Using ByteArrayDataOutput and ByteArrayDataInput</title>
-
-        <programlisting>package com.discursive.cjcook.guava.io;
-
-import java.util.Date;
-
-import org.apache.commons.lang.math.RandomUtils;
-
-import com.discursive.cjcook.proto.Checkin.PositionData;
-import com.google.common.io.ByteArrayDataInput;
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
-
-public class ByteArrayExample {
-  public static void main(String[] args) throws Exception {
-    int size = 10000;
-    ByteArrayDataOutput byteOut = ByteStreams.newDataOutput();
-
-    for( int i = 0; i &lt; size; i++ ) {
-      byteOut.writeDouble( RandomUtils.nextDouble() );
-      byteOut.writeInt( RandomUtils.nextInt() );
-    }
-
-    ByteArrayDataInput input = ByteStreams.newDataInput( byteOut.toByteArray() );
-    for( int i = 0; i &lt; size; i++ ) {
-      input.readInt();
-      input.readDouble();
-    }
-  }
-}</programlisting>
-      </example>
-    </sect2>
-
-    <sect2>
-      <title>Discussion</title>
-
-      <para></para>
+      <para>If we were to write the same class without the benefit of the
+      ByteArrayDataOutput class, we would have used a ByteArrayOutputStream
+      wrapped with a DataOutputStream. As you can see in the example shown
+      below, this would have called for some exception handling around the
+      call to the write() method.</para>
 
       <example>
         <title>Writing Data without the ByteArrayDataOutput Class</title>
@@ -464,6 +464,11 @@ public class ByteArrayInputExampleAlt {
 }
 </programlisting>
       </example>
+
+      <para>While the savings in lines of code for this example are minimal,
+      if you are going to be throwing data into and out of in-memory byte
+      arrays, these classes can help minimize the amount of unnecessary
+      exception handling.</para>
     </sect2>
   </sect1>
 
@@ -473,13 +478,19 @@ public class ByteArrayInputExampleAlt {
     <sect2>
       <title>Problem</title>
 
-      <para>You need to </para>
+      <para>You need to read a particular region of an InputStream. Maybe you
+      have an in-memory byte array and you only need to read a particular
+      portion of this array, or maybe you need to read information from a
+      binary file, skipping an unimportant preamble.</para>
     </sect2>
 
     <sect2>
       <title>Solution</title>
 
-      <para>ByteStreams.slice</para>
+      <para>Use ByteStreams.slice() to slice an InputSupplier. When you slice
+      an InputSupplier, you create a new InputSupplier which will return an
+      InputStream that contains a specified portion of the underlying
+      stream.</para>
 
       <example>
         <title>Slicing Data from an InputStream</title>
@@ -510,7 +521,10 @@ public class SliceExample {
     <sect2>
       <title>Discussion</title>
 
-      <para></para>
+      <para>The last two arguments to the slice method are: offset, the number
+      of bytes into the underlying stream to start the newly sliced stream and
+      the maximum number of bytes to return from this newly sliced
+      stream.</para>
     </sect2>
   </sect1>
 
@@ -528,9 +542,11 @@ public class SliceExample {
     <sect2>
       <title>Solution</title>
 
-      <para>Use Closeables and Flushables. Here's an example:</para>
+      <para>Use Closeables and Flushables. Here's an example of opening and
+      writing a single byte to a file without the help of any convenience
+      methods from a library like Google Guava or Apache Commons.</para>
 
-      <example>
+      <example id="guava-io-ex-closefluse-no-help">
         <title>One of the Reasons Java Gets a Bad Rap</title>
 
         <programlisting>package com.discursive.cjcook.guava.io;
@@ -570,10 +586,23 @@ public class CloseFlushExample {
 </programlisting>
       </example>
 
-      <para>Forget the exception handling outside of the finally block.</para>
+      <para>Forget the exception handling outside of the finally block (which
+      is already distracting). If you trying to flush and close the
+      OutputStream in a finally block you are in for a surprise. Since flush()
+      and close() throw an IOException, your finally block has to have a
+      nested try/catch block. While there may be someone, somewhere who is
+      appreciative of the fact that flush() throws an IOException, most
+      systems don't need this much exception handling, and the previous
+      example is exactly the sort of thing that makes your friends who write
+      Ruby code snicker and say somethng like: "Java 10% real code, 90%
+      exception handling".</para>
 
-      <example>
-        <title></title>
+      <para>The example shown below, uses Closeables and Flushables to quietly
+      flush() and close() the OutputStream. If there is an IOException on
+      flush() or close(), your application won't be bothered.</para>
+
+      <example id="guava-io-ex-closeables-flushables">
+        <title>Using Closeables and Flushables in a finally block</title>
 
         <programlisting>package com.discursive.cjcook.guava.io;
 
@@ -608,11 +637,23 @@ public class CloseFlushExample {
 }
 </programlisting>
       </example>
+    </sect2>
 
-      <para>Better? Barely. How about this:</para>
+    <sect2>
+      <title>Discussion</title>
 
-      <example>
-        <title></title>
+      <para>While using Closeables and Flushables improves the exception
+      handling situation, is it really that much better? Barely.</para>
+
+      <para>Instead of dealing directly with an OutputStream, you can just use
+      the Files class to create a new OutputSupplier. Then, use the
+      ByteStreams class to write a byte array to this OutputSupplier. If you
+      use ByteStreams, you will only have to catch a single occurence of
+      IOException for your call to write(), and ByteStreams will take care of
+      calling close() on the OutputStream. </para>
+
+      <example id="guava-io-ex-avoid-ex">
+        <title>Avoid Most Exception Handling with ByteStreams.write()</title>
 
         <programlisting>package com.discursive.cjcook.guava.io;
 
@@ -637,17 +678,11 @@ public class CloseFlushExample3 {
     } catch (IOException e) {
       // Problem writing to file.
     }
-    Flushables.flushQuietly((Flushable) os);
-    Closeables.closeQuietly((Closeable) os);
   }
 }</programlisting>
+
+        <para>Now, isn't that much easier?</para>
       </example>
-    </sect2>
-
-    <sect2>
-      <title>Discussion</title>
-
-      <para></para>
     </sect2>
   </sect1>
 
@@ -657,10 +692,22 @@ public class CloseFlushExample3 {
     <sect2>
       <title>Problem</title>
 
-      <para></para>
+      <para>You need to meter a stream and measure the amount of data read
+      from or written to an <classname>InputStream</classname> or an
+      <classname>OutputStream</classname>.</para>
+    </sect2>
 
-      <example>
-        <title></title>
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use a <classname>CountingInputStream</classname> or a
+      <classname>CountingOutputStream</classname> to wrap an
+      <classname>InputStream</classname> and
+      <classname>OutputStream</classname> and measure the number of bytes read
+      from or written to the underlying stream.</para>
+
+      <example id="guava-io-ex-counting">
+        <title>Using a CountingInputStream and CountingOutputStream</title>
 
         <programlisting>package com.discursive.cjcook.guava.io;
 
@@ -697,22 +744,19 @@ public class MeteredExample {
 }
 </programlisting>
       </example>
-    </sect2>
 
-    <sect2>
-      <title>Solution</title>
+      <para>This example produces the following output:</para>
 
-      <para>CountingInputStream and CountingOutputStream</para>
-    </sect2>
-
-    <sect2>
-      <title>Discussion</title>
-
-      <para></para>
+      <screen>Read 50 bytes...
+Read 100 bytes...
+Read 150 bytes...
+Read 200 bytes...
+Read 250 bytes...
+Just wrote 11 bytes to output.dat</screen>
     </sect2>
   </sect1>
 
-  <sect1 id="guava-io-sect-buffering-file">
+  <!--  <sect1 id="guava-io-sect-buffering-file">
     <title>Buffering Data to a File As Needed</title>
 
     <sect2>
@@ -1196,5 +1240,5 @@ public class MeteredExample {
 
       <para></para>
     </sect2>
-  </sect1>
+  </sect1> -->
 </chapter>

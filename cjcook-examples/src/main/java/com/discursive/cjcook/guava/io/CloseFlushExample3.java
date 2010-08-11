@@ -21,7 +21,5 @@ public class CloseFlushExample3 {
 		} catch (IOException e) {
 			// Problem writing to file.
 		}
-		Flushables.flushQuietly((Flushable) os);
-		Closeables.closeQuietly((Closeable) os);
 	}
 }
