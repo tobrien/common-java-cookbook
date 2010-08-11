@@ -3,7 +3,7 @@
   <parent>
   	<artifactId>cjcook-parent</artifactId>
   	<groupId>com.discursive.cjcook</groupId>
-  	<version>0.23-SNAPSHOT</version>
+  	<version>0.23</version>
   </parent>
   <artifactId>cjcook-examples</artifactId>
   <packaging>jar</packaging>
