@@ -170,7 +170,7 @@ public class ChecksumStream {
       and pass the method a <classname>MessageDigest</classname> object as
       shown in the following example.</para>
 
-      <example id="guava-io-ex-checksum">
+      <example id="guava-io-ex-digest">
         <title>Calculating the MessageDigest of a Byte Array</title>
 
         <programlisting>package com.discursive.cjcook.guava.io;
