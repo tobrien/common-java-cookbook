@@ -115,7 +115,7 @@
       <example id="xml-ex-adding-depend">
         <title>Adding a Dependency on Commons Digester</title>
 
-        <programlisting>    &lt;dependency&gt;
+        <programlisting language="xml">    &lt;dependency&gt;
       &lt;groupId&gt;commons-digester&lt;/groupId&gt;
       &lt;artifactId&gt;commons-digester&lt;/artifactId&gt;
       &lt;version&gt;1.8&lt;/version&gt;
@@ -207,7 +207,7 @@
       In this recipe, the following XML document containing a description of a
       play will be parsed into an object graph:</para>
 
-      <programlisting format="linespecific" id="I_6_tt259">&lt;?xml version="1.0"?&gt;
+      <programlisting language="xml" format="linespecific" id="I_6_tt259">&lt;?xml version="1.0"?&gt;
 
 &lt;plays&gt;
   &lt;play genre="tragedy" year="1603" language="english"&gt;
@@ -252,7 +252,7 @@
       <literal moreinfo="none">List</literal> of <literal
       moreinfo="none">Character</literal> objects:</para>
 
-      <programlisting format="linespecific" id="I_6_tt260">public class Play {
+      <programlisting language="java" format="linespecific" id="I_6_tt260">public class Play {
     private String genre;
     private String year;
     private String language;
@@ -286,7 +286,7 @@ public class Character {
       XML document to a <literal moreinfo="none">List</literal> of <literal
       moreinfo="none">Play</literal> objects:</para>
 
-      <programlisting format="linespecific" id="I_6_tt261">&lt;?xml version="1.0"?&gt;
+      <programlisting language="xml" format="linespecific" id="I_6_tt261">&lt;?xml version="1.0"?&gt;
 
 &lt;digester-rules&gt;
   &lt;pattern value="plays/play"&gt;
@@ -329,7 +329,7 @@ public class Character {
       which contains one <literal moreinfo="none">Play</literal>
       object:</para>
 
-      <programlisting format="linespecific" id="I_6_tt262">import org.apache.commons.digester.Digester;
+      <programlisting language="java" format="linespecific" id="I_6_tt262">import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.xmlrules.DigesterLoader;
 
 List plays = new ArrayList( );
@@ -416,7 +416,7 @@ List characters = (List) hamlet.getCharacters( );</programlisting>
           <secondary>rules</secondary>
         </indexterm>XML rule set:</para>
 
-      <programlisting format="linespecific" id="I_6_tt263">import org.apache.commons.digester.BeanPropertySetterRule;
+      <programlisting language="java" format="linespecific" id="I_6_tt263">import org.apache.commons.digester.BeanPropertySetterRule;
 import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.ObjectCreateRule;
 import org.apache.commons.digester.Rules;
@@ -520,7 +520,7 @@ rules.add( "plays/play/characters/character/description",
       moreinfo="none">http://discursive.com/page</filename> and <filename
       moreinfo="none">http://discursive.com/person</filename>:</para>
 
-      <programlisting format="linespecific" id="I_6_tt264">&lt;?xml version="1.0"?&gt;
+      <programlisting language="xml" format="linespecific" id="I_6_tt264">&lt;?xml version="1.0"?&gt;
 
 &lt;pages xmlns="http://discursive.com/page"
        xmlns:person="http://discursive.com/person"&gt;
@@ -549,7 +549,7 @@ rules.add( "plays/play/characters/character/description",
       moreinfo="none">http://discursive.com/person</filename>
       namespace:</para>
 
-      <programlisting format="linespecific" id="I_6_tt265">import org.apache.commons.digester.Digester;
+      <programlisting language="java" format="linespecific" id="I_6_tt265">import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.RuleSetBase;
 
 public class PersonRuleSet extends RuleSetBase {
@@ -592,7 +592,7 @@ public class PersonRuleSet extends RuleSetBase {
       the <filename moreinfo="none">http://discursive.com/page</filename>
       namespace:</para>
 
-      <programlisting format="linespecific" id="I_6_tt266">import org.apache.commons.digester.Digester;
+      <programlisting language="java" format="linespecific" id="I_6_tt266">import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.RuleSetBase;
 
 public class PageRuleSet extends RuleSetBase {
@@ -635,7 +635,7 @@ public class PageRuleSet extends RuleSetBase {
           <secondary>addRuleSet( )</secondary>
         </indexterm>:</para>
 
-      <programlisting format="linespecific" id="I_6_tt267">import org.apache.commons.digester.Digester;
+      <programlisting language="java" format="linespecific" id="I_6_tt267">import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.ObjectCreateRule;
 import org.apache.commons.digester.RuleSetBase;
 import org.apache.commons.digester.Rules;
@@ -673,7 +673,7 @@ System.out.println(page);</programlisting>
       <literal moreinfo="none">FromXmlRuleSet</literal> instead of the
       <literal moreinfo="none">RuleSetBase</literal>, as follows:</para>
 
-      <programlisting format="linespecific" id="I_6_tt268">import org.apache.commons.digester.Digester;
+      <programlisting language="java" format="linespecific" id="I_6_tt268">import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.xmlrules.FromXmlRuleSet;
 
 Pages pages = new Pages( );
@@ -719,7 +719,7 @@ System.out.println(page);</programlisting>
       moreinfo="none">http://discursive.com/person</filename>
       namespace:</para>
 
-      <programlisting format="linespecific" id="I_6_tt269">&lt;?xml version="1.0"?&gt;
+      <programlisting language="xml" format="linespecific" id="I_6_tt269">&lt;?xml version="1.0"?&gt;
 
 &lt;!DOCTYPE digester-rules PUBLIC 
         "-//Jakarta Apache //DTD digester-rules XML V1.0//EN" 
@@ -738,7 +738,7 @@ System.out.println(page);</programlisting>
       rule set for parsing the <filename
       moreinfo="none">http://discursive.com/page</filename> namespace:</para>
 
-      <programlisting format="linespecific" id="I_6_tt270">&lt;?xml version="1.0"?&gt;
+      <programlisting language="xml" format="linespecific" id="I_6_tt270">&lt;?xml version="1.0"?&gt;
 
 &lt;!DOCTYPE digester-rules PUBLIC 
         "-//Jakarta Apache //DTD digester-rules XML V1.0//EN" 
@@ -815,7 +815,7 @@ System.out.println(page);</programlisting>
       The following XML document contains instructions for the primitive
       encryption of an email:</para>
 
-      <programlisting format="linespecific" id="I_6_tt271">&lt;?xml version="1.0"?&gt;
+      <programlisting language="xml" format="linespecific" id="I_6_tt271">&lt;?xml version="1.0"?&gt;
 
 &lt;operations xmlns="http://discursive.com/textmanip"&gt;
   &lt;email to="tobrien@discursive.com"
@@ -857,7 +857,7 @@ System.out.println(page);</programlisting>
       moreinfo="none">to</literal> attribute of the <literal
       moreinfo="none">email</literal> element.</para>
 
-      <programlisting format="linespecific" id="I_6_tt272">import org.apache.commons.digester.Digester;
+      <programlisting language="java" format="linespecific" id="I_6_tt272">import org.apache.commons.digester.Digester;
 
 // Message object that holds text to manipulate
 Message message = new Message( );
@@ -927,7 +927,7 @@ Resulting Message: !zlrqw qlleh</programlisting>
         </indexterm> <literal moreinfo="none">Digester</literal> <literal
       moreinfo="none">Stack</literal>:</para>
 
-      <programlisting format="linespecific" id="I_6_tt274">package com.discursive.jccook.xml.bean;
+      <programlisting language="java" format="linespecific" id="I_6_tt274">package com.discursive.jccook.xml.bean;
 
 import org.apache.commons.digester.Rule;
 import org.apache.commons.lang.StringUtils;
@@ -962,7 +962,7 @@ public class LowerRule extends Rule {
           <secondary>begin( )</secondary>
         </indexterm> method:</para>
 
-      <programlisting format="linespecific" id="I_6_tt275">package com.discursive.jccook.xml.bean;
+      <programlisting language="java" format="linespecific" id="I_6_tt275">package com.discursive.jccook.xml.bean;
 
 import org.apache.commons.digester.Rule;
 import org.apache.commons.lang.StringUtils;
@@ -997,7 +997,7 @@ public class ReplaceRule extends Rule {
       overriding <literal moreinfo="none">begin( )</literal> and <literal
       moreinfo="none">end( )</literal>:</para>
 
-      <programlisting format="linespecific" id="I_6_tt276">import org.apache.commons.digester.Rule;
+      <programlisting language="java" format="linespecific" id="I_6_tt276">import org.apache.commons.digester.Rule;
 import org.apache.commons.net.smtp.SMTPClient;
 import org.xml.sax.Attributes;
 
@@ -1141,7 +1141,7 @@ public class EmailRule extends Rule {
       replaced with values before the XML is parsed by the <literal
       moreinfo="none">Digester</literal>:</para>
 
-      <programlisting format="linespecific" id="I_6_tt277">&lt;?xml version="1.0"?&gt;
+      <programlisting language="xml" format="linespecific" id="I_6_tt277">&lt;?xml version="1.0"?&gt;
 
 &lt;email to="${email.to}" from="ceo@xyzblah.com"&gt;
   &lt;subject&gt;Purchase Confirmation: ${order.id}&lt;/subject&gt;
@@ -1159,7 +1159,7 @@ public class EmailRule extends Rule {
       system needs to unmarshall the above message to the following class,
       <literal moreinfo="none">Email</literal>:</para>
 
-      <programlisting format="linespecific" id="I_6_tt278">public class Email {
+      <programlisting language="java" format="linespecific" id="I_6_tt278">public class Email {
     private String to;
     private String from;
     private String subject;
@@ -1174,7 +1174,7 @@ public class EmailRule extends Rule {
       <literal moreinfo="none">Email</literal> is created and properties are
       populated:</para>
 
-      <programlisting format="linespecific" id="I_6_tt279">&lt;?xml version="1.0"?&gt;
+      <programlisting language="xml" format="linespecific" id="I_6_tt279">&lt;?xml version="1.0"?&gt;
 
 &lt;digester-rules&gt;
   &lt;pattern value="email"&gt;
@@ -1197,7 +1197,7 @@ public class EmailRule extends Rule {
       parses the XML document <filename
       moreinfo="none">email.xml</filename>:</para>
 
-      <programlisting format="linespecific" id="I_6_tt280">import org.apache.commons.digester.Digester;
+      <programlisting language="java" format="linespecific" id="I_6_tt280">import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.Substitutor;
 import org.apache.commons.digester.substitution.MultiVariableExpander;
 import org.apache.commons.digester.substitution.VariableSubstitutor;
@@ -1322,7 +1322,7 @@ Email To: ldavid@hbo.com</programlisting>
       <example id="xml-ex-add-depend-betwixt">
         <title>Adding a Dependency on Commons Betwixt</title>
 
-        <programlisting>    &lt;dependency&gt;
+        <programlisting language="xml">    &lt;dependency&gt;
         &lt;groupId&gt;commons-betwixt&lt;/groupId&gt;
         &lt;artifactId&gt;commons-betwixt&lt;/artifactId&gt;
         &lt;version&gt;0.8&lt;/version&gt;
@@ -1407,7 +1407,7 @@ Email To: ldavid@hbo.com</programlisting>
       from <link linkend="xml-sect-xml-doc-obj">Recipe 6.2</link> into an XML
       document:</para>
 
-      <programlisting format="linespecific" id="I_6_tt283">import org.apache.commons.betwixt.io.BeanWriter;
+      <programlisting language="java" format="linespecific" id="I_6_tt283">import org.apache.commons.betwixt.io.BeanWriter;
 
 Play play = new Play( );
 
@@ -1442,7 +1442,7 @@ System.out.println( beanWriter.toString( ) );</programlisting>
           <secondary>beanWriter.write( )</secondary>
         </indexterm>:</para>
 
-      <programlisting format="linespecific" id="I_6_tt284">&lt;Play&gt;
+      <programlisting language="xml" format="linespecific" id="I_6_tt284">&lt;Play&gt;
   &lt;author&gt;William Shakespeare&lt;/author&gt;
   &lt;characters&gt;
     &lt;character&gt;
@@ -1520,7 +1520,7 @@ System.out.println( beanWriter.toString( ) );</programlisting>
       uses a <literal moreinfo="none">BeanWriter</literal> to write an XML
       document to <filename moreinfo="none">test.dat</filename>:</para>
 
-      <programlisting format="linespecific" id="I_6_tt285">import org.apache.commons.betwixt.io.BeanWriter;
+      <programlisting language="java" format="linespecific" id="I_6_tt285">import org.apache.commons.betwixt.io.BeanWriter;
 
 Play play = new Play( );
 populatePlay( play );
@@ -1628,7 +1628,7 @@ outputWriter.close( );</programlisting>
       the same package as the <literal moreinfo="none">Play</literal> class,
       and it customizes the XML output from Betwixt:</para>
 
-      <programlisting format="linespecific" id="I_6_tt286">&lt;info primitiveTypes="element"&gt;
+      <programlisting language="xml" format="linespecific" id="I_6_tt286">&lt;info primitiveTypes="element"&gt;
   &lt;element name="play"&gt;
     &lt;attribute name="genre" property="genre"/&gt;
     &lt;attribute name="year" property="year"/&gt;
@@ -1645,7 +1645,7 @@ outputWriter.close( );</programlisting>
       elements. The following code is used to create a customized XML document
       from an instance of <literal moreinfo="none">Play</literal>:</para>
 
-      <programlisting format="linespecific" id="I_6_tt287">import org.apache.commons.betwixt.io;
+      <programlisting language="java" format="linespecific" id="I_6_tt287">import org.apache.commons.betwixt.io;
 
 Play play = (Play) plays.get(0);
         
@@ -1663,7 +1663,7 @@ logger.debug( beanWriter.toString( ) );</programlisting>
       this XML document and the XML document in <link
       linkend="xml-sect-beans-xml">Recipe 6.7</link> are emphasized:</para>
 
-      <programlisting format="linespecific" id="I_6_tt288">
+      <programlisting language="xml" format="linespecific" id="I_6_tt288">
                <userinput moreinfo="none">&lt;play genre="tragedy" year="1603" language="english"&gt;</userinput>
   &lt;author&gt;William Shakespeare&lt;/author&gt;
   &lt;characters&gt;
@@ -1699,7 +1699,7 @@ logger.debug( beanWriter.toString( ) );</programlisting>
       <filename moreinfo="none">Character.betwixt</filename> is shown
       here:</para>
 
-      <programlisting format="linespecific" id="I_6_tt289">&lt;info primitiveTypes="element"&gt;
+      <programlisting language="xml" format="linespecific" id="I_6_tt289">&lt;info primitiveTypes="element"&gt;
   &lt;element name="character"&gt;
     &lt;attribute name="protagonist" property="protagonist"/&gt;
     &lt;addDefaults/&gt;
@@ -1714,7 +1714,7 @@ logger.debug( beanWriter.toString( ) );</programlisting>
       moreinfo="none">Character</literal> as a <literal
       moreinfo="none">bio</literal> element:</para>
 
-      <programlisting format="linespecific" id="I_6_tt290">&lt;info primitiveTypes="element"&gt;
+      <programlisting language="xml" format="linespecific" id="I_6_tt290">&lt;info primitiveTypes="element"&gt;
   &lt;element name="character"&gt;
     &lt;attribute name="protagonist" property="protagonist"/&gt;
 <userinput moreinfo="none">    &lt;element name="bio" property="description"/&gt;</userinput>
@@ -1731,7 +1731,7 @@ logger.debug( beanWriter.toString( ) );</programlisting>
       moreinfo="none">BeanWriter</literal> to omit elements wrapping
       collections with the following code:</para>
 
-      <programlisting format="linespecific" id="I_6_tt291">import org.apache.commons.betwixt.io.BeanWriter;
+      <programlisting language="java" format="linespecific" id="I_6_tt291">import org.apache.commons.betwixt.io.BeanWriter;
 import org.apache.commons.betwixt.XMLIntrospector;
 
 Play play = (Play) plays.get(0);
@@ -1750,7 +1750,7 @@ logger.debug( beanWriter.toString( ) );</programlisting>
       <para>The previous code creates an XML document without the <literal
       moreinfo="none">characters</literal> element:</para>
 
-      <programlisting format="linespecific" id="I_6_tt292">&lt;play genre="tragedy" year="1603" language="english"&gt;
+      <programlisting language="xml" format="linespecific" id="I_6_tt292">&lt;play genre="tragedy" year="1603" language="english"&gt;
   &lt;author&gt;William Shakespeare&lt;/author&gt;
   &lt;character protagonist="false"&gt;
     &lt;description&gt;King of Denmark&lt;/description&gt;
@@ -1788,7 +1788,7 @@ logger.debug( beanWriter.toString( ) );</programlisting>
       moreinfo="none">BeanWriter</literal>'s <literal
       moreinfo="none">XMLIntrospector</literal>:</para>
 
-      <programlisting format="linespecific" id="I_6_tt293">import org.apache.commons.betwixt.io.BeanWriter;
+      <programlisting language="java" format="linespecific" id="I_6_tt293">import org.apache.commons.betwixt.io.BeanWriter;
 import org.apache.commons.betwixt.XMLIntrospector;
 import org.apache.commons.betwixt.strategy.CapitalizeNameMapper;
 import org.apache.commons.betwixt.strategy.HyphenatedNameMapper;
@@ -1874,7 +1874,7 @@ beanWriter.write( object );</programlisting>
       moreinfo="none">Character</literal> beans introduced in <link
       linkend="xml-sect-xml-doc-obj">Recipe 6.2</link>:</para>
 
-      <programlisting format="linespecific" id="I_6_tt294">&lt;play genre="tragedy" year="1603" language="english"&gt;
+      <programlisting language="xml" format="linespecific" id="I_6_tt294">&lt;play genre="tragedy" year="1603" language="english"&gt;
   &lt;author&gt;William Shakespeare&lt;/author&gt;
   &lt;character protagonist="false"&gt;
     &lt;description&gt;King of Denmark&lt;/description&gt;
@@ -1906,7 +1906,7 @@ beanWriter.write( object );</programlisting>
       moreinfo="none">BeanReader</literal> to read this customized XML for the
       <literal moreinfo="none">Play</literal> object:</para>
 
-      <programlisting format="linespecific" id="I_6_tt295">import org.apache.commons.betwixt.io.BeanReader;
+      <programlisting language="java" format="linespecific" id="I_6_tt295">import org.apache.commons.betwixt.io.BeanReader;
 
 InputStream customPlay = 
     getClass( ).getResourceAsStream("./customized-play.xml");

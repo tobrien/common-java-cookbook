@@ -118,7 +118,7 @@
       <example id="functors-ex-add-depend-collections">
         <title>Adding a Dependency on Commons Collections</title>
 
-        <programlisting>    &lt;dependency&gt;
+        <programlisting language="xml">    &lt;dependency&gt;
       &lt;groupId&gt;commons-collections&lt;/groupId&gt;
       &lt;artifactId&gt;commons-collections&lt;/artifactId&gt;
       &lt;version&gt;3.2.1&lt;/version&gt;
@@ -200,7 +200,7 @@
       moreinfo="none">ReverseComparator</literal> to reverse the result of a
       custom <literal moreinfo="none">MyComparator</literal> instance:</para>
 
-      <programlisting format="linespecific" id="I_4_tt159">Comparator myComparator = new MyComparator( );
+      <programlisting language="java" format="linespecific" id="I_4_tt159">Comparator myComparator = new MyComparator( );
 
 <userinput moreinfo="none">Comparator reverseComparator = new ReverseComparator( myComparator );</userinput>
 
@@ -242,7 +242,7 @@ int comparison = myComparator.compare( book1, book2 );
         <title>A Comparator that compares Book objects by name and
         author</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.compare;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.compare;
 
 import java.util.*;
 import org.apache.commons.lang.StringUtils;
@@ -285,7 +285,7 @@ public class BookComparator implements Comparator {
       <example id="functors-ex-2" label="4-2">
         <title>Using ReverseComparator to sort Book objects</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.compare;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.compare;
 
 import java.util.*;
 import org.apache.commons.collections.comparators.ReverseComparator;
@@ -415,7 +415,7 @@ public class ReverseExample {
       tries to compare the objects by <literal
       moreinfo="none">firstName</literal>:</para>
 
-      <programlisting format="linespecific" id="I_4_tt160">Person person1 = new Person( );
+      <programlisting language="java" format="linespecific" id="I_4_tt160">Person person1 = new Person( );
 person1.setLastName( "Payne" );
 person1.setFirstName( "James" );
 person1.setAge( 21 );
@@ -490,11 +490,11 @@ Arrays.sort( persons, comparatorChain );</programlisting>
       <literal moreinfo="none">age</literal> to be reversed with <literal
       moreinfo="none">ReverseComparator</literal>:</para>
 
-      <programlisting format="linespecific" id="I_4_tt161">comparatorChain.addComparator( new BeanComparator( "age" ), true );</programlisting>
+      <programlisting language="java" format="linespecific" id="I_4_tt161">comparatorChain.addComparator( new BeanComparator( "age" ), true );</programlisting>
 
       <para>The previous statement is equivalent to the following code:</para>
 
-      <programlisting format="linespecific" id="I_4_tt162">
+      <programlisting language="java" format="linespecific" id="I_4_tt162">
 comparaterChain.addComparator( new ReverseComparator
                                (new BeanComparator("age") );</programlisting>
 
@@ -589,7 +589,7 @@ comparaterChain.addComparator( new ReverseComparator
       moreinfo="none">BookComparator</literal> wrapped with a <literal
       moreinfo="none">NullComparator</literal>:</para>
 
-      <programlisting format="linespecific" id="I_4_tt164">import org.apache.commons.collections.comparators.NullComparator;
+      <programlisting language="java" format="linespecific" id="I_4_tt164">import org.apache.commons.collections.comparators.NullComparator;
 import java.util.*;
 
 <userinput moreinfo="none">Comparator bookComparator = new BookComparator( );</userinput>
@@ -636,7 +636,7 @@ Arrays.sort( bookArray, nullComparator );</programlisting>
       moreinfo="none">true</literal>. By default, <literal
       moreinfo="none">null</literal> values are sorted higher:</para>
 
-      <programlisting format="linespecific" id="I_4_tt165">// null is less than non-null
+      <programlisting language="java" format="linespecific" id="I_4_tt165">// null is less than non-null
 Comparator nullComparator = new NullComparator( bookComparator, false );
 
 // null is greater than non-null (default)
@@ -650,7 +650,7 @@ Comparator nullComparator = new NullComparator( bookComparator, true );</program
       moreinfo="none">null</literal> objects, as in the following
       example:</para>
 
-      <programlisting format="linespecific" id="I_4_tt166">Comparator nullHighComparator = new NullComparator( );
+      <programlisting language="java" format="linespecific" id="I_4_tt166">Comparator nullHighComparator = new NullComparator( );
 Comparator nullLowComparator = new NullComparator(false);
 
 // Returns 1
@@ -720,7 +720,7 @@ nullLowComparator.compare( null, null );</programlisting>
       the order of the objects in this array. The following example uses a
       fixed string array to compare different Olympic medals:</para>
 
-      <programlisting format="linespecific" id="I_4_tt167">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_4_tt167">import java.util.*;
 import org.apache.commons.beanutils.BeanComparator;
 import org.apache.commons.collections.comparators.FixedOrderComparator;
 
@@ -780,7 +780,7 @@ athlete2.getMedal( ) );</programlisting>
       <example id="functors-ex-3" label="4-3">
         <title>A bean representing a playing card</title>
 
-        <programlisting format="linespecific">package org.discursive.jccook.collections.compare;
+        <programlisting language="java" format="linespecific">package org.discursive.jccook.collections.compare;
 
 public class PlayingCard( ) {
 
@@ -831,7 +831,7 @@ public class PlayingCard( ) {
         <title>Combining FixedOrderComparator with BeanComparator,
         NullComparator, and ComparatorChain</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.compare;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.compare;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -1002,7 +1002,7 @@ After sorting: 2S QS 4C JC JD 2H JOKER</programlisting>
       the contents of collections. This code demonstrates the use of simple
       predicates to test the type and contents of an object:</para>
 
-      <programlisting format="linespecific" id="I_4_tt169">import org.apache.commons.collection.Predicate;
+      <programlisting language="java" format="linespecific" id="I_4_tt169">import org.apache.commons.collection.Predicate;
 import org.apache.commons.collection.functors.*;
 
 String name = "Tim";
@@ -1060,7 +1060,7 @@ Is this a Double?: false</programlisting>
       in the Solution of this recipe could have been implemented as a series
       of <literal moreinfo="none">if</literal> statements:</para>
 
-      <programlisting format="linespecific" id="I_4_tt171">String name = "Tim";
+      <programlisting language="java" format="linespecific" id="I_4_tt171">String name = "Tim";
 
 if( name.equals( "John" ) ) {
         System.out.println( "The name is John." );
@@ -1218,7 +1218,7 @@ if( name instanceof Double ) ) {
         </indexterm> <literal moreinfo="none">Predicate</literal> objects with
       a test for equality, inequality, and equality by identity:</para>
 
-      <programlisting format="linespecific" id="I_4_tt172">import org.apache.commons.collections.Predicate;
+      <programlisting language="java" format="linespecific" id="I_4_tt172">import org.apache.commons.collections.Predicate;
 import org.apache.commons.collections.functors.*;
 ...
 
@@ -1254,7 +1254,7 @@ Is object 'Tim'? false</programlisting>
       moreinfo="none">true</literal> when it encounters an object for the
       first time:</para>
 
-      <programlisting format="linespecific" id="I_4_tt174">import org.apache.commons.collections.Predicate;
+      <programlisting language="java" format="linespecific" id="I_4_tt174">import org.apache.commons.collections.Predicate;
 import org.apache.commons.collections.functors.*;
 
 String nullString = null;
@@ -1406,7 +1406,7 @@ System.out.println("'B' Unique?: " + unique.evaluate("B"));</programlisting>
       <example id="functors-ex-5" label="4-5">
         <title>A simple Predicate implementation</title>
 
-        <programlisting format="linespecific">import org.apache.commons.collections.Predicate;
+        <programlisting language="java" format="linespecific">import org.apache.commons.collections.Predicate;
 
 public class SimplePredicate implements Predicate {
     public boolean evaluate(Object object) {
@@ -1445,7 +1445,7 @@ public class SimplePredicate implements Predicate {
       <example id="functors-ex-6" label="4-6">
         <title>Implementing the Predicate interface</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.predicate;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.predicate;
 
 import org.apache.commons.collections.Predicate;
 
@@ -1495,7 +1495,7 @@ public class LaunchPredicate implements Predicate {
       following example demonstrates the use of the <literal
       moreinfo="none">LaunchPredicate</literal>:</para>
 
-      <programlisting format="linespecific" id="I_4_tt176">LaunchPredicate launchDecision = new LaunchPredicate( );
+      <programlisting language="java" format="linespecific" id="I_4_tt176">LaunchPredicate launchDecision = new LaunchPredicate( );
 
 LaunchStats stats = measureLaunchStatistics( );
 
@@ -1608,7 +1608,7 @@ if( launchDecision.evaluate( stats ) ) {
       moreinfo="none">AllPredicate</literal>, and <literal
       moreinfo="none">OnePredicate</literal>:</para>
 
-      <programlisting format="linespecific" id="I_4_tt177">import org.apache.commons.collections.Predicate;
+      <programlisting language="java" format="linespecific" id="I_4_tt177">import org.apache.commons.collections.Predicate;
 import org.apache.commons.collections.functors.*;
 
 // Create Base Predicates
@@ -1769,7 +1769,7 @@ XOR('Tim', not null, or Double?): true</programlisting>
           <secondary>InputPredicate</secondary>
         </indexterm>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.predicate;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.predicate;
 
 import org.apache.commons.collections.Predicate;
 
@@ -1836,7 +1836,7 @@ public class InputPredicate implements Predicate {
           <secondary>multilevel composite predicates</secondary>
         </indexterm>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.predicate;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.predicate;
 
 import org.apache.commons.collections.Predicate;
 import org.apache.commons.collections.functors.*;
@@ -1947,7 +1947,7 @@ public class CompoundPredicateExample {
       moreinfo="none">Recruit</literal> object instance and returns a <literal
       moreinfo="none">Soldier</literal> object:</para>
 
-      <programlisting format="linespecific" id="I_4_tt181">import org.apache.commons.collections.Transformer;
+      <programlisting language="java" format="linespecific" id="I_4_tt181">import org.apache.commons.collections.Transformer;
 
 Transformer joinArmy = new Transformer( ) {
     public Object transform(Object input) {
@@ -2062,7 +2062,7 @@ Status after transformation: Pat T., Soldier</programlisting>
       second stage, <literal moreinfo="none">increment</literal>, adds one to
       the result from the first stage:</para>
 
-      <programlisting format="linespecific" id="I_4_tt184">import org.apache.commons.collections.Transformer;
+      <programlisting language="java" format="linespecific" id="I_4_tt184">import org.apache.commons.collections.Transformer;
 import org.apache.commons.collections.functors.ChainedTransformer;
 
 Transformer multiply = new Transformer( ) {
@@ -2192,7 +2192,7 @@ Result: 3401</programlisting>
       <example id="functors-ex-9" label="4-9">
         <title>Using a SwitchTransformer</title>
 
-        <programlisting format="linespecific">Transformer oddTransform = new Transformer( ) {
+        <programlisting language="java" format="linespecific">Transformer oddTransform = new Transformer( ) {
     public Object transform(Object input) {
         Integer number = new Integer( input );
         return ( new Integer( number.intValue( ) * 2 );
@@ -2339,7 +2339,7 @@ Transform of 4 = 12</programlisting>
       moreinfo="none">Product</literal> object, reducing the price by 10
       percent:</para>
 
-      <programlisting format="linespecific" id="I_4_tt189">Closure discount = new Closure( ) {
+      <programlisting language="java" format="linespecific" id="I_4_tt189">Closure discount = new Closure( ) {
     int count = 0;
     public int getCount( ) { return count; }
   
@@ -2440,7 +2440,7 @@ Shoes after 3 discounts: Fancy Shoes for $87.48</programlisting>
       moreinfo="none">ChainedClosure</literal> containing two stages that
       modify different properties on the object:</para>
 
-      <programlisting format="linespecific" id="I_4_tt191">Closure fuel = new Closure( ) {
+      <programlisting language="java" format="linespecific" id="I_4_tt191">Closure fuel = new Closure( ) {
     public void execute(Object input) {
         Shuttle shuttle = (Shuttle) input;
         shuttle.setFuelPercent( 100.0 );
@@ -2546,7 +2546,7 @@ Shuttle before preLaunch: Shuttle Endeavour is fueled and is ready for reentry.<
       moreinfo="none">sell</literal> <literal
       moreinfo="none">Closure</literal>:</para>
 
-      <programlisting format="linespecific" id="I_4_tt193">Closure sell = new Closure( ) {
+      <programlisting language="java" format="linespecific" id="I_4_tt193">Closure sell = new Closure( ) {
     public void execute(Object input) {
         Stock stock = (Stock) input;
         stock.sell( stock.getShares( ) );
@@ -2614,7 +2614,7 @@ TIB is a loser
       moreinfo="none">isUnchanged</literal>, to create a nested <literal
       moreinfo="none">IfClosure--sellOrHold</literal>:</para>
 
-      <programlisting format="linespecific" id="I_4_tt195">Predicate isUnchanged = new Predicate( ) {
+      <programlisting language="java" format="linespecific" id="I_4_tt195">Predicate isUnchanged = new Predicate( ) {
     public boolean evaluate(Object object) {
         Stock stock = (Stock) object;
         if( stock.getPurchasePrice( ) == stock.getCurrentPrice( ) ) {
@@ -2724,7 +2724,7 @@ stockAction.execute( lucent );</programlisting>
       moreinfo="none">hasFuel</literal> evaluates to <literal
       moreinfo="none">false</literal>:</para>
 
-      <programlisting format="linespecific" id="I_4_tt196">import org.apache.commons.collections.Closure;
+      <programlisting language="java" format="linespecific" id="I_4_tt196">import org.apache.commons.collections.Closure;
 import org.apache.commons.collections.Predicate;
 import org.apache.commons.collections.functors.WhileClosure;
 
@@ -2778,7 +2778,7 @@ Car after while closure: Ford Escort with no fuel.</programlisting>
       moreinfo="none">drive</literal> <literal
       moreinfo="none">Closure</literal> is only executed five times:</para>
 
-      <programlisting format="linespecific" id="I_4_tt198">
+      <programlisting language="java" format="linespecific" id="I_4_tt198">
                <userinput moreinfo="none">Closure driveSome = new ForClosure( 5, drive );</userinput>
 
 Car car = new Car( );

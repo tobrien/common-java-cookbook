@@ -35,7 +35,7 @@
       <example id="guava-io-ex-depend">
         <title>Adding a Dependency on Google Guava</title>
 
-        <programlisting>&lt;dependency&gt;
+        <programlisting language="xml">&lt;dependency&gt;
   &lt;groupId&gt;com.google.guava&lt;/groupId&gt;
   &lt;artifactId&gt;guava&lt;/artifactId&gt;
   &lt;version&gt;r06&lt;/version&gt;
@@ -81,7 +81,7 @@
         <title>Copying the Contents of an InputStream to an
         OutputStream</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -123,7 +123,7 @@ public class CopyStreams {
       <example id="guava-io-ex-checksum">
         <title>Calculating the Checksum of a Byte Array</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.InputStream;
 import java.util.zip.CRC32;
@@ -172,7 +172,7 @@ public class ChecksumStream {
       <example id="guava-io-ex-digest">
         <title>Calculating the MessageDigest of a Byte Array</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.InputStream;
 import java.security.MessageDigest;
@@ -229,7 +229,7 @@ public class DigestBytes {
         <title>Joining Two Files using ByteStreams.join() and
         ByteStreams.copy()</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -286,7 +286,7 @@ public class JoinFiles {
         <title>Joining Two Readers using CharStreams.join() and
         CharStreams.copy()</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.File;
 import java.io.InputStreamReader;
@@ -343,7 +343,7 @@ public class JoinReaders {
       <example id="guava-io-ex-datainout">
         <title>Using ByteArrayDataOutput and ByteArrayDataInput</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.util.Date;
 
@@ -385,7 +385,7 @@ public class ByteArrayExample {
       <example id="guava-io-ex-writing-proto">
         <title>Writing Data with the ByteArrayDataOutput Class</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.util.Date;
 
@@ -429,7 +429,7 @@ public class ByteArrayInputExample {
       <example id="guava-io-ex-writing-proto2">
         <title>Writing Data without the ByteArrayDataOutput Class</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -498,7 +498,7 @@ public class ByteArrayInputExampleAlt {
       <example id="guava-io-ex-slicing">
         <title>Slicing Data from an InputStream</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -553,7 +553,7 @@ public class SliceExample {
       <example id="guava-io-ex-closefluse-no-help">
         <title>One of the Reasons Java Gets a Bad Rap</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -608,7 +608,7 @@ public class CloseFlushExample {
       <example id="guava-io-ex-closeables-flushables">
         <title>Using Closeables and Flushables in a finally block</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -659,7 +659,7 @@ public class CloseFlushExample {
       <example id="guava-io-ex-avoid-ex">
         <title>Avoid Most Exception Handling with ByteStreams.write()</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.Closeable;
 import java.io.File;
@@ -713,7 +713,7 @@ public class CloseFlushExample3 {
       <example id="guava-io-ex-counting">
         <title>Using a CountingInputStream and CountingOutputStream</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.File;
 import java.io.FileInputStream;

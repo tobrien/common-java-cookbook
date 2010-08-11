@@ -80,7 +80,7 @@
       <example id="collections-ex-add-depend-collection">
         <title>Adding a Dependency on Commons Collections</title>
 
-        <programlisting>    &lt;dependency&gt;
+        <programlisting language="xml">    &lt;dependency&gt;
       &lt;groupId&gt;commons-collections&lt;/groupId&gt;
       &lt;artifactId&gt;commons-collections&lt;/artifactId&gt;
       &lt;version&gt;3.2.1&lt;/version&gt;
@@ -163,7 +163,7 @@
       to retrieve five items from a <literal moreinfo="none">List</literal>
       with three items:</para>
 
-      <programlisting format="linespecific" id="I_5_tt200">List drivers = new ArrayList( );
+      <programlisting language="java" format="linespecific" id="I_5_tt200">List drivers = new ArrayList( );
 
 drivers.add( "Chris" );
 drivers.add( "Sean" );
@@ -222,7 +222,7 @@ Driver for Day 5: Sean</programlisting>
       moreinfo="none">reset()</literal> to jump back to the beginning of a
       <literal moreinfo="none">Collection</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt202">List items = new ArrayList( );
+      <programlisting language="java" format="linespecific" id="I_5_tt202">List items = new ArrayList( );
 
 items.add( "Item 1" );
 items.add( "Item 2" );
@@ -321,7 +321,7 @@ Item 2</programlisting>
       4th, and 5th elements of an <literal
       moreinfo="none">ArrayList</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt204">String[] strings = new String[] { "A", "B", "C", "D", "E", "F" };
+      <programlisting language="java" format="linespecific" id="I_5_tt204">String[] strings = new String[] { "A", "B", "C", "D", "E", "F" };
 List list = new ArrayList( Arrays.asList( strings ) );
 
 Iterator iterator = new ArrayListIterator( list, 3, 6 );
@@ -376,7 +376,7 @@ Element at 5: F</programlisting>
       demonstrates the three constructors of <literal
       moreinfo="none">ArrayListIterator</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt206">String[] strings = new String[] { "A", "B", "C", "D", "E", "F" };
+      <programlisting language="java" format="linespecific" id="I_5_tt206">String[] strings = new String[] { "A", "B", "C", "D", "E", "F" };
 List list = new ArrayList( Arrays.asList( strings ) );
 
 // Iterate over all elements
@@ -420,7 +420,7 @@ Iterator iterator3 = new ArrayListIterator( list, 1, 4 );</programlisting>
         </indexterm> methods on <literal
       moreinfo="none">ArrayListIterator</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt207">String[] strings = new String[] { "A", "B", "C", "D", "E", "F" };
+      <programlisting language="java" format="linespecific" id="I_5_tt207">String[] strings = new String[] { "A", "B", "C", "D", "E", "F" };
 List list = new ArrayList( Arrays.asList( strings ) );
 
 System.out.println( "Original List: " + Arrays.toString( list.toArray( ) );
@@ -548,7 +548,7 @@ Modified List: {A,B,G,H,E,F}</programlisting>
         </indexterm> <literal moreinfo="none">majorQuakePredicate</literal>
       and a <literal moreinfo="none">FilterIterator</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt209">import org.apache.commons.collection.Predicate;
+      <programlisting language="java" format="linespecific" id="I_5_tt209">import org.apache.commons.collection.Predicate;
 import org.apache.commons.collection.iterators.FilterIterator;
 
 List quakes = new ArrayList( );
@@ -612,7 +612,7 @@ while( majorQuakes.hasMore( ) ) {
       <example id="collections-ex-1" label="5-1">
         <title>An EarthQuake bean</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.predicates;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.predicates;
 
 public class EarthQuake {
     private String location;
@@ -650,7 +650,7 @@ public class EarthQuake {
       <example id="collections-ex-2" label="5-2">
         <title>Major earthquake classification Predicate</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.predicates;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.predicates;
 
 import org.apache.commons.collections.Predicate;
 
@@ -691,7 +691,7 @@ public class MajorQuakePredicate implements Predicate {
       moreinfo="none">CollectionUtils.filter()</literal> to remove nonmatching
       elements from a <literal moreinfo="none">Collection</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt211">import org.apache.commons.collection.Predicate;
+      <programlisting language="java" format="linespecific" id="I_5_tt211">import org.apache.commons.collection.Predicate;
 import org.apache.commons.collection.iterators.FilterIterator;
 
 ArrayList quakes = createQuakes( );
@@ -736,7 +736,7 @@ ArrayList quakes = createQuakes( );
       the original <literal moreinfo="none">Collection</literal>
       unaffected:</para>
 
-      <programlisting format="linespecific" id="I_5_tt212">import org.apache.commons.collection.Predicate;
+      <programlisting language="java" format="linespecific" id="I_5_tt212">import org.apache.commons.collection.Predicate;
 import org.apache.commons.collection.iterators.FilterIterator;
 
 ArrayList quakes = createQuakes( );
@@ -847,7 +847,7 @@ ArrayList quakes = createQuakes( );
       moreinfo="none">UniqueFilterIterator</literal> to find unique elements
       in a <literal moreinfo="none">List</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt213">import org.apache.commons.collections.iterators.UniqueFilterIterator;
+      <programlisting language="java" format="linespecific" id="I_5_tt213">import org.apache.commons.collections.iterators.UniqueFilterIterator;
 
 String[] medals = new String[] { "gold", "silver", "silver", "gold", "bronze" };
 List medalsList = Arrays.asList( medals );
@@ -893,7 +893,7 @@ Unique Medal: bronze</programlisting>
       a <literal moreinfo="none">FilterIterator</literal> and a <literal
       moreinfo="none">Predicate</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt215">import org.apache.commons.collections.iterators.FilterIterator;
+      <programlisting language="java" format="linespecific" id="I_5_tt215">import org.apache.commons.collections.iterators.FilterIterator;
 import org.apache.commons.collections.functors.UniquePredicate;
 
 String[] medals = new String[] { "gold", "silver", "silver", "gold", "bronze" };
@@ -968,7 +968,7 @@ while( uniqueIterator.hasNext( ) ) {
       moreinfo="none">Bag</literal> and adds multiple copies of two <literal
       moreinfo="none">String</literal> objects:</para>
 
-      <programlisting format="linespecific" id="I_5_tt216">import org.apache.commons.collections.Bag;
+      <programlisting language="java" format="linespecific" id="I_5_tt216">import org.apache.commons.collections.Bag;
 import org.apache.commons.collections.bag.HashBag;
 
 Bag bag = new HashBag( );
@@ -1034,7 +1034,7 @@ Counts: TEST1: 99, TEST2: 490</programlisting>
       <example id="collections-ex-3" label="5-3">
         <title>Using a Bag to track inventory</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.bag;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.bag;
 
 import java.text.NumberFormat;
 import java.util.Collection;
@@ -1348,7 +1348,7 @@ Inventory after Transactions
       the use of an <literal
       moreinfo="none">UnboundedFifoBuffer</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt219">import org.apache.commons.collections.Buffer;
+      <programlisting language="java" format="linespecific" id="I_5_tt219">import org.apache.commons.collections.Buffer;
 import org.apache.commons.collections.buffer.UnboundedFifoBuffer;
 
 // Create an Unbounded FIFO
@@ -1437,7 +1437,7 @@ value = (String) buffer.remove( );</programlisting>
       <example id="collections-ex-4" label="5-4">
         <title>Using a BoundedFifoBuffer</title>
 
-        <programlisting format="linespecific">import org.apache.commons.collections.Buffer;
+        <programlisting language="java" format="linespecific">import org.apache.commons.collections.Buffer;
 import org.apache.commons.collections.BufferOverflowException;
 import org.apache.commons.collections.buffer.BoundedFifoBuffer;
 ...
@@ -1576,7 +1576,7 @@ try {
           <secondary>PriorityBuffer</secondary>
         </indexterm>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt221">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_5_tt221">import java.util.*;
 import org.apache.commons.collections.Buffer;
 import org.apache.commons.collections.buffers.PriorityBuffer;
 
@@ -1641,7 +1641,7 @@ Value: 1</programlisting>
       <example id="collections-ex-5" label="5-5">
         <title>A Patient object</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.buffers;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.buffers;
 
 public class Patient {
     private String name;
@@ -1683,7 +1683,7 @@ public class Patient {
       <example id="collections-ex-6" label="5-6">
         <title>A Comparator to sort Patient objects by priority</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.buffers;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.buffers;
 
 import java.util.Comparator;
 
@@ -1737,7 +1737,7 @@ public PatientPriorityComparator implements Comparator {
       <example id="collections-ex-7" label="5-7">
         <title>Using a prioritizing buffer</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.buffers;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.buffers;
 
 public class WaitingRoomApp {
 
@@ -1860,7 +1860,7 @@ Patient: John Doe 1</programlisting>
       is defined in <link linkend="collections-ex-8">Example
       5-8</link>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt224">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_5_tt224">import java.util.*;
 import org.apache.commons.collections.Buffer;
 import org.apache.commons.collections.buffers.BlockingBuffer;
 import org.apache.commons.collections.buffers.BoundedFifoBuffer;
@@ -1910,7 +1910,7 @@ buffer.add( "Goodbye, Y'all." );</programlisting>
       <example id="collections-ex-8" label="5-8">
         <title>A BufferListener constantly calling remove( )</title>
 
-        <programlisting format="linespecific">public class BufferListener implements Runnable {
+        <programlisting language="java" format="linespecific">public class BufferListener implements Runnable {
     private Buffer buffer;
 
     public BufferListener(Buffer buffer) {
@@ -1973,7 +1973,7 @@ Goodbye, Y'all.</programlisting>
       moreinfo="none">BlockingBuffer</literal> instances terminated by an
       <literal moreinfo="none">UnboundedFifoBuffer</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt227">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_5_tt227">import java.util.*;
 import org.apache.commons.collections.Buffer;
 import org.apache.commons.collections.buffers.BlockingBuffer;
 import org.apache.commons.collections.buffers.UnboundedFifoBuffer;
@@ -2032,7 +2032,7 @@ published.add( newsStory );</programlisting>
       <example id="collections-ex-9" label="5-9">
         <title>An Indexer stage in a pipeline</title>
 
-        <programlisting format="linespecific">public class Indexer implements Runnnable {
+        <programlisting language="java" format="linespecific">public class Indexer implements Runnnable {
     private Buffer inbound;
     private Buffer outbound;
 
@@ -2154,7 +2154,7 @@ published.add( newsStory );</programlisting>
       example demonstrates the use of <literal
       moreinfo="none">MultiMap</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt228">import org.apache.commons.collections.MultiMap;
+      <programlisting language="java" format="linespecific" id="I_5_tt228">import org.apache.commons.collections.MultiMap;
 import org.apache.commons.collections.MultiHashMap;
 
 MultiMap map = new MultiHashMap( );
@@ -2219,7 +2219,7 @@ Key: TWO, Value: PICNIC. Value: Testimony</programlisting>
       <example id="collections-ex-10" label="5-10">
         <title>Using MultiMap.remove( )</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.map;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.map;
 
 import org.apache.commons.collections.*;
 import java.util.*;
@@ -2261,7 +2261,7 @@ public class MultiMapExample {
       languages they speak fluently, and the following example demonstrates
       such a <literal moreinfo="none">Map</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt230">MultiMap languageAbility = new MultiHashMap( );
+      <programlisting language="java" format="linespecific" id="I_5_tt230">MultiMap languageAbility = new MultiHashMap( );
 
 languageAbility.put( "Tom", "French" );
 languageAbility.put( "Chris", "Spanish" );
@@ -2367,7 +2367,7 @@ while( languageIterator.hasNext( ) ) {
       moreinfo="none">BidiMap</literal> to access state names by state
       abbreviation and state abbreviations by state names:</para>
 
-      <programlisting format="linespecific" id="I_5_tt231">BidiMap bidiMap = new DualHashBidiMap( );
+      <programlisting language="java" format="linespecific" id="I_5_tt231">BidiMap bidiMap = new DualHashBidiMap( );
 
 bidiMap.put( "il", "Illinois" );
 bidiMap.put( "az", "Arizona" );
@@ -2402,7 +2402,7 @@ String illinoisName = bidiMap.get( "il" );</programlisting>
       <example id="collections-ex-11" label="5-11">
         <title>Storing ISO country codes in a BidiMap</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.bidi;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.bidi;
 
 import org.apache.commons.collections.BidiMap;
 import org.apache.commons.collections.bidimap.DualHashBidiMap;
@@ -2456,9 +2456,9 @@ public class BidiMapExample {
       entry holding this value is replaced by a new entry. The following
       example illustrates this concept:</para>
 
-      <programlisting format="linespecific" id="I_5_tt232">private BidiMap bidiMap = new DualHashBidiMap( );
+      <programlisting language="java" format="linespecific" id="I_5_tt232">private BidiMap bidiMap = new DualHashBidiMap( );
 
-// Insert initial content { "one:"red", "two":"green", "three":"blue" }
+// Insert initial content { "one":"red", "two":"green", "three":"blue" }
 bidiMap.put("one","red");
 bidiMap.put("two","green");
 bidiMap.put("three","blue");
@@ -2609,7 +2609,7 @@ bidiMap.put("five","green");
       "TEST," "test," and "tEST." Here is a small example demonstrating the
       case insensitivity:</para>
 
-      <programlisting format="linespecific" id="I_5_tt233">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_5_tt233">import java.util.*;
 import org.apache.commons.collection.map.CaseInsensitiveMap;
 
 Map grades = new CaseInsensitiveMap( );
@@ -2639,7 +2639,7 @@ String grade2 = (String) grades.get( "FLATT" );</programlisting>
       <example id="collections-ex-12" label="5-12">
         <title>Using a CaseInsensitiveMap for U.S. states</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.insensitive;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.insensitive;
 
 import java.util.Map;
 import org.apache.commons.collections.map.CaseInsensitiveMap;
@@ -2776,7 +2776,7 @@ Value retrieved for 'iL': Illinois</programlisting>
       <literal moreinfo="none">Collection</literal> that will only accept
       strings:</para>
 
-      <programlisting format="linespecific" id="I_5_tt235">List existingList = new ArrayList( );
+      <programlisting language="java" format="linespecific" id="I_5_tt235">List existingList = new ArrayList( );
 Collection typedCollection = TypedCollection.decorate( existingList, 
 String.class );
 
@@ -2794,7 +2794,7 @@ typedCollection.add( new Long(28) );</programlisting>
       only accepts <literal moreinfo="none">String</literal> keys and <literal
       moreinfo="none">Number</literal> values:</para>
 
-      <programlisting format="linespecific" id="I_5_tt236">Map existingMap = new HashMap( );
+      <programlisting language="java" format="linespecific" id="I_5_tt236">Map existingMap = new HashMap( );
 Map typedMap = TypedMap.decorate( existingMap, String.class, Number.class );
 
 // This will add a String key and a Double value
@@ -2879,7 +2879,7 @@ typedMap.put( "BLAH", "BLAH" );</programlisting>
       <example id="collections-ex-13" label="5-13">
         <title>Using TypedList to decorate a list</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.typed;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.typed;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -2950,7 +2950,7 @@ public class TypedListExample {
       <example id="collections-ex-14" label="5-14">
         <title>Decorating a map with TypedMap</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.typed;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.typed;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -3106,7 +3106,7 @@ public class TypedMapExample {
       moreinfo="none">Predicate</literal>s are created to validate the keys
       and the values:</para>
 
-      <programlisting format="linespecific" id="I_5_tt237">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_5_tt237">import java.util.*;
 import org.apache.commons.collections.map.PredicatedMap;
 import org.apache.commons.collections.Predicate;
 import org.apache.commons.collections.functors.EqualPredicate;
@@ -3157,7 +3157,7 @@ map.put( new Long(32) , new Long(43) );</programlisting>
       moreinfo="none">Map</literal> contains valid <literal
       moreinfo="none">Team</literal> values:</para>
 
-      <programlisting format="linespecific" id="I_5_tt238">import org.apache.commons.collections.functors.AndPredicate;
+      <programlisting language="java" format="linespecific" id="I_5_tt238">import org.apache.commons.collections.functors.AndPredicate;
 import org.apache.commons.collections.map.PredicatedMap;
 
 <emphasis role="bold">// Create the Predicates</emphasis>
@@ -3247,7 +3247,7 @@ try {
           <secondary>predicates</secondary>
         </indexterm>
 
-        <programlisting format="linespecific">import org.apache.commons.collections.Predicate;
+        <programlisting language="java" format="linespecific">import org.apache.commons.collections.Predicate;
 
 public class ValidTeamPredicate implements Predicate {
 
@@ -3262,7 +3262,7 @@ public class ValidTeamPredicate implements Predicate {
       <example id="collections-ex-16" label="5-16">
         <title>Predicate to validate a Team's coach property</title>
 
-        <programlisting format="linespecific">import org.apache.commons.collections.Predicate;
+        <programlisting language="java" format="linespecific">import org.apache.commons.collections.Predicate;
 
 public class ValidCoachPredicate implements Predicate {
 
@@ -3365,7 +3365,7 @@ public class ValidCoachPredicate implements Predicate {
       moreinfo="none">List</literal> that only accepts even <literal
       moreinfo="none">Integer</literal> objects:</para>
 
-      <programlisting format="linespecific" id="I_5_tt239">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_5_tt239">import java.util.*;
 import org.apache.commons.collections.list.PredicatedList;
 import org.apache.commons.collections.Predicate;
 import org.apache.commons.lang.ArrayUtils;
@@ -3528,7 +3528,7 @@ list.add( new Integer(4) );</programlisting>
         </indexterm> with a custom <literal
       moreinfo="none">Transformer</literal> object:</para>
 
-      <programlisting format="linespecific" id="I_5_tt240">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_5_tt240">import java.util.*;
 import org.apache.commons.collections.Transformer;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.ArrayUtils;
@@ -3591,7 +3591,7 @@ Transformed: ranzA, rialB, carihC, nituP, hsuB</programlisting>
       transform the contents of a <literal
       moreinfo="none">Collection</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt242">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_5_tt242">import java.util.*;
 import org.apache.commons.collections.Transformer;
 import org.apache.commons.collections.finctors.ChainedTransformer;
 import org.apache.commons.collections.CollectionUtils;
@@ -3716,7 +3716,7 @@ Transformed: -10, 0, 10, 20, 30, 40, 50, 60</programlisting>
       following example demonstrates the use of an <literal
       moreinfo="none">LRUMap</literal> to store stock quotes:</para>
 
-      <programlisting format="linespecific" id="I_5_tt244">import java.util.Map;
+      <programlisting language="java" format="linespecific" id="I_5_tt244">import java.util.Map;
 import org.apache.commons.collections.map.LRUMap;
 
 <userinput moreinfo="none">cache = new LRUMap( 5 );</userinput>
@@ -3829,7 +3829,7 @@ Float msPrice2 = (Float) cache.get( "MSFT" );
       <literal moreinfo="none">Map</literal> using this <literal
       moreinfo="none">Transformer</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt245">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_5_tt245">import java.util.*;
 import org.apache.commons.collections.Transformer;
 import org.apache.commons.collections.map.LazyMap;
 import org.apache.commons.lang.StringUtils;
@@ -3889,7 +3889,7 @@ Key: Susan, Value: nasuS</programlisting>
       <example id="collections-ex-17" label="5-17">
         <title>Example using a LazyMap</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.lazy;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.lazy;
 
 import java.net.URL;
 import java.util.Map;
@@ -3958,7 +3958,7 @@ public class LazyMapExample {
       <example id="collections-ex-18" label="5-18">
         <title>A StockQuoteTransformer</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections.lazy;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections.lazy;
 
 import java.net.URL;
 
@@ -4115,7 +4115,7 @@ public class StockQuoteTransformer implements Transformer {
       number of times an <literal moreinfo="none">Object</literal> occurs in a
       <literal moreinfo="none">Collection</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt247">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_5_tt247">import java.util.*;
 import org.apache.commons.collections.Predicate;
 import org.apache.commons.collections.functors.EqualPredicate;
 import org.apache.commons.collections.CollectionUtils;
@@ -4157,7 +4157,7 @@ Number of Bs: 3</programlisting>
       moreinfo="none">countMatches( )</literal> to count the number of objects
       that match a custom predicate:</para>
 
-      <programlisting format="linespecific" id="I_5_tt249">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_5_tt249">import java.util.*;
 import org.apache.commons.collections.Predicate;
 import org.apache.commons.collections.functors.EqualPredicate;
 import org.apache.commons.collections.CollectionUtils;
@@ -4202,7 +4202,7 @@ Number of Even Numbers: 5</programlisting>
       the creation of a frequency <literal moreinfo="none">Map</literal> from
       a list of strings:</para>
 
-      <programlisting format="linespecific" id="I_5_tt251">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_5_tt251">import java.util.*;
 import org.apache.commons.collections.Predicate;
 import org.apache.commons.collections.functors.EqualPredicate;
 import org.apache.commons.collections.CollectionUtils;
@@ -4324,7 +4324,7 @@ Cardinality Map:
         <title>Using CollectionUtils union( ), intersection( ), disjunction(
         ), and subtract( )</title>
 
-        <programlisting format="linespecific">import java.util.*;
+        <programlisting language="java" format="linespecific">import java.util.*;
 
 String[] arrayA = new String[] { "1", "2", "3", "3", "4", "5" };
 String[] arrayB = new String[] { "3", "4", "4", "5", "6", "7" };
@@ -4473,7 +4473,7 @@ Subtract: {1,2,2,2,3}</programlisting>
       demonstrates <literal moreinfo="none">getDoubleValue(
       )</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt255">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_5_tt255">import java.util.*;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.collections.MapUtils;
 
@@ -4522,7 +4522,7 @@ D = NaN</programlisting>
       primitives and their corresponding object types from a <literal
       moreinfo="none">Map</literal>:</para>
 
-      <programlisting format="linespecific" id="I_5_tt257">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_5_tt257">import java.util.*;
 import org.apache.commons.collections.MapUtils;
 
 Map map = new HashMap( );

@@ -93,7 +93,7 @@
       <example id="lang-ex-add-depend-lang">
         <title>Adding a Dependency on Commons Lang</title>
 
-        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+        <programlisting language="xml" db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
                         db:file="cjcook-examples-${project.version}/pom.xml"
                         db:xpath="//dependency[artifactId='commons-lang']"
                         xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
@@ -159,7 +159,7 @@
           <primary>reflection builders</primary>
         </indexterm>reflection builder:</para>
 
-      <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+      <programlisting language="java" db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
                       db:excerpt="lang_tostring_solution"
                       db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/reflect/PoliticalCandidate.java"
                       xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
@@ -185,7 +185,7 @@
         <title>The PoliticalCandidate class using
         ReflectionToStringBuilder</title>
 
-        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+        <programlisting language="java" db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
                         db:excerpt="lang-ex-1"
                         db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/reflect/PoliticalCandidate.java"
                         xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
@@ -221,7 +221,7 @@
           <secondary>built via reflection</secondary>
         </indexterm>built via reflection:</para>
 
-      <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+      <programlisting language="java" db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
                       db:excerpt="lang-ex-sample-1"
                       db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/reflect/PoliticalCandidate.java"
                       xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
@@ -231,7 +231,7 @@
       moreinfo="none">ReflectionToStringBuilder</literal>. The code above sets
       the properties of a bean and produces the following output:</para>
 
-      <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:jar-with-dependencies:jar"
+      <programlisting language="java" db:artifact="${project.groupId}:cjcook-examples:${project.version}:jar-with-dependencies:jar"
                       db:main-class="com.discursive.jccook.lang.builders.reflect.PoliticalCandidate"
                       db:type="exec" db:wrap="force"
                       xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
@@ -364,7 +364,7 @@
       demonstrates a <literal moreinfo="none">toString( )</literal> method
       implementation that customizes both style and content:</para>
 
-      <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+      <programlisting language="java" db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
                       db:excerpt="lang_custom_tostring_solution"
                       db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/customized/PoliticalCandidate.java"
                       xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
@@ -374,7 +374,7 @@
       properties specified as parameters to <literal moreinfo="none">append(
       )</literal>:</para>
 
-      <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:jar-with-dependencies:jar"
+      <programlisting language="java" db:artifact="${project.groupId}:cjcook-examples:${project.version}:jar-with-dependencies:jar"
                       db:main-class="com.discursive.jccook.lang.builders.customized.PoliticalCandidate"
                       db:type="exec"
                       xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
@@ -682,7 +682,7 @@ PoliticalCandidate@1cd2e5f[lastName=Jefferson,firstName=Thomas]</programlisting>
       <example id="lang-ex-2" label="1-2">
         <title>Automating hashCode( ) and equals( )</title>
 
-        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+        <programlisting language="java" db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
                         db:excerpt="lang-ex-2"
                         db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/equals/PoliticalCandidate.java"
                         xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
@@ -706,7 +706,7 @@ PoliticalCandidate@1cd2e5f[lastName=Jefferson,firstName=Thomas]</programlisting>
       depends on every field in a class, you may use reflection to generate a
       hash code:</para>
 
-      <programlisting format="linespecific" id="I_1_tt14">public int hashCode( ) {
+      <programlisting language="java" format="linespecific" id="I_1_tt14">public int hashCode( ) {
     return HashCodeBuilder.reflectionHashCode(this);
 }</programlisting>
 
@@ -723,7 +723,7 @@ PoliticalCandidate@1cd2e5f[lastName=Jefferson,firstName=Thomas]</programlisting>
       moreinfo="none">EqualsBuilder</literal> compares every element of an
       array:</para>
 
-      <programlisting format="linespecific" id="I_1_tt15">int[] array1 = new int[] { 1, 3, 4, 2, 5, 3, 4, 5, 3, 4 };
+      <programlisting language="java" format="linespecific" id="I_1_tt15">int[] array1 = new int[] { 1, 3, 4, 2, 5, 3, 4, 5, 3, 4 };
 int[] array2 = new int[] { 1, 3, 4, 2, 5, 3, 4, 5, 3, 4 };
 int[] array3 = new int[] { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 };
 
@@ -748,7 +748,7 @@ Is array2 equal to array3? false</programlisting>
       <literal moreinfo="none">EqualsBuilder</literal> can compare two objects
       using reflection as in the following code:</para>
 
-      <programlisting format="linespecific" id="I_1_tt17">public boolean equals(Object o) {
+      <programlisting language="java" format="linespecific" id="I_1_tt17">public boolean equals(Object o) {
     return EqualsBuilder.reflectionEquals(this, o);
 }</programlisting>
 
@@ -856,7 +856,7 @@ Is array2 equal to array3? false</programlisting>
       compares all nonstatic and nontransient member variables in both
       classes.</para>
 
-      <programlisting format="linespecific" id="I_1_tt18">import org.apache.commons.lang.builder.CompareToBuilder;
+      <programlisting language="java" format="linespecific" id="I_1_tt18">import org.apache.commons.lang.builder.CompareToBuilder;
 
 // Build a compareTo function from reflection 
 public int compareTo(Object o) {
@@ -890,7 +890,7 @@ public int compareTo(Object o) {
           <secondary>compareTo( ) method</secondary>
         </indexterm>
 
-        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+        <programlisting language="java" db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
                         db:excerpt="lang-ex-3"
                         db:file="cjcook-examples-${project.version}/src/main/java/com/discursive/jccook/lang/builders/compare/PoliticalCandidate.java"
                         xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
@@ -939,7 +939,7 @@ public int compareTo(Object o) {
           <secondary>compareTo( ) method</secondary>
         </indexterm>
 
-        <programlisting format="linespecific">// A compare to that mimics the behavior of equals( )
+        <programlisting language="java" format="linespecific">// A compare to that mimics the behavior of equals( )
 public int compareTo(Object o) {
     int compare = -1; // By default return less-than
     if( o != null &amp;&amp; 
@@ -1023,7 +1023,7 @@ public int compareTo(Object o) {
       and prints out the contents delimited by commas and surrounded by
       brackets:</para>
 
-      <programlisting format="linespecific" id="I_1_tt19">int[] intArray = new int[] { 2, 3, 4, 5, 6 };
+      <programlisting language="java" format="linespecific" id="I_1_tt19">int[] intArray = new int[] { 2, 3, 4, 5, 6 };
 
 int[] multiDimension = new int[][] { { 1, 2, 3 }, { 2, 3 }, {5, 6, 7} };
 
@@ -1045,7 +1045,7 @@ multiDimension: {{1,2,3},{2,3},{5,6,7}}</programlisting>
       <literal moreinfo="none">Object[]</literal>, substituting an object for
       a <literal moreinfo="none">null</literal> element:</para>
 
-      <programlisting format="linespecific" id="I_1_tt21">String[] strings = new String[] { "Blue", "Green", null, "Yellow" };
+      <programlisting language="java" format="linespecific" id="I_1_tt21">String[] strings = new String[] { "Blue", "Green", null, "Yellow" };
 
 System.out.println( "Strings: " + ArrayUtils.toString( strings, "Unknown" );</programlisting>
 
@@ -1063,7 +1063,7 @@ System.out.println( "Strings: " + ArrayUtils.toString( strings, "Unknown" );</pr
       that array to <literal
       moreinfo="none">ArrayUtils.toString()</literal>:</para>
 
-      <programlisting format="linespecific" id="I_1_tt23">List list = new ArrayList( );
+      <programlisting language="java" format="linespecific" id="I_1_tt23">List list = new ArrayList( );
 list.add( "Foo" );
 list.add( "Blah" );
 
@@ -1123,7 +1123,7 @@ System.out.println( ArrayUtils.toString( list.toArray( ) ) );</programlisting>
       <example id="lang-ex-5" label="1-5">
         <title>Cloning and reversing a primitive array with ArrayUtils</title>
 
-        <programlisting format="linespecific">import org.apache.commons.lang.ArrayUtils;
+        <programlisting language="java" format="linespecific">import org.apache.commons.lang.ArrayUtils;
 
 long[] array = { 1, 3, 2, 3, 5, 6 };
 long[] reversed = ArrayUtils.clone( array );
@@ -1171,7 +1171,7 @@ Reversed: { 233, 56, 3 }</programlisting>
       <example id="lang-ex-6" label="1-6">
         <title>Cloning and reversing an Object[ ] with ArrayUtils</title>
 
-        <programlisting format="linespecific">Long[] array = new Long[] { new Long(3), new Long(56), new Long(233) };
+        <programlisting language="java" format="linespecific">Long[] array = new Long[] { new Long(3), new Long(56), new Long(233) };
 Long[] reversed = ArrayUtils.clone( array );
 ArrayUtils.reverse( reversed );
 
@@ -1189,7 +1189,7 @@ System.out.println( "Reversed: " + ArrayUtils.toString( reversed ) );</programli
       moreinfo="none">- 1]</literal> and ending at <literal
       moreinfo="none">reversed[0]</literal>:</para>
 
-      <programlisting format="linespecific" id="I_1_tt26">// readTemps returns a 1000 member double[]
+      <programlisting language="java" format="linespecific" id="I_1_tt26">// readTemps returns a 1000 member double[]
 double[] temperature = readTemps( );
 
 double[] reversed = new double[temperature.length];
@@ -1219,7 +1219,7 @@ for( int i = 0; i &lt; temperature.length; i++ ) {
       <literal moreinfo="none">Double[]</literal> before elements can be used
       to populate a list:</para>
 
-      <programlisting format="linespecific" id="I_1_tt27">double[] temps = readTemps( );
+      <programlisting language="java" format="linespecific" id="I_1_tt27">double[] temps = readTemps( );
 
 List tempList = new ArrayList( );
 for( int i = 0; i &lt; temps.length; i++ ) {
@@ -1252,7 +1252,7 @@ while( i.hasNext( ) ) {
       arrays can be cloned by calling the <literal moreinfo="none">clone(
       )</literal> method:</para>
 
-      <programlisting format="linespecific" id="I_1_tt28">long[] temps = readTemps( );
+      <programlisting language="java" format="linespecific" id="I_1_tt28">long[] temps = readTemps( );
 long[] cloned = (long[]) temps.clone( );</programlisting>
 
       <para><literal moreinfo="none">ArrayUtils.clone( )</literal> doesn't
@@ -1314,7 +1314,7 @@ long[] cloned = (long[]) temps.clone( );</programlisting>
       The following example demonstrates the translation from a primitive
       array to an object array and vice versa:</para>
 
-      <programlisting format="linespecific" id="I_1_tt29">import org.apache.commons.lang.ArrayUtils;
+      <programlisting language="java" format="linespecific" id="I_1_tt29">import org.apache.commons.lang.ArrayUtils;
 
 long[] primitiveArray = new long[] { 12, 100, 2929, 3323 };
 Long[] objectArray = ArrayUtils.toObject( primitiveArray );
@@ -1346,7 +1346,7 @@ double[] doublePrimitives = ArrayUtils.toPrimitive( doubleObject );</programlist
           <secondary>complexCalculation( )</secondary>
         </indexterm> method:</para>
 
-      <programlisting format="linespecific" id="I_1_tt30">// Assume that temps is a 4000 element double[]
+      <programlisting language="java" format="linespecific" id="I_1_tt30">// Assume that temps is a 4000 element double[]
 double[] temps = readTemps( );
 
 <emphasis role="bold">// Turn the double[] into an array of Double objects</emphasis>
@@ -1609,7 +1609,7 @@ double[] result =
         </indexterm> to find the position of a matching element. The following
       example demonstrates the use of these three methods:</para>
 
-      <programlisting format="linespecific" id="I_1_tt31">import org.apache.commons.lang.ArrayUtils;
+      <programlisting language="java" format="linespecific" id="I_1_tt31">import org.apache.commons.lang.ArrayUtils;
 
 String[] stringArray = { "Red", "Orange", "Blue", "Brown", "Red" };
 
@@ -1661,7 +1661,7 @@ Last Index of 'Red'? 4</programlisting>
         <title>Searching an array using ArrayUtils.contains( ) and
         ArrayUtils.indexOf( )</title>
 
-        <programlisting format="linespecific">// temps is a 1000 element long[]
+        <programlisting language="java" format="linespecific">// temps is a 1000 element long[]
 long[] temps = readTemps( );
 
 // Check to see if the array contains -9999
@@ -1685,7 +1685,7 @@ while( hasErrorFlag &amp;&amp;
       moreinfo="none">ArrayUtils</literal> is one less <literal
       moreinfo="none">for</literal> loop you have to test and maintain:</para>
 
-      <programlisting format="linespecific" id="I_1_tt33">long testValue = -9999;
+      <programlisting language="java" format="linespecific" id="I_1_tt33">long testValue = -9999;
 boolean hasErrors = false;
 
 for( int i = 0; i &lt; temps.length; i++ ) {
@@ -1759,7 +1759,7 @@ for( int i = 0; i &lt; temps.length; i++ ) {
       <example id="lang-ex-8" label="1-8">
         <title>Creating a Map from an Object[ ][ ]</title>
 
-        <programlisting format="linespecific">import org.apache.commons.lang.ArrayUtils;
+        <programlisting language="java" format="linespecific">import org.apache.commons.lang.ArrayUtils;
 
 Object[] weightArray = 
     new Object[][] { {"H" , new Double( 1.007)},
@@ -1865,7 +1865,7 @@ Double hydrogenWeight = map.get( "H" );</programlisting>
       outputs the international standard for representing a date and time in a
       given time zone:</para>
 
-      <programlisting format="linespecific" id="I_1_tt34">Date now = new Date( );
+      <programlisting language="java" format="linespecific" id="I_1_tt34">Date now = new Date( );
 String isoDT = DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format( now );
     
 System.out.println( "It is currently: " + isoDT );</programlisting>
@@ -1879,7 +1879,7 @@ System.out.println( "It is currently: " + isoDT );</programlisting>
       moreinfo="none">FastDateFormat</literal> as a substitute for <literal
       moreinfo="none">SimpleDateFormat</literal>:</para>
 
-      <programlisting format="linespecific" id="I_1_tt36">// create a formatter that simply prints the year and month
+      <programlisting language="java" format="linespecific" id="I_1_tt36">// create a formatter that simply prints the year and month
 FastDateFormat formatter = 
     new FastDateFormat( "yyyy-mm",
                          TimeZone.getDefault( ),
@@ -2131,7 +2131,7 @@ String output = formatter.format( new Date( ) );
       demonstrates the use of <literal moreinfo="none">DateUtils.round(
       )</literal>:</para>
 
-      <programlisting format="linespecific" id="I_1_tt37">import org.apache.commons.lang.time.FastDateFormat;
+      <programlisting language="java" format="linespecific" id="I_1_tt37">import org.apache.commons.lang.time.FastDateFormat;
 import org.apache.commons.lang.time.DateFormatUtils;
 import org.apache.commons.lang.time.DateUtils;
 
@@ -2175,7 +2175,7 @@ Nearest Year: 2004-01-01T00:00:00</programlisting>
       example, <literal moreinfo="none">DateUtils.round( )</literal>
       calculates an approximate time:</para>
 
-      <programlisting format="linespecific" id="I_1_tt39">// Rounding to the nearest hour
+      <programlisting language="java" format="linespecific" id="I_1_tt39">// Rounding to the nearest hour
 Date wokeUp = new Date( );
 Date wokeUpAround = DateUtils.round( now, Calendar.HOUR );</programlisting>
 
@@ -2192,7 +2192,7 @@ Date wokeUpAround = DateUtils.round( now, Calendar.HOUR );</programlisting>
       moreinfo="none">Calendar.YEAR</literal> sets the day of the year to one
       and the time to the first instance of the nearest year:</para>
 
-      <programlisting format="linespecific" id="I_1_tt40">Date now = new Date( )
+      <programlisting language="java" format="linespecific" id="I_1_tt40">Date now = new Date( )
 Date nearestYear = DateUtils.round( now, Calendar.YEAR );</programlisting>
 
       <para>This previous code rounds to the nearest year, and if <literal
@@ -2253,7 +2253,7 @@ Date nearestYear = DateUtils.round( now, Calendar.YEAR );</programlisting>
       as the 15th day of the month with the second half of the month starting
       at midnight on the 16th day of the month:</para>
 
-      <programlisting format="linespecific" id="I_1_tt41">Calendar cal = Calendar.getInstance( );
+      <programlisting language="java" format="linespecific" id="I_1_tt41">Calendar cal = Calendar.getInstance( );
 cal.set( 2004, Calendar.MARCH, 5, 10, 2, 2 );
 
 System.out.println( DateUtils.round( cal.getTime( ) , 
@@ -2355,7 +2355,7 @@ DateUtils.SEMI_MONTH ) );</programlisting>
       <example id="lang-ex-9" label="1-9">
         <title>Truncating a Date object at Calendar.MONTH</title>
 
-        <programlisting format="linespecific">import org.apache.commons.lang.time.DateUtils;
+        <programlisting language="java" format="linespecific">import org.apache.commons.lang.time.DateUtils;
 import org.apache.commons.lang.time.FastDateFormat;
 import org.apache.commons.lang.time.DateFormatUtils;
 
@@ -2445,7 +2445,7 @@ Truncated Hour: 2004-03-28T13:00:00</programlisting>
       <example id="lang-ex-10" label="1-10">
         <title>Defining a Flavor enumeration by extending Enum</title>
 
-        <programlisting format="linespecific">import java.util.*;
+        <programlisting language="java" format="linespecific">import java.util.*;
 import org.apache.commons.lang.enum.Enum;
 
 public final class Flavor extends Enum {
@@ -2481,7 +2481,7 @@ public final class Flavor extends Enum {
       moreinfo="none">List</literal> or <literal moreinfo="none">Map</literal>
       of available <literal moreinfo="none">Flavor</literal> instances:</para>
 
-      <programlisting format="linespecific" id="I_1_tt43">// Using Flavor to create an ice cream cone
+      <programlisting language="java" format="linespecific" id="I_1_tt43">// Using Flavor to create an ice cream cone
 IceCreamCone cone = new IceCreamCone( );
 cone.setScoops( 5 );
 cone.setFlavor( Flavor.VANILLA );
@@ -2514,7 +2514,7 @@ System.out.println( ArrayUtils.toString( flavors.toString( ) ) );
       <example id="lang-ex-11" label="1-11">
         <title>Extending ValuedEnum to create an enum</title>
 
-        <programlisting format="linespecific">import java.util.*;
+        <programlisting language="java" format="linespecific">import java.util.*;
 import org.apache.commons.lang.enum.ValuedEnum;
 
 public final class PartEnum extends ValuedEnum {
@@ -2563,7 +2563,7 @@ public final class PartEnum extends ValuedEnum {
       <example id="lang-ex-12" label="1-12">
         <title>Vocalist bean with a PartEnum</title>
 
-        <programlisting format="linespecific">public class Vocalist {
+        <programlisting language="java" format="linespecific">public class Vocalist {
     private String name;
     private PartEnum part;
 
@@ -2581,7 +2581,7 @@ public final class PartEnum extends ValuedEnum {
       moreinfo="none">else if</literal> control statement to catch every
       single voice part:</para>
 
-      <programlisting format="linespecific" id="I_1_tt44">Iterator parts = PartEnum.iterator( );
+      <programlisting language="java" format="linespecific" id="I_1_tt44">Iterator parts = PartEnum.iterator( );
 while( parts.hasNext( ) ) {
   PartEnum part = (PartEnum) parts.next( );
   if( part.equals( vocalist.getPart( ) ) ) {
@@ -2628,7 +2628,7 @@ while( parts.hasNext( ) ) {
           <secondary>public static final</secondary>
         </indexterm>
 
-        <programlisting format="linespecific">public class Person {
+        <programlisting language="java" format="linespecific">public class Person {
     public static final int STUDENT = -1;
     public static final int EMPLOYED = 0;
     public static final int UNEMPLOYED = 1;
@@ -2685,7 +2685,7 @@ while( parts.hasNext( ) ) {
       <example id="lang-ex-14" label="1-14">
         <title>Simplifying with ValueEnum</title>
 
-        <programlisting format="linespecific">public class Person {
+        <programlisting language="java" format="linespecific">public class Person {
     private JobStatusEnum jobStatus;
     private GenderEnum gender;
 
@@ -2761,7 +2761,7 @@ while( parts.hasNext( ) ) {
       <example id="lang-ex-18" label="1-18">
         <title>Using Validate to perform simple validations</title>
 
-        <programlisting format="linespecific">import org.apache.commons.lang.Validate;
+        <programlisting language="java" format="linespecific">import org.apache.commons.lang.Validate;
 
 public doSomething( int param1, Object[] param2, Collection param3 ) {
 
@@ -2908,7 +2908,7 @@ public doSomething( int param1, Object[] param2, Collection param3 ) {
         <title>Using the Validator and the DoubleRange to validate method
         parameters</title>
 
-        <programlisting format="linespecific">public static final DoubleRange LAT_RANGE = new DoubleRange(  -90.0,  90.0 );
+        <programlisting language="java" format="linespecific">public static final DoubleRange LAT_RANGE = new DoubleRange(  -90.0,  90.0 );
 public static final DoubleRange LON_RANGE = new DoubleRange( -180.0, 180.0 );
 
 public double elevation( double latitude, 
@@ -3029,7 +3029,7 @@ public double elevation( double latitude,
       <example id="lang-ex-20" label="1-20">
         <title>Using StopWatch to measure time</title>
 
-        <programlisting format="linespecific">import org.apache.commons.lang.time.StopWatch;
+        <programlisting language="java" format="linespecific">import org.apache.commons.lang.time.StopWatch;
 
 StopWatch clock = new StopWatch( );
         
@@ -3143,7 +3143,7 @@ It takes 1992 milliseconds.</programlisting>
         <title>Using the StopWatch.split( ) and StopWatch.unsplit( )
         methods</title>
 
-        <programlisting format="linespecific">import org.apache.commons.lang.time.StopWatch;
+        <programlisting language="java" format="linespecific">import org.apache.commons.lang.time.StopWatch;
 
 System.out.println( "Testing the split( ) method." );
 

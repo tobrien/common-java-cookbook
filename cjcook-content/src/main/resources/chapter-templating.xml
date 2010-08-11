@@ -52,7 +52,7 @@
       writing a standalone Java application. Consider the following code,
       which prints a formatted report for a bank customer:</para>
 
-      <programlisting format="linespecific" id="I_9_tt350">System.out.println( "******************************" );
+      <programlisting language="java" format="linespecific" id="I_9_tt350">System.out.println( "******************************" );
 System.out.println( "******* BANK STATEMENT *******" );
 System.out.println( "******************************" );
 Account[] accounts = AccountUtil.getAccounts("1232");
@@ -80,7 +80,7 @@ System.out.println( "******************************" );</programlisting>
       <link linkend="xml">Chapter 6</link>, but here is an example of how
       <emphasis role="bold">not</emphasis> to generate an XML document:</para>
 
-      <programlisting format="linespecific" id="I_9_tt351">System.out.println("&lt;?xml version=\"1.0\"?&gt;");
+      <programlisting language="java" format="linespecific" id="I_9_tt351">System.out.println("&lt;?xml version=\"1.0\"?&gt;");
 System.out.println("&lt;Config&gt;");
 System.out.println("&lt;Property name=\"" + name + "\"\n" +
                    "value=\"" + value + "\"/&gt;");
@@ -178,7 +178,7 @@ System.out.println("&lt;/Config&gt;");</programlisting>
       in two weeks than it would be to internationalize this code. The
       offending JSP is:</para>
 
-      <programlisting format="linespecific" id="I_9_tt352">&lt;% ResultSet rs;
+      <programlisting language="java" format="linespecific" id="I_9_tt352">&lt;% ResultSet rs;
     try {
       Class.forName( "org.postgresql.Driver" );
       String dbURL = "jdbc:postgresql://192.168.0.1/dbname";
@@ -257,7 +257,7 @@ There are a few things I would like to tell you.
       <example id="templating-ex-add-jexl-depend">
         <title>Adding a Dependency on Commons JEXL</title>
 
-        <programlisting>&lt;dependency&gt;
+        <programlisting language="xml">&lt;dependency&gt;
   &lt;groupId&gt;commons-jexl&lt;/groupId&gt;
   &lt;artifactId&gt;commons-jexl&lt;/artifactId&gt;
   &lt;version&gt;1.1&lt;/version&gt;
@@ -357,7 +357,7 @@ There are a few things I would like to tell you.
       <para>Use the following code to "merge" an instance of the <literal
       moreinfo="none">Opera</literal> bean with the above expression:</para>
 
-      <programlisting format="linespecific" id="I_9_tt355">import org.apache.commons.jexl.Expression;
+      <programlisting language="java" format="linespecific" id="I_9_tt355">import org.apache.commons.jexl.Expression;
 import org.apache.commons.jexl.ExpressionFactory;
 import org.apache.commons.jexl.JexlContext;
 import org.apache.commons.jexl.JexlHelper;
@@ -635,7 +635,7 @@ language( )}</programlisting>
       <para>The following code creates and populates an expression and a
       context, merging the two to create a message:</para>
 
-      <programlisting format="linespecific" id="I_9_tt358">import org.apache.commons.jexl.Expression;
+      <programlisting language="java" format="linespecific" id="I_9_tt358">import org.apache.commons.jexl.Expression;
 import org.apache.commons.jexl.ExpressionFactory;
 import org.apache.commons.jexl.JexlContext;
 import org.apache.commons.jexl.JexlHelper;
@@ -828,7 +828,7 @@ Misc-Bin = true</programlisting>
       sort a collection of <literal moreinfo="none">Ball</literal>
       objects:</para>
 
-      <programlisting format="linespecific" id="I_9_tt362">import org.apache.commons.jexl.Expression;
+      <programlisting language="java" format="linespecific" id="I_9_tt362">import org.apache.commons.jexl.Expression;
 import org.apache.commons.jexl.ExpressionFactory;
 import org.apache.commons.jexl.JexlContext;
 import org.apache.commons.jexl.JexlHelper;
@@ -962,7 +962,7 @@ while( ballsIter.hasNext( ) ) {
       <example id="templating-ex-add-depend-velocity">
         <title>Adding a Dependency on Velocity</title>
 
-        <programlisting>    &lt;dependency&gt;
+        <programlisting language="xml">    &lt;dependency&gt;
         &lt;groupId&gt;org.apache.velocity&lt;/groupId&gt;
         &lt;artifactId&gt;velocity&lt;/artifactId&gt;
         &lt;version&gt;1.6.1&lt;/version&gt;
@@ -1039,7 +1039,7 @@ ${magazine.baseUrl}/renew?cust=${customer.id}</programlisting>
           <primary>FileReader</primary>
         </indexterm>. The following code renders this template:</para>
 
-      <programlisting format="linespecific" id="I_9_tt365">import org.apache.velocity.VelocityContext;
+      <programlisting language="java" format="linespecific" id="I_9_tt365">import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 
 // Initialize Velocity
@@ -1229,7 +1229,7 @@ http://www.scienceworld.com/renew?cust=22324</programlisting>
       relative to the supplied <literal
       moreinfo="none">$countryCode</literal>:</para>
 
-      <programlisting format="linespecific" id="I_9_tt367">The World's Busiest Airports
+      <programlisting language="xml" format="linespecific" id="I_9_tt367">The World's Busiest Airports
 
 &lt;table&gt;
   &lt;tr&gt;
@@ -1272,7 +1272,7 @@ http://www.scienceworld.com/renew?cust=22324</programlisting>
       moreinfo="none">VelocityContext</literal>, and renders the
       template:</para>
 
-      <programlisting format="linespecific" id="I_9_tt368">import org.apache.velocity.Velocity;
+      <programlisting language="java" format="linespecific" id="I_9_tt368">import org.apache.velocity.Velocity;
 import org.apache.velocity.app.VelocityContext;
 
 // Initialize Velocity with default properties
@@ -1479,7 +1479,7 @@ Thanks again,
       moreinfo="none">Appointment</literal> object is placed in a <literal
       moreinfo="none">VelocityContext</literal>:</para>
 
-      <programlisting format="linespecific" id="I_9_tt374">import org.apache.velocity.VelocityContext;
+      <programlisting language="java" format="linespecific" id="I_9_tt374">import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.RuntimeConstants;
 
@@ -1702,7 +1702,7 @@ http://www.test.com/detail?test={results.id}</programlisting>
       moreinfo="none">$stat</literal>, computes basic statistics on integer
       arrays. This class definition is:</para>
 
-      <programlisting format="linespecific" id="I_9_tt380">public class StatUtil {
+      <programlisting language="java" format="linespecific" id="I_9_tt380">public class StatUtil {
     public int average(int[] array) {
         int sum = 0.0;
         for( int i = 0; i &lt; array.length; i++ ) {
@@ -1745,7 +1745,7 @@ http://www.test.com/detail?test={results.id}</programlisting>
           <secondary>mergeTemplate( )</secondary>
         </indexterm>:</para>
 
-      <programlisting format="linespecific" id="I_9_tt381">import org.apache.velocity.VelocityContext;
+      <programlisting language="java" format="linespecific" id="I_9_tt381">import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 
 // The following lines of code tell the Velocity Engine 
@@ -1918,7 +1918,7 @@ engine.init( "conf/velocity.properties" );</programlisting>
       <example id="templating-ex-add-depend-beanutils">
         <title>Adding a Dependency on Commons BeanUtils</title>
 
-        <programlisting>    &lt;dependency&gt;
+        <programlisting language="xml">    &lt;dependency&gt;
         &lt;groupId&gt;org.freemarker&lt;/groupId&gt;
         &lt;artifactId&gt;freemarker&lt;/artifactId&gt;
         &lt;version&gt;2.3.15&lt;/version&gt;
@@ -2033,7 +2033,7 @@ Your final grade has been submitted to the Registrar.
       of the template merge is written to a <literal
       moreinfo="none">StringWriter</literal>:</para>
 
-      <programlisting format="linespecific" id="I_9_tt388">import freemarker.template.Configuration;
+      <programlisting language="java" format="linespecific" id="I_9_tt388">import freemarker.template.Configuration;
 import freemarker.cache.ClassTemplateLoader;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.Template;
@@ -2240,7 +2240,7 @@ Your final grade has been submitted to the Registrar.  Have a great Summer!</pro
       and passes a <literal moreinfo="none">NodeModel</literal> to a
       template:</para>
 
-      <programlisting format="linespecific" id="I_9_tt390">import freemarker.template.Configuration;
+      <programlisting language="java" format="linespecific" id="I_9_tt390">import freemarker.template.Configuration;
 import freemarker.cache.ClassTemplateLoader;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.Template;
@@ -2268,7 +2268,7 @@ System.out.println("output: \n" + writer.toString( ));</programlisting>
       lives of great classical composers, and the structure of this document
       is shown here:</para>
 
-      <programlisting format="linespecific" id="I_9_tt391">&lt;?xml version="1.0"?&gt;
+      <programlisting language="xml" format="linespecific" id="I_9_tt391">&lt;?xml version="1.0"?&gt;
 
 &lt;composers&gt;
   &lt;composer&gt;
@@ -2317,7 +2317,7 @@ System.out.println("output: \n" + writer.toString( ));</programlisting>
       template, which references elements and attributes through a <literal
       moreinfo="none">NodeModel</literal>, is:</para>
 
-      <programlisting format="linespecific" id="I_9_tt392">&lt;#list doc.composers.composer as composer&gt;
+      <programlisting language="xml" format="linespecific" id="I_9_tt392">&lt;#list doc.composers.composer as composer&gt;
   &lt;p&gt;
     &lt;a href="${composer.link}"&gt;${composer.name}&lt;/a&gt;&lt;br/&gt;
     Born on ${composer.born.@date} in ${composer.born.location}&lt;br/&gt;
@@ -2484,7 +2484,7 @@ System.out.println("output: \n" + writer.toString( ));</programlisting>
       moreinfo="none">servlet-mapping</literal> elements to your <filename
       moreinfo="none">web.xml</filename> file as follows:</para>
 
-      <programlisting format="linespecific" id="I_9_tt394">&lt;!-- Define Velocity template compiler --&gt;
+      <programlisting language="xml" format="linespecific" id="I_9_tt394">&lt;!-- Define Velocity template compiler --&gt;
 &lt;servlet&gt;
   &lt;servlet-name&gt;velocity&lt;/servlet-name&gt;
   &lt;servlet-class&gt;
@@ -2602,7 +2602,7 @@ System.out.println("output: \n" + writer.toString( ));</programlisting>
       moreinfo="none">servlet-mapping</literal> elements to your <filename
       moreinfo="none">web.xml</filename> file:</para>
 
-      <programlisting format="linespecific" id="I_9_tt395">&lt;servlet&gt;
+      <programlisting language="xml" format="linespecific" id="I_9_tt395">&lt;servlet&gt;
   &lt;servlet-name&gt;freemarker&lt;/servlet-name&gt;
   &lt;servlet-class&gt;freemarker.ext.servlet.FreemarkerServlet&lt;/servlet-class&gt;
   &lt;init-param&gt;

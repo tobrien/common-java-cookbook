@@ -99,7 +99,7 @@
       <example id="io-network-ex-add-depend-io">
         <title>Adding a Dependency on Commons IO</title>
 
-        <programlisting>    &lt;dependency&gt;
+        <programlisting language="xml">    &lt;dependency&gt;
         &lt;groupId&gt;commons-io&lt;/groupId&gt;
         &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
         &lt;version&gt;1.4&lt;/version&gt;
@@ -208,7 +208,7 @@
       <literal moreinfo="none">InputStream</literal> and a <literal
       moreinfo="none">Writer</literal>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt399">import org.apache.commons.io.CopyUtils;
+      <programlisting language="java" format="linespecific" id="I_10_tt399">import org.apache.commons.io.CopyUtils;
 
 try {
     Writer writer = new FileWriter( "test.dat" );
@@ -242,7 +242,7 @@ try {
         </indexterm> from a <literal moreinfo="none">URL</literal> and copies
       the contents to a <literal moreinfo="none">String</literal>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt400">import org.apache.commons.io.IOUtils;
+      <programlisting language="java" format="linespecific" id="I_10_tt400">import org.apache.commons.io.IOUtils;
 
 URL url = new URL( "http://www.slashdot.org" );
 try {
@@ -347,7 +347,7 @@ try {
       moreinfo="none">catch</literal> within a <literal
       moreinfo="none">finally</literal> block:</para>
 
-      <programlisting format="linespecific" id="I_10_tt401">import org.apache.commons.io.IOUtils
+      <programlisting language="java" format="linespecific" id="I_10_tt401">import org.apache.commons.io.IOUtils
 import org.apache.commons.io.CopyUtils
 
 Reader reader = null;
@@ -393,7 +393,7 @@ try {
       moreinfo="none">Writer</literal> without the help of <literal
       moreinfo="none">IOUtils</literal>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt402">Reader reader = null;
+      <programlisting language="java" format="linespecific" id="I_10_tt402">Reader reader = null;
 Writer writer = null;
 String result = "":
 
@@ -583,7 +583,7 @@ try {
       moreinfo="none">project.xml</filename> to <literal
       moreinfo="none">FileUtils.byteCountToDisplaySize( )</literal>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt404">import org.apache.commons.io.FileUtils;
+      <programlisting language="java" format="linespecific" id="I_10_tt404">import org.apache.commons.io.FileUtils;
 
 try {
     File file = new File("project.xml");
@@ -704,7 +704,7 @@ try {
       moreinfo="none">test.dat</filename> to <filename
       moreinfo="none">test.dat.bak</filename>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt406">import org.apache.commons.io.FileUtils;
+      <programlisting language="java" format="linespecific" id="I_10_tt406">import org.apache.commons.io.FileUtils;
 
 try {
     File src = new File( "test.dat" );
@@ -721,7 +721,7 @@ try {
       moreinfo="none">test.dat</filename> to the directory <filename
       moreinfo="none">./temp</filename>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt407">try {
+      <programlisting language="java" format="linespecific" id="I_10_tt407">try {
     File src = new File( "test.dat" );
     File dir = new File( "./temp" );
 
@@ -744,7 +744,7 @@ try {
       of the <literal moreinfo="none">data String</literal> to the file
       <filename moreinfo="none">temp.tmp</filename>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt408">try {
+      <programlisting language="java" format="linespecific" id="I_10_tt408">try {
   String string = "Blah blah blah";
   File dest = new File( "test.tmp" );
             
@@ -760,7 +760,7 @@ try {
       Times</emphasis> front page in a file <filename
       moreinfo="none">times.html</filename>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt409">try {
+      <programlisting language="java" format="linespecific" id="I_10_tt409">try {
     URL src = new URL( "http://www.nytimes.com" );
     File dest = new File( "times.html" );
 
@@ -821,7 +821,7 @@ try {
       following example deletes the <filename moreinfo="none">temp</filename>
       directory:</para>
 
-      <programlisting format="linespecific" id="I_10_tt410">import org.apache.commons.io.FileUtils;
+      <programlisting language="java" format="linespecific" id="I_10_tt410">import org.apache.commons.io.FileUtils;
 
 try {
     File dir = new File( "temp" );
@@ -858,7 +858,7 @@ try {
           <secondary>cleaning</secondary>
         </indexterm>subdirectories:</para>
 
-      <programlisting format="linespecific" id="I_10_tt411">import org.apache.commons.io.FileUtils;
+      <programlisting language="java" format="linespecific" id="I_10_tt411">import org.apache.commons.io.FileUtils;
 
 try {
     File dir = new File( "temp" );
@@ -915,7 +915,7 @@ try {
       example returns the size of the <filename
       moreinfo="none">temp</filename> directory:</para>
 
-      <programlisting format="linespecific" id="I_10_tt412">File dir = new File( "temp" );
+      <programlisting language="java" format="linespecific" id="I_10_tt412">File dir = new File( "temp" );
 long dirSize = FileUtils.sizeOfDirectory( );</programlisting>
 
       <para>If <filename moreinfo="none">temp</filename> contains a number
@@ -986,7 +986,7 @@ long dirSize = FileUtils.sizeOfDirectory( );</programlisting>
       )</literal> method on the file <filename
       moreinfo="none">testFile.txt</filename>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt413">import org.apache.commons.io.FileUtils;
+      <programlisting language="java" format="linespecific" id="I_10_tt413">import org.apache.commons.io.FileUtils;
 
 try {
     File testFile = new File( "testFile.txt" );
@@ -1062,7 +1062,7 @@ try {
       moreinfo="none">SuffixFileFilter</literal> to return an array of
       filenames that end in <filename moreinfo="none">.xml</filename>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt414">import java.io.FilenameFilter;
+      <programlisting language="java" format="linespecific" id="I_10_tt414">import java.io.FilenameFilter;
 import org.apache.commons.io.filefilter.SuffixFileFilter;
 import org.apache.commons.lang.ArrayUtils;
 
@@ -1106,7 +1106,7 @@ System.out.println( ArrayUtils.toString( xmlFiles ) );</programlisting>
       moreinfo="none">.htm</filename> or <filename
       moreinfo="none">.html</filename> files in a directory:</para>
 
-      <programlisting format="linespecific" id="I_10_tt416">import org.apache.commons.io.filefilter.AndFileFilter;
+      <programlisting language="java" format="linespecific" id="I_10_tt416">import org.apache.commons.io.filefilter.AndFileFilter;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
 import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.commons.io.filefilter.NotFileFilter;
@@ -1216,7 +1216,7 @@ System.out.println( ArrayUtils.toString( htmlFiles ) );</programlisting>
           <primary>FileOutputStream</primary>
         </indexterm>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt417">import org.apache.commons.io.IOUtils;
+      <programlisting language="java" format="linespecific" id="I_10_tt417">import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.output.CountingOutputStream;
 import java.io.*;
 
@@ -1255,7 +1255,7 @@ if( countStream != null ) {
       bytes read. The following example demonstrates <literal
       moreinfo="none">CountingInputStream</literal>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt419">import org.apache.commons.io.IOUtils;
+      <programlisting language="java" format="linespecific" id="I_10_tt419">import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.output.CountingOutputStream;
 import java.io.*;
 
@@ -1335,7 +1335,7 @@ if( countStream != null ) {
           <secondary>FileOutputStream</secondary>
         </indexterm>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt420">import org.apache.commons.io.IOUtils;
+      <programlisting language="java" format="linespecific" id="I_10_tt420">import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.output.TeeOutputStream;
 
 File test1 = new File("split1.txt");
@@ -1412,7 +1412,7 @@ try {
       <example id="io-network-ex-add-depend-oro">
         <title>Adding a Dependency on Commons ORO</title>
 
-        <programlisting>    &lt;dependency&gt;
+        <programlisting language="xml">    &lt;dependency&gt;
       &lt;groupId&gt;oro&lt;/groupId&gt;
       &lt;artifactId&gt;oro&lt;/artifactId&gt;
       &lt;version&gt;2.0.8&lt;/version&gt;
@@ -1518,7 +1518,7 @@ try {
       files in the <filename moreinfo="none">./dataDir</filename>
       directory:</para>
 
-      <programlisting format="linespecific" id="I_10_tt422">import org.apache.oro.io.GlobFilenameFilter;
+      <programlisting language="java" format="linespecific" id="I_10_tt422">import org.apache.oro.io.GlobFilenameFilter;
 
 File dataDir = <userinput moreinfo="none">new</userinput> File("./dataDir");
 FilenameFilter xmlFilter = <userinput moreinfo="none">new</userinput> GlobFilenameFilter( "*.xml" );
@@ -1530,7 +1530,7 @@ File[] xmlFiles = dataDir.listFiles( xmlFilter );</programlisting>
       passing a regular expression to the constructor of <literal
       moreinfo="none">Perl5FilenameFilter</literal>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt423">File dataDir = <userinput
+      <programlisting language="java" format="linespecific" id="I_10_tt423">File dataDir = <userinput
           moreinfo="none">new</userinput> File("./dataDir");
 FilenameFilter regexFilter = <userinput moreinfo="none">new</userinput> Perl5FilenameFilter( "^dev.*.tld$" );
 File[] tldFiles = dataDir.listFiles( regexFilter );</programlisting>
@@ -1573,7 +1573,7 @@ File[] tldFiles = dataDir.listFiles( regexFilter );</programlisting>
       <example id="io-network-ex-add-depend-net">
         <title>Adding a Dependency on Commons Net</title>
 
-        <programlisting>    &lt;dependency&gt;
+        <programlisting language="xml">    &lt;dependency&gt;
         &lt;groupId&gt;commons-net&lt;/groupId&gt;
         &lt;artifactId&gt;commons-net&lt;/artifactId&gt;
         &lt;version&gt;2.0&lt;/version&gt;
@@ -1653,7 +1653,7 @@ File[] tldFiles = dataDir.listFiles( regexFilter );</programlisting>
       contents of the file <filename moreinfo="none">c64bus.gif</filename>
       from <filename moreinfo="none">ftp.ibibilio.org</filename>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt425">import org.apache.commons.io.IOUtils;
+      <programlisting language="java" format="linespecific" id="I_10_tt425">import org.apache.commons.io.IOUtils;
 import org.apache.commons.net.ftp.FTPClient;
 
 FTPClient client = new FTPClient( );
@@ -1741,7 +1741,7 @@ try {
       directory on <filename
       moreinfo="none">ftp.ibiblio.org</filename>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt426">import org.apache.commons.net.ftp.FTPClient;
+      <programlisting language="java" format="linespecific" id="I_10_tt426">import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 
 FTPClient client = new FTPClient( );
@@ -1870,7 +1870,7 @@ ecs-1.4.2.zip.md5:     33 bytes</programlisting>
       host <filename moreinfo="none">www.discursive.com</filename> using port
       25:</para>
 
-      <programlisting format="linespecific" id="I_10_tt428">import org.apache.commons.net.smtp.SMTPClient;
+      <programlisting language="java" format="linespecific" id="I_10_tt428">import org.apache.commons.net.smtp.SMTPClient;
 
 SMTPClient client = new SMTPClient( );
 client.connect("www.discursive.com");
@@ -1898,7 +1898,7 @@ client.disconnect( );</programlisting>
       recipients by passing a <literal moreinfo="none">String[]</literal> to
       <literal moreinfo="none">sendSimpleMessage( )</literal>:</para>
 
-      <programlisting format="linespecific" id="I_10_tt429">import org.apache.commons.net.smtp.SMTPClient;
+      <programlisting language="java" format="linespecific" id="I_10_tt429">import org.apache.commons.net.smtp.SMTPClient;
 
 SMTPClient client = new SMTPClient( );
 client.connect("www.discursive.com");
@@ -1959,7 +1959,7 @@ client.disconnect( );</programlisting>
           <secondary>connections</secondary>
         </indexterm> the SMTP server:</para>
 
-      <programlisting format="linespecific" id="I_10_tt430">import org.apache.commons.net.smtp.SMTP;
+      <programlisting language="java" format="linespecific" id="I_10_tt430">import org.apache.commons.net.smtp.SMTP;
 import org.apache.commons.net.smtp.SMTPClient;
 import org.apache.commons.net.smtp.SMTPReply;
 
@@ -2074,7 +2074,7 @@ client.disconnect( );</programlisting>
       moreinfo="none">tobrien@discursive.com</literal>, and prints each
       message in the mailbox:</para>
 
-      <programlisting format="linespecific" id="I_10_tt431">import org.apache.commons.io.CopyUtils;
+      <programlisting language="java" format="linespecific" id="I_10_tt431">import org.apache.commons.io.CopyUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.net.pop3.POP3Client;
 import org.apache.commons.net.pop3.POP3MessageInfo;

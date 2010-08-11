@@ -130,7 +130,7 @@
       moreinfo="none">WordUtils</literal> in a Java class, add the following
       lines to your import statements:</para>
 
-      <programlisting format="linespecific" id="I_2_tt50">import org.apache.commons.lang.StringUtils;
+      <programlisting language="java" format="linespecific" id="I_2_tt50">import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.WordUtils;</programlisting>
 
       <para>Recipes that use <literal moreinfo="none">StringUtils</literal>
@@ -198,7 +198,7 @@ import org.apache.commons.lang.WordUtils;</programlisting>
       true. The following example demonstrates <literal
       moreinfo="none">isBlank( )</literal> with four strings:</para>
 
-      <programlisting format="linespecific" id="I_2_tt51">String test = "";
+      <programlisting language="java" format="linespecific" id="I_2_tt51">String test = "";
 String test2 = "\n\n\t";
 String test3 = null;
 String test4 = "Test";
@@ -230,7 +230,7 @@ test4 blank? false</programlisting>
       string to have content, and it gracefully handles a <literal
       moreinfo="none">null</literal> input by returning false:</para>
 
-      <programlisting format="linespecific" id="I_2_tt53">String test = "\t\t";
+      <programlisting language="java" format="linespecific" id="I_2_tt53">String test = "\t\t";
 String test2 = "Test";
 
 System.out.println( "test is not blank? " + StringUtils.isNotBlank( test ) );
@@ -251,7 +251,7 @@ test2 is not blank? true</programlisting>
       a <literal moreinfo="none">null</literal> parameter value by returning
       <literal moreinfo="none">null</literal>.</para>
 
-      <programlisting format="linespecific" id="I_2_tt55">String test1 = "\t";
+      <programlisting language="java" format="linespecific" id="I_2_tt55">String test1 = "\t";
 String test2 = "Test";
 String test3 = null;
 
@@ -273,7 +273,7 @@ test3 trimToNull: null</programlisting>
       <literal moreinfo="none">null</literal>, and check the length of a
       string:</para>
 
-      <programlisting format="linespecific" id="I_2_tt57">if( variable != null &amp;&amp; 
+      <programlisting language="java" format="linespecific" id="I_2_tt57">if( variable != null &amp;&amp; 
     variable.length( ) &gt; 0 &amp;&amp; 
     !variable.trim( ).equals("") ) {
         // Do something
@@ -282,7 +282,7 @@ test3 trimToNull: null</programlisting>
       <para>The code above can be rewritten with one call to <literal
       moreinfo="none">StringUtils.isNotBlank( )</literal>:</para>
 
-      <programlisting format="linespecific" id="I_2_tt58">if( StringUtils.isNotBlank( variable ) ) {
+      <programlisting language="java" format="linespecific" id="I_2_tt58">if( StringUtils.isNotBlank( variable ) ) {
     // Do something
 }</programlisting>
 
@@ -365,7 +365,7 @@ test3 trimToNull: null</programlisting>
       for the abbreviation. The following example will abbreviate the supplied
       text messages to 10 characters:</para>
 
-      <programlisting format="linespecific" id="I_2_tt59">String test = "This is a test of the abbreviation."
+      <programlisting language="java" format="linespecific" id="I_2_tt59">String test = "This is a test of the abbreviation."
 String test2 = "Test"
 
 System.out.println( StringUtils.abbreviate( test, 10 ) );
@@ -388,7 +388,7 @@ Test</programlisting>
       Abbreviating a piece of text to 20 characters guarantees that the text
       will occupy 20 characters or less:</para>
 
-      <programlisting format="linespecific" id="I_2_tt61">String message = "Who do you think you are?";
+      <programlisting language="java" format="linespecific" id="I_2_tt61">String message = "Who do you think you are?";
 String abbrev = StringUtils.abbreviate( message, 20 );
 String message2 = "Testing";
 String abbrev2 = StringUtils.abbreviate( message, 40 );
@@ -410,7 +410,7 @@ System.out.println( "Subject2: " + messages2);</programlisting>
       moreinfo="none">StringUtils.abbreviate( )</literal> method to print the
       context in which a word appears:</para>
 
-      <programlisting format="linespecific" id="I_2_tt62">String message = "There was a palpable sense that the rest of the world " +
+      <programlisting language="java" format="linespecific" id="I_2_tt62">String message = "There was a palpable sense that the rest of the world " +
                  "might, one day, cease to exist. In the midst of the " +
                  "confusion - the absence of firm ground - something would " +
                  "fail to recover. The whole city is still, in a way, " +
@@ -503,7 +503,7 @@ int width = 20 + message.length( );
       following example demonstrates splitting strings of a comma and a
       space:</para>
 
-      <programlisting format="linespecific" id="I_2_tt64">import org.apache.commons.lang.ArrayUtils;
+      <programlisting language="java" format="linespecific" id="I_2_tt64">import org.apache.commons.lang.ArrayUtils;
 
 String input = "Frantically oblong";
 String input2 = "Pharmacy, basketball,funky";
@@ -561,7 +561,7 @@ System.out.println( ArrayUtils.toString( array2 ) );</programlisting>
       expression, but, in this example, you simply want to split a string on
       one of two characters:</para>
 
-      <programlisting format="linespecific" id="I_2_tt66">String test = "One, Two Three, Four Five";
+      <programlisting language="java" format="linespecific" id="I_2_tt66">String test = "One, Two Three, Four Five";
 String[] tokens = test.split( "[' '',']" );
 
 System.out.println( ArrayUtils.toString( tokens );</programlisting>
@@ -634,7 +634,7 @@ System.out.println( ArrayUtils.toString( tokens );</programlisting>
       which are supplied as parameters. The following example demonstrates the
       use of this method to extract content from HTML:</para>
 
-      <programlisting format="linespecific" id="I_2_tt68">String htmlContent = "&lt;html&gt;\n" +
+      <programlisting language="java" format="linespecific" id="I_2_tt68">String htmlContent = "&lt;html&gt;\n" +
                      "  &lt;head&gt;\n" +
                      "    &lt;title&gt;Test Page&lt;/title&gt;\n" +
                      "  &lt;/head&gt;\n" +
@@ -675,7 +675,7 @@ System.out.println( "Title: " + title );</programlisting>
       In the following example, three variables are extracted from a string
       using <literal moreinfo="none">substringBetween( )</literal>:</para>
 
-      <programlisting format="linespecific" id="I_2_tt70">String variables = "{45}, {35}, {120}" ;
+      <programlisting language="java" format="linespecific" id="I_2_tt70">String variables = "{45}, {35}, {120}" ;
 List numbers = new ArrayList( );
 
 String variablesTemp = variables;
@@ -701,7 +701,7 @@ System.out.println( "Variables: " + variables + ", Sum: " + sum );</programlisti
       <para><literal moreinfo="none">StringUtils.substringBetween( )</literal>
       can also find text that is delimited by the same character:</para>
 
-      <programlisting format="linespecific" id="I_2_tt72">String message = "|TESTING| BOUNDARYExampleBOUNDARY";
+      <programlisting language="java" format="linespecific" id="I_2_tt72">String message = "|TESTING| BOUNDARYExampleBOUNDARY";
 String first = StringUtils.substringBetween( message, "|"); 
 String second = StringUtils.substringBetween( message, "BOUNDARY");</programlisting>
 
@@ -800,14 +800,14 @@ String second = StringUtils.substringBetween( message, "BOUNDARY");</programlist
         </indexterm> takes a string and removes every whitespace and control
       character from the beginning and the end:</para>
 
-      <programlisting format="linespecific" id="I_2_tt73">String test1 = " \a\r Testing 1 2 3 ";
+      <programlisting language="java" format="linespecific" id="I_2_tt73">String test1 = " \a\r Testing 1 2 3 ";
 String test2 = " \r\n ";
  
 String trimTest1 = StringUtils.trim( test1 );
 String trimTest2 = StringUtils.trimToNull( test2 );
 
 System.out.println( trimTest1 );
-System.our.println( trimTest2 );</programlisting>
+System.out.println( trimTest2 );</programlisting>
 
       <para>This code produces the following result. The <literal
       moreinfo="none">test1</literal> variable is trimmed of leading and
@@ -854,7 +854,7 @@ null</programlisting>
         example, dashes and asterisks are stripped from the start and end of a
         string:</para>
 
-        <programlisting format="linespecific" id="I_2_tt75">String original = "-------***---SHAZAM!---***-------";
+        <programlisting language="java" format="linespecific" id="I_2_tt75">String original = "-------***---SHAZAM!---***-------";
 String stripped = StringUtils.strip( original, "-*" );
 
 System.out.println( "Stripped: " + stripped )</programlisting>
@@ -883,7 +883,7 @@ System.out.println( "Stripped: " + stripped )</programlisting>
           </indexterm> to test if a given parameter is present. Take the
         following servlet code as an example:</para>
 
-        <programlisting format="linespecific" id="I_2_tt77">public void doGet(HttpServletRequest request, HttpServletResponse response)
+        <programlisting language="java" format="linespecific" id="I_2_tt77">public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException {
 
     String companyName = 
@@ -974,7 +974,7 @@ System.out.println( "Stripped: " + stripped )</programlisting>
         </indexterm> <literal moreinfo="none">StringUtils.chomp( )</literal>
       to remove the last line termination sequence from a string:</para>
 
-      <programlisting format="linespecific" id="I_2_tt78">String input = "Hello\n";
+      <programlisting language="java" format="linespecific" id="I_2_tt78">String input = "Hello\n";
 String chomped = StringUtils.chomp( input );
 // chomped equals "Hello"
 
@@ -1053,7 +1053,7 @@ String chomped2 = StringUtils.chomp( input2 );
       to create a textual header. The following example demonstrates the use
       of these three methods to create a header:</para>
 
-      <programlisting format="linespecific" id="I_2_tt79">public String createHeader( String title ) {
+      <programlisting language="java" format="linespecific" id="I_2_tt79">public String createHeader( String title ) {
     int width = 30;
     // Construct heading using StringUtils: repeat( ), center( ), and join( )
     String stars = StringUtils.repeat( "*", width);
@@ -1135,7 +1135,7 @@ String chomped2 = StringUtils.chomp( input2 );
       return a reversed copy. The following example reverses two
       strings:</para>
 
-      <programlisting format="linespecific" id="I_2_tt81">String original = "In time, I grew tired of his babbling nonsense.";
+      <programlisting language="java" format="linespecific" id="I_2_tt81">String original = "In time, I grew tired of his babbling nonsense.";
 String reverse = StringUtils.reverse( original );
 String originalGenes = "AACGTCCCTTGGTTTCCCAAAGTTTCCCTTTGAAATATATGCCCGCG";
 String reverseGenes = StringUtils.reverse( originalGenes );
@@ -1167,7 +1167,7 @@ Reverse: GCGCCCGTATATAAAGTTTCCCTTTGAAACCCTTTGGTTCCCTGCAA</programlisting>
       reverse the order of words delimited by spaces. The following example
       reverses an unrealistically simple English sentence:</para>
 
-      <programlisting format="linespecific" id="I_2_tt83">public Sentence reverseSentence(String sentence) {
+      <programlisting language="java" format="linespecific" id="I_2_tt83">public Sentence reverseSentence(String sentence) {
     String reversed = StringUtils.chomp( sentence, "." );
     reversed = StringUtils.reverseDelimited( reversed, ' ' );
     reversed = reversed + ".";
@@ -1242,7 +1242,7 @@ Susan am I.</programlisting>
       moreinfo="none">WordUtils</literal> will wrap text. The following
       example wraps a small string to 20 columns:</para>
 
-      <programlisting format="linespecific" id="I_2_tt85">// Define original String
+      <programlisting language="java" format="linespecific" id="I_2_tt85">// Define original String
 String message = "One Two Three Four Five";
 
 // Wrap the text.
@@ -1275,7 +1275,7 @@ Five</programlisting>
       System property <literal
       moreinfo="none">application.platform</literal>:</para>
 
-      <programlisting format="linespecific" id="I_2_tt87">String message = "Four score and seven years ago, our fathers " +
+      <programlisting language="java" format="linespecific" id="I_2_tt87">String message = "Four score and seven years ago, our fathers " +
                  "brought forth upon this continent a new nation: " +
                  "conceived in liberty, and dedicated to the proposition " +
                  "that all men are created equal. ";
@@ -1311,7 +1311,7 @@ String wrappedString =
       prevent <literal moreinfo="none">WordUtils</literal> from wrapping
       larger words:</para>
 
-      <programlisting format="linespecific" id="I_2_tt88">String message = "Four score and seven years ago, our fathers " +
+      <programlisting language="java" format="linespecific" id="I_2_tt88">String message = "Four score and seven years ago, our fathers " +
                  "brought forth upon this continent a new nation: conceived " +
                  "in liberty, and dedicated to the proposition that all men " +
                  "are created equal. <userinput moreinfo="none">http://www.oreilly.com/Gettysburg</userinput> ";
@@ -1402,15 +1402,15 @@ String wrappedString = WordUtils.wrap( message, 40, "&lt;br/&gt;", false );</pro
         </indexterm> verify that a string does not contain any undesired
       characters:</para>
 
-      <programlisting format="linespecific" id="I_2_tt89">String state = "Virginia"
+      <programlisting language="java" format="linespecific" id="I_2_tt89">String state = "Virginia"
 
-System.our.println( "Is state number? " + 
+System.out.println( "Is state number? " + 
                     StringUtils.isNumeric( state ) );
-System.our.println( "Is state alpha? " + 
+System.out.println( "Is state alpha? " + 
                     StringUtils.isAlpha( state ) );
-System.our.println( "Is state alphanumeric? " + 
+System.out.println( "Is state alphanumeric? " + 
                     StringUtils.isAlphanumeric( state ) );
-System.our.println( "Is state alphaspace? " + 
+System.out.println( "Is state alphaspace? " + 
                     StringUtils.isAlphaspace( state ) );</programlisting>
 
       <para>This code tests the string "Virginia" against four validation
@@ -1431,7 +1431,7 @@ Is state alphaspace? true</programlisting>
       age, you need to have a way to ensure that the input supplied is, in
       fact, a numeric value:</para>
 
-      <programlisting format="linespecific" id="I_2_tt91">String test1 = "1976";
+      <programlisting language="java" format="linespecific" id="I_2_tt91">String test1 = "1976";
 String test2 = "Mozart";
 
 boolean t1val = StringUtils.isNumeric( test1 );
@@ -1449,7 +1449,7 @@ Is Mozart a number? false</programlisting>
       <para>You can use the following code to see if a string contains only
       letters or a combination of letters and numbers:</para>
 
-      <programlisting format="linespecific" id="I_2_tt93">String test1 = "ORANGE";
+      <programlisting language="java" format="linespecific" id="I_2_tt93">String test1 = "ORANGE";
 String test2 = "ICE9";
 String test3 = "ICE CREAM";
 String test4 = "820B Judson Avenue";
@@ -1482,7 +1482,7 @@ boolean t4val =
       allow for names with punctuation. Here is an example that validates a
       name with a dash, an apostrophe, and a period:</para>
 
-      <programlisting format="linespecific" id="I_2_tt94">String name1 = "Tim O'Reilly";
+      <programlisting language="java" format="linespecific" id="I_2_tt94">String name1 = "Tim O'Reilly";
 String name2 = "Mr. Mason-Dixon!";
 
 String punctuation = ".-'";
@@ -1561,7 +1561,7 @@ boolean t2val = StringUtils.isAlpha( name2Temp ); // returns false</programlisti
         </indexterm> returns the frequency of a piece of text within another
       string:</para>
 
-      <programlisting format="linespecific" id="I_2_tt95">File manuscriptFile = new File("manuscript.txt");
+      <programlisting language="java" format="linespecific" id="I_2_tt95">File manuscriptFile = new File("manuscript.txt");
 Reader reader = new FileReader( manuscriptFile );
 StringWriter stringWriter = new StringWriter( );
 while( reader.ready( ) ) { writer.write( reader.read( ) ); }
@@ -1588,7 +1588,7 @@ int numFutility = StringUtils.countMatches( manuscript, "futility" );</programli
       sum the number of matches as each line is read. A more efficient
       implementation of the previous example would look like this:</para>
 
-      <programlisting format="linespecific" id="I_2_tt96">File manuscriptFile = new File("manuscript.txt");
+      <programlisting language="java" format="linespecific" id="I_2_tt96">File manuscriptFile = new File("manuscript.txt");
 Reader reader = new FileReader( manuscriptFile );
 LineNumberReader lineReader = new LineNumberReader( reader );
 int numOccurences = 0;
@@ -1686,7 +1686,7 @@ while( lineReader.ready( ) ) {
       [<replaceable>N3</replaceable>,<replaceable>N4</replaceable>] |
       <replaceable>N5</replaceable>):</para>
 
-      <programlisting format="linespecific" id="I_2_tt97">String formatted = " 25 * (30,40) [50,60] | 30"
+      <programlisting language="java" format="linespecific" id="I_2_tt97">String formatted = " 25 * (30,40) [50,60] | 30"
 
 PrintWriter out = System.out;
 out.print("N0: " + StringUtils.substringBeforeLast( formatted, "*" ) );
@@ -1781,7 +1781,7 @@ Example:
       moreinfo="none">boxScore</literal> variable holds a test string to
       parse, and, once parsed, this code prints out the game score:</para>
 
-      <programlisting format="linespecific" id="I_2_tt100">// Create a formatted string to parse - get this from a feed
+      <programlisting language="java" format="linespecific" id="I_2_tt100">// Create a formatted string to parse - get this from a feed
 char SOT = '\u0002';
 char ETX = '\u0004';
 String boxScore = SOT + "Basketball[CHI,BOS](69,75)\r\n" + ETX;
@@ -1823,7 +1823,7 @@ out.println( "\t" + team2 + "\t" + score2 );</programlisting>
       of Commons Lang? The following example parses the same string using only
       methods available in the Java 1.4 J2SE:</para>
 
-      <programlisting format="linespecific" id="I_2_tt102">// Find the sport name without using StringUtils
+      <programlisting language="java" format="linespecific" id="I_2_tt102">// Find the sport name without using StringUtils
 boxScore = boxScore.trim( );
 
 int firstBracket = boxScore.indexOf( "[" );
@@ -1930,7 +1930,7 @@ String score2 = boxScore.substring( secondComma + 1, secondParen );</programlist
       the "edit distance" between two strings. The following example
       demonstrates all three of these methods:</para>
 
-      <programlisting format="linespecific" id="I_2_tt103">int dist = StringUtils.getLevenshteinDistance( "Word", "World" );
+      <programlisting language="java" format="linespecific" id="I_2_tt103">int dist = StringUtils.getLevenshteinDistance( "Word", "World" );
 String diff = StringUtils.difference( "Word", "World" );
 int index = StringUtils.indexOfDifference( "Word", "World" );
 
@@ -1977,7 +1977,7 @@ Diff Index: 3</programlisting>
       and the index of the difference is 2. Here's a more complex
       example:</para>
 
-      <programlisting format="linespecific" id="I_2_tt105">String a = "Strategy";
+      <programlisting language="java" format="linespecific" id="I_2_tt105">String a = "Strategy";
 String b = "Strategic";
 
 String difference = StringUtils.difference( a, b );
@@ -2017,7 +2017,7 @@ index(...,...) = 17</programlisting>
       string A to string B. The following example demonstrates the <literal
       moreinfo="none">getLevenshteinDistance( )</literal> method:</para>
 
-      <programlisting format="linespecific" id="I_2_tt107">int distance1 = 
+      <programlisting language="java" format="linespecific" id="I_2_tt107">int distance1 = 
     StringUtils.getLevenshteinDistance( "Boat", "Coat" );
 int distance2 = 
     StringUtils.getLevenshteinDistance( "Remember", "Alamo" );
@@ -2069,7 +2069,7 @@ distance(Steve, Stereo): 3</programlisting>
       <example id="manipulate-text-ex-add-depend-codec">
         <title>Adding a Dependency on Commons Codec</title>
 
-        <programlisting>&lt;dependency&gt;
+        <programlisting language="xml">&lt;dependency&gt;
   &lt;groupId&gt;commons-codec&lt;/groupId&gt;
   &lt;artifactId&gt;commons-codec&lt;/artifactId&gt;
   &lt;version&gt;1.3&lt;/version&gt;
@@ -2170,7 +2170,7 @@ distance(Steve, Stereo): 3</programlisting>
       moreinfo="none">Soundex</literal> will produce a phonetic
       encoding:</para>
 
-      <programlisting format="linespecific" id="I_2_tt110">// Required import declaration
+      <programlisting language="java" format="linespecific" id="I_2_tt110">// Required import declaration
 import org.apache.commons.codec.language.Soundex;
 
 // Code body

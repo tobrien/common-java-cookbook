@@ -61,7 +61,7 @@
       <example id="app-infra-ex-add-depend-cli">
         <title>Adding a Dependency on Commons CLI</title>
 
-        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+        <programlisting language="xml" db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
                         db:file="cjcook-examples-${project.version}/pom.xml"
                         db:xpath="//dependency[artifactId='commons-cli']"/>
 
@@ -121,7 +121,7 @@
       line, your <literal moreinfo="none">main( )</literal> method would
       resemble the following code:</para>
 
-      <programlisting format="linespecific" id="I_7_tt296"><userinput
+      <programlisting language="java" format="linespecific" id="I_7_tt296"><userinput
           moreinfo="none">import org.apache.commons.cli.CommandLineParser;</userinput>
 <userinput moreinfo="none">import org.apache.commons.cli.BasicParser;</userinput>
 <userinput moreinfo="none">import org.apache.commons.cli.Options;</userinput>
@@ -211,7 +211,7 @@
       moreinfo="none">options.addOption( )</literal> in the previous example,
       which adds the help option:</para>
 
-      <programlisting format="linespecific" id="I_7_tt297">Option helpOption = new Option("h", "Prints this usage information");
+      <programlisting language="java" format="linespecific" id="I_7_tt297">Option helpOption = new Option("h", "Prints this usage information");
 helpOption.setLongOpt( "help" );
 options.addOption( helpOption );</programlisting>
 
@@ -297,7 +297,7 @@ options.addOption( helpOption );</programlisting>
       <literal moreinfo="none">Options</literal> object used to parse the
       program arguments:</para>
 
-      <programlisting format="linespecific" id="I_7_tt298"><userinput
+      <programlisting language="java" format="linespecific" id="I_7_tt298"><userinput
           moreinfo="none">import org.apache.commons.cli.CommandLineParser;</userinput>
 <userinput moreinfo="none">import org.apache.commons.cli.BasicParser;</userinput>
 <userinput moreinfo="none">import org.apache.commons.cli.Options;</userinput>
@@ -342,7 +342,7 @@ options.addOption( helpOption );</programlisting>
       chaining a series of method calls. For example, the following code
       creates a required option, "b," which takes an argument:</para>
 
-      <programlisting format="linespecific" id="I_7_tt299">Option option = OptionBuilder.hasArgs(true).isRequired(true).create('b');</programlisting>
+      <programlisting language="java" format="linespecific" id="I_7_tt299">Option option = OptionBuilder.hasArgs(true).isRequired(true).create('b');</programlisting>
 
       <para><literal moreinfo="none">OptionGroup</literal> objects are a good
       way to enforce the structure of command-line options. If you were
@@ -429,7 +429,7 @@ options.addOption( helpOption );</programlisting>
       <example id="app-infra-ex-1" label="7-1">
         <title>Printing usage information with HelpFormatter</title>
 
-        <programlisting format="linespecific"><userinput moreinfo="none">import org.apache.commons.cli.CommandLineParser;</userinput>
+        <programlisting language="java" format="linespecific"><userinput moreinfo="none">import org.apache.commons.cli.CommandLineParser;</userinput>
 <userinput moreinfo="none">import org.apache.commons.cli.BasicParser;</userinput>
 <userinput moreinfo="none">import org.apache.commons.cli.Options;</userinput>
 <userinput moreinfo="none">import org.apache.commons.cli.OptionBuilder;</userinput>
@@ -565,7 +565,7 @@ For more instructions, see our website at: http://www.blah123.org</programlistin
       <example id="app-infra-ex-add-depend-configuration">
         <title>Adding a Dependency on Commons Configuration</title>
 
-        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+        <programlisting language="xml" db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
                         db:file="cjcook-examples-${project.version}/pom.xml"
                         db:xpath="//dependency[artifactId='commons-configuration']"/>
       </example>
@@ -646,7 +646,7 @@ correct=false</programlisting>
       moreinfo="none">PropertiesConfiguration</literal> and accesses each
       property:</para>
 
-      <programlisting format="linespecific" id="I_7_tt302">import org.apache.commons.configuration.Configuration;
+      <programlisting language="java" format="linespecific" id="I_7_tt302">import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.PropertiesConfiguration;
 
 Configuration config = new PropertiesConfiguration( "test.properties" );
@@ -738,7 +738,7 @@ boolean correct = config.getBoolean("correct");</programlisting>
       configuration information that is loaded with a <literal
       moreinfo="none">DOMConfiguration</literal> object:</para>
 
-      <programlisting format="linespecific" id="I_7_tt303">&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+      <programlisting language="xml" format="linespecific" id="I_7_tt303">&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
 
 &lt;engine-config&gt;
     &lt;start-criteria&gt;
@@ -766,7 +766,7 @@ boolean correct = config.getBoolean("correct");</programlisting>
       configuration with <literal moreinfo="none">DOMConfiguration</literal>
       follows:</para>
 
-      <programlisting format="linespecific" id="I_7_tt304">import org.apache.commons.configuration.Configuration;
+      <programlisting language="java" format="linespecific" id="I_7_tt304">import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.DOMConfiguration;
 
 String resource = "com/discursive/jccook/configuration/global.xml";
@@ -1052,7 +1052,7 @@ name=Sean</programlisting>
       overrides <filename moreinfo="none">local.properties</filename>, which
       overrides <filename moreinfo="none">global.properties</filename>:</para>
 
-      <programlisting format="linespecific" id="I_7_tt305">&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+      <programlisting language="xml" format="linespecific" id="I_7_tt305">&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
 
 &lt;configuration&gt;
     &lt;properties fileName="user.properties"/&gt;
@@ -1067,7 +1067,7 @@ name=Sean</programlisting>
       resolves application configuration parameters according to the rules
       outlined above:</para>
 
-      <programlisting format="linespecific" id="I_7_tt306">import org.apache.commons.configuration.Configuration;
+      <programlisting language="java" format="linespecific" id="I_7_tt306">import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationFactory;
 
 // Configure Factory 
@@ -1135,7 +1135,7 @@ Speed: 75</programlisting>
       create a <literal moreinfo="none">Configuration</literal> instance that
       looks for properties from a properties file and an XML document:</para>
 
-      <programlisting format="linespecific" id="I_7_tt308">&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+      <programlisting language="xml" format="linespecific" id="I_7_tt308">&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
 
 &lt;configuration&gt;
     &lt;properties fileName="test.properties"/&gt;
@@ -1217,7 +1217,7 @@ Speed: 75</programlisting>
       <example id="app-infra-ex-add-depend-logging">
         <title>Adding a Dependency on Commons Logging</title>
 
-        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+        <programlisting language="xml" db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
                         db:file="cjcook-examples-${project.version}/pom.xml"
                         db:xpath="//dependency[artifactId='commons-logging']"/>
 
@@ -1282,7 +1282,7 @@ Speed: 75</programlisting>
       the <literal moreinfo="none">Log</literal> interface to log trace,
       debug, info, warning, error, and fatal messages:</para>
 
-      <programlisting format="linespecific" id="I_7_tt310">import org.apache.commons.logging.LogFactory;
+      <programlisting language="java" format="linespecific" id="I_7_tt310">import org.apache.commons.logging.LogFactory;
 import org.apache.commons.logging.Log
 
 Log log = LogFactory.getLog( "com.discursive.jccook.SomeApp" ); 
@@ -1368,7 +1368,7 @@ log.fatal( "This is fatal" );</programlisting>
       moreinfo="none">org.apache.commons.logging.impl.Log4JLogger</literal>
       with the following statement:</para>
 
-      <programlisting format="linespecific" id="I_7_tt311">System.setProperty( "org.apache.commons.logging.Log",
+      <programlisting language="java" format="linespecific" id="I_7_tt311">System.setProperty( "org.apache.commons.logging.Log",
                     "org.apache.commons.logging.impl.Log4JLogger" );</programlisting>
 
       <para>If the system property <filename
@@ -1497,7 +1497,7 @@ log.fatal( "This is fatal" );</programlisting>
       <example id="app-infra-ex-add-depend-log4j">
         <title>Adding a Dependency on Apache Log4J</title>
 
-        <programlisting db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
+        <programlisting language="xml" db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
                         db:file="cjcook-examples-${project.version}/pom.xml"
                         db:xpath="//dependency[artifactId='log4j']"/>
       </example>
@@ -1565,7 +1565,7 @@ log.fatal( "This is fatal" );</programlisting>
       resource named <filename moreinfo="none">log4j.properties</filename>,
       and logs two messages:</para>
 
-      <programlisting format="linespecific" id="I_7_tt312">import org.apache.log4j.PropertyConfigurator;
+      <programlisting language="java" format="linespecific" id="I_7_tt312">import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.Logger;
 
 URL log4Jresource = this.getClass( ).getResource("log4j.properties");
@@ -1735,7 +1735,7 @@ ERROR (Sample.java:25) This is an error message</programlisting>
       Log4J from a resource named <filename
       moreinfo="none">log4j.xml</filename>, and logs two messages:</para>
 
-      <programlisting format="linespecific" id="I_7_tt316">import org.apache.log4j.DOMConfigurator;
+      <programlisting language="java" format="linespecific" id="I_7_tt316">import org.apache.log4j.DOMConfigurator;
 import org.apache.log4j.Logger;
 
 URL log4Jresource = this.getClass( ).getResource("log4j.xml");
@@ -1753,7 +1753,7 @@ log.error( "This is an error message" );</programlisting>
       previous example; log messages are sent to both the console and a
       <literal moreinfo="none">RollingFileAppender</literal>:</para>
 
-      <programlisting format="linespecific" id="I_7_tt317">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+      <programlisting language="xml" format="linespecific" id="I_7_tt317">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
 &lt;configuration configDebug="true"&gt;
 
     &lt;appender name="STDOUT" class="org.apache.log4j.ConsoleAppender"&gt;
