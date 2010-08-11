@@ -574,11 +574,12 @@ public class CheckinTiming {
 
     PositionData[] pArray = new PositionData[size];
 
+    Date now = new Date();
     long preCreate = (new Date()).getTime();
     for( int i = 0; i &lt; size; i++ ) {
       PositionData pData = PositionData.newBuilder()
         .setVehicleId(1)
-        .setTimestamp( (new Date()).getTime() )
+        .setTimestamp( now.getTime() )
         .setAltitude( 123.0f )
         .setLatitude( 1.0f )
         .setLongitude( 1.0f )
@@ -631,7 +632,7 @@ public class CheckinTiming {
           processor in 2010.</para>
         </footnote>:</para>
 
-      <screen>Create One PositionData 488 ns
+      <screen>Create One PositionData 404 ns
 Encode One PositionData to byte[] 595 ns
 Decode One PositionData from byte[] 970 ns</screen>
     </sect2>
@@ -651,8 +652,8 @@ Decode One PositionData from byte[] 970 ns</screen>
       <para>If you are trying to support a decision to use Protocol Buffers
       for encoding data, execution time for encoding and parsing in Java is
       only one part of the argument. You should compare these numbers with the
-      execution times for encoding and decoding data to and from JSON and XML.
-      </para>
+      execution times for encoding and decoding data to and from JSON and
+      XML.</para>
 
       <para>You should also compare the size of the resulting messages. If you
       are building a production network which needs to tackle big data, a 26
@@ -666,7 +667,7 @@ Decode One PositionData from byte[] 970 ns</screen>
           other achievements based on threes. (Source: <ulink
           url="http://en.wikipedia.org/wiki/Hat-trick">http://en.wikipedia.org/wiki/Hat-trick</ulink>)</para>
         </footnote>: helping you save CPU time, disk space, and network
-      bandwith. </para>
+      bandwith.</para>
     </sect2>
   </sect1>
 </chapter>

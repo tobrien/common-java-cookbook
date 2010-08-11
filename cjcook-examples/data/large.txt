@@ -1,0 +1,6 @@
+This is a fixed preamble.  Some sort of header that is always
+present in this file.   It isn't something we're very interested in, and 
+it almost never changes.
+
+The good stuff always starts in this paragraph, and luckily the header is 
+always of a predetermined length.

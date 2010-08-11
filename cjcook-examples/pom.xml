@@ -2,8 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
   	<artifactId>cjcook-parent</artifactId>
-  	<groupId>org.codehaus.cjcook</groupId>
-  	<version>0.22</version>
+  	<groupId>com.discursive.cjcook</groupId>
+  	<version>0.23-SNAPSHOT</version>
   </parent>
   <artifactId>cjcook-examples</artifactId>
   <packaging>jar</packaging>
@@ -123,7 +123,7 @@
     	<groupId>net.sf.json-lib</groupId>
     	<artifactId>json-lib</artifactId>
     	<version>2.3</version>
-      <classifier>jdk15</classifier>
+        <classifier>jdk15</classifier>
     </dependency>
     <dependency>
     	<groupId>xom</groupId>
@@ -136,6 +136,13 @@
     	<groupId>com.google.protobuf</groupId>
     	<artifactId>protobuf-java</artifactId>
     	<version>2.3.0</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>com.google.guava</groupId>
+    	<artifactId>guava</artifactId>
+    	<version>r06</version>
     	<type>jar</type>
     	<scope>compile</scope>
     </dependency>

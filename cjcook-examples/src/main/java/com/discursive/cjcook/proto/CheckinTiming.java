@@ -13,11 +13,12 @@ public class CheckinTiming {
 		
 		PositionData[] pArray = new PositionData[size];
 		
+		Date now = new Date();
 		long preCreate = (new Date()).getTime();
 		for( int i = 0; i < size; i++ ) {
 			PositionData pData = PositionData.newBuilder()
 				.setVehicleId(1)
-				.setTimestamp( (new Date()).getTime() )
+				.setTimestamp( now.getTime() )
 				.setAltitude( 123.0f )
 				.setLatitude( 1.0f )
 				.setLongitude( 1.0f )

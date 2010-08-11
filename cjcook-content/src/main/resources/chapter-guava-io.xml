@@ -1,0 +1,1244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://mars.discursive.com/docbook/xml/4.5/docbookx.dtd">
+<chapter id="guava-io">
+  <title>Google Guava: I/O</title>
+
+  <sect1 id="guava-io-sect-intro">
+    <title>Introduction</title>
+
+    <sect2>
+      <title>What is Guava?</title>
+
+      <para>Google Guava is a collection of simple core Java libraries used at
+      Google. It is a collection of utility classes and static methods
+      reminiscent of the Apache Commons components discussed in previous
+      chapters.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-obtaining" role="Recipe">
+    <title>Obtaining Google Guava</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to use Google Guava in a project.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>To use Google Guava in a Maven 2 project, add the following
+      dependency to your project's <filename>pom.xml</filename>:</para>
+
+      <example id="guava-io-ex-depend">
+        <title>Adding a Dependency on Google Guava</title>
+
+        <programlisting>&lt;dependency&gt;
+  &lt;groupId&gt;com.google.guava&lt;/groupId&gt;
+  &lt;artifactId&gt;guava&lt;/artifactId&gt;
+  &lt;version&gt;r06&lt;/version&gt;
+&lt;/dependency&gt;
+</programlisting>
+      </example>
+
+      <para>If you are not sure what this means, I'd suggest reading <ulink
+      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
+      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      do is add the dependency <varname>groupId</varname>,
+      <varname>artifactId</varname>, and <varname>version</varname> to your
+      project's dependencies. Once you do this, Maven 2 will download the
+      dependency and make it available on your project's classpath.</para>
+    </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para>For more information about the Google Guava project, see the
+      project page at <ulink
+      url="http://code.google.com/p/guava-libraries/">http://code.google.com/p/guava-libraries/</ulink>.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-copying-inout">
+    <title>Copying and InputStream to an OutputStream</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to copy the contents of an
+      <classname>InputStream</classname> to the contents of an
+      <classname>OutputStream</classname>.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use the static copy method on <classname>ByteStreams</classname>
+      as shown in <xref linkend="guava-io-ex-copy" />.</para>
+
+      <example id="guava-io-ex-copy">
+        <title>Copying the Contents of an InputStream to an
+        OutputStream</title>
+
+        <programlisting>package com.discursive.cjcook.guava.io;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import com.google.common.io.ByteStreams;
+
+public class CopyStreams {
+
+  public static void main(String[] args) throws IOException {
+    InputStream is = CopyStreams.class.getResourceAsStream("test.data");
+    OutputStream os = System.out;
+
+    ByteStreams.copy(is, os);
+  }
+
+}
+</programlisting>
+      </example>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-calc-sum-stream">
+    <title>Calculating a Checksum for a Byte Array</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to calculate the checksum for an array of bytes.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use the <methodname>ByteStreams.getChecksum()</methodname> method
+      and pass the method a <classname>Checksum</classname> object as shown in
+      the following example.</para>
+
+      <example id="guava-io-ex-checksum">
+        <title>Calculating the Checksum of a Byte Array</title>
+
+        <programlisting>package com.discursive.cjcook.guava.io;
+
+import java.io.InputStream;
+import java.util.zip.CRC32;
+import java.util.zip.Checksum;
+
+import com.google.common.io.ByteArrayDataInput;
+import com.google.common.io.ByteStreams;
+
+public class ChecksumStream {
+  public static void main(String[] args) throws Exception {
+    InputStream test = ChecksumStream.class
+        .getResourceAsStream("test.data");
+    byte[] byteArray = ByteStreams.toByteArray(test);
+
+    CRC32 crc32 = new CRC32();
+    long checksum = ByteStreams.getChecksum(ByteStreams
+        .newInputStreamSupplier(byteArray), crc32);
+    System.out.printf("Checksum: %d", checksum);
+  }
+}</programlisting>
+      </example>
+
+      <para>This produces the following output:</para>
+
+      <screen>Checksum: 3946081184</screen>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-calc-dig-stream">
+    <title>Calculating a Message Digest for a Byte Array</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to calculate a message digest for an array of
+      bytes.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use the <methodname>ByteStreams.getDigest()</methodname> method
+      and pass the method a <classname>MessageDigest</classname> object as
+      shown in the following example.</para>
+
+      <example>
+        <title>Calculating the MessageDigest of a Byte Array</title>
+
+        <programlisting>package com.discursive.cjcook.guava.io;
+
+import java.io.InputStream;
+import java.security.MessageDigest;
+import java.util.zip.CRC32;
+import java.util.zip.Checksum;
+
+import org.apache.commons.codec.binary.Hex;
+
+import com.google.common.io.ByteArrayDataInput;
+import com.google.common.io.ByteStreams;
+
+public class DigestBytes {
+  public static void main(String[] args) throws Exception {
+    InputStream test = DigestBytes.class.getResourceAsStream("test.data");
+    byte[] byteArray = ByteStreams.toByteArray(test);
+
+    MessageDigest sha = MessageDigest.getInstance("SHA-256");
+    byte[] digest = ByteStreams.getDigest(ByteStreams
+        .newInputStreamSupplier(byteArray), sha);
+    for (byte b : digest)
+      System.out.printf("%02x:", 0xFF &amp; b);
+  }
+}
+</programlisting>
+      </example>
+
+      <para>This produces the following output:</para>
+
+      <screen>c3:de:3a:a1:9f:7d:8f:7c:e2:87:ef:8e:2c:19:73:62:47:2b:
+95:dd:f0:3f:39:51:a5:02:04:24:e5:6e:a7:a0:</screen>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-concat-streams">
+    <title>Concatenating Multiple Files</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You want to combine multiple InputStreams into a single
+      InputStream.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Create new InputSuppliers from files using
+      Files.newInputStreamSupplier(), create an OutputSupplier using
+      Files.newOutputStreamSupplier, join the InputSupplier instances using
+      ByteStreams.join(), and then copy the combined InputSupplier to the
+      OutputSupplier using ByteStreams.copy().</para>
+
+      <example>
+        <title>Joining Two Files using ByteStreams.join() and
+        ByteStreams.copy()</title>
+
+        <programlisting>package com.discursive.cjcook.guava.io;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.nio.charset.Charset;
+
+import com.google.common.io.ByteStreams;
+import com.google.common.io.CharStreams;
+import com.google.common.io.Files;
+import com.google.common.io.InputSupplier;
+import com.google.common.io.OutputSupplier;
+
+public class JoinFiles {
+  public static void main(String[] args) throws Exception {
+  
+    InputSupplier&lt;FileInputStream&gt; is = Files.newInputStreamSupplier( new File("data", "test1.txt" ) );
+    InputSupplier&lt;FileInputStream&gt; is2 = Files.newInputStreamSupplier( new File("data", "test2.txt" ) );
+
+    InputSupplier&lt;InputStream&gt; combined = ByteStreams.join( is, is2 );
+    OutputSupplier&lt;FileOutputStream&gt; os = Files.newOutputStreamSupplier(new File("output1.data"), false );
+    ByteStreams.copy(combined, os );
+  }
+}
+</programlisting>
+      </example>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-concat-readers">
+    <title>Concatenating Multiple Readers</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to concatenate the contents of one or more Readers. In
+      this case, you need to append the contents of two files, and you want to
+      use Readers and Writers to take into account the character sets of the
+      files.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use Files.newReaderSupplier() to create two InputSuppliers. Pass
+      these InputSuppliers to CharStreams.join(). Create an OutputSupplier
+      using Files.newWriterSupplier(), and then use CharStreams.copy() to copy
+      the InputSupplier to the OutputSupplier.</para>
+
+      <example>
+        <title>Joining Two Readers using CharStreams.join() and
+        CharStreams.copy()</title>
+
+        <programlisting>package com.discursive.cjcook.guava.io;
+
+import java.io.File;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Reader;
+import java.nio.charset.Charset;
+
+import com.google.common.io.CharStreams;
+import com.google.common.io.Files;
+import com.google.common.io.InputSupplier;
+import com.google.common.io.OutputSupplier;
+
+public class JoinReaders {
+  public static void main(String[] args) throws Exception {
+    Charset utf8 = Charset.forName("UTF-8");
+
+    InputSupplier&lt;InputStreamReader&gt; rs1 = Files.newReaderSupplier(
+        new File("data", "test1.txt"), utf8);
+    InputSupplier&lt;InputStreamReader&gt; rs2 = Files.newReaderSupplier(
+        new File("data", "test2.txt"), utf8);
+
+    InputSupplier&lt;Reader&gt; combined = CharStreams.join(rs1, rs2);
+
+    OutputSupplier&lt;OutputStreamWriter&gt; ws = Files.newWriterSupplier(
+        new File("output.txt"), utf8, false);
+
+    CharStreams.copy(combined, ws);
+  }
+}
+</programlisting>
+      </example>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-byte-mem">
+    <title>Reading and Writing Byte Arrays to and from Memory</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You are going to be reading and writing byte arrays to and from
+      memory, and you are looking for an alternative to the
+      ByteArrayInputStream and ByteArrayOutputStream that doesn't force you to
+      catch IOException.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>If you are working with in-memory byte arrays, having to deal with
+      IOException is a distraction. Use the ByteArrayDataInput and
+      ByteArrayDataOutput classes instead:</para>
+
+      <example>
+        <title>Using ByteArrayDataOutput and ByteArrayDataInput</title>
+
+        <programlisting>package com.discursive.cjcook.guava.io;
+
+import java.util.Date;
+
+import org.apache.commons.lang.math.RandomUtils;
+
+import com.discursive.cjcook.proto.Checkin.PositionData;
+import com.google.common.io.ByteArrayDataInput;
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
+
+public class ByteArrayExample {
+  public static void main(String[] args) throws Exception {
+    int size = 10000;
+    ByteArrayDataOutput byteOut = ByteStreams.newDataOutput();
+
+    for( int i = 0; i &lt; size; i++ ) {
+      byteOut.writeDouble( RandomUtils.nextDouble() );
+      byteOut.writeInt( RandomUtils.nextInt() );
+    }
+
+    ByteArrayDataInput input = ByteStreams.newDataInput( byteOut.toByteArray() );
+    for( int i = 0; i &lt; size; i++ ) {
+      input.readInt();
+      input.readDouble();
+    }
+  }
+}</programlisting>
+      </example>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>Here's an example of using a ByteArrayOutputStream to write data
+      encoded with Google's Protocol Buffers to an in-memory byte
+      array.</para>
+
+      <example>
+        <title>Writing Data with the ByteArrayDataOutput Class</title>
+
+        <programlisting>package com.discursive.cjcook.guava.io;
+
+import java.util.Date;
+
+import org.apache.commons.lang.math.RandomUtils;
+
+import com.discursive.cjcook.proto.Checkin.PositionData;
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
+
+public class ByteArrayInputExample {
+  public static void main(String[] args) throws Exception {
+    int size = 10000;
+    ByteArrayDataOutput byteOut = ByteStreams.newDataOutput();
+
+    for (int i = 0; i &lt; size; i++) {
+      PositionData pData = PositionData.newBuilder().setVehicleId(1)
+          .setTimestamp((new Date()).getTime()).setAltitude(
+              RandomUtils.nextFloat()).setLatitude(1.0f)
+          .setLongitude(1.0f).setSpeed(RandomUtils.nextInt(100))
+          .build();
+      byteOut.write(pData.toByteArray());
+    }
+
+    byte[] encodedData = byteOut.toByteArray();
+    System.out.printf("%d PositionData objects encoded into %d bytes",
+        size, encodedData.length);
+  }
+}</programlisting>
+      </example>
+
+      <para>This produces the following output:</para>
+
+      <screen>10000 PositionData objects encoded into 260000 bytes</screen>
+
+      <para>If we were to write the same class without the benefit of the
+      ByteArrayDataOutput class, we would have used a ByteArrayOutputStream
+      wrapped with a DataOutputStream. As you can see in the example shown
+      below, this would have called for some exception handling around the
+      call to the write() method.</para>
+
+      <example>
+        <title>Writing Data without the ByteArrayDataOutput Class</title>
+
+        <programlisting>package com.discursive.cjcook.guava.io;
+
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.util.Date;
+
+import org.apache.commons.lang.math.RandomUtils;
+
+import com.discursive.cjcook.proto.Checkin.PositionData;
+
+public class ByteArrayInputExampleAlt {
+  public static void main(String[] args) {
+    int size = 10000;
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    DataOutputStream dos = new DataOutputStream(baos);
+
+    for (int i = 0; i &lt; size; i++) {
+      PositionData pData = PositionData.newBuilder().setVehicleId(1)
+          .setTimestamp((new Date()).getTime()).setAltitude(
+             RandomUtils.nextFloat()).setLatitude(1.0f)
+          .setLongitude(1.0f).setSpeed(RandomUtils.nextInt(100))
+          .build();
+      try {
+        dos.write(pData.toByteArray());
+      } catch (IOException e) {
+        // Please this is a PITA
+        // Use the ByteArrayDataOutput
+      }
+    }
+
+    byte[] encodedData = baos.toByteArray();
+    System.out.printf("%d PositionData objects encoded into %d bytes",
+        size, encodedData.length);
+  }
+}
+</programlisting>
+      </example>
+
+      <para>While the savings in lines of code for this example are minimal,
+      if you are going to be throwing data into and out of in-memory byte
+      arrays, these classes can help minimize the amount of unnecessary
+      exception handling.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-slicing">
+    <title>Slicing (and Dicing) an InputStream</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to read a particular region of an InputStream. Maybe you
+      have an in-memory byte array and you only need to read a particular
+      portion of this array, or maybe you need to read information from a
+      binary file, skipping an unimportant preamble.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use ByteStreams.slice() to slice an InputSupplier. When you slice
+      an InputSupplier, you create a new InputSupplier which will return an
+      InputStream that contains a specified portion of the underlying
+      stream.</para>
+
+      <example>
+        <title>Slicing Data from an InputStream</title>
+
+        <programlisting>package com.discursive.cjcook.guava.io;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+import com.google.common.io.ByteStreams;
+import com.google.common.io.Files;
+import com.google.common.io.InputSupplier;
+
+public class SliceExample {
+  public static void main(String[] args) throws IOException {
+    InputSupplier&lt;FileInputStream&gt; fileIn = Files
+        .newInputStreamSupplier(new File("data", "large.txt"));
+    InputSupplier&lt;InputStream&gt; slicedStream = ByteStreams.slice( fileIn, 10, 1000 );
+    byte[] data = ByteStreams.toByteArray( slicedStream );
+  }
+}
+</programlisting>
+      </example>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>The last two arguments to the slice method are: offset, the number
+      of bytes into the underlying stream to start the newly sliced stream and
+      the maximum number of bytes to return from this newly sliced
+      stream.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-flush-close">
+    <title>Flushing and Closing Stream, Writer, or Reader (without the
+    Headache of Exception Handling)</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You are constantly having to close and flush streams and you would
+      like to avoid having to catch IOException.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use Closeables and Flushables. Here's an example of opening and
+      writing a single byte to a file without the help of any convenience
+      methods from a library like Google Guava or Apache Commons.</para>
+
+      <example id="guava-io-ex-closefluse-no-help">
+        <title>One of the Reasons Java Gets a Bad Rap</title>
+
+        <programlisting>package com.discursive.cjcook.guava.io;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
+public class CloseFlushExample {
+  public static void main(String[] args) {
+    OutputStream os = null;
+    try {
+      os = new FileOutputStream(new File("data", "output.txt"));
+
+      // Do something fantastic with this file!!!
+      // etc.
+      byte magnificentByte = 1;
+      os.write( magnificentByte );
+    } catch (FileNotFoundException fnfe) {
+      // Do something about this file not being found.
+    } catch(IOException ioe) {
+      // Egad, there's been an exception! Do something!!!
+    } finally {
+      try {
+        if (os != null) {
+          os.flush();
+          os.close();
+        }
+      } catch (IOException e) {
+        // Ok, what are you going to do now?
+      }
+    }
+  }
+}
+</programlisting>
+      </example>
+
+      <para>Forget the exception handling outside of the finally block (which
+      is already distracting). If you trying to flush and close the
+      OutputStream in a finally block you are in for a surprise. Since flush()
+      and close() throw an IOException, your finally block has to have a
+      nested try/catch block. While there may be someone, somewhere who is
+      appreciative of the fact that flush() throws an IOException, most
+      systems don't need this much exception handling, and the previous
+      example is exactly the sort of thing that makes your friends who write
+      Ruby code snicker and say somethng like: "Java 10% real code, 90%
+      exception handling".</para>
+
+      <para>The example shown below, uses Closeables and Flushables to quietly
+      flush() and close() the OutputStream. If there is an IOException on
+      flush() or close(), your application won't be bothered.</para>
+
+      <example id="guava-io-ex-closeables-flushables">
+        <title>Using Closeables and Flushables in a finally block</title>
+
+        <programlisting>package com.discursive.cjcook.guava.io;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
+import com.google.common.io.Closeables;
+import com.google.common.io.Flushables;
+
+public class CloseFlushExample {
+  public static void main(String[] args) {
+    OutputStream os = null;
+    try {
+      os = new FileOutputStream(new File("data", "output.txt"));
+
+      // Do something fantastic with this file!!!
+      // etc.
+      byte magnificentByte = 1;
+      os.write( magnificentByte );
+    } catch (FileNotFoundException fnfe) {
+      // Do something about this file not being found.
+    } catch(IOException ioe) {
+      // Egad, there's been an exception! Do something!!!
+    } finally {
+      Flushables.flushQuietly( os );
+      Closeables.closeQuietly( os );
+    }
+  }
+}
+</programlisting>
+      </example>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>While using Closeables and Flushables improves the exception
+      handling situation, is it really that much better? Barely.</para>
+
+      <para>Instead of dealing directly with an OutputStream, you can just use
+      the Files class to create a new OutputSupplier. Then, use the
+      ByteStreams class to write a byte array to this OutputSupplier. If you
+      use ByteStreams, you will only have to catch a single occurence of
+      IOException for your call to write(), and ByteStreams will take care of
+      calling close() on the OutputStream. </para>
+
+      <example id="guava-io-ex-avoid-ex">
+        <title>Avoid Most Exception Handling with ByteStreams.write()</title>
+
+        <programlisting>package com.discursive.cjcook.guava.io;
+
+import java.io.Closeable;
+import java.io.File;
+import java.io.Flushable;
+import java.io.IOException;
+
+import com.google.common.io.ByteStreams;
+import com.google.common.io.Closeables;
+import com.google.common.io.Files;
+import com.google.common.io.Flushables;
+import com.google.common.io.OutputSupplier;
+
+public class CloseFlushExample3 {
+  public static void main(String[] args) {
+    OutputSupplier os = Files.newOutputStreamSupplier(
+        new File("data", "output.txt"));
+    byte magnificentByte = 1;
+    try {
+      ByteStreams.write(new byte[] { magnificentByte }, os);
+    } catch (IOException e) {
+      // Problem writing to file.
+    }
+  }
+}</programlisting>
+
+        <para>Now, isn't that much easier?</para>
+      </example>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-measuring">
+    <title>Measuring Amount of Data Written To and Read From a Stream</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to meter a stream and measure the amount of data read
+      from or written to an <classname>InputStream</classname> or an
+      <classname>OutputStream</classname>.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use a <classname>CountingInputStream</classname> or a
+      <classname>CountingOutputStream</classname> to wrap an
+      <classname>InputStream</classname> and
+      <classname>OutputStream</classname> and measure the number of bytes read
+      from or written to the underlying stream.</para>
+
+      <example id="guava-io-ex-counting">
+        <title>Using a CountingInputStream and CountingOutputStream</title>
+
+        <programlisting>package com.discursive.cjcook.guava.io;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.charset.Charset;
+
+import com.google.common.io.CountingInputStream;
+import com.google.common.io.CountingOutputStream;
+
+public class MeteredExample {
+
+  public static void main(String[] args) throws Exception {
+    InputStream fis = new FileInputStream( new File("data", "large.txt") );
+    CountingInputStream cis = new CountingInputStream( fis );
+
+    while( cis.read() != -1 ) {
+      long bytesRead = cis.getCount();
+      if( bytesRead % 50 == 0 ) {
+        System.out.printf( "Read %d bytes...\n", bytesRead );
+      }
+    }
+
+    OutputStream fos = new FileOutputStream( new File("output.dat" ) );
+    CountingOutputStream cos = new CountingOutputStream( fos );
+    String testString = "TEST STRING";
+    cos.write( testString.getBytes( Charset.defaultCharset() ) );
+    System.out.printf( "Just wrote %d bytes to output.dat", cos.getCount() );
+
+  }
+}
+</programlisting>
+      </example>
+
+      <para>This example produces the following output:</para>
+
+      <screen>Read 50 bytes...
+Read 100 bytes...
+Read 150 bytes...
+Read 200 bytes...
+Read 250 bytes...
+Just wrote 11 bytes to output.dat</screen>
+    </sect2>
+  </sect1>
+
+  <!--  <sect1 id="guava-io-sect-buffering-file">
+    <title>Buffering Data to a File As Needed</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>FileBackedOutputStream</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para>Talk about Norvig's table of relative performance</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-appending-text">
+    <title>Appending Text to Files</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.append</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-appending-bytes">
+    <title>Appending Bytes to Files</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.append</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-mkdir-p">
+    <title>Create Parent Directories (mkdir -p for Java)</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.createParentDirs</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-mktemp">
+    <title>Make a Temporary Directory</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.createTempDir</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-del-contents">
+    <title>Delete Everything in a Directory</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.deleteDirectoryContents</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-del-recurse">
+    <title>Recursively Delete Everything in a Directory (including
+    Subdirectories)</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.deleteRecursively</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-compare-files">
+    <title>Compare Two Files for Equality</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.equal</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-sum-file">
+    <title>Calculate the Checksum of a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.getChecksum</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-dig-file">
+    <title>Calculate the Digest of a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.getDigest</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-map">
+    <title>Map a File to Memory</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.map</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-move">
+    <title>Move a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.move</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-create-streams">
+    <title>Create New InputStreams and OutputStreams for a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.newInputStreamSupplier newOutputStreamSupplier</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-create-readers-writers">
+    <title>Create New Readers and Writers for a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.newReader and Writer, ReaderSupplier and
+      WriterSupplier</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-read-bytes">
+    <title>Read Bytes from a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.readBytes</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-read-text">
+    <title>Read Text from a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.readFirstLine, readLine</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-create-file">
+    <title>Create a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.touch</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-overwrite-file">
+    <title>Overwrite a File</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.write</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-convert-file-bytes">
+    <title>Convert a File to a Byte Array</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Files.toByteArray</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-limit-stream">
+    <title>Putting Limits on an InputStream</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>LimitInputStream</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-abyss">
+    <title>Discarding Bytes into the Abyss</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>NullOutputStream</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-io-sect-filter-regexp">
+    <title>Filtering Files by Regular Expression</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>PatternFilenameFilter</para>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+  </sect1> -->
+</chapter>
