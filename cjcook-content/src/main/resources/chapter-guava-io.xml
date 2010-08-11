@@ -170,7 +170,7 @@ public class ChecksumStream {
       and pass the method a <classname>MessageDigest</classname> object as
       shown in the following example.</para>
 
-      <example>
+      <example id="guava-io-ex-checksum">
         <title>Calculating the MessageDigest of a Byte Array</title>
 
         <programlisting>package com.discursive.cjcook.guava.io;
@@ -226,7 +226,7 @@ public class DigestBytes {
       ByteStreams.join(), and then copy the combined InputSupplier to the
       OutputSupplier using ByteStreams.copy().</para>
 
-      <example>
+      <example id="guava-io-ex-join">
         <title>Joining Two Files using ByteStreams.join() and
         ByteStreams.copy()</title>
 
@@ -280,7 +280,7 @@ public class JoinFiles {
       using Files.newWriterSupplier(), and then use CharStreams.copy() to copy
       the InputSupplier to the OutputSupplier.</para>
 
-      <example>
+      <example id="guava-io-ex-join-readers">
         <title>Joining Two Readers using CharStreams.join() and
         CharStreams.copy()</title>
 
@@ -338,7 +338,7 @@ public class JoinReaders {
       IOException is a distraction. Use the ByteArrayDataInput and
       ByteArrayDataOutput classes instead:</para>
 
-      <example>
+      <example id="guava-io-ex-datainout">
         <title>Using ByteArrayDataOutput and ByteArrayDataInput</title>
 
         <programlisting>package com.discursive.cjcook.guava.io;
@@ -379,7 +379,7 @@ public class ByteArrayExample {
       encoded with Google's Protocol Buffers to an in-memory byte
       array.</para>
 
-      <example>
+      <example id="guava-io-ex-writing-proto">
         <title>Writing Data with the ByteArrayDataOutput Class</title>
 
         <programlisting>package com.discursive.cjcook.guava.io;
@@ -423,7 +423,7 @@ public class ByteArrayInputExample {
       below, this would have called for some exception handling around the
       call to the write() method.</para>
 
-      <example>
+      <example id="guava-io-ex-writing-proto2">
         <title>Writing Data without the ByteArrayDataOutput Class</title>
 
         <programlisting>package com.discursive.cjcook.guava.io;
@@ -492,7 +492,7 @@ public class ByteArrayInputExampleAlt {
       InputStream that contains a specified portion of the underlying
       stream.</para>
 
-      <example>
+      <example id="guava-io-ex-slicing">
         <title>Slicing Data from an InputStream</title>
 
         <programlisting>package com.discursive.cjcook.guava.io;
@@ -650,7 +650,7 @@ public class CloseFlushExample {
       ByteStreams class to write a byte array to this OutputSupplier. If you
       use ByteStreams, you will only have to catch a single occurence of
       IOException for your call to write(), and ByteStreams will take care of
-      calling close() on the OutputStream. </para>
+      calling close() on the OutputStream.</para>
 
       <example id="guava-io-ex-avoid-ex">
         <title>Avoid Most Exception Handling with ByteStreams.write()</title>
