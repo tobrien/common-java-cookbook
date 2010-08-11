@@ -247,11 +247,14 @@ import com.google.common.io.OutputSupplier;
 public class JoinFiles {
   public static void main(String[] args) throws Exception {
   
-    InputSupplier&lt;FileInputStream&gt; is = Files.newInputStreamSupplier( new File("data", "test1.txt" ) );
-    InputSupplier&lt;FileInputStream&gt; is2 = Files.newInputStreamSupplier( new File("data", "test2.txt" ) );
+    InputSupplier&lt;FileInputStream&gt; is = 
+        Files.newInputStreamSupplier( new File("data", "test1.txt" ) );
+    InputSupplier&lt;FileInputStream&gt; is2 = 
+        Files.newInputStreamSupplier( new File("data", "test2.txt" ) );
 
     InputSupplier&lt;InputStream&gt; combined = ByteStreams.join( is, is2 );
-    OutputSupplier&lt;FileOutputStream&gt; os = Files.newOutputStreamSupplier(new File("output1.data"), false );
+    OutputSupplier&lt;FileOutputStream&gt; os = 
+        Files.newOutputStreamSupplier(new File("output1.data"), false );
     ByteStreams.copy(combined, os );
   }
 }
@@ -362,7 +365,8 @@ public class ByteArrayExample {
       byteOut.writeInt( RandomUtils.nextInt() );
     }
 
-    ByteArrayDataInput input = ByteStreams.newDataInput( byteOut.toByteArray() );
+    ByteArrayDataInput input = 
+        ByteStreams.newDataInput( byteOut.toByteArray() );
     for( int i = 0; i &lt; size; i++ ) {
       input.readInt();
       input.readDouble();
@@ -510,7 +514,8 @@ public class SliceExample {
   public static void main(String[] args) throws IOException {
     InputSupplier&lt;FileInputStream&gt; fileIn = Files
         .newInputStreamSupplier(new File("data", "large.txt"));
-    InputSupplier&lt;InputStream&gt; slicedStream = ByteStreams.slice( fileIn, 10, 1000 );
+    InputSupplier&lt;InputStream&gt; slicedStream = 
+        ByteStreams.slice( fileIn, 10, 1000 );
     byte[] data = ByteStreams.toByteArray( slicedStream );
   }
 }
