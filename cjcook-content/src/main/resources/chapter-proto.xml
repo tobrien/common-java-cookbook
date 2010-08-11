@@ -344,8 +344,8 @@ Parse PROTO_FILES and generate output based on the options given:
       </example>
 
       <para>If you are not sure what this means, I'd suggest reading <ulink
-      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
-      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      url="http://www.sonatype.com/books/maven-book">Maven: The Complete
+      Reference</ulink>. When you depend on a library in Maven 2, all you need to
       do is add the dependency <varname>groupId</varname>,
       <varname>artifactId</varname>, and <varname>version</varname> to your
       project's dependencies. Once you do this, Maven 2 will download the
