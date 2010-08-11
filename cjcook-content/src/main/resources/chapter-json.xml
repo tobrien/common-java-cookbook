@@ -35,8 +35,7 @@
     "Employer": "Harpo Productions, Inc.",
     "Salary": 2330000
    }
-}
-</programlisting>
+}</programlisting>
 
     <para>That same data could also be represented in XML:</para>
 
@@ -50,17 +49,17 @@
 
     <para>Just in this simple comparison, you can see that JSON isn't as
     redundant as XML and it is a slightly more readable format. Many
-    developers have been moving to JSON from XML because they wanted to use a
+    developers have been moving to JSON from XML because they are looking for a 
     lightweight alternative. JSON is generally easier to parse than XML, and
     when you are parsing JSON, you don't have to worry about the often
     confusing sea of standards that surround XML.</para>
 
-    <para>Don't get me wrong, XML is still an appropriate format for data in
+    <para>XML is still an appropriate format for data in
     many situations, but if you are trying to write a lightweight REST service
     which needs to be consumed by a mobile device or a web browser, you often
     want to make sure that the format you are sending down the wire can be
-    parsed with a minimum amount of ceremony. JSON is that format, it is both
-    lightweight and widely embraced as a standard format. If you are building
+    parsed with a minimum amount of effort. JSON is that format, it is both
+    lightweight and widely embraced as a standard. If you are building
     a REST service, producing data which needs to be consumed by a mobile
     device like an iPhone, interacting with a 3rd party API like PayPal or
     Google, or just looking for a simple way to store and communicate
@@ -72,11 +71,11 @@
     JSON in Java, this chapter is focused on the <ulink
     url="http://json-lib.sourceforge.net/">JSON-lib</ulink> library. The
     JSON-lib library is available under the Apache Software License, Version
-    2.0, it is built with Maven, and it readily available in the Maven Central
+    2.0, it is built with Maven, it is readily available in the Maven Central
     repository, and it is the most well documented of the Java JSON libraries
     with a very <ulink url="http://json-lib.sourceforge.net/">well maintained
-    project website</ulink> built with Maven. This library is based on the
-    original org.json package maintained by Douglas Crockford, but it is
+    project website</ulink>. This library is based on the
+    original org.json package maintained by Douglas Crockford, and it is
     packaged into an library that is easy to use.</para>
   </sect1>
 
@@ -109,8 +108,7 @@
       </example>
 
       <para>If you are not sure what this means, I'd suggest reading <ulink
-      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
-      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      url="http://www.sonatype.com/books/maven-book">Maven: The Complete Reference</ulink>. When you depend on a library in Maven 2, all you need to
       do is add the dependency <varname>groupId</varname>,
       <varname>artifactId</varname>, and <varname>version</varname> to your
       project's dependencies. Once you do this, Maven 2 will download the
