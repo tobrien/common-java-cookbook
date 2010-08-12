@@ -26,7 +26,7 @@
     <para>JSON is best explained by using an example. The following is an
     example of data encoding in a JSON format:</para>
 
-    <programlisting language="json">{
+    <programlisting language="java">{
   "person": {
     "Gender": "male",
     "FirstName": "Zach",
@@ -206,7 +206,7 @@ public class GeneratingJSON {
       <para>Running this example will produce the following JSON
       output:</para>
 
-      <programlisting language="json">JSON: {
+      <programlisting language="java">JSON: {
   "aircraft": "A320",
   "pilot":   {
     "firstName": "John",
@@ -357,7 +357,7 @@ public class Person {
 
       <para>You need to parse the following JSON.</para>
 
-      <programlisting language="json">{
+      <programlisting language="java">{
   'foo':'bar',
   'coolness':2.0,
   'altitude':39000,
@@ -509,7 +509,7 @@ public class ConvertXMLtoJSON {
 
       <para>This should produce the following JSON output:</para>
 
-      <programlisting language="json">{
+      <programlisting language="java">{
   "@certified": "true",
   "@processed": "true",
   "timestamp": "232423423423",
@@ -532,7 +532,7 @@ public class ConvertXMLtoJSON {
 
       <para>You need to convert the following JSON to XML:</para>
 
-      <programlisting language="json">{'foo':'bar',
+      <programlisting language="java">{'foo':'bar',
  'coolness':2.0,
  'altitude':39000,
  'pilot':{'firstName':'Buzz',
