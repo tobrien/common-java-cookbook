@@ -4,6 +4,7 @@
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:fo="http://www.w3.org/1999/XSL/Format"
+                xmlns:d="http://docbook.org/ns/docbook"
                 version="1.0">
 
     <xsl:import href="urn:docbkx:stylesheet"/>
@@ -363,5 +364,19 @@
   <div class="section-icon">
   </div>
 </xsl:template>
+
+
+<xsl:template match="d:programlisting">
+      <pre>
+        <xsl:if test="@language != ''">
+          <xsl:attribute name="class">
+              <xsl:text>brush:</xsl:text>
+              <xsl:value-of select="@language"/>
+          </xsl:attribute>
+        </xsl:if>
+        <xsl:apply-templates/>
+      </pre>
+</xsl:template>
+
 
 </xsl:stylesheet>
