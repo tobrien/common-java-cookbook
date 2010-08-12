@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://mars.discursive.com/docbook/xml/4.5/docbookx.dtd">
+<chapter id="guava-collect">
+  <title>Google Guava: Collections</title>
+
+  <sect1 id="guava-collect-sect-intro">
+    <title>Introduction</title>
+
+    <sect2>
+      <title>What is Guava?</title>
+
+      <para>Google Guava is a collection of simple core Java libraries used at
+      Google. It is a collection of utility classes and static methods
+      reminiscent of the Apache Commons components discussed in previous
+      chapters.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-collect-sect-obtaining" role="Recipe">
+    <title>Obtaining Google Guava</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to use Google Guava in a project.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>To use Google Guava in a Maven 2 project, add the following
+      dependency to your project's <filename>pom.xml</filename>:</para>
+
+      <example id="guava-collect-ex-depend">
+        <title>Adding a Dependency on Google Guava</title>
+
+        <programlisting language="xml">&lt;dependency&gt;
+  &lt;groupId&gt;com.google.guava&lt;/groupId&gt;
+  &lt;artifactId&gt;guava&lt;/artifactId&gt;
+  &lt;version&gt;r06&lt;/version&gt;
+&lt;/dependency&gt;
+</programlisting>
+      </example>
+
+      <para>If you are not sure what this means, I'd suggest reading <ulink
+      url="http://www.sonatype.com/books/maven-book">Maven: The Complete
+      Reference</ulink>. When you depend on a library in Maven 2, all you need
+      to do is add the dependency <varname>groupId</varname>,
+      <varname>artifactId</varname>, and <varname>version</varname> to your
+      project's dependencies. Once you do this, Maven 2 will download the
+      dependency and make it available on your project's classpath.</para>
+    </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para>For more information about the Google Guava project, see the
+      project page at <ulink
+      url="http://code.google.com/p/guava-libraries/">http://code.google.com/p/guava-libraries/</ulink>.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-collect-sect-union">
+    <title>Obtaining the Union of Two Sets</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to combine the contents of two Sets. You need the union
+      of two Set objects.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Create two Set objects, then use the union() method on Sets to
+      create a read-only Set that combines unique elements from both
+      collections.</para>
+
+      <example id="guava-collect-ex-union">
+        <title>Using Sets.union() to Calculate the Union of Two Set
+        Collections</title>
+
+        <programlisting language="java">package com.discursive.cjcook.guava.collect;
+
+import java.util.Set;
+
+import com.google.common.collect.Sets;
+
+public class SetUnionExample {
+  public static void main(String[] args) {
+    Set&lt;String&gt; names1 = Sets.newHashSet();
+    names1.add( "Tim" );
+    names1.add( "Tom" );
+    names1.add( "Ted" );
+
+    Set&lt;String&gt; names2 = Sets.newHashSet();
+    names2.add( "Susan" );
+    names2.add( "Tony" );
+    names2.add( "Ted" );
+    
+    Set&lt;String&gt; union = Sets.union( names1, names2 );
+    for( String name : union ) {
+      System.out.printf( "%s\n", name);
+    }
+  }
+}
+</programlisting>
+      </example>
+
+      <para>This example produces the following output:</para>
+
+      <screen>Ted
+Tom
+Tim
+Susan
+Tony</screen>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-collect-sect-intersect">
+    <title>Obtaining the Intersection of Two Sets</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to calculate the intersection of two Set objects.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para></para>
+
+      <example id="guava-collect-ex-intersect">
+        <title>Calculating the Intersection of Two Sets</title>
+
+        <programlisting language="java">package com.discursive.cjcook.guava.collect;
+
+import java.util.Set;
+
+import com.google.common.collect.Sets;
+
+public class SetIntersectionExample {
+  public static void main(String[] args) {
+    Set&lt;String&gt; names1 = Sets.newHashSet();
+    names1.add("Tim");
+    names1.add("Tom");
+    names1.add("Ted");
+
+    Set&lt;String&gt; names2 = Sets.newHashSet();
+    names2.add("Susan");
+    names2.add("Tony");
+    names2.add("Ted");
+
+    Set&lt;String&gt; intersection = Sets.intersection(names1, names2);
+    for (String name : intersection) {
+      System.out.printf("%s\n", name);
+    }
+  }
+}
+</programlisting>
+      </example>
+
+      <para>This example produces the following output:</para>
+
+      <screen>Ted</screen>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-collect-sect-diff">
+    <title>Obtaining the Difference Between Two Sets</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to calculate the difference between two sets.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para></para>
+
+      <example id="guava-collect-ex-diff">
+        <title>Calculating the Difference Between Two Sets</title>
+
+        <programlisting language="java">package com.discursive.cjcook.guava.collect;
+
+import java.util.Set;
+
+import com.google.common.collect.Sets;
+
+public class SetDifferenceExample {
+  public static void main(String[] args) {
+    Set&lt;String&gt; names1 = Sets.newHashSet();
+    names1.add("Tim");
+    names1.add("Tom");
+    names1.add("Ted");
+
+    Set&lt;String&gt; names2 = Sets.newHashSet();
+    names2.add("Susan");
+    names2.add("Tony");
+    names2.add("Ted");
+
+    Set&lt;String&gt; difference = Sets.difference(names1, names2);
+    for (String name : difference) {
+      System.out.printf("%s\n", name);
+    }
+  }
+}
+</programlisting>
+      </example>
+
+      <para>This example produces the following output:</para>
+
+      <screen>Tom
+Tim</screen>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-collect-sect-symdiff">
+    <title>Obtaining the Symmetric Difference Between Two Sets</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to calculate the symmetric difference between two Set
+      objects.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para></para>
+
+      <example id="guava-collect-ex-symdiff">
+        <title>Calculating the Symmetric Difference Between Two Sets</title>
+
+        <programlisting language="java">package com.discursive.cjcook.guava.collect;
+
+import java.util.Set;
+
+import com.google.common.collect.Sets;
+
+public class SetSymDiffExample {
+  public static void main(String[] args) {
+    Set&lt;String&gt; names1 = Sets.newHashSet();
+    names1.add("Tim");
+    names1.add("Tom");
+    names1.add("Ted");
+
+    Set&lt;String&gt; names2 = Sets.newHashSet();
+    names2.add("Susan");
+    names2.add("Tony");
+    names2.add("Ted");
+
+    Set&lt;String&gt; symDiff = Sets.symmetricDifference(names1, names2);
+    for (String name : symDiff) {
+      System.out.printf("%s\n", name);
+    }
+  }
+}
+</programlisting>
+      </example>
+
+      <para>This example produces the following output:</para>
+
+      <screen>Tom
+Tim
+Susan
+Tony</screen>
+    </sect2>
+  </sect1>
+
+  <sect1>
+    <title>Generate All Possible Subsets of a Set</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need to generate all possible subsets of a given set of
+      elements.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para></para>
+
+      <example>
+        <title>Generating all Possible Subsets of a Given Set</title>
+
+        <programlisting language="java">package com.discursive.cjcook.guava.collect;
+
+import java.util.Set;
+
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
+
+public class PowerSetExample {
+  public static void main(String[] args) {
+    Set&lt;Integer&gt; integers = ImmutableSet.of(1, 2, 3, 4, 5);
+  
+    Set&lt;Set&lt;Integer&gt;&gt; powerSet = Sets.powerSet( integers );
+    for( Set&lt;Integer&gt; set : powerSet ) {
+      System.out.printf( "Powerset: %s\n", set );
+    }
+  }
+}
+</programlisting>
+      </example>
+
+      <para>This example produces the following output:</para>
+
+      <screen>Powerset: []
+Powerset: [1]
+Powerset: [2]
+Powerset: [1, 2]
+Powerset: [3]
+Powerset: [1, 3]
+Powerset: [2, 3]
+Powerset: [1, 2, 3]
+Powerset: [4]
+Powerset: [1, 4]
+Powerset: [2, 4]
+Powerset: [1, 2, 4]
+Powerset: [3, 4]
+Powerset: [1, 3, 4]
+Powerset: [2, 3, 4]
+Powerset: [1, 2, 3, 4]
+Powerset: [5]
+Powerset: [1, 5]
+Powerset: [2, 5]
+Powerset: [1, 2, 5]
+Powerset: [3, 5]
+Powerset: [1, 3, 5]
+Powerset: [2, 3, 5]
+Powerset: [1, 2, 3, 5]
+Powerset: [4, 5]
+Powerset: [1, 4, 5]
+Powerset: [2, 4, 5]
+Powerset: [1, 2, 4, 5]
+Powerset: [3, 4, 5]
+Powerset: [1, 3, 4, 5]
+Powerset: [2, 3, 4, 5]
+Powerset: [1, 2, 3, 4, 5]</screen>
+    </sect2>
+  </sect1>
+</chapter>

@@ -122,6 +122,9 @@
   <xi:include href="chapter-guava-io.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 
+  <xi:include href="chapter-guava-collect.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+
 <!--  <xi:include href="chapter-guava-conc.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude" /> -->
 
