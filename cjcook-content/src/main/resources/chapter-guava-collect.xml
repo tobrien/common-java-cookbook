@@ -394,7 +394,7 @@ Tony</screen>
       <classname>Sets</classname> class as shown in the following
       example.</para>
 
-      <example>
+      <example id="guava-collect-ex-powerset">
         <title>Generating all Possible Subsets of a Given Set</title>
 
         <programlisting language="java">package com.discursive.cjcook.guava.collect;
