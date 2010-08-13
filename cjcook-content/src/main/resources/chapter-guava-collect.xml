@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://mars.discursive.com/docbook/xml/4.5/docbookx.dtd">
-<chapter id="guava-collect">
+<chapter id="guava-collect" status="draft">
   <title>Google Guava: Collections</title>
 
   <sect1 id="guava-collect-sect-intro">
@@ -67,15 +67,18 @@
     <sect2>
       <title>Problem</title>
 
-      <para>You need to combine the contents of two Sets. You need the union
-      of two Set objects.</para>
+      <para>You need to combine the contents of two <classname>Set</classname>
+      collections. You need the union of two <classname>Set</classname>
+      objects.</para>
     </sect2>
 
     <sect2>
       <title>Solution</title>
 
-      <para>Create two Set objects, then use the union() method on Sets to
-      create a read-only Set that combines unique elements from both
+      <para>Create two Set objects, then use the static
+      <methodname>union()</methodname> method on the
+      <classname>Sets</classname> class to create a read-only
+      <classname>Set</classname> that combines unique elements from both
       collections.</para>
 
       <example id="guava-collect-ex-union">
@@ -117,6 +120,27 @@ Tim
 Susan
 Tony</screen>
     </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <figure id="guava-collect-fig-union">
+        <title>Calculating the Union of Two Sets</title>
+
+        <mediaobject>
+          <imageobject role="print">
+            <imagedata align="center"
+                       fileref="figs/print/guava-collect-set-union.pdf"
+                       format="PDF" scalefit="0" width="100%" />
+          </imageobject>
+
+          <imageobject role="web">
+            <imagedata fileref="figs/web/guava-collect-set-union.png"
+                       format="PNG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </sect2>
   </sect1>
 
   <sect1 id="guava-collect-sect-intersect">
@@ -131,7 +155,10 @@ Tony</screen>
     <sect2>
       <title>Solution</title>
 
-      <para></para>
+      <para>Create two <classname>Set</classname> objects and then pass them
+      to the static <methodname>intersection()</methodname> method on the
+      <classname>Sets</classname> class as shown in the following
+      example.</para>
 
       <example id="guava-collect-ex-intersect">
         <title>Calculating the Intersection of Two Sets</title>
@@ -167,6 +194,29 @@ public class SetIntersectionExample {
 
       <screen>Ted</screen>
     </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+
+      <figure id="guava-collect-fig-intersect">
+        <title>Calculating the Intersection of Two Sets</title>
+
+        <mediaobject>
+          <imageobject role="print">
+            <imagedata align="center"
+                       fileref="figs/print/guava-collect-set-intersect.pdf"
+                       format="PDF" scalefit="0" width="100%" />
+          </imageobject>
+
+          <imageobject role="web">
+            <imagedata fileref="figs/web/guava-collect-set-intersect.png"
+                       format="PNG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </sect2>
   </sect1>
 
   <sect1 id="guava-collect-sect-diff">
@@ -181,7 +231,10 @@ public class SetIntersectionExample {
     <sect2>
       <title>Solution</title>
 
-      <para></para>
+      <para>Create two Set objects and pass them to the static
+      <methodname>difference()</methodname> method on the
+      <classname>Sets</classname> class as shown in the following
+      example.</para>
 
       <example id="guava-collect-ex-diff">
         <title>Calculating the Difference Between Two Sets</title>
@@ -218,6 +271,29 @@ public class SetDifferenceExample {
       <screen>Tom
 Tim</screen>
     </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+
+      <figure id="guava-collect-fig-difference">
+        <title>Calculating the Difference of Two Sets</title>
+
+        <mediaobject>
+          <imageobject role="print">
+            <imagedata align="center"
+                       fileref="figs/print/guava-collect-set-difference.pdf"
+                       format="PDF" scalefit="0" width="100%" />
+          </imageobject>
+
+          <imageobject role="web">
+            <imagedata fileref="figs/web/guava-collect-set-difference.png"
+                       format="PNG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </sect2>
   </sect1>
 
   <sect1 id="guava-collect-sect-symdiff">
@@ -226,14 +302,17 @@ Tim</screen>
     <sect2>
       <title>Problem</title>
 
-      <para>You need to calculate the symmetric difference between two Set
-      objects.</para>
+      <para>You need to calculate the symmetric difference between two
+      <classname>Set</classname> objects.</para>
     </sect2>
 
     <sect2>
       <title>Solution</title>
 
-      <para></para>
+      <para>Create two <classname>Set</classname> objects and pass them to the
+      static <methodname>symmetricDifference()</methodname> method on the
+      <classname>Sets</classname> class as shown in the following
+      example.</para>
 
       <example id="guava-collect-ex-symdiff">
         <title>Calculating the Symmetric Difference Between Two Sets</title>
@@ -272,6 +351,29 @@ Tim
 Susan
 Tony</screen>
     </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+
+      <figure id="guava-collect-fig-symdiff">
+        <title>Calculating the Symmetric Difference of Two Sets</title>
+
+        <mediaobject>
+          <imageobject role="print">
+            <imagedata align="center"
+                       fileref="figs/print/guava-collect-set-symdiff.pdf"
+                       format="PDF" scalefit="0" width="100%" />
+          </imageobject>
+
+          <imageobject role="web">
+            <imagedata fileref="figs/web/guava-collect-set-symdiff.png"
+                       format="PNG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </sect2>
   </sect1>
 
   <sect1>
@@ -287,7 +389,10 @@ Tony</screen>
     <sect2>
       <title>Solution</title>
 
-      <para></para>
+      <para>Create a <classname>Set</classname> and pass it to the static
+      <methodname>powerSet()</methodname> method on the
+      <classname>Sets</classname> class as shown in the following
+      example.</para>
 
       <example>
         <title>Generating all Possible Subsets of a Given Set</title>
