@@ -62,7 +62,7 @@
     <example id="beans-ex-1" label="3-1">
       <title>Sample bean</title>
 
-      <programlisting format="linespecific">package org.test.bean;
+      <programlisting language="java" format="linespecific">package org.test.bean;
 
 public class SimpleBean {
     private String name1;
@@ -138,7 +138,7 @@ public class SimpleBean {
       <example id="beans-ex-add-depend-beanutils">
         <title>Adding a Dependency on Commons BeanUtils</title>
 
-        <programlisting>    &lt;dependency&gt;
+        <programlisting language="xml">    &lt;dependency&gt;
       &lt;groupId&gt;commons-beanutils&lt;/groupId&gt;
       &lt;artifactId&gt;commons-beanutils&lt;/artifactId&gt;
       &lt;version&gt;1.8.0&lt;/version&gt;
@@ -147,8 +147,7 @@ public class SimpleBean {
       </example>
 
       <para>If you are not sure what this means, I'd suggest reading <ulink
-      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
-      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      url="http://www.sonatype.com/books/maven-book">Maven: The Complete Reference</ulink>. When you depend on a library in Maven 2, all you need to
       do is add the dependency <varname>groupId</varname>,
       <varname>artifactId</varname>, and <varname>version</varname> to your
       project's dependencies. Once you do this, Maven 2 will download the
@@ -265,7 +264,7 @@ public class SimpleBean {
       retrieve the <literal moreinfo="none">name</literal> property from a
       <literal moreinfo="none">Person</literal> bean:</para>
 
-      <programlisting format="linespecific" id="I_3_tt115">import org.apache.commons.beanutils.PropertyUtils;
+      <programlisting language="java" format="linespecific" id="I_3_tt115">import org.apache.commons.beanutils.PropertyUtils;
 
 Person person = new Person( );
 person.setName( "Alex" );    
@@ -310,7 +309,7 @@ System.out.println( name );</programlisting>
       <example id="beans-ex-4" label="3-4">
         <title>A Person bean with two simple properties</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.bean;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.bean;
 
 public class Person {
     private String name;
@@ -338,7 +337,7 @@ public class Person {
       use of <literal moreinfo="none">Property.getSimpleProperty( )</literal>
       to retrieve both properties by name:</para>
 
-      <programlisting format="linespecific" id="I_3_tt116">import org.apache.commons.beanutils.PropertyUtils;
+      <programlisting language="java" format="linespecific" id="I_3_tt116">import org.apache.commons.beanutils.PropertyUtils;
 
 // Create a person
 <userinput moreinfo="none">Person person = new Person( );</userinput>
@@ -487,7 +486,7 @@ try {
       nested bean property on a <literal moreinfo="none">Person</literal>
       bean, <filename moreinfo="none">author.name</filename>:</para>
 
-      <programlisting format="linespecific" id="I_3_tt117">import org.apache.commons.beanutils.PropertyUtils;
+      <programlisting language="java" format="linespecific" id="I_3_tt117">import org.apache.commons.beanutils.PropertyUtils;
 
 Book book = new Book( );
 book.setName( "Emerson's Essays" );
@@ -542,7 +541,7 @@ Waldo Emerson".</programlisting>
       moreinfo="none">getNestedProperty( )</literal>, retrieving a book name
       and an author name:</para>
 
-      <programlisting format="linespecific" id="I_3_tt119">General Exception is caught.
+      <programlisting language="java" format="linespecific" id="I_3_tt119">General Exception is caught.
 
 import org.apache.commons.beanutils.PropertyUtils;
 
@@ -580,7 +579,7 @@ try {
       the <literal moreinfo="none">address</literal> property of a <literal
       moreinfo="none">Person</literal> object:</para>
 
-      <programlisting format="linespecific" id="I_3_tt120">String propertyName = "address.state.name";
+      <programlisting language="java" format="linespecific" id="I_3_tt120">String propertyName = "address.state.name";
 
 <userinput moreinfo="none">String stateName =</userinput>
                <userinput moreinfo="none">    (String) PropertyUtils.getNestedProperty( person,  propertyName );</userinput>
@@ -625,7 +624,7 @@ try {
       startref="beans-ITERM-2157"></indexterm>the previous example is the
       equivalent of the following three lines of code:</para>
 
-      <programlisting format="linespecific" id="I_3_tt121">Address address = person.getAddress( );
+      <programlisting language="java" format="linespecific" id="I_3_tt121">Address address = person.getAddress( );
 State state = address.getState( );
 String stateName = state.getName( );</programlisting>
     </sect2>
@@ -688,7 +687,7 @@ String stateName = state.getName( );</programlisting>
       <literal moreinfo="none">getIndexedProperty( )</literal> to access the
       first element of the list of chapters.</para>
 
-      <programlisting format="linespecific" id="I_3_tt122">import org.apache.commons.beanutils.PropertyUtils;
+      <programlisting language="java" format="linespecific" id="I_3_tt122">import org.apache.commons.beanutils.PropertyUtils;
 
 // Create a new Book
 Book book = new Book( );
@@ -715,7 +714,7 @@ book.getChapters( ).add( chapter2 );
       )</literal> to retrieve the first chapter from the list of
       chapters:</para>
 
-      <programlisting format="linespecific" id="I_3_tt123">import org.apache.commons.beanutils.PropertyUtils;
+      <programlisting language="java" format="linespecific" id="I_3_tt123">import org.apache.commons.beanutils.PropertyUtils;
 
 Book book = new Book( );
 
@@ -813,7 +812,7 @@ book.setChapters( chapters );
       moreinfo="none">map</literal> property of the <literal
       moreinfo="none">Apartment</literal> bean:</para>
 
-      <programlisting format="linespecific" id="I_3_tt124">import org.apache.commons.beanutils.PropertyUtils;
+      <programlisting language="java" format="linespecific" id="I_3_tt124">import org.apache.commons.beanutils.PropertyUtils;
 
 Room dining = new Room( );
 dining.setArea( 20 );
@@ -881,7 +880,7 @@ apartment.setRooms( rooms );
       moreinfo="none">rooms</literal> <literal moreinfo="none">map</literal>
       property:</para>
 
-      <programlisting format="linespecific" id="I_3_tt126">import java.util.Map;
+      <programlisting language="java" format="linespecific" id="I_3_tt126">import java.util.Map;
 import java.util.HashMap;
 import org.apache.commons.beanutils.PropertyUtils;
 
@@ -991,7 +990,7 @@ room =
       mapped property, <literal moreinfo="none">cities</literal>, on an
       indexed property, <literal moreinfo="none">regions</literal>:</para>
 
-      <programlisting format="linespecific" id="I_3_tt127">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_3_tt127">import java.util.*;
 import org.apache.commons.beanutils.PropertyUtils;
 
 // Create a series of nested beans
@@ -1037,7 +1036,7 @@ country.setRegions( regions );
       moreinfo="none">richmond</literal>; it is equivalent to the following
       code excerpt:</para>
 
-      <programlisting format="linespecific" id="I_3_tt128">Region region = (Region) country.getRegions( ).get(0);
+      <programlisting language="java" format="linespecific" id="I_3_tt128">Region region = (Region) country.getRegions( ).get(0);
 City city = (City) region.getCities( ).get("Richmond");
 Long population = city.getPopulation( );</programlisting>
 
@@ -1150,7 +1149,7 @@ Long population = city.getPopulation( );</programlisting>
       moreinfo="none">author</literal> property on the <literal
       moreinfo="none">Book</literal> bean:</para>
 
-      <programlisting format="linespecific" id="I_3_tt130">import org.apache.commons.beanutils.PropertyUtils
+      <programlisting language="java" format="linespecific" id="I_3_tt130">import org.apache.commons.beanutils.PropertyUtils
 
 Book book = new Book( );
 
@@ -1183,7 +1182,7 @@ System.out.println( "book.author type: " + type.getName( ) );</programlisting>
       nested, indexed property—<literal
       moreinfo="none">chapters[0].name</literal>:</para>
 
-      <programlisting format="linespecific" id="I_3_tt132">import org.apache.commons.beanutils.PropertyUtils;
+      <programlisting language="java" format="linespecific" id="I_3_tt132">import org.apache.commons.beanutils.PropertyUtils;
 
 Chapter chapter = new Chapter( );
 chapter.setName( "Chapter 3 BeanUtils" );
@@ -1219,7 +1218,7 @@ System.out.println( property + " type: " + propertyType.getName( ) );</programli
       indexed property—<literal
       moreinfo="none">chapters[0].name</literal>:</para>
 
-      <programlisting format="linespecific" id="I_3_tt134">String property = "chapters[0].name";
+      <programlisting language="java" format="linespecific" id="I_3_tt134">String property = "chapters[0].name";
 
 PropertyDescriptor descriptor = 
     PropertyUtils.getPropertyDescriptor(book, property);
@@ -1286,7 +1285,7 @@ Method readMethod = descriptor.getReadMethod( );</programlisting>
       moreinfo="none">BeanComparator</literal> and the default <literal
       moreinfo="none">ComparableComparator</literal>:</para>
 
-      <programlisting format="linespecific" id="I_3_tt135">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_3_tt135">import java.util.*;
 import org.apache.commons.beanutils.BeanComparator;
 
 Country country1 = new Country( );
@@ -1377,7 +1376,7 @@ while( countryIterator.hasNext( ) ) {
       <example id="beans-ex-5" label="3-5">
         <title>Decorating a Comparator with a BeanComparator</title>
 
-        <programlisting format="linespecific">import java.util.*;
+        <programlisting language="java" format="linespecific">import java.util.*;
 import org.apache.commons.beanutils.BeanComparator;
 
 // Create Engines
@@ -1565,7 +1564,7 @@ while( vehicleIter.hasNext( ) ) {
       first parameter is the destination bean, and the second parameter is the
       bean to copy properties from:</para>
 
-      <programlisting format="linespecific" id="I_3_tt139">import org.apache.commons.beanutils.PropertyUtils;
+      <programlisting language="java" format="linespecific" id="I_3_tt139">import org.apache.commons.beanutils.PropertyUtils;
 
 Book book = new Book( );
 book.setName( "Prelude to Foundation" );
@@ -1601,7 +1600,7 @@ PropertyUtils.copyProperties( destinationBook, book );</programlisting>
       <emphasis>not</emphasis> clone the values of the bean properties. The
       following example demonstrates this explicitly:</para>
 
-      <programlisting format="linespecific" id="I_3_tt140">Author author = new Author( );
+      <programlisting language="java" format="linespecific" id="I_3_tt140">Author author = new Author( );
 author.setName( "Zinsser" );
 
 Book book = new Book( );
@@ -1628,7 +1627,7 @@ if( book.getAuthor( ) == destinationBook.getAuthor( ) ) {
       the keys of a <literal moreinfo="none">Map</literal> correspond to names
       of simple bean properties on the destination bean:</para>
 
-      <programlisting format="linespecific" id="I_3_tt141">Map mapProps = new HashMap( );
+      <programlisting language="java" format="linespecific" id="I_3_tt141">Map mapProps = new HashMap( );
 mapProps.put( "name", "The Art of Computer Programming" );
 mapProps.put( "author", "Knuth" );
 
@@ -1698,7 +1697,7 @@ PropertyUtils.copyProperties( destinationBook, mapProps );</programlisting>
       instance. The following instance creates a cloned instance of a <literal
       moreinfo="none">Book</literal> object:</para>
 
-      <programlisting format="linespecific" id="I_3_tt142">import org.apache.commons.beanutils.BeanUtils;
+      <programlisting language="java" format="linespecific" id="I_3_tt142">import org.apache.commons.beanutils.BeanUtils;
 
 Book book1 = new Book( );
 book1.setName( "Count of Monte Cristo" );
@@ -1717,7 +1716,7 @@ book1.setName( "Count of Monte Cristo" );
       code demonstrates the steps that <literal moreinfo="none">cloneBean(
       )</literal> is taking to clone an instance of a bean:</para>
 
-      <programlisting format="linespecific" id="I_3_tt143">Book book1 = new Book( );
+      <programlisting language="java" format="linespecific" id="I_3_tt143">Book book1 = new Book( );
 book1.setName( "Practical C Programming" );
 
 <userinput moreinfo="none">Book book2 = book1.getClass( ).newInstance( );</userinput>
@@ -1777,7 +1776,7 @@ book1.setName( "Practical C Programming" );
       The following example demonstrates the use of this method to set two
       properties on a <literal moreinfo="none">Book</literal> bean:</para>
 
-      <programlisting format="linespecific" id="I_3_tt144">import org.apache.commons.beanutils.PropertyUtils;
+      <programlisting language="java" format="linespecific" id="I_3_tt144">import org.apache.commons.beanutils.PropertyUtils;
 
 Person person1 = new Person( );
 person1.setName( "Blah" );
@@ -1805,7 +1804,7 @@ PropertyUtils.setProperty( book1, "author.name", "Ken Coar" );</programlisting>
       demonstrates the setting of mapped and indexed bean properties on a
       <literal moreinfo="none">Book</literal> object:</para>
 
-      <programlisting format="linespecific" id="I_3_tt145">Book book1 = new Book( );
+      <programlisting language="java" format="linespecific" id="I_3_tt145">Book book1 = new Book( );
 book1.getChapters( ).add( new Chapter( ) );
 book1.getChapters( ).add( new Chapter( ) );
 
@@ -1888,7 +1887,7 @@ PropertyUtils.setProperty( apartment, "rooms(livingRoom).length",
       property of the <literal moreinfo="none">Book</literal> bean to see if
       it is readable and writable:</para>
 
-      <programlisting format="linespecific" id="I_3_tt146">import org.apache.commons.beanutils.PropertyUtils;
+      <programlisting language="java" format="linespecific" id="I_3_tt146">import org.apache.commons.beanutils.PropertyUtils;
 
 // Create a Book demonstrating the getter and setter for "name"
 Book book1 = new Book( );
@@ -1922,7 +1921,7 @@ Is name writable? true</programlisting>
       these methods to check access to the indexed, quadruple-nested, mapped
       bean property <literal moreinfo="none">length</literal>:</para>
 
-      <programlisting format="linespecific" id="I_3_tt148">Book book1 = new Book( );
+      <programlisting language="java" format="linespecific" id="I_3_tt148">Book book1 = new Book( );
 book1.getChapters( ).add( new Chapter( ) );
 
 boolean isReadable =
@@ -2005,7 +2004,7 @@ boolean isWritable =
       <literal moreinfo="none">BeanPredicate</literal> to validate the
       condition of a bean:</para>
 
-      <programlisting format="linespecific" id="I_3_tt149">import org.apache.commons.beanutils.*;
+      <programlisting language="java" format="linespecific" id="I_3_tt149">import org.apache.commons.beanutils.*;
 import org.apache.commons.collections.*;
 
 <userinput moreinfo="none">// A Predicate that returns true if the "name" property is not null</userinput>
@@ -2067,7 +2066,7 @@ Is Hens team valid? false</programlisting>
       moreinfo="none">InstanceofPredicate</literal>, and a composite <literal
       moreinfo="none">AnyPredicate</literal>:</para>
 
-      <programlisting format="linespecific" id="I_3_tt151">import org.apache.commons.collections.Predicate;
+      <programlisting language="java" format="linespecific" id="I_3_tt151">import org.apache.commons.collections.Predicate;
 import org.apache.commons.beanutils.BeanPredicate;
 import org.apache.commons.collections.functors.AnyPredicate;
 import org.apache.commons.collections.functors.EqualPredicate;
@@ -2177,7 +2176,7 @@ Predicate eitherABC =
       moreinfo="none">PropertyUtils.describe( )</literal> to describe a
       <literal moreinfo="none">Person</literal> bean:</para>
 
-      <programlisting format="linespecific" id="I_3_tt152">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_3_tt152">import java.util.*;
 import org.apache.commons.beanutils.PropertyUtils;
 
 // Create a Person and a Book bean instance
@@ -2283,7 +2282,7 @@ Author Name: Some Dude</programlisting>
       accessing bean properties with <literal moreinfo="none">get(
       )</literal>:</para>
 
-      <programlisting format="linespecific" id="I_3_tt154">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_3_tt154">import java.util.*;
 import org.apache.commons.collections.BeanMap;
 
 Person person = new Person( );
@@ -2431,7 +2430,7 @@ Property: Occupation, Value: Developer, Type: java.lang.String</programlisting>
         <title>BeanMap methods getBean( ), setBean( ), getType( ),
         getReadMethod( ), and getWriteMethod( )</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.collections;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.collections;
 
 import java.lang.reflect.Method;
 
@@ -2531,7 +2530,7 @@ public class BeanMapExample {
       demonstrates the use of a <literal
       moreinfo="none">BasicDynaBean</literal> to model a politician:</para>
 
-      <programlisting format="linespecific" id="I_3_tt156">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_3_tt156">import java.util.*;
 import org.apache.commons.beanutils.*;
 
 DynaProperty[] beanProperties = new DynaProperty[]{
@@ -2737,7 +2736,7 @@ PropertyUtils.setProperty( politician, "votes", new Long( 50000000 ) );</program
       moreinfo="none">BeanUtils</literal> to populate a bean that is dependent
       on user input:</para>
 
-      <programlisting format="linespecific" id="I_3_tt157">import java.util.*;
+      <programlisting language="java" format="linespecific" id="I_3_tt157">import java.util.*;
 import org.apache.commons.beanutils.*;
 
 Person person = new Person( );
@@ -2796,7 +2795,7 @@ person.setOccupation( "Salesman" );
           <secondary>populating</secondary>
         </indexterm>
 
-        <programlisting format="linespecific">import java.io.*; 
+        <programlisting language="java" format="linespecific">import java.io.*; 
 
 public class ReadAge { 
     public static void main (String[] args) throw Exception { 

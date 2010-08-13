@@ -26,7 +26,7 @@
     <para>JSON is best explained by using an example. The following is an
     example of data encoding in a JSON format:</para>
 
-    <programlisting>{
+    <programlisting language="java">{
   "person": {
     "Gender": "male",
     "FirstName": "Zach",
@@ -35,12 +35,11 @@
     "Employer": "Harpo Productions, Inc.",
     "Salary": 2330000
    }
-}
-</programlisting>
+}</programlisting>
 
     <para>That same data could also be represented in XML:</para>
 
-    <programlisting>&lt;person gender="male"&gt;
+    <programlisting language="xml">&lt;person gender="male"&gt;
   &lt;firstName&gt;Zach&lt;/firstName&gt;
   &lt;lastName&gt;Anner&lt;/lastName&gt;
   &lt;occupation&gt;Television Host&lt;/occupation&gt;
@@ -50,17 +49,17 @@
 
     <para>Just in this simple comparison, you can see that JSON isn't as
     redundant as XML and it is a slightly more readable format. Many
-    developers have been moving to JSON from XML because they wanted to use a
+    developers have been moving to JSON from XML because they are looking for a 
     lightweight alternative. JSON is generally easier to parse than XML, and
     when you are parsing JSON, you don't have to worry about the often
     confusing sea of standards that surround XML.</para>
 
-    <para>Don't get me wrong, XML is still an appropriate format for data in
+    <para>XML is still an appropriate format for data in
     many situations, but if you are trying to write a lightweight REST service
     which needs to be consumed by a mobile device or a web browser, you often
     want to make sure that the format you are sending down the wire can be
-    parsed with a minimum amount of ceremony. JSON is that format, it is both
-    lightweight and widely embraced as a standard format. If you are building
+    parsed with a minimum amount of effort. JSON is that format, it is both
+    lightweight and widely embraced as a standard. If you are building
     a REST service, producing data which needs to be consumed by a mobile
     device like an iPhone, interacting with a 3rd party API like PayPal or
     Google, or just looking for a simple way to store and communicate
@@ -72,11 +71,11 @@
     JSON in Java, this chapter is focused on the <ulink
     url="http://json-lib.sourceforge.net/">JSON-lib</ulink> library. The
     JSON-lib library is available under the Apache Software License, Version
-    2.0, it is built with Maven, and it readily available in the Maven Central
+    2.0, it is built with Maven, it is readily available in the Maven Central
     repository, and it is the most well documented of the Java JSON libraries
     with a very <ulink url="http://json-lib.sourceforge.net/">well maintained
-    project website</ulink> built with Maven. This library is based on the
-    original org.json package maintained by Douglas Crockford, but it is
+    project website</ulink>. This library is based on the
+    original org.json package maintained by Douglas Crockford, and it is
     packaged into an library that is easy to use.</para>
   </sect1>
 
@@ -98,7 +97,7 @@
       <example id="json-ex-adding-depend">
         <title>Adding a Dependency on Commons Digester</title>
 
-        <programlisting>&lt;dependency&gt;
+        <programlisting language="xml">&lt;dependency&gt;
   &lt;groupId&gt;net.sf.json-lib&lt;/groupId&gt;
   &lt;artifactId&gt;json-lib&lt;/artifactId&gt;
   &lt;version&gt;2.3&lt;/version&gt;
@@ -109,8 +108,7 @@
       </example>
 
       <para>If you are not sure what this means, I'd suggest reading <ulink
-      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
-      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      url="http://www.sonatype.com/books/maven-book">Maven: The Complete Reference</ulink>. When you depend on a library in Maven 2, all you need to
       do is add the dependency <varname>groupId</varname>,
       <varname>artifactId</varname>, and <varname>version</varname> to your
       project's dependencies. Once you do this, Maven 2 will download the
@@ -168,7 +166,7 @@
       <example id="json-ex-generating">
         <title>Generating JSON from Java</title>
 
-        <programlisting>package com.discursive.cjcook.json;
+        <programlisting language="java">package com.discursive.cjcook.json;
 
 import net.sf.json.JSONObject;
 
@@ -208,7 +206,7 @@ public class GeneratingJSON {
       <para>Running this example will produce the following JSON
       output:</para>
 
-      <programlisting>JSON: {
+      <programlisting language="java">JSON: {
   "aircraft": "A320",
   "pilot":   {
     "firstName": "John",
@@ -242,7 +240,7 @@ public class GeneratingJSON {
       <example id="json-ex-convert-map">
         <title>Converting a Map to JSON</title>
 
-        <programlisting>package com.discursive.cjcook.json;
+        <programlisting language="java">package com.discursive.cjcook.json;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -295,7 +293,7 @@ public class ConvertMaptoJSON {
       <example id="json-ex-convert-bean">
         <title>Converting a Bean to JSON</title>
 
-        <programlisting>package com.discursive.cjcook.json;
+        <programlisting langauge="java">package com.discursive.cjcook.json;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -318,7 +316,7 @@ public class ConvertBeantoJSON {
       <para>Where the Person class is a Java bean defined in the following
       class:</para>
 
-      <programlisting>package com.discursive.cjcook.json;
+      <programlisting language="java">package com.discursive.cjcook.json;
 
 public class Person {
 
@@ -359,7 +357,7 @@ public class Person {
 
       <para>You need to parse the following JSON.</para>
 
-      <programlisting>{
+      <programlisting language="java">{
   'foo':'bar',
   'coolness':2.0,
   'altitude':39000,
@@ -380,7 +378,7 @@ public class Person {
       <example id="json-ex-parsing">
         <title>Parsing JSON in Java</title>
 
-        <programlisting>package com.discursive.cjcook.json;
+        <programlisting language="java">package com.discursive.cjcook.json;
 
 import java.io.InputStream;
 
@@ -432,7 +430,7 @@ public class ParsingJSON {
 
       <para>You need to convert the following XML file to JSON:</para>
 
-      <programlisting>&lt;important-data certified="true" processed="true"&gt;
+      <programlisting language="xml">&lt;important-data certified="true" processed="true"&gt;
   &lt;timestamp&gt;232423423423&lt;/timestamp&gt;
   &lt;authors&gt;
     &lt;author&gt;
@@ -456,7 +454,7 @@ public class ParsingJSON {
       <example id="json-ex-xml-json-depend">
         <title>Adding Dependencies to Parse XML and Generate JSON</title>
 
-        <programlisting>&lt;dependency&gt;
+        <programlisting language="xml">&lt;dependency&gt;
   &lt;groupId&gt;net.sf.json-lib&lt;/groupId&gt;
   &lt;artifactId&gt;json-lib&lt;/artifactId&gt;
   &lt;version&gt;2.3&lt;/version&gt;
@@ -485,7 +483,7 @@ public class ParsingJSON {
       <example id="json-ex-xml-json">
         <title>Converting XML to JSON</title>
 
-        <programlisting>package com.discursive.cjcook.json;
+        <programlisting language="java">package com.discursive.cjcook.json;
 
 import java.io.InputStream;
 
@@ -511,7 +509,7 @@ public class ConvertXMLtoJSON {
 
       <para>This should produce the following JSON output:</para>
 
-      <programlisting>{
+      <programlisting language="java">{
   "@certified": "true",
   "@processed": "true",
   "timestamp": "232423423423",
@@ -534,7 +532,7 @@ public class ConvertXMLtoJSON {
 
       <para>You need to convert the following JSON to XML:</para>
 
-      <programlisting>{'foo':'bar',
+      <programlisting language="java">{'foo':'bar',
  'coolness':2.0,
  'altitude':39000,
  'pilot':{'firstName':'Buzz',
@@ -552,7 +550,7 @@ public class ConvertXMLtoJSON {
       <example id="json-ex-json-xml-depend">
         <title>Adding Dependencies to Parse JSON and Generate XML</title>
 
-        <programlisting>&lt;dependency&gt;
+        <programlisting language="xml">&lt;dependency&gt;
   &lt;groupId&gt;net.sf.json-lib&lt;/groupId&gt;
   &lt;artifactId&gt;json-lib&lt;/artifactId&gt;
   &lt;version&gt;2.3&lt;/version&gt;
@@ -581,7 +579,7 @@ public class ConvertXMLtoJSON {
       <example id="json-ex-json-xml">
         <title>Converting JSON to XML</title>
 
-        <programlisting>package com.discursive.cjcook.json;
+        <programlisting language="java">package com.discursive.cjcook.json;
 
 import java.io.InputStream;
 
@@ -608,7 +606,7 @@ public class ConvertJSONtoXML {
 
       <para>This should produce the following XML output:</para>
 
-      <programlisting>&lt;o&gt;
+      <programlisting language="xml">&lt;o&gt;
   &lt;altitude type="number"&gt;39000&lt;/altitude&gt;
   &lt;coolness type="number"&gt;2.0&lt;/coolness&gt;
   &lt;foo type="string"&gt;bar&lt;/foo&gt;
@@ -628,7 +626,7 @@ public class ConvertJSONtoXML {
       <example id="json-ex-type-hints">
         <title>Generating XML from JSON without Type Hints</title>
 
-        <programlisting>package com.discursive.cjcook.json;
+        <programlisting language="java">package com.discursive.cjcook.json;
 
 import java.io.InputStream;
 
@@ -658,7 +656,7 @@ public class ConvertJSONtoXMLNoHints {
       <para>The previous class will produce the following XML without type
       hints:</para>
 
-      <programlisting>&lt;o&gt;
+      <programlisting language="xml">&lt;o&gt;
   &lt;altitude&gt;39000&lt;/altitude&gt;
   &lt;coolness&gt;2.0&lt;/coolness&gt;
   &lt;foo&gt;bar&lt;/foo&gt;
@@ -675,7 +673,7 @@ public class ConvertJSONtoXMLNoHints {
       <example id="json-ex-root-name">
         <title>Supplying a Root Name to the XMLSerializer</title>
 
-        <programlisting>package com.discursive.cjcook.json;
+        <programlisting language="java">package com.discursive.cjcook.json;
 
 import java.io.InputStream;
 
@@ -705,7 +703,7 @@ public class ConvertJSONtoXMLSetRoot {
 
       <para>This previous class will produce the following XML:</para>
 
-      <programlisting>&lt;SampleJSON&gt;
+      <programlisting language="xml">&lt;SampleJSON&gt;
   &lt;altitude&gt;39000&lt;/altitude&gt;
   &lt;coolness&gt;2.0&lt;/coolness&gt;
   &lt;foo&gt;bar&lt;/foo&gt;
@@ -739,7 +737,7 @@ public class ConvertJSONtoXMLSetRoot {
       <example id="json-ex-performance">
         <title>Mesuring the Performance of Simple JSON Operations</title>
 
-        <programlisting>package com.discursive.cjcook.json;
+        <programlisting language="java">package com.discursive.cjcook.json;
 
 import java.util.Date;
 
@@ -804,7 +802,7 @@ public class JSONTiming {
       <para>Where PositionData is a bean defined in the following
       class:</para>
 
-      <programlisting>package com.discursive.cjcook.json;
+      <programlisting language="java">package com.discursive.cjcook.json;
 
 public class PositionData {
 

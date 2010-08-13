@@ -76,7 +76,7 @@
       the parsing of a <literal moreinfo="none">String</literal> containing a
       fraction:</para>
 
-      <programlisting format="linespecific" id="I_8_tt318">import org.apache.commons.lang.math.Fraction;
+      <programlisting language="java" format="linespecific" id="I_8_tt318">import org.apache.commons.lang.math.Fraction;
 
 String userInput = "23 31/37";
 Fraction fraction = Fraction.getFraction( userInput );
@@ -101,7 +101,7 @@ double value = fraction.doubleValue( );</programlisting>
       expression in <link linkend="math-fig-1">Figure 8-1</link> using
       <literal moreinfo="none">Fraction</literal>:</para>
 
-      <programlisting format="linespecific" id="I_8_tt319">import org.apache.commons.lang.math.Fraction;
+      <programlisting language="java" format="linespecific" id="I_8_tt319">import org.apache.commons.lang.math.Fraction;
 
 Fraction numer1 = Fraction.getFraction( 3, 4 );
 Fraction numer2 = Fraction.getFraction( 51, 3509 );
@@ -151,7 +151,7 @@ Expression as double: 0.015686145034719084</programlisting>
       the ability to convert improper fractions to proper fractions as
       demonstrated in the following example:</para>
 
-      <programlisting format="linespecific" id="I_8_tt322">import org.apache.commons.lang.math.Fraction;
+      <programlisting language="java" format="linespecific" id="I_8_tt322">import org.apache.commons.lang.math.Fraction;
 
 String userInput = "101/99";
 String properString = Fraction.getFraction(userInput).toProperString( );
@@ -344,7 +344,7 @@ String properString = Fraction.getFraction(userInput).toProperString( );
       following code retrieves the minimum and maximum values from a <literal
       moreinfo="none">double[]</literal>:</para>
 
-      <programlisting format="linespecific" id="I_8_tt323">import org.apache.commons.lang.math.NumberUtils;
+      <programlisting language="java" format="linespecific" id="I_8_tt323">import org.apache.commons.lang.math.NumberUtils;
 
 double[] array = {0.2, 0.4, 0.5, -3.0, 4.223, 4.226};
 
@@ -374,7 +374,7 @@ double min = NumberUtils.min( array ); // returns -3.0</programlisting>
       <literal moreinfo="none">Min</literal> classes from Commons Math to
       evaluate a <literal moreinfo="none">double[]</literal>:</para>
 
-      <programlisting format="linespecific" id="I_8_tt324">
+      <programlisting language="java" format="linespecific" id="I_8_tt324">
 import 
 org.apache.commons.math.stat.univariate.rank.Max;
 
@@ -462,7 +462,7 @@ double min = minimum.evaluate( array, 0, array.length );</programlisting>
           <secondary>containsDouble( )</secondary>
         </indexterm>:</para>
 
-      <programlisting format="linespecific" id="I_8_tt325">import org.apache.commons.lang.math.DoubleRange;
+      <programlisting language="java" format="linespecific" id="I_8_tt325">import org.apache.commons.lang.math.DoubleRange;
 import org.apache.commons.lang.math.Range;
 
 <userinput moreinfo="none">Range safeSpeed = new DoubleRange( 0.0, 65.0 );</userinput>
@@ -492,7 +492,7 @@ double currentSpeed = getCurrentSpeed( );
       moreinfo="none">Range</literal> is entirely contained within another
       <literal moreinfo="none">Range</literal>:</para>
 
-      <programlisting format="linespecific" id="I_8_tt326">import org.apache.commons.lang.math.Range;
+      <programlisting language="java" format="linespecific" id="I_8_tt326">import org.apache.commons.lang.math.Range;
 import org.apache.commons.lang.math.IntRange;
 import org.apache.commons.lang.math.NumberUtils;
 
@@ -537,7 +537,7 @@ if( !recordRange.containsRange( todayTemp ) ) {
       3129.15 Kelvin. The following code is used to read the temperature from
       a thermometer and print the current state of the element:</para>
 
-      <programlisting format="linespecific" id="I_8_tt327">import org.apache.commons.lang.math.Range;
+      <programlisting language="java" format="linespecific" id="I_8_tt327">import org.apache.commons.lang.math.Range;
 import org.apache.commons.lang.math.DoubleRange;
 
 double melting = 1337.33;
@@ -659,7 +659,7 @@ System.out.println( "The substance is in a " + state + " state." );
           <secondary>nextInt( )</secondary>
         </indexterm>:</para>
 
-      <programlisting format="linespecific" id="I_8_tt328">import org.apache.commons.lang.math.RandomUtils;
+      <programlisting language="java" format="linespecific" id="I_8_tt328">import org.apache.commons.lang.math.RandomUtils;
 
 // Create a random integer between 0 and 30
 int maxVal = 30;
@@ -676,7 +676,7 @@ int randomInt = RandomUtils.nextInt( maxVal );</programlisting>
         </indexterm> variable, create one with a call to the static method
       <literal moreinfo="none">nextBoolean( )</literal>:</para>
 
-      <programlisting format="linespecific" id="I_8_tt329">import org.apache.commons.lang.math.RandomUtils;
+      <programlisting language="java" format="linespecific" id="I_8_tt329">import org.apache.commons.lang.math.RandomUtils;
  
 boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
     </sect2>
@@ -700,7 +700,7 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
       of code. For example, if you need to retrieve a random integer between 0
       and 32, you could write the following code:</para>
 
-      <programlisting format="linespecific" id="I_8_tt330">int randomInt = (int) Math.floor( (Math.random( ) * (double) maxVal) );</programlisting>
+      <programlisting language="java" format="linespecific" id="I_8_tt330">int randomInt = (int) Math.floor( (Math.random( ) * (double) maxVal) );</programlisting>
 
       <para>While this statement may seem straightforward, it does contain a
       conceptual complexity not present in <literal
@@ -761,7 +761,7 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
       <example id="math-ex-add-depend-math">
         <title>Adding a Dependency on Commons Math</title>
 
-        <programlisting>    &lt;dependency&gt;
+        <programlisting language="xml">    &lt;dependency&gt;
         &lt;groupId&gt;commons-math&lt;/groupId&gt;
         &lt;artifactId&gt;commons-math&lt;/artifactId&gt;
         &lt;version&gt;1.2&lt;/version&gt;
@@ -770,8 +770,7 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
       </example>
 
       <para>If you are not sure what this means, I'd suggest reading <ulink
-      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
-      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      url="http://www.sonatype.com/books/maven-book">Maven: The Complete Reference</ulink>. When you depend on a library in Maven 2, all you need to
       do is add the dependency <varname>groupId</varname>,
       <varname>artifactId</varname>, and <varname>version</varname> to your
       project's dependencies. Once you do this, Maven 2 will download the
@@ -873,7 +872,7 @@ boolean randomBool = RandomUtils.nextBoolean( );</programlisting>
       moreinfo="none">StatUtils</literal> to calculate simple statistics for a
       <literal moreinfo="none">double[]</literal>:</para>
 
-      <programlisting format="linespecific" id="I_8_tt331">import org.apache.commons.math.stat.StatUtils;
+      <programlisting language="java" format="linespecific" id="I_8_tt331">import org.apache.commons.math.stat.StatUtils;
 
 double[] values = new double[] { 2.3, 5.4, 6.2, 7.3, 23.3 };
 
@@ -909,7 +908,7 @@ variance: 68.25500000000001</programlisting>
       packages to recreate the previous example, and it adds some measures not
       available in <literal moreinfo="none">StatUtil</literal>:</para>
 
-      <programlisting format="linespecific" id="I_8_tt333">import org.apache.commons.math.stat.univariate.moment.*;
+      <programlisting language="java" format="linespecific" id="I_8_tt333">import org.apache.commons.math.stat.univariate.moment.*;
 import org.apache.commons.math.stat.univariate.rank.*;
 import org.apache.commons.math.stat.univariate.summary.*;
 
@@ -1070,7 +1069,7 @@ kurtosis: 4.102348153299074</programlisting>
       8-3</link> and uses a <literal moreinfo="none">RealMatrix</literal> to
       solve this system:</para>
 
-      <programlisting format="linespecific" id="I_8_tt337">import org.apache.commons.math.linear.RealMatrix;
+      <programlisting language="java" format="linespecific" id="I_8_tt337">import org.apache.commons.math.linear.RealMatrix;
 import org.apache.commons.math.linear.RealMatrixImpl;
 import org.apache.commons.lang.ArrayUtils;
 
@@ -1245,7 +1244,7 @@ System.out.println( "Answers: " + ArrayUtils.toString( answers ) );</programlist
       moreinfo="none">B</filename>, <filename moreinfo="none">C</filename>,
       and <filename moreinfo="none">E</filename>:</para>
 
-      <programlisting format="linespecific" id="I_8_tt341">import org.apache.commons.math.complex.Complex;
+      <programlisting language="java" format="linespecific" id="I_8_tt341">import org.apache.commons.math.complex.Complex;
 import org.apache.commons.math.complex.ComplexFormat;
 
 Complex a = new Complex(2, 3);
@@ -1309,7 +1308,7 @@ Answer Re(F)/Im(D): 11.417</programlisting>
       impedance is represented using a "j" instead of an "i." To print a
       complex number using a "j", write the following code:</para>
 
-      <programlisting format="linespecific" id="I_8_tt343">Complex impedance = new Complex( 1.0, 2.0 );
+      <programlisting language="java" format="linespecific" id="I_8_tt343">Complex impedance = new Complex( 1.0, 2.0 );
 ComplexFormat format = new ComplexFormat("j");
 System.out.println( "Impedance: " + format.format( impedance ) );</programlisting>
 
@@ -1372,7 +1371,7 @@ System.out.println( "Impedance: " + format.format( impedance ) );</programlistin
       1, 2, 3, 4, 5]</filename> and <filename moreinfo="none">[0, 1.2, 2.6,
       3.2, 4, 5]</filename>:</para>
 
-      <programlisting format="linespecific" id="I_8_tt345">import orgorg.apache.commons.math.stat.multivariate.SimpleRegression;
+      <programlisting language="java" format="linespecific" id="I_8_tt345">import orgorg.apache.commons.math.stat.multivariate.SimpleRegression;
 
 SimpleRegression sr = new SimpleRegression( );
 
@@ -1446,7 +1445,7 @@ RSquare: 0.985</programlisting>
       linear. The following example demonstrates two series of numbers with no
       relationship:</para>
 
-      <programlisting format="linespecific" id="I_8_tt347">import org.apache.commons.math.stat.multivariate.SimpleRegression;
+      <programlisting language="java" format="linespecific" id="I_8_tt347">import org.apache.commons.math.stat.multivariate.SimpleRegression;
 
 SimpleRegression sr = new SimpleRegression( );
 sr.addData( 400, 100 );
@@ -1534,7 +1533,7 @@ RSquare: 0.02</programlisting>
       <example id="math-ex-1" label="8-1">
         <title>ProcessEstimator to estimate time of program execution</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.math.timeestimate;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.math.timeestimate;
 
 import org.apache.commons.lang.time.StopWatch;
 import org.apache.commons.math.stat.multivariate.SimpleRegression;
@@ -1624,7 +1623,7 @@ public class ProcessEstimator {
       <example id="math-ex-2" label="8-2">
         <title>An example using the ProcessEstimator</title>
 
-        <programlisting format="linespecific">package com.discursive.jccook.math.timeestimate;
+        <programlisting language="java" format="linespecific">package com.discursive.jccook.math.timeestimate;
 
 import org.apache.commons.lang.math.RandomUtils;
 

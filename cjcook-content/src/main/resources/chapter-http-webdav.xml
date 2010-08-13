@@ -88,7 +88,7 @@
       <example id="http-webdav-ex-add-depend-httpclient">
         <title>Adding a Dependency on Commons HttpClient</title>
 
-        <programlisting>    &lt;dependency&gt;
+        <programlisting language="xml">    &lt;dependency&gt;
       &lt;groupId&gt;commons-httpclient&lt;/groupId&gt;
       &lt;artifactId&gt;commons-httpclient&lt;/artifactId&gt;
       &lt;version&gt;3.1&lt;/version&gt;
@@ -96,8 +96,7 @@
       </example>
 
       <para>If you are not sure what this means, I'd suggest reading <ulink
-      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
-      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      url="http://www.sonatype.com/books/maven-book">Maven: The Complete Reference</ulink>. When you depend on a library in Maven 2, all you need to
       do is add the dependency <varname>groupId</varname>,
       <varname>artifactId</varname>, and <varname>version</varname> to your
       project's dependencies. Once you do this, Maven 2 will download the
@@ -184,7 +183,7 @@
       url="http://www.discursive.com/jccook/">http://www.discursive.com/jccook/</ulink>
       and retrieves the response body as a string:</para>
 
-      <programlisting format="linespecific" id="I_11_tt434">
+      <programlisting language="xml" format="linespecific" id="I_11_tt434">
                <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpException;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpMethod;
@@ -217,7 +216,7 @@ HttpMethod method = <userinput moreinfo="none">new</userinput> GetMethod( url );
       moreinfo="none">200</literal>, the response is printed to the
       console:</para>
 
-      <programlisting format="linespecific" id="I_11_tt435">&lt;html&gt;
+      <programlisting language="xml" format="linespecific" id="I_11_tt435">&lt;html&gt;
  &lt;head&gt;
   &lt;title&gt;JCCook Example&lt;/title&gt;
  &lt;/head&gt;
@@ -339,7 +338,7 @@ HttpMethod method = <userinput moreinfo="none">new</userinput> GetMethod( url );
       moreinfo="none">URIUtil</literal> to encode any text included in a URL.
       The following example puts two parameters on the query string:</para>
 
-      <programlisting format="linespecific" id="I_11_tt436">
+      <programlisting language="xml" format="linespecific" id="I_11_tt436">
                <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpException;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpMethod;
@@ -413,7 +412,7 @@ blah:
       previous example, using <literal moreinfo="none">NameValuePair</literal>
       objects:</para>
 
-      <programlisting format="linespecific" id="I_11_tt438">// Set query string with name value pair objects
+      <programlisting language="java" format="linespecific" id="I_11_tt438">// Set query string with name value pair objects
 HttpMethod method = <userinput moreinfo="none">new</userinput> GetMethod( url );
 NameValuePair pair = 
 <userinput moreinfo="none">    new</userinput> NameValuePair( "test1", URIUtil.encodeQuery( "O Reilly" ) );
@@ -438,7 +437,7 @@ method.releaseConnection( );</programlisting>
       moreinfo="none">URIUtil</literal> to encode strings for inclusion in a
       URL:</para>
 
-      <programlisting format="linespecific" id="I_11_tt439">String encoded1 = URIUtil.encodeQuery( "&lt;test&gt;=O'Connell" );
+      <programlisting language="java" format="linespecific" id="I_11_tt439">String encoded1 = URIUtil.encodeQuery( "&lt;test&gt;=O'Connell" );
 String encoded2 = URIUtil.encodeQuery( "one:two=thr ee#" );
 
 String decoded = URIUtil.decode( "Hello%20World%3F" );
@@ -534,7 +533,7 @@ Decoded: Hello World?</programlisting>
       <example id="http-webdav-ex-1" label="11-1">
         <title>Requesting information with a conditional GET</title>
 
-        <programlisting format="linespecific">
+        <programlisting language="xml" format="linespecific">
                   <userinput moreinfo="none">import</userinput> java.io.IOException;
 
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.Header;
@@ -767,7 +766,7 @@ Cache-Control: max-age=86400</programlisting>
       moreinfo="none">System</literal> properties that control <literal
       moreinfo="none">HttpClient</literal> debugging output:</para>
 
-      <programlisting format="linespecific" id="I_11_tt445">
+      <programlisting language="xml" format="linespecific" id="I_11_tt445">
                <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpException;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpMethod;
@@ -996,7 +995,7 @@ HttpMethodBase - -Should NOT close connection, using HTTP/1.1.
           <secondary>parameters</secondary>
         </indexterm> send parameters:</para>
 
-      <programlisting format="linespecific" id="I_11_tt447">
+      <programlisting language="java" format="linespecific" id="I_11_tt447">
                <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpException;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.NameValuePair;
@@ -1144,7 +1143,7 @@ test1=Hello+World&amp;test2=This+is+a+Form+Submission&amp;Blah=Whoop&amp;Blah=Wh
       moreinfo="none">PostMethod</literal> to send data from a file in a
       request body:</para>
 
-      <programlisting format="linespecific" id="I_11_tt450">
+      <programlisting language="java" format="linespecific" id="I_11_tt450">
                <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpException;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.methods.PostMethod;
@@ -1231,7 +1230,7 @@ method.releaseConnection( );</programlisting>
       separated by a boundary. The following example sends two files in an
       HTTP multipart POST:</para>
 
-      <programlisting format="linespecific" id="I_11_tt451">
+      <programlisting language="java" format="linespecific" id="I_11_tt451">
                <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpException;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.methods.MultipartPostMethod;
@@ -1269,7 +1268,7 @@ method.releaseConnection( );</programlisting>
       the request separated by a part boundary, and the script echoes the
       location and type of both files on the server:</para>
 
-      <programlisting format="linespecific" id="I_11_tt452">&lt;h3&gt;Form input&lt;/h3&gt;
+      <programlisting language="xml" format="linespecific" id="I_11_tt452">&lt;h3&gt;Form input&lt;/h3&gt;
 &lt;pre&gt;
 sample.txt = /tmp/CGI14480.4 sample.txt {text/plain; charset=ISO-8859-1}
 
@@ -1416,7 +1415,7 @@ This is a sample
       uses a <literal moreinfo="none">UsernamePasswordCredentials</literal>
       object to access a protected resource:</para>
 
-      <programlisting format="linespecific" id="I_11_tt454">
+      <programlisting language="java" format="linespecific" id="I_11_tt454">
                <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.Credentials;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpException;
@@ -1453,7 +1452,7 @@ method.releaseConnection( );</programlisting>
         </indexterm>credentials, and the credentials are sent to the server.
       The final response is:</para>
 
-      <programlisting format="linespecific" id="I_11_tt455">&lt;html&gt;
+      <programlisting language="xml" format="linespecific" id="I_11_tt455">&lt;html&gt;
  &lt;head&gt;
   &lt;title&gt;Secure JCCook Example&lt;/title&gt;
  &lt;/head&gt;
@@ -1565,7 +1564,7 @@ Content-Type: text/html; charset=UTF-8
       moreinfo="none">setAuthenticationPreemptive(true)</literal> as
       follows:</para>
 
-      <programlisting format="linespecific" id="I_11_tt460">HttpClientParams params = client.getParams( );
+      <programlisting language="java" format="linespecific" id="I_11_tt460">HttpClientParams params = client.getParams( );
 
 params.setAuthenticationPreemptive( <userinput moreinfo="none">true</userinput> );</programlisting>
 
@@ -1635,7 +1634,7 @@ params.setAuthenticationPreemptive( <userinput moreinfo="none">true</userinput> 
       moreinfo="none">test.windowsmachine.com</filename>, which is on the
       domain <filename moreinfo="none">TESTDOM</filename>:</para>
 
-      <programlisting format="linespecific" id="I_11_tt461">
+      <programlisting language="java" format="linespecific" id="I_11_tt461">
                <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.Credentials;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpState;
@@ -1694,7 +1693,7 @@ method.releaseConnection( );</programlisting>
       could be added to <literal moreinfo="none">HttpState</literal> with the
       following code:</para>
 
-      <programlisting format="linespecific" id="I_11_tt462">HttpClient client = <userinput
+      <programlisting language="java" format="linespecific" id="I_11_tt462">HttpClient client = <userinput
           moreinfo="none">new</userinput> HttpClient( );
 
 Credentials credentials1 =
@@ -1795,7 +1794,7 @@ client.executeMethod( method2 );</programlisting>
       moreinfo="none">HttpState</literal>. The following example sends a
       <literal moreinfo="none">Cookie</literal> to the server:</para>
 
-      <programlisting format="linespecific" id="I_11_tt463">
+      <programlisting language="java" format="linespecific" id="I_11_tt463">
                <userinput moreinfo="none">import</userinput> java.io.IOException;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.Cookie;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
@@ -1859,7 +1858,7 @@ Making Request with Cookie:
       and <literal moreinfo="none">value</literal> of each <literal
       moreinfo="none">Cookie</literal>:</para>
 
-      <programlisting format="linespecific" id="I_11_tt465">HttpClient client = new HttpClient( );
+      <programlisting language="java" format="linespecific" id="I_11_tt465">HttpClient client = new HttpClient( );
 
 // execute some methods...
 
@@ -1904,7 +1903,7 @@ for( int i = 0; i &lt; cookies; i++ ) {
       associated with <literal moreinfo="none">HttpClient</literal>, as
       follows:</para>
 
-      <programlisting format="linespecific" id="I_11_tt466">HttpClient client = new HttpClient( );
+      <programlisting language="java" format="linespecific" id="I_11_tt466">HttpClient client = new HttpClient( );
 
 // To use a Compatability policy
 client.getState( ).setCookiePolicy(CookiePolicy.COMPATIBILITY);
@@ -1992,7 +1991,7 @@ client.getState( ).setCookiePolicy(CookiePolicy.RFC2109);</programlisting>
       what happens when a method requests a CGI script that returns a <literal
       moreinfo="none">302</literal> (moved temporarily) response code:</para>
 
-      <programlisting format="linespecific" id="I_11_tt467">
+      <programlisting language="java" format="linespecific" id="I_11_tt467">
                <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpException;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpMethod;
@@ -2165,7 +2164,7 @@ Content-Type: text/plain; charset=UTF-8</programlisting>
       moreinfo="none">HttpClientParams</literal> associated with an instance
       of <literal moreinfo="none">HttpClient</literal>:</para>
 
-      <programlisting format="linespecific" id="I_11_tt473">HttpClient client = new HttpClient( );
+      <programlisting language="java" format="linespecific" id="I_11_tt473">HttpClient client = new HttpClient( );
 HttpClientParams params = client.getParams( );
 
 params.setBooleanParameter( HttpClientParams.REJECT_RELATIVE_REDIRECT, false );
@@ -2260,7 +2259,7 @@ params.setIntParameter( HttpClientParams.MAX_REDIRECTS, 10 );</programlisting>
       The following example retrieves Amazon.com's sign-in page using HTTP
       over SSL:</para>
 
-      <programlisting format="linespecific" id="I_11_tt474">
+      <programlisting language="java" format="linespecific" id="I_11_tt474">
                <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpException;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpMethod;
@@ -2370,7 +2369,7 @@ content length is not known
       HttpClient's CVS repository, and the following example uses it to trust
       a self-signed certificate:</para>
 
-      <programlisting format="linespecific" id="I_11_tt477">
+      <programlisting language="java" format="linespecific" id="I_11_tt477">
                <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpException;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpMethod;
@@ -2493,7 +2492,7 @@ method.recycle( );</programlisting>
       <example id="http-webdav-ex-slide">
         <title>Adding a Dependency on Slide</title>
 
-        <programlisting>    &lt;dependency&gt;
+        <programlisting language="xml">    &lt;dependency&gt;
         &lt;groupId&gt;slide&lt;/groupId&gt;
         &lt;artifactId&gt;slide-webdavlib&lt;/artifactId&gt;
         &lt;version&gt;2.1&lt;/version&gt;
@@ -2501,8 +2500,7 @@ method.recycle( );</programlisting>
       </example>
 
       <para>If you are not sure what this means, I'd suggest reading <ulink
-      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
-      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      url="http://www.sonatype.com/books/maven-book">Maven: The Complete Reference</ulink>. When you depend on a library in Maven 2, all you need to
       do is add the dependency <varname>groupId</varname>,
       <varname>artifactId</varname>, and <varname>version</varname> to your
       project's dependencies. Once you do this, Maven 2 will download the
@@ -2651,7 +2649,7 @@ method.recycle( );</programlisting>
       <literal moreinfo="none">WebdavResource</literal> to list the contents
       of a WebDAV collection:</para>
 
-      <programlisting format="linespecific" id="I_11_tt479">
+      <programlisting language="java" format="linespecific" id="I_11_tt479">
                <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.Credentials;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpException;
@@ -2798,7 +2796,7 @@ dir   test           0       httpd/unix-directory   5/6/04 12:01 AM</programlist
           <secondary>unlockMethod( )</secondary>
         </indexterm> to modify a resource:</para>
 
-      <programlisting format="linespecific" id="I_11_tt481">
+      <programlisting  language="java" format="linespecific" id="I_11_tt481">
                <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.Credentials;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpClient;
 <userinput moreinfo="none">import</userinput> org.apache.commons.httpclient.HttpException;

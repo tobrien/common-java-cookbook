@@ -458,8 +458,7 @@ digester.doSomething( );</programlisting>
     url="http://www.eclipse.org">http://www.eclipse.org</ulink>. All of the
     examples in this book can be compiled and packaged using Apache Maven. For
     more information about Apache Maven, see <ulink
-    url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
-    Guide</ulink> a free, online book available from Sonatype.</para>
+    url="http://www.sonatype.com/books/maven-book">Maven: The Complete Reference</ulink> a free, online book available from Sonatype.</para>
 
     <para>Each chapter contains instructions for downloading the various
     Apache Commons components; to download any component from Apache Commons,

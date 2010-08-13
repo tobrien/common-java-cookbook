@@ -35,7 +35,7 @@
       <example id="guava-io-ex-depend">
         <title>Adding a Dependency on Google Guava</title>
 
-        <programlisting>&lt;dependency&gt;
+        <programlisting language="xml">&lt;dependency&gt;
   &lt;groupId&gt;com.google.guava&lt;/groupId&gt;
   &lt;artifactId&gt;guava&lt;/artifactId&gt;
   &lt;version&gt;r06&lt;/version&gt;
@@ -44,8 +44,7 @@
       </example>
 
       <para>If you are not sure what this means, I'd suggest reading <ulink
-      url="http://www.sonatype.com/books/maven-book">Maven: The Definitive
-      Guide</ulink>. When you depend on a library in Maven 2, all you need to
+      url="http://www.sonatype.com/books/maven-book">Maven: The Complete Reference</ulink>. When you depend on a library in Maven 2, all you need to
       do is add the dependency <varname>groupId</varname>,
       <varname>artifactId</varname>, and <varname>version</varname> to your
       project's dependencies. Once you do this, Maven 2 will download the
@@ -82,7 +81,7 @@
         <title>Copying the Contents of an InputStream to an
         OutputStream</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -124,7 +123,7 @@ public class CopyStreams {
       <example id="guava-io-ex-checksum">
         <title>Calculating the Checksum of a Byte Array</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.InputStream;
 import java.util.zip.CRC32;
@@ -170,10 +169,10 @@ public class ChecksumStream {
       and pass the method a <classname>MessageDigest</classname> object as
       shown in the following example.</para>
 
-      <example>
+      <example id="guava-io-ex-digest">
         <title>Calculating the MessageDigest of a Byte Array</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.InputStream;
 import java.security.MessageDigest;
@@ -226,11 +225,11 @@ public class DigestBytes {
       ByteStreams.join(), and then copy the combined InputSupplier to the
       OutputSupplier using ByteStreams.copy().</para>
 
-      <example>
+      <example id="guava-io-ex-join">
         <title>Joining Two Files using ByteStreams.join() and
         ByteStreams.copy()</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -247,11 +246,14 @@ import com.google.common.io.OutputSupplier;
 public class JoinFiles {
   public static void main(String[] args) throws Exception {
   
-    InputSupplier&lt;FileInputStream&gt; is = Files.newInputStreamSupplier( new File("data", "test1.txt" ) );
-    InputSupplier&lt;FileInputStream&gt; is2 = Files.newInputStreamSupplier( new File("data", "test2.txt" ) );
+    InputSupplier&lt;FileInputStream&gt; is = 
+        Files.newInputStreamSupplier( new File("data", "test1.txt" ) );
+    InputSupplier&lt;FileInputStream&gt; is2 = 
+        Files.newInputStreamSupplier( new File("data", "test2.txt" ) );
 
     InputSupplier&lt;InputStream&gt; combined = ByteStreams.join( is, is2 );
-    OutputSupplier&lt;FileOutputStream&gt; os = Files.newOutputStreamSupplier(new File("output1.data"), false );
+    OutputSupplier&lt;FileOutputStream&gt; os = 
+        Files.newOutputStreamSupplier(new File("output1.data"), false );
     ByteStreams.copy(combined, os );
   }
 }
@@ -280,11 +282,11 @@ public class JoinFiles {
       using Files.newWriterSupplier(), and then use CharStreams.copy() to copy
       the InputSupplier to the OutputSupplier.</para>
 
-      <example>
+      <example id="guava-io-ex-join-readers">
         <title>Joining Two Readers using CharStreams.join() and
         CharStreams.copy()</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.File;
 import java.io.InputStreamReader;
@@ -338,10 +340,10 @@ public class JoinReaders {
       IOException is a distraction. Use the ByteArrayDataInput and
       ByteArrayDataOutput classes instead:</para>
 
-      <example>
+      <example id="guava-io-ex-datainout">
         <title>Using ByteArrayDataOutput and ByteArrayDataInput</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.util.Date;
 
@@ -362,7 +364,8 @@ public class ByteArrayExample {
       byteOut.writeInt( RandomUtils.nextInt() );
     }
 
-    ByteArrayDataInput input = ByteStreams.newDataInput( byteOut.toByteArray() );
+    ByteArrayDataInput input = 
+        ByteStreams.newDataInput( byteOut.toByteArray() );
     for( int i = 0; i &lt; size; i++ ) {
       input.readInt();
       input.readDouble();
@@ -379,10 +382,10 @@ public class ByteArrayExample {
       encoded with Google's Protocol Buffers to an in-memory byte
       array.</para>
 
-      <example>
+      <example id="guava-io-ex-writing-proto">
         <title>Writing Data with the ByteArrayDataOutput Class</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.util.Date;
 
@@ -423,10 +426,10 @@ public class ByteArrayInputExample {
       below, this would have called for some exception handling around the
       call to the write() method.</para>
 
-      <example>
+      <example id="guava-io-ex-writing-proto2">
         <title>Writing Data without the ByteArrayDataOutput Class</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -492,10 +495,10 @@ public class ByteArrayInputExampleAlt {
       InputStream that contains a specified portion of the underlying
       stream.</para>
 
-      <example>
+      <example id="guava-io-ex-slicing">
         <title>Slicing Data from an InputStream</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -510,7 +513,8 @@ public class SliceExample {
   public static void main(String[] args) throws IOException {
     InputSupplier&lt;FileInputStream&gt; fileIn = Files
         .newInputStreamSupplier(new File("data", "large.txt"));
-    InputSupplier&lt;InputStream&gt; slicedStream = ByteStreams.slice( fileIn, 10, 1000 );
+    InputSupplier&lt;InputStream&gt; slicedStream = 
+        ByteStreams.slice( fileIn, 10, 1000 );
     byte[] data = ByteStreams.toByteArray( slicedStream );
   }
 }
@@ -549,7 +553,7 @@ public class SliceExample {
       <example id="guava-io-ex-closefluse-no-help">
         <title>One of the Reasons Java Gets a Bad Rap</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -604,7 +608,7 @@ public class CloseFlushExample {
       <example id="guava-io-ex-closeables-flushables">
         <title>Using Closeables and Flushables in a finally block</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -650,12 +654,12 @@ public class CloseFlushExample {
       ByteStreams class to write a byte array to this OutputSupplier. If you
       use ByteStreams, you will only have to catch a single occurence of
       IOException for your call to write(), and ByteStreams will take care of
-      calling close() on the OutputStream. </para>
+      calling close() on the OutputStream.</para>
 
       <example id="guava-io-ex-avoid-ex">
         <title>Avoid Most Exception Handling with ByteStreams.write()</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.Closeable;
 import java.io.File;
@@ -709,7 +713,7 @@ public class CloseFlushExample3 {
       <example id="guava-io-ex-counting">
         <title>Using a CountingInputStream and CountingOutputStream</title>
 
-        <programlisting>package com.discursive.cjcook.guava.io;
+        <programlisting language="java">package com.discursive.cjcook.guava.io;
 
 import java.io.File;
 import java.io.FileInputStream;
