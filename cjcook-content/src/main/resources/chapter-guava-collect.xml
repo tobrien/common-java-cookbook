@@ -206,8 +206,6 @@ public class SetIntersectionExample {
     <sect2>
       <title>Discussion</title>
 
-      <para></para>
-
       <figure id="guava-collect-fig-intersect">
         <title>Calculating the Intersection of Two Sets</title>
 
@@ -290,8 +288,6 @@ Tim</screen>
 
     <sect2>
       <title>Discussion</title>
-
-      <para></para>
 
       <figure id="guava-collect-fig-difference">
         <title>Calculating the Difference of Two Sets</title>
@@ -378,8 +374,6 @@ Tony</screen>
 
     <sect2>
       <title>Discussion</title>
-
-      <para></para>
 
       <figure id="guava-collect-fig-symdiff">
         <title>Calculating the Symmetric Difference of Two Sets</title>
@@ -492,9 +486,10 @@ Powerset: [1, 2, 3, 4, 5]</screen>
     <sect2>
       <title>Problem</title>
 
-      <para>You need a Set with cardinality. Instead of a Set containing
-      single instances of unique objects, you want to be able to keep track of
-      a Set of objects where each object may be present in the Set one or more
+      <para>You need a <classname>Set</classname> with cardinality. Instead of
+      a Set containing single instances of unique objects, you want to be able
+      to keep track of a <classname>Set</classname> of objects where each
+      object may be present in the <classname>Set</classname> one or more
       times.</para>
     </sect2>
 
@@ -583,7 +578,23 @@ Multiset #1 and #2 are equal? false</screen>
     <sect2>
       <title>Discussion</title>
 
-      <para></para>
+      <figure id="guava-collect-fig-multiset">
+        <title>Obtaining the entrySet() or the elementSet() from a
+        Multiset</title>
+
+        <mediaobject>
+          <imageobject role="print">
+            <imagedata align="center"
+                       fileref="figs/print/guava-collect-multiset.pdf"
+                       format="PDF" scalefit="0" width="100%" />
+          </imageobject>
+
+          <imageobject role="web">
+            <imagedata fileref="figs/web/guava-collect-multiset.png"
+                       format="PNG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
     </sect2>
 
     <sect2>
@@ -594,8 +605,8 @@ Multiset #1 and #2 are equal? false</screen>
       linkend="collections-sect-bag" />.</para>
 
       <para>For more information about the bag data structure, look at a
-      definition from the National Institute of Standards and Technology (NIST) at
-      <ulink
+      definition from the National Institute of Standards and Technology
+      (NIST) at <ulink
       url="http://www.nist.gov/dads/HTML/bag.html">http://www.nist.gov/dads/HTML/bag.html</ulink>.</para>
     </sect2>
   </sect1>
@@ -607,13 +618,14 @@ Multiset #1 and #2 are equal? false</screen>
     <sect2>
       <title>Problem</title>
 
-      <para></para>
+      <para>You need a <literal moreinfo="none">Map</literal> that allows you
+      to access a value by a key and a key by a value.</para>
     </sect2>
 
     <sect2>
       <title>Solution</title>
 
-      <para></para>
+      <para>Use a BiMap from the Google Guava library.</para>
 
       <example id="guava-collect-ex-bimap">
         <title>Using a BiMap</title>
@@ -656,7 +668,21 @@ public class BiMapExample {
     <sect2>
       <title>Discussion</title>
 
-      <para></para>
+      <figure id="guava-collect-fig-bimap">
+        <title>Generating the Inverse of a BiMap</title>
+
+        <mediaobject>
+          <imageobject role="print">
+            <imagedata align="center"
+                       fileref="figs/print/guava-collect-bimap.pdf"
+                       format="PDF" scalefit="0" width="100%" />
+          </imageobject>
+
+          <imageobject role="web">
+            <imagedata fileref="figs/web/guava-collect-bimap.png" format="PNG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
     </sect2>
 
     <sect2>
@@ -674,13 +700,19 @@ public class BiMapExample {
     <sect2>
       <title>Problem</title>
 
-      <para></para>
+      <para>You want to make sure that the entries in a Collection are
+      validated as they are added to that Collection</para>
     </sect2>
 
     <sect2>
       <title>Solution</title>
 
-      <para></para>
+      <para>Create a constraing by implementing the Constraint interface in
+      Google Guava. This interface defines a checkElement() method which you
+      can override with your own validation logic. If the element to be
+      inserted in a Collection meets your validation criteria, just return it.
+      If the object fails validation, throw a
+      <classname>RuntimeException</classname>.</para>
 
       <example id="guava-collect-ex-const">
         <title>Defining a Custom Constraint</title>
@@ -759,13 +791,22 @@ I'm sorry, but a Subaru Forrester is not efficient enough.
     <sect2>
       <title>Discussion</title>
 
-      <para></para>
-    </sect2>
+      <figure id="guava-collect-fig-constrained-collection">
+        <title>Constraining a Collection</title>
 
-    <sect2>
-      <title>See Also</title>
+        <mediaobject>
+          <imageobject role="print">
+            <imagedata align="center"
+                       fileref="figs/print/guava-collect-constrained-collection.pdf"
+                       format="PDF" scalefit="0" width="100%" />
+          </imageobject>
 
-      <para></para>
+          <imageobject role="web">
+            <imagedata fileref="figs/web/guava-collect-constrained-collection.png"
+                       format="PNG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
     </sect2>
   </sect1>
 
@@ -775,16 +816,21 @@ I'm sorry, but a Subaru Forrester is not efficient enough.
     <sect2>
       <title>Problem</title>
 
-      <para></para>
+      <para>You want to make sure that a <classname>Map</classname> doesn't
+      contain invalid entries.</para>
     </sect2>
 
     <sect2>
       <title>Solution</title>
 
-      <para></para>
+      <para>Define a custom <classname>MapConstraint</classname> to validate
+      both the key and value to be added to a <classname>Map</classname>.
+      Create a constrained <classname>Map</classname> with a call to the
+      static <methodname>constrainedMap()</methodname> method on
+      <classname>MapConstraints</classname>.</para>
 
       <example id="guava-collect-ex-mapconst">
-        <title></title>
+        <title>Defining a custom MapConstraint</title>
 
         <programlisting>package com.discursive.cjcook.guava.collect;
 
@@ -815,7 +861,8 @@ public class PersonConstraint implements MapConstraint&lt;String, Person&gt; {
       </example>
 
       <example id="guava-collect-ex-mapconstex">
-        <title></title>
+        <title>Validating entries as they are added to Map with
+        MapConstraints.</title>
 
         <programlisting>package com.discursive.cjcook.guava.collect;
 
@@ -860,18 +907,6 @@ FAILURE Error adding person to Map: Key not a valid Social Security Number
 Adding Richard to Constrained Map
 FAILURE Error adding person to Map: Key not a valid Social Security Number
 </screen>
-    </sect2>
-
-    <sect2>
-      <title>Discussion</title>
-
-      <para></para>
-    </sect2>
-
-    <sect2>
-      <title>See Also</title>
-
-      <para></para>
     </sect2>
   </sect1>
 </chapter>
