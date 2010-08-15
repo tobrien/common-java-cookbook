@@ -141,6 +141,14 @@ Tony</screen>
         </mediaobject>
       </figure>
     </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para>The Apache Commons Collections library also provides a set of
+      utilities to perform set operations. For more information see <xref
+      linkend="collections-sect-performing-set" />.</para>
+    </sect2>
   </sect1>
 
   <sect1 id="guava-collect-sect-intersect">
@@ -216,6 +224,14 @@ public class SetIntersectionExample {
           </imageobject>
         </mediaobject>
       </figure>
+    </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para>The Apache Commons Collections library also provides a set of
+      utilities to perform set operations. For more information see <xref
+      linkend="collections-sect-performing-set" />.</para>
     </sect2>
   </sect1>
 
@@ -293,6 +309,14 @@ Tim</screen>
           </imageobject>
         </mediaobject>
       </figure>
+    </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para>The Apache Commons Collections library also provides a set of
+      utilities to perform set operations. For more information see <xref
+      linkend="collections-sect-performing-set" />.</para>
     </sect2>
   </sect1>
 
@@ -374,6 +398,14 @@ Tony</screen>
         </mediaobject>
       </figure>
     </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para>The Apache Commons Collections library also provides a set of
+      utilities to perform set operations. For more information see <xref
+      linkend="collections-sect-performing-set" />.</para>
+    </sect2>
   </sect1>
 
   <sect1>
@@ -451,6 +483,395 @@ Powerset: [3, 4, 5]
 Powerset: [1, 3, 4, 5]
 Powerset: [2, 3, 4, 5]
 Powerset: [1, 2, 3, 4, 5]</screen>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-collect-sect-multisets">
+    <title>Working with Multisets</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para>You need a Set with cardinality. Instead of a Set containing
+      single instances of unique objects, you want to be able to keep track of
+      a Set of objects where each object may be present in the Set one or more
+      times.</para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para>Use a Multiset collection from the Google Guava library.</para>
+
+      <example id="guava-collect-ex-multiset">
+        <title>Using a Multiset</title>
+
+        <programlisting>package com.discursive.cjcook.guava.collect;
+
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.util.Set;
+
+import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Multiset;
+import com.google.common.collect.TreeMultiset;
+import com.google.common.collect.Multiset.Entry;
+
+public class MultisetsExample {
+  public static void main(String args[]) {
+
+    PrintStream out = System.out;
+    Multiset&lt;String&gt; multiset = HashMultiset.create();
+
+    multiset.add("Red Ball", 5);
+    multiset.add("Yellow Ball", 10);
+    multiset.add("Blue Ball", 20);
+
+    out.printf("Multiset #1: %s\n", multiset);
+
+    out.printf("Multiset #1 contains a Red Ball? %s\n", multiset
+        .contains("Red Ball"));
+    out.println("Removing Five Red Balls from Multiset #1\n");
+    
+    multiset.remove("Red Ball", 5);
+
+    out.printf("Multiset contains a Red Ball? %s\n", multiset
+        .contains("Red Ball"));
+
+    Multiset&lt;String&gt; multiset2 = TreeMultiset.create();
+    multiset2.add("Blue Ball", 20);
+    multiset2.add("Yellow Ball", 10);
+
+    out.printf("\nMultiset #1: %s", multiset);
+    out.printf("\nMultiset #2: %s", multiset2);
+    out.printf("\nMultiset #1 and #2 are equal? %s", multiset
+        .equals(multiset2));
+
+    out.println("\n\nRemoving One Blue Ball from multiset2");
+    multiset2.remove("Blue Ball");
+
+    out.printf("\nMultiset #1: %s", multiset);
+    out.printf("\nMultiset #2: %s", multiset2);
+    out.printf("\nMultiset #1 and #2 are equal? %s", multiset
+        .equals(multiset2));
+  }
+}
+</programlisting>
+      </example>
+
+      <para>This example produces the following output:</para>
+
+      <screen>
+Multiset #1: [Blue Ball x 20, Red Ball x 5, Yellow Ball x 10]
+
+Multiset contains a Red Ball? true
+
+Removing Five Reb Balls
+
+Multiset contains a Red Ball? false
+Multiset #1: [Blue Ball x 20, Yellow Ball x 10]
+Multiset #2: [Blue Ball x 20, Yellow Ball x 10]
+Multiset #1 and #2 are equal? true
+
+Removing One Blue Ball from multiset2
+
+Multiset #1: [Blue Ball x 20, Yellow Ball x 10]
+Multiset #2: [Blue Ball x 19, Yellow Ball x 10]
+Multiset #1 and #2 are equal? false</screen>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para>The Apache Commons Collections library provides a similar
+      interface calls a Bag. For more information, see <xref
+      linkend="collections-sect-bag" />.</para>
+
+      <para>For more information about the bag data structure, look at a
+      definition from the National Institute of Standards and Technology (NIST) at
+      <ulink
+      url="http://www.nist.gov/dads/HTML/bag.html">http://www.nist.gov/dads/HTML/bag.html</ulink>.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-collect-sect-bimap">
+    <title>Retrieving a Key by Value (Working with Bi-directional
+    Maps)</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para></para>
+
+      <example id="guava-collect-ex-bimap">
+        <title>Using a BiMap</title>
+
+        <programlisting>package com.discursive.cjcook.guava.collect;
+
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
+
+public class BiMapExample {
+  public static void main(String[] args) {
+  
+    BiMap&lt;String, String&gt; countryCodes = HashBiMap.create();
+
+        countryCodes.put("to","Tonga");
+        countryCodes.put("tr","Turkey");
+        countryCodes.put("tv","Tuvalu");
+        countryCodes.put("tz","Tanzania");
+        countryCodes.put("ua","Ukraine");
+        countryCodes.put("ug","Uganda");
+        countryCodes.put("uk","United Kingdom");
+        countryCodes.put("um","USA Minor Outlying Islands");
+        countryCodes.put("us","United States");
+        countryCodes.put("uy","Uruguay");
+
+        String countryName = (String) countryCodes.get( "tr" );
+        System.out.println( "Country Name for code 'tr': " + countryName );
+
+        String countryCode = 
+            (String) countryCodes.inverse().get("Uruguay");
+        System.out.println( "Country Code for name 'Uruguay': " + countryCode );
+            
+    }
+    
+}
+</programlisting>
+      </example>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para>Apache Commons Collections has a similar interface calls the
+      BidiMap. For more information on the BidiMap, see <xref
+      linkend="collections-sect-key-by-value" />.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-collect-sect-const">
+    <title>Adding Constraints to a Collection (List or Set)</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para></para>
+
+      <example id="guava-collect-ex-const">
+        <title>Defining a Custom Constraint</title>
+
+        <programlisting>package com.discursive.cjcook.guava.collect;
+
+import com.google.common.collect.Constraint;
+
+public class MPGConstraint implements Constraint&lt;Automobile&gt; {
+
+  private Integer minimumMPG;
+
+  public MPGConstraint(int minimumMPG) {
+    this.minimumMPG = minimumMPG;
+  }
+
+  @Override
+  public Automobile checkElement(Automobile element) {
+    if (element.getMilesPerGallon() != null
+        &amp;&amp; element.getMilesPerGallon() &lt; minimumMPG) {
+      throw new IllegalArgumentException(
+          "Automobile does not meet minimum fuel standards");
+    }
+    return element;
+  }
+}
+</programlisting>
+      </example>
+
+      <example id="guava-collect-ex-constex">
+        <title>Adding Constraints to a Collection</title>
+
+        <programlisting>package com.discursive.cjcook.guava.collect;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import com.google.common.collect.Constraints;
+
+public class ConstraintsExample {
+
+  public static void main(String[] args) {
+
+    Automobile camry = new Automobile("Toyota", "Camry", 34);
+    Automobile hummer = new Automobile("Hummer", "H2", 8);
+    Automobile forrester = new Automobile("Subaru", "Forrester", 22);
+
+    List&lt;Automobile&gt; efficientCars = Constraints.constrainedList(
+        new ArrayList&lt;Automobile&gt;(), new MPGConstraint(30));
+    for (Automobile car : new Automobile[] { camry, hummer, forrester }) {
+      try {
+        efficientCars.add(car);
+        System.out.printf(
+            "Added a %s %s to the Efficient Cars List.\n", car
+                .getMake(), car.getModel());
+      } catch (IllegalArgumentException e) {
+        System.out.printf(
+          "I'm sorry, but a %s %s is not efficient enough.\n",
+          car.getMake(), car.getModel());
+      }
+    }
+  }
+}
+</programlisting>
+      </example>
+
+      <para>This example produces the following output:</para>
+
+      <screen>Added a Toyota Camry to the Efficient Cars List.
+I'm sorry, but a Hummer H2 is not efficient enough.
+I'm sorry, but a Subaru Forrester is not efficient enough.
+</screen>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="guava-collect-sect-mapconst">
+    <title>Adding Constraints to a Map</title>
+
+    <sect2>
+      <title>Problem</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>Solution</title>
+
+      <para></para>
+
+      <example id="guava-collect-ex-mapconst">
+        <title></title>
+
+        <programlisting>package com.discursive.cjcook.guava.collect;
+
+import com.google.common.collect.MapConstraint;
+
+public class PersonConstraint implements MapConstraint&lt;String, Person&gt; {
+
+  @Override
+  public void checkKeyValue(String key, Person value) {
+    String regex = "^(?!000)([0-6]\\d{2}|7([0-6]\\d|7[012]))([ -]?)"
+        + "(?!00)\\d\\d\\3(?!0000)\\d{4}$";
+
+    if (!key.matches(regex)) {
+      throw new IllegalArgumentException(
+          "Key not a valid Social Security Number");
+    }
+
+    if (value == null) {
+      throw new IllegalArgumentException("Person cannot be null");
+    } else if (value != null
+        &amp;&amp; (value.getFirstName() == null || value.getLastName() == null)) {
+      throw new IllegalArgumentException(
+          "Person must have a non-empty first and last name");
+    }
+  }
+}
+</programlisting>
+      </example>
+
+      <example id="guava-collect-ex-mapconstex">
+        <title></title>
+
+        <programlisting>package com.discursive.cjcook.guava.collect;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.google.common.collect.MapConstraints;
+
+public class MapConstraintsExample {
+
+  public static void main(String[] args) {
+    Person bill = new Person("Bill", "Clinton", "012-68-4378");
+    Person nancy = new Person("Nancy", null, "(212) 232-2332");
+    Person richard = new Person("Richard", "Coasby", "000-00-0000");
+
+    Map&lt;String, Person&gt; people = MapConstraints.constrainedMap(
+        new HashMap&lt;String, Person&gt;(), new PersonConstraint());
+
+    for (Person person : new Person[] { bill, nancy, richard }) {
+      try {
+        System.out.printf("Adding %s to Constrained Map\n", person
+            .getFirstName());
+        people.put(person.getSsn(), person);
+        System.out.printf("SUCCESS Added %s\n", person.getFirstName());
+      } catch (IllegalArgumentException e) {
+        System.out.printf("FAILURE Error adding person to Map: %s\n", e
+            .getMessage());
+      }
+    }
+  }
+
+}
+</programlisting>
+      </example>
+
+      <para>This example produces the following output:</para>
+
+      <screen>Adding Bill to Constrained Map
+SUCCESS Added Bill
+Adding Nancy to Constrained Map
+FAILURE Error adding person to Map: Key not a valid Social Security Number
+Adding Richard to Constrained Map
+FAILURE Error adding person to Map: Key not a valid Social Security Number
+</screen>
+    </sect2>
+
+    <sect2>
+      <title>Discussion</title>
+
+      <para></para>
+    </sect2>
+
+    <sect2>
+      <title>See Also</title>
+
+      <para></para>
     </sect2>
   </sect1>
 </chapter>
