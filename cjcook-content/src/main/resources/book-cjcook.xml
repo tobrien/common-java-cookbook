@@ -9,18 +9,16 @@
 
     <edition>Second</edition>
 
-    <authorgroup>
-      <author>
+    <author>
         <firstname>Timothy M.</firstname>
-
+        
         <surname>O'Brien</surname>
-
+        
         <authorblurb role="web">
-          <para><ulink
-          url="http://www.oreillynet.com/cs/catalog/view/au/1738?x-t=book.view"></ulink></para>
+            <para><ulink
+                       url="http://www.oreillynet.com/cs/catalog/view/au/1738?x-t=book.view"></ulink></para>
         </authorblurb>
-      </author>
-    </authorgroup>
+    </author>
 
     <publisher>
       <publishername>${organization.name}</publishername>
