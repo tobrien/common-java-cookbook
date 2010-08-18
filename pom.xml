@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.discursive.cjcook</groupId>
   <artifactId>cjcook-parent</artifactId>
-  <version>0.26-SNAPSHOT</version>
+  <version>0.25</version>
   <packaging>pom</packaging>
   <name>Common Java Cookbook</name>
   <description>A Common Cookbook for Java</description>
