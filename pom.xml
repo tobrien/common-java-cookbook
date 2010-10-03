@@ -22,6 +22,7 @@
     <google.analytics.id>UA-67332-11</google.analytics.id>
     <commons.site>http://commons.apache.org/</commons.site>
     <docbkx-tools.version>2.0.11-SNAPSHOT</docbkx-tools.version>
+    <googleguava.version>r07</googleguava.version>
   </properties>
   <developers>
     <developer>
