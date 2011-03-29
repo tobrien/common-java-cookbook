@@ -129,7 +129,7 @@
 		<snapshotRepository>
 			<id>discursive-private-snapshots</id>
 			<name>Discursive Snapshots</name>
-			<url>http://build.discursive.com/nexus/content/repositories/discursive-snapshots/</url>
+			<url>http://build.discursive.com/nexus/content/repositories/discursive-private-snapshots/</url>
 		</snapshotRepository>
   </distributionManagement>  
   <dependencies>
