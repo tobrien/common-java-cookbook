@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://mars.discursive.com/docbook/xml/4.5/docbookx.dtd">
+"http://www.discursive.com/docbook/xml/4.5/docbookx.dtd">
 <book id="cjcook">
   <title>${book.title}</title>
 
@@ -10,14 +10,14 @@
     <edition>Second</edition>
 
     <author>
-        <firstname>Timothy M.</firstname>
-        
-        <surname>O'Brien</surname>
-        
-        <authorblurb role="web">
-            <para><ulink
-                       url="http://www.oreillynet.com/cs/catalog/view/au/1738?x-t=book.view"></ulink></para>
-        </authorblurb>
+      <firstname>Timothy M.</firstname>
+
+      <surname>O'Brien</surname>
+
+      <authorblurb role="web">
+        <para><ulink
+        url="http://www.oreillynet.com/cs/catalog/view/au/1738?x-t=book.view"></ulink></para>
+      </authorblurb>
     </author>
 
     <publisher>
@@ -35,7 +35,7 @@
       you.</para>
     </abstract>
 
-    <date>2010-08-04</date>
+    <date>2010-11-21</date>
 
     <copyright>
       <year>2010 Tim O'Brien. All Rights Reserved.</year>
@@ -123,7 +123,7 @@
   <xi:include href="chapter-guava-collect.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 
-<!--  <xi:include href="chapter-guava-conc.xml"
+  <!--  <xi:include href="chapter-guava-conc.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude" /> -->
 
   <index></index>
