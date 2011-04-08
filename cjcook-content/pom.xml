@@ -57,7 +57,7 @@
         	</execution>
         </executions>
         <configuration>
-            <doctypeSystem>http://mars.discursive.com/docbook/xml/4.5/docbookx.dtd</doctypeSystem>
+            <doctypeSystem>http://www.discursive.com/docbook/xml/4.5/docbookx.dtd</doctypeSystem>
         </configuration>
       </plugin>
       <plugin>
