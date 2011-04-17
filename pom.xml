@@ -21,7 +21,8 @@
     <copyright.year>2009</copyright.year>
     <google.analytics.id>UA-67332-11</google.analytics.id>
     <commons.site>http://commons.apache.org/</commons.site>
-    <docbkx-tools.version>2.0.11-SNAPSHOT</docbkx-tools.version>
+    <docbkx-tools.version>2.0.13-tobrien-SNAPSHOT</docbkx-tools.version>
+    <googleguava.version>r07</googleguava.version>
   </properties>
   <developers>
     <developer>
@@ -89,11 +90,18 @@
 	</plugin>
       </plugins>
     </pluginManagement>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+         <artifactId>wagon-ssh</artifactId>
+         <version>1.0-beta-6</version>
+      </extension>
+    </extensions>
   </build>
   <profiles>
     <profile>
       <id>publish</id>
-      <distributionManagement>
+	<distributionManagement>
         <site>
           <id>discursive-site</id>
           <name>Discursive Site</name>
@@ -120,16 +128,16 @@
     <developerConnection>scm:git:git@github.com:tobrien/common-java-cookbook.git</developerConnection>	
   </scm>
   <distributionManagement>
-    <repository>
-      <id>cjcook-releases</id>
-      <name>Common Java Cookbook M2 Repository</name>
-      <url>dav:https://dav.codehaus.org/repository/cjcook/</url>
-    </repository>
-    <snapshotRepository>
-      <id>cjcook-snapshots</id>
-      <name>Common Java Cookbook Snapshots M2 Repository</name>
-      <url>dav:https://dav.codehaus.org/snapshots.repository/cjcook/</url>
-    </snapshotRepository>
+ 		  <repository>
+			<id>discursive-private-releases</id>
+			<name>Discursive Releases</name>
+			<url>http://build.discursive.com/nexus/content/repositories/discursive-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>discursive-private-snapshots</id>
+			<name>Discursive Snapshots</name>
+			<url>http://build.discursive.com/nexus/content/repositories/discursive-private-snapshots/</url>
+		</snapshotRepository>
   </distributionManagement>  
   <dependencies>
     <dependency>

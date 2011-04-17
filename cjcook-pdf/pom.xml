@@ -422,7 +422,6 @@
 							<weight>bold</weight>
 							<embedFile>${basedir}/src/fonts/Courier-Bold.ttf</embedFile>
 							<metricsFile>${basedir}/target/fonts/Courier-Bold-metrics.xml</metricsFile>
-
 						</font>
 						<font>
 							<name>Courier</name>
@@ -430,7 +429,6 @@
 							<weight>normal</weight>
 							<embedFile>${basedir}/src/fonts/Courier-Oblique.ttf</embedFile>
 							<metricsFile>${basedir}/target/fonts/Courier-Oblique-metrics.xml</metricsFile>
-
 						</font>
 						<font>
 							<name>TimesNewRoman</name>
@@ -438,7 +436,6 @@
 							<weight>normal</weight>
 							<embedFile>${basedir}/src/fonts/TimesNewRoman.ttf</embedFile>
 							<metricsFile>${basedir}/target/fonts/TimesNewRoman-metrics.xml</metricsFile>
-
 						</font>
 					</fonts>
 	            </configuration>

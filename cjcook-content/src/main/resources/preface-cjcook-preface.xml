@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://mars.discursive.com/docbook/xml/4.5/docbookx.dtd">
+"http://www.discursive.com/docbook/xml/4.5/docbookx.dtd">
 <preface id="cjcook-preface">
   <title>Preface</title>
 
-  <para>In this book, you'll find information about a set of libraries
-  developed within the Apache Commons (also referred to as "Commons"). Commons
-  (<ulink url="${commons.site}">${commons.site}</ulink>) is a set of small,
-  popular components which forms a Top-level Project at the Apache Software
-  Foundation. Ranging from the elementary to the complex, many would consider
-  some of these libraries indispensable to any Java project. These components
-  are so widespread, they may already be on your classpath. If you develop an
-  application using Wicket, Maven, Struts, Tomcat, Spring, Hibernate, or any
-  other popular Java library, you likely have Commons Lang and Commons
-  BeanUtils in your classpath. If you just installed Red Hat Enterprise Linux
-  with the default configuration, you've got Commons libraries somewhere in
-  <filename moreinfo="none">/usr</filename>. While Apache Commons may be
-  everywhere, many are still unaware of the capabilities these components
-  provide. This book is an attempt to provide some documentation for these
-  popular components.</para>
+  <para>In this book, you'll find information about various open-source Java
+  libraries. While this book focuses on a variety of open source libraries
+  from a variety of sources, many of these components are from Apache
+  Commons.</para>
+
+  <para>Commons (<ulink url="${commons.site}">${commons.site}</ulink>) is a
+  set of small, popular components which forms a Top-level Project at the
+  Apache Software Foundation. Ranging from the elementary to the complex, many
+  would consider some of these libraries indispensable to any Java project.
+  These components are so widespread, they may already be on your classpath.
+  If you develop an application using Wicket, Maven, Struts, Tomcat, Spring,
+  Hibernate, or any other popular Java library, you likely have Commons Lang
+  and Commons BeanUtils in your classpath. If you just installed Red Hat
+  Enterprise Linux with the default configuration, you've got Commons
+  libraries somewhere in <filename moreinfo="none">/usr</filename>. While
+  Apache Commons may be everywhere, many are still unaware of the capabilities
+  these components provide. This book is an attempt to provide some
+  documentation for these popular components.</para>
 
   <para>This book focuses on tactical implementation details, answering such
   questions as: How do we parse XML? How do we serialize beans? Is there an
@@ -171,6 +174,12 @@
       </listitem>
     </itemizedlist>
 
+    <itemizedlist>
+      <listitem>
+        <para>Google Guava</para>
+      </listitem>
+    </itemizedlist>
+
     <para>All of these projects are covered in detail in the following
     chapters. Here's what's in each chapter:</para>
 
@@ -316,8 +325,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><link linkend="searching-filtering">Chapter 12</link>,
-        <citetitle>Searching and Filtering</citetitle></term>
+        <term><xref linkend="searching-filtering" /></term>
 
         <listitem>
           <para>Commons JXPath can be used to apply XPath expressions to
@@ -328,8 +336,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><link linkend="json">Chapter 13</link>,
-        <citetitle>JSON</citetitle></term>
+        <term><xref linkend="json" /></term>
 
         <listitem>
           <para>Generating and parsing JSON data is increasingly important
@@ -338,6 +345,17 @@
           easier to generate and parse JSON data on a mobile platform, and as
           Javascript becomes increasingly important as the web matures into a
           real application platform... JSON is here to stay.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><xref linkend="proto" /></term>
+
+        <listitem>
+          <para>Protocol Buffers are an efficient way to encode data. If you
+          need to move a huge amount of data over the network, or if you are
+          looking for an efficient way to encode and store data on disk. Take
+          a look at the Protocol Buffers.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -458,7 +476,8 @@ digester.doSomething( );</programlisting>
     url="http://www.eclipse.org">http://www.eclipse.org</ulink>. All of the
     examples in this book can be compiled and packaged using Apache Maven. For
     more information about Apache Maven, see <ulink
-    url="http://www.sonatype.com/books/maven-book">Maven: The Complete Reference</ulink> a free, online book available from Sonatype.</para>
+    url="http://www.sonatype.com/books/maven-book">Maven: The Complete
+    Reference</ulink> a free, online book available from Sonatype.</para>
 
     <para>Each chapter contains instructions for downloading the various
     Apache Commons components; to download any component from Apache Commons,

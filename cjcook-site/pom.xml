@@ -428,7 +428,7 @@
         <site>
           <id>discursive-site</id>
           <name>Discursive Site</name>
-          <url>scp://deployer@mars.discursive.com/var/lib/books/cjcook/</url>
+          <url>scp://deployer@www.discursive.com/var/lib/books/cjcook/</url>
         </site>
       </distributionManagement>
       <properties>
@@ -440,7 +440,7 @@
         <site>
           <id>discursive-site</id>
           <name>Discursive Site</name>
-          <url>scp://deployer@mars.discursive.com/var/lib/books/cjcook-stage/</url>
+          <url>scp://deployer@www.discursive.com/var/lib/books/cjcook-stage/</url>
         </site>
       </distributionManagement>
       <properties>

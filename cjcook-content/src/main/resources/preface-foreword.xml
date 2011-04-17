@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://mars.discursive.com/docbook/xml/4.5/docbookx.dtd">
+"http://www.discursive.com/docbook/xml/4.5/docbookx.dtd">
 <preface id="foreword">
   <title>Foreword: ${project.version}</title>
 
   <para>Edition: ${project.version}</para>
 
-  <para><emphasis>August 4, 2010 - I've added two new chapters to the book:
-  one on JSON and one on Protocol Buffers. These chapters should evolve and
-  develop over time, but the versions in this edition contain some of the
-  essential, basic recipes you need to know to start using JSON and Protocol
-  Buffers.</emphasis></para>
+  <para><emphasis>April 17, 2011 - This book continues to evolve with new
+  alpha chapters on Google Guava. Once these chapters develop, I fully expect
+  them to spin off into a separate book.</emphasis></para>
 
   <para>Tim O'Brien, Discursive<ulink url="mailto:tobrien@discursive.com">
   tobrien@discursive.com</ulink></para>
+
+  <section id="foreword-sect-changes-0.26">
+    <title>Changes in Edition 0.26</title>
+
+    <para>The following changes were made in Edition 0.26:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>The version of Commons Net was updated to 2.2. (CJCOOK-2)</para>
+      </listitem>
+
+      <listitem>
+        <para>Added a new recipe for the Commons Net 2.2 update: <xref
+        linkend="io-network-sect-subnet" />. (CJCOOK-3)</para>
+      </listitem>
+    </itemizedlist>
+  </section>
 </preface>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://mars.discursive.com/docbook/xml/4.5/docbookx.dtd">
+"http://www.discursive.com/docbook/xml/4.5/docbookx.dtd">
 <chapter id="guava-io">
   <title>Google Guava: I/O</title>
 
@@ -38,14 +38,15 @@
         <programlisting language="xml">&lt;dependency&gt;
   &lt;groupId&gt;com.google.guava&lt;/groupId&gt;
   &lt;artifactId&gt;guava&lt;/artifactId&gt;
-  &lt;version&gt;r06&lt;/version&gt;
+  &lt;version&gt;${googleguava.version}&lt;/version&gt;
 &lt;/dependency&gt;
 </programlisting>
       </example>
 
       <para>If you are not sure what this means, I'd suggest reading <ulink
-      url="http://www.sonatype.com/books/maven-book">Maven: The Complete Reference</ulink>. When you depend on a library in Maven 2, all you need to
-      do is add the dependency <varname>groupId</varname>,
+      url="http://www.sonatype.com/books/maven-book">Maven: The Complete
+      Reference</ulink>. When you depend on a library in Maven 2, all you need
+      to do is add the dependency <varname>groupId</varname>,
       <varname>artifactId</varname>, and <varname>version</varname> to your
       project's dependencies. Once you do this, Maven 2 will download the
       dependency and make it available on your project's classpath.</para>
@@ -760,25 +761,243 @@ Just wrote 11 bytes to output.dat</screen>
     </sect2>
   </sect1>
 
-  <!--  <sect1 id="guava-io-sect-buffering-file">
+  <sect1 id="guava-io-sect-buffering-file">
     <title>Buffering Data to a File As Needed</title>
 
     <sect2>
       <title>Problem</title>
 
-      <para></para>
+      <para>You need to accept a stream of data and you want to cache this
+      data in memory if the data doesn't exceed a certain size. </para>
+
+      <para>Assume that you are operating a service that allows users to
+      upload images which will ultimately be processed into a standard format
+      and stored in some distributed file system. Because there is a wide
+      variety of image sizes, you want to be able to cache the majority of
+      user-supplied images in memory falling back to a file buffer only if the
+      image exceeds a certain size.</para>
     </sect2>
 
     <sect2>
       <title>Solution</title>
 
-      <para>FileBackedOutputStream</para>
+      <para>Use the <classname>FileBackedOutputStream</classname> to create an
+      <classname>OutputStream</classname> with a defined threshold. If you do
+      not exceed the threshold, the
+      <classname>FileBackedOutputStream</classname> stores all data in memory.
+      If you exceed this threshold, the
+      <classname>FileBackedOutputStream</classname> copies the data buffered
+      in memory to a temporary file and then writes all additional data to a
+      file.</para>
+
+      <programlisting>// Threshold is 3 MB
+int THRESHOLD = 3 * 1024 * 1024;
+
+byte[] data = retrieveData();
+FileBackedOutputStream os = new FileBackedOutputStream( THRESHOLD );
+os.write( data );
+
+// Once you are ready to use the data buffered in either memory or a file
+InputStream is = os.getSupplier().getInput();
+
+
+// Reading from this InputStream will read from an in-memory byte array 
+// or from a temporary file</programlisting>
+
+      <para>The behavior of the FileBackedOutputStream is illustrated in <xref
+      linkend="guava-io-fig-filebacked" />.</para>
+
+      <figure id="guava-io-fig-filebacked">
+        <title>Using a FilebackedOutputStream to Store Data in Memory (or a
+        File) Depending on Data Size</title>
+
+        <mediaobject>
+          <imageobject role="print">
+            <imagedata align="center"
+                       fileref="figs/print/guava-io-file-backed.pdf"
+                       format="PDF" scalefit="0" width="100%" />
+          </imageobject>
+
+          <imageobject role="web">
+            <imagedata fileref="figs/web/guava-io-file-backed.png"
+                       format="PNG" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>When the <classname>FileBackedOutputStream</classname> is
+      constructed, you supply a threshold to the object which defines the
+      number of bytes that can be stored in memory. Writing to the
+      <classname>FileBackedOutputStream</classname> (1) will store memory in
+      an in-memory byte array up until the threshold has been reached. When
+      this threshold is exceeded, the
+      <classname>FileBackedOutputStream</classname> will then create a
+      temporary file (3), swap the contents of the in-memory byte array to
+      this temporary file, and send all subsequent writes to the temporary
+      file. </para>
+
+      <para>Once you have finished writing to the
+      <classname>FileBackedOutputStream</classname>, you can retrieve the data
+      from either the in-memory byte array or the temporary file using the
+      <methodname>getSupplier()</methodname> method which returns an
+      <classname>InputSupplier&lt;InputStream&gt;</classname>.</para>
+
+      <warning>
+        <para><classname>FileBackedOutputStream</classname> is a misnomer,
+        this <classname>OutputStream</classname> is only backed by a file once
+        the in-memory storage threshold has been exceeded. This name suggests
+        that there is a file associated with this stream by default, in
+        reality this class should be named something like
+        "<classname>PotentiallyFileBackedOutputStream</classname>", but, then
+        again, who would want to type that?</para>
+      </warning>
     </sect2>
 
     <sect2>
       <title>Discussion</title>
 
-      <para>Talk about Norvig's table of relative performance</para>
+      <para>Going back to the problem description, let's imagine that you are
+      running an user-generated content site which needs to accept photo
+      uploads. You want to use a solution which keeps the majority of
+      user-supplied images in memory to speed up processing, but you also
+      don't want to set an arbitrary size limit for user uploads. Through site
+      metrics, you've found that your average user-generated image is 300 KB,
+      and that if you used a threshold of 340 KB, you would be able to process
+      95% of your user's images without ever having to write images to an
+      expensive SAN filesystem. Since each node in your datacenter has a few
+      GB of memory, storing a few hundred KB of image data in memory isn't
+      going to present a problem.</para>
+
+      <para>In the following example, we set the threshold for using a
+      File-backed Output Stream to 340 KB and we define a system to simulate
+      2000 user requests distributed over a normal curve which matches your
+      site's performance numbers. In this example, we're trying to figure out
+      just how much benefit you will gain from using the FileBackOutputStream.
+      </para>
+
+      <example id="guava-io-ex-filebacked">
+        <title>Measuring the Performance of FileBackedOutputStream</title>
+
+        <programlisting>package com.discursive.cjcook.guava.io;
+
+import java.util.Random;
+
+import org.apache.commons.math.stat.StatUtils;
+
+import com.google.common.io.Closeables;
+import com.google.common.io.FileBackedOutputStream;
+
+public class ThrowingAroundData {
+
+  // Define a 200 KB threshold
+  private static int THRESHOLD = 340 * 1024;
+
+  // Define the Mean for Image Size
+  private static int MEAN = 300 * 1024;
+
+  // Define the Standard Deviation (such that 95% fall below threshold)
+  private static int STDEV = Math.round( ( THRESHOLD - MEAN ) / 1.645f);
+
+  // Define the Sample Size
+  private static int SAMPLE = 2000;
+
+  public static void main(String[] args) throws Exception {
+
+    double[] times = new double[SAMPLE];
+    double[] sizes = new double[SAMPLE];
+
+        //    File tempFile = File.createTempFile("tmp", "tmp");
+
+    for (int i = 0; i &lt; SAMPLE; i++) {
+      byte[] randomData = generateRandomData();
+
+      long t1 = System.nanoTime();
+      FileBackedOutputStream os = new FileBackedOutputStream(THRESHOLD);
+      //OutputStream os = new FileOutputStream(tempFile);
+      os.write(randomData);
+      Closeables.closeQuietly(os);
+      long t2 = System.nanoTime();
+      times[i] = (double) (t2 - t1);
+      sizes[i] = randomData.length;
+    }
+
+    System.out.printf("Time(ns) Mean: %.2f, StdDev: %.2f, Min: %.2f, Max: %.2f\n", 
+                          StatUtils.mean(times) / 1.0E06,
+                          Math.sqrt( StatUtils.variance( times) ) / 1.0E06,
+                          StatUtils.min(times) / 1.0E06, 
+                          StatUtils.max(times) / 1.0E06);
+
+    System.out.printf("Data(KB) Mean: %.0f, StdDev: %.0f, Min: %.0f, Max: %.0f", 
+                          StatUtils.mean(sizes) / 1024,
+                          Math.sqrt( StatUtils.variance( sizes) ) / 1024,
+                          StatUtils.min(sizes) / 1024, 
+                          StatUtils.max(sizes) / 1024);
+
+  }
+
+  private static byte[] generateRandomData() {
+    double guassian = new Random().nextGaussian();
+    int size = MEAN + (int) (guassian * STDEV);
+    byte[] random = new byte[size];
+    new Random().nextBytes(random);
+         return random;
+  }
+}
+</programlisting>
+      </example>
+
+      <para>When this example is executed using a FileBackedOutputStream that
+      will only resort to a File-backed storage for 5% of requests, we get the
+      following output which suggests a mean time to write data to the output
+      stream of 0.71 ms. This means that the 2000 requests were processed in
+      less than two seconds.</para>
+
+      <screen>Time(ns) Mean: 0.71, StdDev: 6.52, Min: 0.11, Max: 177.96
+Data(KB) Mean: 301, StdDev: 25, Min: 219, Max: 382</screen>
+
+      <para>If we comment out the FileBackedOutputStream and we uncomment the
+      lines that use a FileOutputStream to write data to a temporary output
+      file, we get the following performance numbers which suggest a mean to
+      write data to the output stream of 15.60 ms. This would translate to
+      2000 requests being processed in about 31 seconds. </para>
+
+      <screen>Time(ns) Mean: 15.60, StdDev: 52.11, Min: 0.49, Max: 560.65
+Data(KB) Mean: 301, StdDev: 24, Min: 214, Max: 385</screen>
+
+      <para>Now, wait, this is something of an unfair comparison. Much of this
+      time is spent in the call to
+      <methodname>File.createTempFile()</methodname>, and if you were going to
+      implement such a system using files to store all of this data, you would
+      likely reuse files to avoid paying the price creating a new file for
+      each request. If you move the call to
+      <methodname>createTimeFile()</methodname> out of the timing loop and
+      reuse the same file for each of the 2000 operations, the performance
+      numbers improve dramatically. We still pay almost 37% penalty versus the
+      solution that uses the
+      <classname>FileBackedOutputStream</classname>:</para>
+
+      <screen>Time(ns) Mean: 1.12, StdDev: 4.47, Min: 0.34, Max: 136.99
+Data(KB) Mean: 301, StdDev: 24, Min: 223, Max: 384</screen>
+
+      <para>This is a simple, contrived example, but imagine that you are
+      responsible for running a service that allows tens of millions of users
+      to upload pictures to a web site at a rate of hundreds of images per
+      second. This is exactly the sort of problem that this
+      <classname>FileBackedOutputStream</classname> was designed to solve, and
+      this example only measures a simple case involving a local disk. A more
+      accurate test of the benefits of this class would also take into account
+      the reduction in power consumption achieved by avoiding disk I/O and/or
+      network I/O.</para>
+
+      <note>
+        <para>This is a contrived example which makes the assumption that
+        image sizes would follow an ideal normal distribution. Given that most
+        digital camera produce a set of discrete sizes, it is unlikely that
+        images follow such a smooth distribution curve. Nevertheless, this
+        example shows you how to measure and quantify the benefit of using a
+        buffering OutputStream to store the majority of submissions in an
+        in-memory byte array.</para>
+      </note>
     </sect2>
   </sect1>
 
@@ -788,41 +1007,47 @@ Just wrote 11 bytes to output.dat</screen>
     <sect2>
       <title>Problem</title>
 
-      <para></para>
+      <para>You need to append text to a file.</para>
     </sect2>
 
     <sect2>
       <title>Solution</title>
 
-      <para>Files.append</para>
-    </sect2>
+      <para>Use <methodname>Files.append()</methodname> as shown in <xref
+      linkend="guava-io-ex-appending" />. All you need to do to append text to
+      a file is reference the file with an instance of File and pass in the
+      <classname>CharSequence</classname> (in this case a
+      <classname>String</classname>) to append and the character set to use to
+      writing the text.</para>
 
-    <sect2>
-      <title>Discussion</title>
+      <example id="guava-io-ex-appending">
+        <title>Appending Text to a File with Files.append()</title>
 
-      <para></para>
-    </sect2>
-  </sect1>
+        <programlisting>package com.discursive.cjcook.guava.io;
 
-  <sect1 id="guava-io-sect-appending-bytes">
-    <title>Appending Bytes to Files</title>
+import java.io.File;
+import java.nio.charset.Charset;
 
-    <sect2>
-      <title>Problem</title>
+import com.google.common.io.Files;
 
-      <para></para>
-    </sect2>
+public class AppendingText {
 
-    <sect2>
-      <title>Solution</title>
+  public static void main(String[] args) throws Exception {
+    File outFile = new File("output2.txt");
+    Files.append( "\nThis is a test", outFile, Charset.forName("UTF-8"));
+  }
+}
+</programlisting>
+      </example>
 
-      <para>Files.append</para>
-    </sect2>
+      <para>If you run the previous program twice, you should see a file named
+      <filename>output2.txt</filename> containing two copies of the message
+      appended above:</para>
 
-    <sect2>
-      <title>Discussion</title>
+      <screen>$ <command>cat output2.txt</command>
 
-      <para></para>
+This is a test
+This is a test</screen>
     </sect2>
   </sect1>
 
@@ -832,19 +1057,103 @@ Just wrote 11 bytes to output.dat</screen>
     <sect2>
       <title>Problem</title>
 
-      <para></para>
+      <para>Your applications need to create files nested within subdirectory
+      which may or may not yet exist. </para>
     </sect2>
 
     <sect2>
       <title>Solution</title>
 
-      <para>Files.createParentDirs</para>
+      <para>Create a <classname>File</classname> instance which references the
+      full path of a file, and then pass that <classname>File</classname>
+      object to <methodname>Files.createParentDirs()</methodname> as shown in
+      <xref linkend="guava-io-ex-create-parent-dirs" />.</para>
+
+      <example id="guava-io-ex-create-parent-dirs">
+        <title>Creating Subdirectories with File.createParentDirs()</title>
+
+        <programlisting>import java.io.File;
+import com.google.common.io.Files;
+
+File file = new File( "some/nested/directory/structure", "newFile.txt" );
+Files.createParentDirs( file );</programlisting>
+      </example>
+
+      <para>The <methodname>createParentDirs()</methodname> method will then
+      travserse these subdirectories and create new directories as needed.
+      This feature has the same behavior as the unix command "mkdir
+      -p".</para>
     </sect2>
 
     <sect2>
       <title>Discussion</title>
 
-      <para></para>
+      <para>If you've ever created a system which uses the file system to
+      store data associated with a user request, you've probably learned about
+      the limitations of various filesystems. Just because an ext3 file system
+      can store up to 32000 subdirectories, it is rarely a good idea to store
+      more than a few hundred files in a directory. Doing so often impacts
+      performance of simple commands. To avoid these problems, you would
+      usually store user data using a series of subdirectories to break up the
+      data into smaller, more focused subdirectories.</para>
+
+      <para>For example, if you were using the filesystem in a server-side
+      system to store information about a user's profile, and each user were
+      assigned a seven digit unique integer, you might use that identifier to
+      create a series of subdirectories to store user data. Instead of storing
+      all of your 150 million user accounts in the same directory, you would
+      split them up into subdirectories. In other words, you wouldn't store
+      some user data in /var/data/users/13243523.dat, you would likely take
+      the first few digits and create subdirectories, using a path like
+      /var/data/users/13/24/35/13243523.data which would limit each level to
+      holding either one hundred subdirectories or one hundred files. Dealing
+      with directories containing a hundred files is much easier than dealing
+      with a directory which contains 150 millions files.</para>
+
+      <para><xref linkend="guava-io-ex-scale-tmp-dirs" /> lists an example
+      which can be used to create a series of directories to store data in a
+      series of nested directories. In this example, the ability to call
+      <methodname>Files.createParentDirs()</methodname> saves us from the
+      effort of having to walk the directory tree and test for the presence of
+      these subdirectories. </para>
+
+      <example id="guava-io-ex-scale-tmp-dirs">
+        <title>Creating Nested Subdirectories using Files.createParentDirs()
+        </title>
+
+        <programlisting>package com.discursive.cjcook.guava.io;
+
+import java.io.File;
+import java.util.Arrays;
+import java.util.List;
+
+import org.apache.commons.lang.RandomStringUtils;
+import org.apache.commons.lang.StringUtils;
+
+import com.google.common.io.Files;
+
+public class ScaleableParentDirs {
+  
+  private static final Integer PATH_LENGTH = 5;
+  private static final Integer NAME_LENGTH = 2;
+
+  public static void main(String[] args) throws Exception {
+
+    StringBuffer randomPath = new StringBuffer();
+    for( int i = 0; i &lt; 5; i++) {
+      randomPath.append( RandomStringUtils.randomAlphabetic(1).toLowerCase() );
+      randomPath.append( File.separator );
+    }
+    String randomName = RandomStringUtils.randomAlphabetic(2).toLowerCase();
+    File newFile = new File( randomPath.toString(), randomName + ".dat" );
+    Files.createParentDirs( newFile );
+    
+    // Do whatever
+  }
+
+}
+</programlisting>
+      </example>
     </sect2>
   </sect1>
 
@@ -1244,5 +1553,5 @@ Just wrote 11 bytes to output.dat</screen>
 
       <para></para>
     </sect2>
-  </sect1> -->
+  </sect1>
 </chapter>
