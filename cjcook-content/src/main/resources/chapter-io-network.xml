@@ -2207,13 +2207,13 @@ Mr. Jerk Spammer
 
       <para>Create an instance of <classname>SubnetUtils</classname> using
       either the Subnetwork's CIDR notation or the dot-decimal notation as
-      shown in <xref linkend="ex-io-network-testing-subnet" />. Once you have
+      shown in <xref linkend="io-network-ex-testing-subnet" />. Once you have
       created an instance of <classname>SubnetUtils</classname> you can
       retrieve an instance of <classname>SubnetUtils.SubnetInfo</classname>
       and call the <methodname>isInRange()</methodname> method to test an
       address.</para>
 
-      <example id="ex-io-network-testing-subnet">
+      <example id="io-network-ex-testing-subnet">
         <title>Testing an IP Address against a Subnet</title>
 
         <programlisting format="linespecific" id="I_10_tt431" language="java">package com.discursive.jccook.net;
@@ -2280,7 +2280,7 @@ Is 192.168.5.213 in 192.168.5.130 (netmask 255.255.255.192)? false</screen>
       class as a way to derive this information from a subnet
       specification.</para>
 
-      <example id="ex-io-network-printing-subnet">
+      <example id="io-network-ex-printing-subnet">
         <title>Printing Information about a Subnet</title>
 
         <programlisting>package com.discursive.jccook.net;
@@ -2303,7 +2303,7 @@ public class SubnetInfoCalculator {
       </example>
 
       <para>Running the example shown in <xref
-      linkend="ex-io-network-printing-subnet" /> produces the following
+      linkend="io-network-ex-printing-subnet" /> produces the following
       output:</para>
 
       <screen>CIDR Signature: [164.232.43.23/26] Netmask: [255.255.255.192]
