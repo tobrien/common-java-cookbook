@@ -2077,7 +2077,7 @@ client.disconnect( );</programlisting>
       moreinfo="none">tobrien@discursive.com</literal>, and prints each
       message in the mailbox:</para>
 
-      <programlisting format="linespecific" id="I_10_tt431" language="java">import org.apache.commons.io.CopyUtils;
+      <programlisting format="linespecific" language="java">import org.apache.commons.io.CopyUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.net.pop3.POP3Client;
 import org.apache.commons.net.pop3.POP3MessageInfo;
