@@ -93,10 +93,7 @@
       <example id="lang-ex-add-depend-lang">
         <title>Adding a Dependency on Commons Lang</title>
 
-        <programlisting language="xml" db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
-                        db:file="cjcook-examples-${project.version}/pom.xml"
-                        db:xpath="//dependency[artifactId='commons-lang']"
-                        xmlns:db="http://discursive.com/plugins/docbook"></programlisting>
+        <programlisting language="xml">commons-lang:commons-lang:2.4</programlisting>
       </example>
     </sect2>
 

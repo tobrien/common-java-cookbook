@@ -61,9 +61,7 @@
       <example id="app-infra-ex-add-depend-cli">
         <title>Adding a Dependency on Commons CLI</title>
 
-        <programlisting language="xml" db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
-                        db:file="cjcook-examples-${project.version}/pom.xml"
-                        db:xpath="//dependency[artifactId='commons-cli']"/>
+        <programlisting language="xml">commons-cli:commons-cli:1.2</programlisting>
 
       </example>
     </sect2>
@@ -565,9 +563,7 @@ For more instructions, see our website at: http://www.blah123.org</programlistin
       <example id="app-infra-ex-add-depend-configuration">
         <title>Adding a Dependency on Commons Configuration</title>
 
-        <programlisting language="xml" db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
-                        db:file="cjcook-examples-${project.version}/pom.xml"
-                        db:xpath="//dependency[artifactId='commons-configuration']"/>
+        <programlisting language="xml">commons-configuration:commons-configuration:1.6</programlisting>
       </example>
     </sect2>
 
@@ -1217,9 +1213,7 @@ Speed: 75</programlisting>
       <example id="app-infra-ex-add-depend-logging">
         <title>Adding a Dependency on Commons Logging</title>
 
-        <programlisting language="xml" db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
-                        db:file="cjcook-examples-${project.version}/pom.xml"
-                        db:xpath="//dependency[artifactId='commons-logging']"/>
+        <programlisting language="xml">commons-logging:commons-logging:1.0.4</programlisting>
 
       </example>
     </sect2>
@@ -1497,9 +1491,7 @@ log.fatal( "This is fatal" );</programlisting>
       <example id="app-infra-ex-add-depend-log4j">
         <title>Adding a Dependency on Apache Log4J</title>
 
-        <programlisting language="xml" db:artifact="${project.groupId}:cjcook-examples:${project.version}:src:zip"
-                        db:file="cjcook-examples-${project.version}/pom.xml"
-                        db:xpath="//dependency[artifactId='log4j']"/>
+        <programlisting language="xml">log4j:log4j:1.2.15</programlisting>
       </example>
     </sect2>
 
